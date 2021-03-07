@@ -1,5 +1,13 @@
-#ifndef DEFS_H
-#define DEFS_H
+/*
+ * Copyright (c) 2020, Sunanda Bose (a.k.a. Neel Basu)
+ * All rights reserved.
+ * 
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+#ifndef DHYARA_DEFS_H
+#define DHYARA_DEFS_H
 
 #include <cstdint>
 
@@ -39,4 +47,4 @@ namespace dhyara {
     constexpr const delay_type route_expiry = advertisement_expiry + (1000*beacon_interval); // us
 }
 
-#endif // DEFS_H
+#endif // DHYARA_DEFS_H
