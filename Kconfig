@@ -1,0 +1,60 @@
+menu "Dhyara"
+
+    config DHYARA_RECEIVE_QUEUE_SIZE
+        int "receive queue capacity"
+        range 20 500
+        default 256
+        help
+            Capacity of the queue for the received packets
+            
+    config DHYARA_SYNC_QUEUE_SIZE
+        int "synchronization queue capacity"
+        range 20 256
+        default 64
+        help
+            Capacity of the synchronization queue
+            
+    config DHYARA_PEER_CHANNEL
+        int "peer channel"
+        range 1 12
+        default 1
+        help
+            Dhyara peer channel
+            
+    config DHYARA_BROADCAST_CHANNEL
+        int "broadcast channel"
+        range 1 12
+        default 1
+        help
+            Dhyara broadcast channel
+            
+    config DHYARA_BEACON_INTERVAL
+        int "beacon interval (ms)"
+        range 10 5000
+        default 1000
+        help
+            Dhyara beacon interval
+            
+    config DHYARA_DELAY_TOLERANCE
+        int "beacon interval (us)"
+        range 0 5000
+        default 0
+        help
+            Dhyara delay tolerance
+            
+    config DHYARA_ADVERTISEMENT_EXPIRY
+        int "advertisement expiry (ms)"
+        range 10 5000
+        default 2000
+        help
+            Dhyara advertisement expiry
+            
+    config ROUTE_EXPIRY_COEFFICIENT
+        int "route expiry coefficient"
+        range 10 5000
+        default 1000
+        help
+            Dhyara route expiry coefficient
+            
+            
+endmenu
