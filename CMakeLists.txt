@@ -1,3 +1,4 @@
+if(${ESP_PLATFORM})
 idf_component_register(
     SRCS 
         "sources/packets/beacon.cpp"
@@ -33,3 +34,8 @@ idf_component_register(
         esp_wifi 
         esp_http_server
 )
+else()
+cmake_minimum_required(VERSION 3.19)
+project(dhyara)
+add_subdirectory(docs)
+endif()
