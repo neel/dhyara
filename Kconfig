@@ -1,4 +1,4 @@
-menu "Dhyara"
+menu "Dhyara ad hoc network"
 
     config DHYARA_RECEIVE_QUEUE_SIZE
         int "receive queue capacity"

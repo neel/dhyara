@@ -9,6 +9,7 @@
 #ifndef DHYARA_DEFS_H
 #define DHYARA_DEFS_H
 
+#include "sdkconfig.h"
 #include <cstdint>
 
 namespace dhyara {
@@ -16,35 +17,35 @@ namespace dhyara {
     /**
      * Capacity of send/receive queue
      */
-    constexpr const std::uint64_t queue_size = 256;
+    constexpr const std::uint64_t queue_size = CONFIG_DHYARA_RECEIVE_QUEUE_SIZE;
     /**
      * Capacity of synchronization queue 
      */
-    constexpr const std::uint64_t sync_queue_size = 64;
+    constexpr const std::uint64_t sync_queue_size = CONFIG_DHYARA_SYNC_QUEUE_SIZE;
     /**
      * WiFi channel for broadcast
      */
-    constexpr const std::uint8_t espnow_broadcast_channel = 1;
+    constexpr const std::uint8_t espnow_broadcast_channel = CONFIG_DHYARA_BROADCAST_CHANNEL;
     /**
      * peer channel
      */
-    constexpr const std::uint8_t espnow_peer_channel = 1;
+    constexpr const std::uint8_t espnow_peer_channel = CONFIG_DHYARA_PEER_CHANNEL;
     /**
      * beacon interval
      */
-    constexpr const delay_type beacon_interval = 2000; // in ms
+    constexpr const delay_type beacon_interval = CONFIG_DHYARA_BEACON_INTERVAL; // in ms
     /**
      * The amount of change in delay, that is ignored and assumed as no change in route
      */
-    constexpr const delay_type delay_tolerance = 0;
+    constexpr const delay_type delay_tolerance = CONFIG_DHYARA_DELAY_TOLERANCE;
     /**
      * Advertisement expiry
      */
-    constexpr const delay_type advertisement_expiry = 2000*1000; // in us
+    constexpr const delay_type advertisement_expiry = CONFIG_DHYARA_ADVERTISEMENT_EXPIRY * 1000; // in us
     /**
      * Route expiry
      */
-    constexpr const delay_type route_expiry = advertisement_expiry + (1000*beacon_interval); // us
+    constexpr const delay_type route_expiry = advertisement_expiry + (CONFIG_ROUTE_EXPIRY_COEFFICIENT * beacon_interval); // us
 }
 
 #endif // DHYARA_DEFS_H
