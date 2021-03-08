@@ -21,6 +21,7 @@ namespace actions{
     
 /**
  * action to handle an incoming delivery report
+ * \ingroup actions
  */
 struct delivered: dhyara::actions::action<delivered, dhyara::packets::delivered>{
     

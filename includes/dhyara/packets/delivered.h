@@ -17,6 +17,10 @@ namespace dhyara{
     
 namespace packets{
     
+/**
+ * Delivery report for a complete data packet, only sent if all of its chunks are successfully delivered.
+ * \ingroup packets
+ */
 struct delivered{
     typedef std::array<std::uint8_t, 6> raw_address_type;
     

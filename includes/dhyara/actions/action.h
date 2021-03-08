@@ -21,6 +21,7 @@ namespace actions{
     
 /**
  * All actions must subclass from this template. These actions can then be installed to the link.
+ * \ingroup actions
  * \code
  * // Assuming X is a type of packet, identified by type dhyara::packets::type::x and defined in class dhyara::packets::X
  * struct X: dhyara::action<X, dhyara::packets::X>{

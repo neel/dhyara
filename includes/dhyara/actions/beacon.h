@@ -22,6 +22,7 @@ namespace actions{
     
 /**
  * action to handle an incoming beacon packet
+ * \ingroup actions
  */
 struct beacon: dhyara::actions::action<beacon, dhyara::packets::beacon>{
     

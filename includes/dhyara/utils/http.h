@@ -17,7 +17,8 @@ namespace dhyara{
 namespace utils{
     
 /**
- * @todo write docs
+ * HTTP utility to monitor the routing table
+ * \ingroup utils
  */
 struct http{
     

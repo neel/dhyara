@@ -20,6 +20,7 @@ namespace packets{
     
 /**
  * An echo reply
+ * \ingroup packets
  */
 struct echo_reply{
     typedef std::array<std::uint8_t, 6> raw_address_type;

@@ -13,11 +13,19 @@
 
 namespace dhyara{
     
+/**
+ * write a packet
+ * \ingroup packets io
+ */
 template <typename PacketT, typename OutIt>
 OutIt write(const PacketT& packet, OutIt output){
     return serialization<PacketT>::write(packet, output);
 }
 
+/**
+ * read into a packet
+ * \ingroup packets io
+ */
 template <typename PacketT, typename InIt>
 InIt read(PacketT& packet, InIt input, std::size_t length = 0){
     return serialization<PacketT>::read(packet, input, length);

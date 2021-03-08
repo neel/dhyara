@@ -23,6 +23,7 @@ namespace actions{
     
 /**
  * action to handle an incoming chunk packet
+ * \ingroup actions
  */
 struct chunk: dhyara::actions::action<chunk, dhyara::packets::chunk>{
     typedef std::pair<dhyara::peer_address, std::uint8_t> incoming_data_source;

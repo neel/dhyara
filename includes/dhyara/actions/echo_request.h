@@ -21,6 +21,7 @@ namespace actions{
     
 /**
  * action to handle an incoming echo request packet
+ * \ingroup actions
  */
 struct echo_request: dhyara::actions::action<echo_request, dhyara::packets::echo_request>{
     

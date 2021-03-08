@@ -12,11 +12,13 @@
 #include <cstdint>
 
 namespace dhyara{
-/**
- * @todo write docs
- */
+
 namespace packets{
     
+/**
+ * Packets types 
+ * \ingroup packets
+ */
 enum class type : std::uint8_t{
     unknown,
     beacon,

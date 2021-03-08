@@ -22,6 +22,7 @@ namespace actions{
     
 /**
  * action to handle an incoming advertisement packet
+ * \ingroup actions
  */
 struct advertisement: dhyara::actions::action<advertisement, dhyara::packets::advertisement>{
     

@@ -18,13 +18,26 @@ namespace packets{
     
 /**
  * beacon packet
+ * \ingroup packets
  */
 struct beacon{
     std::uint64_t _time;
     
+    /**
+     * Construct a beacon packet with the current time
+     */
     inline beacon(): _time(esp_timer_get_time()){}
+    /**
+     * Construct a beacon packet with the time provided
+     */
     inline explicit beacon(std::uint64_t time): _time(time){}
+    /**
+     * Size of the beacon packet
+     */
     inline std::size_t size() const {return sizeof(beacon);}
+    /**
+     * Time in the beacon packet
+     */
     inline std::uint64_t time() const {return _time;}
 } __attribute__((packed));
 

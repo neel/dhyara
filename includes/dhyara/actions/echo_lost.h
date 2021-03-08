@@ -21,6 +21,7 @@ namespace actions{
     
 /**
  * action to handle an incoming echo lost packet
+ * \ingroup actions
  */
 struct echo_lost: dhyara::actions::action<echo_lost, dhyara::packets::echo_lost>{    
     typedef std::function<void (const dhyara::packets::echo_lost&)> lost_callback_type;

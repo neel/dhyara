@@ -14,6 +14,10 @@
 
 namespace dhyara{
 
+/**
+ * serialize a packet
+ * \ingroup packets io
+ */
 template <typename PacketT>
 struct serialization{
     typedef PacketT packet_type;

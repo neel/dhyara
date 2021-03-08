@@ -17,9 +17,16 @@ namespace dhyara{
     
 namespace packets{
     
+/**
+ * Chunk of a variable sized data
+ * \ingroup packets
+ */
 struct chunk{
     typedef std::array<std::uint8_t, 6> raw_address_type;
     
+    /**
+     * Header in the chunk
+     */
     struct header{
         raw_address_type _target;
         raw_address_type _source;

@@ -19,6 +19,10 @@ namespace dhyara{
     
 namespace packets{
     
+/**
+ * A virtual packet, that is never sent accros the network. Instead a data packet is splitted into multiple consecutive chunks. However after receiving all chunks of a data packet and data packet is constructed and passed to the appropriate callback.
+ * \ingroup packets
+ */
 struct data{
     typedef std::basic_string<std::uint8_t> dynamic_buffer_type;
     

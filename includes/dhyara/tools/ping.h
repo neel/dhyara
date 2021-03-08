@@ -18,6 +18,7 @@ namespace tools{
 /**
  * ping tool sends ICMP requests in batches. Each batch contains <tt>batch</tt> number of requests. Number of batches is <tt>count</tt>. 
  * No explicit delay between two requests in the same batch. Sleep between two consecutive batches in <tt>sleep</tt> ms.
+ * \ingroup tools
  */
 struct ping{
     /**

@@ -22,6 +22,7 @@ namespace actions{
     
 /**
  * action to handle an incoming echo reply packet
+ * \ingroup actions
  */
 struct echo_reply: dhyara::actions::action<echo_reply, dhyara::packets::echo_reply>{
     struct rtt_stat{

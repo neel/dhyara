@@ -17,6 +17,8 @@ namespace utils{
 
 /**
  * print packets
+ * \ingroup packets io
+ * \ingroup utils
  */
 struct printer{
     void in(const dhyara::peer_address& source, const dhyara::packets::beacon& beacon);

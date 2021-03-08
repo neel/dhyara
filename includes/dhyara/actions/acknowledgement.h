@@ -22,6 +22,7 @@ namespace actions{
     
 /**
  * action to handle an incoming acknowledgement packet
+ * \ingroup actions
  */
 struct acknowledgement: dhyara::actions::action<acknowledgement, dhyara::packets::acknowledgement>{
     

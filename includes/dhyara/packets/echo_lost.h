@@ -20,7 +20,8 @@ namespace packets{
     
 
 /**
- * An echo lost packet
+ * Echo lost packet
+ * \ingroup packets
  */
 struct echo_lost{
     typedef std::array<std::uint8_t, 6> raw_address_type;
