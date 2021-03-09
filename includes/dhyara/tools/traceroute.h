@@ -17,19 +17,25 @@ namespace dhyara{
 namespace tools{
     
 /**
- * Perform a traceroot operation
+ * Perform a traceroute operation
+ * \ingroup tools
  */
 struct traceroute{
     /**
      * Construct a traceroute
-     * \param network reference to teh network
+     * \param network reference to the network
+     * \param target the destination address
      */
-    traceroute(dhyara::network& network);
+    traceroute(dhyara::network& network, const dhyara::peer_address& target);
+    /**
+     * release the connection with the echo_lost action
+     */
+    ~traceroute();
     /**
      * Run the traceroute
-     * \param target the destination mac address
      */
-    void operator()(const dhyara::peer_address& target);
+    void operator()();
+
     private:
         /**
          * Send an ICMP request with the ttl specified
@@ -37,8 +43,15 @@ struct traceroute{
          * \param ttl TTL of the ICMP request which is to be sent
          */
         void run(const dhyara::peer_address& target, std::uint8_t ttl);
+        /**
+         * The callback to capture the lost packet and print the destination till which the previous ICMP request packet has reached. If that destination is the desired destination then stop sending another ICMP request. Otherwise send another with increased ttl value.
+         */
+        void lost(const dhyara::peer_address&, const dhyara::packets::echo_lost& lost);
     private:
         dhyara::network& _network;
+        dhyara::peer_address _target;
+        std::size_t _connection;
+        std::size_t _sequence;
 };
     
 }

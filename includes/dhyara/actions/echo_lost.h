@@ -31,11 +31,6 @@ struct echo_lost: dhyara::actions::action<echo_lost, dhyara::packets::echo_lost>
     using action::operator();
     void operator()(const dhyara::peer_address& addr, const dhyara::packets::echo_lost& echo_lost);
     
-    /**
-     * set a callback which will be called once a ICMP lost packet is received
-     */
-    inline void on_slot(lost_callback_type slot) { _slot = slot; }
-    
     private:
         dhyara::link& _link;
         lost_callback_type _slot;

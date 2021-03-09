@@ -84,6 +84,10 @@ struct network{
          */
         inline dhyara::actions::echo_reply& echo_reply() { return _echo_reply; }
         /**
+         * echo_lost action
+         */
+        inline dhyara::actions::echo_lost& echo_lost() { return _echo_lost; }
+        /**
          * chunk action
          */
         inline dhyara::actions::chunk& chunk() { return _chunk; }

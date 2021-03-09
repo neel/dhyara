@@ -1,6 +1,12 @@
 if(${ESP_PLATFORM})
 idf_component_register(
     SRCS 
+        "sources/routing.cpp"
+        "sources/peer.cpp"
+        "sources/link.cpp"
+        "sources/neighbourhood.cpp"
+        "sources/synchronizer.cpp"
+        "sources/network.cpp"
         "sources/packets/beacon.cpp"
         "sources/packets/acknowledgement.cpp"
         "sources/packets/advertisement.cpp"
@@ -21,12 +27,7 @@ idf_component_register(
         "sources/utils/printer.cpp"
         "sources/utils/http.cpp"
         "sources/tools/ping.cpp"
-        "sources/routing.cpp"
-        "sources/peer.cpp"
-        "sources/link.cpp"
-        "sources/neighbourhood.cpp"
-        "sources/synchronizer.cpp"
-        "sources/network.cpp"
+        "sources/tools/traceroute.cpp"
     INCLUDE_DIRS 
         "includes"
     REQUIRES 
