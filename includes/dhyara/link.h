@@ -26,9 +26,6 @@ namespace dhyara{
  * \code
  * dhyara::link medium; // A communication medium 
  * 
- * dhyara::actions::beacon beacon(medium.local()); // Handler for beacon packets
- * medium.install(dhyara::packets::type::beacon, std::ref(beacon));
- * 
  * dhyara::actions::acknowledgement acknowledgement(medium.local()); // Handler for acknowledgement packets
  * medium[dhyara::packets::type::acknowledgement] = acknowledgement;
  * 
@@ -36,6 +33,7 @@ namespace dhyara{
  * 
  * medium.start();
  * \endcode
+ * \ingroup interface
  */
 struct link{
     typedef std::function<void (const dhyara::peer_address&, const dhyara::frame&)> callback_type;

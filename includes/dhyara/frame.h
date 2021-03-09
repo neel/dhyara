@@ -16,7 +16,8 @@
 namespace dhyara{
 
 /**
- * @todo write docs
+ * A 250 bytes frame
+ * \ingroup packets
  */
 struct frame{
     typedef std::uint8_t size_type;
