@@ -25,6 +25,9 @@ namespace actions{
  * \ingroup actions
  */
 struct echo_reply: dhyara::actions::action<echo_reply, dhyara::packets::echo_reply>{
+    /**
+     * RTT statistics, containing min, max, total and average values observed since last reset
+     */
     struct rtt_stat{
         dhyara::delay_type min = std::numeric_limits<dhyara::delay_type>::max(), max = 0, total = 0;
         double avg = 0;
@@ -32,12 +35,24 @@ struct echo_reply: dhyara::actions::action<echo_reply, dhyara::packets::echo_rep
         inline void reset() { min = std::numeric_limits<dhyara::delay_type>::max(); max = 0; avg = 0.0; total = 0; }
     };
     
+    /**
+     * The echo_reply action is constructed using a reference to the link, so that it can relay that reply using the link if necessary
+     */
     inline explicit echo_reply(dhyara::link& link): _link(link){}
-    
+
     using action::operator();
+    /**
+     * Process an incomming echo_reply packet
+     */
     void operator()(const dhyara::peer_address& addr, const dhyara::packets::echo_reply& echo_reply);
     
+    /**
+     * rtt statistics
+     */
     inline const rtt_stat& rtt() const { return _stat; }
+    /**
+     * reset statistics
+     */
     inline void reset() { 
         _stat.reset();
     }
