@@ -24,6 +24,7 @@ namespace dhyara{
     
 /**
  * peer address (mac address)
+ * \ingroup interface
  */
 struct peer_address{
     typedef std::array<std::uint8_t, 6> container_type;

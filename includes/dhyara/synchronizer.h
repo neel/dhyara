@@ -20,6 +20,7 @@ struct link;
 
 /**
  * A synchronization candidate is defined by a route (self -> via -> destination) and an integer denoting one trip delay. The via is set to null to denote direct connectivity between self and destination.
+ * \ingroup routing
  */
 struct candidate{
     dhyara::peer::address _dest;
@@ -46,6 +47,7 @@ struct candidate{
 /**
  * Synchronize routes accross all nodes in the network. Non copyable. A synchronization candidate is enqueued. The run function (never returns) should be called from a task to dequeue the enqueued candidates and sync accross all nodes. A synchronization candidate is defined by a route (self -> via -> destination) and an integer denoting one trip delay. The via is set to null to denote direct connectivity between self and destination.
  * 
+ * \ingroup routing
  * \see dhyara::candidate
  */
 struct synchronizer{

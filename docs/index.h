@@ -1,4 +1,14 @@
 /**
+ * \defgroup interface Interface 
+ * Dhyara Communication Interface
+ */
+
+/**
+ * \defgroup routing Routing 
+ * Dhyara Routing
+ */
+
+/**
  * \defgroup packets Packets 
  * Dhyara Packets
  * \{

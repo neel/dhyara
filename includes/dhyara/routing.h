@@ -22,6 +22,7 @@ namespace dhyara{
 
 /**
  * routing table
+ * \ingroup routing
  */
 struct routing {
     
