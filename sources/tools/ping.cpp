@@ -37,7 +37,7 @@ void dhyara::tools::ping::operator()(const dhyara::peer_address& addr){
     _network.echo_reply().reset();
     
     _network.echo_request().ping(addr, _count, _batch, _sleep);
-    ESP_LOGI("dhyara", "waiting 1s for all replies");
+    ESP_LOGI("ping", "waiting 1s for all replies");
     vTaskDelay(pdMS_TO_TICKS(1000));
     
     std::size_t icmp_sent  = _network.link().tx(dhyara::packets::type::echo_request);

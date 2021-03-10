@@ -35,7 +35,10 @@ struct traceroute{
      * Run the traceroute
      */
     void operator()();
-
+    /**
+     * Reset before starting another traceroute
+     */
+    void reset();
     private:
         /**
          * Send an ICMP request with the ttl specified
@@ -47,10 +50,15 @@ struct traceroute{
          * The callback to capture the lost packet and print the destination till which the previous ICMP request packet has reached. If that destination is the desired destination then stop sending another ICMP request. Otherwise send another with increased ttl value.
          */
         void lost(const dhyara::peer_address&, const dhyara::packets::echo_lost& lost);
+        /**
+         * The callback to capture the reply packet and print the destination till which the previous ICMP request packet has reached. If that destination is the desired destination then stop sending another ICMP request. Otherwise send another with increased ttl value.
+         */
+        void reply(const dhyara::peer_address&, const dhyara::packets::echo_reply& reply);
     private:
         dhyara::network& _network;
         dhyara::peer_address _target;
-        std::size_t _connection;
+        std::size_t _conn_lost;
+        std::size_t _conn_reply;
         std::size_t _sequence;
 };
     

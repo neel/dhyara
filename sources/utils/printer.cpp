@@ -29,7 +29,7 @@
 #include "esp_log.h"
 
 void dhyara::utils::printer::in(const dhyara::peer_address& source, const dhyara::packets::beacon& beacon){
-    ESP_LOGI(
+    ESP_LOGV(
         "dhyara", "<< BCN from %s at %lld", 
         source.to_string().c_str(), 
         beacon.time()
@@ -37,7 +37,7 @@ void dhyara::utils::printer::in(const dhyara::peer_address& source, const dhyara
 }
 
 void dhyara::utils::printer::out(const dhyara::peer_address& target, const dhyara::packets::beacon& beacon){
-    ESP_LOGI(
+    ESP_LOGV(
         "dhyara", ">> BCN to %s at %lld", 
         target.to_string().c_str(), 
         beacon.time()
@@ -45,7 +45,7 @@ void dhyara::utils::printer::out(const dhyara::peer_address& target, const dhyar
 }
 
 void dhyara::utils::printer::in(const dhyara::peer_address& source, const dhyara::packets::acknowledgement& acknowledgement){
-    ESP_LOGI(
+    ESP_LOGV(
         "dhyara", "<< ACK from %s of %lld", 
         source.to_string().c_str(), 
         acknowledgement.time()
@@ -53,7 +53,7 @@ void dhyara::utils::printer::in(const dhyara::peer_address& source, const dhyara
 }
 
 void dhyara::utils::printer::out(const dhyara::peer_address& target, const dhyara::packets::acknowledgement& acknowledgement){
-    ESP_LOGI(
+    ESP_LOGV(
         "dhyara", ">> ACK to %s of %lld", 
         target.to_string().c_str(), 
         acknowledgement.time()
@@ -61,7 +61,7 @@ void dhyara::utils::printer::out(const dhyara::peer_address& target, const dhyar
 }
 
 void dhyara::utils::printer::in(const dhyara::peer_address& source, const dhyara::packets::advertisement& advertisement){
-    ESP_LOGI(
+    ESP_LOGV(
         "dhyara", "<< ADV from %s dst %s delay %lld", 
         source.to_string().c_str(), 
         advertisement.dest().to_string().c_str(), 
@@ -70,7 +70,7 @@ void dhyara::utils::printer::in(const dhyara::peer_address& source, const dhyara
 }
 
 void dhyara::utils::printer::out(const dhyara::peer_address& target, const dhyara::packets::advertisement& advertisement){
-    ESP_LOGI(
+    ESP_LOGV(
         "dhyara", ">> ADV to %s dst %s delay %lld", 
         target.to_string().c_str(), 
         advertisement.dest().to_string().c_str(), 
@@ -79,7 +79,7 @@ void dhyara::utils::printer::out(const dhyara::peer_address& target, const dhyar
 }
 
 void dhyara::utils::printer::in(const dhyara::peer_address& source, const dhyara::packets::echo_request& echo_request){
-    ESP_LOGI(
+    ESP_LOGV(
         "dhyara", "<< ICMPQ from %s dst %s src %s seq %d ttl %d", 
         source.to_string().c_str(), 
         echo_request.target().to_string().c_str(), 
@@ -90,7 +90,7 @@ void dhyara::utils::printer::in(const dhyara::peer_address& source, const dhyara
 }
 
 void dhyara::utils::printer::out(const dhyara::peer_address& target, const dhyara::packets::echo_request& echo_request){
-    ESP_LOGI(
+    ESP_LOGV(
         "dhyara", ">> ICMPQ to %s dst %s src %s seq %d ttl %d", 
         target.to_string().c_str(), 
         echo_request.target().to_string().c_str(), 
@@ -101,7 +101,7 @@ void dhyara::utils::printer::out(const dhyara::peer_address& target, const dhyar
 }
 
 void dhyara::utils::printer::in(const dhyara::peer_address& source, const dhyara::packets::echo_reply& echo_reply){
-    ESP_LOGI(
+    ESP_LOGV(
         "dhyara", "<< ICMPR from %s dst %s src %s seq %d ttl %d delay %lld", 
         source.to_string().c_str(), 
         echo_reply.target().to_string().c_str(), 
@@ -113,7 +113,7 @@ void dhyara::utils::printer::in(const dhyara::peer_address& source, const dhyara
 }
 
 void dhyara::utils::printer::out(const dhyara::peer_address& source, const dhyara::packets::echo_reply& echo_reply){
-    ESP_LOGI(
+    ESP_LOGV(
         "dhyara", ">> ICMPR to %s dst %s src %s seq %d ttl %d", 
         source.to_string().c_str(), 
         echo_reply.target().to_string().c_str(), 
@@ -124,7 +124,7 @@ void dhyara::utils::printer::out(const dhyara::peer_address& source, const dhyar
 }
 
 void dhyara::utils::printer::in(const dhyara::peer_address& source, const dhyara::packets::echo_lost& echo_lost){
-    ESP_LOGI(
+    ESP_LOGV(
         "dhyara", "<< ICMPL from %s dst %s src %s seq %d delay %lld", 
         source.to_string().c_str(), 
         echo_lost.target().to_string().c_str(), 
@@ -135,7 +135,7 @@ void dhyara::utils::printer::in(const dhyara::peer_address& source, const dhyara
 }
 
 void dhyara::utils::printer::out(const dhyara::peer_address& source, const dhyara::packets::echo_lost& echo_lost){
-    ESP_LOGI(
+    ESP_LOGV(
         "dhyara", ">> ICMPL to %s dst %s src %s seq %d", 
         source.to_string().c_str(), 
         echo_lost.target().to_string().c_str(), 
@@ -145,7 +145,7 @@ void dhyara::utils::printer::out(const dhyara::peer_address& source, const dhyar
 }
 
 void dhyara::utils::printer::in(const dhyara::peer_address& source, const dhyara::packets::chunk& chunk){
-    ESP_LOGI(
+    ESP_LOGV(
         "dhyara", "<< CNK from %s for %s from %s packet %d pending %d", 
         source.to_string().c_str(), 
         chunk.target().to_string().c_str(), 
@@ -156,7 +156,7 @@ void dhyara::utils::printer::in(const dhyara::peer_address& source, const dhyara
 }
 
 void dhyara::utils::printer::out(const dhyara::peer_address& target, const dhyara::packets::chunk& chunk){
-    ESP_LOGI(
+    ESP_LOGV(
         "dhyara", ">> CNK to %s for %s from %s packet %d pending %d", 
         target.to_string().c_str(), 
         chunk.target().to_string().c_str(), 
@@ -167,7 +167,7 @@ void dhyara::utils::printer::out(const dhyara::peer_address& target, const dhyar
 }
 
 void dhyara::utils::printer::in(const dhyara::peer_address& source, const dhyara::packets::delivered& delivered){
-    ESP_LOGI(
+    ESP_LOGV(
         "dhyara", "<< DLV from %s for %s from %s packet %d", 
         source.to_string().c_str(), 
         delivered.target().to_string().c_str(), 
@@ -177,7 +177,7 @@ void dhyara::utils::printer::in(const dhyara::peer_address& source, const dhyara
 }
 
 void dhyara::utils::printer::out(const dhyara::peer_address& target, const dhyara::packets::delivered& delivered){
-    ESP_LOGI(
+    ESP_LOGV(
         "dhyara", ">> DLV to %s for %s from %s packet %d", 
         target.to_string().c_str(), 
         delivered.target().to_string().c_str(), 
