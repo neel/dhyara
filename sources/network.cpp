@@ -90,6 +90,9 @@ bool dhyara::network::send(const dhyara::peer_address& target, const dhyara::pac
     return success;
 }
 
+void dhyara::network::on_data(dhyara::actions::chunk::data_callback_type slot){
+    _chunk.on_data(slot);
+}
 
 void dhyara::network::task_presence(void* arg){
     dhyara::network* network = reinterpret_cast<dhyara::network*>(arg);

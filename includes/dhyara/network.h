@@ -66,6 +66,12 @@ struct network{
      */
     bool send(const dhyara::peer_address& target, const dhyara::packets::data& data);
     
+    public:
+        /**
+        * set a callback which will be called once a complete data is received
+        */
+        void on_data(dhyara::actions::chunk::data_callback_type slot);
+    
     private:
     
         /**

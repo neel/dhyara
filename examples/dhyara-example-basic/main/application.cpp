@@ -52,7 +52,7 @@ void application::main(){
     };
     
     // Bind the lambda to be called Once a data is received
-    _network.chunk().on_data(lambda);
+    _network.on_data(lambda);
     while(1){
         // Assuming the same application is running on all nodes
         // The code below should only run in the source node
