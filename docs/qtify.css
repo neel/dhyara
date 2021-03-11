@@ -13,17 +13,37 @@ body, table, div, p, dl {
     margin: 0px;
     width: 100%;
     border: 0px none;
-    background: #548e8e;
-    color: white;
+    background: #f6f6f6;
+    color: #0e763a;
 }
 
+.icon{
+    font-family: Arial, Helvetica;
+    font-weight: bold;
+    font-size: 12px;
+    height: 14px;
+    width: 16px;
+    display: inline-block;
+    background-color: #0e763a;
+    color: white;
+    text-align: center;
+    border-radius: 4px;
+    margin-left: 2px;
+    margin-right: 2px;
+}
 
 .sm-dox{
-    background: #548e8e !important;
+    background: #f6f6f6 !important;
+    border-bottom: 1px dashed #0e763a !important;
+}
+
+.sm-dox li{
+    border: 0px none !important;
 }
 
 .sm-dox li a{
-    color: white;
+    color: #0e763a !important;
+    background-image: none !important;
 }
 
 .memtitle {
@@ -422,6 +442,7 @@ table.memberdecls tr:nth-last-child(2) .memItemRight {
 /* Styles for detailed member documentation */
 
 .memtemplate {
+    color: #0e763a !important;
 }
 
 .memnav {

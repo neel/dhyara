@@ -91,12 +91,30 @@ struct peer_address{
      * 64 bit hash value for the mac address
      */
     std::uint64_t hash() const;
+    /**
+     * Less than comparator
+     */
     bool operator<(const peer_address& other) const;
+    /**
+     * Comparator
+     */
     bool operator==(const peer_address& other) const;
+    /**
+     * Compare with string
+     */
     bool operator==(const std::string& addr) const;
+    /**
+     * Comparator
+     */
     inline bool operator!=(const peer_address& other) const { return !(*this == other); }
+    /**
+     * Comparator
+     */
     inline bool operator!=(const std::string& addr) const { return !(*this == addr); }
     
+    /**
+     * Set the octets directly
+     */
     void set(const std::uint8_t* bytes);
     
     /**

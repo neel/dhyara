@@ -130,8 +130,13 @@ struct routing {
          * \param delay delay
          */
         inline next_hop(dhyara::peer::address via, delay_type delay): _via(via), _delay(delay){}
-        
+        /**
+         * Comparator
+         */
         bool operator==(const next_hop& other) const;
+        /**
+         * Comparator
+         */
         inline bool operator!=(const next_hop& other) const { return !(*this == other); }
         
         private:
@@ -141,6 +146,9 @@ struct routing {
     
     typedef std::map<dhyara::peer::address, next_hop> next_vector_type;
     
+    /**
+     * Construct 
+     */
     inline explicit routing(delay_type def = std::numeric_limits<delay_type>::max()): _def(def){}
     
     /**

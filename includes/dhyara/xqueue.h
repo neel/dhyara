@@ -92,7 +92,13 @@ struct network_fifo{
     typedef xqueue<message, Capacity> xqueue_type;
     typedef std::function<void (const dhyara::peer_address&, const dhyara::frame&)> callback_type;
     
+    /**
+     * Construct with the receive callback
+     */
     network_fifo(callback_type rcvf): _rcvf(rcvf){}
+    /**
+     * Start the receive loop that never returns
+     */
     void rcv_loop(std::size_t ticks = 0xffffffffUL){
         while(_rcv_queue.de(_rcvd_msg, ticks)){
             _rcvf(_rcvd_msg.address, _rcvd_msg.frame);

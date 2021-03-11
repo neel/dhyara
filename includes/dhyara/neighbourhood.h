@@ -65,7 +65,13 @@ struct neighbourhood{
      */
     dhyara::peer_address address(const dhyara::peer::address& addr) const;
     
+    /**
+     * begin iterator
+     */
     inline peer_collection_type::const_iterator begin() const { return _peers.begin(); }
+    /**
+     * end iterator
+     */
     inline peer_collection_type::const_iterator end() const { return _peers.end(); }
     
     private:
