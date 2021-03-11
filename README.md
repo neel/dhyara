@@ -66,19 +66,8 @@ It is also assumed that the `main` method of the `application` class is called t
 
 ```cpp
 void application::main(){
-    // Use ping tool to get connection statistics
-    dhyara::tools::ping ping(_network);
-    // Configure the ping tool
-    ping.count(1).batch(1).sleep(1);
-    
     // defining a source and a target in the multi hop network
     dhyara::peer_address target("4c:11:ae:9c:a6:85"), source("4c:11:ae:71:0f:4d");
-    
-    // For experimental purpose
-    // Optionally banning direct communication between the source and the target
-    // Forcing the source and target to communicate via one or more intermediate nodes
-    if(_network.link().address() == target) _network.beacon().ban(source);
-    if(_network.link().address() == source) _network.beacon().ban(target);
     
     // The anonymous function will be called once all chunks of a data packet is received
     auto lambda = [](const dhyara::peer::address& source, const dhyara::packets::data& data){
@@ -95,9 +84,6 @@ void application::main(){
         // Assuming the same application is running on all nodes
         // The code below should only run in the source node
         if(_network.link().address() == source){
-            // Ping the target (through multi hop network)
-            ping(target);
-            
             // A data to be sent (strign used in the example, but can be anything that can be iterated as a sequence of bytes)
             std::string buffer = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
             

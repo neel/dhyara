@@ -21,12 +21,21 @@
 namespace dhyara{
 
 /**
- * The dhyara ad-hoc network. The network is started using the \ref start method, that creates all related networking tasks.
+ * The dhyara ad-hoc network. The network is started using the \ref start method. All related networking tasks and actions are created and maintained by the network.
  * \ingroup interface
  */
 struct network{
+    /**
+     * Not default constructible
+     */
     network() = delete;
+    /**
+     * Not copyable
+     */
     network(const network&) = delete;
+    /**
+     * Not Copyable
+     **/
     network& operator=(const network&) = delete;
     
     /**

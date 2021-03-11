@@ -22,7 +22,7 @@
 namespace dhyara{
    
 /**
- * Link Layer Medium
+ * Link Layer Medium is responsible for sending packets and processing the received packets. All received data should be forwarded to the link via \ref _esp_sent_cb which wil then be processed through the installed actions.
  * \code
  * dhyara::link medium; // A communication medium 
  * 
