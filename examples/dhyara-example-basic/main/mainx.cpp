@@ -25,6 +25,6 @@ void mainx(){
     
     esp_log_level_set("dhyara", ESP_LOG_VERBOSE);
     
-    dd::application app(network);
+    application app(network);
     app.main();
 } 

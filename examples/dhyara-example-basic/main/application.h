@@ -32,8 +32,6 @@
 #include <dhyara/network.h>
 #include <dhyara/utils/http.h>
 
-namespace dd{
-
 struct application{
     application(dhyara::network& network);
     
@@ -43,7 +41,5 @@ struct application{
         dhyara::network&    _network;
         dhyara::utils::http _server;
 };
-
-}
 
 #endif // APPLICATION_H
