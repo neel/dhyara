@@ -87,15 +87,18 @@ void dhyara::link::_esp_sent_cb(const uint8_t* target, esp_now_send_status_t sta
 }
 
 void dhyara::link::_esp_promiscous_rx_cb(void* buffer, wifi_promiscuous_pkt_type_t type){
+    static dhyara::delay_type last = esp_timer_get_time();
+    dhyara::delay_type now = esp_timer_get_time();
+    if((now - last) <= 10000){ // don't update rssi within 10ms
+        return;
+    }
     wifi_promiscuous_pkt_t* p = (wifi_promiscuous_pkt_t*)buffer;
-    int len = p->rx_ctrl.sig_len;
     ieee_802_11_management_frame* ether = (ieee_802_11_management_frame*)p->payload;
-    len -= sizeof(ieee_802_11_management_frame);
-    if (len >= 0){
+    if(p->rx_ctrl.sig_len >= sizeof(ieee_802_11_management_frame)){
         dhyara::peer_address source(ether->source);
-        // std::cout << p->rx_ctrl.rssi << " " << (int)type << " " << source << std::endl;
         if(_neighbours.exists(source)){
             _neighbours.get_peer(source).rssi(p->rx_ctrl.rssi);
+            last = now;
         }
     }
 }

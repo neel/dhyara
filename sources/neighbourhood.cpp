@@ -54,22 +54,6 @@ std::size_t dhyara::neighbourhood::size() const{
 }
 
 
-// dhyara::peer_address dhyara::neighbourhood::address(const std::string& addr) const{
-//     auto it = _peers.find(dhyara::peer_address(addr));
-//     if(it != _peers.end()){
-//         return it->second.addr();
-//     }
-//     return dhyara::peer_address::null();
-// }
-// 
-// dhyara::peer_address dhyara::neighbourhood::address(const dhyara::peer::address& addr) const{
-//     auto it = _peers.find(addr);
-//     if(it != _peers.end()){
-//         return it->second.addr();
-//     }
-//     return dhyara::peer_address::null();
-// }
-
 dhyara::peer& dhyara::neighbourhood::get_peer(const dhyara::peer::address& addr){
     peer_collection_type::iterator it = _peers.find(addr);
     return it->second;

@@ -28,7 +28,7 @@
 #include "dhyara/utils/http.h"
 #include <sstream>
 
-dhyara::utils::http::http(dhyara::routing& routing): _routing(routing), _config(HTTPD_DEFAULT_CONFIG()), _server(0x0),
+dhyara::utils::http::http(dhyara::link& link): _link(link), _config(HTTPD_DEFAULT_CONFIG()), _server(0x0),
     _routes(httpd_uri_t{"/routes", HTTP_GET, dhyara::utils::http::routes_handler, this}) 
 {
     if (httpd_start(&_server, &_config) == ESP_OK) {
@@ -48,11 +48,11 @@ esp_err_t dhyara::utils::http::routes(httpd_req_t* req){
             << "<tr>"
                 << "<th>" << "destination" << "</th>"
                 << "<th>" << "intermediate" << "</th>"
-                << "<th>" << "delay (us)" << "</th>"
+                << "<th>" << "delay (ms)" << "</th>"
                 << "<th>" << "updated" << "</th>"
             << "</tr>";
 
-    for(auto it = _routing.route_begin(); it != _routing.route_end(); ++it){
+    for(auto it = _link.routes().route_begin(); it != _link.routes().route_end(); ++it){
         const auto& dst         = it->first.dst();
         const auto& via         = it->first.via();
         const auto& delay       = it->second.delay();
@@ -61,7 +61,7 @@ esp_err_t dhyara::utils::http::routes(httpd_req_t* req){
         table << "<tr>"
                 << "<td>" << dst.to_string() << "</td>"
                 << "<td>" << via.to_string() << "</td>"
-                << "<td>" << delay << "</td>"
+                << "<td>" << (double)delay/1000.0 << "</td>"
                 << "<td>" << updated << "</td>"
             << "</tr>";
     }
@@ -71,17 +71,23 @@ esp_err_t dhyara::utils::http::routes(httpd_req_t* req){
             << "<tr>"
                 << "<th>" << "destination" << "</th>"
                 << "<th>" << "next" << "</th>"
-                << "<th>" << "delay (us)" << "</th>"
+                << "<th>" << "delay (ms)" << "</th>"
+                << "<th>" << "RSSI" << "</th>"
             << "</tr>";
-    for(auto it = _routing.next_begin(); it != _routing.next_end(); ++it){
+    for(auto it = _link.routes().next_begin(); it != _link.routes().next_end(); ++it){
         const auto& dst         = it->first;
         const auto& via         = it->second.via();
         const auto& delay       = it->second.delay();
+        std::int8_t rssi = 0;
+        if(_link.neighbours().exists(dst)){
+            rssi = _link.neighbours().get_peer(dst).rssi();
+        }
         
         table << "<tr>"
                 << "<td>" << dst.to_string() << "</td>"
                 << "<td>" << via.to_string() << "</td>"
-                << "<td>" << delay << "</td>"
+                << "<td>" << (double)delay/1000.0 << "</td>"
+                << "<td>" << (int)rssi << " dBm" << "</td>"
             << "</tr>";
     }
     table << "</table>";
