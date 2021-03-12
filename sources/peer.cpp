@@ -70,7 +70,13 @@ bool dhyara::peer_address::operator<(const dhyara::peer_address& other) const{
     return hash() < other.hash();
 }
 bool dhyara::peer_address::operator==(const dhyara::peer_address& other) const{
-    return hash() == other.hash();
+    // return hash() == other.hash();
+    return (b1() == other.b1())
+        && (b2() == other.b2())
+        && (b3() == other.b3())
+        && (b4() == other.b4())
+        && (b5() == other.b5())
+        && (b6() == other.b6());
 }
 
 bool dhyara::peer_address::operator==(const std::string& addr) const{
@@ -78,7 +84,7 @@ bool dhyara::peer_address::operator==(const std::string& addr) const{
 }
 
 
-dhyara::peer::peer(const dhyara::peer::address& addr): _addr(addr){
+dhyara::peer::peer(const dhyara::peer::address& addr): _addr(addr), _rssi(0){
     std::fill_n(reinterpret_cast<std::uint8_t*>(&_peer), sizeof(esp_now_peer_info_t), 0);
     const std::uint8_t* data = addr.raw();
     std::copy(data, data+6, _peer.peer_addr);
@@ -91,6 +97,10 @@ dhyara::peer::peer(const std::string& addr, std::uint8_t ch, bool enc): peer(dhy
 }
 bool dhyara::peer::operator<(const dhyara::peer& other) const{
     return addr() < other.addr();
+}
+
+bool dhyara::peer::operator==(const peer& other) const{
+    return addr() == other.addr();
 }
 
 std::ostream& dhyara::operator<<(std::ostream& os, const dhyara::peer::address& address){

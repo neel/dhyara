@@ -114,6 +114,16 @@ struct link{
      * \param len length of the raw data
      */
     void _esp_rcvd_cb(const uint8_t* source, const uint8_t* data, int len);
+    /**
+     * Process received . Create a frame from the received data and passes that to queue for further procesing. Leaves wifi stack
+     * 
+     * \warning Only the ESP NOW receive callback should call this function
+     * 
+     * \param source source address
+     * \param data raw data received
+     * \param len length of the raw data
+     */
+    void _esp_promiscous_rx_cb(void* buffer, wifi_promiscuous_pkt_type_t type);
     
     /**
      * Associate an action with a packet type. The operator()() overload of that action will be called with the received packet.

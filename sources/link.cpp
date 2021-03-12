@@ -30,6 +30,16 @@
 #include <functional>
 #include "esp_log.h"
 
+struct ieee_802_11_management_frame{
+  int16_t fctl;
+  int16_t duration;
+  uint8_t destination[6];
+  uint8_t source[6];
+  uint8_t bssid[6];
+  int16_t seqctl;
+  unsigned char payload[];
+} __attribute__((packed));
+
 dhyara::link::link(): _fifo(
     std::bind(&dhyara::link::q_receive, this, std::placeholders::_1, std::placeholders::_2)
 ), _mac(dhyara::peer_address::null()){}
@@ -63,7 +73,7 @@ bool dhyara::link::transmit(const dhyara::peer_address& addr, const dhyara::fram
     static std::uint8_t buffer[sizeof(dhyara::frame)];
     dhyara::write(frame, buffer);
     if(_neighbours.exists(addr)){
-        return transmit(_neighbours.address(addr).raw(), buffer, frame.size());
+        return transmit(addr.raw(), buffer, frame.size());
     }
     return false;
 }
@@ -74,6 +84,20 @@ bool dhyara::link::q_send(const dhyara::peer_address& addr, const dhyara::frame&
 
 void dhyara::link::_esp_sent_cb(const uint8_t* target, esp_now_send_status_t status){
     
+}
+
+void dhyara::link::_esp_promiscous_rx_cb(void* buffer, wifi_promiscuous_pkt_type_t type){
+    wifi_promiscuous_pkt_t* p = (wifi_promiscuous_pkt_t*)buffer;
+    int len = p->rx_ctrl.sig_len;
+    ieee_802_11_management_frame* ether = (ieee_802_11_management_frame*)p->payload;
+    len -= sizeof(ieee_802_11_management_frame);
+    if (len >= 0){
+        dhyara::peer_address source(ether->source);
+        // std::cout << p->rx_ctrl.rssi << " " << (int)type << " " << source << std::endl;
+        if(_neighbours.exists(source)){
+            _neighbours.get_peer(source).rssi(p->rx_ctrl.rssi);
+        }
+    }
 }
 
 

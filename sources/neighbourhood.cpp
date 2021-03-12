@@ -28,9 +28,9 @@
 #include "dhyara/neighbourhood.h"
 
 const dhyara::peer& dhyara::neighbourhood::add(const dhyara::peer& p){
-    auto inserted = _peers.insert(p);
+    auto inserted = _peers.insert(std::make_pair(p.addr(), p));
     esp_now_add_peer(p.raw());
-    return *inserted.first;
+    return inserted.first->second;
 }
 
 const dhyara::peer& dhyara::neighbourhood::add(const dhyara::peer::address& addr, uint8_t ch, bool enc){
@@ -42,13 +42,11 @@ const dhyara::peer& dhyara::neighbourhood::add(const std::string& addr, std::uin
 }
 
 bool dhyara::neighbourhood::exists(const std::string& addr) const {
-    dhyara::peer p(addr, 0);
-    return _peers.find(p) != _peers.end();
+    return _peers.find(dhyara::peer_address(addr)) != _peers.end();
 }
 
 bool dhyara::neighbourhood::exists(const dhyara::peer::address& addr) const{
-    dhyara::peer p(addr);
-    return _peers.find(p) != _peers.end();
+    return _peers.find(addr) != _peers.end();
 }
 
 std::size_t dhyara::neighbourhood::size() const{
@@ -56,20 +54,23 @@ std::size_t dhyara::neighbourhood::size() const{
 }
 
 
-dhyara::peer_address dhyara::neighbourhood::address(const std::string& addr) const{
-    dhyara::peer p(addr, 0);
-    auto it = _peers.find(p);
-    if(it != _peers.end()){
-        return it->addr();
-    }
-    return dhyara::peer_address::null();
-}
+// dhyara::peer_address dhyara::neighbourhood::address(const std::string& addr) const{
+//     auto it = _peers.find(dhyara::peer_address(addr));
+//     if(it != _peers.end()){
+//         return it->second.addr();
+//     }
+//     return dhyara::peer_address::null();
+// }
+// 
+// dhyara::peer_address dhyara::neighbourhood::address(const dhyara::peer::address& addr) const{
+//     auto it = _peers.find(addr);
+//     if(it != _peers.end()){
+//         return it->second.addr();
+//     }
+//     return dhyara::peer_address::null();
+// }
 
-dhyara::peer_address dhyara::neighbourhood::address(const dhyara::peer::address& addr) const{
-    dhyara::peer p(addr);
-    auto it = _peers.find(p);
-    if(it != _peers.end()){
-        return it->addr();
-    }
-    return dhyara::peer_address::null();
+dhyara::peer& dhyara::neighbourhood::get_peer(const dhyara::peer::address& addr){
+    peer_collection_type::iterator it = _peers.find(addr);
+    return it->second;
 }
