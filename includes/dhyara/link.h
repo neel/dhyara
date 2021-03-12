@@ -183,6 +183,11 @@ struct link{
      */
     std::size_t rx(dhyara::packets::type type) const;
     
+    /**
+     * Maximum rssi in the neighbourhood
+     */
+    std::int8_t max_rssi() const;
+    
     private:
         /**
          * Process a outgoing frame which is to be delivered to the given destination address in ONE HOP
