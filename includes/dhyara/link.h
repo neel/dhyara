@@ -115,9 +115,9 @@ struct link{
      */
     void _esp_rcvd_cb(const uint8_t* source, const uint8_t* data, int len);
     /**
-     * Process received . Create a frame from the received data and passes that to queue for further procesing. Leaves wifi stack
+     * Updates RSSI by using the frame headers received in the promiscous mode.
      * 
-     * \warning Only the ESP NOW receive callback should call this function
+     * \warning Only the ESP Wifi promiscous rx callback should call this function
      * 
      * \param source source address
      * \param data raw data received
