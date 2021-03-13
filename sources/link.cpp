@@ -40,25 +40,35 @@ struct ieee_802_11_management_frame{
   unsigned char payload[];
 } __attribute__((packed));
 
-dhyara::link::link(): _fifo(
-    std::bind(&dhyara::link::q_receive, this, std::placeholders::_1, std::placeholders::_2)
-), _mac(dhyara::peer_address::null()){}
+dhyara::link::link(): _fifo(std::bind(&dhyara::link::q_receive, this, std::placeholders::_1, std::placeholders::_2)), _mac(dhyara::peer_address::null()), _tx_mutex(NULL){
+    _tx_mutex = xSemaphoreCreateBinary();
+    if(_tx_mutex == NULL){
+        ESP_LOGE("dhyara", "failed to create tx semaphore");
+    }
+}
 
 
 void dhyara::link::init(){
     std::uint8_t base_mac[6];
     esp_wifi_get_mac(static_cast<wifi_interface_t>(ESP_IF_WIFI_AP), base_mac);
     _mac.set(base_mac);
-    
+    xSemaphoreGive(_tx_mutex);
     _neighbours.add(dhyara::peer::address::all(), dhyara::espnow_broadcast_channel);
 }
 
 
 bool dhyara::link::transmit(const std::uint8_t* dest, const std::uint8_t* data, std::size_t len){
+    esp_err_t error = ESP_FAIL;
     static std::uint8_t broadcast_addr[] = { 0xff, 0xff, 0xff, 0xff, 0xff, 0xff };
-    esp_err_t error = esp_now_send(dest ? dest : broadcast_addr, data, len);
-    if(error != ESP_OK){
-        ESP_LOGE("dhyara", "send failed %s", esp_err_to_name(error));
+    if(xSemaphoreTake(_tx_mutex, (TickType_t) 100) == pdTRUE){
+        error = esp_now_send(dest ? dest : broadcast_addr, data, len);
+        xSemaphoreGive(_tx_mutex);
+        if(error != ESP_OK){
+            ESP_LOGE("dhyara", "send failed %s", esp_err_to_name(error));
+            return false;
+        }
+    }else{
+        ESP_LOGE("dhyara", "failed to acquire send lock");
         return false;
     }
     return true;

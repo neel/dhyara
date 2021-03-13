@@ -237,6 +237,7 @@ struct link{
         dhyara::routing         _routes;
         dhyara::peer::address   _mac;
         counters_map_type       _counters;
+        SemaphoreHandle_t       _tx_mutex;
 };
 
 }
