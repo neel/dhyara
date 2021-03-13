@@ -84,8 +84,8 @@ bool dhyara::routing::update(const dhyara::routing::route& r, const dhyara::dela
 }
 
 bool dhyara::routing::depreciate(const dhyara::routing::route& r){
-    static dhyara::delay_type max = std::numeric_limits<dhyara::delay_type>::max();
-    static dhyara::delay_type max_upgradable = max / 2;
+    constexpr static const dhyara::delay_type max = std::numeric_limits<dhyara::delay_type>::max();
+    constexpr static const dhyara::delay_type max_upgradable = max / dhyara::depreciation_coefficient;
     auto it = _table.find(r);
     if(it != _table.end()){
         // if d is 0 then put 1 instead
@@ -93,7 +93,7 @@ bool dhyara::routing::depreciate(const dhyara::routing::route& r){
         dhyara::delay_type now = esp_timer_get_time();
         dhyara::delay_type delta = now - it->second.updated();
         dhyara::delay_type current = it->second.delay();
-        dhyara::delay_type delay = (current < max_upgradable) ? (2 * current) : max;
+        dhyara::delay_type delay = (current < max_upgradable) ? (dhyara::depreciation_coefficient * current) : max;
         ESP_LOGW("dhyara", "route %s last updated %" PRIu64 "us ago doubling delay %" PRIu64 " to %" PRIu64, it->first.to_string().c_str(), delta, current, delay);
         it->second.update(delay);
         _mutex.unlock();
