@@ -39,6 +39,10 @@ namespace dhyara {
      */
     constexpr const delay_type delay_tolerance = CONFIG_DHYARA_DELAY_TOLERANCE;
     /**
+     * while depretiating a route the current delay will be multiplied with this coefficient
+     */
+    constexpr const std::uint8_t depreciation_coefficient = CONFIG_DHYARA_DEPRECIATION_COEFFICIENT;
+    /**
      * Advertisement expiry
      */
     constexpr const delay_type advertisement_expiry = CONFIG_DHYARA_ADVERTISEMENT_EXPIRY * 1000; // in us

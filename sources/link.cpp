@@ -60,17 +60,17 @@ void dhyara::link::init(){
 bool dhyara::link::transmit(const std::uint8_t* dest, const std::uint8_t* data, std::size_t len){
     esp_err_t error = ESP_FAIL;
     static std::uint8_t broadcast_addr[] = { 0xff, 0xff, 0xff, 0xff, 0xff, 0xff };
-    if(xSemaphoreTake(_tx_mutex, (TickType_t) 100) == pdTRUE){
+//     if(xSemaphoreTake(_tx_mutex, (TickType_t) 100) == pdTRUE){
         error = esp_now_send(dest ? dest : broadcast_addr, data, len);
-        xSemaphoreGive(_tx_mutex);
+//         xSemaphoreGive(_tx_mutex);
         if(error != ESP_OK){
             ESP_LOGE("dhyara", "send failed %s", esp_err_to_name(error));
             return false;
         }
-    }else{
-        ESP_LOGE("dhyara", "failed to acquire send lock");
-        return false;
-    }
+//     }else{
+//         ESP_LOGE("dhyara", "failed to acquire send lock");
+//         return false;
+//     }
     return true;
 }
 

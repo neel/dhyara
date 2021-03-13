@@ -30,6 +30,7 @@
 #include <algorithm>
 #include <utility>
 #include <sstream>
+#include <inttypes.h>
 #include "esp_log.h"
 
 void dhyara::routing::route_metric::update(dhyara::delay_type delay, bool sync_updated){
@@ -83,15 +84,17 @@ bool dhyara::routing::update(const dhyara::routing::route& r, const dhyara::dela
 }
 
 bool dhyara::routing::depreciate(const dhyara::routing::route& r){
+    static dhyara::delay_type max = std::numeric_limits<dhyara::delay_type>::max();
+    static dhyara::delay_type max_upgradable = max / 2;
     auto it = _table.find(r);
     if(it != _table.end()){
         // if d is 0 then put 1 instead
         _mutex.lock();
         dhyara::delay_type now = esp_timer_get_time();
         dhyara::delay_type delta = now - it->second.updated();
-        dhyara::delay_type max_upgradable = (std::numeric_limits<dhyara::delay_type>::max()-4) / 2;
-        dhyara::delay_type delay = (delta < max_upgradable) ? (2 * (1+ it->second.delay())) : std::numeric_limits<dhyara::delay_type>::max();
-        ESP_LOGW("dhyara", "route %s last updated %lldus ago doubling delay %lld to %lld", it->first.to_string().c_str(), delta, it->second.delay(), delay);
+        dhyara::delay_type current = it->second.delay();
+        dhyara::delay_type delay = (current < max_upgradable) ? (2 * current) : max;
+        ESP_LOGW("dhyara", "route %s last updated %" PRIu64 "us ago doubling delay %" PRIu64 " to %" PRIu64, it->first.to_string().c_str(), delta, current, delay);
         it->second.update(delay);
         _mutex.unlock();
     }
