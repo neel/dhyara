@@ -187,6 +187,10 @@ struct link{
      * Maximum rssi in the neighbourhood
      */
     std::int8_t max_rssi() const;
+    /**
+     * Duration for which the node has not heard anything from its neighbourhood (in us).
+     */
+    dhyara::delay_type lost() const;
     
     private:
         /**

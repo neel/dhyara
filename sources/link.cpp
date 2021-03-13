@@ -75,6 +75,7 @@ bool dhyara::link::transmit(const dhyara::peer_address& addr, const dhyara::fram
     if(_neighbours.exists(addr)){
         return transmit(addr.raw(), buffer, frame.size());
     }
+    ESP_LOGE("dhyara", "peer %s unreachable", addr.to_string().c_str());
     return false;
 }
 
@@ -163,4 +164,8 @@ std::int8_t dhyara::link::max_rssi() const{
         max = std::max(max, it->second.rssi());
     }
     return max;
+}
+
+dhyara::delay_type dhyara::link::lost() const{
+    return esp_timer_get_time() - _routes.lost_since();
 }

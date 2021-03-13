@@ -56,6 +56,8 @@ std::string dhyara::peer_address::to_string() const{
     snprintf(buff, sizeof(buff), "%02x:%02x:%02x:%02x:%02x:%02x", _bytes[0], _bytes[1], _bytes[2], _bytes[3], _bytes[4], _bytes[5]);
     return std::string(buff);
 }
+
+
 std::uint64_t dhyara::peer_address::hash() const{
     return
         std::uint64_t(_bytes[0]) << 40 |

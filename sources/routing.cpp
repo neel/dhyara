@@ -181,6 +181,12 @@ void dhyara::routing::depreciate(){
     }
 }
 
+dhyara::delay_type dhyara::routing::lost_since() const{
+    if(_table.empty()) return 0;
+    return std::max_element(_table.begin(), _table.end(), [](const table_type::value_type& left, const table_type::value_type& right){
+        return left.second.updated() < right.second.updated();
+    })->second.updated();
+}
 
 std::ostream& dhyara::operator<<(std::ostream& os, const dhyara::routing::route& route){
     os << "Route< "<< route.dst() << " via " << route.via() << " >";

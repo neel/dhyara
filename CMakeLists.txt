@@ -34,6 +34,8 @@ idf_component_register(
         cxx
         esp_wifi 
         esp_http_server
+    EMBED_TXTFILES
+        "assets/routing.css"
 )
 else()
 cmake_minimum_required(VERSION 3.19)
