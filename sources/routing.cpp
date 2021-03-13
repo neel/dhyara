@@ -98,11 +98,7 @@ bool dhyara::routing::depreciate(const dhyara::routing::route& r){
         it->second.update(delay);
         _mutex.unlock();
     }
-    bool altered = update_next(r.dst());
-//     if(altered){
-//         std::cout << *this << std::endl;
-//     }
-    return altered;
+    return update_next(r.dst());
 }
 
 
