@@ -468,22 +468,28 @@ table.memberdecls tr:nth-last-child(2) .memItemRight {
   font-size: 13px;
 }
 
+.memname tr{
+    float: left;
+}
+
 .memname td {
 }
 
 .memproto, dl.reflist dt {
-  border: 1px solid #E6E6E6;
+  border-top: 1px solid #0e763a;
+  border-right: 1px solid #0e763a;
+  border-left: 1px solid #0e763a;
   padding: 5px 10px;
   color: #363534;
   text-shadow: none;
   background: none;
   background-color: #F6F6F6;
   box-shadow: none;
-  border-radius: 7px;
   -moz-box-shadow: none;
-  -moz-border-radius: 7px;
   -webkit-box-shadow: none;
-  -webkit-border-radius: 7px;
+  -webkit-border-top-right-radius: 7px;
+  -moz-border-radius-topright: 7px;
+  border-top-right-radius: 7px;
 }
 
 /* additional */
@@ -506,6 +512,12 @@ table.memberdecls tr:nth-last-child(2) .memItemRight {
   -moz-box-shadow: none;
   -webkit-border-radius: 0;
   -webkit-box-shadow: none;
+  border-left: 1px solid #0e763a;
+  border-right: 1px solid #0e763a;
+  border-bottom: 1px solid #0e763a;
+  padding-left: 20px;
+  margin-top: -14px;
+  padding-top: 10px;
 }
 
 dl.reflist dt {
@@ -549,6 +561,7 @@ td.mlabels-left {
 }
 
 td.mlabels-right {
+    vertical-align: middle !important;
 }
 
 span.mlabels {
