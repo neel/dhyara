@@ -184,9 +184,15 @@ dl.el {
 }
 
 pre.fragment {
+    border-width: 0px 0px 0px 4px;
+    border-color: #0e763a;
+    padding-left: 10px;
 }
 
 div.fragment {
+    border-width: 0px 0px 0px 4px;
+    border-color: #0e763a;
+    padding-left: 10px;
 }
 
 div.line {
