@@ -10,6 +10,8 @@
 #define DHYARA_NEIGHBOURHOOD_H
 
 #include "dhyara/peer.h"
+#include <unordered_set>
+#include <unordered_map>
 
 namespace dhyara{
 
@@ -17,7 +19,7 @@ namespace dhyara{
  * Neighbourhood of a node
  */
 struct neighbourhood{
-    typedef std::set<peer> peer_collection_type;
+    typedef std::unordered_map<peer_address, peer> peer_collection_type;
     
     /**
      * add a peer as neighbour 
@@ -53,17 +55,11 @@ struct neighbourhood{
      * number of immediate neighbours
      */
     std::size_t size() const;
-    
     /**
-     * return address of a node if it exists in neighbourhood or returns null address
-     * \param addr string address 
+     * returns a peer by its address (assuming that it exists in the neighbourhood)
+     * \note use exists() to check whether the address exists before calling this function
      */
-    dhyara::peer_address address(const std::string& addr) const;
-    /**
-     * return address of a node if it exists in neighbourhood or returns null address
-     * \param addr string address 
-     */
-    dhyara::peer_address address(const dhyara::peer::address& addr) const;
+    dhyara::peer& get_peer(const dhyara::peer::address& addr);
     
     /**
      * begin iterator

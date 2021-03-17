@@ -30,27 +30,47 @@
 #include <functional>
 #include "esp_log.h"
 
-dhyara::link::link(): _fifo(
-    std::bind(&dhyara::link::q_receive, this, std::placeholders::_1, std::placeholders::_2)
-), _mac(dhyara::peer_address::null()){}
+struct ieee_802_11_management_frame{
+  int16_t fctl;
+  int16_t duration;
+  uint8_t destination[6];
+  uint8_t source[6];
+  uint8_t bssid[6];
+  int16_t seqctl;
+  unsigned char payload[];
+} __attribute__((packed));
+
+dhyara::link::link(): _fifo(std::bind(&dhyara::link::q_receive, this, std::placeholders::_1, std::placeholders::_2)), _mac(dhyara::peer_address::null()), _tx_mutex(NULL){
+    _tx_mutex = xSemaphoreCreateBinary();
+    if(_tx_mutex == NULL){
+        ESP_LOGE("dhyara", "failed to create tx semaphore");
+    }
+}
 
 
 void dhyara::link::init(){
     std::uint8_t base_mac[6];
     esp_wifi_get_mac(static_cast<wifi_interface_t>(ESP_IF_WIFI_AP), base_mac);
     _mac.set(base_mac);
-    
+    xSemaphoreGive(_tx_mutex);
     _neighbours.add(dhyara::peer::address::all(), dhyara::espnow_broadcast_channel);
 }
 
 
 bool dhyara::link::transmit(const std::uint8_t* dest, const std::uint8_t* data, std::size_t len){
+    esp_err_t error = ESP_FAIL;
     static std::uint8_t broadcast_addr[] = { 0xff, 0xff, 0xff, 0xff, 0xff, 0xff };
-    esp_err_t error = esp_now_send(dest ? dest : broadcast_addr, data, len);
-    if(error != ESP_OK){
-        ESP_LOGE("dhyara", "send failed %s", esp_err_to_name(error));
-        return false;
-    }
+//     if(xSemaphoreTake(_tx_mutex, (TickType_t) 100) == pdTRUE){
+        error = esp_now_send(dest ? dest : broadcast_addr, data, len);
+//         xSemaphoreGive(_tx_mutex);
+        if(error != ESP_OK){
+            ESP_LOGE("dhyara", "send failed %s", esp_err_to_name(error));
+            return false;
+        }
+//     }else{
+//         ESP_LOGE("dhyara", "failed to acquire send lock");
+//         return false;
+//     }
     return true;
 }
 
@@ -63,8 +83,9 @@ bool dhyara::link::transmit(const dhyara::peer_address& addr, const dhyara::fram
     static std::uint8_t buffer[sizeof(dhyara::frame)];
     dhyara::write(frame, buffer);
     if(_neighbours.exists(addr)){
-        return transmit(_neighbours.address(addr).raw(), buffer, frame.size());
+        return transmit(addr.raw(), buffer, frame.size());
     }
+    ESP_LOGE("dhyara", "peer %s unreachable", addr.to_string().c_str());
     return false;
 }
 
@@ -74,6 +95,23 @@ bool dhyara::link::q_send(const dhyara::peer_address& addr, const dhyara::frame&
 
 void dhyara::link::_esp_sent_cb(const uint8_t* target, esp_now_send_status_t status){
     
+}
+
+void dhyara::link::_esp_promiscous_rx_cb(void* buffer, wifi_promiscuous_pkt_type_t type){
+    static dhyara::delay_type last = esp_timer_get_time();
+    dhyara::delay_type now = esp_timer_get_time();
+    if((now - last) <= 1000){ // don't update rssi within 1ms
+        return;
+    }
+    wifi_promiscuous_pkt_t* p = (wifi_promiscuous_pkt_t*)buffer;
+    ieee_802_11_management_frame* ether = (ieee_802_11_management_frame*)p->payload;
+    if(p->rx_ctrl.sig_len >= sizeof(ieee_802_11_management_frame)){
+        dhyara::peer_address source(ether->source);
+        if(_neighbours.exists(source)){
+            _neighbours.get_peer(source).rssi(p->rx_ctrl.rssi);
+            last = now;
+        }
+    }
 }
 
 
@@ -130,3 +168,14 @@ std::size_t dhyara::link::rx(dhyara::packets::type type) const{
     return 0;
 }
 
+std::int8_t dhyara::link::max_rssi() const{
+    std::int8_t max = -127;
+    for(auto it = _neighbours.begin(); it != _neighbours.end(); ++it){
+        max = std::max(max, it->second.rssi());
+    }
+    return max;
+}
+
+dhyara::delay_type dhyara::link::lost() const{
+    return esp_timer_get_time() - _routes.lost_since();
+}

@@ -114,6 +114,16 @@ struct link{
      * \param len length of the raw data
      */
     void _esp_rcvd_cb(const uint8_t* source, const uint8_t* data, int len);
+    /**
+     * Updates RSSI by using the frame headers received in the promiscous mode.
+     * 
+     * \warning Only the ESP Wifi promiscous rx callback should call this function
+     * 
+     * \param source source address
+     * \param data raw data received
+     * \param len length of the raw data
+     */
+    void _esp_promiscous_rx_cb(void* buffer, wifi_promiscuous_pkt_type_t type);
     
     /**
      * Associate an action with a packet type. The operator()() overload of that action will be called with the received packet.
@@ -173,6 +183,15 @@ struct link{
      */
     std::size_t rx(dhyara::packets::type type) const;
     
+    /**
+     * Maximum rssi in the neighbourhood
+     */
+    std::int8_t max_rssi() const;
+    /**
+     * Duration for which the node has not heard anything from its neighbourhood (in us).
+     */
+    dhyara::delay_type lost() const;
+    
     private:
         /**
          * Process a outgoing frame which is to be delivered to the given destination address in ONE HOP
@@ -218,6 +237,7 @@ struct link{
         dhyara::routing         _routes;
         dhyara::peer::address   _mac;
         counters_map_type       _counters;
+        SemaphoreHandle_t       _tx_mutex;
 };
 
 }

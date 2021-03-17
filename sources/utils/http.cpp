@@ -27,8 +27,9 @@
 
 #include "dhyara/utils/http.h"
 #include <sstream>
+#include "dhyara/assets.h"
 
-dhyara::utils::http::http(dhyara::routing& routing): _routing(routing), _config(HTTPD_DEFAULT_CONFIG()), _server(0x0),
+dhyara::utils::http::http(dhyara::link& link): _link(link), _config(HTTPD_DEFAULT_CONFIG()), _server(0x0),
     _routes(httpd_uri_t{"/routes", HTTP_GET, dhyara::utils::http::routes_handler, this}) 
 {
     if (httpd_start(&_server, &_config) == ESP_OK) {
@@ -48,11 +49,11 @@ esp_err_t dhyara::utils::http::routes(httpd_req_t* req){
             << "<tr>"
                 << "<th>" << "destination" << "</th>"
                 << "<th>" << "intermediate" << "</th>"
-                << "<th>" << "delay (us)" << "</th>"
+                << "<th>" << "delay (ms)" << "</th>"
                 << "<th>" << "updated" << "</th>"
             << "</tr>";
 
-    for(auto it = _routing.route_begin(); it != _routing.route_end(); ++it){
+    for(auto it = _link.routes().route_begin(); it != _link.routes().route_end(); ++it){
         const auto& dst         = it->first.dst();
         const auto& via         = it->first.via();
         const auto& delay       = it->second.delay();
@@ -61,7 +62,7 @@ esp_err_t dhyara::utils::http::routes(httpd_req_t* req){
         table << "<tr>"
                 << "<td>" << dst.to_string() << "</td>"
                 << "<td>" << via.to_string() << "</td>"
-                << "<td>" << delay << "</td>"
+                << "<td>" << (double)delay/1000.0 << "</td>"
                 << "<td>" << updated << "</td>"
             << "</tr>";
     }
@@ -71,75 +72,36 @@ esp_err_t dhyara::utils::http::routes(httpd_req_t* req){
             << "<tr>"
                 << "<th>" << "destination" << "</th>"
                 << "<th>" << "next" << "</th>"
-                << "<th>" << "delay (us)" << "</th>"
+                << "<th>" << "delay (ms)" << "</th>"
+                << "<th>" << "RSSI" << "</th>"
             << "</tr>";
-    for(auto it = _routing.next_begin(); it != _routing.next_end(); ++it){
+    for(auto it = _link.routes().next_begin(); it != _link.routes().next_end(); ++it){
         const auto& dst         = it->first;
         const auto& via         = it->second.via();
         const auto& delay       = it->second.delay();
+        std::int8_t rssi = 0;
+        if(_link.neighbours().exists(dst)){
+            rssi = _link.neighbours().get_peer(dst).rssi();
+        }
         
         table << "<tr>"
                 << "<td>" << dst.to_string() << "</td>"
                 << "<td>" << via.to_string() << "</td>"
-                << "<td>" << delay << "</td>"
+                << "<td>" << (double)delay/1000.0 << "</td>"
+                << "<td>" << (int)rssi << " dBm" << "</td>"
             << "</tr>";
     }
     table << "</table>";
+    
+    std::string style(dhyara::assets::routing_css_start, dhyara::assets::routing_css_end);
     
     std::stringstream html;
     html << "<html>"
             << "<head>" 
                 << "<title>" << "DHYARA ROUTING TABLE" << "</title>" 
-                << "<style>"
-                    << R"STYLE(
-                        table.paleBlueRows {
-                            width: 100%;
-                            font-family: "Times New Roman", Times, serif;
-                            border: 1px solid #FFFFFF;
-                            height: 200px;
-                            text-align: center;
-                            border-collapse: collapse;
-                        }
-                        table.paleBlueRows td, table.paleBlueRows th {
-                            border: 1px solid #FFFFFF;
-                            padding: 3px 2px;
-                        }
-                        table.paleBlueRows tbody td {
-                            font-size: 13px;
-                        }
-                        table.paleBlueRows tr:nth-child(even) {
-                            background: #D0E4F5;
-                        }
-                        table.paleBlueRows thead {
-                            background: #0B6FA4;
-                            border-bottom: 5px solid #FFFFFF;
-                        }
-                        table.paleBlueRows thead th {
-                            font-size: 17px;
-                            font-weight: bold;
-                            color: #FFFFFF;
-                            text-align: center;
-                            border-left: 2px solid #FFFFFF;
-                        }
-                        table.paleBlueRows thead th:first-child {
-                            border-left: none;
-                        }
-                        table.paleBlueRows tfoot {
-                            font-size: 14px;
-                            font-weight: bold;
-                            color: #333333;
-                            background: #D0E4F5;
-                            border-top: 3px solid #444444;
-                        }
-                        table.paleBlueRows tfoot td {
-                            font-size: 14px;
-                        }
-                    )STYLE"
-                << "</style>"
+                << "<style>" << style << "</style>"
             << "</head>"
-            << "<body>"
-                << table.str()
-            << "</body>"
+            << "<body>" << table.str() << "</body>"
         << "</html>";
     
     std::string html_str = html.str();

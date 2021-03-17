@@ -170,19 +170,54 @@ struct peer{
      * get peer channel
      */
     inline bool channel() const {return _peer.channel;}
+    /**
+     * Get RSSI value for the peer
+     */
+    inline std::int8_t rssi() const { return _rssi; }
+    /**
+     * Set RSSI value for the peer
+     */
+    inline void rssi(std::uint8_t v) { _rssi = v; }
     
     inline const esp_now_peer_info_t* raw() const {return &_peer;}
     
     bool operator<(const peer& other) const;
+    /**
+     * Comparator
+     */
+    bool operator==(const peer& other) const;
+    /**
+     * Comparator
+     */
+    inline bool operator!=(const peer& other) const { return !(*this == other); }
     
     private:
         esp_now_peer_info_t _peer;
         address             _addr;
+        std::int8_t         _rssi;
 };
 
 std::ostream& operator<<(std::ostream& os, const dhyara::peer::address& address);
 std::ostream& operator<<(std::ostream& os, const dhyara::peer& peer);
     
+}
+
+namespace std {
+
+template <>
+struct hash<dhyara::peer_address>{
+    std::uint64_t operator()(const dhyara::peer_address& addr) const{
+        return std::hash<std::uint64_t>()(addr.hash());
+    }
+};
+
+template <>
+struct hash<dhyara::peer>{
+    std::uint64_t operator()(const dhyara::peer& peer) const{
+        return std::hash<std::uint64_t>()(peer.addr().hash());
+    }
+};
+
 }
 
 #endif // DHYARA_PEER_H

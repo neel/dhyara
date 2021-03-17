@@ -27,10 +27,11 @@
 
 #include "dhyara/utils/printer.h"
 #include "esp_log.h"
+#include <inttypes.h>
 
 void dhyara::utils::printer::in(const dhyara::peer_address& source, const dhyara::packets::beacon& beacon){
     ESP_LOGV(
-        "dhyara", "<< BCN from %s at %lld", 
+        "dhyara", "<< BCN from %s at %" PRId64, 
         source.to_string().c_str(), 
         beacon.time()
     );
@@ -38,7 +39,7 @@ void dhyara::utils::printer::in(const dhyara::peer_address& source, const dhyara
 
 void dhyara::utils::printer::out(const dhyara::peer_address& target, const dhyara::packets::beacon& beacon){
     ESP_LOGV(
-        "dhyara", ">> BCN to %s at %lld", 
+        "dhyara", ">> BCN to %s at %" PRId64, 
         target.to_string().c_str(), 
         beacon.time()
     );
@@ -46,7 +47,7 @@ void dhyara::utils::printer::out(const dhyara::peer_address& target, const dhyar
 
 void dhyara::utils::printer::in(const dhyara::peer_address& source, const dhyara::packets::acknowledgement& acknowledgement){
     ESP_LOGV(
-        "dhyara", "<< ACK from %s of %lld", 
+        "dhyara", "<< ACK from %s of %" PRId64, 
         source.to_string().c_str(), 
         acknowledgement.time()
     );
@@ -54,7 +55,7 @@ void dhyara::utils::printer::in(const dhyara::peer_address& source, const dhyara
 
 void dhyara::utils::printer::out(const dhyara::peer_address& target, const dhyara::packets::acknowledgement& acknowledgement){
     ESP_LOGV(
-        "dhyara", ">> ACK to %s of %lld", 
+        "dhyara", ">> ACK to %s of %" PRId64, 
         target.to_string().c_str(), 
         acknowledgement.time()
     );
@@ -62,7 +63,7 @@ void dhyara::utils::printer::out(const dhyara::peer_address& target, const dhyar
 
 void dhyara::utils::printer::in(const dhyara::peer_address& source, const dhyara::packets::advertisement& advertisement){
     ESP_LOGV(
-        "dhyara", "<< ADV from %s dst %s delay %lld", 
+        "dhyara", "<< ADV from %s dst %s delay %" PRId64, 
         source.to_string().c_str(), 
         advertisement.dest().to_string().c_str(), 
         advertisement.delay()
@@ -71,7 +72,7 @@ void dhyara::utils::printer::in(const dhyara::peer_address& source, const dhyara
 
 void dhyara::utils::printer::out(const dhyara::peer_address& target, const dhyara::packets::advertisement& advertisement){
     ESP_LOGV(
-        "dhyara", ">> ADV to %s dst %s delay %lld", 
+        "dhyara", ">> ADV to %s dst %s delay %" PRId64, 
         target.to_string().c_str(), 
         advertisement.dest().to_string().c_str(), 
         advertisement.delay()
@@ -102,7 +103,7 @@ void dhyara::utils::printer::out(const dhyara::peer_address& target, const dhyar
 
 void dhyara::utils::printer::in(const dhyara::peer_address& source, const dhyara::packets::echo_reply& echo_reply){
     ESP_LOGV(
-        "dhyara", "<< ICMPR from %s dst %s src %s seq %d ttl %d delay %lld", 
+        "dhyara", "<< ICMPR from %s dst %s src %s seq %d ttl %d delay %" PRId64, 
         source.to_string().c_str(), 
         echo_reply.target().to_string().c_str(), 
         echo_reply.source().to_string().c_str(), 
@@ -125,7 +126,7 @@ void dhyara::utils::printer::out(const dhyara::peer_address& source, const dhyar
 
 void dhyara::utils::printer::in(const dhyara::peer_address& source, const dhyara::packets::echo_lost& echo_lost){
     ESP_LOGV(
-        "dhyara", "<< ICMPL from %s dst %s src %s seq %d delay %lld", 
+        "dhyara", "<< ICMPL from %s dst %s src %s seq %d delay %" PRId64, 
         source.to_string().c_str(), 
         echo_lost.target().to_string().c_str(), 
         echo_lost.source().to_string().c_str(), 

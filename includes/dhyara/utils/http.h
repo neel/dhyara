@@ -10,7 +10,7 @@
 #define DHYARA_HTTP_H
 
 #include <esp_http_server.h>
-#include "dhyara/routing.h"
+#include "dhyara/link.h"
 
 namespace dhyara{
 
@@ -22,10 +22,10 @@ namespace utils{
  */
 struct http{
     
-    http(dhyara::routing& routes);
+    http(dhyara::link& link);
     
     private:
-        dhyara::routing& _routing;
+        dhyara::link&  _link;
         httpd_config_t _config;
         httpd_handle_t _server;
         httpd_uri_t    _routes;

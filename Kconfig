@@ -42,6 +42,13 @@ menu "Dhyara ad hoc network"
         help
             Dhyara delay tolerance
             
+    config DHYARA_DEPRECIATION_COEFFICIENT
+        int "depreciation coefficient"
+        range 2 20
+        default 2
+        help
+            while depretiating a route the current delay will be multiplied with this coefficient
+            
     config DHYARA_ADVERTISEMENT_EXPIRY
         int "advertisement expiry (ms)"
         range 10 5000

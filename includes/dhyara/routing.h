@@ -167,6 +167,9 @@ struct routing {
      * returnign false signifies that the min values are still the same
      */
     bool update(const route& r, const delay_type& d);
+    /**
+     * depritiate a route
+     */
     bool depreciate(const route& r);
     /**
      * next node to for the final destination dst
@@ -218,6 +221,11 @@ struct routing {
      */
     inline next_vector_type::const_iterator next_end() const { return _next.end(); }
 
+    /**
+     * Last time the routing table was updated
+     */
+    dhyara::delay_type lost_since() const;
+    
     private:
         delay_type       _def;
         table_type       _table;
