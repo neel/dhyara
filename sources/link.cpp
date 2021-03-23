@@ -58,7 +58,6 @@ void dhyara::link::init(){
 bool dhyara::link::_transmit(const std::uint8_t* dest, const std::uint8_t* data, std::size_t len){
     static std::uint8_t broadcast_addr[] = { 0xff, 0xff, 0xff, 0xff, 0xff, 0xff };
     esp_err_t error = esp_now_send(dest ? dest : broadcast_addr, data, len);
-    _notifications.en(0);
     if(error != ESP_OK){
         ESP_LOGE("dhyara", "send failed %s", esp_err_to_name(error));
         return false;
@@ -74,6 +73,11 @@ bool dhyara::link::transmit(const dhyara::peer_address& addr, const dhyara::fram
             if(it != _counters.end()){
                 it->second.first++;
             }
+            
+            if(_notifications.empty()){
+                // Wake up the sleeping send task
+                _notifications.en(0);
+            }
         }
         return success;
     }
@@ -84,9 +88,6 @@ bool dhyara::link::transmit(const dhyara::peer_address& addr, const dhyara::fram
 void dhyara::link::_esp_sent_cb(const uint8_t*, esp_now_send_status_t){
     static std::uint8_t buffer[sizeof(dhyara::frame)];
     if(_queue_snd.de(_msg_dequeued, 0)){
-        char dummy;
-        bool success = _notifications.de(dummy, 0);
-        // assert success
         dhyara::write(_msg_dequeued.frame, buffer);
         _transmit(_msg_dequeued.address.raw(), buffer, _msg_dequeued.frame.size());
     }
@@ -141,11 +142,15 @@ void dhyara::link::start_rcv(std::size_t ticks){
 }
 
 void dhyara::link::start_snd(std::size_t ticks){
+    // 1. start_snd sleeps initially (State: _notifications queue is empty)
+    // 2. woken up by transmit() function (transmit enqueues a notification to wake it up)
+    // 3. once woken up dequeues (empties) _notifications and synthetically calls _esp_sent_cb (which is also the send callback) and sleeps
+    // 4. _esp_sent_cb *tries* to dequeue a single element (if exists) from _queue_snd and transmits using the transmit() function 
+    // 5. The transmission results into subsequent call to _esp_sent_cb (as it is the send callback) -> loop to 4
+    // 6. Once _queue_snd is empty the (4 -> 5) loop terminates (State: _notifications queue is empty, start_snd is sleeping since 3) -> loop to 1
     char dummy;
     while(_notifications.de(dummy, ticks)){
-        if(!_queue_snd.empty()){
-            _esp_sent_cb(0x0, ESP_NOW_SEND_SUCCESS);
-        }
+        _esp_sent_cb(0x0, ESP_NOW_SEND_SUCCESS);
     }
 }
 

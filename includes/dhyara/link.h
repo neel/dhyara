@@ -41,7 +41,7 @@ struct link{
     typedef std::map<dhyara::packets::type, std::pair<std::size_t, std::size_t>> counters_map_type;
     typedef dhyara::network_fifo<dhyara::queue_size> fifo_type;
     typedef dhyara::xqueue<dhyara::message, dhyara::queue_size> xqueue_type;
-    typedef dhyara::xqueue<char, dhyara::queue_size> notification_type;
+    typedef dhyara::xqueue<char, 1> notification_type;
     
     struct proxy{
         link& _link;
@@ -230,13 +230,13 @@ struct link{
         dhyara::frame           _frame_rcv;     ///< Temporary buffer to hold the received frame which is then enqueued to _fifo
         fifo_type               _fifo_rcv;      ///< Queue to manage the received frames
         xqueue_type             _queue_snd;     ///< Queue to manage the frames to be sent
+        dhyara::message         _msg_dequeued;  ///< Holds a message dequeued from _queue_snd
+        notification_type       _notifications; ///< A single element queue to wake up sending task
         dhyara::neighbourhood   _neighbours;
         handlers_map_type       _handlers;
         dhyara::routing         _routes;
         dhyara::peer::address   _mac;
         counters_map_type       _counters;
-        dhyara::message         _msg_dequeued;
-        notification_type       _notifications;
 };
 
 }
