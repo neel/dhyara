@@ -40,6 +40,8 @@ struct link{
     typedef std::map<dhyara::packets::type, callback_type> handlers_map_type;
     typedef std::map<dhyara::packets::type, std::pair<std::size_t, std::size_t>> counters_map_type;
     typedef dhyara::network_fifo<dhyara::queue_size> fifo_type;
+    typedef dhyara::xqueue<dhyara::message, dhyara::queue_size> xqueue_type;
+    typedef dhyara::xqueue<char, dhyara::queue_size> notification_type;
     
     struct proxy{
         link& _link;
@@ -151,6 +153,10 @@ struct link{
      * start receive loop never returns
      */
     void start_rcv(std::size_t ticks = 0xffffffffUL);
+    /**
+     * start receive loop never returns
+     */
+    void start_snd(std::size_t ticks = 0xffffffffUL);
     
     /**
      * immediate neighbourhood
@@ -193,15 +199,6 @@ struct link{
     dhyara::delay_type lost() const;
     
     private:
-        /**
-         * Process a outgoing frame which is to be delivered to the given destination address in ONE HOP
-         * 
-         * \warning should not be called directly. Supposed to be used as a callback to the queue.
-         * 
-         * \param address destination address
-         * \param frame frame
-         */
-        bool q_send(const dhyara::peer_address& address, const dhyara::frame& frame);
         
         /**
          * Process a received frame
@@ -220,9 +217,9 @@ struct link{
          * \param data pointer to raw data
          * \param len lenth of the data
          */
-        bool transmit(const std::uint8_t* dest, const std::uint8_t* data, std::size_t len);
+        bool _transmit(const std::uint8_t* dest, const std::uint8_t* data, std::size_t len);
         /**
-         * send a frame to the given destination address in ONE HOP
+         * Enequeues a frame to be sent to the given destination address in <b>one hop</b>.
          * 
          * \param address destination address
          * \param frame frame
@@ -230,14 +227,16 @@ struct link{
         bool transmit(const dhyara::peer_address& address, const dhyara::frame& frame);
     
     private:
-        dhyara::frame           _rcv_frame;
-        fifo_type               _fifo;
+        dhyara::frame           _frame_rcv;     ///< Temporary buffer to hold the received frame which is then enqueued to _fifo
+        fifo_type               _fifo_rcv;      ///< Queue to manage the received frames
+        xqueue_type             _queue_snd;     ///< Queue to manage the frames to be sent
         dhyara::neighbourhood   _neighbours;
         handlers_map_type       _handlers;
         dhyara::routing         _routes;
         dhyara::peer::address   _mac;
         counters_map_type       _counters;
-        SemaphoreHandle_t       _tx_mutex;
+        dhyara::message         _msg_dequeued;
+        notification_type       _notifications;
 };
 
 }

@@ -150,6 +150,10 @@ struct network{
          * Receive Task
          */
         static void task_start_rcvd(void* arg);
+        /**
+         * Send Task
+         */
+        static void task_start_send(void* arg);
 };
 
 }

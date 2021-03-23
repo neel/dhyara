@@ -28,6 +28,7 @@
 #include "dhyara/link.h"
 #include "esp_wifi.h"
 #include <functional>
+#include <cassert>
 #include "esp_log.h"
 
 struct ieee_802_11_management_frame{
@@ -40,61 +41,55 @@ struct ieee_802_11_management_frame{
   unsigned char payload[];
 } __attribute__((packed));
 
-dhyara::link::link(): _fifo(std::bind(&dhyara::link::q_receive, this, std::placeholders::_1, std::placeholders::_2)), _mac(dhyara::peer_address::null()), _tx_mutex(NULL){
-    _tx_mutex = xSemaphoreCreateBinary();
-    if(_tx_mutex == NULL){
-        ESP_LOGE("dhyara", "failed to create tx semaphore");
-    }
-}
+dhyara::link::link(): 
+    _fifo_rcv(std::bind(&dhyara::link::q_receive, this, std::placeholders::_1, std::placeholders::_2)), 
+    _mac(dhyara::peer_address::null())
+{}
 
 
 void dhyara::link::init(){
     std::uint8_t base_mac[6];
     esp_wifi_get_mac(static_cast<wifi_interface_t>(ESP_IF_WIFI_AP), base_mac);
     _mac.set(base_mac);
-    xSemaphoreGive(_tx_mutex);
     _neighbours.add(dhyara::peer::address::all(), dhyara::espnow_broadcast_channel);
 }
 
 
-bool dhyara::link::transmit(const std::uint8_t* dest, const std::uint8_t* data, std::size_t len){
-    esp_err_t error = ESP_FAIL;
+bool dhyara::link::_transmit(const std::uint8_t* dest, const std::uint8_t* data, std::size_t len){
     static std::uint8_t broadcast_addr[] = { 0xff, 0xff, 0xff, 0xff, 0xff, 0xff };
-//     if(xSemaphoreTake(_tx_mutex, (TickType_t) 100) == pdTRUE){
-        error = esp_now_send(dest ? dest : broadcast_addr, data, len);
-//         xSemaphoreGive(_tx_mutex);
-        if(error != ESP_OK){
-            ESP_LOGE("dhyara", "send failed %s", esp_err_to_name(error));
-            return false;
-        }
-//     }else{
-//         ESP_LOGE("dhyara", "failed to acquire send lock");
-//         return false;
-//     }
+    esp_err_t error = esp_now_send(dest ? dest : broadcast_addr, data, len);
+    _notifications.en(0);
+    if(error != ESP_OK){
+        ESP_LOGE("dhyara", "send failed %s", esp_err_to_name(error));
+        return false;
+    }
     return true;
 }
 
 bool dhyara::link::transmit(const dhyara::peer_address& addr, const dhyara::frame& frame){
-    auto it = _counters.find(frame.type());
-    if(it != _counters.end()){
-        it->second.first++;
-    }
-    
-    static std::uint8_t buffer[sizeof(dhyara::frame)];
-    dhyara::write(frame, buffer);
     if(_neighbours.exists(addr)){
-        return transmit(addr.raw(), buffer, frame.size());
+        bool success = _queue_snd.en(dhyara::message(addr, frame));
+        if(success){
+            auto it = _counters.find(frame.type());
+            if(it != _counters.end()){
+                it->second.first++;
+            }
+        }
+        return success;
     }
     ESP_LOGE("dhyara", "peer %s unreachable", addr.to_string().c_str());
     return false;
 }
 
-bool dhyara::link::q_send(const dhyara::peer_address& addr, const dhyara::frame& frame){
-    return transmit(addr, frame);
-}
-
-void dhyara::link::_esp_sent_cb(const uint8_t* target, esp_now_send_status_t status){
-    
+void dhyara::link::_esp_sent_cb(const uint8_t*, esp_now_send_status_t){
+    static std::uint8_t buffer[sizeof(dhyara::frame)];
+    if(_queue_snd.de(_msg_dequeued, 0)){
+        char dummy;
+        bool success = _notifications.de(dummy, 0);
+        // assert success
+        dhyara::write(_msg_dequeued.frame, buffer);
+        _transmit(_msg_dequeued.address.raw(), buffer, _msg_dequeued.frame.size());
+    }
 }
 
 void dhyara::link::_esp_promiscous_rx_cb(void* buffer, wifi_promiscuous_pkt_type_t type){
@@ -116,10 +111,10 @@ void dhyara::link::_esp_promiscous_rx_cb(void* buffer, wifi_promiscuous_pkt_type
 
 
 void dhyara::link::_esp_rcvd_cb(const uint8_t* source, const uint8_t* data, int len){
-    dhyara::read(_rcv_frame, data, len);
+    dhyara::read(_frame_rcv, data, len);
     dhyara::peer_address addr(source);
-    _fifo.enqueue_received(addr, _rcv_frame);
-    _rcv_frame.clear();
+    _fifo_rcv.enqueue(addr, _frame_rcv);
+    _frame_rcv.clear();
 }
 
 void dhyara::link::install(dhyara::packets::type type, dhyara::link::callback_type cb){
@@ -142,7 +137,16 @@ void dhyara::link::q_receive(const dhyara::peer_address& address, const dhyara::
 }
 
 void dhyara::link::start_rcv(std::size_t ticks){
-    _fifo.rcv_loop(ticks);
+    _fifo_rcv.loop(ticks);
+}
+
+void dhyara::link::start_snd(std::size_t ticks){
+    char dummy;
+    while(_notifications.de(dummy, ticks)){
+        if(!_queue_snd.empty()){
+            _esp_sent_cb(0x0, ESP_NOW_SEND_SUCCESS);
+        }
+    }
 }
 
 void dhyara::link::reset(dhyara::packets::type type){
