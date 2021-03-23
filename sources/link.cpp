@@ -73,11 +73,12 @@ bool dhyara::link::transmit(const dhyara::peer_address& addr, const dhyara::fram
             if(it != _counters.end()){
                 it->second.first++;
             }
-            
+#if DHYARA_ENABLED_SEND_QUEUEING
             if(_notifications.empty()){
                 // Wake up the sleeping send task
                 _notifications.en(0);
             }
+#endif
         }
         return success;
     }
@@ -148,10 +149,12 @@ void dhyara::link::start_snd(std::size_t ticks){
     // 4. _esp_sent_cb *tries* to dequeue a single element (if exists) from _queue_snd and transmits using the transmit() function 
     // 5. The transmission results into subsequent call to _esp_sent_cb (as it is the send callback) -> loop to 4
     // 6. Once _queue_snd is empty the (4 -> 5) loop terminates (State: _notifications queue is empty, start_snd is sleeping since 3) -> loop to 1
+#if DHYARA_ENABLED_SEND_QUEUEING
     char dummy;
     while(_notifications.de(dummy, ticks)){
         _esp_sent_cb(0x0, ESP_NOW_SEND_SUCCESS);
     }
+#endif 
 }
 
 void dhyara::link::reset(dhyara::packets::type type){

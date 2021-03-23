@@ -231,7 +231,9 @@ struct link{
         fifo_type               _fifo_rcv;      ///< Queue to manage the received frames
         xqueue_type             _queue_snd;     ///< Queue to manage the frames to be sent
         dhyara::message         _msg_dequeued;  ///< Holds a message dequeued from _queue_snd
+#if DHYARA_ENABLED_SEND_QUEUEING
         notification_type       _notifications; ///< A single element queue to wake up sending task
+#endif
         dhyara::neighbourhood   _neighbours;
         handlers_map_type       _handlers;
         dhyara::routing         _routes;

@@ -63,5 +63,11 @@ menu "Dhyara ad hoc network"
         help
             Dhyara route expiry coefficient
             
+    config DISABLE_SEND_QUEUEING
+        bool "disable queueing of messages that are to be sent"
+        default n
+        help
+            Dhyara disable queueing of messages that are to be sent
+            
             
 endmenu
