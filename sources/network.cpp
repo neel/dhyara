@@ -70,6 +70,8 @@ void dhyara::network::start(){
     _link[dhyara::packets::type::chunk]             = _chunk;
     _link[dhyara::packets::type::delivered]         = _delivered;
     
+    std::cout << "DHYARA_ENABLED_SEND_QUEUEING: " << DHYARA_ENABLED_SEND_QUEUEING << std::endl;
+    
     xTaskCreate(&dhyara::network::task_presence,    "presence",    3072,  this,   0,  NULL);
     xTaskCreate(&dhyara::network::task_synchronize, "synchronize", 8192,  this,   8,  NULL);
     xTaskCreate(&dhyara::network::task_start_rcvd,  "start_rcvd",  8192,  &_link, 22, NULL);

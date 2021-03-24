@@ -73,12 +73,7 @@ bool dhyara::link::transmit(const dhyara::peer_address& addr, const dhyara::fram
             if(it != _counters.end()){
                 it->second.first++;
             }
-#if DHYARA_ENABLED_SEND_QUEUEING
-            if(_notifications.empty()){
-                // Wake up the sleeping send task
-                _notifications.en(0);
-            }
-#endif
+            _notifier.notify();
         }
         return success;
     }
@@ -87,11 +82,7 @@ bool dhyara::link::transmit(const dhyara::peer_address& addr, const dhyara::fram
 }
 
 void dhyara::link::_esp_sent_cb(const uint8_t*, esp_now_send_status_t){
-    static std::uint8_t buffer[sizeof(dhyara::frame)];
-    if(_queue_snd.de(_msg_dequeued, 0)){
-        dhyara::write(_msg_dequeued.frame, buffer);
-        _transmit(_msg_dequeued.address.raw(), buffer, _msg_dequeued.frame.size());
-    }
+    _notifier.notify();
 }
 
 void dhyara::link::_esp_promiscous_rx_cb(void* buffer, wifi_promiscuous_pkt_type_t type){
@@ -149,12 +140,14 @@ void dhyara::link::start_snd(std::size_t ticks){
     // 4. _esp_sent_cb *tries* to dequeue a single element (if exists) from _queue_snd and transmits using the transmit() function 
     // 5. The transmission results into subsequent call to _esp_sent_cb (as it is the send callback) -> loop to 4
     // 6. Once _queue_snd is empty the (4 -> 5) loop terminates (State: _notifications queue is empty, start_snd is sleeping since 3) -> loop to 1
-#if DHYARA_ENABLED_SEND_QUEUEING
-    char dummy;
-    while(_notifications.de(dummy, ticks)){
-        _esp_sent_cb(0x0, ESP_NOW_SEND_SUCCESS);
+    static std::uint8_t buffer[sizeof(dhyara::frame)];
+    static dhyara::message msg;
+    while(_notifier.watch()){
+        if(_queue_snd.de(msg, 0)){
+            dhyara::write(msg.frame, buffer);
+            _transmit(msg.address.raw(), buffer, msg.frame.size());
+        }
     }
-#endif 
 }
 
 void dhyara::link::reset(dhyara::packets::type type){

@@ -46,6 +46,19 @@ class xqueue{
             return success;
         }
         /**
+         * enqueue a value to the queue, if the queue is full overwrites the last
+         * \warning intended to be used on queues with single element
+         * \param msg The message to be enqueued.
+         * \param ticks The maximum amount of time the task should block waiting for space to become available on the queue, should it already be full. 
+         */
+        bool overwrite(const MessageT& msg){
+            bool success = (pdPASS == xQueueOverwrite(_handle, (void*) &msg));
+            if(success){
+                _counter = 1;
+            }
+            return success;
+        }
+        /**
          * Receive loop using a function as callback
          * \param fnc The callback to be called with the received messages.
          * \param ticks The maximum amount of time the task should block waiting for an item to receive should the queue be empty at the time of the call.
@@ -140,6 +153,44 @@ class xqueue{
 };
 
 /**
+ * watcher
+ */
+template <typename WatchedT>
+struct watcher{
+    typedef xqueue<WatchedT, 1> xqueue_type;
+    
+    xqueue_type _notification;
+    
+    /**
+     * notify the watcher
+     */
+    bool notify(const WatchedT& watched){
+        return _notification.overwrite(watched);
+    }
+    bool watch(WatchedT& watched){
+        return _notification.de(watched, 0xffffffffUL);
+    }
+    bool sleeping(){
+        return _notification.size() == 0;
+    }
+};
+
+/**
+ * notifier
+ */
+struct notifier: watcher<char>{
+    bool notify(){
+        return watcher<char>::notify(0);
+    }
+    /**
+     * returns only when it is notified. sleeps otherwise. intended to be called from a while loop.
+     */
+    bool watch(){
+        static char watched;
+        return watcher<char>::watch(watched);
+    }
+};
+/**
  * Envelop for both <tt>to be sent</tt> and <tt>has been received</tt> messages
  */
 struct message{
@@ -149,6 +200,9 @@ struct message{
     inline void clear() {
         address = dhyara::peer_address::null();
         frame.clear();
+    }
+    inline bool valid() const {
+        return !address.is_null();
     }
     
     dhyara::peer_address    address;
