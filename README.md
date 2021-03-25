@@ -1,7 +1,7 @@
 DHYARA
 ======
 
-Dhyara is a ESP-IDF component for Mobile Ad-Hoc Networks on the top of ESP NOW. Dhyara is Open Source under BSD 2 Clause License. See [LICENSE](docs/LICENSE.md)
+Dhyara is a ESP-IDF component for Layer 2 Mobile Ad-Hoc Networks on the top of ESP NOW. Dhyara is Open Source under BSD 2 Clause License. See [LICENSE](docs/LICENSE.md)
 
 Compilation & Integration
 -----------
@@ -17,7 +17,7 @@ set(EXTRA_COMPONENT_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/components)
 To configure the network parameters use `idf.py menuconfig` in the aplications directory and Go to `Component config > Dhyara ad hoc network`
 To build and flash the application use `idf.py build` and `idf.py flash` as usual.
 
-\image menuconfig menuconfig.png
+![menuconfig](menuconfig.png "idf.py menuconfig")
 
 See [Building the examples](docs/examples.md).
 
