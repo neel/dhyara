@@ -152,10 +152,13 @@ struct link{
      * start receive loop never returns
      */
     void start_rcv(std::size_t ticks = 0xffffffffUL);
+    
+#if DHYARA_ENABLED_SEND_QUEUEING
     /**
      * start receive loop never returns
      */
     void start_snd(std::size_t ticks = 0xffffffffUL);
+#endif
     
     /**
      * immediate neighbourhood
@@ -210,7 +213,7 @@ struct link{
          */
         void q_receive(const dhyara::peer_address& address, const dhyara::frame& frame);
         /**
-         * send raw data to an immediate destination
+         * Send raw data to an immediate destination. Called directly if transmission queueing is disabled. Otherwise called through start_snd
          * 
          * \param dest destination
          * \param data pointer to raw data
@@ -218,7 +221,7 @@ struct link{
          */
         bool _transmit(const std::uint8_t* dest, const std::uint8_t* data, std::size_t len);
         /**
-         * Enequeues a frame to be sent to the given destination address in <b>one hop</b>.
+         * Depending of the configuration of transmission queueing, Transmits/Enequeues a frame for sending to the given destination address in <b>one hop</b>.
          * 
          * \param address destination address
          * \param frame frame

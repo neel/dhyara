@@ -67,22 +67,30 @@ bool dhyara::link::_transmit(const std::uint8_t* dest, const std::uint8_t* data,
 
 bool dhyara::link::transmit(const dhyara::peer_address& addr, const dhyara::frame& frame){
     if(_neighbours.exists(addr)){
+        auto it = _counters.find(frame.type());
+        if(it != _counters.end()){
+            it->second.first++;
+        }
+#if DHYARA_DISABLED_SEND_QUEUEING
+        static std::uint8_t buffer[sizeof(dhyara::frame)];
+        dhyara::write(frame, buffer);
+        bool success = _transmit(addr.raw(), buffer, frame.size());
+#else 
         bool success = _queue_snd.en(dhyara::message(addr, frame));
         if(success){
-            auto it = _counters.find(frame.type());
-            if(it != _counters.end()){
-                it->second.first++;
-            }
             _notifier.notify();
         }
+#endif
         return success;
     }
     ESP_LOGE("dhyara", "peer %s unreachable", addr.to_string().c_str());
     return false;
 }
 
-void dhyara::link::_esp_sent_cb(const uint8_t*, esp_now_send_status_t){
+void dhyara::link::_esp_sent_cb(const uint8_t*, esp_now_send_status_t status){
+#if DHYARA_ENABLED_SEND_QUEUEING
     _notifier.notify();
+#endif
 }
 
 void dhyara::link::_esp_promiscous_rx_cb(void* buffer, wifi_promiscuous_pkt_type_t type){
@@ -133,13 +141,8 @@ void dhyara::link::start_rcv(std::size_t ticks){
     _fifo_rcv.loop(ticks);
 }
 
+#if DHYARA_ENABLED_SEND_QUEUEING
 void dhyara::link::start_snd(std::size_t ticks){
-    // 1. start_snd sleeps initially (State: _notifications queue is empty)
-    // 2. woken up by transmit() function (transmit enqueues a notification to wake it up)
-    // 3. once woken up dequeues (empties) _notifications and synthetically calls _esp_sent_cb (which is also the send callback) and sleeps
-    // 4. _esp_sent_cb *tries* to dequeue a single element (if exists) from _queue_snd and transmits using the transmit() function 
-    // 5. The transmission results into subsequent call to _esp_sent_cb (as it is the send callback) -> loop to 4
-    // 6. Once _queue_snd is empty the (4 -> 5) loop terminates (State: _notifications queue is empty, start_snd is sleeping since 3) -> loop to 1
     static std::uint8_t buffer[sizeof(dhyara::frame)];
     static dhyara::message msg;
     while(_notifier.watch()){
@@ -149,6 +152,7 @@ void dhyara::link::start_snd(std::size_t ticks){
         }
     }
 }
+#endif 
 
 void dhyara::link::reset(dhyara::packets::type type){
     auto it = _counters.find(type);
