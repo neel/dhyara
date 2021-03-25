@@ -17,7 +17,7 @@ set(EXTRA_COMPONENT_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/components)
 To configure the network parameters use `idf.py menuconfig` in the aplications directory and Go to `Component config > Dhyara ad hoc network`
 To build and flash the application use `idf.py build` and `idf.py flash` as usual.
 
-![menuconfig](images/menuconfig.png "idf.py menuconfig")
+![menuconfig](docs/images/menuconfig.png "idf.py menuconfig")
 
 See [Building the examples](docs/examples.md).
 
