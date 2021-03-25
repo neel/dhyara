@@ -150,6 +150,13 @@ struct network{
          * Receive Task
          */
         static void task_start_rcvd(void* arg);
+        
+#if DHYARA_ENABLED_SEND_QUEUEING
+        /**
+         * Send Task
+         */
+        static void task_start_send(void* arg);
+#endif
 };
 
 }

@@ -12,6 +12,13 @@
 #include "sdkconfig.h"
 #include <cstdint>
 
+#ifdef CONFIG_DISABLE_SEND_QUEUEING
+#define DHYARA_DISABLED_SEND_QUEUEING 1
+#else
+#define DHYARA_DISABLED_SEND_QUEUEING 0
+#endif 
+#define DHYARA_ENABLED_SEND_QUEUEING !DHYARA_DISABLED_SEND_QUEUEING
+
 namespace dhyara {
     typedef std::uint64_t delay_type;
     /**

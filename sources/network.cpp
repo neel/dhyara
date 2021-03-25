@@ -73,6 +73,9 @@ void dhyara::network::start(){
     xTaskCreate(&dhyara::network::task_presence,    "presence",    3072,  this,   0,  NULL);
     xTaskCreate(&dhyara::network::task_synchronize, "synchronize", 8192,  this,   8,  NULL);
     xTaskCreate(&dhyara::network::task_start_rcvd,  "start_rcvd",  8192,  &_link, 22, NULL);
+#if DHYARA_ENABLED_SEND_QUEUEING
+    xTaskCreate(&dhyara::network::task_start_send,  "start_send",  2028,  &_link, 22, NULL);
+#endif
 }
 
 bool dhyara::network::send(const dhyara::peer_address& target, const dhyara::packets::data& data){
@@ -108,3 +111,12 @@ void dhyara::network::task_start_rcvd(void* arg){
     dhyara::link* link = reinterpret_cast<dhyara::link*>(arg);
     link->start_rcv();
 }
+
+#if DHYARA_ENABLED_SEND_QUEUEING
+
+void dhyara::network::task_start_send(void* arg){
+    dhyara::link* link = reinterpret_cast<dhyara::link*>(arg);
+    link->start_snd();
+}
+
+#endif

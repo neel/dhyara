@@ -49,6 +49,13 @@ struct frame{
     }
     
     /**
+     * CHecks whether the frame is valid or not
+     */
+    inline bool valid() const{
+        return _type == packets::type::unknown || _length == 0;
+    }
+    
+    /**
      * Sise of the header of the frame (2 bytes)
      */
     constexpr static std::uint8_t header_size() { return sizeof(packets::type) + sizeof(size_type); }
