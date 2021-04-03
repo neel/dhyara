@@ -29,6 +29,13 @@ namespace tools{
  * I (42140) ping: 20/20 received, 0.00% lost, rtt min/avg/max/total = 1.07/1.24/1.78/24.85 ms
  * I (42140) ping: 5000/5000 bytes in 12.7 ms
  * \endcode
+ * Following example demonstarate usage of ping tool.
+ * \code
+ * dhyara::peer_address target("4c:11:ae:9c:a6:85")
+ * dhyara::tools::ping ping(_network);
+ * ping.count(50).batch(20).sleep(1);
+ * ping(target);
+ * \endcode
  * \ingroup tools
  */
 struct ping{
