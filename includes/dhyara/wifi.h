@@ -30,8 +30,22 @@
 #define DHYARA_WIFI_H
 
 #include "esp_now.h"
+#include "esp_wifi.h"
 
 #ifdef __cplusplus
+extern "C" {  
+#endif  
+
+esp_err_t dhyara_ap_init();
+esp_err_t dhyara_station_join(wifi_config_t* sta_config);
+
+#ifdef __cplusplus  
+} // extern "C"  
+#endif
+
+#ifdef __cplusplus
+
+#include <dhyara/peer.h>
 
 namespace dhyara{
     struct link;
@@ -40,18 +54,8 @@ namespace dhyara{
 dhyara::link& dhyara_link();
 
 void dhyara_espnow_init();
+esp_err_t dhyara_join(const dhyara::peer_address& address);
 
-#endif
-
-#ifdef __cplusplus
-extern "C" {  
-#endif  
-
-void dhyara_ap_init();
-void dhyara_station_init();
-
-#ifdef __cplusplus  
-} // extern "C"  
 #endif
 
 #endif // DHYARA_WIFI_H

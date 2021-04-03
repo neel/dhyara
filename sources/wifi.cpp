@@ -65,3 +65,11 @@ void dhyara_espnow_init(){
 dhyara::link& dhyara_link(){
     return g_dhyara_link;
 }
+
+esp_err_t dhyara_join(const dhyara::peer_address& address){
+    wifi_config_t config;
+    std::copy(address.raw(), address.raw()+6, config.sta.bssid);
+    config.sta.bssid_set = true;
+    config.sta.scan_method = WIFI_FAST_SCAN;
+    return dhyara_station_join(&config);
+}

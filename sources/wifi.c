@@ -26,12 +26,13 @@
  */
 
 #include "dhyara/wifi.h"
+#include "esp_log.h"
 
-
-void dhyara_ap_init(){
-    
+esp_err_t dhyara_ap_init(){
+    return ESP_OK;
 }
 
-void dhyara_station_init(){
-    
+esp_err_t dhyara_station_join(wifi_config_t* sta_config){
+    ESP_ERROR_CHECK(esp_wifi_set_config(WIFI_IF_STA, sta_config));
+    return esp_wifi_connect();
 }
