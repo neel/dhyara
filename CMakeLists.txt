@@ -28,6 +28,8 @@ idf_component_register(
         "sources/utils/http.cpp"
         "sources/tools/ping.cpp"
         "sources/tools/traceroute.cpp"
+        "sources/wifi.cpp"
+        "sources/wifi.c"
     INCLUDE_DIRS 
         "includes"
     REQUIRES 

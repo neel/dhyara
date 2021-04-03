@@ -58,12 +58,14 @@ void dhyara::tools::ping::operator()(const dhyara::peer_address& addr){
         (double)_network.echo_reply().rtt().max/1000.0,
         (double)_network.echo_reply().rtt().total/1000.0
     );
+    double duration = (double)(_last - _first - wastage)/1000.0;
     ESP_LOGI(
         "ping", 
-        "%zu/%zu bytes in %.2lf ms", 
+        "%zu/%zu bytes in %.2lf ms (%.2lf KB/s)", 
         icmp_rcvd*250,
         icmp_sent*250,
-        (double)(_last - _first - wastage)/1000.0
+        duration,
+        ((double)(icmp_sent*250*1000) / duration)/1000.0
     );
     reset();
 }
