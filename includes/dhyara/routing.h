@@ -231,7 +231,7 @@ struct routing {
         delay_type       _def;
         table_type       _table;
         next_vector_type _next;
-        dhyara::mutex    _mutex;
+        std::mutex       _mutex;
         
         delay_type delay(const route& r) const;
         next_hop calculated_next(dhyara::peer::address dst) const;
