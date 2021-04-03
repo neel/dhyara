@@ -27,3 +27,11 @@
 
 #include "dhyara/wifi.h"
 
+
+void dhyara_ap_init(){
+    
+}
+
+void dhyara_station_init(){
+    
+}

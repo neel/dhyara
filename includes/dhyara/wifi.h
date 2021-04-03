@@ -40,7 +40,18 @@ namespace dhyara{
 dhyara::link& dhyara_link();
 
 void dhyara_espnow_init();
-    
+
+#endif
+
+#ifdef __cplusplus
+extern "C" {  
+#endif  
+
+void dhyara_ap_init();
+void dhyara_station_init();
+
+#ifdef __cplusplus  
+} // extern "C"  
 #endif
 
 #endif // DHYARA_WIFI_H
