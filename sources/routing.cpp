@@ -76,11 +76,7 @@ bool dhyara::routing::update(const dhyara::routing::route& r, const dhyara::dela
     }else{
         _table.insert(std::make_pair(r, route_metric(d, esp_timer_get_time())));
     }
-    bool altered = update_next(r.dst());
-//     if(altered){
-//         std::cout << *this << std::endl;
-//     }
-    return altered;
+    return update_next(r.dst());
 }
 
 bool dhyara::routing::depreciate(const dhyara::routing::route& r){

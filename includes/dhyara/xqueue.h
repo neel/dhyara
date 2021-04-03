@@ -190,6 +190,23 @@ struct notifier: watcher<char>{
         return watcher<char>::watch(watched);
     }
 };
+
+/**
+ * mutex
+ */
+struct mutex: watcher<char>{
+    bool unlock(){
+        return watcher<char>::notify(0);
+    }
+    /**
+     * returns only when it is notified. sleeps otherwise. intended to be called from a while loop.
+     */
+    bool lock(){
+        static char watched;
+        return watcher<char>::watch(watched);
+    }
+};
+
 /**
  * Envelop for both <tt>to be sent</tt> and <tt>has been received</tt> messages
  */

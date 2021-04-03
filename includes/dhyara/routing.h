@@ -11,6 +11,7 @@
 
 #include "dhyara/defs.h"
 #include "dhyara/peer.h"
+#include "dhyara/xqueue.h"
 #include <map>
 #include <limits>
 #include <thread>
@@ -230,7 +231,7 @@ struct routing {
         delay_type       _def;
         table_type       _table;
         next_vector_type _next;
-        std::mutex       _mutex;
+        dhyara::mutex    _mutex;
         
         delay_type delay(const route& r) const;
         next_hop calculated_next(dhyara::peer::address dst) const;
