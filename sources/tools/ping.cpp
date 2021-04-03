@@ -61,13 +61,12 @@ void dhyara::tools::ping::operator()(const dhyara::peer_address& addr){
     double duration = (double)(_last - _first - wastage)/1000.0;
     ESP_LOGI(
         "ping", 
-        "%zu/%zu bytes in %.2lf ms (%.2lf KB/s)", 
+        "%zu/%zu bytes in %.2lf ms (%.2lf kB/s)", 
         icmp_rcvd*250,
         icmp_sent*250,
         duration,
-        ((double)(icmp_sent*250*1000) / duration)/1000.0
+        ((double)(icmp_sent*250*1000) / (duration/2))/1000.0
     );
-    reset();
 }
 
 void dhyara::tools::ping::operator()(const std::string& addr){

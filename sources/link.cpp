@@ -96,7 +96,7 @@ void dhyara::link::_esp_sent_cb(const uint8_t*, esp_now_send_status_t status){
 void dhyara::link::_esp_promiscous_rx_cb(void* buffer, wifi_promiscuous_pkt_type_t type){
     static dhyara::delay_type last = esp_timer_get_time();
     dhyara::delay_type now = esp_timer_get_time();
-    if((now - last) <= 1000){ // don't update rssi within 1ms
+    if((now - last) <= 10000){ // don't update rssi within 10ms
         return;
     }
     wifi_promiscuous_pkt_t* p = (wifi_promiscuous_pkt_t*)buffer;

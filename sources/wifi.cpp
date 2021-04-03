@@ -49,13 +49,10 @@ static void _dhyara_promiscuous(void* buffer, wifi_promiscuous_pkt_type_t type){
 // }
 
 void dhyara_espnow_init(){
-    wifi_promiscuous_filter_t filter;
-    filter.filter_mask = WIFI_PKT_CTRL;
-    
     ESP_ERROR_CHECK(esp_now_init());
     ESP_ERROR_CHECK(esp_now_register_send_cb(_dhyara_sent));
     ESP_ERROR_CHECK(esp_now_register_recv_cb(_dhyara_rcvd));
-    ESP_ERROR_CHECK(esp_wifi_set_promiscuous_filter(&filter));
+    ESP_ERROR_CHECK(esp_wifi_set_promiscuous_filter(&g_dhyara_promiscous_filter));
     ESP_ERROR_CHECK(esp_wifi_set_promiscuous_rx_cb(&_dhyara_promiscuous));
     ESP_ERROR_CHECK(esp_wifi_set_promiscuous(true));
     // ESP_ERROR_CHECK(esp_wifi_set_csi_rx_cb(&_csi, 0x0));
