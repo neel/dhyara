@@ -33,9 +33,16 @@ wifi_promiscuous_filter_t g_dhyara_promiscous_filter = {
     .filter_mask = WIFI_PKT_CTRL
 };
 
-esp_err_t dhyara_ap_init(){
-    return ESP_OK;
+void dhyara_ap_init(){
+    esp_netif_t* netif_ap = esp_netif_create_default_wifi_ap();
+    assert(netif_ap);
 }
+
+void dhyara_sta_init(){
+    esp_netif_t *sta_netif = esp_netif_create_default_wifi_sta();
+    assert(sta_netif);
+}
+
 
 esp_err_t dhyara_station_join(wifi_config_t* sta_config){
     ESP_ERROR_CHECK(esp_wifi_set_config(WIFI_IF_STA, sta_config));

@@ -38,8 +38,9 @@ extern "C" {
 #endif  
 
 extern wifi_promiscuous_filter_t g_dhyara_promiscous_filter;
-    
-esp_err_t dhyara_ap_init();
+
+void dhyara_ap_init();
+void dhyara_sta_init();
 esp_err_t dhyara_station_join(wifi_config_t* sta_config);
 
 #ifdef __cplusplus  
