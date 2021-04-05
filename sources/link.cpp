@@ -29,7 +29,9 @@
 #include "esp_wifi.h"
 #include <functional>
 #include <cassert>
+#include <cstring>
 #include "esp_log.h"
+#include "dhyara/wifi.h"
 
 struct ieee_802_11_management_frame{
   int16_t fctl;
@@ -187,4 +189,21 @@ std::int8_t dhyara::link::max_rssi() const{
 
 dhyara::delay_type dhyara::link::lost() const{
     return esp_timer_get_time() - _routes.lost_since();
+}
+
+esp_err_t dhyara::link::connect(const dhyara::peer_address& target){
+    if(!_neighbours.exists(target)){
+        return ESP_FAIL;
+    }
+    
+    wifi_config_t config;
+    const dhyara::peer& peer = _neighbours.get_peer(target);
+    
+    std::memset(&config, 0, sizeof(wifi_config_t));
+    target.copy(config.sta.bssid);
+    config.sta.bssid_set = true;
+    std::copy(peer.name().begin(), peer.name().end(), config.sta.ssid);
+    config.sta.scan_method = WIFI_FAST_SCAN;
+    config.sta.threshold.authmode = WIFI_AUTH_OPEN;
+    return dhyara_station_join(&config);
 }

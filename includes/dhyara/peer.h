@@ -118,6 +118,14 @@ struct peer_address{
     void set(const std::uint8_t* bytes);
     
     /**
+     * Copy the MAC address to another container by bytes
+     */
+    template <typename OutIt>
+    OutIt copy(OutIt it) const{
+        return std::copy(_bytes.begin(), _bytes.end(), it);
+    }
+    
+    /**
      * check whether the mac address is null 
      */
     inline bool is_null() const { return std::accumulate(_bytes.begin(), _bytes.end(), 0) == 0; }

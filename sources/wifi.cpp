@@ -63,15 +63,3 @@ void dhyara_espnow_init(){
 dhyara::link& dhyara_link(){
     return g_dhyara_link;
 }
-
-esp_err_t dhyara_join(const dhyara::peer_address& address){
-    wifi_config_t config;
-    std::memset(&config, 0, sizeof(wifi_config_t));
-    std::copy(address.raw(), address.raw()+6, config.sta.bssid);
-    const char ssid[] = "ESP_9CA685";
-    std::copy(ssid, ssid+10, config.sta.ssid);
-    config.sta.bssid_set = true;
-    config.sta.scan_method = WIFI_FAST_SCAN;
-    config.sta.threshold.authmode = WIFI_AUTH_OPEN;
-    return dhyara_station_join(&config);
-}

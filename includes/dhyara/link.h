@@ -200,6 +200,11 @@ struct link{
      */
     dhyara::delay_type lost() const;
     
+    /**
+     * Associate with the target AP using the station interface
+     */
+    esp_err_t connect(const dhyara::peer_address& target);
+    
     private:
         
         /**

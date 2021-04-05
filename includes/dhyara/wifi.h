@@ -39,8 +39,10 @@ extern "C" {
 
 extern wifi_promiscuous_filter_t g_dhyara_promiscous_filter;
 
-void dhyara_ap_init();
-void dhyara_sta_init();
+/**
+ * Initialize dhyara
+ */
+esp_err_t dhyara_wifi_init(wifi_mode_t mode);
 esp_err_t dhyara_station_join(wifi_config_t* sta_config);
 
 #ifdef __cplusplus  
@@ -55,10 +57,12 @@ namespace dhyara{
     struct link;
 };
 
+/**
+ * Get dhyara communication link
+ */
 dhyara::link& dhyara_link();
 
 void dhyara_espnow_init();
-esp_err_t dhyara_join(const dhyara::peer_address& address);
 
 #endif
 
