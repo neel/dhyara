@@ -1,0 +1,9 @@
+<map id="end" name="end">
+<area shape="rect" id="node1" title=" " alt="" coords="656,80,703,106"/>
+<area shape="rect" id="node2" href="$structdhyara_1_1packets_1_1data.html#aa67918cb19272ab77cca8da11adaa3c5" title=" " alt="" coords="231,10,393,51"/>
+<area shape="rect" id="node3" href="$structdhyara_1_1packets_1_1data.html#a89b90f1ec3c8890222b8380f3dc1e26d" title=" " alt="" coords="443,39,606,80"/>
+<area shape="rect" id="node4" href="$structdhyara_1_1serialization.html#adb3254a33f7dcc03a625294d1218cef7" title=" " alt="" coords="447,104,602,146"/>
+<area shape="rect" id="node7" href="$structdhyara_1_1network.html#a6ed3eca266b9da66b2bb422d891cd145" title="Send a variable sized data to the destination." alt="" coords="441,170,608,197"/>
+<area shape="rect" id="node5" href="$group__io.html#ga1b83b801d54296c6cc9fc793b9141594" title="read into a packet" alt="" coords="260,112,364,138"/>
+<area shape="rect" id="node6" href="$structdhyara_1_1actions_1_1action.html#a6273443e685fadf590c7e06c9981fd0d" title="Creates a packet from the received frame." alt="" coords="5,90,183,160"/>
+</map>

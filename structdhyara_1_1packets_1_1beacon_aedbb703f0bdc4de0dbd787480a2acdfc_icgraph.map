@@ -1,0 +1,4 @@
+<map id="dhyara::packets::beacon::beacon" name="dhyara::packets::beacon::beacon">
+<area shape="rect" id="node1" title="Construct a beacon packet with the current time." alt="" coords="233,5,413,47"/>
+<area shape="rect" id="node2" href="$structdhyara_1_1packets_1_1beacon.html#aecc63dfa197e8b4d1b87d1d55f89fb4b" title="Size of the beacon packet." alt="" coords="5,5,185,47"/>
+</map>

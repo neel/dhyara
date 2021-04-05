@@ -1,0 +1,5 @@
+<map id="dhyara::serialization::read" name="dhyara::serialization::read">
+<area shape="rect" id="node1" title=" " alt="" coords="383,20,537,61"/>
+<area shape="rect" id="node2" href="$group__io.html#ga1b83b801d54296c6cc9fc793b9141594" title="read into a packet" alt="" coords="231,27,335,54"/>
+<area shape="rect" id="node3" href="$structdhyara_1_1actions_1_1action.html#a6273443e685fadf590c7e06c9981fd0d" title="Creates a packet from the received frame." alt="" coords="5,5,183,76"/>
+</map>

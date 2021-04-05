@@ -1,0 +1,4 @@
+<map id="dhyara::packets::advertisement::dest" name="dhyara::packets::advertisement::dest">
+<area shape="rect" id="node1" title="Destination in the advertisement packet." alt="" coords="281,5,509,47"/>
+<area shape="rect" id="node2" href="$structdhyara_1_1packets_1_1advertisement.html#aac59a84b282b961fd68866f9491473a9" title="Construct an advertisement packet with the given destination and the delay specified." alt="" coords="5,5,233,47"/>
+</map>

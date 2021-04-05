@@ -1,0 +1,4 @@
+<map id="dhyara::xqueue::overwrite" name="dhyara::xqueue::overwrite">
+<area shape="rect" id="node1" title="enqueue a value to the queue, if the queue is full overwrites the last" alt="" coords="224,13,417,39"/>
+<area shape="rect" id="node2" href="$structdhyara_1_1watcher.html#a6f8479e803b87b271c71e32b9c915706" title="notify the watcher" alt="" coords="5,5,176,47"/>
+</map>

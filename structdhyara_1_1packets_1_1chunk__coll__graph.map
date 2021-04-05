@@ -1,0 +1,4 @@
+<map id="dhyara::packets::chunk" name="dhyara::packets::chunk">
+<area shape="rect" id="node1" title="Chunk of a variable sized data." alt="" coords="5,109,177,136"/>
+<area shape="rect" id="node2" href="$structdhyara_1_1packets_1_1chunk_1_1header.html" title="Header in the chunk." alt="" coords="5,5,177,47"/>
+</map>

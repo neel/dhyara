@@ -1,0 +1,4 @@
+<map id="dhyara::actions::beacon" name="dhyara::actions::beacon">
+<area shape="rect" id="node1" title="action to handle an incoming beacon packet" alt="" coords="14,109,191,136"/>
+<area shape="rect" id="node2" href="$structdhyara_1_1actions_1_1action.html" title=" " alt="" coords="5,5,200,61"/>
+</map>

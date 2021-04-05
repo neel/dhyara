@@ -1,0 +1,6 @@
+<map id="length" name="length">
+<area shape="rect" id="node1" title="Length of the frame." alt="" coords="585,27,648,54"/>
+<area shape="rect" id="node2" href="$group__io.html#ga1b83b801d54296c6cc9fc793b9141594" title="read into a packet" alt="" coords="231,27,335,54"/>
+<area shape="rect" id="node4" href="$structdhyara_1_1serialization.html#adb3254a33f7dcc03a625294d1218cef7" title=" " alt="" coords="383,49,537,91"/>
+<area shape="rect" id="node3" href="$structdhyara_1_1actions_1_1action.html#a6273443e685fadf590c7e06c9981fd0d" title="Creates a packet from the received frame." alt="" coords="5,5,183,76"/>
+</map>

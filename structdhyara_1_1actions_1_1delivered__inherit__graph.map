@@ -1,0 +1,4 @@
+<map id="dhyara::actions::delivered" name="dhyara::actions::delivered">
+<area shape="rect" id="node1" title="action to handle an incoming delivery report" alt="" coords="15,109,205,136"/>
+<area shape="rect" id="node2" href="$structdhyara_1_1actions_1_1action.html" title=" " alt="" coords="5,5,215,61"/>
+</map>

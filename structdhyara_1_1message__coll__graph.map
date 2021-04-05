@@ -1,0 +1,5 @@
+<map id="dhyara::message" name="dhyara::message">
+<area shape="rect" id="node1" title="Envelop for both to be sent and has been received messages." alt="" coords="101,95,235,121"/>
+<area shape="rect" id="node2" href="$structdhyara_1_1peer__address.html" title="peer address (mac address)" alt="" coords="5,5,168,32"/>
+<area shape="rect" id="node3" href="$structdhyara_1_1frame.html" title="A 250 bytes frame is defined by a 2 bytes header and 248 bytes payload." alt="" coords="192,5,307,32"/>
+</map>

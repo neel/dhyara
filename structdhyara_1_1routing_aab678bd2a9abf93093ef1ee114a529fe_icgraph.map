@@ -1,0 +1,4 @@
+<map id="dhyara::routing::depreciate" name="dhyara::routing::depreciate">
+<area shape="rect" id="node1" title="depreciate a route that was not updated within dhyara::route_expiry time" alt="" coords="252,5,451,32"/>
+<area shape="rect" id="node2" href="$structdhyara_1_1routing.html#a318264149dc6457b2a67bef55d5cd607" title="depreciate a route that was not updated within dhyara::route_expiry time" alt="" coords="5,5,204,32"/>
+</map>

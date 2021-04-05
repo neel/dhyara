@@ -1,0 +1,4 @@
+<map id="dhyara::xqueue::count" name="dhyara::xqueue::count">
+<area shape="rect" id="node1" title="Returns the number of messages stored in the queue without making any FreeRTOS call." alt="" coords="216,20,383,47"/>
+<area shape="rect" id="node2" href="$structdhyara_1_1network__fifo.html#a850c9bc0b019e551967abf4dccd215bc" title="Returns the number of messages stored in the queue without making any FreeRTOS call." alt="" coords="5,5,168,61"/>
+</map>

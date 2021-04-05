@@ -1,0 +1,4 @@
+<map id="dhyara::xqueue::peek" name="dhyara::xqueue::peek">
+<area shape="rect" id="node1" title="Peeks a message and return." alt="" coords="216,20,379,47"/>
+<area shape="rect" id="node2" href="$structdhyara_1_1network__fifo.html#a12122ab3e5f09c1a287be03a45b85d04" title="Peeks a frame into the refered value from the queue." alt="" coords="5,5,168,61"/>
+</map>

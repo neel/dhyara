@@ -1,0 +1,5 @@
+<map id="dhyara::frame::length" name="dhyara::frame::length">
+<area shape="rect" id="node1" title="Length of the frame." alt="" coords="231,65,393,91"/>
+<area shape="rect" id="node2" href="$structdhyara_1_1actions_1_1action.html#a6273443e685fadf590c7e06c9981fd0d" title="Creates a packet from the received frame." alt="" coords="5,5,183,76"/>
+<area shape="rect" id="node3" href="$structdhyara_1_1frame.html#a89311feee64ed9e3100ae21890492d4b" title="Size of the frame." alt="" coords="20,101,168,127"/>
+</map>

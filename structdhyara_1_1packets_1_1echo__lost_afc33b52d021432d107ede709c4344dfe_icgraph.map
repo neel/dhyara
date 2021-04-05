@@ -1,0 +1,4 @@
+<map id="dhyara::packets::echo_lost::echo_lost" name="dhyara::packets::echo_lost::echo_lost">
+<area shape="rect" id="node1" title="Construct an echo lost to null destination originating from null destination on current time." alt="" coords="217,5,381,47"/>
+<area shape="rect" id="node2" href="$structdhyara_1_1packets_1_1echo__lost.html#a29addee5a8c8670944bfa928843b5845" title="Size of the packet." alt="" coords="5,5,169,47"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="dhyara::packets::delivered::delivered" name="dhyara::packets::delivered::delivered">
+<area shape="rect" id="node1" title="Construct a delivery report with source and target set to null address and packet id is set to 0." alt="" coords="248,5,443,47"/>
+<area shape="rect" id="node2" href="$structdhyara_1_1packets_1_1delivered.html#adc5d7cc2a5704e78928008180716a603" title="Siez of the delivery report." alt="" coords="5,5,200,47"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="dhyara::actions::advertisement" name="dhyara::actions::advertisement">
+<area shape="rect" id="node1" title="action to handle an incoming advertisement packet" alt="" coords="5,109,231,136"/>
+<area shape="rect" id="node2" href="$structdhyara_1_1actions_1_1action.html" title=" " alt="" coords="19,5,217,61"/>
+</map>
