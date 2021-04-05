@@ -179,6 +179,10 @@ struct peer{
      */
     inline void rssi(std::uint8_t v) { _rssi = v; }
     
+    inline void name(const std::string& n) { _name = n; }
+    
+    inline const std::string& name() const { return _name; }
+    
     inline const esp_now_peer_info_t* raw() const {return &_peer;}
     
     bool operator<(const peer& other) const;
@@ -195,6 +199,7 @@ struct peer{
         esp_now_peer_info_t _peer;
         address             _addr;
         std::int8_t         _rssi;
+        std::string         _name;
 };
 
 std::ostream& operator<<(std::ostream& os, const dhyara::peer::address& address);

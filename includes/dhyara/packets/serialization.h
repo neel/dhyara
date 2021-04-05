@@ -36,7 +36,6 @@ struct serialization{
     }
 };
     
-    
 }
 
 #endif // DHYARA_PACKETS_SERIALIZATION_H

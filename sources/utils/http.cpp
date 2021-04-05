@@ -74,14 +74,18 @@ esp_err_t dhyara::utils::http::routes(httpd_req_t* req){
                 << "<th>" << "next" << "</th>"
                 << "<th>" << "delay (ms)" << "</th>"
                 << "<th>" << "RSSI" << "</th>"
+                << "<th>" << "Name" << "</th>"
             << "</tr>";
     for(auto it = _link.routes().next_begin(); it != _link.routes().next_end(); ++it){
         const auto& dst         = it->first;
         const auto& via         = it->second.via();
         const auto& delay       = it->second.delay();
         std::int8_t rssi = 0;
+        std::string name;
         if(_link.neighbours().exists(dst)){
-            rssi = _link.neighbours().get_peer(dst).rssi();
+            const auto& peer = _link.neighbours().get_peer(dst);
+            rssi = peer.rssi();
+            name = peer.name();
         }
         
         table << "<tr>"
@@ -89,6 +93,7 @@ esp_err_t dhyara::utils::http::routes(httpd_req_t* req){
                 << "<td>" << via.to_string() << "</td>"
                 << "<td>" << (double)delay/1000.0 << "</td>"
                 << "<td>" << (int)rssi << " dBm" << "</td>"
+                << "<td>" << name << "</td>"
             << "</tr>";
     }
     table << "</table>";

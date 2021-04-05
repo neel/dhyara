@@ -30,18 +30,34 @@
 #include "dhyara/peer.h"
 #include "dhyara/actions/beacon.h"
 #include "dhyara/packets/acknowledgement.h"
+#include <esp_wifi.h>
+#include <cstring>
+
+dhyara::actions::beacon::beacon(dhyara::link& link): _link(link){
+    
+}
+
 
 void dhyara::actions::beacon::operator()(const dhyara::peer_address& addr, const dhyara::packets::beacon& beacon){
     if(!_link.neighbours().exists(addr.to_string())){
         _link.neighbours().add(addr.to_string(), dhyara::espnow_peer_channel);
     }
+    _link.neighbours().get_peer(addr).name(beacon.name());
     if(!banned(addr)){
         _link.send_local(addr, dhyara::packets::type::acknowledgement, dhyara::packets::acknowledgement(beacon.time()));
     }
 }
 
 void dhyara::actions::beacon::broadcast(){
-    _link.send_local(dhyara::peer::address::all(), dhyara::packets::type::beacon, dhyara::packets::beacon());
+    std::string ssid;
+    esp_wifi_get_mode(&_mode);
+    if(_mode == WIFI_MODE_AP || _mode == WIFI_MODE_APSTA){
+        wifi_config_t config;
+        std::memset(&config, 0, sizeof(wifi_config_t));
+        ESP_ERROR_CHECK_WITHOUT_ABORT(esp_wifi_get_config(ESP_IF_WIFI_AP, &config));
+        std::copy_n(config.ap.ssid, config.ap.ssid_len, std::back_inserter(ssid));
+    }
+    _link.send_local(dhyara::peer::address::all(), dhyara::packets::type::beacon, dhyara::packets::beacon(ssid));
 }
 
 void dhyara::actions::beacon::ban(const dhyara::peer_address& addr){

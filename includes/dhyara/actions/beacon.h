@@ -26,7 +26,7 @@ namespace actions{
  */
 struct beacon: dhyara::actions::action<beacon, dhyara::packets::beacon>{
     
-    inline explicit beacon(dhyara::link& link): _link(link){}
+    explicit beacon(dhyara::link& link);
     
     using action::operator();
     void operator()(const dhyara::peer_address& addr, const dhyara::packets::beacon& beacon);
@@ -53,6 +53,7 @@ struct beacon: dhyara::actions::action<beacon, dhyara::packets::beacon>{
     private:
         dhyara::link& _link;
         std::set<dhyara::peer_address> _banned;
+        wifi_mode_t _mode;
 };
 
 }
