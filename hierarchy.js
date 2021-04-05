@@ -58,6 +58,7 @@ var hierarchy =
     [ "dhyara::routing", "structdhyara_1_1routing.html", null ],
     [ "dhyara::actions::echo_reply::rtt_stat", "structdhyara_1_1actions_1_1echo__reply_1_1rtt__stat.html", null ],
     [ "dhyara::serialization< PacketT >", "structdhyara_1_1serialization.html", null ],
+    [ "dhyara::serialization< packets::beacon >", "structdhyara_1_1serialization_3_01packets_1_1beacon_01_4.html", null ],
     [ "dhyara::synchronizer", "structdhyara_1_1synchronizer.html", null ],
     [ "dhyara::tools::traceroute", "structdhyara_1_1tools_1_1traceroute.html", null ],
     [ "dhyara::watcher< WatchedT >", "structdhyara_1_1watcher.html", null ],

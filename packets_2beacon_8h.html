@@ -85,23 +85,26 @@ $(document).ready(function(){initNavTree('packets_2beacon_8h.html',''); initResi
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
 <div class="title">beacon.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;cstdint&gt;</code><br />
+<code>#include &lt;algorithm&gt;</code><br />
 <code>#include &quot;esp_timer.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="serialization_8h_source.html">dhyara/packets/serialization.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for beacon.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="packets_2beacon_8h__incl.png" border="0" usemap="#_2home_2runner_2work_2dhyara_2dhyara_2includes_2dhyara_2packets_2beacon_8h" alt=""/></div>
 <map name="_2home_2runner_2work_2dhyara_2dhyara_2includes_2dhyara_2packets_2beacon_8h" id="_2home_2runner_2work_2dhyara_2dhyara_2includes_2dhyara_2packets_2beacon_8h">
-<area shape="rect" title=" " alt="" coords="5,5,200,61"/>
-<area shape="rect" title=" " alt="" coords="16,109,83,136"/>
-<area shape="rect" title=" " alt="" coords="107,109,205,136"/>
+<area shape="rect" title=" " alt="" coords="25,5,220,61"/>
+<area shape="rect" title=" " alt="" coords="91,184,157,211"/>
+<area shape="rect" title=" " alt="" coords="23,109,108,136"/>
+<area shape="rect" title=" " alt="" coords="132,109,231,136"/>
+<area shape="rect" href="serialization_8h.html" title=" " alt="" coords="255,109,473,136"/>
+<area shape="rect" title=" " alt="" coords="321,184,407,211"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -140,6 +143,8 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1packets_1_1beacon.html">dhyara::packets::beacon</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">beacon packet  <a href="structdhyara_1_1packets_1_1beacon.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1serialization_3_01packets_1_1beacon_01_4.html">dhyara::serialization&lt; packets::beacon &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
@@ -147,164 +152,7 @@ Namespaces</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacedhyara_1_1packets"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedhyara_1_1packets.html">dhyara::packets</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:gae27cfcbda87a70c2408174013be11e1f"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structdhyara_1_1packets_1_1acknowledgement.html">dhyara::packets::acknowledgement</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__packets.html#gae27cfcbda87a70c2408174013be11e1f">dhyara::packets::__attribute__</a> ((packed))</td></tr>
-<tr class="separator:gae27cfcbda87a70c2408174013be11e1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb4feaa21f7907c2a5a01bbe1a820ce1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packets_2beacon_8h.html#afb4feaa21f7907c2a5a01bbe1a820ce1">beacon</a> ()</td></tr>
-<tr class="memdesc:afb4feaa21f7907c2a5a01bbe1a820ce1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a beacon packet with the current time.  <a href="packets_2beacon_8h.html#afb4feaa21f7907c2a5a01bbe1a820ce1">More...</a><br /></td></tr>
-<tr class="separator:afb4feaa21f7907c2a5a01bbe1a820ce1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2e8183b856e04570569538cc717e3f4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packets_2beacon_8h.html#aa2e8183b856e04570569538cc717e3f4">beacon</a> (std::uint64_t <a class="el" href="packets_2echo__request_8h.html#a31b1887b77bad157566fb1ac4f2cecb4">time</a>)</td></tr>
-<tr class="memdesc:aa2e8183b856e04570569538cc717e3f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a beacon packet with the time provided.  <a href="packets_2beacon_8h.html#aa2e8183b856e04570569538cc717e3f4">More...</a><br /></td></tr>
-<tr class="separator:aa2e8183b856e04570569538cc717e3f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab35f8993a9ae18fc86e9f4bcd9a7a6d8"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packets_2beacon_8h.html#ab35f8993a9ae18fc86e9f4bcd9a7a6d8">size</a> () const</td></tr>
-<tr class="memdesc:ab35f8993a9ae18fc86e9f4bcd9a7a6d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of the beacon packet.  <a href="packets_2beacon_8h.html#ab35f8993a9ae18fc86e9f4bcd9a7a6d8">More...</a><br /></td></tr>
-<tr class="separator:ab35f8993a9ae18fc86e9f4bcd9a7a6d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a31b1887b77bad157566fb1ac4f2cecb4"><td class="memItemLeft" align="right" valign="top">std::uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packets_2beacon_8h.html#a31b1887b77bad157566fb1ac4f2cecb4">time</a> () const</td></tr>
-<tr class="memdesc:a31b1887b77bad157566fb1ac4f2cecb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time in the beacon packet.  <a href="packets_2beacon_8h.html#a31b1887b77bad157566fb1ac4f2cecb4">More...</a><br /></td></tr>
-<tr class="separator:a31b1887b77bad157566fb1ac4f2cecb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a160ef0751ae2f6aba4fa893e84ff5057"><td class="memItemLeft" align="right" valign="top">std::uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="packets_2beacon_8h.html#a160ef0751ae2f6aba4fa893e84ff5057">_time</a></td></tr>
-<tr class="separator:a160ef0751ae2f6aba4fa893e84ff5057"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="afb4feaa21f7907c2a5a01bbe1a820ce1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afb4feaa21f7907c2a5a01bbe1a820ce1">&#9670;&nbsp;</a></span>beacon() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">__attribute__::beacon </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Construct a beacon packet with the current time. </p>
-
-<p class="definition">Definition at line <a class="el" href="packets_2beacon_8h_source.html#l00007">7</a> of file <a class="el" href="packets_2beacon_8h_source.html">beacon.h</a>.</p>
-
-</div>
-</div>
-<a id="aa2e8183b856e04570569538cc717e3f4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa2e8183b856e04570569538cc717e3f4">&#9670;&nbsp;</a></span>beacon() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">__attribute__::beacon </td>
-          <td>(</td>
-          <td class="paramtype">std::uint64_t&#160;</td>
-          <td class="paramname"><em>time</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Construct a beacon packet with the time provided. </p>
-
-<p class="definition">Definition at line <a class="el" href="packets_2beacon_8h_source.html#l00011">11</a> of file <a class="el" href="packets_2beacon_8h_source.html">beacon.h</a>.</p>
-
-</div>
-</div>
-<a id="ab35f8993a9ae18fc86e9f4bcd9a7a6d8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab35f8993a9ae18fc86e9f4bcd9a7a6d8">&#9670;&nbsp;</a></span>size()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::size_t __attribute__::size </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Size of the beacon packet. </p>
-
-<p class="definition">Definition at line <a class="el" href="packets_2beacon_8h_source.html#l00015">15</a> of file <a class="el" href="packets_2beacon_8h_source.html">beacon.h</a>.</p>
-
-</div>
-</div>
-<a id="a31b1887b77bad157566fb1ac4f2cecb4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a31b1887b77bad157566fb1ac4f2cecb4">&#9670;&nbsp;</a></span>time()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::uint64_t __attribute__::time </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Time in the beacon packet. </p>
-
-<p class="definition">Definition at line <a class="el" href="packets_2beacon_8h_source.html#l00019">19</a> of file <a class="el" href="packets_2beacon_8h_source.html">beacon.h</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="a160ef0751ae2f6aba4fa893e84ff5057"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a160ef0751ae2f6aba4fa893e84ff5057">&#9670;&nbsp;</a></span>_time</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::uint64_t _time</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="packets_2beacon_8h_source.html#l00002">2</a> of file <a class="el" href="packets_2beacon_8h_source.html">beacon.h</a>.</p>
-
-</div>
-</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

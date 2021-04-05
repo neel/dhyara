@@ -17,6 +17,7 @@ var namespacedhyara =
     [ "peer_address", "structdhyara_1_1peer__address.html", "structdhyara_1_1peer__address" ],
     [ "routing", "structdhyara_1_1routing.html", "structdhyara_1_1routing" ],
     [ "serialization", "structdhyara_1_1serialization.html", "structdhyara_1_1serialization" ],
+    [ "serialization< packets::beacon >", "structdhyara_1_1serialization_3_01packets_1_1beacon_01_4.html", "structdhyara_1_1serialization_3_01packets_1_1beacon_01_4" ],
     [ "synchronizer", "structdhyara_1_1synchronizer.html", "structdhyara_1_1synchronizer" ],
     [ "watcher", "structdhyara_1_1watcher.html", "structdhyara_1_1watcher" ],
     [ "xqueue", "classdhyara_1_1xqueue.html", "classdhyara_1_1xqueue" ]

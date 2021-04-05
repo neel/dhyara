@@ -131,6 +131,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:addfa1ab8d6c9d3fcd0bb484812ea1bca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1peer.html#addfa1ab8d6c9d3fcd0bb484812ea1bca">rssi</a> (std::uint8_t v)</td></tr>
 <tr class="memdesc:addfa1ab8d6c9d3fcd0bb484812ea1bca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set RSSI value for the peer.  <a href="structdhyara_1_1peer.html#addfa1ab8d6c9d3fcd0bb484812ea1bca">More...</a><br /></td></tr>
 <tr class="separator:addfa1ab8d6c9d3fcd0bb484812ea1bca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3f75941d2db077872c5990fb2abb019"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1peer.html#aa3f75941d2db077872c5990fb2abb019">name</a> (const std::string &amp;n)</td></tr>
+<tr class="separator:aa3f75941d2db077872c5990fb2abb019"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e4c1effd52f4832342ed05464f37f3b"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1peer.html#a3e4c1effd52f4832342ed05464f37f3b">name</a> () const</td></tr>
+<tr class="separator:a3e4c1effd52f4832342ed05464f37f3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8929430ef1bb59588d41f9d22fc6f03a"><td class="memItemLeft" align="right" valign="top">const esp_now_peer_info_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1peer.html#a8929430ef1bb59588d41f9d22fc6f03a">raw</a> () const</td></tr>
 <tr class="separator:a8929430ef1bb59588d41f9d22fc6f03a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a347b2a727d5dc3c94876328d778963b5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1peer.html#a347b2a727d5dc3c94876328d778963b5">operator&lt;</a> (const <a class="el" href="structdhyara_1_1peer.html">peer</a> &amp;other) const</td></tr>
@@ -274,7 +278,7 @@ Public Member Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="peer_8h_source.html#l00154">154</a> of file <a class="el" href="peer_8h_source.html">peer.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="peer_8h_source.html#l00216">std::hash&lt; dhyara::peer &gt;::operator()()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="peer_8h_source.html#l00221">std::hash&lt; dhyara::peer &gt;::operator()()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -405,6 +409,61 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="a3e4c1effd52f4832342ed05464f37f3b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e4c1effd52f4832342ed05464f37f3b">&#9670;&nbsp;</a></span>name() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string&amp; dhyara::peer::name </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="peer_8h_source.html#l00184">184</a> of file <a class="el" href="peer_8h_source.html">peer.h</a>.</p>
+
+</div>
+</div>
+<a id="aa3f75941d2db077872c5990fb2abb019"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3f75941d2db077872c5990fb2abb019">&#9670;&nbsp;</a></span>name() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void dhyara::peer::name </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="peer_8h_source.html#l00182">182</a> of file <a class="el" href="peer_8h_source.html">peer.h</a>.</p>
+
+</div>
+</div>
 <a id="a0c3876ad88f868bd28f47f7ca78fc53d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0c3876ad88f868bd28f47f7ca78fc53d">&#9670;&nbsp;</a></span>operator!=()</h2>
 
@@ -431,7 +490,7 @@ Here is the caller graph for this function:</div>
 
 <p>Comparator. </p>
 
-<p class="definition">Definition at line <a class="el" href="peer_8h_source.html#l00192">192</a> of file <a class="el" href="peer_8h_source.html">peer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="peer_8h_source.html#l00196">196</a> of file <a class="el" href="peer_8h_source.html">peer.h</a>.</p>
 
 </div>
 </div>
@@ -496,7 +555,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="peer_8h_source.html#l00182">182</a> of file <a class="el" href="peer_8h_source.html">peer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="peer_8h_source.html#l00186">186</a> of file <a class="el" href="peer_8h_source.html">peer.h</a>.</p>
 
 </div>
 </div>
