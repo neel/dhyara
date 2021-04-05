@@ -37,6 +37,7 @@ jobs:
         
     - name: Build
       run: |
+        cd build
         make docs
     
     - name: Deploy
