@@ -3,6 +3,7 @@ DHYARA
 
 Dhyara is a ESP-IDF component for Layer 2 Mobile Ad-Hoc Networks on the top of ESP NOW. Dhyara is Open Source under BSD 2 Clause License. See [LICENSE](docs/LICENSE.md)
 
+[Doxygen Documentation](http://neel.github.io/dhyara)
 
 Compilation & Integration
 -----------
