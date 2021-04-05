@@ -174,6 +174,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac77bab79987666f6f1cd57862ee0dce9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacedhyara.html#a40258d037f7e261f737381612d402a35">dhyara::delay_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1link.html#ac77bab79987666f6f1cd57862ee0dce9">lost</a> () const</td></tr>
 <tr class="memdesc:ac77bab79987666f6f1cd57862ee0dce9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Duration for which the node has not heard anything from its neighbourhood (in us).  <a href="structdhyara_1_1link.html#ac77bab79987666f6f1cd57862ee0dce9">More...</a><br /></td></tr>
 <tr class="separator:ac77bab79987666f6f1cd57862ee0dce9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ffc74d64e082b29665d91a217411b4f"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1link.html#a9ffc74d64e082b29665d91a217411b4f">connect</a> (const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> &amp;<a class="el" href="packets_2echo__request_8h.html#a321cf56f5ac18e313f9ad58dc2150026">target</a>)</td></tr>
+<tr class="memdesc:a9ffc74d64e082b29665d91a217411b4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Associate with the target AP using the station interface.  <a href="structdhyara_1_1link.html#a9ffc74d64e082b29665d91a217411b4f">More...</a><br /></td></tr>
+<tr class="separator:a9ffc74d64e082b29665d91a217411b4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Link Layer Medium is responsible for sending packets and processing the received packets. </p>
@@ -438,6 +441,26 @@ Public Member Functions</h2></td></tr>
 <p>local address </p>
 
 <p class="definition">Definition at line <a class="el" href="link_8h_source.html#l00175">175</a> of file <a class="el" href="link_8h_source.html">link.h</a>.</p>
+
+</div>
+</div>
+<a id="a9ffc74d64e082b29665d91a217411b4f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ffc74d64e082b29665d91a217411b4f">&#9670;&nbsp;</a></span>connect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">esp_err_t dhyara::link::connect </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> &amp;&#160;</td>
+          <td class="paramname"><em>target</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Associate with the target AP using the station interface. </p>
 
 </div>
 </div>
@@ -754,7 +777,7 @@ template&lt;typename PacketT &gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="link_8h_source.html#l00093">93</a> of file <a class="el" href="link_8h_source.html">link.h</a>.</p>
 
-<p class="reference">References <a class="el" href="peer_8h_source.html#l00123">dhyara::peer_address::is_null()</a>, <a class="el" href="structdhyara_1_1routing.html#aa48f75eeef012f4269d2a803049d542f">dhyara::routing::next()</a>, <a class="el" href="packets_2chunk_8h_source.html#l00042">packet()</a>, <a class="el" href="link_8h_source.html#l00076">send_local()</a>, <a class="el" href="frame_8h_source.html#l00045">type()</a>, and <a class="el" href="routing_8h_source.html#l00122">dhyara::routing::next_hop::via()</a>.</p>
+<p class="reference">References <a class="el" href="peer_8h_source.html#l00131">dhyara::peer_address::is_null()</a>, <a class="el" href="structdhyara_1_1routing.html#aa48f75eeef012f4269d2a803049d542f">dhyara::routing::next()</a>, <a class="el" href="packets_2chunk_8h_source.html#l00042">packet()</a>, <a class="el" href="link_8h_source.html#l00076">send_local()</a>, <a class="el" href="frame_8h_source.html#l00045">type()</a>, and <a class="el" href="routing_8h_source.html#l00122">dhyara::routing::next_hop::via()</a>.</p>
 
 </div>
 </div>

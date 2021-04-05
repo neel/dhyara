@@ -12,6 +12,7 @@ var structdhyara_1_1peer__address =
     [ "b4", "structdhyara_1_1peer__address.html#abe103a7b99aa31b5c600f352e0a48601", null ],
     [ "b5", "structdhyara_1_1peer__address.html#a0947411301ee30c2706bf7460627ac67", null ],
     [ "b6", "structdhyara_1_1peer__address.html#ad47febdc4c685b610eb7e7b63883c503", null ],
+    [ "copy", "structdhyara_1_1peer__address.html#a40cc79792acea6b784d4a044f62b62c9", null ],
     [ "hash", "structdhyara_1_1peer__address.html#a7f8f04b2ab1fb6667b6c317093e1fa5f", null ],
     [ "is_broadcast", "structdhyara_1_1peer__address.html#a4c4e1621c75fa3a3487ae846d312ae51", null ],
     [ "is_null", "structdhyara_1_1peer__address.html#a0e89a05cb4d854fadc14897a089a0dad", null ],

@@ -162,6 +162,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aa1e3a6214939a770249ef1e886d9b792"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1peer__address.html#aa1e3a6214939a770249ef1e886d9b792">set</a> (const std::uint8_t *bytes)</td></tr>
 <tr class="memdesc:aa1e3a6214939a770249ef1e886d9b792"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the octets directly.  <a href="structdhyara_1_1peer__address.html#aa1e3a6214939a770249ef1e886d9b792">More...</a><br /></td></tr>
 <tr class="separator:aa1e3a6214939a770249ef1e886d9b792"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40cc79792acea6b784d4a044f62b62c9"><td class="memTemplParams" colspan="2">template&lt;typename OutIt &gt; </td></tr>
+<tr class="memitem:a40cc79792acea6b784d4a044f62b62c9"><td class="memTemplItemLeft" align="right" valign="top">OutIt&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structdhyara_1_1peer__address.html#a40cc79792acea6b784d4a044f62b62c9">copy</a> (OutIt it) const</td></tr>
+<tr class="memdesc:a40cc79792acea6b784d4a044f62b62c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy the MAC address to another container by bytes.  <a href="structdhyara_1_1peer__address.html#a40cc79792acea6b784d4a044f62b62c9">More...</a><br /></td></tr>
+<tr class="separator:a40cc79792acea6b784d4a044f62b62c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e89a05cb4d854fadc14897a089a0dad"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1peer__address.html#a0e89a05cb4d854fadc14897a089a0dad">is_null</a> () const</td></tr>
 <tr class="memdesc:a0e89a05cb4d854fadc14897a089a0dad"><td class="mdescLeft">&#160;</td><td class="mdescRight">check whether the mac address is null  <a href="structdhyara_1_1peer__address.html#a0e89a05cb4d854fadc14897a089a0dad">More...</a><br /></td></tr>
 <tr class="separator:a0e89a05cb4d854fadc14897a089a0dad"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -654,6 +658,40 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="a40cc79792acea6b784d4a044f62b62c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40cc79792acea6b784d4a044f62b62c9">&#9670;&nbsp;</a></span>copy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename OutIt &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">OutIt dhyara::peer_address::copy </td>
+          <td>(</td>
+          <td class="paramtype">OutIt&#160;</td>
+          <td class="paramname"><em>it</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copy the MAC address to another container by bytes. </p>
+
+<p class="definition">Definition at line <a class="el" href="peer_8h_source.html#l00124">124</a> of file <a class="el" href="peer_8h_source.html">peer.h</a>.</p>
+
+<p class="reference">References <a class="el" href="packets_2chunk_8h_source.html#l00047">copy()</a>.</p>
+
+</div>
+</div>
 <a id="a7f8f04b2ab1fb6667b6c317093e1fa5f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7f8f04b2ab1fb6667b6c317093e1fa5f">&#9670;&nbsp;</a></span>hash()</h2>
 
@@ -671,7 +709,7 @@ Here is the caller graph for this function:</div>
 
 <p>64 bit hash value for the mac address </p>
 
-<p class="reference">Referenced by <a class="el" href="peer_8h_source.html#l00214">std::hash&lt; dhyara::peer_address &gt;::operator()()</a>, and <a class="el" href="peer_8h_source.html#l00221">std::hash&lt; dhyara::peer &gt;::operator()()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="peer_8h_source.html#l00222">std::hash&lt; dhyara::peer_address &gt;::operator()()</a>, and <a class="el" href="peer_8h_source.html#l00229">std::hash&lt; dhyara::peer &gt;::operator()()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -710,7 +748,7 @@ Here is the caller graph for this function:</div>
 
 <p>check whether the mac address is broadcast </p>
 
-<p class="definition">Definition at line <a class="el" href="peer_8h_source.html#l00127">127</a> of file <a class="el" href="peer_8h_source.html">peer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="peer_8h_source.html#l00135">135</a> of file <a class="el" href="peer_8h_source.html">peer.h</a>.</p>
 
 </div>
 </div>
@@ -739,7 +777,7 @@ Here is the caller graph for this function:</div>
 
 <p>check whether the mac address is null </p>
 
-<p class="definition">Definition at line <a class="el" href="peer_8h_source.html#l00123">123</a> of file <a class="el" href="peer_8h_source.html">peer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="peer_8h_source.html#l00131">131</a> of file <a class="el" href="peer_8h_source.html">peer.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="link_8h_source.html#l00093">dhyara::link::send()</a>, and <a class="el" href="xqueue_8h_source.html#l00221">dhyara::message::valid()</a>.</p>
 <div class="dynheader">

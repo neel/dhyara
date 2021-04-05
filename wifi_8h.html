@@ -109,10 +109,9 @@ Include dependency graph for wifi.h:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ac835959068d2580ba44376ec3aa684d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="wifi_8h.html#ac835959068d2580ba44376ec3aa684d9">dhyara_ap_init</a> ()</td></tr>
-<tr class="separator:ac835959068d2580ba44376ec3aa684d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a88df27d7fd4bae503b50db9410742c0a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="wifi_8h.html#a88df27d7fd4bae503b50db9410742c0a">dhyara_sta_init</a> ()</td></tr>
-<tr class="separator:a88df27d7fd4bae503b50db9410742c0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53e6fba4548ac861adb1b477134d84cf"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="wifi_8h.html#a53e6fba4548ac861adb1b477134d84cf">dhyara_wifi_init</a> (wifi_mode_t mode)</td></tr>
+<tr class="memdesc:a53e6fba4548ac861adb1b477134d84cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize dhyara.  <a href="wifi_8h.html#a53e6fba4548ac861adb1b477134d84cf">More...</a><br /></td></tr>
+<tr class="separator:a53e6fba4548ac861adb1b477134d84cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a722fc9a64efa157d03720c9289520567"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="wifi_8h.html#a722fc9a64efa157d03720c9289520567">dhyara_station_join</a> (wifi_config_t *sta_config)</td></tr>
 <tr class="separator:a722fc9a64efa157d03720c9289520567"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -122,40 +121,6 @@ Variables</h2></td></tr>
 <tr class="separator:a66ec5998ff0198d524ccf42ffdce7eae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ac835959068d2580ba44376ec3aa684d9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac835959068d2580ba44376ec3aa684d9">&#9670;&nbsp;</a></span>dhyara_ap_init()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void dhyara_ap_init </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a88df27d7fd4bae503b50db9410742c0a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a88df27d7fd4bae503b50db9410742c0a">&#9670;&nbsp;</a></span>dhyara_sta_init()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void dhyara_sta_init </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a722fc9a64efa157d03720c9289520567"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a722fc9a64efa157d03720c9289520567">&#9670;&nbsp;</a></span>dhyara_station_join()</h2>
 
@@ -171,6 +136,26 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="a53e6fba4548ac861adb1b477134d84cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53e6fba4548ac861adb1b477134d84cf">&#9670;&nbsp;</a></span>dhyara_wifi_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">esp_err_t dhyara_wifi_init </td>
+          <td>(</td>
+          <td class="paramtype">wifi_mode_t&#160;</td>
+          <td class="paramname"><em>mode</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialize dhyara. </p>
 
 </div>
 </div>

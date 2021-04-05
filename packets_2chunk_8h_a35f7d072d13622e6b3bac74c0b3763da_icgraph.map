@@ -1,17 +1,18 @@
 <map id="copy" name="copy">
-<area shape="rect" id="node1" title=" " alt="" coords="868,177,921,203"/>
+<area shape="rect" id="node1" title=" " alt="" coords="868,209,921,235"/>
 <area shape="rect" id="node2" href="$structdhyara_1_1packets_1_1chunk.html#acf18dc3ba1ffe7fb8b03a0813d689c54" title=" " alt="" coords="648,5,820,47"/>
 <area shape="rect" id="node3" href="$structdhyara_1_1packets_1_1data.html#a33a2f54ce7569731eccc5a7d02514a09" title=" " alt="" coords="653,71,815,112"/>
 <area shape="rect" id="node4" href="$structdhyara_1_1packets_1_1chunk.html#ac1ca288a7fff3f359639c112418f313f" title=" " alt="" coords="648,136,820,177"/>
-<area shape="rect" id="node5" href="$structdhyara_1_1packets_1_1data.html#a89b90f1ec3c8890222b8380f3dc1e26d" title=" " alt="" coords="653,201,815,243"/>
-<area shape="rect" id="node7" href="$structdhyara_1_1serialization.html#adb3254a33f7dcc03a625294d1218cef7" title=" " alt="" coords="657,267,811,308"/>
-<area shape="rect" id="node10" href="$structdhyara_1_1serialization.html#a6fffb25d5d0a785cb1335681e74eb024" title=" " alt="" coords="657,347,811,388"/>
-<area shape="rect" id="node6" href="$structdhyara_1_1packets_1_1data.html#aa67918cb19272ab77cca8da11adaa3c5" title=" " alt="" coords="437,201,600,243"/>
-<area shape="rect" id="node8" href="$group__io.html#ga1b83b801d54296c6cc9fc793b9141594" title="read into a packet" alt="" coords="467,271,571,298"/>
-<area shape="rect" id="node9" href="$structdhyara_1_1actions_1_1action.html#a6273443e685fadf590c7e06c9981fd0d" title="Creates a packet from the received frame." alt="" coords="202,244,379,315"/>
-<area shape="rect" id="node11" href="$group__io.html#ga4ad2c87bab350b99de6805a397698bed" title="write a packet" alt="" coords="465,383,573,410"/>
-<area shape="rect" id="node12" href="$structdhyara_1_1frame.html#ad428874ae06aaf0869c44066fcd7cc4d" title="Create a frame from a packet and a packet type." alt="" coords="209,339,372,366"/>
-<area shape="rect" id="node13" href="$structdhyara_1_1frame.html#ac9a354daa91a03a35a16101b6803eeec" title="Creates a frame on heap with teh given packet and a packet type." alt="" coords="192,390,389,417"/>
-<area shape="rect" id="node14" href="$structdhyara_1_1link.html#a1f7775fc92ab5ca21327189e272eb2a2" title="Sends a packet to an immediate neighbour directly in one hop." alt="" coords="221,441,360,483"/>
-<area shape="rect" id="node15" href="$structdhyara_1_1link.html#a48561058093799346b0afabed0270515" title="Sends a packet via the best intermediate node." alt="" coords="5,449,144,475"/>
+<area shape="rect" id="node5" href="$structdhyara_1_1peer__address.html#a40cc79792acea6b784d4a044f62b62c9" title="Copy the MAC address to another container by bytes." alt="" coords="653,201,815,243"/>
+<area shape="rect" id="node6" href="$structdhyara_1_1packets_1_1data.html#a89b90f1ec3c8890222b8380f3dc1e26d" title=" " alt="" coords="653,267,815,308"/>
+<area shape="rect" id="node8" href="$structdhyara_1_1serialization.html#adb3254a33f7dcc03a625294d1218cef7" title=" " alt="" coords="657,332,811,373"/>
+<area shape="rect" id="node11" href="$structdhyara_1_1serialization.html#a6fffb25d5d0a785cb1335681e74eb024" title=" " alt="" coords="657,412,811,453"/>
+<area shape="rect" id="node7" href="$structdhyara_1_1packets_1_1data.html#aa67918cb19272ab77cca8da11adaa3c5" title=" " alt="" coords="437,267,600,308"/>
+<area shape="rect" id="node9" href="$group__io.html#ga1b83b801d54296c6cc9fc793b9141594" title="read into a packet" alt="" coords="467,337,571,363"/>
+<area shape="rect" id="node10" href="$structdhyara_1_1actions_1_1action.html#a6273443e685fadf590c7e06c9981fd0d" title="Creates a packet from the received frame." alt="" coords="202,309,379,380"/>
+<area shape="rect" id="node12" href="$group__io.html#ga4ad2c87bab350b99de6805a397698bed" title="write a packet" alt="" coords="465,449,573,475"/>
+<area shape="rect" id="node13" href="$structdhyara_1_1frame.html#ad428874ae06aaf0869c44066fcd7cc4d" title="Create a frame from a packet and a packet type." alt="" coords="209,405,372,431"/>
+<area shape="rect" id="node14" href="$structdhyara_1_1frame.html#ac9a354daa91a03a35a16101b6803eeec" title="Creates a frame on heap with teh given packet and a packet type." alt="" coords="192,455,389,482"/>
+<area shape="rect" id="node15" href="$structdhyara_1_1link.html#a1f7775fc92ab5ca21327189e272eb2a2" title="Sends a packet to an immediate neighbour directly in one hop." alt="" coords="221,507,360,548"/>
+<area shape="rect" id="node16" href="$structdhyara_1_1link.html#a48561058093799346b0afabed0270515" title="Sends a packet via the best intermediate node." alt="" coords="5,514,144,541"/>
 </map>

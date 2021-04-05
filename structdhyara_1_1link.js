@@ -11,6 +11,7 @@ var structdhyara_1_1link =
     [ "_esp_rcvd_cb", "structdhyara_1_1link.html#ad7b4f39ecaf94c52dc5739898da8a627", null ],
     [ "_esp_sent_cb", "structdhyara_1_1link.html#a978706fc680636c3cdaaa9a3781a5754", null ],
     [ "address", "structdhyara_1_1link.html#a14215f8d36d2ab205737ac3dc9f30d79", null ],
+    [ "connect", "structdhyara_1_1link.html#a9ffc74d64e082b29665d91a217411b4f", null ],
     [ "init", "structdhyara_1_1link.html#a1c9f0b94a68b78b3ca2b55263642fdd4", null ],
     [ "install", "structdhyara_1_1link.html#a3f5a1a89dbd273867300879c778a2421", null ],
     [ "lost", "structdhyara_1_1link.html#ac77bab79987666f6f1cd57862ee0dce9", null ],
