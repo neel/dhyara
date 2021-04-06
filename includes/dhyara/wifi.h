@@ -40,9 +40,12 @@ extern "C" {
 extern wifi_promiscuous_filter_t g_dhyara_promiscous_filter;
 
 /**
- * Initialize dhyara
+ * Conveniance function to initialize wifi 
  */
 esp_err_t dhyara_wifi_init(wifi_mode_t mode);
+/**
+ * Join to an AP using station interface
+ */
 esp_err_t dhyara_station_join(wifi_config_t* sta_config);
 
 #ifdef __cplusplus  
@@ -62,6 +65,9 @@ namespace dhyara{
  */
 dhyara::link& dhyara_link();
 
+/**
+ * Initialize ESP-Now 
+ */
 void dhyara_espnow_init();
 
 #endif

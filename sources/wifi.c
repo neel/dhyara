@@ -28,6 +28,7 @@
 #include "dhyara/wifi.h"
 #include "esp_log.h"
 #include "esp_wifi_types.h"
+#include <assert.h>
 
 wifi_promiscuous_filter_t g_dhyara_promiscous_filter = {
     .filter_mask = WIFI_PKT_CTRL
