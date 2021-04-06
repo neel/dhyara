@@ -61,6 +61,18 @@ struct network{
     }
     
     /**
+     * Send a variable sized data to the destination. The data may be splitted into multiple chunks if its not accomodable in a single packet. Any forward iterable sequence, that can be dereferenced as a byte can be considered ad data.
+     * 
+     * \param target target mac address 
+     * \param begin begin iterator to the data that has to be sent
+     * \param count number of elements to send
+     */
+    template <typename InputIt>
+    bool send(const dhyara::peer_address& target, InputIt begin, std::size_t count){
+        return send(target, begin, begin+count);
+    }
+    
+    /**
      * Send a data packet
      * \see dhyara::packets::data
      */

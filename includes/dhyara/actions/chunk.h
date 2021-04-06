@@ -38,6 +38,7 @@ struct chunk: dhyara::actions::action<chunk, dhyara::packets::chunk>{
     
     /**
      * set a callback which will be called once a complete data is received
+     * \param slot the callback
      */
     inline void on_data(data_callback_type slot) { _slot = slot; }
     
