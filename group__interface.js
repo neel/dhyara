@@ -58,6 +58,7 @@ var group__interface =
       [ "operator=", "structdhyara_1_1network.html#abb7b565d80e22ecdd00932c1325c0b2b", null ],
       [ "send", "structdhyara_1_1network.html#afa2a0cd07ef8508f7ce950449d5dff17", null ],
       [ "send", "structdhyara_1_1network.html#a6ed3eca266b9da66b2bb422d891cd145", null ],
+      [ "send", "structdhyara_1_1network.html#a4bcc4aff7a5bb51182f80088814de099", null ],
       [ "start", "structdhyara_1_1network.html#aadf3365c6a5506187b2f9c91ef4fdd0a", null ],
       [ "synchronizer", "structdhyara_1_1network.html#ae289d391b359a937d34f906a132b2696", null ]
     ] ],

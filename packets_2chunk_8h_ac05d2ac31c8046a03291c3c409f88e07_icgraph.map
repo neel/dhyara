@@ -1,4 +1,5 @@
 <map id="target" name="target">
-<area shape="rect" id="node1" title=" " alt="" coords="220,5,281,32"/>
-<area shape="rect" id="node2" href="$structdhyara_1_1network.html#a6ed3eca266b9da66b2bb422d891cd145" title="Send a variable sized data to the destination." alt="" coords="5,5,172,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="435,5,496,32"/>
+<area shape="rect" id="node2" href="$structdhyara_1_1network.html#a6ed3eca266b9da66b2bb422d891cd145" title="Send a variable sized data to the destination." alt="" coords="220,5,387,32"/>
+<area shape="rect" id="node3" href="$structdhyara_1_1network.html#a4bcc4aff7a5bb51182f80088814de099" title="Send a variable sized data to the destination." alt="" coords="5,5,172,32"/>
 </map>

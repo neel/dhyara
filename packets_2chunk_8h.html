@@ -353,16 +353,17 @@ Variables</h2></td></tr>
 
 <p class="reference">References <a class="el" href="packets_2chunk_8h_source.html#l00052">dhyara::packets::chunk::capacity</a>, and <a class="el" href="packets_2chunk_8h_source.html#l00067">dhyara::packets::chunk::header()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="data_8h_source.html#l00041">dhyara::packets::data::data()</a>, <a class="el" href="data_8h_source.html#l00052">dhyara::packets::data::fill()</a>, and <a class="el" href="network_8h_source.html#l00059">dhyara::network::send()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="data_8h_source.html#l00071">dhyara::packets::data::data()</a>, <a class="el" href="data_8h_source.html#l00105">dhyara::packets::data::fill()</a>, and <a class="el" href="network_8h_source.html#l00059">dhyara::network::send()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="packets_2chunk_8h_a1617be539c167a6e0e7fc3a57491218b_icgraph.png" border="0" usemap="#packets_2chunk_8h_a1617be539c167a6e0e7fc3a57491218b_icgraph" alt=""/></div>
 <map name="packets_2chunk_8h_a1617be539c167a6e0e7fc3a57491218b_icgraph" id="packets_2chunk_8h_a1617be539c167a6e0e7fc3a57491218b_icgraph">
-<area shape="rect" title=" " alt="" coords="431,42,489,69"/>
-<area shape="rect" href="structdhyara_1_1packets_1_1data.html#aa67918cb19272ab77cca8da11adaa3c5" title=" " alt="" coords="5,5,168,47"/>
-<area shape="rect" href="structdhyara_1_1packets_1_1data.html#a89b90f1ec3c8890222b8380f3dc1e26d" title=" " alt="" coords="218,35,381,76"/>
-<area shape="rect" href="structdhyara_1_1network.html#a6ed3eca266b9da66b2bb422d891cd145" title="Send a variable sized data to the destination." alt="" coords="216,101,383,127"/>
+<area shape="rect" title=" " alt="" coords="435,42,493,69"/>
+<area shape="rect" href="structdhyara_1_1packets_1_1data.html#aa67918cb19272ab77cca8da11adaa3c5" title="Construct a data packet by iterating over." alt="" coords="7,5,170,47"/>
+<area shape="rect" href="structdhyara_1_1packets_1_1data.html#a89b90f1ec3c8890222b8380f3dc1e26d" title="Fill the data packet by copying elements within [begin, end) range." alt="" coords="222,35,385,76"/>
+<area shape="rect" href="structdhyara_1_1network.html#a6ed3eca266b9da66b2bb422d891cd145" title="Send a variable sized data to the destination." alt="" coords="220,101,387,127"/>
+<area shape="rect" href="structdhyara_1_1network.html#a4bcc4aff7a5bb51182f80088814de099" title="Send a variable sized data to the destination." alt="" coords="5,101,172,127"/>
 </map>
 </div>
 
@@ -481,7 +482,7 @@ template&lt;typename OutIt &gt; </div>
 
 <p class="reference">References <a class="el" href="packets_2chunk_8h_source.html#l00034">dhyara::packets::chunk::header::_packet</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="packets_2chunk_8h_source.html#l00063">dhyara::packets::chunk::chunk()</a>, <a class="el" href="data_8h_source.html#l00057">dhyara::packets::data::copy()</a>, <a class="el" href="packets_2chunk_8h_source.html#l00070">dhyara::packets::chunk::copy()</a>, <a class="el" href="peer_8h_source.html#l00124">dhyara::peer_address::copy()</a>, <a class="el" href="data_8h_source.html#l00052">dhyara::packets::data::fill()</a>, <a class="el" href="serialization_8h_source.html#l00031">dhyara::serialization&lt; PacketT &gt;::read()</a>, and <a class="el" href="serialization_8h_source.html#l00026">dhyara::serialization&lt; PacketT &gt;::write()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="packets_2chunk_8h_source.html#l00063">dhyara::packets::chunk::chunk()</a>, <a class="el" href="packets_2chunk_8h_source.html#l00070">dhyara::packets::chunk::copy()</a>, <a class="el" href="data_8h_source.html#l00113">dhyara::packets::data::copy()</a>, <a class="el" href="peer_8h_source.html#l00124">dhyara::peer_address::copy()</a>, <a class="el" href="data_8h_source.html#l00105">dhyara::packets::data::fill()</a>, <a class="el" href="serialization_8h_source.html#l00031">dhyara::serialization&lt; PacketT &gt;::read()</a>, and <a class="el" href="serialization_8h_source.html#l00026">dhyara::serialization&lt; PacketT &gt;::write()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -489,13 +490,13 @@ Here is the caller graph for this function:</div>
 <map name="packets_2chunk_8h_a35f7d072d13622e6b3bac74c0b3763da_icgraph" id="packets_2chunk_8h_a35f7d072d13622e6b3bac74c0b3763da_icgraph">
 <area shape="rect" title=" " alt="" coords="868,209,921,235"/>
 <area shape="rect" href="structdhyara_1_1packets_1_1chunk.html#acf18dc3ba1ffe7fb8b03a0813d689c54" title=" " alt="" coords="648,5,820,47"/>
-<area shape="rect" href="structdhyara_1_1packets_1_1data.html#a33a2f54ce7569731eccc5a7d02514a09" title=" " alt="" coords="653,71,815,112"/>
-<area shape="rect" href="structdhyara_1_1packets_1_1chunk.html#ac1ca288a7fff3f359639c112418f313f" title=" " alt="" coords="648,136,820,177"/>
+<area shape="rect" href="structdhyara_1_1packets_1_1chunk.html#ac1ca288a7fff3f359639c112418f313f" title=" " alt="" coords="648,71,820,112"/>
+<area shape="rect" href="structdhyara_1_1packets_1_1data.html#a33a2f54ce7569731eccc5a7d02514a09" title="Copy elements of the data packet to the output iterator." alt="" coords="653,136,815,177"/>
 <area shape="rect" href="structdhyara_1_1peer__address.html#a40cc79792acea6b784d4a044f62b62c9" title="Copy the MAC address to another container by bytes." alt="" coords="653,201,815,243"/>
-<area shape="rect" href="structdhyara_1_1packets_1_1data.html#a89b90f1ec3c8890222b8380f3dc1e26d" title=" " alt="" coords="653,267,815,308"/>
+<area shape="rect" href="structdhyara_1_1packets_1_1data.html#a89b90f1ec3c8890222b8380f3dc1e26d" title="Fill the data packet by copying elements within [begin, end) range." alt="" coords="653,267,815,308"/>
 <area shape="rect" href="structdhyara_1_1serialization.html#adb3254a33f7dcc03a625294d1218cef7" title=" " alt="" coords="657,332,811,373"/>
 <area shape="rect" href="structdhyara_1_1serialization.html#a6fffb25d5d0a785cb1335681e74eb024" title=" " alt="" coords="657,412,811,453"/>
-<area shape="rect" href="structdhyara_1_1packets_1_1data.html#aa67918cb19272ab77cca8da11adaa3c5" title=" " alt="" coords="437,267,600,308"/>
+<area shape="rect" href="structdhyara_1_1packets_1_1data.html#aa67918cb19272ab77cca8da11adaa3c5" title="Construct a data packet by iterating over." alt="" coords="437,267,600,308"/>
 <area shape="rect" href="group__io.html#ga1b83b801d54296c6cc9fc793b9141594" title="read into a packet" alt="" coords="467,337,571,363"/>
 <area shape="rect" href="structdhyara_1_1actions_1_1action.html#a6273443e685fadf590c7e06c9981fd0d" title="Creates a packet from the received frame." alt="" coords="202,309,379,380"/>
 <area shape="rect" href="group__io.html#ga4ad2c87bab350b99de6805a397698bed" title="write a packet" alt="" coords="465,449,573,475"/>
@@ -533,19 +534,20 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="packets_2chunk_8h_source.html#l00053">53</a> of file <a class="el" href="packets_2chunk_8h_source.html">chunk.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="data_8h_source.html#l00041">dhyara::packets::data::data()</a>, <a class="el" href="data_8h_source.html#l00052">dhyara::packets::data::fill()</a>, <a class="el" href="serialization_8h_source.html#l00031">dhyara::serialization&lt; PacketT &gt;::read()</a>, and <a class="el" href="network_8h_source.html#l00059">dhyara::network::send()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="data_8h_source.html#l00071">dhyara::packets::data::data()</a>, <a class="el" href="data_8h_source.html#l00105">dhyara::packets::data::fill()</a>, <a class="el" href="serialization_8h_source.html#l00031">dhyara::serialization&lt; PacketT &gt;::read()</a>, and <a class="el" href="network_8h_source.html#l00059">dhyara::network::send()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="packets_2chunk_8h_a85ada315034acfbc99dbec554f7980e8_icgraph.png" border="0" usemap="#packets_2chunk_8h_a85ada315034acfbc99dbec554f7980e8_icgraph" alt=""/></div>
 <map name="packets_2chunk_8h_a85ada315034acfbc99dbec554f7980e8_icgraph" id="packets_2chunk_8h_a85ada315034acfbc99dbec554f7980e8_icgraph">
-<area shape="rect" title=" " alt="" coords="656,80,703,106"/>
-<area shape="rect" href="structdhyara_1_1packets_1_1data.html#aa67918cb19272ab77cca8da11adaa3c5" title=" " alt="" coords="231,10,393,51"/>
-<area shape="rect" href="structdhyara_1_1packets_1_1data.html#a89b90f1ec3c8890222b8380f3dc1e26d" title=" " alt="" coords="443,39,606,80"/>
-<area shape="rect" href="structdhyara_1_1serialization.html#adb3254a33f7dcc03a625294d1218cef7" title=" " alt="" coords="447,104,602,146"/>
-<area shape="rect" href="structdhyara_1_1network.html#a6ed3eca266b9da66b2bb422d891cd145" title="Send a variable sized data to the destination." alt="" coords="441,170,608,197"/>
-<area shape="rect" href="group__io.html#ga1b83b801d54296c6cc9fc793b9141594" title="read into a packet" alt="" coords="260,112,364,138"/>
+<area shape="rect" title=" " alt="" coords="660,80,707,106"/>
+<area shape="rect" href="structdhyara_1_1packets_1_1data.html#aa67918cb19272ab77cca8da11adaa3c5" title="Construct a data packet by iterating over." alt="" coords="233,10,395,51"/>
+<area shape="rect" href="structdhyara_1_1packets_1_1data.html#a89b90f1ec3c8890222b8380f3dc1e26d" title="Fill the data packet by copying elements within [begin, end) range." alt="" coords="447,39,610,80"/>
+<area shape="rect" href="structdhyara_1_1serialization.html#adb3254a33f7dcc03a625294d1218cef7" title=" " alt="" coords="451,104,606,146"/>
+<area shape="rect" href="structdhyara_1_1network.html#a6ed3eca266b9da66b2bb422d891cd145" title="Send a variable sized data to the destination." alt="" coords="445,170,612,197"/>
+<area shape="rect" href="group__io.html#ga1b83b801d54296c6cc9fc793b9141594" title="read into a packet" alt="" coords="262,112,366,138"/>
 <area shape="rect" href="structdhyara_1_1actions_1_1action.html#a6273443e685fadf590c7e06c9981fd0d" title="Creates a packet from the received frame." alt="" coords="5,90,183,160"/>
+<area shape="rect" href="structdhyara_1_1network.html#a4bcc4aff7a5bb51182f80088814de099" title="Send a variable sized data to the destination." alt="" coords="231,170,397,197"/>
 </map>
 </div>
 
@@ -848,8 +850,9 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="packets_2chunk_8h_ac05d2ac31c8046a03291c3c409f88e07_icgraph.png" border="0" usemap="#packets_2chunk_8h_ac05d2ac31c8046a03291c3c409f88e07_icgraph" alt=""/></div>
 <map name="packets_2chunk_8h_ac05d2ac31c8046a03291c3c409f88e07_icgraph" id="packets_2chunk_8h_ac05d2ac31c8046a03291c3c409f88e07_icgraph">
-<area shape="rect" title=" " alt="" coords="220,5,281,32"/>
-<area shape="rect" href="structdhyara_1_1network.html#a6ed3eca266b9da66b2bb422d891cd145" title="Send a variable sized data to the destination." alt="" coords="5,5,172,32"/>
+<area shape="rect" title=" " alt="" coords="435,5,496,32"/>
+<area shape="rect" href="structdhyara_1_1network.html#a6ed3eca266b9da66b2bb422d891cd145" title="Send a variable sized data to the destination." alt="" coords="220,5,387,32"/>
+<area shape="rect" href="structdhyara_1_1network.html#a4bcc4aff7a5bb51182f80088814de099" title="Send a variable sized data to the destination." alt="" coords="5,5,172,32"/>
 </map>
 </div>
 
