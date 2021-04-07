@@ -12,5 +12,6 @@ var searchData=
   ['io_2eh_149',['io.h',['../io_8h.html',1,'']]],
   ['is_5fbroadcast_150',['is_broadcast',['../structdhyara_1_1peer__address.html#a4c4e1621c75fa3a3487ae846d312ae51',1,'dhyara::peer_address']]],
   ['is_5flast_151',['is_last',['../structdhyara_1_1packets_1_1chunk_1_1header.html#a54874f36262252b5eff2db5da1c4deae',1,'dhyara::packets::chunk::header::is_last()'],['../structdhyara_1_1packets_1_1chunk.html#aa53aeb8b359fc8bf201e7ed71f84e723',1,'dhyara::packets::chunk::is_last()'],['../structheader.html#a70cae43ffd352bb4307e591da7ca2b08',1,'header::is_last()'],['../packets_2chunk_8h.html#a176450f707702d22b6248d000ce8e8ec',1,'is_last():&#160;chunk.h']]],
-  ['is_5fnull_152',['is_null',['../structdhyara_1_1peer__address.html#a0e89a05cb4d854fadc14897a089a0dad',1,'dhyara::peer_address']]]
+  ['is_5fnull_152',['is_null',['../structdhyara_1_1peer__address.html#a0e89a05cb4d854fadc14897a089a0dad',1,'dhyara::peer_address']]],
+  ['isolate_153',['isolate',['../structdhyara_1_1network.html#aa46dd5254cbc3a8431fa866e010d029c',1,'dhyara::network']]]
 ];

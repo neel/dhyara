@@ -124,6 +124,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:afa2a0cd07ef8508f7ce950449d5dff17"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1network.html#afa2a0cd07ef8508f7ce950449d5dff17">send</a> (const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> &amp;<a class="el" href="packets_2echo__request_8h.html#a321cf56f5ac18e313f9ad58dc2150026">target</a>, const <a class="el" href="structdhyara_1_1packets_1_1data.html">dhyara::packets::data</a> &amp;data)</td></tr>
 <tr class="memdesc:afa2a0cd07ef8508f7ce950449d5dff17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a data packet.  <a href="structdhyara_1_1network.html#afa2a0cd07ef8508f7ce950449d5dff17">More...</a><br /></td></tr>
 <tr class="separator:afa2a0cd07ef8508f7ce950449d5dff17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa46dd5254cbc3a8431fa866e010d029c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1network.html#aa46dd5254cbc3a8431fa866e010d029c">isolate</a> (const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> &amp;x, const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> &amp;y)</td></tr>
+<tr class="memdesc:aa46dd5254cbc3a8431fa866e010d029c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Isolate two nodes from each other.  <a href="structdhyara_1_1network.html#aa46dd5254cbc3a8431fa866e010d029c">More...</a><br /></td></tr>
+<tr class="separator:aa46dd5254cbc3a8431fa866e010d029c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51dcda4002e9fe16284c568fde041a54"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1network.html#a51dcda4002e9fe16284c568fde041a54">on_data</a> (<a class="el" href="structdhyara_1_1actions_1_1chunk.html#a5366ec7abfa056df5f70bc65e97a9beb">dhyara::actions::chunk::data_callback_type</a> slot)</td></tr>
 <tr class="memdesc:a51dcda4002e9fe16284c568fde041a54"><td class="mdescLeft">&#160;</td><td class="mdescRight">set a callback which will be called once a complete data is received  <a href="structdhyara_1_1network.html#a51dcda4002e9fe16284c568fde041a54">More...</a><br /></td></tr>
 <tr class="separator:a51dcda4002e9fe16284c568fde041a54"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -265,7 +268,7 @@ Public Member Functions</h2></td></tr>
 
 <p>acknowledgement action </p>
 
-<p class="definition">Definition at line <a class="el" href="network_8h_source.html#l00114">114</a> of file <a class="el" href="network_8h_source.html">network.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="network_8h_source.html#l00130">130</a> of file <a class="el" href="network_8h_source.html">network.h</a>.</p>
 
 </div>
 </div>
@@ -294,7 +297,7 @@ Public Member Functions</h2></td></tr>
 
 <p>advertisement action </p>
 
-<p class="definition">Definition at line <a class="el" href="network_8h_source.html#l00118">118</a> of file <a class="el" href="network_8h_source.html">network.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="network_8h_source.html#l00134">134</a> of file <a class="el" href="network_8h_source.html">network.h</a>.</p>
 
 </div>
 </div>
@@ -323,7 +326,7 @@ Public Member Functions</h2></td></tr>
 
 <p>beacon action </p>
 
-<p class="definition">Definition at line <a class="el" href="network_8h_source.html#l00110">110</a> of file <a class="el" href="network_8h_source.html">network.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="network_8h_source.html#l00126">126</a> of file <a class="el" href="network_8h_source.html">network.h</a>.</p>
 
 </div>
 </div>
@@ -352,7 +355,7 @@ Public Member Functions</h2></td></tr>
 
 <p>chunk action </p>
 
-<p class="definition">Definition at line <a class="el" href="network_8h_source.html#l00134">134</a> of file <a class="el" href="network_8h_source.html">network.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="network_8h_source.html#l00150">150</a> of file <a class="el" href="network_8h_source.html">network.h</a>.</p>
 
 </div>
 </div>
@@ -381,7 +384,7 @@ Public Member Functions</h2></td></tr>
 
 <p>delivered action </p>
 
-<p class="definition">Definition at line <a class="el" href="network_8h_source.html#l00138">138</a> of file <a class="el" href="network_8h_source.html">network.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="network_8h_source.html#l00154">154</a> of file <a class="el" href="network_8h_source.html">network.h</a>.</p>
 
 </div>
 </div>
@@ -410,7 +413,7 @@ Public Member Functions</h2></td></tr>
 
 <p>echo_lost action </p>
 
-<p class="definition">Definition at line <a class="el" href="network_8h_source.html#l00130">130</a> of file <a class="el" href="network_8h_source.html">network.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="network_8h_source.html#l00146">146</a> of file <a class="el" href="network_8h_source.html">network.h</a>.</p>
 
 </div>
 </div>
@@ -439,7 +442,7 @@ Public Member Functions</h2></td></tr>
 
 <p>echo_reply action </p>
 
-<p class="definition">Definition at line <a class="el" href="network_8h_source.html#l00126">126</a> of file <a class="el" href="network_8h_source.html">network.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="network_8h_source.html#l00142">142</a> of file <a class="el" href="network_8h_source.html">network.h</a>.</p>
 
 </div>
 </div>
@@ -468,7 +471,48 @@ Public Member Functions</h2></td></tr>
 
 <p>echo_request action </p>
 
-<p class="definition">Definition at line <a class="el" href="network_8h_source.html#l00122">122</a> of file <a class="el" href="network_8h_source.html">network.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="network_8h_source.html#l00138">138</a> of file <a class="el" href="network_8h_source.html">network.h</a>.</p>
+
+</div>
+</div>
+<a id="aa46dd5254cbc3a8431fa866e010d029c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa46dd5254cbc3a8431fa866e010d029c">&#9670;&nbsp;</a></span>isolate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void dhyara::network::isolate </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> &amp;&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> &amp;&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Isolate two nodes from each other. </p>
+<p>The isolated nodes won't be able to communicate with each other directly. However they will be able to communicate via intermediate nodes. This function can be used to force multi-hop communication between two nodes even when they can communicate directly.</p>
+<dl class="section attention"><dt>Attention</dt><dd>isolation is achieved by banning x from acknowledgeing y's beacon and banning y from acknowledging y's beacon. </dd>
+<dd>
+It is desirable but not necessary to perform isolation before the network is started.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>the first node </td></tr>
+    <tr><td class="paramname">y</td><td>the second node </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -497,7 +541,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Link. </p>
 
-<p class="definition">Definition at line <a class="el" href="network_8h_source.html#l00102">102</a> of file <a class="el" href="network_8h_source.html">network.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="network_8h_source.html#l00118">118</a> of file <a class="el" href="network_8h_source.html">network.h</a>.</p>
 
 </div>
 </div>
@@ -753,7 +797,7 @@ template&lt;typename InputIt &gt; </div>
 
 <p>synchronizer </p>
 
-<p class="definition">Definition at line <a class="el" href="network_8h_source.html#l00106">106</a> of file <a class="el" href="network_8h_source.html">network.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="network_8h_source.html#l00122">122</a> of file <a class="el" href="network_8h_source.html">network.h</a>.</p>
 
 </div>
 </div>

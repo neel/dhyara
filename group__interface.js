@@ -53,6 +53,7 @@ var group__interface =
       [ "echo_lost", "structdhyara_1_1network.html#ae246456020c39501289475ec3373c4d1", null ],
       [ "echo_reply", "structdhyara_1_1network.html#ab37ed765a5b448ed2b3f13b71bbfbc51", null ],
       [ "echo_request", "structdhyara_1_1network.html#a432dd82d92d6dde8a4f3927d0f61e429", null ],
+      [ "isolate", "structdhyara_1_1network.html#aa46dd5254cbc3a8431fa866e010d029c", null ],
       [ "link", "structdhyara_1_1network.html#a5852cc388eca2af88a08fcebc88ee0b4", null ],
       [ "on_data", "structdhyara_1_1network.html#a51dcda4002e9fe16284c568fde041a54", null ],
       [ "operator=", "structdhyara_1_1network.html#abb7b565d80e22ecdd00932c1325c0b2b", null ],

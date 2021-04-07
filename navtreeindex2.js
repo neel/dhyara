@@ -1,5 +1,6 @@
 var NAVTREEINDEX2 =
 {
+"structdhyara_1_1network__fifo.html":[9,0,0,11],
 "structdhyara_1_1network__fifo.html#a12122ab3e5f09c1a287be03a45b85d04":[9,0,0,11,9],
 "structdhyara_1_1network__fifo.html#a21decb239670f9c2a66abf3ea9a690b5":[9,0,0,11,1],
 "structdhyara_1_1network__fifo.html#a387cad5d89dcaa2a92edf8c527fc9a18":[9,0,0,11,3],
@@ -236,10 +237,10 @@ var NAVTREEINDEX2 =
 "structdhyara_1_1routing_1_1route__metric.html#a73ff210abbd40be164e931f1a7728c46":[7,1,0,2,5],
 "structdhyara_1_1routing_1_1route__metric.html#aa6ca8285bccc1a95e99767917852cd61":[7,1,0,2,2],
 "structdhyara_1_1routing_1_1route__metric.html#ad6c827f0dd63750b8f6c3b606c930380":[7,1,0,2,3],
-"structdhyara_1_1serialization.html":[7,2,0,0],
 "structdhyara_1_1serialization.html":[7,2,11],
-"structdhyara_1_1serialization.html#a6fffb25d5d0a785cb1335681e74eb024":[7,2,0,0,2],
+"structdhyara_1_1serialization.html":[7,2,0,0],
 "structdhyara_1_1serialization.html#a6fffb25d5d0a785cb1335681e74eb024":[7,2,11,2],
+"structdhyara_1_1serialization.html#a6fffb25d5d0a785cb1335681e74eb024":[7,2,0,0,2],
 "structdhyara_1_1serialization.html#adb3254a33f7dcc03a625294d1218cef7":[7,2,11,1],
 "structdhyara_1_1serialization.html#adb3254a33f7dcc03a625294d1218cef7":[7,2,0,0,1],
 "structdhyara_1_1serialization.html#add2f42a39a9f14f70819375c9ab0c473":[7,2,0,0,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX2 =
 "structdhyara_1_1serialization_3_01packets_1_1beacon_01_4.html#a44a1b75cc57a29c4b8f460838a6421c8":[9,0,0,17,1],
 "structdhyara_1_1serialization_3_01packets_1_1beacon_01_4.html#adf6c6a6071ab492f03454fbc5f25472d":[9,0,0,17,0],
 "structdhyara_1_1synchronizer.html":[7,1,2],
-"structdhyara_1_1synchronizer.html#a2453ea7e57316d8ab3bb98e17fad7fcf":[7,1,2,3],
-"structdhyara_1_1synchronizer.html#a2c986de495df7717564769e91c3660e4":[7,1,2,7]
+"structdhyara_1_1synchronizer.html#a2453ea7e57316d8ab3bb98e17fad7fcf":[7,1,2,3]
 };
