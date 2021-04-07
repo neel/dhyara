@@ -34,28 +34,22 @@
 application::application(dhyara::network& network): _network(network), _server(network.link()){}
 
 void application::main(){
-    // defining a source and a sink in the multi hop network
     dhyara::peer_address sink("4c:11:ae:9c:a6:85"), source("4c:11:ae:71:0f:4d");
 
     while(1){
-        // Assuming the same application is running on all nodes
-        // The code below should only run in the source node
-        if(_network.link().address() == source){
+        const dhyara::peer_address& local = _network.link().address();
+        if(local == source) 
             ping(sink);
-        }else{
+        else                                    
             ping(source);
-        }
-        // sleep for 5s
+        
         vTaskDelay(pdMS_TO_TICKS(5000));
     }
 }
 
 void application::ping(const dhyara::peer_address& target){
-    // Use ping tool to get connection statistics
     dhyara::tools::ping ping(_network);
-    // Configure the ping tool
-    ping.count(150).batch(1).sleep(0);
-    // Ping the target (through multi hop network)
+    ping.count(20);
     ping(target);
     vTaskDelay(pdMS_TO_TICKS(2000)); // sleep for 2s
 }
