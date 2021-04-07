@@ -45,7 +45,7 @@ void dhyara::tools::ping::operator()(const dhyara::peer_address& addr){
     std::size_t icmp_sent  = _network.link().tx(dhyara::packets::type::echo_request);
     std::size_t icmp_rcvd  = _network.link().rx(dhyara::packets::type::echo_reply);
     double icmp_loss  = (double)(icmp_sent - std::min(icmp_rcvd, icmp_sent)) / (double)icmp_sent;
-    dhyara::delay_type wastage = ((_count-1)*_sleep)*1000;
+    dhyara::delay_type wastage = ((_count-1)*_sleep);
     
     ESP_LOGI(
         "ping", 

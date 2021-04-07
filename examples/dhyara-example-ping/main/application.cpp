@@ -49,7 +49,7 @@ void application::main(){
 
 void application::ping(const dhyara::peer_address& target){
     dhyara::tools::ping ping(_network);
-    ping.count(20);
+    ping.count(4).batch(50);
     ping(target);
     vTaskDelay(pdMS_TO_TICKS(2000)); // sleep for 2s
 }
