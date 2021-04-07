@@ -55,6 +55,11 @@ void dhyara::network::presence(){
     }
 }
 
+void dhyara::network::isolate(const dhyara::peer_address& x, const dhyara::peer_address& y){
+    if(_link.address() == x) _beacon.ban(y);
+    if(_link.address() == y) _beacon.ban(x);
+}
+
 void dhyara::network::sync(){
     _synchronizer.run();
 }

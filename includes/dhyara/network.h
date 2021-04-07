@@ -79,6 +79,22 @@ struct network{
     bool send(const dhyara::peer_address& target, const dhyara::packets::data& data);
     
     public:
+    
+        /**
+         * Isolate two nodes from each other. 
+         * The isolated nodes won't be able to communicate with each other directly. 
+         * However they will be able to communicate via intermediate nodes. 
+         * This function can be used to force multi-hop communication between two nodes even when they can communicate directly.
+         * 
+         * \attention isolation is achieved by banning x from acknowledgeing y's beacon and banning y from acknowledging y's beacon.
+         * \attention It is desirable but not necessary to perform isolation before the network is started.
+         * 
+         * \param x the first node
+         * \param y the second node
+         */
+        void isolate(const dhyara::peer_address& x, const dhyara::peer_address& y);
+        
+    public:
         /**
         * set a callback which will be called once a complete data is received
         */
@@ -94,7 +110,7 @@ struct network{
          * Synchronize neighbourhood
          */
         void sync();
-    
+        
     public:
         /**
          * Link 

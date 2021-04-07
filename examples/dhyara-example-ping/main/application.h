@@ -29,13 +29,22 @@
 #define APPLICATION_H
 
 #include <iostream>
+#include <dhyara/peer.h>
 #include <dhyara/network.h>
 #include <dhyara/utils/http.h>
 
 struct application{
     application(dhyara::network& network);
     
+    /**
+     * The main loop that should never return
+     */
     void main();
+    
+    /**
+     * Pings the target node
+     */
+    void ping(const dhyara::peer_address& target);
     
     private:
         dhyara::network&    _network;

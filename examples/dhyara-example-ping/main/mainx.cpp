@@ -3,27 +3,21 @@
 #include <iostream>
 #include <freertos/FreeRTOS.h>
 #include <dhyara/link.h>
+#include "esp_wifi.h"
 #include "application.h"
-
-dhyara::link g_link;
-
-void _sent(const uint8_t* target, esp_now_send_status_t status){
-    g_link._esp_sent_cb(target, status);
-}
-
-void _rcvd(const uint8_t* source, const uint8_t* data, int len){
-    g_link._esp_rcvd_cb(source, data, len);
-}
+#include <dhyara/wifi.h>
 
 void mainx(){
-    ESP_ERROR_CHECK(esp_now_init());
-    ESP_ERROR_CHECK(esp_now_register_send_cb(_sent));
-    ESP_ERROR_CHECK(esp_now_register_recv_cb(_rcvd));
+    dhyara_espnow_init();
+    dhyara::network network(dhyara_link());
     
-    dhyara::network network(g_link);
+//     For experimental purpose 
+//     Optionally banning direct communication between the source and the target
+//     Forcing the source and target to communicate via one or more intermediate nodes
+//     dhyara::peer_address sink("4c:11:ae:9c:a6:85"), source("4c:11:ae:71:0f:4d");
+//     network.isolate(source, sink);
+    
     network.start();
-    
-    esp_log_level_set("dhyara", ESP_LOG_VERBOSE);
     
     application app(network);
     app.main();
