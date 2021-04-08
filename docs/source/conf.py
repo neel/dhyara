@@ -58,6 +58,7 @@ exhale_args = {
 }
 
 # Tell sphinx what the primary language being documented is.
+default_domain = 'cpp'
 primary_domain = 'cpp'
 
 # Tell sphinx what the pygments highlight language should be.

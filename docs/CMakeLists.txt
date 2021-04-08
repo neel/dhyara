@@ -29,7 +29,7 @@ if (DOXYGEN_FOUND)
         set(SPHINX_SOURCE ${CMAKE_CURRENT_SOURCE_DIR}/source)
         set(SPHINX_BUILD ${CMAKE_CURRENT_BINARY_DIR}/sphinx)
         set(SPHINX_INDEX ${SPHINX_BUILD}/index.html)
-
+        
         add_custom_command(
             OUTPUT ${SPHINX_INDEX}
             COMMAND ${SPHINX_EXECUTABLE} -b html -Dbreathe_projects.dhyara=${DOXYGEN_XML_DIR} ${SPHINX_SOURCE} ${SPHINX_BUILD}
