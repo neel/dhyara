@@ -33,11 +33,13 @@ author = 'Sunanda Bose (a.k.a. Sunanda Bose)'
 # ones.
 extensions = [
     "breathe",
-    "exhale", 
-    "sphinx.ext.autosectionlabel", 
-    "sphinx.ext.graphviz"
+    "exhale"
+#    "sphinx.ext.todo"
+#    "sphinx.ext.autosectionlabel", 
+#    "sphinx.ext.graphviz"
 ]
 breathe_default_project = "dhyara"
+todo_include_todos = True
 exhale_args = {
     # These arguments are required
     "containmentFolder":     "./api",
@@ -51,7 +53,6 @@ exhale_args = {
     #"exhaleExecutesDoxygen": True,
     #"exhaleDoxygenStdin":    "INPUT = ../../includes"
 }
-
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
