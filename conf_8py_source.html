@@ -122,50 +122,51 @@ $(document).ready(function(){initNavTree('conf_8py_source.html',''); initResizab
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment"># ones.</span></div>
 <div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="namespaceconf.html#ae475e080536acb271a0a0efe56c3ba42">   34</a></span>&#160;extensions = [</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="stringliteral">&quot;breathe&quot;</span>,</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="stringliteral">&quot;exhale&quot;</span>, </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="stringliteral">&quot;sphinx.ext.autosectionlabel&quot;</span>, </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="stringliteral">&quot;sphinx.ext.graphviz&quot;</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;]</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="namespaceconf.html#a6eba2d2c7ae923054b1c49e686ec89b9">   40</a></span>&#160;breathe_default_project = <span class="stringliteral">&quot;dhyara&quot;</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="namespaceconf.html#a160404b83fa0b5b708e09a9d1e52f294">   41</a></span>&#160;exhale_args = {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="comment"># These arguments are required</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="stringliteral">&quot;containmentFolder&quot;</span>:     <span class="stringliteral">&quot;./api&quot;</span>,</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="stringliteral">&quot;rootFileName&quot;</span>:          <span class="stringliteral">&quot;root.rst&quot;</span>,</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="stringliteral">&quot;rootFileTitle&quot;</span>:         <span class="stringliteral">&quot;dhyara API&quot;</span>,</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="stringliteral">&quot;doxygenStripFromPath&quot;</span>:  <span class="stringliteral">&quot;../..&quot;</span>,</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="comment"># Suggested optional arguments</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="stringliteral">&quot;createTreeView&quot;</span>:        <span class="keyword">True</span>,</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="comment"># TIP: if using the sphinx-bootstrap-theme, you need</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="comment"># &quot;treeViewIsBootstrap&quot;: True,</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="comment">#&quot;exhaleExecutesDoxygen&quot;: True,</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="comment">#&quot;exhaleDoxygenStdin&quot;:    &quot;INPUT = ../../includes&quot;</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment"># Add any paths that contain templates here, relative to this directory.</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="namespaceconf.html#ae850ae634911b713e036b43894fdd525">   56</a></span>&#160;templates_path = [<span class="stringliteral">&#39;_templates&#39;</span>]</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment"># List of patterns, relative to source directory, that match files and</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment"># directories to ignore when looking for source files.</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment"># This pattern also affects html_static_path and html_extra_path.</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="namespaceconf.html#a7ad48fb6f3e9b129c02346ea0d3527c1">   61</a></span>&#160;exclude_patterns = []</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="stringliteral">&quot;exhale&quot;</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">#    &quot;sphinx.ext.todo&quot;</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">#    &quot;sphinx.ext.autosectionlabel&quot;, </span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">#    &quot;sphinx.ext.graphviz&quot;</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;]</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="namespaceconf.html#a6eba2d2c7ae923054b1c49e686ec89b9">   41</a></span>&#160;breathe_default_project = <span class="stringliteral">&quot;dhyara&quot;</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="namespaceconf.html#a8fe7f0d85f975f4ecba5cb6066959a09">   42</a></span>&#160;todo_include_todos = <span class="keyword">True</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="namespaceconf.html#a160404b83fa0b5b708e09a9d1e52f294">   43</a></span>&#160;exhale_args = {</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="comment"># These arguments are required</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="stringliteral">&quot;containmentFolder&quot;</span>:     <span class="stringliteral">&quot;./api&quot;</span>,</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="stringliteral">&quot;rootFileName&quot;</span>:          <span class="stringliteral">&quot;root.rst&quot;</span>,</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="stringliteral">&quot;rootFileTitle&quot;</span>:         <span class="stringliteral">&quot;dhyara API&quot;</span>,</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="stringliteral">&quot;doxygenStripFromPath&quot;</span>:  <span class="stringliteral">&quot;../..&quot;</span>,</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="comment"># Suggested optional arguments</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="stringliteral">&quot;createTreeView&quot;</span>:        <span class="keyword">True</span>,</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="comment"># TIP: if using the sphinx-bootstrap-theme, you need</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="comment"># &quot;treeViewIsBootstrap&quot;: True,</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="comment">#&quot;exhaleExecutesDoxygen&quot;: True,</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="comment">#&quot;exhaleDoxygenStdin&quot;:    &quot;INPUT = ../../includes&quot;</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;}</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment"># Add any paths that contain templates here, relative to this directory.</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="namespaceconf.html#ae850ae634911b713e036b43894fdd525">   57</a></span>&#160;templates_path = [<span class="stringliteral">&#39;_templates&#39;</span>]</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment"># List of patterns, relative to source directory, that match files and</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment"># directories to ignore when looking for source files.</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment"># This pattern also affects html_static_path and html_extra_path.</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="namespaceconf.html#a7ad48fb6f3e9b129c02346ea0d3527c1">   62</a></span>&#160;exclude_patterns = []</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment"># -- Options for HTML output -------------------------------------------------</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment"># The theme to use for HTML and HTML Help pages.  See the documentation for</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment"># a list of builtin themes.</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment">#</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment">#html_theme = &#39;alabaster&#39;</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment"># Add any paths that contain custom static files (such as style sheets) here,</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment"># relative to this directory. They are copied after the builtin static files,</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment"># so a file named &quot;default.css&quot; will overwrite the builtin &quot;default.css&quot;.</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="namespaceconf.html#af4fb5d8851ccaade135c2668dd3ced41">   74</a></span>&#160;html_static_path = [<span class="stringliteral">&#39;_static&#39;</span>]</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keywordflow">if</span> <span class="keywordflow">not</span> read_the_docs_build:</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keyword">import</span> sphinx_rtd_theme</div>
-<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="namespaceconf.html#a6c3bfcc1a44546c1c75ce20f55bd0fd6">   78</a></span>&#160;    html_theme = <span class="stringliteral">&#39;sphinx_rtd_theme&#39;</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="namespaceconf.html#a4960231f83b1b44a1ffcd212903b62e8">   79</a></span>&#160;    html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment"># -- Options for HTML output -------------------------------------------------</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment"># The theme to use for HTML and HTML Help pages.  See the documentation for</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment"># a list of builtin themes.</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment">#</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">#html_theme = &#39;alabaster&#39;</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment"># Add any paths that contain custom static files (such as style sheets) here,</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment"># relative to this directory. They are copied after the builtin static files,</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment"># so a file named &quot;default.css&quot; will overwrite the builtin &quot;default.css&quot;.</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="namespaceconf.html#af4fb5d8851ccaade135c2668dd3ced41">   75</a></span>&#160;html_static_path = [<span class="stringliteral">&#39;_static&#39;</span>]</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keywordflow">if</span> <span class="keywordflow">not</span> read_the_docs_build:</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keyword">import</span> sphinx_rtd_theme</div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="namespaceconf.html#a6c3bfcc1a44546c1c75ce20f55bd0fd6">   79</a></span>&#160;    html_theme = <span class="stringliteral">&#39;sphinx_rtd_theme&#39;</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="namespaceconf.html#a4960231f83b1b44a1ffcd212903b62e8">   80</a></span>&#160;    html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -11,5 +11,6 @@ var conf_8py =
     [ "html_theme_path", "conf_8py.html#a4960231f83b1b44a1ffcd212903b62e8", null ],
     [ "project", "conf_8py.html#a45653c983098153b78e33600e39230eb", null ],
     [ "read_the_docs_build", "conf_8py.html#add613ecd679055ab674d2ee479c80dbe", null ],
-    [ "templates_path", "conf_8py.html#ae850ae634911b713e036b43894fdd525", null ]
+    [ "templates_path", "conf_8py.html#ae850ae634911b713e036b43894fdd525", null ],
+    [ "todo_include_todos", "conf_8py.html#a8fe7f0d85f975f4ecba5cb6066959a09", null ]
 ];
