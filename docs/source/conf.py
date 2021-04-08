@@ -43,7 +43,7 @@ exhale_args = {
     "containmentFolder":     "./api",
     "rootFileName":          "root.rst",
     "rootFileTitle":         "dhyara API",
-    "doxygenStripFromPath":  "../../includes",
+    "doxygenStripFromPath":  "../..",
     # Suggested optional arguments
     "createTreeView":        True,
     # TIP: if using the sphinx-bootstrap-theme, you need
