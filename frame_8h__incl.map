@@ -1,9 +1,9 @@
-<map id="/home/runner/work/dhyara/dhyara/includes/dhyara/frame.h" name="/home/runner/work/dhyara/dhyara/includes/dhyara/frame.h">
-<area shape="rect" id="node1" title=" " alt="" coords="25,5,220,61"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,109,85,136"/>
-<area shape="rect" id="node3" href="$types_8h.html" title=" " alt="" coords="8,184,181,211"/>
-<area shape="rect" id="node5" href="$io_8h.html" title=" " alt="" coords="213,109,363,136"/>
-<area shape="rect" id="node4" title=" " alt="" coords="121,259,188,285"/>
-<area shape="rect" id="node6" href="$serialization_8h.html" title=" " alt="" coords="206,184,423,211"/>
-<area shape="rect" id="node7" title=" " alt="" coords="271,259,358,285"/>
+<map id="dhyara/frame.h" name="dhyara/frame.h">
+<area shape="rect" id="node1" title=" " alt="" coords="61,5,184,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,80,85,107"/>
+<area shape="rect" id="node3" href="$types_8h.html" title=" " alt="" coords="8,155,181,181"/>
+<area shape="rect" id="node5" href="$io_8h.html" title=" " alt="" coords="213,80,363,107"/>
+<area shape="rect" id="node4" title=" " alt="" coords="121,229,188,256"/>
+<area shape="rect" id="node6" href="$serialization_8h.html" title=" " alt="" coords="206,155,423,181"/>
+<area shape="rect" id="node7" title=" " alt="" coords="271,229,358,256"/>
 </map>

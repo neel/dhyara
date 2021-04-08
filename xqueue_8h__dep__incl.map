@@ -1,10 +1,10 @@
-<map id="/home/runner/work/dhyara/dhyara/includes/dhyara/xqueue.h" name="/home/runner/work/dhyara/dhyara/includes/dhyara/xqueue.h">
-<area shape="rect" id="node1" title=" " alt="" coords="137,5,332,61"/>
-<area shape="rect" id="node2" href="$link_8h.html" title=" " alt="" coords="29,221,248,262"/>
-<area shape="rect" id="node3" href="$network_8h.html" title=" " alt="" coords="224,317,419,373"/>
-<area shape="rect" id="node7" href="$routing_8h.html" title=" " alt="" coords="71,109,265,165"/>
-<area shape="rect" id="node8" href="$synchronizer_8h.html" title=" " alt="" coords="340,213,535,269"/>
-<area shape="rect" id="node6" href="$http_8h.html" title=" " alt="" coords="5,317,200,373"/>
-<area shape="rect" id="node4" href="$ping_8h.html" title=" " alt="" coords="115,421,309,477"/>
-<area shape="rect" id="node5" href="$traceroute_8h.html" title=" " alt="" coords="333,421,528,477"/>
+<map id="dhyara/xqueue.h" name="dhyara/xqueue.h">
+<area shape="rect" id="node1" title=" " alt="" coords="105,5,236,32"/>
+<area shape="rect" id="node2" href="$link_8h.html" title=" " alt="" coords="37,155,144,181"/>
+<area shape="rect" id="node3" href="$network_8h.html" title=" " alt="" coords="171,229,307,256"/>
+<area shape="rect" id="node7" href="$routing_8h.html" title=" " alt="" coords="55,80,185,107"/>
+<area shape="rect" id="node8" href="$synchronizer_8h.html" title=" " alt="" coords="260,155,425,181"/>
+<area shape="rect" id="node6" href="$http_8h.html" title=" " alt="" coords="5,229,147,256"/>
+<area shape="rect" id="node4" href="$ping_8h.html" title=" " alt="" coords="71,304,217,331"/>
+<area shape="rect" id="node5" href="$traceroute_8h.html" title=" " alt="" coords="241,304,428,331"/>
 </map>

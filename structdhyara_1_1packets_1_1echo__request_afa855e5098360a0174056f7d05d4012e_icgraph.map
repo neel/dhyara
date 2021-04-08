@@ -1,4 +1,4 @@
 <map id="dhyara::packets::echo_request::target" name="dhyara::packets::echo_request::target">
-<area shape="rect" id="node1" title="Target address of the ICMP packet." alt="" coords="115,5,279,47"/>
-<area shape="rect" id="node2" href="$packets_2echo__request_8h.html#a321cf56f5ac18e313f9ad58dc2150026" title="Target address of the ICMP packet." alt="" coords="5,13,67,39"/>
+<area shape="rect" id="node1" title="Target address of the ICMP packet." alt="" coords="227,5,391,47"/>
+<area shape="rect" id="node2" href="$structdhyara_1_1packets_1_1echo__request.html#a6988fdd66dc08c26fff5bd8e222f314d" title="Construct an echo request to the target originating from the source with the provided sequence number..." alt="" coords="5,5,179,47"/>
 </map>

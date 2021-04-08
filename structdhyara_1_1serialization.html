@@ -105,10 +105,10 @@ Public Types</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a6fffb25d5d0a785cb1335681e74eb024"><td class="memTemplParams" colspan="2">template&lt;typename OutIt &gt; </td></tr>
-<tr class="memitem:a6fffb25d5d0a785cb1335681e74eb024"><td class="memTemplItemLeft" align="right" valign="top">static OutIt&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structdhyara_1_1serialization.html#a6fffb25d5d0a785cb1335681e74eb024">write</a> (const <a class="el" href="structdhyara_1_1serialization.html#add2f42a39a9f14f70819375c9ab0c473">packet_type</a> &amp;<a class="el" href="packets_2delivered_8h.html#a4807fa15377222c0218199c14c38e506">packet</a>, OutIt output)</td></tr>
+<tr class="memitem:a6fffb25d5d0a785cb1335681e74eb024"><td class="memTemplItemLeft" align="right" valign="top">static OutIt&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structdhyara_1_1serialization.html#a6fffb25d5d0a785cb1335681e74eb024">write</a> (const <a class="el" href="structdhyara_1_1serialization.html#add2f42a39a9f14f70819375c9ab0c473">packet_type</a> &amp;packet, OutIt output)</td></tr>
 <tr class="separator:a6fffb25d5d0a785cb1335681e74eb024"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb3254a33f7dcc03a625294d1218cef7"><td class="memTemplParams" colspan="2">template&lt;typename InIt &gt; </td></tr>
-<tr class="memitem:adb3254a33f7dcc03a625294d1218cef7"><td class="memTemplItemLeft" align="right" valign="top">static InIt&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structdhyara_1_1serialization.html#adb3254a33f7dcc03a625294d1218cef7">read</a> (<a class="el" href="structdhyara_1_1serialization.html#add2f42a39a9f14f70819375c9ab0c473">packet_type</a> &amp;<a class="el" href="packets_2delivered_8h.html#a4807fa15377222c0218199c14c38e506">packet</a>, InIt input, std::size_t <a class="el" href="packets_2chunk_8h.html#a47a76ae74ba72f2123db68e7cc969c34">length</a>)</td></tr>
+<tr class="memitem:adb3254a33f7dcc03a625294d1218cef7"><td class="memTemplItemLeft" align="right" valign="top">static InIt&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structdhyara_1_1serialization.html#adb3254a33f7dcc03a625294d1218cef7">read</a> (<a class="el" href="structdhyara_1_1serialization.html#add2f42a39a9f14f70819375c9ab0c473">packet_type</a> &amp;packet, InIt input, std::size_t length)</td></tr>
 <tr class="separator:adb3254a33f7dcc03a625294d1218cef7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -184,9 +184,7 @@ template&lt;typename InIt &gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="serialization_8h_source.html#l00031">31</a> of file <a class="el" href="serialization_8h_source.html">serialization.h</a>.</p>
 
-<p class="reference">References <a class="el" href="packets_2chunk_8h_source.html#l00047">copy()</a>, <a class="el" href="packets_2chunk_8h_source.html#l00053">end()</a>, <a class="el" href="frame_8h_source.html#l00049">length()</a>, and <a class="el" href="packets_2chunk_8h_source.html#l00042">packet()</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="io_8h_source.html#l00030">dhyara::read()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="io_8h_source.html#l00032">dhyara::read()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -240,9 +238,7 @@ template&lt;typename OutIt &gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="serialization_8h_source.html#l00026">26</a> of file <a class="el" href="serialization_8h_source.html">serialization.h</a>.</p>
 
-<p class="reference">References <a class="el" href="packets_2chunk_8h_source.html#l00047">copy()</a>, and <a class="el" href="packets_2chunk_8h_source.html#l00042">packet()</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="io_8h_source.html#l00021">dhyara::write()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="io_8h_source.html#l00022">dhyara::write()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -252,15 +248,15 @@ Here is the caller graph for this function:</div>
 <area shape="rect" href="group__io.html#ga4ad2c87bab350b99de6805a397698bed" title="write a packet" alt="" coords="437,56,545,83"/>
 <area shape="rect" href="structdhyara_1_1frame.html#ad428874ae06aaf0869c44066fcd7cc4d" title="Create a frame from a packet and a packet type." alt="" coords="209,5,372,32"/>
 <area shape="rect" href="structdhyara_1_1frame.html#ac9a354daa91a03a35a16101b6803eeec" title="Creates a frame on heap with teh given packet and a packet type." alt="" coords="192,56,389,83"/>
-<area shape="rect" href="structdhyara_1_1link.html#a1f7775fc92ab5ca21327189e272eb2a2" title="Sends a packet to an immediate neighbour directly in one hop." alt="" coords="221,107,360,149"/>
-<area shape="rect" href="structdhyara_1_1link.html#a48561058093799346b0afabed0270515" title="Sends a packet via the best intermediate node." alt="" coords="5,115,144,141"/>
+<area shape="rect" href="structdhyara_1_1link.html#ab1b658b908d8ead7315600db746c51f6" title="Sends a packet to an immediate neighbour directly in one hop." alt="" coords="221,107,360,149"/>
+<area shape="rect" href="structdhyara_1_1link.html#adc9c6543f44bb258ec27d169dfc2acaf" title="Sends a packet via the best intermediate node." alt="" coords="5,115,144,141"/>
 </map>
 </div>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>/home/runner/work/dhyara/dhyara/includes/dhyara/packets/<a class="el" href="serialization_8h_source.html">serialization.h</a></li>
+<li>dhyara/packets/<a class="el" href="serialization_8h_source.html">serialization.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dhyara: /home/runner/work/dhyara/dhyara/includes/dhyara/peer.h Source File</title>
+<title>Dhyara: dhyara/peer.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -141,7 +141,7 @@ $(document).ready(function(){initNavTree('peer_8h_source.html',''); initResizabl
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    </div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> OutIt&gt;</div>
 <div class="line"><a name="l00124"></a><span class="lineno"><a class="line" href="structdhyara_1_1peer__address.html#a40cc79792acea6b784d4a044f62b62c9">  124</a></span>&#160;    OutIt <a class="code" href="structdhyara_1_1peer__address.html#a40cc79792acea6b784d4a044f62b62c9">copy</a>(OutIt it)<span class="keyword"> const</span>{</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="packets_2chunk_8h.html#a35f7d072d13622e6b3bac74c0b3763da">std::copy</a>(_bytes.begin(), _bytes.end(), it);</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        <span class="keywordflow">return</span> std::copy(_bytes.begin(), _bytes.end(), it);</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    }</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    </div>
 <div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="structdhyara_1_1peer__address.html#a0e89a05cb4d854fadc14897a089a0dad">  131</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="structdhyara_1_1peer__address.html#a0e89a05cb4d854fadc14897a089a0dad">is_null</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> std::accumulate(_bytes.begin(), _bytes.end(), 0) == 0; }</div>
@@ -232,7 +232,6 @@ $(document).ready(function(){initNavTree('peer_8h_source.html',''); initResizabl
 <div class="ttc" id="astructdhyara_1_1peer_html_a070e1eb9a75e40c07b82a83fefa44d45"><div class="ttname"><a href="structdhyara_1_1peer.html#a070e1eb9a75e40c07b82a83fefa44d45">dhyara::peer::self_type</a></div><div class="ttdeci">peer self_type</div><div class="ttdef"><b>Definition:</b> <a href="peer_8h_source.html#l00153">peer.h:153</a></div></div>
 <div class="ttc" id="astructdhyara_1_1peer_html_a400b4056cc453db6d474485a5060c342"><div class="ttname"><a href="structdhyara_1_1peer.html#a400b4056cc453db6d474485a5060c342">dhyara::peer::channel</a></div><div class="ttdeci">bool channel() const</div><div class="ttdoc">get peer channel</div><div class="ttdef"><b>Definition:</b> <a href="peer_8h_source.html#l00180">peer.h:180</a></div></div>
 <div class="ttc" id="astructdhyara_1_1peer_html_addfa1ab8d6c9d3fcd0bb484812ea1bca"><div class="ttname"><a href="structdhyara_1_1peer.html#addfa1ab8d6c9d3fcd0bb484812ea1bca">dhyara::peer::rssi</a></div><div class="ttdeci">void rssi(std::uint8_t v)</div><div class="ttdoc">Set RSSI value for the peer.</div><div class="ttdef"><b>Definition:</b> <a href="peer_8h_source.html#l00188">peer.h:188</a></div></div>
-<div class="ttc" id="apackets_2chunk_8h_html_a35f7d072d13622e6b3bac74c0b3763da"><div class="ttname"><a href="packets_2chunk_8h.html#a35f7d072d13622e6b3bac74c0b3763da">copy</a></div><div class="ttdeci">OutIt copy(OutIt it)</div><div class="ttdef"><b>Definition:</b> <a href="packets_2chunk_8h_source.html#l00047">chunk.h:47</a></div></div>
 <div class="ttc" id="astructdhyara_1_1peer_html_af7be5d22713bc5d37cdc1e26fcc86961"><div class="ttname"><a href="structdhyara_1_1peer.html#af7be5d22713bc5d37cdc1e26fcc86961">dhyara::peer::channel</a></div><div class="ttdeci">self_type &amp; channel(std::uint8_t c)</div><div class="ttdoc">set peer channel</div><div class="ttdef"><b>Definition:</b> <a href="peer_8h_source.html#l00176">peer.h:176</a></div></div>
 <div class="ttc" id="anamespacedhyara_html"><div class="ttname"><a href="namespacedhyara.html">dhyara</a></div><div class="ttdef"><b>Definition:</b> <a href="actions_2acknowledgement_8h_source.html#l00016">acknowledgement.h:16</a></div></div>
 <div class="ttc" id="astructdhyara_1_1peer_html_a65fe52e25eb4293064caa5ce22b35f42"><div class="ttname"><a href="structdhyara_1_1peer.html#a65fe52e25eb4293064caa5ce22b35f42">dhyara::peer::encrypt</a></div><div class="ttdeci">self_type &amp; encrypt(bool flag)</div><div class="ttdoc">set encryption flag</div><div class="ttdef"><b>Definition:</b> <a href="peer_8h_source.html#l00167">peer.h:167</a></div></div>
@@ -258,7 +257,7 @@ $(document).ready(function(){initNavTree('peer_8h_source.html',''); initResizabl
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_09e761304027c904456130627fd4dcf5.html">includes</a></li><li class="navelem"><a class="el" href="dir_f7f3c0f391df97c74fff5c67413f6c88.html">dhyara</a></li><li class="navelem"><a class="el" href="peer_8h.html">peer.h</a></li>
+    <li class="navelem"><a class="el" href="dir_f7f3c0f391df97c74fff5c67413f6c88.html">dhyara</a></li><li class="navelem"><a class="el" href="peer_8h.html">peer.h</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>

@@ -1,13 +1,13 @@
-<map id="/home/runner/work/dhyara/dhyara/includes/dhyara/xqueue.h" name="/home/runner/work/dhyara/dhyara/includes/dhyara/xqueue.h">
-<area shape="rect" id="node1" title=" " alt="" coords="96,5,291,61"/>
-<area shape="rect" id="node2" title=" " alt="" coords="117,184,197,211"/>
-<area shape="rect" id="node3" title=" " alt="" coords="333,333,400,360"/>
-<area shape="rect" id="node4" title=" " alt="" coords="34,109,185,136"/>
-<area shape="rect" id="node5" title=" " alt="" coords="209,109,346,136"/>
-<area shape="rect" id="node6" title=" " alt="" coords="371,109,501,136"/>
-<area shape="rect" id="node7" href="$frame_8h.html" title=" " alt="" coords="525,109,648,136"/>
-<area shape="rect" id="node8" href="$types_8h.html" title=" " alt="" coords="280,259,453,285"/>
-<area shape="rect" id="node9" href="$io_8h.html" title=" " alt="" coords="512,184,661,211"/>
-<area shape="rect" id="node10" href="$serialization_8h.html" title=" " alt="" coords="478,259,695,285"/>
-<area shape="rect" id="node11" title=" " alt="" coords="543,333,630,360"/>
+<map id="dhyara/xqueue.h" name="dhyara/xqueue.h">
+<area shape="rect" id="node1" title=" " alt="" coords="127,5,258,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="117,155,197,181"/>
+<area shape="rect" id="node3" title=" " alt="" coords="333,304,399,331"/>
+<area shape="rect" id="node4" title=" " alt="" coords="33,80,184,107"/>
+<area shape="rect" id="node5" title=" " alt="" coords="208,80,345,107"/>
+<area shape="rect" id="node6" title=" " alt="" coords="370,80,501,107"/>
+<area shape="rect" id="node7" href="$frame_8h.html" title=" " alt="" coords="525,80,647,107"/>
+<area shape="rect" id="node8" href="$types_8h.html" title=" " alt="" coords="279,229,453,256"/>
+<area shape="rect" id="node9" href="$io_8h.html" title=" " alt="" coords="511,155,661,181"/>
+<area shape="rect" id="node10" href="$serialization_8h.html" title=" " alt="" coords="477,229,695,256"/>
+<area shape="rect" id="node11" title=" " alt="" coords="543,304,629,331"/>
 </map>

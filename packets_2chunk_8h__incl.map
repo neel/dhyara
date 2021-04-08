@@ -1,14 +1,14 @@
-<map id="/home/runner/work/dhyara/dhyara/includes/dhyara/packets/chunk.h" name="/home/runner/work/dhyara/dhyara/includes/dhyara/packets/chunk.h">
-<area shape="rect" id="node1" title=" " alt="" coords="21,5,216,61"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,184,61,211"/>
-<area shape="rect" id="node3" title=" " alt="" coords="85,184,152,211"/>
-<area shape="rect" id="node4" href="$peer_8h.html" title=" " alt="" coords="369,109,479,136"/>
-<area shape="rect" id="node5" title=" " alt="" coords="403,184,445,211"/>
-<area shape="rect" id="node6" title=" " alt="" coords="469,184,528,211"/>
-<area shape="rect" id="node7" title=" " alt="" coords="553,184,615,211"/>
-<area shape="rect" id="node8" title=" " alt="" coords="640,184,715,211"/>
-<area shape="rect" id="node9" title=" " alt="" coords="739,184,819,211"/>
-<area shape="rect" id="node10" title=" " alt="" coords="843,184,928,211"/>
-<area shape="rect" id="node11" title=" " alt="" coords="177,184,263,211"/>
-<area shape="rect" id="node12" title=" " alt="" coords="288,184,379,211"/>
+<map id="dhyara/packets/chunk.h" name="dhyara/packets/chunk.h">
+<area shape="rect" id="node1" title=" " alt="" coords="31,5,207,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,155,61,181"/>
+<area shape="rect" id="node3" title=" " alt="" coords="85,155,152,181"/>
+<area shape="rect" id="node4" href="$peer_8h.html" title=" " alt="" coords="369,80,479,107"/>
+<area shape="rect" id="node5" title=" " alt="" coords="403,155,445,181"/>
+<area shape="rect" id="node6" title=" " alt="" coords="469,155,528,181"/>
+<area shape="rect" id="node7" title=" " alt="" coords="553,155,615,181"/>
+<area shape="rect" id="node8" title=" " alt="" coords="640,155,715,181"/>
+<area shape="rect" id="node9" title=" " alt="" coords="739,155,819,181"/>
+<area shape="rect" id="node10" title=" " alt="" coords="843,155,928,181"/>
+<area shape="rect" id="node11" title=" " alt="" coords="177,155,263,181"/>
+<area shape="rect" id="node12" title=" " alt="" coords="288,155,379,181"/>
 </map>

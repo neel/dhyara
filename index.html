@@ -91,7 +91,7 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <p><a href="http://neel.github.io/dhyara">Doxygen Documentation</a></p>
 <h1><a class="anchor" id="autotoc_md9"></a>
 Compilation &amp; Integration</h1>
-<p>Dhyara is a C++11 library that has to be used as an ESP-IDF component. It can be cloned to the <code>components</code> directory or can be used as a <code>git submodule</code> inside your projects <code>components</code> directory. If the application project is using an extra components directory then path to that directory has to be added in the root directory's <a class="el" href="_c_make_lists_8txt.html">CMakeLists.txt</a> file as shown in the following example.</p>
+<p>Dhyara is a C++11 library that has to be used as an ESP-IDF component. It can be cloned to the <code>components</code> directory or can be used as a <code>git submodule</code> inside your projects <code>components</code> directory. If the application project is using an extra components directory then path to that directory has to be added in the root directory's CMakeLists.txt file as shown in the following example.</p>
 <div class="fragment"><div class="line">set(EXTRA_COMPONENT_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/components)</div>
 </div><!-- fragment --><p>To configure the network parameters use <code>idf.py menuconfig</code> in the aplications directory and Go to <code>Component config &gt; Dhyara ad hoc network</code> To build and flash the application use <code>idf.py build</code> and <code>idf.py flash</code> as usual.</p>
 <div class="image">
@@ -117,7 +117,7 @@ Example</h1>
 <p>The example below assumes that the application coed is written in a class named <code>application</code> which takes a reference to <code><a class="el" href="structdhyara_1_1network.html" title="The dhyara ad-hoc network.">dhyara::network</a></code> in its constructor and stores it in a member variable <code>_network</code>. It is also assumed that the <code>main</code> method of the <code>application</code> class is called through the main.</p>
 <div class="fragment"><div class="line"><span class="keywordtype">void</span> application::main(){</div>
 <div class="line">    <span class="comment">// defining a source and a target in the multi hop network</span></div>
-<div class="line">    <a class="code" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> <a class="code" href="packets_2chunk_8h.html#ac05d2ac31c8046a03291c3c409f88e07">target</a>(<span class="stringliteral">&quot;4c:11:ae:9c:a6:85&quot;</span>), <a class="code" href="packets_2chunk_8h.html#a40e000d65a9cb5ac0507d5c7f934946c">source</a>(<span class="stringliteral">&quot;4c:11:ae:71:0f:4d&quot;</span>);</div>
+<div class="line">    <a class="code" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> target(<span class="stringliteral">&quot;4c:11:ae:9c:a6:85&quot;</span>), source(<span class="stringliteral">&quot;4c:11:ae:71:0f:4d&quot;</span>);</div>
 <div class="line">    </div>
 <div class="line">    <span class="comment">// The anonymous function will be called once all chunks of a data packet is received</span></div>
 <div class="line">    <span class="keyword">auto</span> lambda = [](<span class="keyword">const</span> <a class="code" href="structdhyara_1_1peer__address.html">dhyara::peer::address</a>&amp;, <span class="keyword">const</span> <a class="code" href="structdhyara_1_1packets_1_1data.html">dhyara::packets::data</a>&amp; data){</div>
@@ -133,12 +133,12 @@ Example</h1>
 <div class="line">    <span class="keywordflow">while</span>(1){</div>
 <div class="line">        <span class="comment">// Assuming the same application is running on all nodes</span></div>
 <div class="line">        <span class="comment">// The code below should only run in the source node</span></div>
-<div class="line">        <span class="keywordflow">if</span>(_network.link().address() == <a class="code" href="packets_2chunk_8h.html#a40e000d65a9cb5ac0507d5c7f934946c">source</a>){</div>
+<div class="line">        <span class="keywordflow">if</span>(_network.link().address() == source){</div>
 <div class="line">            <span class="comment">// A data to be sent (strign used in the example, but can be anything that can be iterated as a sequence of bytes)</span></div>
 <div class="line">            std::string buffer = <span class="stringliteral">&quot;Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.&quot;</span>;</div>
 <div class="line">            </div>
 <div class="line">            <span class="comment">// send the dynamically sized data</span></div>
-<div class="line">            _network.send(<a class="code" href="packets_2chunk_8h.html#ac05d2ac31c8046a03291c3c409f88e07">target</a>, buffer.begin(), buffer.end());</div>
+<div class="line">            _network.send(target, buffer.begin(), buffer.end());</div>
 <div class="line">        }</div>
 <div class="line">        </div>
 <div class="line">        <span class="comment">// Sleep for 5s</span></div>
@@ -151,8 +151,6 @@ Example</h1>
 </div><!-- doc-content -->
 <div class="ttc" id="astructdhyara_1_1peer__address_html"><div class="ttname"><a href="structdhyara_1_1peer__address.html">dhyara::peer_address</a></div><div class="ttdoc">peer address (mac address)</div><div class="ttdef"><b>Definition:</b> <a href="peer_8h_source.html#l00029">peer.h:29</a></div></div>
 <div class="ttc" id="astructdhyara_1_1packets_1_1data_html"><div class="ttname"><a href="structdhyara_1_1packets_1_1data.html">dhyara::packets::data</a></div><div class="ttdoc">A virtual packet, that is never sent accros the network.</div><div class="ttdef"><b>Definition:</b> <a href="data_8h_source.html#l00027">data.h:27</a></div></div>
-<div class="ttc" id="apackets_2chunk_8h_html_a40e000d65a9cb5ac0507d5c7f934946c"><div class="ttname"><a href="packets_2chunk_8h.html#a40e000d65a9cb5ac0507d5c7f934946c">source</a></div><div class="ttdeci">dhyara::peer::address source() const</div><div class="ttdef"><b>Definition:</b> <a href="packets_2chunk_8h_source.html#l00041">chunk.h:41</a></div></div>
-<div class="ttc" id="apackets_2chunk_8h_html_ac05d2ac31c8046a03291c3c409f88e07"><div class="ttname"><a href="packets_2chunk_8h.html#ac05d2ac31c8046a03291c3c409f88e07">target</a></div><div class="ttdeci">dhyara::peer::address target() const</div><div class="ttdef"><b>Definition:</b> <a href="packets_2chunk_8h_source.html#l00040">chunk.h:40</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

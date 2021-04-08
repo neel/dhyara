@@ -137,10 +137,10 @@ Public Member Functions</h2></td></tr>
 <div class="line">I (41140) <a class="code" href="structdhyara_1_1tools_1_1ping.html#a1ebd240a8893b75b9dc20aab35e46919">ping</a>: waiting 1s for all replies</div>
 <div class="line">I (42140) <a class="code" href="structdhyara_1_1tools_1_1ping.html#a1ebd240a8893b75b9dc20aab35e46919">ping</a>: 20/20 received, 0.00% lost, rtt min/avg/max/total = 1.07/1.24/1.78/24.85 ms</div>
 <div class="line">I (42140) <a class="code" href="structdhyara_1_1tools_1_1ping.html#a1ebd240a8893b75b9dc20aab35e46919">ping</a>: 5000/5000 bytes in 12.7 ms</div>
-</div><!-- fragment --><p> Following example demonstarate usage of ping tool. </p><div class="fragment"><div class="line"><a class="code" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> <a class="code" href="packets_2chunk_8h.html#ac05d2ac31c8046a03291c3c409f88e07">target</a>(<span class="stringliteral">&quot;4c:11:ae:9c:a6:85&quot;</span>)</div>
+</div><!-- fragment --><p> Following example demonstarate usage of ping tool. </p><div class="fragment"><div class="line"><a class="code" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> target(<span class="stringliteral">&quot;4c:11:ae:9c:a6:85&quot;</span>)</div>
 <div class="line"><a class="code" href="namespacedhyara.html">dhyara</a>::tools::<a class="code" href="structdhyara_1_1tools_1_1ping.html#a1ebd240a8893b75b9dc20aab35e46919">ping</a> <a class="code" href="structdhyara_1_1tools_1_1ping.html#a1ebd240a8893b75b9dc20aab35e46919">ping</a>(_network);</div>
 <div class="line"><a class="code" href="structdhyara_1_1tools_1_1ping.html#a1ebd240a8893b75b9dc20aab35e46919">ping</a>.<a class="code" href="structdhyara_1_1tools_1_1ping.html#a07c71e6380cdc0204a86865779f550ec">count</a>(50).<a class="code" href="structdhyara_1_1tools_1_1ping.html#a891da783376d96acf6be24df7917baa5">batch</a>(20).<a class="code" href="structdhyara_1_1tools_1_1ping.html#a030ea2ad877334dc72d7687ed0d98280">sleep</a>(1);</div>
-<div class="line"><a class="code" href="structdhyara_1_1tools_1_1ping.html#a1ebd240a8893b75b9dc20aab35e46919">ping</a>(<a class="code" href="packets_2chunk_8h.html#ac05d2ac31c8046a03291c3c409f88e07">target</a>);</div>
+<div class="line"><a class="code" href="structdhyara_1_1tools_1_1ping.html#a1ebd240a8893b75b9dc20aab35e46919">ping</a>(target);</div>
 </div><!-- fragment --> 
 <p class="definition">Definition at line <a class="el" href="ping_8h_source.html#l00041">41</a> of file <a class="el" href="ping_8h_source.html">ping.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -186,6 +186,7 @@ Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">network</td><td>reference to the network. </td></tr>
+    <tr><td class="paramname">count</td><td>number of batches </td></tr>
     <tr><td class="paramname">batch</td><td>batch size </td></tr>
     <tr><td class="paramname">sleep</td><td>sleep time (in ms) </td></tr>
   </table>
@@ -237,7 +238,7 @@ Public Member Functions</h2></td></tr>
 
 <p>get batch size </p>
 
-<p class="definition">Definition at line <a class="el" href="ping_8h_source.html#l00074">74</a> of file <a class="el" href="ping_8h_source.html">ping.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ping_8h_source.html#l00075">75</a> of file <a class="el" href="ping_8h_source.html">ping.h</a>.</p>
 
 </div>
 </div>
@@ -273,7 +274,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ping_8h_source.html#l00060">60</a> of file <a class="el" href="ping_8h_source.html">ping.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ping_8h_source.html#l00061">61</a> of file <a class="el" href="ping_8h_source.html">ping.h</a>.</p>
 
 </div>
 </div>
@@ -302,7 +303,7 @@ Public Member Functions</h2></td></tr>
 
 <p>get number of batches </p>
 
-<p class="definition">Definition at line <a class="el" href="ping_8h_source.html#l00070">70</a> of file <a class="el" href="ping_8h_source.html">ping.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ping_8h_source.html#l00071">71</a> of file <a class="el" href="ping_8h_source.html">ping.h</a>.</p>
 
 </div>
 </div>
@@ -338,7 +339,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ping_8h_source.html#l00055">55</a> of file <a class="el" href="ping_8h_source.html">ping.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ping_8h_source.html#l00056">56</a> of file <a class="el" href="ping_8h_source.html">ping.h</a>.</p>
 
 </div>
 </div>
@@ -438,7 +439,7 @@ Public Member Functions</h2></td></tr>
 
 <p>get sleep (in ms) </p>
 
-<p class="definition">Definition at line <a class="el" href="ping_8h_source.html#l00078">78</a> of file <a class="el" href="ping_8h_source.html">ping.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ping_8h_source.html#l00079">79</a> of file <a class="el" href="ping_8h_source.html">ping.h</a>.</p>
 
 </div>
 </div>
@@ -474,22 +475,21 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ping_8h_source.html#l00065">65</a> of file <a class="el" href="ping_8h_source.html">ping.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ping_8h_source.html#l00066">66</a> of file <a class="el" href="ping_8h_source.html">ping.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>/home/runner/work/dhyara/dhyara/includes/dhyara/tools/<a class="el" href="ping_8h_source.html">ping.h</a></li>
+<li>dhyara/tools/<a class="el" href="ping_8h_source.html">ping.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="astructdhyara_1_1peer__address_html"><div class="ttname"><a href="structdhyara_1_1peer__address.html">dhyara::peer_address</a></div><div class="ttdoc">peer address (mac address)</div><div class="ttdef"><b>Definition:</b> <a href="peer_8h_source.html#l00029">peer.h:29</a></div></div>
-<div class="ttc" id="astructdhyara_1_1tools_1_1ping_html_a030ea2ad877334dc72d7687ed0d98280"><div class="ttname"><a href="structdhyara_1_1tools_1_1ping.html#a030ea2ad877334dc72d7687ed0d98280">dhyara::tools::ping::sleep</a></div><div class="ttdeci">std::uint8_t sleep() const</div><div class="ttdoc">get sleep (in ms)</div><div class="ttdef"><b>Definition:</b> <a href="ping_8h_source.html#l00078">ping.h:78</a></div></div>
-<div class="ttc" id="astructdhyara_1_1tools_1_1ping_html_a891da783376d96acf6be24df7917baa5"><div class="ttname"><a href="structdhyara_1_1tools_1_1ping.html#a891da783376d96acf6be24df7917baa5">dhyara::tools::ping::batch</a></div><div class="ttdeci">std::int8_t batch() const</div><div class="ttdoc">get batch size</div><div class="ttdef"><b>Definition:</b> <a href="ping_8h_source.html#l00074">ping.h:74</a></div></div>
+<div class="ttc" id="astructdhyara_1_1tools_1_1ping_html_a030ea2ad877334dc72d7687ed0d98280"><div class="ttname"><a href="structdhyara_1_1tools_1_1ping.html#a030ea2ad877334dc72d7687ed0d98280">dhyara::tools::ping::sleep</a></div><div class="ttdeci">std::uint8_t sleep() const</div><div class="ttdoc">get sleep (in ms)</div><div class="ttdef"><b>Definition:</b> <a href="ping_8h_source.html#l00079">ping.h:79</a></div></div>
+<div class="ttc" id="astructdhyara_1_1tools_1_1ping_html_a891da783376d96acf6be24df7917baa5"><div class="ttname"><a href="structdhyara_1_1tools_1_1ping.html#a891da783376d96acf6be24df7917baa5">dhyara::tools::ping::batch</a></div><div class="ttdeci">std::int8_t batch() const</div><div class="ttdoc">get batch size</div><div class="ttdef"><b>Definition:</b> <a href="ping_8h_source.html#l00075">ping.h:75</a></div></div>
 <div class="ttc" id="astructdhyara_1_1tools_1_1ping_html_a1ebd240a8893b75b9dc20aab35e46919"><div class="ttname"><a href="structdhyara_1_1tools_1_1ping.html#a1ebd240a8893b75b9dc20aab35e46919">dhyara::tools::ping::ping</a></div><div class="ttdeci">ping(dhyara::network &amp;network, std::uint8_t count=254, std::int8_t batch=1, std::uint8_t sleep=15)</div><div class="ttdoc">construct</div></div>
 <div class="ttc" id="anamespacedhyara_html"><div class="ttname"><a href="namespacedhyara.html">dhyara</a></div><div class="ttdef"><b>Definition:</b> <a href="actions_2acknowledgement_8h_source.html#l00016">acknowledgement.h:16</a></div></div>
-<div class="ttc" id="astructdhyara_1_1tools_1_1ping_html_a07c71e6380cdc0204a86865779f550ec"><div class="ttname"><a href="structdhyara_1_1tools_1_1ping.html#a07c71e6380cdc0204a86865779f550ec">dhyara::tools::ping::count</a></div><div class="ttdeci">std::uint8_t count() const</div><div class="ttdoc">get number of batches</div><div class="ttdef"><b>Definition:</b> <a href="ping_8h_source.html#l00070">ping.h:70</a></div></div>
-<div class="ttc" id="apackets_2chunk_8h_html_ac05d2ac31c8046a03291c3c409f88e07"><div class="ttname"><a href="packets_2chunk_8h.html#ac05d2ac31c8046a03291c3c409f88e07">target</a></div><div class="ttdeci">dhyara::peer::address target() const</div><div class="ttdef"><b>Definition:</b> <a href="packets_2chunk_8h_source.html#l00040">chunk.h:40</a></div></div>
+<div class="ttc" id="astructdhyara_1_1tools_1_1ping_html_a07c71e6380cdc0204a86865779f550ec"><div class="ttname"><a href="structdhyara_1_1tools_1_1ping.html#a07c71e6380cdc0204a86865779f550ec">dhyara::tools::ping::count</a></div><div class="ttdeci">std::uint8_t count() const</div><div class="ttdoc">get number of batches</div><div class="ttdef"><b>Definition:</b> <a href="ping_8h_source.html#l00071">ping.h:71</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

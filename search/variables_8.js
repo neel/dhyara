@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['max_568',['max',['../structdhyara_1_1actions_1_1echo__reply_1_1rtt__stat.html#acf7d08a4db15b73922c870d8fe716fed',1,'dhyara::actions::echo_reply::rtt_stat']]],
-  ['min_569',['min',['../structdhyara_1_1actions_1_1echo__reply_1_1rtt__stat.html#a3bc7b658f091e2adf7f504106290b9cd',1,'dhyara::actions::echo_reply::rtt_stat']]]
+  ['html_5fstatic_5fpath_577',['html_static_path',['../namespaceconf.html#af4fb5d8851ccaade135c2668dd3ced41',1,'conf']]],
+  ['html_5ftheme_578',['html_theme',['../namespaceconf.html#a6c3bfcc1a44546c1c75ce20f55bd0fd6',1,'conf']]],
+  ['html_5ftheme_5fpath_579',['html_theme_path',['../namespaceconf.html#a4960231f83b1b44a1ffcd212903b62e8',1,'conf']]]
 ];

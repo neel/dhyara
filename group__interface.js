@@ -36,8 +36,8 @@ var group__interface =
       [ "reset", "structdhyara_1_1link.html#a388cf4322e818fd5d33665c571c3ca37", null ],
       [ "routes", "structdhyara_1_1link.html#afb967dd39b9e1982e5411e9d8005fc27", null ],
       [ "rx", "structdhyara_1_1link.html#ae84e6d577ba8d0e9c3c575f735f55eb3", null ],
-      [ "send", "structdhyara_1_1link.html#a48561058093799346b0afabed0270515", null ],
-      [ "send_local", "structdhyara_1_1link.html#a1f7775fc92ab5ca21327189e272eb2a2", null ],
+      [ "send", "structdhyara_1_1link.html#adc9c6543f44bb258ec27d169dfc2acaf", null ],
+      [ "send_local", "structdhyara_1_1link.html#ab1b658b908d8ead7315600db746c51f6", null ],
       [ "start_rcv", "structdhyara_1_1link.html#a48d84ff3fff1d76658acfa4df424d943", null ],
       [ "tx", "structdhyara_1_1link.html#a796b3353f9d4a3af16436de8d027ba35", null ]
     ] ],
@@ -89,6 +89,5 @@ var group__interface =
       [ "raw", "structdhyara_1_1peer__address.html#aabc29862808426f70dc57f8d87f9c346", null ],
       [ "set", "structdhyara_1_1peer__address.html#aa1e3a6214939a770249ef1e886d9b792", null ],
       [ "to_string", "structdhyara_1_1peer__address.html#a9d64efdda5c49d6bf462f2f6e1e6aad1", null ]
-    ] ],
-    [ "__attribute__", "group__interface.html#ga9ec2bfd9a3a4dc94d02a4a7e97c26816", null ]
+    ] ]
 ];

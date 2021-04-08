@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dhyara: /home/runner/work/dhyara/dhyara/includes/dhyara/xqueue.h Source File</title>
+<title>Dhyara: dhyara/xqueue.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -123,40 +123,40 @@ $(document).ready(function(){initNavTree('xqueue_8h_source.html',''); initResiza
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            }</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            <span class="keywordflow">return</span> success;</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        }</div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="classdhyara_1_1xqueue.html#a65bc9a24157ab8d06169d3b5b5b3f0a1">   54</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classdhyara_1_1xqueue.html#a65bc9a24157ab8d06169d3b5b5b3f0a1">overwrite</a>(<span class="keyword">const</span> MessageT&amp; msg){</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <span class="keywordtype">bool</span> success = (pdPASS == xQueueOverwrite(_handle, (<span class="keywordtype">void</span>*) &amp;msg));</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <span class="keywordflow">if</span>(success){</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                _counter = 1;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            }</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <span class="keywordflow">return</span> success;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        }</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> F&gt;</div>
-<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="classdhyara_1_1xqueue.html#ad91441e444c937c86bb51f8f6adbf92b">   67</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classdhyara_1_1xqueue.html#ad91441e444c937c86bb51f8f6adbf92b">de</a>(F fnc, std::size_t ticks = 0xffffffffUL){</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            MessageT msg;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <span class="keywordflow">while</span> (pdPASS == xQueueReceive(_handle, &amp;msg, (TickType_t) ticks)) {</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                --_counter;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                fnc(msg);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            }</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        }</div>
-<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="classdhyara_1_1xqueue.html#afc6810527d18fb11a548ada6856f7bb6">   78</a></span>&#160;        MessageT <a class="code" href="classdhyara_1_1xqueue.html#afc6810527d18fb11a548ada6856f7bb6">de</a>(std::size_t ticks = 0xffffffffUL){</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            MessageT msg;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <span class="keywordflow">if</span>(pdPASS == xQueueReceive(_handle, &amp;msg, (TickType_t) ticks)){</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                --_counter;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            }</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            <span class="keywordflow">return</span> msg;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        }</div>
-<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="classdhyara_1_1xqueue.html#ac70acada331e7bc5f608d6dc46a8463f">   96</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classdhyara_1_1xqueue.html#ac70acada331e7bc5f608d6dc46a8463f">de</a>(MessageT&amp; msg, std::size_t ticks = 0xffffffffUL){</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            <span class="keywordtype">bool</span> success = (pdPASS == xQueueReceive(_handle, &amp;msg, (TickType_t) ticks));</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            <span class="keywordflow">if</span>(success){</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                --_counter;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            }</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            <span class="keywordflow">return</span> success;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        }</div>
-<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="classdhyara_1_1xqueue.html#a15bbbe7f8b0573084c4fd9a53a28be69">  107</a></span>&#160;        MessageT <a class="code" href="classdhyara_1_1xqueue.html#a15bbbe7f8b0573084c4fd9a53a28be69">peek</a>(std::size_t ticks = 0xffffffffUL){</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;            MessageT msg;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            xQueuePeek(_handle, &amp;msg, (TickType_t) ticks);</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;            <span class="keywordflow">return</span> msg;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        }</div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="classdhyara_1_1xqueue.html#a65bc9a24157ab8d06169d3b5b5b3f0a1">   53</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classdhyara_1_1xqueue.html#a65bc9a24157ab8d06169d3b5b5b3f0a1">overwrite</a>(<span class="keyword">const</span> MessageT&amp; msg){</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <span class="keywordtype">bool</span> success = (pdPASS == xQueueOverwrite(_handle, (<span class="keywordtype">void</span>*) &amp;msg));</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <span class="keywordflow">if</span>(success){</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                _counter = 1;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            }</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            <span class="keywordflow">return</span> success;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        }</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> F&gt;</div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="classdhyara_1_1xqueue.html#ad91441e444c937c86bb51f8f6adbf92b">   66</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classdhyara_1_1xqueue.html#ad91441e444c937c86bb51f8f6adbf92b">de</a>(F fnc, std::size_t ticks = 0xffffffffUL){</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            MessageT msg;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            <span class="keywordflow">while</span> (pdPASS == xQueueReceive(_handle, &amp;msg, (TickType_t) ticks)) {</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                --_counter;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                fnc(msg);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            }</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        }</div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="classdhyara_1_1xqueue.html#afc6810527d18fb11a548ada6856f7bb6">   77</a></span>&#160;        MessageT <a class="code" href="classdhyara_1_1xqueue.html#afc6810527d18fb11a548ada6856f7bb6">de</a>(std::size_t ticks = 0xffffffffUL){</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            MessageT msg;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <span class="keywordflow">if</span>(pdPASS == xQueueReceive(_handle, &amp;msg, (TickType_t) ticks)){</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                --_counter;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            }</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <span class="keywordflow">return</span> msg;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        }</div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="classdhyara_1_1xqueue.html#ac70acada331e7bc5f608d6dc46a8463f">   95</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classdhyara_1_1xqueue.html#ac70acada331e7bc5f608d6dc46a8463f">de</a>(MessageT&amp; msg, std::size_t ticks = 0xffffffffUL){</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            <span class="keywordtype">bool</span> success = (pdPASS == xQueueReceive(_handle, &amp;msg, (TickType_t) ticks));</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            <span class="keywordflow">if</span>(success){</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                --_counter;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            }</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            <span class="keywordflow">return</span> success;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        }</div>
+<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="classdhyara_1_1xqueue.html#a15bbbe7f8b0573084c4fd9a53a28be69">  106</a></span>&#160;        MessageT <a class="code" href="classdhyara_1_1xqueue.html#a15bbbe7f8b0573084c4fd9a53a28be69">peek</a>(std::size_t ticks = 0xffffffffUL){</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            MessageT msg;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;            xQueuePeek(_handle, &amp;msg, (TickType_t) ticks);</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            <span class="keywordflow">return</span> msg;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        }</div>
 <div class="line"><a name="l00122"></a><span class="lineno"><a class="line" href="classdhyara_1_1xqueue.html#a1932dd16bb0c31aa671da846eb3ac75d">  122</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classdhyara_1_1xqueue.html#a1932dd16bb0c31aa671da846eb3ac75d">peek</a>(MessageT&amp; msg, std::size_t ticks = 0xffffffffUL){</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            <span class="keywordflow">return</span> pdPASS == xQueuePeek(_handle, &amp;msg, (TickType_t) ticks);</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        }</div>
@@ -287,10 +287,10 @@ $(document).ready(function(){initNavTree('xqueue_8h_source.html',''); initResiza
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="astructdhyara_1_1peer__address_html"><div class="ttname"><a href="structdhyara_1_1peer__address.html">dhyara::peer_address</a></div><div class="ttdoc">peer address (mac address)</div><div class="ttdef"><b>Definition:</b> <a href="peer_8h_source.html#l00029">peer.h:29</a></div></div>
-<div class="ttc" id="aclassdhyara_1_1xqueue_html_ad91441e444c937c86bb51f8f6adbf92b"><div class="ttname"><a href="classdhyara_1_1xqueue.html#ad91441e444c937c86bb51f8f6adbf92b">dhyara::xqueue::de</a></div><div class="ttdeci">void de(F fnc, std::size_t ticks=0xffffffffUL)</div><div class="ttdoc">Receive loop using a function as callback.</div><div class="ttdef"><b>Definition:</b> <a href="xqueue_8h_source.html#l00067">xqueue.h:67</a></div></div>
+<div class="ttc" id="aclassdhyara_1_1xqueue_html_ad91441e444c937c86bb51f8f6adbf92b"><div class="ttname"><a href="classdhyara_1_1xqueue.html#ad91441e444c937c86bb51f8f6adbf92b">dhyara::xqueue::de</a></div><div class="ttdeci">void de(F fnc, std::size_t ticks=0xffffffffUL)</div><div class="ttdoc">Receive loop using a function as callback.</div><div class="ttdef"><b>Definition:</b> <a href="xqueue_8h_source.html#l00066">xqueue.h:66</a></div></div>
 <div class="ttc" id="aclassdhyara_1_1xqueue_html_aac33a333b68637c12c0977993fc885df"><div class="ttname"><a href="classdhyara_1_1xqueue.html#aac33a333b68637c12c0977993fc885df">dhyara::xqueue::en</a></div><div class="ttdeci">bool en(const MessageT &amp;msg, std::size_t ticks=0)</div><div class="ttdoc">enqueue a value to the queue</div><div class="ttdef"><b>Definition:</b> <a href="xqueue_8h_source.html#l00041">xqueue.h:41</a></div></div>
-<div class="ttc" id="aclassdhyara_1_1xqueue_html_ac70acada331e7bc5f608d6dc46a8463f"><div class="ttname"><a href="classdhyara_1_1xqueue.html#ac70acada331e7bc5f608d6dc46a8463f">dhyara::xqueue::de</a></div><div class="ttdeci">bool de(MessageT &amp;msg, std::size_t ticks=0xffffffffUL)</div><div class="ttdoc">Receives a message into the refered value from the queue.</div><div class="ttdef"><b>Definition:</b> <a href="xqueue_8h_source.html#l00096">xqueue.h:96</a></div></div>
-<div class="ttc" id="aclassdhyara_1_1xqueue_html_afc6810527d18fb11a548ada6856f7bb6"><div class="ttname"><a href="classdhyara_1_1xqueue.html#afc6810527d18fb11a548ada6856f7bb6">dhyara::xqueue::de</a></div><div class="ttdeci">MessageT de(std::size_t ticks=0xffffffffUL)</div><div class="ttdoc">Receive a message and return.</div><div class="ttdef"><b>Definition:</b> <a href="xqueue_8h_source.html#l00078">xqueue.h:78</a></div></div>
+<div class="ttc" id="aclassdhyara_1_1xqueue_html_ac70acada331e7bc5f608d6dc46a8463f"><div class="ttname"><a href="classdhyara_1_1xqueue.html#ac70acada331e7bc5f608d6dc46a8463f">dhyara::xqueue::de</a></div><div class="ttdeci">bool de(MessageT &amp;msg, std::size_t ticks=0xffffffffUL)</div><div class="ttdoc">Receives a message into the refered value from the queue.</div><div class="ttdef"><b>Definition:</b> <a href="xqueue_8h_source.html#l00095">xqueue.h:95</a></div></div>
+<div class="ttc" id="aclassdhyara_1_1xqueue_html_afc6810527d18fb11a548ada6856f7bb6"><div class="ttname"><a href="classdhyara_1_1xqueue.html#afc6810527d18fb11a548ada6856f7bb6">dhyara::xqueue::de</a></div><div class="ttdeci">MessageT de(std::size_t ticks=0xffffffffUL)</div><div class="ttdoc">Receive a message and return.</div><div class="ttdef"><b>Definition:</b> <a href="xqueue_8h_source.html#l00077">xqueue.h:77</a></div></div>
 <div class="ttc" id="astructdhyara_1_1message_html_a4bb998067790cd821ed739de236c6e63"><div class="ttname"><a href="structdhyara_1_1message.html#a4bb998067790cd821ed739de236c6e63">dhyara::message::message</a></div><div class="ttdeci">message()</div><div class="ttdef"><b>Definition:</b> <a href="xqueue_8h_source.html#l00214">xqueue.h:214</a></div></div>
 <div class="ttc" id="astructdhyara_1_1frame_html_a929a055075b3dec5f920e4cc2e57e846"><div class="ttname"><a href="structdhyara_1_1frame.html#a929a055075b3dec5f920e4cc2e57e846">dhyara::frame::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdoc">Clears the frame, zerofills the internal buffer.</div><div class="ttdef"><b>Definition:</b> <a href="frame_8h_source.html#l00079">frame.h:79</a></div></div>
 <div class="ttc" id="astructdhyara_1_1mutex_html"><div class="ttname"><a href="structdhyara_1_1mutex.html">dhyara::mutex</a></div><div class="ttdoc">mutex</div><div class="ttdef"><b>Definition:</b> <a href="xqueue_8h_source.html#l00197">xqueue.h:197</a></div></div>
@@ -301,7 +301,7 @@ $(document).ready(function(){initNavTree('xqueue_8h_source.html',''); initResiza
 <div class="ttc" id="astructdhyara_1_1peer__address_html_a017ba65751f3f7317e5e0da2a7bc7673"><div class="ttname"><a href="structdhyara_1_1peer__address.html#a017ba65751f3f7317e5e0da2a7bc7673">dhyara::peer_address::null</a></div><div class="ttdeci">static peer_address null()</div><div class="ttdoc">null mac</div><div class="ttdef"><b>Definition:</b> <a href="peer_8h_source.html#l00052">peer.h:52</a></div></div>
 <div class="ttc" id="astructdhyara_1_1network__fifo_html_a387cad5d89dcaa2a92edf8c527fc9a18"><div class="ttname"><a href="structdhyara_1_1network__fifo.html#a387cad5d89dcaa2a92edf8c527fc9a18">dhyara::network_fifo::network_fifo</a></div><div class="ttdeci">network_fifo(callback_type cb)</div><div class="ttdoc">Construct with the callback.</div><div class="ttdef"><b>Definition:</b> <a href="xqueue_8h_source.html#l00238">xqueue.h:238</a></div></div>
 <div class="ttc" id="astructdhyara_1_1network__fifo_html_a646d59f833447151c055afa7024e8232"><div class="ttname"><a href="structdhyara_1_1network__fifo.html#a646d59f833447151c055afa7024e8232">dhyara::network_fifo::empty</a></div><div class="ttdeci">bool empty()</div><div class="ttdoc">Check whether the queue is empty or not.</div><div class="ttdef"><b>Definition:</b> <a href="xqueue_8h_source.html#l00279">xqueue.h:279</a></div></div>
-<div class="ttc" id="aclassdhyara_1_1xqueue_html_a65bc9a24157ab8d06169d3b5b5b3f0a1"><div class="ttname"><a href="classdhyara_1_1xqueue.html#a65bc9a24157ab8d06169d3b5b5b3f0a1">dhyara::xqueue::overwrite</a></div><div class="ttdeci">bool overwrite(const MessageT &amp;msg)</div><div class="ttdoc">enqueue a value to the queue, if the queue is full overwrites the last</div><div class="ttdef"><b>Definition:</b> <a href="xqueue_8h_source.html#l00054">xqueue.h:54</a></div></div>
+<div class="ttc" id="aclassdhyara_1_1xqueue_html_a65bc9a24157ab8d06169d3b5b5b3f0a1"><div class="ttname"><a href="classdhyara_1_1xqueue.html#a65bc9a24157ab8d06169d3b5b5b3f0a1">dhyara::xqueue::overwrite</a></div><div class="ttdeci">bool overwrite(const MessageT &amp;msg)</div><div class="ttdoc">enqueue a value to the queue, if the queue is full overwrites the last</div><div class="ttdef"><b>Definition:</b> <a href="xqueue_8h_source.html#l00053">xqueue.h:53</a></div></div>
 <div class="ttc" id="astructdhyara_1_1watcher_html_a84aff4fc13360d24afb31faa593cd462"><div class="ttname"><a href="structdhyara_1_1watcher.html#a84aff4fc13360d24afb31faa593cd462">dhyara::watcher::watch</a></div><div class="ttdeci">bool watch(WatchedT &amp;watched)</div><div class="ttdef"><b>Definition:</b> <a href="xqueue_8h_source.html#l00170">xqueue.h:170</a></div></div>
 <div class="ttc" id="astructdhyara_1_1network__fifo_html_a21decb239670f9c2a66abf3ea9a690b5"><div class="ttname"><a href="structdhyara_1_1network__fifo.html#a21decb239670f9c2a66abf3ea9a690b5">dhyara::network_fifo::self_type</a></div><div class="ttdeci">network_fifo&lt; Capacity &gt; self_type</div><div class="ttdef"><b>Definition:</b> <a href="xqueue_8h_source.html#l00231">xqueue.h:231</a></div></div>
 <div class="ttc" id="astructdhyara_1_1network__fifo_html_a39097c116723e96957ec82edae13c326"><div class="ttname"><a href="structdhyara_1_1network__fifo.html#a39097c116723e96957ec82edae13c326">dhyara::network_fifo::loop</a></div><div class="ttdeci">void loop(std::size_t ticks=0xffffffffUL)</div><div class="ttdoc">Start the receive loop that never returns.</div><div class="ttdef"><b>Definition:</b> <a href="xqueue_8h_source.html#l00242">xqueue.h:242</a></div></div>
@@ -312,7 +312,7 @@ $(document).ready(function(){initNavTree('xqueue_8h_source.html',''); initResiza
 <div class="ttc" id="astructdhyara_1_1network__fifo_html_a55eda47c85b77ade22804dfce0aee131"><div class="ttname"><a href="structdhyara_1_1network__fifo.html#a55eda47c85b77ade22804dfce0aee131">dhyara::network_fifo::dequeue</a></div><div class="ttdeci">bool dequeue(callback_type cb, std::size_t ticks=0xffffffffUL)</div><div class="ttdoc">Receives a frame into the refered value from the queue.</div><div class="ttdef"><b>Definition:</b> <a href="xqueue_8h_source.html#l00260">xqueue.h:260</a></div></div>
 <div class="ttc" id="aclassdhyara_1_1xqueue_html_aef690dc7f85ccda2c33cb48e98cbadcc"><div class="ttname"><a href="classdhyara_1_1xqueue.html#aef690dc7f85ccda2c33cb48e98cbadcc">dhyara::xqueue::free</a></div><div class="ttdeci">UBaseType_t free()</div><div class="ttdoc">Return the number of free spaces in a queue.</div><div class="ttdef"><b>Definition:</b> <a href="xqueue_8h_source.html#l00143">xqueue.h:143</a></div></div>
 <div class="ttc" id="anamespacedhyara_html"><div class="ttname"><a href="namespacedhyara.html">dhyara</a></div><div class="ttdef"><b>Definition:</b> <a href="actions_2acknowledgement_8h_source.html#l00016">acknowledgement.h:16</a></div></div>
-<div class="ttc" id="aclassdhyara_1_1xqueue_html_a15bbbe7f8b0573084c4fd9a53a28be69"><div class="ttname"><a href="classdhyara_1_1xqueue.html#a15bbbe7f8b0573084c4fd9a53a28be69">dhyara::xqueue::peek</a></div><div class="ttdeci">MessageT peek(std::size_t ticks=0xffffffffUL)</div><div class="ttdoc">Peeks a message and return.</div><div class="ttdef"><b>Definition:</b> <a href="xqueue_8h_source.html#l00107">xqueue.h:107</a></div></div>
+<div class="ttc" id="aclassdhyara_1_1xqueue_html_a15bbbe7f8b0573084c4fd9a53a28be69"><div class="ttname"><a href="classdhyara_1_1xqueue.html#a15bbbe7f8b0573084c4fd9a53a28be69">dhyara::xqueue::peek</a></div><div class="ttdeci">MessageT peek(std::size_t ticks=0xffffffffUL)</div><div class="ttdoc">Peeks a message and return.</div><div class="ttdef"><b>Definition:</b> <a href="xqueue_8h_source.html#l00106">xqueue.h:106</a></div></div>
 <div class="ttc" id="astructdhyara_1_1watcher_html_a6f8479e803b87b271c71e32b9c915706"><div class="ttname"><a href="structdhyara_1_1watcher.html#a6f8479e803b87b271c71e32b9c915706">dhyara::watcher::notify</a></div><div class="ttdeci">bool notify(const WatchedT &amp;watched)</div><div class="ttdoc">notify the watcher</div><div class="ttdef"><b>Definition:</b> <a href="xqueue_8h_source.html#l00167">xqueue.h:167</a></div></div>
 <div class="ttc" id="astructdhyara_1_1watcher_html_a35190fef07ee6e6d1d5e1bd4f48f7003"><div class="ttname"><a href="structdhyara_1_1watcher.html#a35190fef07ee6e6d1d5e1bd4f48f7003">dhyara::watcher::_notification</a></div><div class="ttdeci">xqueue_type _notification</div><div class="ttdef"><b>Definition:</b> <a href="xqueue_8h_source.html#l00162">xqueue.h:162</a></div></div>
 <div class="ttc" id="aframe_8h_html"><div class="ttname"><a href="frame_8h.html">frame.h</a></div></div>
@@ -340,7 +340,7 @@ $(document).ready(function(){initNavTree('xqueue_8h_source.html',''); initResiza
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_09e761304027c904456130627fd4dcf5.html">includes</a></li><li class="navelem"><a class="el" href="dir_f7f3c0f391df97c74fff5c67413f6c88.html">dhyara</a></li><li class="navelem"><a class="el" href="xqueue_8h.html">xqueue.h</a></li>
+    <li class="navelem"><a class="el" href="dir_f7f3c0f391df97c74fff5c67413f6c88.html">dhyara</a></li><li class="navelem"><a class="el" href="xqueue_8h.html">xqueue.h</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>

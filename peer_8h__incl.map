@@ -1,13 +1,13 @@
-<map id="/home/runner/work/dhyara/dhyara/includes/dhyara/peer.h" name="/home/runner/work/dhyara/dhyara/includes/dhyara/peer.h">
-<area shape="rect" id="node1" title=" " alt="" coords="291,5,514,47"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,95,48,121"/>
-<area shape="rect" id="node3" title=" " alt="" coords="72,95,128,121"/>
-<area shape="rect" id="node4" title=" " alt="" coords="152,95,211,121"/>
-<area shape="rect" id="node5" title=" " alt="" coords="235,95,298,121"/>
-<area shape="rect" id="node6" title=" " alt="" coords="323,95,389,121"/>
-<area shape="rect" id="node7" title=" " alt="" coords="413,95,488,121"/>
-<area shape="rect" id="node8" title=" " alt="" coords="512,95,592,121"/>
-<area shape="rect" id="node9" title=" " alt="" coords="616,95,701,121"/>
-<area shape="rect" id="node10" title=" " alt="" coords="726,95,813,121"/>
-<area shape="rect" id="node11" title=" " alt="" coords="837,95,928,121"/>
+<map id="dhyara/peer.h" name="dhyara/peer.h">
+<area shape="rect" id="node1" title=" " alt="" coords="347,5,458,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,80,48,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="72,80,128,107"/>
+<area shape="rect" id="node4" title=" " alt="" coords="152,80,211,107"/>
+<area shape="rect" id="node5" title=" " alt="" coords="235,80,298,107"/>
+<area shape="rect" id="node6" title=" " alt="" coords="323,80,389,107"/>
+<area shape="rect" id="node7" title=" " alt="" coords="413,80,488,107"/>
+<area shape="rect" id="node8" title=" " alt="" coords="512,80,592,107"/>
+<area shape="rect" id="node9" title=" " alt="" coords="616,80,701,107"/>
+<area shape="rect" id="node10" title=" " alt="" coords="726,80,813,107"/>
+<area shape="rect" id="node11" title=" " alt="" coords="837,80,928,107"/>
 </map>

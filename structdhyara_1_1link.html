@@ -124,27 +124,27 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a1c9f0b94a68b78b3ca2b55263642fdd4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1link.html#a1c9f0b94a68b78b3ca2b55263642fdd4">init</a> ()</td></tr>
 <tr class="memdesc:a1c9f0b94a68b78b3ca2b55263642fdd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the medium.  <a href="structdhyara_1_1link.html#a1c9f0b94a68b78b3ca2b55263642fdd4">More...</a><br /></td></tr>
 <tr class="separator:a1c9f0b94a68b78b3ca2b55263642fdd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f7775fc92ab5ca21327189e272eb2a2"><td class="memTemplParams" colspan="2">template&lt;typename PacketT &gt; </td></tr>
-<tr class="memitem:a1f7775fc92ab5ca21327189e272eb2a2"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structdhyara_1_1link.html#a1f7775fc92ab5ca21327189e272eb2a2">send_local</a> (const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> &amp;addr, <a class="el" href="group__packets.html#ga587a117adc54019693a184e4f8b4e0b5">packets::type</a> <a class="el" href="frame_8h.html#a78e307c388dce6238411f479acc27611">type</a>, const PacketT &amp;<a class="el" href="packets_2delivered_8h.html#a4807fa15377222c0218199c14c38e506">packet</a>, std::size_t ticks=0)</td></tr>
-<tr class="memdesc:a1f7775fc92ab5ca21327189e272eb2a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a packet to an immediate neighbour directly in one hop.  <a href="structdhyara_1_1link.html#a1f7775fc92ab5ca21327189e272eb2a2">More...</a><br /></td></tr>
-<tr class="separator:a1f7775fc92ab5ca21327189e272eb2a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a48561058093799346b0afabed0270515"><td class="memTemplParams" colspan="2">template&lt;typename PacketT &gt; </td></tr>
-<tr class="memitem:a48561058093799346b0afabed0270515"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structdhyara_1_1link.html#a48561058093799346b0afabed0270515">send</a> (const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> &amp;addr, <a class="el" href="group__packets.html#ga587a117adc54019693a184e4f8b4e0b5">packets::type</a> <a class="el" href="frame_8h.html#a78e307c388dce6238411f479acc27611">type</a>, const PacketT &amp;<a class="el" href="packets_2delivered_8h.html#a4807fa15377222c0218199c14c38e506">packet</a>, std::size_t ticks=0)</td></tr>
-<tr class="memdesc:a48561058093799346b0afabed0270515"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a packet via the best intermediate node.  <a href="structdhyara_1_1link.html#a48561058093799346b0afabed0270515">More...</a><br /></td></tr>
-<tr class="separator:a48561058093799346b0afabed0270515"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a978706fc680636c3cdaaa9a3781a5754"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1link.html#a978706fc680636c3cdaaa9a3781a5754">_esp_sent_cb</a> (const uint8_t *<a class="el" href="packets_2echo__request_8h.html#a321cf56f5ac18e313f9ad58dc2150026">target</a>, esp_now_send_status_t status)</td></tr>
+<tr class="memitem:ab1b658b908d8ead7315600db746c51f6"><td class="memTemplParams" colspan="2">template&lt;typename PacketT &gt; </td></tr>
+<tr class="memitem:ab1b658b908d8ead7315600db746c51f6"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structdhyara_1_1link.html#ab1b658b908d8ead7315600db746c51f6">send_local</a> (const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> &amp;addr, <a class="el" href="group__packets.html#ga587a117adc54019693a184e4f8b4e0b5">packets::type</a> type, const PacketT &amp;packet)</td></tr>
+<tr class="memdesc:ab1b658b908d8ead7315600db746c51f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a packet to an immediate neighbour directly in one hop.  <a href="structdhyara_1_1link.html#ab1b658b908d8ead7315600db746c51f6">More...</a><br /></td></tr>
+<tr class="separator:ab1b658b908d8ead7315600db746c51f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc9c6543f44bb258ec27d169dfc2acaf"><td class="memTemplParams" colspan="2">template&lt;typename PacketT &gt; </td></tr>
+<tr class="memitem:adc9c6543f44bb258ec27d169dfc2acaf"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structdhyara_1_1link.html#adc9c6543f44bb258ec27d169dfc2acaf">send</a> (const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> &amp;addr, <a class="el" href="group__packets.html#ga587a117adc54019693a184e4f8b4e0b5">packets::type</a> type, const PacketT &amp;packet)</td></tr>
+<tr class="memdesc:adc9c6543f44bb258ec27d169dfc2acaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a packet via the best intermediate node.  <a href="structdhyara_1_1link.html#adc9c6543f44bb258ec27d169dfc2acaf">More...</a><br /></td></tr>
+<tr class="separator:adc9c6543f44bb258ec27d169dfc2acaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a978706fc680636c3cdaaa9a3781a5754"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1link.html#a978706fc680636c3cdaaa9a3781a5754">_esp_sent_cb</a> (const uint8_t *target, esp_now_send_status_t status)</td></tr>
 <tr class="memdesc:a978706fc680636c3cdaaa9a3781a5754"><td class="mdescLeft">&#160;</td><td class="mdescRight">ESP Send Callback.  <a href="structdhyara_1_1link.html#a978706fc680636c3cdaaa9a3781a5754">More...</a><br /></td></tr>
 <tr class="separator:a978706fc680636c3cdaaa9a3781a5754"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad7b4f39ecaf94c52dc5739898da8a627"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1link.html#ad7b4f39ecaf94c52dc5739898da8a627">_esp_rcvd_cb</a> (const uint8_t *<a class="el" href="packets_2echo__request_8h.html#adf785647bab7bb6508f7b57843a1f87f">source</a>, const uint8_t *data, int len)</td></tr>
+<tr class="memitem:ad7b4f39ecaf94c52dc5739898da8a627"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1link.html#ad7b4f39ecaf94c52dc5739898da8a627">_esp_rcvd_cb</a> (const uint8_t *source, const uint8_t *data, int len)</td></tr>
 <tr class="memdesc:ad7b4f39ecaf94c52dc5739898da8a627"><td class="mdescLeft">&#160;</td><td class="mdescRight">Process raw data received.  <a href="structdhyara_1_1link.html#ad7b4f39ecaf94c52dc5739898da8a627">More...</a><br /></td></tr>
 <tr class="separator:ad7b4f39ecaf94c52dc5739898da8a627"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a45aedba311a6021cafbdcbb9d2dfa09a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1link.html#a45aedba311a6021cafbdcbb9d2dfa09a">_esp_promiscous_rx_cb</a> (void *buffer, wifi_promiscuous_pkt_type_t <a class="el" href="frame_8h.html#a78e307c388dce6238411f479acc27611">type</a>)</td></tr>
+<tr class="memitem:a45aedba311a6021cafbdcbb9d2dfa09a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1link.html#a45aedba311a6021cafbdcbb9d2dfa09a">_esp_promiscous_rx_cb</a> (void *buffer, wifi_promiscuous_pkt_type_t type)</td></tr>
 <tr class="memdesc:a45aedba311a6021cafbdcbb9d2dfa09a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates RSSI by using the frame headers received in the promiscous mode.  <a href="structdhyara_1_1link.html#a45aedba311a6021cafbdcbb9d2dfa09a">More...</a><br /></td></tr>
 <tr class="separator:a45aedba311a6021cafbdcbb9d2dfa09a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f5a1a89dbd273867300879c778a2421"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1link.html#a3f5a1a89dbd273867300879c778a2421">install</a> (<a class="el" href="group__packets.html#ga587a117adc54019693a184e4f8b4e0b5">dhyara::packets::type</a> <a class="el" href="frame_8h.html#a78e307c388dce6238411f479acc27611">type</a>, <a class="el" href="structdhyara_1_1link.html#a97cee0667d7958ce747e8dd0ca42fe9f">callback_type</a> cb)</td></tr>
+<tr class="memitem:a3f5a1a89dbd273867300879c778a2421"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1link.html#a3f5a1a89dbd273867300879c778a2421">install</a> (<a class="el" href="group__packets.html#ga587a117adc54019693a184e4f8b4e0b5">dhyara::packets::type</a> type, <a class="el" href="structdhyara_1_1link.html#a97cee0667d7958ce747e8dd0ca42fe9f">callback_type</a> cb)</td></tr>
 <tr class="memdesc:a3f5a1a89dbd273867300879c778a2421"><td class="mdescLeft">&#160;</td><td class="mdescRight">Associate an action with a packet type.  <a href="structdhyara_1_1link.html#a3f5a1a89dbd273867300879c778a2421">More...</a><br /></td></tr>
 <tr class="separator:a3f5a1a89dbd273867300879c778a2421"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a279e7531ee6dccea83ce1e6c793151ab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdhyara_1_1link_1_1proxy.html">proxy</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1link.html#a279e7531ee6dccea83ce1e6c793151ab">operator[]</a> (<a class="el" href="group__packets.html#ga587a117adc54019693a184e4f8b4e0b5">dhyara::packets::type</a> <a class="el" href="frame_8h.html#a78e307c388dce6238411f479acc27611">type</a>)</td></tr>
+<tr class="memitem:a279e7531ee6dccea83ce1e6c793151ab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdhyara_1_1link_1_1proxy.html">proxy</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1link.html#a279e7531ee6dccea83ce1e6c793151ab">operator[]</a> (<a class="el" href="group__packets.html#ga587a117adc54019693a184e4f8b4e0b5">dhyara::packets::type</a> type)</td></tr>
 <tr class="memdesc:a279e7531ee6dccea83ce1e6c793151ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Conveniance function to install an action (associate an action with a packet type).  <a href="structdhyara_1_1link.html#a279e7531ee6dccea83ce1e6c793151ab">More...</a><br /></td></tr>
 <tr class="separator:a279e7531ee6dccea83ce1e6c793151ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a48d84ff3fff1d76658acfa4df424d943"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1link.html#a48d84ff3fff1d76658acfa4df424d943">start_rcv</a> (std::size_t ticks=0xffffffffUL)</td></tr>
@@ -159,13 +159,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a14215f8d36d2ab205737ac3dc9f30d79"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structdhyara_1_1peer.html#ab47a3a3728c310f38d6f2064b81a80e1">dhyara::peer::address</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1link.html#a14215f8d36d2ab205737ac3dc9f30d79">address</a> () const</td></tr>
 <tr class="memdesc:a14215f8d36d2ab205737ac3dc9f30d79"><td class="mdescLeft">&#160;</td><td class="mdescRight">local address  <a href="structdhyara_1_1link.html#a14215f8d36d2ab205737ac3dc9f30d79">More...</a><br /></td></tr>
 <tr class="separator:a14215f8d36d2ab205737ac3dc9f30d79"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a388cf4322e818fd5d33665c571c3ca37"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1link.html#a388cf4322e818fd5d33665c571c3ca37">reset</a> (<a class="el" href="group__packets.html#ga587a117adc54019693a184e4f8b4e0b5">dhyara::packets::type</a> <a class="el" href="frame_8h.html#a78e307c388dce6238411f479acc27611">type</a>)</td></tr>
+<tr class="memitem:a388cf4322e818fd5d33665c571c3ca37"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1link.html#a388cf4322e818fd5d33665c571c3ca37">reset</a> (<a class="el" href="group__packets.html#ga587a117adc54019693a184e4f8b4e0b5">dhyara::packets::type</a> type)</td></tr>
 <tr class="memdesc:a388cf4322e818fd5d33665c571c3ca37"><td class="mdescLeft">&#160;</td><td class="mdescRight">reset counter  <a href="structdhyara_1_1link.html#a388cf4322e818fd5d33665c571c3ca37">More...</a><br /></td></tr>
 <tr class="separator:a388cf4322e818fd5d33665c571c3ca37"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a796b3353f9d4a3af16436de8d027ba35"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1link.html#a796b3353f9d4a3af16436de8d027ba35">tx</a> (<a class="el" href="group__packets.html#ga587a117adc54019693a184e4f8b4e0b5">dhyara::packets::type</a> <a class="el" href="frame_8h.html#a78e307c388dce6238411f479acc27611">type</a>) const</td></tr>
+<tr class="memitem:a796b3353f9d4a3af16436de8d027ba35"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1link.html#a796b3353f9d4a3af16436de8d027ba35">tx</a> (<a class="el" href="group__packets.html#ga587a117adc54019693a184e4f8b4e0b5">dhyara::packets::type</a> type) const</td></tr>
 <tr class="memdesc:a796b3353f9d4a3af16436de8d027ba35"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of packets received for the given type  <a href="structdhyara_1_1link.html#a796b3353f9d4a3af16436de8d027ba35">More...</a><br /></td></tr>
 <tr class="separator:a796b3353f9d4a3af16436de8d027ba35"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae84e6d577ba8d0e9c3c575f735f55eb3"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1link.html#ae84e6d577ba8d0e9c3c575f735f55eb3">rx</a> (<a class="el" href="group__packets.html#ga587a117adc54019693a184e4f8b4e0b5">dhyara::packets::type</a> <a class="el" href="frame_8h.html#a78e307c388dce6238411f479acc27611">type</a>) const</td></tr>
+<tr class="memitem:ae84e6d577ba8d0e9c3c575f735f55eb3"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1link.html#ae84e6d577ba8d0e9c3c575f735f55eb3">rx</a> (<a class="el" href="group__packets.html#ga587a117adc54019693a184e4f8b4e0b5">dhyara::packets::type</a> type) const</td></tr>
 <tr class="memdesc:ae84e6d577ba8d0e9c3c575f735f55eb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of packets recieved for the given type  <a href="structdhyara_1_1link.html#ae84e6d577ba8d0e9c3c575f735f55eb3">More...</a><br /></td></tr>
 <tr class="separator:ae84e6d577ba8d0e9c3c575f735f55eb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a19975b8c23faef8962e6dd69eb7d1139"><td class="memItemLeft" align="right" valign="top">std::int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1link.html#a19975b8c23faef8962e6dd69eb7d1139">max_rssi</a> () const</td></tr>
@@ -174,7 +174,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac77bab79987666f6f1cd57862ee0dce9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacedhyara.html#a40258d037f7e261f737381612d402a35">dhyara::delay_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1link.html#ac77bab79987666f6f1cd57862ee0dce9">lost</a> () const</td></tr>
 <tr class="memdesc:ac77bab79987666f6f1cd57862ee0dce9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Duration for which the node has not heard anything from its neighbourhood (in us).  <a href="structdhyara_1_1link.html#ac77bab79987666f6f1cd57862ee0dce9">More...</a><br /></td></tr>
 <tr class="separator:ac77bab79987666f6f1cd57862ee0dce9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ffc74d64e082b29665d91a217411b4f"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1link.html#a9ffc74d64e082b29665d91a217411b4f">connect</a> (const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> &amp;<a class="el" href="packets_2echo__request_8h.html#a321cf56f5ac18e313f9ad58dc2150026">target</a>)</td></tr>
+<tr class="memitem:a9ffc74d64e082b29665d91a217411b4f"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1link.html#a9ffc74d64e082b29665d91a217411b4f">connect</a> (const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> &amp;target)</td></tr>
 <tr class="memdesc:a9ffc74d64e082b29665d91a217411b4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Associate with the target AP using the station interface.  <a href="structdhyara_1_1link.html#a9ffc74d64e082b29665d91a217411b4f">More...</a><br /></td></tr>
 <tr class="separator:a9ffc74d64e082b29665d91a217411b4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -182,8 +182,8 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><p>Link Layer Medium is responsible for sending packets and processing the received packets. </p>
 <p>All received data should be forwarded to the link via <a class="el" href="structdhyara_1_1link.html#a978706fc680636c3cdaaa9a3781a5754">_esp_sent_cb</a> which wil then be processed through the installed actions. </p><div class="fragment"><div class="line"><a class="code" href="structdhyara_1_1link.html">dhyara::link</a> medium; <span class="comment">// A communication medium </span></div>
 <div class="line"> </div>
-<div class="line"><a class="code" href="structdhyara_1_1actions_1_1acknowledgement.html">dhyara::actions::acknowledgement</a> <a class="code" href="packets_2acknowledgement_8h.html#a557d3c7953a471380b48ae3867c68483">acknowledgement</a>(medium.local()); <span class="comment">// Handler for acknowledgement packets</span></div>
-<div class="line">medium[<a class="code" href="group__packets.html#gga587a117adc54019693a184e4f8b4e0b5a0421784420643cbd77fd5fed9006293f">dhyara::packets::type::acknowledgement</a>] = <a class="code" href="packets_2acknowledgement_8h.html#a557d3c7953a471380b48ae3867c68483">acknowledgement</a>;</div>
+<div class="line"><a class="code" href="structdhyara_1_1actions_1_1acknowledgement.html">dhyara::actions::acknowledgement</a> <a class="code" href="group__packets.html#gga587a117adc54019693a184e4f8b4e0b5a0421784420643cbd77fd5fed9006293f">acknowledgement</a>(medium.local()); <span class="comment">// Handler for acknowledgement packets</span></div>
+<div class="line">medium[<a class="code" href="group__packets.html#gga587a117adc54019693a184e4f8b4e0b5a0421784420643cbd77fd5fed9006293f">dhyara::packets::type::acknowledgement</a>] = <a class="code" href="group__packets.html#gga587a117adc54019693a184e4f8b4e0b5a0421784420643cbd77fd5fed9006293f">acknowledgement</a>;</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// associate other actions ...</span></div>
 <div class="line"> </div>
@@ -322,9 +322,8 @@ Public Member Functions</h2></td></tr>
 <dl class="section warning"><dt>Warning</dt><dd>Only the ESP Wifi promiscous rx callback should call this function</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">source</td><td>source address </td></tr>
-    <tr><td class="paramname">data</td><td>raw data received </td></tr>
-    <tr><td class="paramname">len</td><td>length of the raw data </td></tr>
+    <tr><td class="paramname">buffer</td><td>received data </td></tr>
+    <tr><td class="paramname">type</td><td>promiscous packet type </td></tr>
   </table>
   </dd>
 </dl>
@@ -440,7 +439,7 @@ Public Member Functions</h2></td></tr>
 
 <p>local address </p>
 
-<p class="definition">Definition at line <a class="el" href="link_8h_source.html#l00175">175</a> of file <a class="el" href="link_8h_source.html">link.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="link_8h_source.html#l00172">172</a> of file <a class="el" href="link_8h_source.html">link.h</a>.</p>
 
 </div>
 </div>
@@ -595,7 +594,7 @@ Here is the caller graph for this function:</div>
 
 <p>immediate neighbourhood </p>
 
-<p class="definition">Definition at line <a class="el" href="link_8h_source.html#l00166">166</a> of file <a class="el" href="link_8h_source.html">link.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="link_8h_source.html#l00163">163</a> of file <a class="el" href="link_8h_source.html">link.h</a>.</p>
 
 </div>
 </div>
@@ -634,9 +633,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="link_8h_source.html#l00147">147</a> of file <a class="el" href="link_8h_source.html">link.h</a>.</p>
-
-<p class="reference">References <a class="el" href="frame_8h_source.html#l00045">type()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="link_8h_source.html#l00144">144</a> of file <a class="el" href="link_8h_source.html">link.h</a>.</p>
 
 </div>
 </div>
@@ -685,7 +682,7 @@ Here is the caller graph for this function:</div>
 
 <p>routing table </p>
 
-<p class="definition">Definition at line <a class="el" href="link_8h_source.html#l00170">170</a> of file <a class="el" href="link_8h_source.html">link.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="link_8h_source.html#l00167">167</a> of file <a class="el" href="link_8h_source.html">link.h</a>.</p>
 
 </div>
 </div>
@@ -715,8 +712,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a48561058093799346b0afabed0270515"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a48561058093799346b0afabed0270515">&#9670;&nbsp;</a></span>send()</h2>
+<a id="adc9c6543f44bb258ec27d169dfc2acaf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc9c6543f44bb258ec27d169dfc2acaf">&#9670;&nbsp;</a></span>send()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -742,13 +739,7 @@ template&lt;typename PacketT &gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const PacketT &amp;&#160;</td>
-          <td class="paramname"><em>packet</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>ticks</em> = <code>0</code>&#160;</td>
+          <td class="paramname"><em>packet</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -770,19 +761,18 @@ template&lt;typename PacketT &gt; </div>
     <tr><td class="paramname">addr</td><td>target peer address </td></tr>
     <tr><td class="paramname">type</td><td>packet type </td></tr>
     <tr><td class="paramname">packet</td><td>packet object </td></tr>
-    <tr><td class="paramname">wait</td><td>If wait is true then enqueue to send instead of sending immediately </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="link_8h_source.html#l00093">93</a> of file <a class="el" href="link_8h_source.html">link.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="link_8h_source.html#l00091">91</a> of file <a class="el" href="link_8h_source.html">link.h</a>.</p>
 
-<p class="reference">References <a class="el" href="peer_8h_source.html#l00131">dhyara::peer_address::is_null()</a>, <a class="el" href="structdhyara_1_1routing.html#aa48f75eeef012f4269d2a803049d542f">dhyara::routing::next()</a>, <a class="el" href="packets_2chunk_8h_source.html#l00042">packet()</a>, <a class="el" href="link_8h_source.html#l00076">send_local()</a>, <a class="el" href="frame_8h_source.html#l00045">type()</a>, and <a class="el" href="routing_8h_source.html#l00122">dhyara::routing::next_hop::via()</a>.</p>
+<p class="reference">References <a class="el" href="peer_8h_source.html#l00131">dhyara::peer_address::is_null()</a>, <a class="el" href="structdhyara_1_1routing.html#aa48f75eeef012f4269d2a803049d542f">dhyara::routing::next()</a>, <a class="el" href="link_8h_source.html#l00075">send_local()</a>, and <a class="el" href="routing_8h_source.html#l00122">dhyara::routing::next_hop::via()</a>.</p>
 
 </div>
 </div>
-<a id="a1f7775fc92ab5ca21327189e272eb2a2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1f7775fc92ab5ca21327189e272eb2a2">&#9670;&nbsp;</a></span>send_local()</h2>
+<a id="ab1b658b908d8ead7315600db746c51f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1b658b908d8ead7315600db746c51f6">&#9670;&nbsp;</a></span>send_local()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -808,13 +798,7 @@ template&lt;typename PacketT &gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const PacketT &amp;&#160;</td>
-          <td class="paramname"><em>packet</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>ticks</em> = <code>0</code>&#160;</td>
+          <td class="paramname"><em>packet</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -835,23 +819,22 @@ template&lt;typename PacketT &gt; </div>
     <tr><td class="paramname">addr</td><td>target peer address </td></tr>
     <tr><td class="paramname">type</td><td>packet type </td></tr>
     <tr><td class="paramname">packet</td><td>packet object </td></tr>
-    <tr><td class="paramname">wait</td><td>If wait is true then enqueue to send instead of sending immediately </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="link_8h_source.html#l00076">76</a> of file <a class="el" href="link_8h_source.html">link.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="link_8h_source.html#l00075">75</a> of file <a class="el" href="link_8h_source.html">link.h</a>.</p>
 
-<p class="reference">References <a class="el" href="frame_8h_source.html#l00027">dhyara::frame::_buffer</a>, <a class="el" href="frame_8h_source.html#l00011">frame()</a>, <a class="el" href="structdhyara_1_1utils_1_1printer.html#a7ba0d4e79a1320ced251b88a4c584fd7">dhyara::utils::printer::out()</a>, <a class="el" href="packets_2chunk_8h_source.html#l00042">packet()</a>, <a class="el" href="frame_8h_source.html#l00045">type()</a>, and <a class="el" href="io_8h_source.html#l00021">dhyara::write()</a>.</p>
+<p class="reference">References <a class="el" href="frame_8h_source.html#l00027">dhyara::frame::_buffer</a>, <a class="el" href="structdhyara_1_1utils_1_1printer.html#a7ba0d4e79a1320ced251b88a4c584fd7">dhyara::utils::printer::out()</a>, and <a class="el" href="io_8h_source.html#l00022">dhyara::write()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="link_8h_source.html#l00093">send()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="link_8h_source.html#l00091">send()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="structdhyara_1_1link_a1f7775fc92ab5ca21327189e272eb2a2_icgraph.png" border="0" usemap="#structdhyara_1_1link_a1f7775fc92ab5ca21327189e272eb2a2_icgraph" alt=""/></div>
-<map name="structdhyara_1_1link_a1f7775fc92ab5ca21327189e272eb2a2_icgraph" id="structdhyara_1_1link_a1f7775fc92ab5ca21327189e272eb2a2_icgraph">
+<div class="center"><img src="structdhyara_1_1link_ab1b658b908d8ead7315600db746c51f6_icgraph.png" border="0" usemap="#structdhyara_1_1link_ab1b658b908d8ead7315600db746c51f6_icgraph" alt=""/></div>
+<map name="structdhyara_1_1link_ab1b658b908d8ead7315600db746c51f6_icgraph" id="structdhyara_1_1link_ab1b658b908d8ead7315600db746c51f6_icgraph">
 <area shape="rect" title="Sends a packet to an immediate neighbour directly in one hop." alt="" coords="192,5,331,47"/>
-<area shape="rect" href="structdhyara_1_1link.html#a48561058093799346b0afabed0270515" title="Sends a packet via the best intermediate node." alt="" coords="5,13,144,39"/>
+<area shape="rect" href="structdhyara_1_1link.html#adc9c6543f44bb258ec27d169dfc2acaf" title="Sends a packet via the best intermediate node." alt="" coords="5,13,144,39"/>
 </map>
 </div>
 
@@ -904,14 +887,13 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>/home/runner/work/dhyara/dhyara/includes/dhyara/<a class="el" href="link_8h_source.html">link.h</a></li>
+<li>dhyara/<a class="el" href="link_8h_source.html">link.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="astructdhyara_1_1actions_1_1acknowledgement_html"><div class="ttname"><a href="structdhyara_1_1actions_1_1acknowledgement.html">dhyara::actions::acknowledgement</a></div><div class="ttdoc">action to handle an incoming acknowledgement packet</div><div class="ttdef"><b>Definition:</b> <a href="actions_2acknowledgement_8h_source.html#l00027">acknowledgement.h:27</a></div></div>
 <div class="ttc" id="agroup__packets_html_gga587a117adc54019693a184e4f8b4e0b5a0421784420643cbd77fd5fed9006293f"><div class="ttname"><a href="group__packets.html#gga587a117adc54019693a184e4f8b4e0b5a0421784420643cbd77fd5fed9006293f">dhyara::packets::type::acknowledgement</a></div><div class="ttdeci">@ acknowledgement</div></div>
 <div class="ttc" id="astructdhyara_1_1actions_1_1beacon_html"><div class="ttname"><a href="structdhyara_1_1actions_1_1beacon.html">dhyara::actions::beacon</a></div><div class="ttdoc">action to handle an incoming beacon packet</div><div class="ttdef"><b>Definition:</b> <a href="actions_2beacon_8h_source.html#l00027">beacon.h:27</a></div></div>
-<div class="ttc" id="apackets_2acknowledgement_8h_html_a557d3c7953a471380b48ae3867c68483"><div class="ttname"><a href="packets_2acknowledgement_8h.html#a557d3c7953a471380b48ae3867c68483">acknowledgement</a></div><div class="ttdeci">acknowledgement()</div><div class="ttdoc">Construct an acknowledgement packet with current time.</div><div class="ttdef"><b>Definition:</b> <a href="packets_2acknowledgement_8h_source.html#l00007">acknowledgement.h:7</a></div></div>
 <div class="ttc" id="agroup__packets_html_gga587a117adc54019693a184e4f8b4e0b5a41b89d10619cdd3e30fb6c401c17c7d9"><div class="ttname"><a href="group__packets.html#gga587a117adc54019693a184e4f8b4e0b5a41b89d10619cdd3e30fb6c401c17c7d9">dhyara::packets::type::beacon</a></div><div class="ttdeci">@ beacon</div></div>
 <div class="ttc" id="astructdhyara_1_1link_html"><div class="ttname"><a href="structdhyara_1_1link.html">dhyara::link</a></div><div class="ttdoc">Link Layer Medium is responsible for sending packets and processing the received packets.</div><div class="ttdef"><b>Definition:</b> <a href="link_8h_source.html#l00038">link.h:38</a></div></div>
 <!-- start footer part -->

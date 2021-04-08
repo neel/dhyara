@@ -1,8 +1,8 @@
-<map id="/home/runner/work/dhyara/dhyara/includes/dhyara/packets/beacon.h" name="/home/runner/work/dhyara/dhyara/includes/dhyara/packets/beacon.h">
-<area shape="rect" id="node1" title=" " alt="" coords="25,5,220,61"/>
-<area shape="rect" id="node2" title=" " alt="" coords="91,184,157,211"/>
-<area shape="rect" id="node3" title=" " alt="" coords="23,109,108,136"/>
-<area shape="rect" id="node4" title=" " alt="" coords="132,109,231,136"/>
-<area shape="rect" id="node5" href="$serialization_8h.html" title=" " alt="" coords="255,109,473,136"/>
-<area shape="rect" id="node6" title=" " alt="" coords="321,184,407,211"/>
+<map id="dhyara/packets/beacon.h" name="dhyara/packets/beacon.h">
+<area shape="rect" id="node1" title=" " alt="" coords="30,5,214,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="90,155,157,181"/>
+<area shape="rect" id="node3" title=" " alt="" coords="22,80,108,107"/>
+<area shape="rect" id="node4" title=" " alt="" coords="132,80,230,107"/>
+<area shape="rect" id="node5" href="$serialization_8h.html" title=" " alt="" coords="255,80,472,107"/>
+<area shape="rect" id="node6" title=" " alt="" coords="320,155,407,181"/>
 </map>

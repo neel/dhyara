@@ -1,6 +1,0 @@
-<map id="type" name="type">
-<area shape="rect" id="node1" title="Packet type in the frame." alt="" coords="412,56,463,83"/>
-<area shape="rect" id="node2" href="$structdhyara_1_1link.html#a279e7531ee6dccea83ce1e6c793151ab" title="Conveniance function to install an action (associate an action with a packet type)." alt="" coords="192,5,364,32"/>
-<area shape="rect" id="node3" href="$structdhyara_1_1link.html#a48561058093799346b0afabed0270515" title="Sends a packet via the best intermediate node." alt="" coords="5,85,144,112"/>
-<area shape="rect" id="node4" href="$structdhyara_1_1link.html#a1f7775fc92ab5ca21327189e272eb2a2" title="Sends a packet to an immediate neighbour directly in one hop." alt="" coords="209,107,347,149"/>
-</map>

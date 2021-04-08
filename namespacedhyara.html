@@ -98,8 +98,6 @@ $(document).ready(function(){initNavTree('namespacedhyara.html',''); initResizab
 Namespaces</h2></td></tr>
 <tr class="memitem:namespacedhyara_1_1actions"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedhyara_1_1actions.html">actions</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:namespacedhyara_1_1assets"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedhyara_1_1assets.html">assets</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacedhyara_1_1packets"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedhyara_1_1packets.html">packets</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacedhyara_1_1tools"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedhyara_1_1tools.html">tools</a></td></tr>
@@ -166,14 +164,12 @@ Typedefs</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga9f5d747ee3883a9047420d6b203132a5"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structdhyara_1_1frame.html">dhyara::frame</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__packets.html#ga9f5d747ee3883a9047420d6b203132a5">__attribute__</a> ((packed))</td></tr>
-<tr class="separator:ga9f5d747ee3883a9047420d6b203132a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4ad2c87bab350b99de6805a397698bed"><td class="memTemplParams" colspan="2">template&lt;typename PacketT , typename OutIt &gt; </td></tr>
-<tr class="memitem:ga4ad2c87bab350b99de6805a397698bed"><td class="memTemplItemLeft" align="right" valign="top">OutIt&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__io.html#ga4ad2c87bab350b99de6805a397698bed">write</a> (const PacketT &amp;<a class="el" href="packets_2delivered_8h.html#a4807fa15377222c0218199c14c38e506">packet</a>, OutIt output)</td></tr>
+<tr class="memitem:ga4ad2c87bab350b99de6805a397698bed"><td class="memTemplItemLeft" align="right" valign="top">OutIt&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__io.html#ga4ad2c87bab350b99de6805a397698bed">write</a> (const PacketT &amp;packet, OutIt output)</td></tr>
 <tr class="memdesc:ga4ad2c87bab350b99de6805a397698bed"><td class="mdescLeft">&#160;</td><td class="mdescRight">write a packet  <a href="group__io.html#ga4ad2c87bab350b99de6805a397698bed">More...</a><br /></td></tr>
 <tr class="separator:ga4ad2c87bab350b99de6805a397698bed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga1b83b801d54296c6cc9fc793b9141594"><td class="memTemplParams" colspan="2">template&lt;typename PacketT , typename InIt &gt; </td></tr>
-<tr class="memitem:ga1b83b801d54296c6cc9fc793b9141594"><td class="memTemplItemLeft" align="right" valign="top">InIt&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__io.html#ga1b83b801d54296c6cc9fc793b9141594">read</a> (PacketT &amp;<a class="el" href="packets_2delivered_8h.html#a4807fa15377222c0218199c14c38e506">packet</a>, InIt input, std::size_t <a class="el" href="packets_2chunk_8h.html#a47a76ae74ba72f2123db68e7cc969c34">length</a>=0)</td></tr>
+<tr class="memitem:ga1b83b801d54296c6cc9fc793b9141594"><td class="memTemplItemLeft" align="right" valign="top">InIt&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__io.html#ga1b83b801d54296c6cc9fc793b9141594">read</a> (PacketT &amp;packet, InIt input, std::size_t length=0)</td></tr>
 <tr class="memdesc:ga1b83b801d54296c6cc9fc793b9141594"><td class="mdescLeft">&#160;</td><td class="mdescRight">read into a packet  <a href="group__io.html#ga1b83b801d54296c6cc9fc793b9141594">More...</a><br /></td></tr>
 <tr class="separator:ga1b83b801d54296c6cc9fc793b9141594"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8accaf09ed4c846b1c463a9b89ee992"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedhyara.html#ac8accaf09ed4c846b1c463a9b89ee992">operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="structdhyara_1_1peer.html#ab47a3a3728c310f38d6f2064b81a80e1">dhyara::peer::address</a> &amp;address)</td></tr>
@@ -216,8 +212,6 @@ Variables</h2></td></tr>
 <tr class="memitem:a87d6eb53683a3773d23b08f45ef4baa5"><td class="memItemLeft" align="right" valign="top">constexpr const <a class="el" href="namespacedhyara.html#a40258d037f7e261f737381612d402a35">delay_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedhyara.html#a87d6eb53683a3773d23b08f45ef4baa5">route_expiry</a> = <a class="el" href="namespacedhyara.html#a9e5bc092bbbb0c9821701cf45031399e">advertisement_expiry</a> + (CONFIG_ROUTE_EXPIRY_COEFFICIENT * <a class="el" href="namespacedhyara.html#a19487b488c2b0d43467aa2d52d305fb1">beacon_interval</a>)</td></tr>
 <tr class="memdesc:a87d6eb53683a3773d23b08f45ef4baa5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Route expiry.  <a href="namespacedhyara.html#a87d6eb53683a3773d23b08f45ef4baa5">More...</a><br /></td></tr>
 <tr class="separator:a87d6eb53683a3773d23b08f45ef4baa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9ec2bfd9a3a4dc94d02a4a7e97c26816"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structdhyara_1_1link.html">dhyara::link</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__interface.html#ga9ec2bfd9a3a4dc94d02a4a7e97c26816">__attribute__</a></td></tr>
-<tr class="separator:ga9ec2bfd9a3a4dc94d02a4a7e97c26816"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
 <a id="a40258d037f7e261f737381612d402a35"></a>

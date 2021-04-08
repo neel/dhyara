@@ -5,10 +5,11 @@ var dir_f7f3c0f391df97c74fff5c67413f6c88 =
     [ "tools", "dir_1fe1bb9127abd14a57005c34a7020e3d.html", "dir_1fe1bb9127abd14a57005c34a7020e3d" ],
     [ "utils", "dir_5342d3aa1e443377937e69c5f06c25a1.html", "dir_5342d3aa1e443377937e69c5f06c25a1" ],
     [ "actions.h", "actions_8h.html", null ],
-    [ "assets.h", "assets_8h.html", "assets_8h" ],
     [ "defs.h", "defs_8h.html", "defs_8h" ],
-    [ "frame.h", "frame_8h.html", "frame_8h" ],
-    [ "link.h", "link_8h.html", "link_8h" ],
+    [ "frame.h", "frame_8h.html", null ],
+    [ "link.h", "link_8h.html", [
+      [ "proxy", "structdhyara_1_1link_1_1proxy.html", "structdhyara_1_1link_1_1proxy" ]
+    ] ],
     [ "neighbourhood.h", "neighbourhood_8h.html", [
       [ "neighbourhood", "structdhyara_1_1neighbourhood.html", "structdhyara_1_1neighbourhood" ]
     ] ],

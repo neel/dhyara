@@ -39,7 +39,6 @@ var hierarchy =
     [ "std::hash< dhyara::peer >", "structstd_1_1hash_3_01dhyara_1_1peer_01_4.html", null ],
     [ "std::hash< dhyara::peer_address >", "structstd_1_1hash_3_01dhyara_1_1peer__address_01_4.html", null ],
     [ "dhyara::packets::chunk::header", "structdhyara_1_1packets_1_1chunk_1_1header.html", null ],
-    [ "header", "structheader.html", null ],
     [ "dhyara::utils::http", "structdhyara_1_1utils_1_1http.html", null ],
     [ "dhyara::link", "structdhyara_1_1link.html", null ],
     [ "dhyara::message", "structdhyara_1_1message.html", null ],

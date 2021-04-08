@@ -1,5 +1,5 @@
 <map id="dhyara::utils::printer::out" name="dhyara::utils::printer::out">
 <area shape="rect" id="node1" title=" " alt="" coords="379,13,561,39"/>
-<area shape="rect" id="node2" href="$structdhyara_1_1link.html#a1f7775fc92ab5ca21327189e272eb2a2" title="Sends a packet to an immediate neighbour directly in one hop." alt="" coords="192,5,331,47"/>
-<area shape="rect" id="node3" href="$structdhyara_1_1link.html#a48561058093799346b0afabed0270515" title="Sends a packet via the best intermediate node." alt="" coords="5,13,144,39"/>
+<area shape="rect" id="node2" href="$structdhyara_1_1link.html#ab1b658b908d8ead7315600db746c51f6" title="Sends a packet to an immediate neighbour directly in one hop." alt="" coords="192,5,331,47"/>
+<area shape="rect" id="node3" href="$structdhyara_1_1link.html#adc9c6543f44bb258ec27d169dfc2acaf" title="Sends a packet via the best intermediate node." alt="" coords="5,13,144,39"/>
 </map>

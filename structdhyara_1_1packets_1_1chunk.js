@@ -7,7 +7,6 @@ var structdhyara_1_1packets_1_1chunk =
     [ "capacity", "structdhyara_1_1packets_1_1chunk.html#a706499e02f71fca56a45bebc41f7fa6aa0056fc847a1ec739f93dd86ecf503b1c", null ],
     [ "chunk", "structdhyara_1_1packets_1_1chunk.html#a58c5c7fcd001bcbeb79f6cd1c163d275", null ],
     [ "chunk", "structdhyara_1_1packets_1_1chunk.html#acf18dc3ba1ffe7fb8b03a0813d689c54", null ],
-    [ "__attribute__", "structdhyara_1_1packets_1_1chunk.html#acd394e8688aae6c6743a5bc2e46cc032", null ],
     [ "begin", "structdhyara_1_1packets_1_1chunk.html#afc95a131bccd685672ed680aa5e5a457", null ],
     [ "copy", "structdhyara_1_1packets_1_1chunk.html#ac1ca288a7fff3f359639c112418f313f", null ],
     [ "end", "structdhyara_1_1packets_1_1chunk.html#ac7a7865cb9d3ddf2eebfa73bac58d34f", null ],
@@ -19,7 +18,6 @@ var structdhyara_1_1packets_1_1chunk =
     [ "size", "structdhyara_1_1packets_1_1chunk.html#a05ba2e4dec4caa99e783c1d21611075d", null ],
     [ "source", "structdhyara_1_1packets_1_1chunk.html#a0c76502418330ed57a9d3508c64ecf96", null ],
     [ "target", "structdhyara_1_1packets_1_1chunk.html#ae1219dec8825bca1d886af38001f39a9", null ],
-    [ "__attribute__", "structdhyara_1_1packets_1_1chunk.html#ac46b5cf536a763178ae6c51b42ea2318", null ],
     [ "_buffer", "structdhyara_1_1packets_1_1chunk.html#ae64d0af3a6ef9d69ad6a520fee37826a", null ],
     [ "_header", "structdhyara_1_1packets_1_1chunk.html#ab95e3bba5744117cba1c5ea2d8cf4637", null ]
 ];
