@@ -1,5 +1,10 @@
 var NAVTREEINDEX1 =
 {
+"serialization_8h_source.html":[10,0,1,0,1,12],
+"structdhyara_1_1actions_1_1acknowledgement.html":[7,4,0],
+"structdhyara_1_1actions_1_1acknowledgement.html#a050f094a86391fe0c1bb5b1120223b88":[7,4,0,1],
+"structdhyara_1_1actions_1_1acknowledgement.html#ae057150cc948534cdd22fd3cfe04967c":[7,4,0,0],
+"structdhyara_1_1actions_1_1action.html":[7,4,1],
 "structdhyara_1_1actions_1_1action.html#a046d7e662195162d4dc5fbc102d69359":[7,4,1,1],
 "structdhyara_1_1actions_1_1action.html#a0deb780f69c1d083514f14b524b6c1af":[7,4,1,3],
 "structdhyara_1_1actions_1_1action.html#a1cd09164189d292e0f2965670e64e4d5":[7,4,1,0],
@@ -60,13 +65,13 @@ var NAVTREEINDEX1 =
 "structdhyara_1_1frame.html#a1a5e5178102e7f1f71f5439db1f75d63":[7,2,1,13],
 "structdhyara_1_1frame.html#a28de790d74a648d5f237c5939905d348":[7,2,1,14],
 "structdhyara_1_1frame.html#a4a7cb611026b240fa44528b259824047":[7,2,1,8],
-"structdhyara_1_1frame.html#a4f949a38198b85a8abff037ce35eb909":[7,2,1,7],
 "structdhyara_1_1frame.html#a6a24c711a13ca7ba2d2691aa7d43c092":[7,2,1,1],
 "structdhyara_1_1frame.html#a7456e6c44389d45c8ea0a3418ff3c1dd":[7,2,1,3],
 "structdhyara_1_1frame.html#a89311feee64ed9e3100ae21890492d4b":[7,2,1,9],
 "structdhyara_1_1frame.html#a929a055075b3dec5f920e4cc2e57e846":[7,2,1,4],
 "structdhyara_1_1frame.html#ac9a354daa91a03a35a16101b6803eeec":[7,2,1,6],
 "structdhyara_1_1frame.html#aca83c4276419313c7378a0b0adbb2cb5":[7,2,1,2],
+"structdhyara_1_1frame.html#acbad15c3e9986647993d943d7a74fbd3":[7,2,1,7],
 "structdhyara_1_1frame.html#ad428874ae06aaf0869c44066fcd7cc4d":[7,2,1,5],
 "structdhyara_1_1frame.html#aee2168b3d0cc134007eed1e5740d4a18":[7,2,1,10],
 "structdhyara_1_1frame.html#af9e0bf0fda92447572a0be0c5aa154a9":[7,2,1,12],
@@ -244,10 +249,5 @@ var NAVTREEINDEX1 =
 "structdhyara_1_1packets_1_1delivered.html":[7,2,7],
 "structdhyara_1_1packets_1_1delivered.html#a1ef161549f52e3e00f2badcf24cfec33":[7,2,7,3],
 "structdhyara_1_1packets_1_1delivered.html#a4f5aaecd68b5e6649c6942a8195c79ae":[7,2,7,6],
-"structdhyara_1_1packets_1_1delivered.html#a8990d253d781b4b3fd4eda6a32619a25":[7,2,7,1],
-"structdhyara_1_1packets_1_1delivered.html#a9aa64c95ddb7c46fe4c590fbf54680e7":[7,2,7,8],
-"structdhyara_1_1packets_1_1delivered.html#a9df2acbdbec6dfd60a325cde5d25206c":[7,2,7,9],
-"structdhyara_1_1packets_1_1delivered.html#ac520a13a1b219b3212a9617001bfc8e3":[7,2,7,0],
-"structdhyara_1_1packets_1_1delivered.html#adc5d7cc2a5704e78928008180716a603":[7,2,7,4],
-"structdhyara_1_1packets_1_1delivered.html#adeefcf1e98f2eaee5925571e35eeb164":[7,2,7,2]
+"structdhyara_1_1packets_1_1delivered.html#a8990d253d781b4b3fd4eda6a32619a25":[7,2,7,1]
 };

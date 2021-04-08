@@ -23,5 +23,7 @@ var searchData=
   ['all_40',['all',['../structdhyara_1_1peer__address.html#a9e1965af3ba5bcd03eee4f16fb5873f9',1,'dhyara::peer_address']]],
   ['all_2eh_41',['all.h',['../actions_2all_8h.html',1,'(Global Namespace)'],['../packets_2all_8h.html',1,'(Global Namespace)']]],
   ['author_42',['author',['../namespaceconf.html#a637c239d256432248aa8d9f3ab0b8c52',1,'conf']]],
-  ['avg_43',['avg',['../structdhyara_1_1actions_1_1echo__reply_1_1rtt__stat.html#ade120eae0e1e1e95ea52e7e645993e54',1,'dhyara::actions::echo_reply::rtt_stat']]]
+  ['autosectionlabel_5fmaxdepth_43',['autosectionlabel_maxdepth',['../namespaceconf.html#a250fb9e2509cf9fdc44e13613ff16e90',1,'conf']]],
+  ['autosectionlabel_5fprefix_5fdocument_44',['autosectionlabel_prefix_document',['../namespaceconf.html#abee787160a3091eff84a184a81517b88',1,'conf']]],
+  ['avg_45',['avg',['../structdhyara_1_1actions_1_1echo__reply_1_1rtt__stat.html#ade120eae0e1e1e95ea52e7e645993e54',1,'dhyara::actions::echo_reply::rtt_stat']]]
 ];
