@@ -10,5 +10,5 @@ var searchData=
   ['lost_166',['lost',['../structdhyara_1_1link.html#ac77bab79987666f6f1cd57862ee0dce9',1,'dhyara::link']]],
   ['lost_5fcallback_5ftype_167',['lost_callback_type',['../structdhyara_1_1actions_1_1echo__lost.html#a1fc9e4bf6e8f9d6b0b0f72653b56d3ba',1,'dhyara::actions::echo_lost']]],
   ['lost_5fsince_168',['lost_since',['../structdhyara_1_1routing.html#a8b78f3c105a12f87530e4f40ad5ade2b',1,'dhyara::routing']]],
-  ['license_169',['LICENSE',['../md__home_runner_work_dhyara_dhyara_docs__l_i_c_e_n_s_e.html',1,'']]]
+  ['license_169',['LICENSE',['../md_docs__l_i_c_e_n_s_e.html',1,'']]]
 ];

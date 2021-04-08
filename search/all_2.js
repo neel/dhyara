@@ -16,5 +16,5 @@ var searchData=
   ['breathe_5fdefault_5fproject_57',['breathe_default_project',['../namespaceconf.html#a6eba2d2c7ae923054b1c49e686ec89b9',1,'conf']]],
   ['broadcast_58',['broadcast',['../structdhyara_1_1actions_1_1beacon.html#aa3c07f2f718aa58ddb6f8ebbc1aabb6d',1,'dhyara::actions::beacon']]],
   ['buffer_5ftype_59',['buffer_type',['../structdhyara_1_1packets_1_1chunk.html#a4ff228ab2470472277ff68994d2e5647',1,'dhyara::packets::chunk']]],
-  ['building_20examples_60',['Building Examples',['../md__home_runner_work_dhyara_dhyara_docs_examples.html',1,'']]]
+  ['building_20examples_60',['Building Examples',['../md_docs_examples.html',1,'']]]
 ];

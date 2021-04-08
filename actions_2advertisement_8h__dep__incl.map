@@ -1,8 +1,8 @@
-<map id="dhyara/actions/advertisement.h" name="dhyara/actions/advertisement.h">
-<area shape="rect" id="node1" title=" " alt="" coords="59,5,288,32"/>
-<area shape="rect" id="node2" href="$actions_2all_8h.html" title=" " alt="" coords="98,80,249,107"/>
-<area shape="rect" id="node3" href="$actions_8h.html" title=" " alt="" coords="108,155,239,181"/>
-<area shape="rect" id="node4" href="$network_8h.html" title=" " alt="" coords="105,229,241,256"/>
-<area shape="rect" id="node5" href="$ping_8h.html" title=" " alt="" coords="5,304,152,331"/>
-<area shape="rect" id="node6" href="$traceroute_8h.html" title=" " alt="" coords="176,304,363,331"/>
+<map id="includes/dhyara/actions/advertisement.h" name="includes/dhyara/actions/advertisement.h">
+<area shape="rect" id="node1" title=" " alt="" coords="90,5,266,47"/>
+<area shape="rect" id="node2" href="$actions_2all_8h.html" title=" " alt="" coords="90,95,266,136"/>
+<area shape="rect" id="node3" href="$actions_8h.html" title=" " alt="" coords="84,184,272,211"/>
+<area shape="rect" id="node4" href="$network_8h.html" title=" " alt="" coords="81,259,275,285"/>
+<area shape="rect" id="node5" href="$ping_8h.html" title=" " alt="" coords="5,333,167,375"/>
+<area shape="rect" id="node6" href="$traceroute_8h.html" title=" " alt="" coords="191,333,352,375"/>
 </map>

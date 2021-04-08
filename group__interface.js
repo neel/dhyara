@@ -1,14 +1,14 @@
 var group__interface =
 [
-    [ "Routing Table", "md__home_runner_work_dhyara_dhyara_docs_protocol.html#autotoc_md1", null ],
-    [ "Beacon (BCN)", "md__home_runner_work_dhyara_dhyara_docs_protocol.html#autotoc_md2", null ],
-    [ "Acknowledgement (ACK)", "md__home_runner_work_dhyara_dhyara_docs_protocol.html#autotoc_md3", [
-      [ "sync_neighbors", "md__home_runner_work_dhyara_dhyara_docs_protocol.html#autotoc_md4", null ],
-      [ "depreciation", "md__home_runner_work_dhyara_dhyara_docs_protocol.html#autotoc_md5", null ]
+    [ "Routing Table", "md_docs_protocol.html#autotoc_md1", null ],
+    [ "Beacon (BCN)", "md_docs_protocol.html#autotoc_md2", null ],
+    [ "Acknowledgement (ACK)", "md_docs_protocol.html#autotoc_md3", [
+      [ "sync_neighbors", "md_docs_protocol.html#autotoc_md4", null ],
+      [ "depreciation", "md_docs_protocol.html#autotoc_md5", null ]
     ] ],
-    [ "Advertisement (ADV)", "md__home_runner_work_dhyara_dhyara_docs_protocol.html#autotoc_md6", null ],
-    [ "Data & Chunk (CNK)", "md__home_runner_work_dhyara_dhyara_docs_protocol.html#autotoc_md7", null ],
-    [ "Delivery Report (DLV)", "md__home_runner_work_dhyara_dhyara_docs_protocol.html#autotoc_md8", null ],
+    [ "Advertisement (ADV)", "md_docs_protocol.html#autotoc_md6", null ],
+    [ "Data & Chunk (CNK)", "md_docs_protocol.html#autotoc_md7", null ],
+    [ "Delivery Report (DLV)", "md_docs_protocol.html#autotoc_md8", null ],
     [ "link", "structdhyara_1_1link.html", [
       [ "proxy", "structdhyara_1_1link_1_1proxy.html", [
         [ "proxy", "structdhyara_1_1link_1_1proxy.html#af562989c51feb76de7596810d48dd445", null ],

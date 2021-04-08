@@ -1,5 +1,5 @@
-<map id="dhyara/neighbourhood.h" name="dhyara/neighbourhood.h">
-<area shape="rect" id="node1" title=" " alt="" coords="450,5,630,32"/>
+<map id="includes/dhyara/neighbourhood.h" name="includes/dhyara/neighbourhood.h">
+<area shape="rect" id="node1" title=" " alt="" coords="421,5,659,32"/>
 <area shape="rect" id="node2" href="$peer_8h.html" title=" " alt="" coords="347,80,458,107"/>
 <area shape="rect" id="node13" title=" " alt="" coords="483,80,597,107"/>
 <area shape="rect" id="node14" title=" " alt="" coords="622,80,746,107"/>

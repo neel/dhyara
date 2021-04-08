@@ -30,11 +30,11 @@ var NAVTREE =
     ] ],
     [ "Protocol", "index.html#autotoc_md13", null ],
     [ "Example", "index.html#autotoc_md14", null ],
-    [ "Building Examples", "md__home_runner_work_dhyara_dhyara_docs_examples.html", [
-      [ "Structure", "md__home_runner_work_dhyara_dhyara_docs_examples.html#autotoc_md0", null ]
+    [ "Building Examples", "md_docs_examples.html", [
+      [ "Structure", "md_docs_examples.html#autotoc_md0", null ]
     ] ],
-    [ "LICENSE", "md__home_runner_work_dhyara_dhyara_docs__l_i_c_e_n_s_e.html", null ],
-    [ "Protocol", "md__home_runner_work_dhyara_dhyara_docs_protocol.html", null ],
+    [ "LICENSE", "md_docs__l_i_c_e_n_s_e.html", null ],
+    [ "Protocol", "md_docs_protocol.html", null ],
     [ "Modules", "modules.html", "modules" ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
@@ -73,8 +73,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "action_8h.html",
-"structdhyara_1_1actions_1_1action.html#a1cd09164189d292e0f2965670e64e4d5",
-"structdhyara_1_1packets_1_1echo__lost.html"
+"structdhyara_1_1actions_1_1action.html#a0deb780f69c1d083514f14b524b6c1af",
+"structdhyara_1_1packets_1_1delivered.html#aea36f132ab2f1e5f9a3dbd4f1a96cbb9"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
