@@ -44,6 +44,7 @@ struct echo_reply{
      * \param source the originating mac address
      * \param seq the sequence number of this ICMP request
      * \param time the time in the ICMP request (defaults to current time)
+     * \param ttl Time to Live (number of hops to live)
      */
     inline echo_reply(const dhyara::peer::address& target, const dhyara::peer::address& source, std::uint32_t seq = 0, std::uint64_t time = esp_timer_get_time(), std::uint8_t ttl = 255) 
         : _target{target.b1(), target.b2(), target.b3(), target.b4(), target.b5(), target.b6()}, 

@@ -49,7 +49,6 @@ class xqueue{
          * enqueue a value to the queue, if the queue is full overwrites the last
          * \warning intended to be used on queues with single element
          * \param msg The message to be enqueued.
-         * \param ticks The maximum amount of time the task should block waiting for space to become available on the queue, should it already be full. 
          */
         bool overwrite(const MessageT& msg){
             bool success = (pdPASS == xQueueOverwrite(_handle, (void*) &msg));
@@ -111,6 +110,7 @@ class xqueue{
         }
         /**
          * Peeks a message into the refered value from the queue. Returns success value. `peek(0)` peeks a message immediately if at least one exists and returns true, otherwise returns false.
+         * \param msg out parameter to put the message
          * \param ticks The maximum amount of time the task should block waiting for an item to receive should the queue be empty at the time of the call.
          * \code
          * MessageT msg;

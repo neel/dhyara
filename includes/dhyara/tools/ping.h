@@ -43,6 +43,7 @@ struct ping{
      * construct 
      * 
      * \param network reference to the network.
+     * \param count number of batches
      * \param batch batch size
      * \param sleep sleep time (in ms)
      */

@@ -70,10 +70,9 @@ struct link{
      * \param addr target peer address 
      * \param type packet type
      * \param packet packet object
-     * \param wait If wait is true then enqueue to send instead of sending immediately
      */
     template <typename PacketT>
-    bool send_local(const dhyara::peer_address& addr, packets::type type, const PacketT& packet, std::size_t ticks = 0){
+    bool send_local(const dhyara::peer_address& addr, packets::type type, const PacketT& packet){
         dhyara::utils::printer printer;
         printer.out(addr, packet);
         dhyara::frame frame(type, packet.size());
@@ -87,12 +86,11 @@ struct link{
      * \param addr target peer address 
      * \param type packet type
      * \param packet packet object
-     * \param wait If wait is true then enqueue to send instead of sending immediately
      */
     template <typename PacketT>
-    bool send(const dhyara::peer_address& addr, packets::type type, const PacketT& packet, std::size_t ticks = 0){
+    bool send(const dhyara::peer_address& addr, packets::type type, const PacketT& packet){
         dhyara::peer::address immediate = _routes.next(addr).via();
-        return send_local(immediate.is_null() ? addr : immediate, type, packet, ticks);
+        return send_local(immediate.is_null() ? addr : immediate, type, packet);
     }
        
     /**
@@ -120,9 +118,8 @@ struct link{
      * 
      * \warning Only the ESP Wifi promiscous rx callback should call this function
      * 
-     * \param source source address
-     * \param data raw data received
-     * \param len length of the raw data
+     * \param buffer received data
+     * \param type promiscous packet type
      */
     void _esp_promiscous_rx_cb(void* buffer, wifi_promiscuous_pkt_type_t type);
     
@@ -212,7 +209,6 @@ struct link{
          * 
          * \warning should not be called directly. Supposed to be used as a callback.
          * 
-         * \param type packet type
          * \param address immediate source address
          * \param frame frame
          */

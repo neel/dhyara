@@ -16,6 +16,7 @@
 
 /**
  * \defgroup io IO
+ * \ingroup packets 
  * Packets Input Output
  */
 

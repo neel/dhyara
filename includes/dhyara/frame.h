@@ -42,7 +42,7 @@ struct frame{
     /**
      * Construct a frame of provided payload payload that is supposed to contain a packet of the given type 
      * \param type packet type
-     * \param length length of the frame
+     * \param len length of the frame
      */
     inline frame(packets::type type, std::size_t len): _type(type), _length(len){
         std::fill(_buffer, _buffer + sizeof(_buffer), 0);
@@ -84,6 +84,8 @@ struct frame{
     
     /**
      * Create a frame from a packet and a packet type
+     * \param type packet type 
+     * \param packet packet to put inside the frame
      * \return returns the created frame
      */
     template <typename PacketT>
@@ -94,6 +96,8 @@ struct frame{
     }
     /**
      * Creates a frame on heap with teh given packet and a packet type
+     * \param type packet type 
+     * \param packet packet to put inside the frame
      * \return returns pointer to the newly created frame
      */
     template <typename PacketT>
