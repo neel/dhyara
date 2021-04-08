@@ -3,6 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+.. todo:: implement me!
+   
 Welcome to dhyara's documentation!
 ==================================
 
@@ -15,12 +17,10 @@ Welcome to dhyara's documentation!
 Indices and tables
 ==================
 
+.. doxygenindex::
+   :project: dhyara
+
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
 
-
-Docs
-====
-
-.. doxygenindex::

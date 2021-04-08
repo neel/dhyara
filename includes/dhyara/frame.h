@@ -56,9 +56,9 @@ struct frame{
     }
     
     /**
-     * Sise of the header of the frame (2 bytes)
+     * Size of the header of the frame (2 bytes)
      */
-    constexpr static std::uint8_t header_size() { return sizeof(packets::type) + sizeof(size_type); }
+    static constexpr std::uint8_t header_size() { return sizeof(packets::type) + sizeof(size_type); }
     
     /**
      * Packet type in the frame

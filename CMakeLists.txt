@@ -1,46 +1,47 @@
-if(${ESP_PLATFORM})
-idf_component_register(
-    SRCS 
-        "sources/routing.cpp"
-        "sources/peer.cpp"
-        "sources/link.cpp"
-        "sources/neighbourhood.cpp"
-        "sources/synchronizer.cpp"
-        "sources/network.cpp"
-        "sources/packets/beacon.cpp"
-        "sources/packets/acknowledgement.cpp"
-        "sources/packets/advertisement.cpp"
-        "sources/packets/echo_request.cpp"
-        "sources/packets/echo_reply.cpp"
-        "sources/packets/echo_lost.cpp"
-        "sources/packets/chunk.cpp"
-        "sources/packets/data.cpp"
-        "sources/packets/delivered.cpp"
-        "sources/actions/beacon.cpp"
-        "sources/actions/acknowledgement.cpp"
-        "sources/actions/advertisement.cpp"
-        "sources/actions/echo_request.cpp"
-        "sources/actions/echo_reply.cpp"
-        "sources/actions/echo_lost.cpp"
-        "sources/actions/chunk.cpp"
-        "sources/actions/delivered.cpp"
-        "sources/utils/printer.cpp"
-        "sources/utils/http.cpp"
-        "sources/tools/ping.cpp"
-        "sources/tools/traceroute.cpp"
-        "sources/wifi.cpp"
-        "sources/wifi.c"
-    INCLUDE_DIRS 
-        "includes"
-    REQUIRES 
-        cxx
-        esp_wifi 
-        esp_http_server
-    EMBED_TXTFILES
-        "assets/routing.css"
-)
+if(NOT DEFINED ESP_PLATFORM)
+    cmake_minimum_required(VERSION 3.19)
+    project(dhyara)
+    add_subdirectory(docs)
 else()
-cmake_minimum_required(VERSION 3.19)
-project(dhyara)
-add_subdirectory(docs)
+    message("ESP_PLATFORM " ${ESP_PLATFORM})
+    idf_component_register(
+        SRCS 
+            "sources/routing.cpp"
+            "sources/peer.cpp"
+            "sources/link.cpp"
+            "sources/neighbourhood.cpp"
+            "sources/synchronizer.cpp"
+            "sources/network.cpp"
+            "sources/packets/beacon.cpp"
+            "sources/packets/acknowledgement.cpp"
+            "sources/packets/advertisement.cpp"
+            "sources/packets/echo_request.cpp"
+            "sources/packets/echo_reply.cpp"
+            "sources/packets/echo_lost.cpp"
+            "sources/packets/chunk.cpp"
+            "sources/packets/data.cpp"
+            "sources/packets/delivered.cpp"
+            "sources/actions/beacon.cpp"
+            "sources/actions/acknowledgement.cpp"
+            "sources/actions/advertisement.cpp"
+            "sources/actions/echo_request.cpp"
+            "sources/actions/echo_reply.cpp"
+            "sources/actions/echo_lost.cpp"
+            "sources/actions/chunk.cpp"
+            "sources/actions/delivered.cpp"
+            "sources/utils/printer.cpp"
+            "sources/utils/http.cpp"
+            "sources/tools/ping.cpp"
+            "sources/tools/traceroute.cpp"
+            "sources/wifi.cpp"
+            "sources/wifi.c"
+        INCLUDE_DIRS 
+            "includes"
+        REQUIRES 
+            cxx
+            esp_wifi 
+            esp_http_server
+        EMBED_TXTFILES
+            "assets/routing.css"
+    )
 endif()

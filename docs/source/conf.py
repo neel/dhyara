@@ -33,12 +33,15 @@ author = 'Sunanda Bose (a.k.a. Sunanda Bose)'
 # ones.
 extensions = [
     "breathe",
-    "exhale"
-#    "sphinx.ext.todo"
-#    "sphinx.ext.autosectionlabel", 
-#    "sphinx.ext.graphviz"
+    "exhale",
+    "sphinx.ext.todo",
+    "sphinx.ext.autosectionlabel", 
+    "sphinx.ext.graphviz"
 ]
+breathe_projects = {}
 breathe_default_project = "dhyara"
+autosectionlabel_prefix_document = True
+autosectionlabel_maxdepth = 3
 todo_include_todos = True
 exhale_args = {
     # These arguments are required
@@ -53,6 +56,13 @@ exhale_args = {
     #"exhaleExecutesDoxygen": True,
     #"exhaleDoxygenStdin":    "INPUT = ../../includes"
 }
+
+# Tell sphinx what the primary language being documented is.
+primary_domain = 'cpp'
+
+# Tell sphinx what the pygments highlight language should be.
+highlight_language = 'cpp'
+
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
@@ -67,7 +77,7 @@ exclude_patterns = []
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-#html_theme = 'alabaster'
+html_theme = 'alabaster'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
