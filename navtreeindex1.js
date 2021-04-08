@@ -1,5 +1,6 @@
 var NAVTREEINDEX1 =
 {
+"serialization_8h.html":[10,0,1,0,1,12],
 "serialization_8h_source.html":[10,0,1,0,1,12],
 "structdhyara_1_1actions_1_1acknowledgement.html":[7,4,0],
 "structdhyara_1_1actions_1_1acknowledgement.html#a050f094a86391fe0c1bb5b1120223b88":[7,4,0,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX1 =
 "structdhyara_1_1packets_1_1data.html#af6f5b763d0a2386359341e5ae5e0f29c":[7,2,6,21],
 "structdhyara_1_1packets_1_1delivered.html":[7,2,7],
 "structdhyara_1_1packets_1_1delivered.html#a1ef161549f52e3e00f2badcf24cfec33":[7,2,7,3],
-"structdhyara_1_1packets_1_1delivered.html#a4f5aaecd68b5e6649c6942a8195c79ae":[7,2,7,6],
-"structdhyara_1_1packets_1_1delivered.html#a8990d253d781b4b3fd4eda6a32619a25":[7,2,7,1]
+"structdhyara_1_1packets_1_1delivered.html#a4f5aaecd68b5e6649c6942a8195c79ae":[7,2,7,6]
 };

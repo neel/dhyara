@@ -6,6 +6,7 @@ var conf_8py =
     [ "breathe_default_project", "conf_8py.html#a6eba2d2c7ae923054b1c49e686ec89b9", null ],
     [ "breathe_projects", "conf_8py.html#acb47d2c0c2904fa7d36b63142533f383", null ],
     [ "copyright", "conf_8py.html#a33fa97cf51dcb25970fbf53f10159589", null ],
+    [ "default_domain", "conf_8py.html#aa9a6ba70689a2984457aa7467e287048", null ],
     [ "exclude_patterns", "conf_8py.html#a7ad48fb6f3e9b129c02346ea0d3527c1", null ],
     [ "exhale_args", "conf_8py.html#a160404b83fa0b5b708e09a9d1e52f294", null ],
     [ "extensions", "conf_8py.html#ae475e080536acb271a0a0efe56c3ba42", null ],

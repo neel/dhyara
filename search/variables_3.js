@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['copyright_575',['copyright',['../namespaceconf.html#a33fa97cf51dcb25970fbf53f10159589',1,'conf']]],
-  ['counter_576',['counter',['../structdhyara_1_1packets_1_1data.html#af6f5b763d0a2386359341e5ae5e0f29c',1,'dhyara::packets::data']]]
+  ['copyright_576',['copyright',['../namespaceconf.html#a33fa97cf51dcb25970fbf53f10159589',1,'conf']]],
+  ['counter_577',['counter',['../structdhyara_1_1packets_1_1data.html#af6f5b763d0a2386359341e5ae5e0f29c',1,'dhyara::packets::data']]]
 ];
