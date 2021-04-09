@@ -36,7 +36,11 @@ extensions = [
     "exhale",
     "sphinx.ext.todo",
     "sphinx.ext.autosectionlabel", 
-    "sphinx.ext.graphviz"
+    "sphinx.ext.graphviz",
+    "sphinx.ext.intersphinx",
+    "sphinx.ext.autodoc",
+    "sphinx.ext.mathjax",
+    "sphinx.ext.viewcode"
 ]
 breathe_projects = {}
 breathe_default_project = "dhyara"
@@ -87,6 +91,6 @@ html_theme = 'alabaster'
 html_static_path = ['_static']
 
 if not read_the_docs_build:
-    import sphinx_rtd_theme
-    html_theme = 'sphinx_rtd_theme'
-    html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
+    import sphinx_redactor_theme
+    html_theme = "sphinx_redactor_theme"
+    html_theme_path = [sphinx_redactor_theme.get_html_theme_path()]

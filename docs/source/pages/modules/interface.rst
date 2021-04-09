@@ -1,5 +1,5 @@
-Communication Interface
-=======================
+Communication
+==============
 
 .. doxygengroup:: interface
    :project: dhyara
