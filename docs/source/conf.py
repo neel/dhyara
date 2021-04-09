@@ -48,7 +48,7 @@ exhale_args = {
     # These arguments are required
     "containmentFolder":     "./api",
     "rootFileName":          "root.rst",
-    "rootFileTitle":         "dhyara API",
+    "rootFileTitle":         "API Docs",
     "doxygenStripFromPath":  "../..",
     # Suggested optional arguments
     "createTreeView":        True,

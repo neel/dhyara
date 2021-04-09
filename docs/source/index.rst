@@ -3,29 +3,26 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
   
-Welcome to dhyara's documentation!
-==================================
+Dhyara Ad-Hoc Network over ESP Now
+===================================
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+   :hidden:
    
+   pages/license
+   pages/examples
+   pages/protocol
+   pages/modules/index
+   api/root
 
-   
-
-
-
-Indices and tables
-==================
-
-.. .. doxygenpage:: index
-..    :project: dhyara
-..    :content-only:
-   
-.. doxygenpage:: protocol
+.. doxygenpage:: index
    :project: dhyara
    :content-only:
-
+   
+   
+Indices and tables
+==================
+   
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`

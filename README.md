@@ -59,8 +59,8 @@ ESP Now uses Wifi Action Frames to communicate, which limits maximuum size of a 
 So if the application want to send variable sized messages then dhyara may split that message into multiple chunks and send those packets to the desired destination through the best route over the ad hoc network. 
 To send a message, use `dhyara::network::send`, which takes a destination address and `begin` and `end` iterators to the data that has to be sent.
 
-Protocol
----------
+Protocol Overview
+------------------
 
 Dhyara does not depend in IP layer. It uses MAC address to identify the nodes in the network. 
 To establish an ad hoc network each nodes broadcasts beacon periodically which is acknowledged by its neighbourhood.
