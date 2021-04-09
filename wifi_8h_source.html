@@ -128,33 +128,38 @@ $(document).ready(function(){initNavTree('wifi_8h_source.html',''); initResizabl
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">extern</span> wifi_promiscuous_filter_t <a class="code" href="wifi_8h.html#a66ec5998ff0198d524ccf42ffdce7eae">g_dhyara_promiscous_filter</a>;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;esp_err_t <a class="code" href="wifi_8h.html#a53e6fba4548ac861adb1b477134d84cf">dhyara_wifi_init</a>(wifi_mode_t mode);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;esp_err_t <a class="code" href="wifi_8h.html#a722fc9a64efa157d03720c9289520567">dhyara_station_join</a>(wifi_config_t* sta_config);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#ifdef __cplusplus  </span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;} <span class="comment">// extern &quot;C&quot;  </span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="peer_8h.html">dhyara/peer.h</a>&gt;</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacedhyara.html">dhyara</a>{</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">struct </span>link;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;};</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;esp_err_t <a class="code" href="wifi_8h.html#a53e6fba4548ac861adb1b477134d84cf">dhyara_wifi_init</a>(wifi_mode_t mode);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;esp_err_t <a class="code" href="wifi_8h.html#a86084def043742c0f3d7d2a8a2ffe87b">dhyara_espnow_init</a>();</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;esp_err_t <a class="code" href="wifi_8h.html#a42863788515b1583d0ec0b4fd2b8a0fa">dhyara_init</a>(wifi_mode_t mode);</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<a class="code" href="structdhyara_1_1link.html">dhyara::link</a>&amp; dhyara_link();</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;esp_err_t <a class="code" href="wifi_8h.html#a722fc9a64efa157d03720c9289520567">dhyara_station_join</a>(wifi_config_t* sta_config);</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keywordtype">void</span> dhyara_espnow_init();</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor">#endif // DHYARA_WIFI_H</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#ifdef __cplusplus  </span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;} <span class="comment">// extern &quot;C&quot;  </span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="peer_8h.html">dhyara/peer.h</a>&gt;</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacedhyara.html">dhyara</a>{</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keyword">struct </span>link;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;};</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<a class="code" href="structdhyara_1_1link.html">dhyara::link</a>&amp; dhyara_link();</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="preprocessor">#endif // DHYARA_WIFI_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="awifi_8h_html_a42863788515b1583d0ec0b4fd2b8a0fa"><div class="ttname"><a href="wifi_8h.html#a42863788515b1583d0ec0b4fd2b8a0fa">dhyara_init</a></div><div class="ttdeci">esp_err_t dhyara_init(wifi_mode_t mode)</div><div class="ttdoc">Initializes wifi, starts wifi, then starts ESP Now.</div></div>
 <div class="ttc" id="awifi_8h_html_a722fc9a64efa157d03720c9289520567"><div class="ttname"><a href="wifi_8h.html#a722fc9a64efa157d03720c9289520567">dhyara_station_join</a></div><div class="ttdeci">esp_err_t dhyara_station_join(wifi_config_t *sta_config)</div><div class="ttdoc">Join to an AP using station interface.</div></div>
 <div class="ttc" id="awifi_8h_html_a53e6fba4548ac861adb1b477134d84cf"><div class="ttname"><a href="wifi_8h.html#a53e6fba4548ac861adb1b477134d84cf">dhyara_wifi_init</a></div><div class="ttdeci">esp_err_t dhyara_wifi_init(wifi_mode_t mode)</div><div class="ttdoc">Conveniance function to initialize wifi.</div></div>
 <div class="ttc" id="anamespacedhyara_html"><div class="ttname"><a href="namespacedhyara.html">dhyara</a></div><div class="ttdef"><b>Definition:</b> <a href="actions_2acknowledgement_8h_source.html#l00016">acknowledgement.h:16</a></div></div>
+<div class="ttc" id="awifi_8h_html_a86084def043742c0f3d7d2a8a2ffe87b"><div class="ttname"><a href="wifi_8h.html#a86084def043742c0f3d7d2a8a2ffe87b">dhyara_espnow_init</a></div><div class="ttdeci">esp_err_t dhyara_espnow_init()</div><div class="ttdoc">Initialize ESP-Now.</div></div>
 <div class="ttc" id="awifi_8h_html_a66ec5998ff0198d524ccf42ffdce7eae"><div class="ttname"><a href="wifi_8h.html#a66ec5998ff0198d524ccf42ffdce7eae">g_dhyara_promiscous_filter</a></div><div class="ttdeci">wifi_promiscuous_filter_t g_dhyara_promiscous_filter</div></div>
 <div class="ttc" id="apeer_8h_html"><div class="ttname"><a href="peer_8h.html">peer.h</a></div></div>
 <div class="ttc" id="astructdhyara_1_1link_html"><div class="ttname"><a href="structdhyara_1_1link.html">dhyara::link</a></div><div class="ttdoc">Link Layer Medium is responsible for sending packets and processing the received packets.</div><div class="ttdef"><b>Definition:</b> <a href="link_8h_source.html#l00038">link.h:38</a></div></div>

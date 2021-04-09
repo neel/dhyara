@@ -112,6 +112,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a53e6fba4548ac861adb1b477134d84cf"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="wifi_8h.html#a53e6fba4548ac861adb1b477134d84cf">dhyara_wifi_init</a> (wifi_mode_t mode)</td></tr>
 <tr class="memdesc:a53e6fba4548ac861adb1b477134d84cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Conveniance function to initialize wifi.  <a href="wifi_8h.html#a53e6fba4548ac861adb1b477134d84cf">More...</a><br /></td></tr>
 <tr class="separator:a53e6fba4548ac861adb1b477134d84cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86084def043742c0f3d7d2a8a2ffe87b"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="wifi_8h.html#a86084def043742c0f3d7d2a8a2ffe87b">dhyara_espnow_init</a> ()</td></tr>
+<tr class="memdesc:a86084def043742c0f3d7d2a8a2ffe87b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize ESP-Now.  <a href="wifi_8h.html#a86084def043742c0f3d7d2a8a2ffe87b">More...</a><br /></td></tr>
+<tr class="separator:a86084def043742c0f3d7d2a8a2ffe87b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42863788515b1583d0ec0b4fd2b8a0fa"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="wifi_8h.html#a42863788515b1583d0ec0b4fd2b8a0fa">dhyara_init</a> (wifi_mode_t mode)</td></tr>
+<tr class="memdesc:a42863788515b1583d0ec0b4fd2b8a0fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes wifi, starts wifi, then starts ESP Now.  <a href="wifi_8h.html#a42863788515b1583d0ec0b4fd2b8a0fa">More...</a><br /></td></tr>
+<tr class="separator:a42863788515b1583d0ec0b4fd2b8a0fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a722fc9a64efa157d03720c9289520567"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="wifi_8h.html#a722fc9a64efa157d03720c9289520567">dhyara_station_join</a> (wifi_config_t *sta_config)</td></tr>
 <tr class="memdesc:a722fc9a64efa157d03720c9289520567"><td class="mdescLeft">&#160;</td><td class="mdescRight">Join to an AP using station interface.  <a href="wifi_8h.html#a722fc9a64efa157d03720c9289520567">More...</a><br /></td></tr>
 <tr class="separator:a722fc9a64efa157d03720c9289520567"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -122,6 +128,49 @@ Variables</h2></td></tr>
 <tr class="separator:a66ec5998ff0198d524ccf42ffdce7eae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a86084def043742c0f3d7d2a8a2ffe87b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86084def043742c0f3d7d2a8a2ffe87b">&#9670;&nbsp;</a></span>dhyara_espnow_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">esp_err_t dhyara_espnow_init </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialize ESP-Now. </p>
+<p>Registers the necessary ESP Now send/receive callbacks. </p><dl class="section attention"><dt>Attention</dt><dd>should be called after initializing wifi (e.g. <a class="el" href="wifi_8h.html#a53e6fba4548ac861adb1b477134d84cf">dhyara_wifi_init</a>) </dd></dl>
+
+</div>
+</div>
+<a id="a42863788515b1583d0ec0b4fd2b8a0fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42863788515b1583d0ec0b4fd2b8a0fa">&#9670;&nbsp;</a></span>dhyara_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">esp_err_t dhyara_init </td>
+          <td>(</td>
+          <td class="paramtype">wifi_mode_t&#160;</td>
+          <td class="paramname"><em>mode</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initializes wifi, starts wifi, then starts ESP Now. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="wifi_8h.html#a53e6fba4548ac861adb1b477134d84cf" title="Conveniance function to initialize wifi.">dhyara_wifi_init</a> </dd>
+<dd>
+<a class="el" href="wifi_8h.html#a86084def043742c0f3d7d2a8a2ffe87b" title="Initialize ESP-Now.">dhyara_espnow_init</a> </dd></dl>
+
+</div>
+</div>
 <a id="a722fc9a64efa157d03720c9289520567"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a722fc9a64efa157d03720c9289520567">&#9670;&nbsp;</a></span>dhyara_station_join()</h2>
 
@@ -159,6 +208,15 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Conveniance function to initialize wifi. </p>
+<dl class="section attention"><dt>Attention</dt><dd>esp_wifi_start() should be called after calling this function </dd>
+<dd>
+ESP Now may be initialized (e.g. <a class="el" href="wifi_8h.html#a86084def043742c0f3d7d2a8a2ffe87b">dhyara_espnow_init</a>) after initializing wifi </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mode</td><td>wifi mode (AP, STA or APSTA) </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
