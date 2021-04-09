@@ -1,4 +1,4 @@
-Building Examples
+Building Examples {#examples}
 ==================
 
 The examples are stored in the examples directory in the source.

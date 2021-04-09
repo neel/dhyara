@@ -43,6 +43,7 @@ breathe_default_project = "dhyara"
 autosectionlabel_prefix_document = True
 autosectionlabel_maxdepth = 3
 todo_include_todos = True
+#breathe_debug_trace_directives = True
 exhale_args = {
     # These arguments are required
     "containmentFolder":     "./api",

@@ -1,4 +1,4 @@
-LICENSE
+LICENSE {#license}
 =======
 
 BSD 2-Clause License
