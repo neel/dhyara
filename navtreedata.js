@@ -23,18 +23,39 @@ for the JavaScript code in this file
 var NAVTREE =
 [
   [ "Dhyara", "index.html", [
-    [ "Compilation & Integration", "index.html#autotoc_md9", null ],
-    [ "Guide", "index.html#autotoc_md10", [
-      [ "Design", "index.html#autotoc_md11", null ],
-      [ "Usage", "index.html#autotoc_md12", null ]
+    [ "Compilation & Integration", "index.html#autotoc_md16", null ],
+    [ "Guide", "index.html#autotoc_md17", [
+      [ "Design", "index.html#autotoc_md18", null ],
+      [ "Usage", "index.html#autotoc_md19", null ]
     ] ],
-    [ "Protocol", "index.html#autotoc_md13", null ],
-    [ "Example", "index.html#autotoc_md14", null ],
+    [ "Protocol Overview", "index.html#autotoc_md20", null ],
+    [ "Example", "index.html#autotoc_md21", null ],
     [ "Building Examples", "examples.html", [
       [ "Structure", "examples.html#autotoc_md0", null ]
     ] ],
     [ "LICENSE", "license.html", null ],
-    [ "Protocol", "protocol.html", null ],
+    [ "Protocol", "protocol.html", [
+      [ "Routing Table", "protocol.html#autotoc_md1", [
+        [ "Neighbourhood Synchronization", "protocol.html#autotoc_md2", null ],
+        [ "Route Depreciation", "protocol.html#autotoc_md3", null ]
+      ] ],
+      [ "Packets", "protocol.html#autotoc_md4", null ],
+      [ "Basic", "protocol.html#autotoc_md5", [
+        [ "Beacon (BCN)", "protocol.html#autotoc_md6", null ],
+        [ "Acknowledgement (ACK)", "protocol.html#autotoc_md7", null ],
+        [ "Advertisement (ADV)", "protocol.html#autotoc_md8", null ],
+        [ "Data", "protocol.html#autotoc_md9", [
+          [ "Chunk (CNK)", "protocol.html#autotoc_md10", null ],
+          [ "Delivery Report (DLV)", "protocol.html#autotoc_md11", null ]
+        ] ]
+      ] ],
+      [ "Auxilary", "protocol.html#autotoc_md12", [
+        [ "ICMP over L2", "protocol.html#autotoc_md13", [
+          [ "ICMP Request (ICMPQ)", "protocol.html#autotoc_md14", null ],
+          [ "ICMP Reply (ICMPR)", "protocol.html#autotoc_md15", null ]
+        ] ]
+      ] ]
+    ] ],
     [ "Modules", "modules.html", "modules" ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
@@ -73,8 +94,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "action_8h.html",
-"serialization_8h.html",
-"structdhyara_1_1packets_1_1delivered.html#a4f5aaecd68b5e6649c6942a8195c79ae"
+"protocol.html#autotoc_md8",
+"structdhyara_1_1packets_1_1data.html#ac475cf8455e5a4e081189cea021b2290"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

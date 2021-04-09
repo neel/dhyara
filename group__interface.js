@@ -1,14 +1,5 @@
 var group__interface =
 [
-    [ "Routing Table", "protocol.html#autotoc_md1", null ],
-    [ "Beacon (BCN)", "protocol.html#autotoc_md2", null ],
-    [ "Acknowledgement (ACK)", "protocol.html#autotoc_md3", [
-      [ "sync_neighbors", "protocol.html#autotoc_md4", null ],
-      [ "depreciation", "protocol.html#autotoc_md5", null ]
-    ] ],
-    [ "Advertisement (ADV)", "protocol.html#autotoc_md6", null ],
-    [ "Data & Chunk (CNK)", "protocol.html#autotoc_md7", null ],
-    [ "Delivery Report (DLV)", "protocol.html#autotoc_md8", null ],
     [ "link", "structdhyara_1_1link.html", [
       [ "proxy", "structdhyara_1_1link_1_1proxy.html", [
         [ "proxy", "structdhyara_1_1link_1_1proxy.html#af562989c51feb76de7596810d48dd445", null ],
