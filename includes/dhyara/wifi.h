@@ -40,9 +40,26 @@ extern "C" {
 extern wifi_promiscuous_filter_t g_dhyara_promiscous_filter;
 
 /**
- * Conveniance function to initialize wifi 
+ * Conveniance function to initialize wifi.
+ * \attention esp_wifi_start() should be called after calling this function
+ * \attention ESP Now may be initialized (e.g. \ref dhyara_espnow_init) after initializing wifi 
+ * \param mode wifi mode (AP, STA or APSTA)
  */
 esp_err_t dhyara_wifi_init(wifi_mode_t mode);
+
+/**
+ * Initialize ESP-Now. Registers the necessary ESP Now send/receive callbacks.
+ * \attention should be called after initializing wifi (e.g. \ref dhyara_wifi_init)
+ */
+esp_err_t dhyara_espnow_init();
+
+/**
+ * Initializes wifi, starts wifi, then starts ESP Now 
+ * \see dhyara_wifi_init 
+ * \see dhyara_espnow_init
+ */
+esp_err_t dhyara_init(wifi_mode_t mode);
+
 /**
  * Join to an AP using station interface
  */
@@ -64,11 +81,6 @@ namespace dhyara{
  * Get dhyara communication link
  */
 dhyara::link& dhyara_link();
-
-/**
- * Initialize ESP-Now 
- */
-void dhyara_espnow_init();
 
 #endif
 

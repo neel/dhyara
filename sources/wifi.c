@@ -60,14 +60,19 @@ static void dhyara_wifi_event_handler(void* arg, esp_event_base_t event_base, in
 }
 
 esp_err_t dhyara_wifi_init(wifi_mode_t mode){
-    ESP_ERROR_CHECK(esp_netif_init());
-    ESP_ERROR_CHECK(esp_event_loop_create_default());
-	ESP_ERROR_CHECK(esp_event_handler_register(WIFI_EVENT, ESP_EVENT_ANY_ID, &dhyara_wifi_event_handler, NULL));
+    esp_err_t err;
+    err = esp_netif_init();
+    if(err != ESP_OK) return err;
+    err = esp_event_loop_create_default();
+    if(err != ESP_OK) return err;
+	err = esp_event_handler_register(WIFI_EVENT, ESP_EVENT_ANY_ID, &dhyara_wifi_event_handler, NULL);
+    if(err != ESP_OK) return err;
     
     wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
     cfg.ampdu_rx_enable = 0;
     cfg.ampdu_tx_enable = 0;
-    ESP_ERROR_CHECK(esp_wifi_init(&cfg));
+    err = (esp_wifi_init(&cfg));
+    if(err != ESP_OK) return err;
     
     if(mode == WIFI_MODE_AP){
         dhyara_ap_init();
@@ -80,6 +85,8 @@ esp_err_t dhyara_wifi_init(wifi_mode_t mode){
 }
 
 esp_err_t dhyara_station_join(wifi_config_t* sta_config){
-    ESP_ERROR_CHECK(esp_wifi_set_config(WIFI_IF_STA, sta_config));
+    esp_err_t err;
+    err = esp_wifi_set_config(WIFI_IF_STA, sta_config);
+    if(err != ESP_OK) return err;
     return esp_wifi_connect();
 }

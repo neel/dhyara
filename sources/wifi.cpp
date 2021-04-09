@@ -49,17 +49,34 @@ static void _dhyara_promiscuous(void* buffer, wifi_promiscuous_pkt_type_t type){
 //     std::cout << source << " " << data->rx_ctrl.rssi << std::endl;
 // }
 
-void dhyara_espnow_init(){
-    ESP_ERROR_CHECK(esp_now_init());
-    ESP_ERROR_CHECK(esp_now_register_send_cb(_dhyara_sent));
-    ESP_ERROR_CHECK(esp_now_register_recv_cb(_dhyara_rcvd));
-    ESP_ERROR_CHECK(esp_wifi_set_promiscuous_filter(&g_dhyara_promiscous_filter));
-    ESP_ERROR_CHECK(esp_wifi_set_promiscuous_rx_cb(&_dhyara_promiscuous));
-    ESP_ERROR_CHECK(esp_wifi_set_promiscuous(true));
+esp_err_t dhyara_espnow_init(){
+    esp_err_t err;
+    err = esp_now_init();
+    if(err != ESP_OK) return err;
+    err = esp_now_register_send_cb(_dhyara_sent);
+    if(err != ESP_OK) return err;
+    err = esp_now_register_recv_cb(_dhyara_rcvd);
+    if(err != ESP_OK) return err;
+    err = esp_wifi_set_promiscuous_filter(&g_dhyara_promiscous_filter);
+    if(err != ESP_OK) return err;
+    err = esp_wifi_set_promiscuous_rx_cb(&_dhyara_promiscuous);
+    if(err != ESP_OK) return err;
+    err = esp_wifi_set_promiscuous(true);
+    return err;
     // ESP_ERROR_CHECK(esp_wifi_set_csi_rx_cb(&_csi, 0x0));
     // ESP_ERROR_CHECK(esp_wifi_set_csi(true));
 }
 
 dhyara::link& dhyara_link(){
     return g_dhyara_link;
+}
+
+esp_err_t dhyara_init(wifi_mode_t mode){
+    esp_err_t err;
+    err = dhyara_wifi_init(mode);
+    if(err != ESP_OK) return err;
+    err = esp_wifi_start();
+    if(err != ESP_OK) return err;
+    err = dhyara_espnow_init();
+    return err;
 }
