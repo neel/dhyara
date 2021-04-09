@@ -6,9 +6,7 @@ var dir_8306a184a76653b2e13c56fe08a22361 =
     [ "beacon.h", "packets_2beacon_8h.html", [
       [ "serialization< packets::beacon >", "structdhyara_1_1serialization_3_01packets_1_1beacon_01_4.html", "structdhyara_1_1serialization_3_01packets_1_1beacon_01_4" ]
     ] ],
-    [ "chunk.h", "packets_2chunk_8h.html", [
-      [ "header", "structdhyara_1_1packets_1_1chunk_1_1header.html", "structdhyara_1_1packets_1_1chunk_1_1header" ]
-    ] ],
+    [ "chunk.h", "packets_2chunk_8h.html", null ],
     [ "data.h", "data_8h.html", null ],
     [ "delivered.h", "packets_2delivered_8h.html", null ],
     [ "echo_lost.h", "packets_2echo__lost_8h.html", null ],

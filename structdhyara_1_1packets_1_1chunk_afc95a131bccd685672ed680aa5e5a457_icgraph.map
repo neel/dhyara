@@ -1,5 +1,5 @@
 <map id="dhyara::packets::chunk::begin" name="dhyara::packets::chunk::begin">
-<area shape="rect" id="node1" title=" " alt="" coords="477,5,649,47"/>
-<area shape="rect" id="node2" href="$structdhyara_1_1packets_1_1chunk.html#acf18dc3ba1ffe7fb8b03a0813d689c54" title=" " alt="" coords="5,5,177,47"/>
-<area shape="rect" id="node3" href="$structdhyara_1_1packets_1_1chunk.html#ac7a7865cb9d3ddf2eebfa73bac58d34f" title=" " alt="" coords="225,38,429,65"/>
+<area shape="rect" id="node1" title="begin of the chunk payload" alt="" coords="477,5,649,47"/>
+<area shape="rect" id="node2" href="$structdhyara_1_1packets_1_1chunk.html#acf18dc3ba1ffe7fb8b03a0813d689c54" title="Construct a chunk by reading length bytes from begin iterator." alt="" coords="5,5,177,47"/>
+<area shape="rect" id="node3" href="$structdhyara_1_1packets_1_1chunk.html#ac7a7865cb9d3ddf2eebfa73bac58d34f" title="end of teh chunk payload" alt="" coords="225,38,429,65"/>
 </map>

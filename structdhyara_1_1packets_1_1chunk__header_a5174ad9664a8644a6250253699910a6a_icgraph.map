@@ -1,0 +1,4 @@
+<map id="dhyara::packets::chunk_header::chunk_header" name="dhyara::packets::chunk_header::chunk_header">
+<area shape="rect" id="node1" title="Construct a chunk header with null target and source." alt="" coords="225,5,399,47"/>
+<area shape="rect" id="node2" href="$structdhyara_1_1packets_1_1chunk__header.html#aeda8280fd70fbf6861acca7be4c91167" title="byte size of the header" alt="" coords="5,5,177,47"/>
+</map>

@@ -30,11 +30,11 @@ var NAVTREE =
     ] ],
     [ "Protocol", "index.html#autotoc_md13", null ],
     [ "Example", "index.html#autotoc_md14", null ],
-    [ "Building Examples", "md_docs_examples.html", [
-      [ "Structure", "md_docs_examples.html#autotoc_md0", null ]
+    [ "Building Examples", "examples.html", [
+      [ "Structure", "examples.html#autotoc_md0", null ]
     ] ],
-    [ "LICENSE", "md_docs__l_i_c_e_n_s_e.html", null ],
-    [ "Protocol", "md_docs_protocol.html", null ],
+    [ "LICENSE", "license.html", null ],
+    [ "Protocol", "protocol.html", null ],
     [ "Modules", "modules.html", "modules" ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
@@ -74,7 +74,7 @@ var NAVTREEINDEX =
 [
 "action_8h.html",
 "serialization_8h.html",
-"structdhyara_1_1packets_1_1delivered.html#a8990d253d781b4b3fd4eda6a32619a25"
+"structdhyara_1_1packets_1_1delivered.html#a4f5aaecd68b5e6649c6942a8195c79ae"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

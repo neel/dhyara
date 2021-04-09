@@ -1,9 +1,9 @@
 <map id="dhyara::peer_address::b6" name="dhyara::peer_address::b6">
 <area shape="rect" id="node1" title="sixth octed of the mac address" alt="" coords="281,177,468,203"/>
 <area shape="rect" id="node2" href="$structdhyara_1_1packets_1_1advertisement.html#aac59a84b282b961fd68866f9491473a9" title="Construct an advertisement packet with the given destination and the delay specified." alt="" coords="5,5,233,47"/>
-<area shape="rect" id="node3" href="$structdhyara_1_1packets_1_1delivered.html#adeefcf1e98f2eaee5925571e35eeb164" title="Construct a delivery report using target, source address and the packet id in the target." alt="" coords="22,71,217,112"/>
-<area shape="rect" id="node4" href="$structdhyara_1_1packets_1_1echo__lost.html#a3c6d7104aa51f20e422e94b13ac41616" title="Construct an echo lost to the target originating from the source with the provided sequence number an..." alt="" coords="37,136,201,177"/>
-<area shape="rect" id="node5" href="$structdhyara_1_1packets_1_1echo__reply.html#a329940211aa3bd2636372e2cedccda93" title="Construct an echo reply to the target originating from the source with the provided sequence number a..." alt="" coords="37,201,201,243"/>
-<area shape="rect" id="node6" href="$structdhyara_1_1packets_1_1echo__request.html#a6988fdd66dc08c26fff5bd8e222f314d" title="Construct an echo request to the target originating from the source with the provided sequence number..." alt="" coords="33,267,206,308"/>
-<area shape="rect" id="node7" href="$structdhyara_1_1packets_1_1chunk_1_1header.html#a8ffa84a7448fe3f2ca8029a8056873b2" title=" " alt="" coords="33,332,205,373"/>
+<area shape="rect" id="node3" href="$structdhyara_1_1packets_1_1chunk__header.html#ac2b979ae62cf6ca8b7e289376a87b588" title="Construct a chunk header with provided parameters." alt="" coords="33,71,206,112"/>
+<area shape="rect" id="node4" href="$structdhyara_1_1packets_1_1delivered.html#adeefcf1e98f2eaee5925571e35eeb164" title="Construct a delivery report using target, source address and the packet id in the target." alt="" coords="22,136,217,177"/>
+<area shape="rect" id="node5" href="$structdhyara_1_1packets_1_1echo__lost.html#a3c6d7104aa51f20e422e94b13ac41616" title="Construct an echo lost to the target originating from the source with the provided sequence number an..." alt="" coords="37,201,201,243"/>
+<area shape="rect" id="node6" href="$structdhyara_1_1packets_1_1echo__reply.html#a329940211aa3bd2636372e2cedccda93" title="Construct an echo reply to the target originating from the source with the provided sequence number a..." alt="" coords="37,267,201,308"/>
+<area shape="rect" id="node7" href="$structdhyara_1_1packets_1_1echo__request.html#a6988fdd66dc08c26fff5bd8e222f314d" title="Construct an echo request to the target originating from the source with the provided sequence number..." alt="" coords="33,332,206,373"/>
 </map>
