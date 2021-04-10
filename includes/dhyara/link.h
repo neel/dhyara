@@ -33,7 +33,7 @@ namespace dhyara{
  * 
  * medium.start();
  * \endcode
- * \ingroup interface
+ * \ingroup communication
  */
 struct link{
     typedef std::function<void (const dhyara::peer_address&, const dhyara::frame&)> callback_type;

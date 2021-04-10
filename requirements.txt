@@ -1,4 +1,4 @@
 breathe
 sphinx
 exhale
-sphinx-redactor-theme
+karma_sphinx_theme

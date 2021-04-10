@@ -70,13 +70,3 @@ esp_err_t dhyara_espnow_init(){
 dhyara::link& dhyara_link(){
     return g_dhyara_link;
 }
-
-esp_err_t dhyara_init(wifi_mode_t mode){
-    esp_err_t err;
-    err = dhyara_wifi_init(mode);
-    if(err != ESP_OK) return err;
-    err = esp_wifi_start();
-    if(err != ESP_OK) return err;
-    err = dhyara_espnow_init();
-    return err;
-}

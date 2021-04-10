@@ -3,7 +3,7 @@ Modules
 
 .. toctree::
    
-   interface
+   communication
    routing
    packets
    actions

@@ -54,7 +54,7 @@ esp_err_t dhyara_wifi_init(wifi_mode_t mode);
 esp_err_t dhyara_espnow_init();
 
 /**
- * Initializes wifi, starts wifi, then starts ESP Now 
+ * Initializes wifi, starts wifi, then initializes ESP Now 
  * \see dhyara_wifi_init 
  * \see dhyara_espnow_init
  */
@@ -70,6 +70,8 @@ esp_err_t dhyara_station_join(wifi_config_t* sta_config);
 #endif
 
 #ifdef __cplusplus
+
+// Visible in C++ Only
 
 #include <dhyara/peer.h>
 

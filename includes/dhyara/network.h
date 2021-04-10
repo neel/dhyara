@@ -22,7 +22,7 @@ namespace dhyara{
 
 /**
  * The dhyara ad-hoc network. The network is started using the \ref start method. All related networking tasks and actions are created and maintained by the network.
- * \ingroup interface
+ * \ingroup communication
  */
 struct network{
     /**

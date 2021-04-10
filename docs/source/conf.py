@@ -91,6 +91,4 @@ html_theme = 'alabaster'
 html_static_path = ['_static']
 
 if not read_the_docs_build:
-    import sphinx_redactor_theme
-    html_theme = "sphinx_redactor_theme"
-    html_theme_path = [sphinx_redactor_theme.get_html_theme_path()]
+    html_theme = "karma_sphinx_theme"
