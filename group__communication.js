@@ -1,4 +1,4 @@
-var group__interface =
+var group__communication =
 [
     [ "link", "structdhyara_1_1link.html", [
       [ "proxy", "structdhyara_1_1link_1_1proxy.html", [

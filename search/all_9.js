@@ -7,11 +7,10 @@ var searchData=
   ['index_2eh_157',['index.h',['../index_8h.html',1,'']]],
   ['init_158',['init',['../structdhyara_1_1link.html#a1c9f0b94a68b78b3ca2b55263642fdd4',1,'dhyara::link']]],
   ['install_159',['install',['../structdhyara_1_1link.html#a3f5a1a89dbd273867300879c778a2421',1,'dhyara::link']]],
-  ['interface_160',['Interface',['../group__interface.html',1,'']]],
-  ['io_161',['IO',['../group__io.html',1,'']]],
-  ['io_2eh_162',['io.h',['../io_8h.html',1,'']]],
-  ['is_5fbroadcast_163',['is_broadcast',['../structdhyara_1_1peer__address.html#a4c4e1621c75fa3a3487ae846d312ae51',1,'dhyara::peer_address']]],
-  ['is_5flast_164',['is_last',['../structdhyara_1_1packets_1_1chunk__header.html#af7cbea62fc3e14316358142de51c0b30',1,'dhyara::packets::chunk_header::is_last()'],['../structdhyara_1_1packets_1_1chunk.html#aa53aeb8b359fc8bf201e7ed71f84e723',1,'dhyara::packets::chunk::is_last()']]],
-  ['is_5fnull_165',['is_null',['../structdhyara_1_1peer__address.html#a0e89a05cb4d854fadc14897a089a0dad',1,'dhyara::peer_address']]],
-  ['isolate_166',['isolate',['../structdhyara_1_1network.html#aa46dd5254cbc3a8431fa866e010d029c',1,'dhyara::network']]]
+  ['io_160',['IO',['../group__io.html',1,'']]],
+  ['io_2eh_161',['io.h',['../io_8h.html',1,'']]],
+  ['is_5fbroadcast_162',['is_broadcast',['../structdhyara_1_1peer__address.html#a4c4e1621c75fa3a3487ae846d312ae51',1,'dhyara::peer_address']]],
+  ['is_5flast_163',['is_last',['../structdhyara_1_1packets_1_1chunk__header.html#af7cbea62fc3e14316358142de51c0b30',1,'dhyara::packets::chunk_header::is_last()'],['../structdhyara_1_1packets_1_1chunk.html#aa53aeb8b359fc8bf201e7ed71f84e723',1,'dhyara::packets::chunk::is_last()']]],
+  ['is_5fnull_164',['is_null',['../structdhyara_1_1peer__address.html#a0e89a05cb4d854fadc14897a089a0dad',1,'dhyara::peer_address']]],
+  ['isolate_165',['isolate',['../structdhyara_1_1network.html#aa46dd5254cbc3a8431fa866e010d029c',1,'dhyara::network']]]
 ];

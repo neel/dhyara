@@ -13,7 +13,6 @@ var conf_8py =
     [ "highlight_language", "conf_8py.html#a3117edf4443d9b8c70a9f0f44294ba79", null ],
     [ "html_static_path", "conf_8py.html#af4fb5d8851ccaade135c2668dd3ced41", null ],
     [ "html_theme", "conf_8py.html#a7f1b143ff25817758abd21a7db110510", null ],
-    [ "html_theme_path", "conf_8py.html#a4960231f83b1b44a1ffcd212903b62e8", null ],
     [ "primary_domain", "conf_8py.html#a7f24fa2b2e1f3905d88d035c328cc9f7", null ],
     [ "project", "conf_8py.html#a45653c983098153b78e33600e39230eb", null ],
     [ "read_the_docs_build", "conf_8py.html#add613ecd679055ab674d2ee479c80dbe", null ],
