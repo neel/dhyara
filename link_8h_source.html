@@ -184,23 +184,23 @@ $(document).ready(function(){initNavTree('link_8h_source.html',''); initResizabl
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;        </div>
 <div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;        <span class="keywordtype">void</span> q_receive(<span class="keyword">const</span> <a class="code" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a>&amp; <a class="code" href="structdhyara_1_1link.html#a14215f8d36d2ab205737ac3dc9f30d79">address</a>, <span class="keyword">const</span> <a class="code" href="structdhyara_1_1frame.html">dhyara::frame</a>&amp; <a class="code" href="structdhyara_1_1frame.html">frame</a>);</div>
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;        <span class="keywordtype">bool</span> _transmit(<span class="keyword">const</span> std::uint8_t* dest, <span class="keyword">const</span> std::uint8_t* data, std::size_t len);</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;        <span class="keywordtype">bool</span> transmit(<span class="keyword">const</span> <a class="code" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a>&amp; <a class="code" href="structdhyara_1_1link.html#a14215f8d36d2ab205737ac3dc9f30d79">address</a>, <span class="keyword">const</span> <a class="code" href="structdhyara_1_1frame.html">dhyara::frame</a>&amp; <a class="code" href="structdhyara_1_1frame.html">frame</a>);</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    </div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;        <a class="code" href="structdhyara_1_1frame.html">dhyara::frame</a>           _frame_rcv;     </div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;        <a class="code" href="structdhyara_1_1link.html#ac505e315e39cd611890da869d93c8fad">fifo_type</a>               _fifo_rcv;      </div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;        <a class="code" href="structdhyara_1_1link.html#a51acf02eaec542035848a83d3c7bca77">xqueue_type</a>             _queue_snd;     </div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;        <a class="code" href="structdhyara_1_1notifier.html">dhyara::notifier</a>        _notifier;      </div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;        <a class="code" href="structdhyara_1_1neighbourhood.html">dhyara::neighbourhood</a>   _neighbours;</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;        <a class="code" href="structdhyara_1_1link.html#a14193930d528e2e7ff90d7be7346876f">handlers_map_type</a>       _handlers;</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;        <a class="code" href="structdhyara_1_1routing.html">dhyara::routing</a>         _routes;</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;        <a class="code" href="structdhyara_1_1peer__address.html">dhyara::peer::address</a>   _mac;</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;        <a class="code" href="structdhyara_1_1link.html#a10531b2d0465834dfb5803a1db6d9700">counters_map_type</a>       _counters;</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;};</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160; </div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;}</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160; </div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;<span class="preprocessor">#endif // DHYARA_LINK_H</span></div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;        <span class="keywordtype">bool</span> transmit(<span class="keyword">const</span> <a class="code" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a>&amp; <a class="code" href="structdhyara_1_1link.html#a14215f8d36d2ab205737ac3dc9f30d79">address</a>, <span class="keyword">const</span> <a class="code" href="structdhyara_1_1frame.html">dhyara::frame</a>&amp; <a class="code" href="structdhyara_1_1frame.html">frame</a>);</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    </div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;        <a class="code" href="structdhyara_1_1frame.html">dhyara::frame</a>           _frame_rcv;     </div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;        <a class="code" href="structdhyara_1_1link.html#ac505e315e39cd611890da869d93c8fad">fifo_type</a>               _fifo_rcv;      </div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;        <a class="code" href="structdhyara_1_1link.html#a51acf02eaec542035848a83d3c7bca77">xqueue_type</a>             _queue_snd;     </div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;        <a class="code" href="structdhyara_1_1notifier.html">dhyara::notifier</a>        _notifier;      </div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;        <a class="code" href="structdhyara_1_1neighbourhood.html">dhyara::neighbourhood</a>   _neighbours;</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;        <a class="code" href="structdhyara_1_1link.html#a14193930d528e2e7ff90d7be7346876f">handlers_map_type</a>       _handlers;</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;        <a class="code" href="structdhyara_1_1routing.html">dhyara::routing</a>         _routes;</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;        <a class="code" href="structdhyara_1_1peer__address.html">dhyara::peer::address</a>   _mac;</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;        <a class="code" href="structdhyara_1_1link.html#a10531b2d0465834dfb5803a1db6d9700">counters_map_type</a>       _counters;</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;};</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160; </div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;}</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160; </div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;<span class="preprocessor">#endif // DHYARA_LINK_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="astructdhyara_1_1peer__address_html"><div class="ttname"><a href="structdhyara_1_1peer__address.html">dhyara::peer_address</a></div><div class="ttdoc">peer address (mac address)</div><div class="ttdef"><b>Definition:</b> <a href="peer_8h_source.html#l00029">peer.h:29</a></div></div>

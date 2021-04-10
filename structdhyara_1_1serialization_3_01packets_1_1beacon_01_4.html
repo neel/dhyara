@@ -97,14 +97,16 @@ $(document).ready(function(){initNavTree('structdhyara_1_1serialization_3_01pack
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a44a1b75cc57a29c4b8f460838a6421c8"><td class="memTemplParams" colspan="2">template&lt;typename OutIt &gt; </td></tr>
 <tr class="memitem:a44a1b75cc57a29c4b8f460838a6421c8"><td class="memTemplItemLeft" align="right" valign="top">static OutIt&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structdhyara_1_1serialization_3_01packets_1_1beacon_01_4.html#a44a1b75cc57a29c4b8f460838a6421c8">write</a> (const <a class="el" href="structdhyara_1_1packets_1_1beacon.html">packets::beacon</a> &amp;packet, OutIt output)</td></tr>
+<tr class="memdesc:a44a1b75cc57a29c4b8f460838a6421c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">serialize a beacon packet and write to the output iterator  <a href="structdhyara_1_1serialization_3_01packets_1_1beacon_01_4.html#a44a1b75cc57a29c4b8f460838a6421c8">More...</a><br /></td></tr>
 <tr class="separator:a44a1b75cc57a29c4b8f460838a6421c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf6c6a6071ab492f03454fbc5f25472d"><td class="memTemplParams" colspan="2">template&lt;typename InIt &gt; </td></tr>
 <tr class="memitem:adf6c6a6071ab492f03454fbc5f25472d"><td class="memTemplItemLeft" align="right" valign="top">static InIt&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structdhyara_1_1serialization_3_01packets_1_1beacon_01_4.html#adf6c6a6071ab492f03454fbc5f25472d">read</a> (<a class="el" href="structdhyara_1_1packets_1_1beacon.html">packets::beacon</a> &amp;packet, InIt input, std::size_t length)</td></tr>
+<tr class="memdesc:adf6c6a6071ab492f03454fbc5f25472d"><td class="mdescLeft">&#160;</td><td class="mdescRight">deserializes a beacon packet by reading length bytes from the input iterator  <a href="structdhyara_1_1serialization_3_01packets_1_1beacon_01_4.html#adf6c6a6071ab492f03454fbc5f25472d">More...</a><br /></td></tr>
 <tr class="separator:adf6c6a6071ab492f03454fbc5f25472d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="packets_2beacon_8h_source.html#l00056">56</a> of file <a class="el" href="packets_2beacon_8h_source.html">beacon.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="packets_2beacon_8h_source.html#l00062">62</a> of file <a class="el" href="packets_2beacon_8h_source.html">beacon.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="adf6c6a6071ab492f03454fbc5f25472d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adf6c6a6071ab492f03454fbc5f25472d">&#9670;&nbsp;</a></span>read()</h2>
@@ -148,7 +150,17 @@ template&lt;typename InIt &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="packets_2beacon_8h_source.html#l00068">68</a> of file <a class="el" href="packets_2beacon_8h_source.html">beacon.h</a>.</p>
+<p>deserializes a beacon packet by reading length bytes from the input iterator </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">packet</td><td>the packet to compose </td></tr>
+    <tr><td class="paramname">input</td><td>the input iterator </td></tr>
+    <tr><td class="paramname">length</td><td>length of the input </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="packets_2beacon_8h_source.html#l00088">88</a> of file <a class="el" href="packets_2beacon_8h_source.html">beacon.h</a>.</p>
 
 <p class="reference">References <a class="el" href="packets_2beacon_8h_source.html#l00027">dhyara::packets::beacon::_name</a>, and <a class="el" href="packets_2beacon_8h_source.html#l00026">dhyara::packets::beacon::_time</a>.</p>
 
@@ -190,7 +202,16 @@ template&lt;typename OutIt &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="packets_2beacon_8h_source.html#l00058">58</a> of file <a class="el" href="packets_2beacon_8h_source.html">beacon.h</a>.</p>
+<p>serialize a beacon packet and write to the output iterator </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">packet</td><td>the packet to be serialized </td></tr>
+    <tr><td class="paramname">output</td><td>the output iterator </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="packets_2beacon_8h_source.html#l00070">70</a> of file <a class="el" href="packets_2beacon_8h_source.html">beacon.h</a>.</p>
 
 <p class="reference">References <a class="el" href="packets_2beacon_8h_source.html#l00027">dhyara::packets::beacon::_name</a>, and <a class="el" href="packets_2beacon_8h_source.html#l00026">dhyara::packets::beacon::_time</a>.</p>
 

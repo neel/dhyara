@@ -106,9 +106,11 @@ Public Types</h2></td></tr>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a6fffb25d5d0a785cb1335681e74eb024"><td class="memTemplParams" colspan="2">template&lt;typename OutIt &gt; </td></tr>
 <tr class="memitem:a6fffb25d5d0a785cb1335681e74eb024"><td class="memTemplItemLeft" align="right" valign="top">static OutIt&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structdhyara_1_1serialization.html#a6fffb25d5d0a785cb1335681e74eb024">write</a> (const <a class="el" href="structdhyara_1_1serialization.html#add2f42a39a9f14f70819375c9ab0c473">packet_type</a> &amp;packet, OutIt output)</td></tr>
+<tr class="memdesc:a6fffb25d5d0a785cb1335681e74eb024"><td class="mdescLeft">&#160;</td><td class="mdescRight">serialize a packet and write to the output iterator  <a href="structdhyara_1_1serialization.html#a6fffb25d5d0a785cb1335681e74eb024">More...</a><br /></td></tr>
 <tr class="separator:a6fffb25d5d0a785cb1335681e74eb024"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb3254a33f7dcc03a625294d1218cef7"><td class="memTemplParams" colspan="2">template&lt;typename InIt &gt; </td></tr>
 <tr class="memitem:adb3254a33f7dcc03a625294d1218cef7"><td class="memTemplItemLeft" align="right" valign="top">static InIt&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structdhyara_1_1serialization.html#adb3254a33f7dcc03a625294d1218cef7">read</a> (<a class="el" href="structdhyara_1_1serialization.html#add2f42a39a9f14f70819375c9ab0c473">packet_type</a> &amp;packet, InIt input, std::size_t length)</td></tr>
+<tr class="memdesc:adb3254a33f7dcc03a625294d1218cef7"><td class="mdescLeft">&#160;</td><td class="mdescRight">deserializes a packet by reading length bytes from the input iterator  <a href="structdhyara_1_1serialization.html#adb3254a33f7dcc03a625294d1218cef7">More...</a><br /></td></tr>
 <tr class="separator:adb3254a33f7dcc03a625294d1218cef7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -182,7 +184,17 @@ template&lt;typename InIt &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="serialization_8h_source.html#l00031">31</a> of file <a class="el" href="serialization_8h_source.html">serialization.h</a>.</p>
+<p>deserializes a packet by reading length bytes from the input iterator </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">packet</td><td>the packet to compose </td></tr>
+    <tr><td class="paramname">input</td><td>the input iterator </td></tr>
+    <tr><td class="paramname">length</td><td>length of the input </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="serialization_8h_source.html#l00045">45</a> of file <a class="el" href="serialization_8h_source.html">serialization.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="io_8h_source.html#l00032">dhyara::read()</a>.</p>
 <div class="dynheader">
@@ -190,7 +202,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="structdhyara_1_1serialization_adb3254a33f7dcc03a625294d1218cef7_icgraph.png" border="0" usemap="#structdhyara_1_1serialization_adb3254a33f7dcc03a625294d1218cef7_icgraph" alt=""/></div>
 <map name="structdhyara_1_1serialization_adb3254a33f7dcc03a625294d1218cef7_icgraph" id="structdhyara_1_1serialization_adb3254a33f7dcc03a625294d1218cef7_icgraph">
-<area shape="rect" title=" " alt="" coords="383,20,537,61"/>
+<area shape="rect" title="deserializes a packet by reading length bytes from the input iterator" alt="" coords="383,20,537,61"/>
 <area shape="rect" href="group__io.html#ga1b83b801d54296c6cc9fc793b9141594" title="read into a packet" alt="" coords="231,27,335,54"/>
 <area shape="rect" href="structdhyara_1_1actions_1_1action.html#a6273443e685fadf590c7e06c9981fd0d" title="Creates a packet from the received frame." alt="" coords="5,5,183,76"/>
 </map>
@@ -236,7 +248,16 @@ template&lt;typename OutIt &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="serialization_8h_source.html#l00026">26</a> of file <a class="el" href="serialization_8h_source.html">serialization.h</a>.</p>
+<p>serialize a packet and write to the output iterator </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">packet</td><td>the packet to be serialized </td></tr>
+    <tr><td class="paramname">output</td><td>the output iterator </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="serialization_8h_source.html#l00032">32</a> of file <a class="el" href="serialization_8h_source.html">serialization.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="io_8h_source.html#l00022">dhyara::write()</a>.</p>
 <div class="dynheader">
@@ -244,7 +265,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="structdhyara_1_1serialization_a6fffb25d5d0a785cb1335681e74eb024_icgraph.png" border="0" usemap="#structdhyara_1_1serialization_a6fffb25d5d0a785cb1335681e74eb024_icgraph" alt=""/></div>
 <map name="structdhyara_1_1serialization_a6fffb25d5d0a785cb1335681e74eb024_icgraph" id="structdhyara_1_1serialization_a6fffb25d5d0a785cb1335681e74eb024_icgraph">
-<area shape="rect" title=" " alt="" coords="593,49,748,90"/>
+<area shape="rect" title="serialize a packet and write to the output iterator" alt="" coords="593,49,748,90"/>
 <area shape="rect" href="group__io.html#ga4ad2c87bab350b99de6805a397698bed" title="write a packet" alt="" coords="437,56,545,83"/>
 <area shape="rect" href="structdhyara_1_1frame.html#ad428874ae06aaf0869c44066fcd7cc4d" title="Create a frame from a packet and a packet type." alt="" coords="209,5,372,32"/>
 <area shape="rect" href="structdhyara_1_1frame.html#ac9a354daa91a03a35a16101b6803eeec" title="Creates a frame on heap with teh given packet and a packet type." alt="" coords="192,56,389,83"/>
