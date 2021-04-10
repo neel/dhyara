@@ -46,7 +46,13 @@ struct beacon{
      * Time in the beacon packet
      */
     inline const std::uint64_t& time() const {return _time;}
+    /**
+     * name in the beacon packet
+     */
     inline const std::string& name() const{ return _name; }
+    /**
+     * set name
+     */
     inline void name(const std::string& n) { _name = n; }
 };
 
@@ -54,6 +60,12 @@ struct beacon{
 
 template <>
 struct serialization<packets::beacon>{
+    /**
+     * serialize a beacon packet and write to the output iterator
+     * 
+     * \param packet the packet to be serialized
+     * \param output the output iterator
+     */
     template <typename OutIt>
     static OutIt write(const packets::beacon& packet, OutIt output){
         std::uint8_t len = packet._name.size();
@@ -64,6 +76,14 @@ struct serialization<packets::beacon>{
         output = std::copy_n(packet._name.begin(), len, output);
         return output;
     }
+    
+    /**
+     * deserializes a beacon packet by reading length bytes from the input iterator
+     *
+     * \param packet the packet to compose
+     * \param input the input iterator
+     * \param length length of the input
+     */
     template <typename InIt>
     static InIt read(packets::beacon& packet, InIt input, std::size_t length){
         std::uint8_t len = 0;

@@ -224,6 +224,12 @@ struct link{
         /**
          * Depending of the configuration of transmission queueing, Transmits/Enequeues a frame for sending to the given destination address in <b>one hop</b>.
          * 
+         * \attention If Send Queueing is enabled (default) then, instead of sending the frame directly, it is enqueued to `_queue_snd`, and a notifier if notified about the nending frame.
+         *            Another task is running `start_snd` which is woken up after receiving the notification. Once woken up, start_snd dequeues one frame from the `_queue_snd` and transmits using `_transmit`.
+         *            Once a message is sent, The send callback `_esp_sent_cb` is called, which also notifies the notifier and wakes up `start_snd`. This ensures No two frames are sent in parellal.
+         * 
+         * \attention If Send Queueing is disabled then the frame is sent immediately without waiting for the sent callback to be called for the previous transmission operation.
+         * 
          * \param address destination address
          * \param frame frame
          */
