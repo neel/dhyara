@@ -33,6 +33,7 @@ struct traceroute{
     ~traceroute();
     /**
      * Run the traceroute
+     * \warning Do not return immediately after running traceroute. Use `vTaskDelay` to allow few seconds for receiving the reply from the other end.
      */
     void operator()();
     /**
