@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Dhyara Ad Hoc Network</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+		<style>
+            @import "dhyara.css"
+		</style>
+		<script>
+            const menuIconEl = $('.menu-icon');
+            const sidenavEl = $('.sidenav');
+            const sidenavCloseEl = $('.sidenav__close-icon');
+
+            // Add and remove provided class names
+            function toggleClassName(el, className) {
+                if (el.hasClass(className)) {
+                    el.removeClass(className);
+                } else {
+                    el.addClass(className);
+                }
+            }
+
+            // Open the side nav on click
+            menuIconEl.on('click', function() {
+                toggleClassName(sidenavEl, 'active');
+            });
+
+            // Close the side nav on click
+            sidenavCloseEl.on('click', function() {
+                toggleClassName(sidenavEl, 'active');
+            });
+		</script>
+	</head>
+	<body class="full">
+		<div class="grid-container">
+			<div class="menu-icon">
+				<i class="fas fa-bars header__menu"></i>
+			</div>
+			<header class="header">
+			<!--
+				<div class="header__search">Search...</div>
+				<div class="header__avatar">Your face</div>
+            -->
+			</header>
+			<aside class="sidenav">
+				<div class="sidenav__brand">
+                    <i class="fas fa-feather-alt sidenav__brand-icon"></i>
+                    <a class="sidenav__brand-link" href="#">Dhyara<span class="text-light">X</span></a>
+                    <i class="fas fa-times sidenav__brand-close"></i>
+				</div>
+				<div class="row row--align-v-center row--align-h-center">
+                    <ul class="navList">
+                        <li class="navList__heading">Network<i class="far fa-file-alt"></i></li>
+                        <li>
+                            <div class="navList__subheading row row--align-v-center">
+                                <span class="navList__subheading-icon"><i class="fas fa-briefcase-medical"></i></span>
+                                <span class="navList__subheading-title">Wifi</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="navList__subheading row row--align-v-center">
+                                <span class="navList__subheading-icon"><i class="fas fa-plane-departure"></i></span>
+                                <span class="navList__subheading-title">Neighbourhood</span>
+                            </div>  
+                        </li>
+                        <li>
+                            <div class="navList__subheading row row--align-v-center">
+                                <span class="navList__subheading-icon"><i class="fas fa-plane-departure"></i></span>
+                                <span class="navList__subheading-title">Routing</span>
+                            </div>  
+                        </li>
+                        <li>
+                            <div class="navList__subheading row row--align-v-center">
+                                <span class="navList__subheading-icon"><i class="fas fa-plane-departure"></i></span>
+                                <span class="navList__subheading-title">Tools</span>
+                            </div>  
+                        </li>
+                    </ul>
+				</div>
+			</aside>
+			<main class="main">
+                <div class="main-header">
+                    <div class="main-header__heading">ESP_5B7898</div>
+                    <div class="main-header__updates">4c:11:ae:9c:a6:85</div>
+                </div>
+<!--
+				<div class="main-overview">
+					<div class="overviewcard">
+						<div class="overviewcard__icon">Overview</div>
+						<div class="overviewcard__info">Card</div>
+					</div>
+					<div class="overviewcard">
+						<div class="overviewcard__icon">Overview</div>
+						<div class="overviewcard__info">Card</div>
+					</div>
+					<div class="overviewcard">
+						<div class="overviewcard__icon">Overview</div>
+						<div class="overviewcard__info">Card</div>
+					</div>
+					<div class="overviewcard">
+						<div class="overviewcard__icon">Overview</div>
+						<div class="overviewcard__info">Card</div>
+					</div>
+				</div>
+-->
+				<div class="main-cards">
+					<div class="card">
+                        <ul class="properties">
+                            <li class="property">
+                                <label class="key"> SSID </label>
+                                <span class="value"> ESP_5B7898 </span>
+                            </li>
+                            <li class="property">
+                                <label class="key"> Phy Rate </label>
+                                <span class="value"> 802.11 b/g/n/lr </span>
+                            </li>
+                        </ul>
+					</div>
+					<div class="card">Card</div>
+					<div class="card">Card</div>
+				</div>
+			</main>
+			<footer class="footer">
+				<div class="footer__copyright">Dhyara</div>
+				<div class="footer__signature">Ad Hoc Network</div>
+			</footer>
+		</div>
+	</body>
+</html>
