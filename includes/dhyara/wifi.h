@@ -33,6 +33,33 @@
 #include "esp_wifi.h"
 #include "esp_wifi_types.h"
 
+#ifdef __DOXYGEN__
+
+/**
+ * \fn bool dhyara_send(const unsigned char* target, const void* data, unsigned long len)
+ * \brief Send a variable length data as data packet to the destination over multi hop network.
+ * \param target 6 bytes long mac address
+ * \param data pointer to the beginnning of the buffer to send
+ * \param len length of the data to be sent (if length is set to zero then uses strlen the get the length of data).
+ * \ingroup communication 
+ */
+bool dhyara_send(const unsigned char* target, const void* data, unsigned long len);
+
+/**
+ * \fn bool dhyara_ping(const unsigned char* target, .count = 254, .batch = 1, .sleep = 15)
+ * \brief pings target with the provided configuration
+ * \param target 6 bytes MAC address
+ * \param count number of ICMPQ batches
+ * \param batch number of ICMPQ Packets in one batch
+ * \param sleep amount of sleep (in ms) between two consecutive batches
+ * \return boolean success value
+ * \see dhyara::ping 
+ * \ingroup tools 
+ */
+bool dhyara_ping(const unsigned char* target, .count = 254, .batch = 1, .sleep = 15);
+
+#endif 
+
 #ifdef __cplusplus
 extern "C" {  
 #endif  
@@ -99,25 +126,13 @@ typedef void (*dhyara_data_callback_t) (const unsigned char* source, const void*
  */
 bool dhyara_receive(dhyara_data_callback_t callback);
 
+#ifndef __DOXYGEN__
 
 bool dhyara_send_internal(const unsigned char* target, const void* data, unsigned len);
 
 struct dhyara_send_params{
     unsigned long len;
 };
-
-#ifdef __DOXYGEN__
-
-/**
- * \fn bool dhyara_send(const unsigned char* target, const void* data, unsigned long len)
- * \brief Send a variable length data as data packet to the destination over multi hop network.
- * \param target 6 bytes long mac address
- * \param data pointer to the beginnning of the buffer to send
- * \param len length of the data to be sent (if length is set to zero then uses strlen the get the length of data).
- * \ingroup communication 
- */
-bool dhyara_send(const unsigned char* target, const void* data, unsigned long len)
-#endif 
 
 #define dhyara_send(target, data, ...) dhyara_send(target, data, (struct dhyara_send_params){__VA_ARGS__})
 
@@ -126,6 +141,8 @@ inline bool (dhyara_send)(const unsigned char* target, const void* data, struct 
 }
 
 bool dhyara_send_ping(const unsigned char* target, uint8_t count, int8_t batch, uint8_t sleep);
+
+#endif
 
 /**
  * Run traceroute on target
@@ -156,27 +173,12 @@ esp_err_t dhyara_station_join(wifi_config_t* sta_config);
 
 // Visible in C only 
 
+#ifndef __DOXYGEN__
 struct dhyara_ping_conf{
     uint8_t count;
     int8_t  batch;
     uint8_t sleep;
 };
-
-
-#ifdef __DOXYGEN__
-/**
- * \fn bool dhyara_ping(const unsigned char* target, .count = 254, .batch = 1, .sleep = 15)
- * \brief pings target with the provided configuration
- * \param target 6 bytes MAC address
- * \param count number of ICMPQ batches
- * \param batch number of ICMPQ Packets in one batch
- * \param sleep amount of sleep (in ms) between two consecutive batches
- * \return boolean success value
- * \see dhyara::ping 
- * \ingroup tools 
- */
-bool dhyara_ping(const unsigned char* target, .count = 254, .batch = 1, .sleep = 15)
-#endif
 
 #define dhyara_ping(target, ...)                                                                        \
     _Pragma("GCC diagnostic push")                                                                      \
@@ -188,6 +190,7 @@ bool dhyara_ping(const unsigned char* target, .count = 254, .batch = 1, .sleep =
 inline bool (dhyara_ping)(const unsigned char* target, struct dhyara_ping_conf conf){
     return dhyara_send_ping(target, conf.count, conf.batch, conf.sleep);
 }
+#endif
 
 #endif
 
