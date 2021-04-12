@@ -47,6 +47,7 @@ bool dhyara_send(const unsigned char* target, const void* data, unsigned long le
 
 /**
  * \fn bool dhyara_ping(const unsigned char* target, .count = 254, .batch = 1, .sleep = 15)
+ * \attention Only available in C
  * \brief pings target with the provided configuration
  * \param target 6 bytes MAC address
  * \param count number of ICMPQ batches
