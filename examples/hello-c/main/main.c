@@ -45,7 +45,7 @@ void app_main(){
     
     while(1){
         if(other){
-            dhyara_ping(other, 1, 10);
+            dhyara_ping(other, .count = 1, .batch = 10);
             dhyara_traceroute(other);
             dhyara_send(other, "Hello World");
             dhyara_send(other, "Hello World", 5);

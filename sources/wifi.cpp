@@ -128,13 +128,9 @@ bool dhyara_receive(dhyara_data_callback_t callback){
 
 bool dhyara_send_internal(const unsigned char* target, const void* data, unsigned len){
     if(dhyara_has_default_network()){
-        std::cout << "len1 " << len << std::endl;
-        
         if(!len){
             len = std::strlen(reinterpret_cast<const char*>(data));
         }
-        
-        std::cout << "len2 " << len << std::endl;
         
         const unsigned char* buffer = reinterpret_cast<const unsigned char*>(data);
         dhyara::peer_address address(target);
