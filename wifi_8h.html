@@ -84,6 +84,7 @@ $(document).ready(function(){initNavTree('wifi_8h.html',''); initResizable(); })
 
 <div class="header">
   <div class="summary">
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
@@ -107,20 +108,51 @@ Include dependency graph for wifi.h:</div>
 </div>
 <p><a href="wifi_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ga4dcb4fa508e14b86a0bb5056cb52a278"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__communication.html#ga4dcb4fa508e14b86a0bb5056cb52a278">dhyara_data_callback_t</a>) (const unsigned char *source, const void *data, unsigned long len)</td></tr>
+<tr class="memdesc:ga4dcb4fa508e14b86a0bb5056cb52a278"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback to be called whenever a data packet is arrived.  <a href="group__communication.html#ga4dcb4fa508e14b86a0bb5056cb52a278">More...</a><br /></td></tr>
+<tr class="separator:ga4dcb4fa508e14b86a0bb5056cb52a278"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a53e6fba4548ac861adb1b477134d84cf"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="wifi_8h.html#a53e6fba4548ac861adb1b477134d84cf">dhyara_wifi_init</a> (wifi_mode_t mode)</td></tr>
-<tr class="memdesc:a53e6fba4548ac861adb1b477134d84cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Conveniance function to initialize wifi.  <a href="wifi_8h.html#a53e6fba4548ac861adb1b477134d84cf">More...</a><br /></td></tr>
-<tr class="separator:a53e6fba4548ac861adb1b477134d84cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86084def043742c0f3d7d2a8a2ffe87b"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="wifi_8h.html#a86084def043742c0f3d7d2a8a2ffe87b">dhyara_espnow_init</a> ()</td></tr>
-<tr class="memdesc:a86084def043742c0f3d7d2a8a2ffe87b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize ESP-Now.  <a href="wifi_8h.html#a86084def043742c0f3d7d2a8a2ffe87b">More...</a><br /></td></tr>
-<tr class="separator:a86084def043742c0f3d7d2a8a2ffe87b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a42863788515b1583d0ec0b4fd2b8a0fa"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="wifi_8h.html#a42863788515b1583d0ec0b4fd2b8a0fa">dhyara_init</a> (wifi_mode_t mode)</td></tr>
-<tr class="memdesc:a42863788515b1583d0ec0b4fd2b8a0fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes wifi, starts wifi, then initializes ESP Now.  <a href="wifi_8h.html#a42863788515b1583d0ec0b4fd2b8a0fa">More...</a><br /></td></tr>
-<tr class="separator:a42863788515b1583d0ec0b4fd2b8a0fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a722fc9a64efa157d03720c9289520567"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="wifi_8h.html#a722fc9a64efa157d03720c9289520567">dhyara_station_join</a> (wifi_config_t *sta_config)</td></tr>
-<tr class="memdesc:a722fc9a64efa157d03720c9289520567"><td class="mdescLeft">&#160;</td><td class="mdescRight">Join to an AP using station interface.  <a href="wifi_8h.html#a722fc9a64efa157d03720c9289520567">More...</a><br /></td></tr>
-<tr class="separator:a722fc9a64efa157d03720c9289520567"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga53e6fba4548ac861adb1b477134d84cf"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__communication.html#ga53e6fba4548ac861adb1b477134d84cf">dhyara_wifi_init</a> (wifi_mode_t mode)</td></tr>
+<tr class="memdesc:ga53e6fba4548ac861adb1b477134d84cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Conveniance function to initialize wifi.  <a href="group__communication.html#ga53e6fba4548ac861adb1b477134d84cf">More...</a><br /></td></tr>
+<tr class="separator:ga53e6fba4548ac861adb1b477134d84cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga86084def043742c0f3d7d2a8a2ffe87b"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__communication.html#ga86084def043742c0f3d7d2a8a2ffe87b">dhyara_espnow_init</a> ()</td></tr>
+<tr class="memdesc:ga86084def043742c0f3d7d2a8a2ffe87b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize ESP-Now.  <a href="group__communication.html#ga86084def043742c0f3d7d2a8a2ffe87b">More...</a><br /></td></tr>
+<tr class="separator:ga86084def043742c0f3d7d2a8a2ffe87b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga42863788515b1583d0ec0b4fd2b8a0fa"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__communication.html#ga42863788515b1583d0ec0b4fd2b8a0fa">dhyara_init</a> (wifi_mode_t mode)</td></tr>
+<tr class="memdesc:ga42863788515b1583d0ec0b4fd2b8a0fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes wifi, starts wifi, then initializes ESP Now.  <a href="group__communication.html#ga42863788515b1583d0ec0b4fd2b8a0fa">More...</a><br /></td></tr>
+<tr class="separator:ga42863788515b1583d0ec0b4fd2b8a0fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaeb2d5dd4f524d1d165a4f4cf6f837ed8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__communication.html#gaeb2d5dd4f524d1d165a4f4cf6f837ed8">dhyara_create_default_network</a> ()</td></tr>
+<tr class="memdesc:gaeb2d5dd4f524d1d165a4f4cf6f837ed8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the default global network.  <a href="group__communication.html#gaeb2d5dd4f524d1d165a4f4cf6f837ed8">More...</a><br /></td></tr>
+<tr class="separator:gaeb2d5dd4f524d1d165a4f4cf6f837ed8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac4a4e3c727ec3d63ba96f3b5ab963b68"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__communication.html#gac4a4e3c727ec3d63ba96f3b5ab963b68">dhyara_start_default_network</a> ()</td></tr>
+<tr class="memdesc:gac4a4e3c727ec3d63ba96f3b5ab963b68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the default network.  <a href="group__communication.html#gac4a4e3c727ec3d63ba96f3b5ab963b68">More...</a><br /></td></tr>
+<tr class="separator:gac4a4e3c727ec3d63ba96f3b5ab963b68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad860e0c89a7d23dd21693769dd7d528e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__communication.html#gad860e0c89a7d23dd21693769dd7d528e">dhyara_has_default_network</a> ()</td></tr>
+<tr class="memdesc:gad860e0c89a7d23dd21693769dd7d528e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the default network is set or not.  <a href="group__communication.html#gad860e0c89a7d23dd21693769dd7d528e">More...</a><br /></td></tr>
+<tr class="separator:gad860e0c89a7d23dd21693769dd7d528e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2bfe8315005221653a5db22d75995413"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__communication.html#ga2bfe8315005221653a5db22d75995413">dhyara_receive</a> (<a class="el" href="group__communication.html#ga4dcb4fa508e14b86a0bb5056cb52a278">dhyara_data_callback_t</a> callback)</td></tr>
+<tr class="memdesc:ga2bfe8315005221653a5db22d75995413"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a callback on the default networks on_data.  <a href="group__communication.html#ga2bfe8315005221653a5db22d75995413">More...</a><br /></td></tr>
+<tr class="separator:ga2bfe8315005221653a5db22d75995413"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e6ddc60136982650706f01b8354af36"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="wifi_8h.html#a9e6ddc60136982650706f01b8354af36">dhyara_send</a> (const unsigned char *target, const void *data,...)</td></tr>
+<tr class="separator:a9e6ddc60136982650706f01b8354af36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa8b2e149b2df3327540329c96a7ea811"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__communication.html#gaa8b2e149b2df3327540329c96a7ea811">dhyara_send_internal</a> (const unsigned char *target, const void *data, unsigned len)</td></tr>
+<tr class="memdesc:gaa8b2e149b2df3327540329c96a7ea811"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a variable length data as data packet to the destination over multi hop network.  <a href="group__communication.html#gaa8b2e149b2df3327540329c96a7ea811">More...</a><br /></td></tr>
+<tr class="separator:gaa8b2e149b2df3327540329c96a7ea811"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacebfc15ae101f26fb02f6def3d5b2d3d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__tools.html#gacebfc15ae101f26fb02f6def3d5b2d3d">dhyara_send_ping</a> (const unsigned char *target, uint8_t count, int8_t batch, uint8_t sleep)</td></tr>
+<tr class="separator:gacebfc15ae101f26fb02f6def3d5b2d3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabd148efa72657593105149ad55d84a4e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__tools.html#gabd148efa72657593105149ad55d84a4e">dhyara_ping</a> (const unsigned char *target,...)</td></tr>
+<tr class="separator:gabd148efa72657593105149ad55d84a4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6c0963b4afbd69b20483e46c3fb9c644"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__tools.html#ga6c0963b4afbd69b20483e46c3fb9c644">dhyara_traceroute</a> (const unsigned char *target)</td></tr>
+<tr class="separator:ga6c0963b4afbd69b20483e46c3fb9c644"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga672baef2f77147252c5a13bf40022fd6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__communication.html#ga672baef2f77147252c5a13bf40022fd6">dhyara_local</a> (unsigned char *address)</td></tr>
+<tr class="separator:ga672baef2f77147252c5a13bf40022fd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga722fc9a64efa157d03720c9289520567"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__communication.html#ga722fc9a64efa157d03720c9289520567">dhyara_station_join</a> (wifi_config_t *sta_config)</td></tr>
+<tr class="memdesc:ga722fc9a64efa157d03720c9289520567"><td class="mdescLeft">&#160;</td><td class="mdescRight">Join to an AP using station interface.  <a href="group__communication.html#ga722fc9a64efa157d03720c9289520567">More...</a><br /></td></tr>
+<tr class="separator:ga722fc9a64efa157d03720c9289520567"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -128,95 +160,37 @@ Variables</h2></td></tr>
 <tr class="separator:a66ec5998ff0198d524ccf42ffdce7eae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a86084def043742c0f3d7d2a8a2ffe87b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a86084def043742c0f3d7d2a8a2ffe87b">&#9670;&nbsp;</a></span>dhyara_espnow_init()</h2>
+<a id="a9e6ddc60136982650706f01b8354af36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e6ddc60136982650706f01b8354af36">&#9670;&nbsp;</a></span>dhyara_send()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">esp_err_t dhyara_espnow_init </td>
+          <td class="memname">bool dhyara_send </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="paramtype">const unsigned char *&#160;</td>
+          <td class="paramname"><em>target</em>, </td>
         </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Initialize ESP-Now. </p>
-<p>Registers the necessary ESP Now send/receive callbacks. </p><dl class="section attention"><dt>Attention</dt><dd>should be called after initializing wifi (e.g. <a class="el" href="wifi_8h.html#a53e6fba4548ac861adb1b477134d84cf">dhyara_wifi_init</a>) </dd></dl>
-
-</div>
-</div>
-<a id="a42863788515b1583d0ec0b4fd2b8a0fa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a42863788515b1583d0ec0b4fd2b8a0fa">&#9670;&nbsp;</a></span>dhyara_init()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
         <tr>
-          <td class="memname">esp_err_t dhyara_init </td>
-          <td>(</td>
-          <td class="paramtype">wifi_mode_t&#160;</td>
-          <td class="paramname"><em>mode</em></td><td>)</td>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
         </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Initializes wifi, starts wifi, then initializes ESP Now. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="wifi_8h.html#a53e6fba4548ac861adb1b477134d84cf" title="Conveniance function to initialize wifi.">dhyara_wifi_init</a> </dd>
-<dd>
-<a class="el" href="wifi_8h.html#a86084def043742c0f3d7d2a8a2ffe87b" title="Initialize ESP-Now.">dhyara_espnow_init</a> </dd></dl>
-
-</div>
-</div>
-<a id="a722fc9a64efa157d03720c9289520567"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a722fc9a64efa157d03720c9289520567">&#9670;&nbsp;</a></span>dhyara_station_join()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
         <tr>
-          <td class="memname">esp_err_t dhyara_station_join </td>
-          <td>(</td>
-          <td class="paramtype">wifi_config_t *&#160;</td>
-          <td class="paramname"><em>sta_config</em></td><td>)</td>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
         </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Join to an AP using station interface. </p>
-
-</div>
-</div>
-<a id="a53e6fba4548ac861adb1b477134d84cf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a53e6fba4548ac861adb1b477134d84cf">&#9670;&nbsp;</a></span>dhyara_wifi_init()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
         <tr>
-          <td class="memname">esp_err_t dhyara_wifi_init </td>
-          <td>(</td>
-          <td class="paramtype">wifi_mode_t&#160;</td>
-          <td class="paramname"><em>mode</em></td><td>)</td>
           <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Conveniance function to initialize wifi. </p>
-<dl class="section attention"><dt>Attention</dt><dd>esp_wifi_start() should be called after calling this function </dd>
-<dd>
-ESP Now may be initialized (e.g. <a class="el" href="wifi_8h.html#a86084def043742c0f3d7d2a8a2ffe87b">dhyara_espnow_init</a>) after initializing wifi </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">mode</td><td>wifi mode (AP, STA or APSTA) </td></tr>
-  </table>
-  </dd>
-</dl>
 
 </div>
 </div>

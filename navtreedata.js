@@ -85,6 +85,7 @@ var NAVTREE =
         [ "All", "globals.html", null ],
         [ "Functions", "globals_func.html", null ],
         [ "Variables", "globals_vars.html", null ],
+        [ "Typedefs", "globals_type.html", null ],
         [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
@@ -94,8 +95,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "action_8h.html",
-"protocol.html#autotoc_md9",
-"structdhyara_1_1packets_1_1data.html#ac85417db453a9f56846410614d298d46"
+"packets_2echo__request_8h_source.html",
+"structdhyara_1_1packets_1_1chunk__header.html#a97ed3c9acc059f68a8ccdf9781040b3a",
+"structstd_1_1hash_3_01dhyara_1_1peer_01_4.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

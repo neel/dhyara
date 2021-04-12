@@ -84,7 +84,8 @@ $(document).ready(function(){initNavTree('group__tools.html',''); initResizable(
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">Tools</div>  </div>
 </div><!--header-->
@@ -101,9 +102,105 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1tools_1_1traceroute.html">dhyara::tools::traceroute</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform a traceroute operation.  <a href="structdhyara_1_1tools_1_1traceroute.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:gacebfc15ae101f26fb02f6def3d5b2d3d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__tools.html#gacebfc15ae101f26fb02f6def3d5b2d3d">dhyara_send_ping</a> (const unsigned char *target, uint8_t count, int8_t batch, uint8_t sleep)</td></tr>
+<tr class="separator:gacebfc15ae101f26fb02f6def3d5b2d3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabd148efa72657593105149ad55d84a4e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__tools.html#gabd148efa72657593105149ad55d84a4e">dhyara_ping</a> (const unsigned char *target,...)</td></tr>
+<tr class="separator:gabd148efa72657593105149ad55d84a4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6c0963b4afbd69b20483e46c3fb9c644"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__tools.html#ga6c0963b4afbd69b20483e46c3fb9c644">dhyara_traceroute</a> (const unsigned char *target)</td></tr>
+<tr class="separator:ga6c0963b4afbd69b20483e46c3fb9c644"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Dhyara Tools. </p>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="gabd148efa72657593105149ad55d84a4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gabd148efa72657593105149ad55d84a4e">&#9670;&nbsp;</a></span>dhyara_ping()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool dhyara_ping </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned char *&#160;</td>
+          <td class="paramname"><em>target</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="gacebfc15ae101f26fb02f6def3d5b2d3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gacebfc15ae101f26fb02f6def3d5b2d3d">&#9670;&nbsp;</a></span>dhyara_send_ping()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool dhyara_send_ping </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned char *&#160;</td>
+          <td class="paramname"><em>target</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>count</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int8_t&#160;</td>
+          <td class="paramname"><em>batch</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>sleep</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ga6c0963b4afbd69b20483e46c3fb9c644"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6c0963b4afbd69b20483e46c3fb9c644">&#9670;&nbsp;</a></span>dhyara_traceroute()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool dhyara_traceroute </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned char *&#160;</td>
+          <td class="paramname"><em>target</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -99,6 +99,7 @@ var group__packets =
       [ "length", "structdhyara_1_1packets_1_1data.html#a7fa15244b929e1d563054fd49ed3e3a6", null ],
       [ "operator<", "structdhyara_1_1packets_1_1data.html#ab9e307ea8352ee7a0be88b8972d7852d", null ],
       [ "prepare", "structdhyara_1_1packets_1_1data.html#aaf53c1f0615c8a28188991792da83688", null ],
+      [ "raw", "structdhyara_1_1packets_1_1data.html#ac35b8f7f9e749512ad662182455b2d39", null ],
       [ "reserve", "structdhyara_1_1packets_1_1data.html#acddf864eee239004d78f70873bce815a", null ],
       [ "source", "structdhyara_1_1packets_1_1data.html#a0460b56294a5939c527c791be14b513c", null ],
       [ "target", "structdhyara_1_1packets_1_1data.html#a1afb45da5d1cdacfaa62cb486c38a17c", null ],

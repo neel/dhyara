@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['beacon_2eh_373',['beacon.h',['../actions_2beacon_8h.html',1,'(Global Namespace)'],['../packets_2beacon_8h.html',1,'(Global Namespace)']]]
+  ['beacon_2eh_384',['beacon.h',['../actions_2beacon_8h.html',1,'(Global Namespace)'],['../packets_2beacon_8h.html',1,'(Global Namespace)']]]
 ];
