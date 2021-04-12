@@ -83,6 +83,9 @@ struct data{
      * packet id of data packet
      */
     inline std::uint8_t id() const { return _packet; }
+    /**
+     * Less than comparison operator checks packet id 
+     */
     inline bool operator<(const data& other) const { return _packet < other._packet; }
     /**
      * length of the data packet
@@ -117,7 +120,14 @@ struct data{
      * appends a chunk with the data packet
      */
     void add(const dhyara::packets::chunk& chunk);
+    /**
+     * reserve space in the dynamic buffer
+     */
     void reserve(std::uint32_t size);
+    /**
+     * Returns raw data in the buffer
+     */
+    inline const std::uint8_t* raw() const { return _buffer.data(); }
 };
     
 }

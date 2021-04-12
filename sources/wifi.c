@@ -102,4 +102,46 @@ esp_err_t dhyara_station_join(wifi_config_t* sta_config){
     return esp_wifi_connect();
 }
 
+bool dhyara_ping(const unsigned char* target, ...){
+    va_list args;
+    va_start(args, target);
+    
+    uint8_t count = 254;
+    int8_t  batch = 1;
+    uint8_t sleep = 15;
+    
+    count = va_arg(args, unsigned);
+    if(!count){
+        count = 254;
+        va_end(args);
+        return dhyara_send_ping(target, count, batch, sleep);
+    }
+    
+    batch = va_arg(args, int);
+    if(!batch){
+        batch = 1;
+        va_end(args);
+        return dhyara_send_ping(target, count, batch, sleep);
+    }
+    
+    sleep = va_arg(args, unsigned);
+    if(!sleep){
+        sleep = 15;
+        va_end(args);
+        return dhyara_send_ping(target, count, batch, sleep);
+    }
+    
+    va_end(args);
+    return dhyara_send_ping(target, count, batch, sleep);
+}
 
+
+bool dhyara_send(const unsigned char* target, const void* data, ...){
+    va_list args;
+    unsigned len = 0;
+    va_start(args, data);
+    len = va_arg(args, int);
+    va_end(args);
+    
+    return dhyara_send_internal(target, data, len);
+}
