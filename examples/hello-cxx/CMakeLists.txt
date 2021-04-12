@@ -8,5 +8,5 @@ set(SUPPORTED_TARGETS esp32)
 # Set EXTRA_COMPONENT_DIRS appropriately
 set(EXTRA_COMPONENT_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/components)
 
-project(dhyara-example-hello)
+project(hello-cxx)
 
