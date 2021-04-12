@@ -105,18 +105,18 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:gacebfc15ae101f26fb02f6def3d5b2d3d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__tools.html#gacebfc15ae101f26fb02f6def3d5b2d3d">dhyara_send_ping</a> (const unsigned char *target, uint8_t count, int8_t batch, uint8_t sleep)</td></tr>
-<tr class="separator:gacebfc15ae101f26fb02f6def3d5b2d3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gabd148efa72657593105149ad55d84a4e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__tools.html#gabd148efa72657593105149ad55d84a4e">dhyara_ping</a> (const unsigned char *target,...)</td></tr>
-<tr class="separator:gabd148efa72657593105149ad55d84a4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6c0963b4afbd69b20483e46c3fb9c644"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__tools.html#ga6c0963b4afbd69b20483e46c3fb9c644">dhyara_traceroute</a> (const unsigned char *target)</td></tr>
+<tr class="memdesc:ga6c0963b4afbd69b20483e46c3fb9c644"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run traceroute on target.  <a href="group__tools.html#ga6c0963b4afbd69b20483e46c3fb9c644">More...</a><br /></td></tr>
 <tr class="separator:ga6c0963b4afbd69b20483e46c3fb9c644"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadde9b84276139af1ea00d288f0ac01c5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__tools.html#gadde9b84276139af1ea00d288f0ac01c5">dhyara_ping</a> (const unsigned char *target,.count=254,.batch=1,.sleep=15)</td></tr>
+<tr class="memdesc:gadde9b84276139af1ea00d288f0ac01c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">pings target with the provided configuration  <a href="group__tools.html#gadde9b84276139af1ea00d288f0ac01c5">More...</a><br /></td></tr>
+<tr class="separator:gadde9b84276139af1ea00d288f0ac01c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Dhyara Tools. </p>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="gabd148efa72657593105149ad55d84a4e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gabd148efa72657593105149ad55d84a4e">&#9670;&nbsp;</a></span>dhyara_ping()</h2>
+<a id="gadde9b84276139af1ea00d288f0ac01c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gadde9b84276139af1ea00d288f0ac01c5">&#9670;&nbsp;</a></span>dhyara_ping()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -130,8 +130,20 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>...</em>&#160;</td>
+          <td class="paramtype">.&#160;</td>
+          <td class="paramname"><em>count</em> = <code>254</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">.&#160;</td>
+          <td class="paramname"><em>batch</em> = <code>1</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">.&#160;</td>
+          <td class="paramname"><em>sleep</em> = <code>15</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -141,45 +153,18 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="gacebfc15ae101f26fb02f6def3d5b2d3d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gacebfc15ae101f26fb02f6def3d5b2d3d">&#9670;&nbsp;</a></span>dhyara_send_ping()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool dhyara_send_ping </td>
-          <td>(</td>
-          <td class="paramtype">const unsigned char *&#160;</td>
-          <td class="paramname"><em>target</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>count</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int8_t&#160;</td>
-          <td class="paramname"><em>batch</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>sleep</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>pings target with the provided configuration </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target</td><td>6 bytes MAC address </td></tr>
+    <tr><td class="paramname">count</td><td>number of ICMPQ batches </td></tr>
+    <tr><td class="paramname">batch</td><td>number of ICMPQ Packets in one batch </td></tr>
+    <tr><td class="paramname">sleep</td><td>amount of sleep (in ms) between two consecutive batches </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>boolean success value </dd></dl>
+<dl class="section see"><dt>See also</dt><dd>dhyara::ping </dd></dl>
 
 </div>
 </div>
@@ -198,6 +183,14 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Run traceroute on target. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target</td><td>6 bytes long mac address </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

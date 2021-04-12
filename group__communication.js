@@ -88,7 +88,7 @@ var group__communication =
     [ "dhyara_init", "group__communication.html#ga42863788515b1583d0ec0b4fd2b8a0fa", null ],
     [ "dhyara_local", "group__communication.html#ga672baef2f77147252c5a13bf40022fd6", null ],
     [ "dhyara_receive", "group__communication.html#ga2bfe8315005221653a5db22d75995413", null ],
-    [ "dhyara_send_internal", "group__communication.html#gaa8b2e149b2df3327540329c96a7ea811", null ],
+    [ "dhyara_send", "group__communication.html#ga3d7c1e001cecb51f780b7eb3a7db356c", null ],
     [ "dhyara_start_default_network", "group__communication.html#gac4a4e3c727ec3d63ba96f3b5ab963b68", null ],
     [ "dhyara_station_join", "group__communication.html#ga722fc9a64efa157d03720c9289520567", null ],
     [ "dhyara_wifi_init", "group__communication.html#ga53e6fba4548ac861adb1b477134d84cf", null ]

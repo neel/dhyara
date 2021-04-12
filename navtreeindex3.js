@@ -1,7 +1,5 @@
 var NAVTREEINDEX3 =
 {
-"structstd_1_1hash_3_01dhyara_1_1peer_01_4.html":[9,0,1,0],
-"structstd_1_1hash_3_01dhyara_1_1peer_01_4.html#a86ea2c813fe696c3cfb277f04b984045":[9,0,1,0,0],
 "structstd_1_1hash_3_01dhyara_1_1peer__address_01_4.html":[9,0,1,1],
 "structstd_1_1hash_3_01dhyara_1_1peer__address_01_4.html#a7cbadb750d9ab8175ae44ddf1929faac":[9,0,1,1,0],
 "synchronizer_8h.html":[10,0,1,0,13],
@@ -21,8 +19,7 @@ var NAVTREEINDEX3 =
 "types_8h.html#gga587a117adc54019693a184e4f8b4e0b5af3334ac9ef26166dedebd319a18f9cc7":[10,0,1,0,1,13,0,3],
 "types_8h_source.html":[10,0,1,0,1,13],
 "wifi_8h.html":[10,0,1,0,14],
-"wifi_8h.html#a66ec5998ff0198d524ccf42ffdce7eae":[10,0,1,0,14,15],
-"wifi_8h.html#a9e6ddc60136982650706f01b8354af36":[10,0,1,0,14,8],
+"wifi_8h.html#a66ec5998ff0198d524ccf42ffdce7eae":[10,0,1,0,14,13],
 "wifi_8h_source.html":[10,0,1,0,14],
 "xqueue_8h.html":[10,0,1,0,15],
 "xqueue_8h_source.html":[10,0,1,0,15]

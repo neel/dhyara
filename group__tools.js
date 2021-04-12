@@ -19,7 +19,6 @@ var group__tools =
       [ "operator()", "structdhyara_1_1tools_1_1traceroute.html#afe32ccddc6954f1d6b30b85e0cfb2c7e", null ],
       [ "reset", "structdhyara_1_1tools_1_1traceroute.html#aa91b4dec3ee77fbb9479c8c22bc4f69f", null ]
     ] ],
-    [ "dhyara_ping", "group__tools.html#gabd148efa72657593105149ad55d84a4e", null ],
-    [ "dhyara_send_ping", "group__tools.html#gacebfc15ae101f26fb02f6def3d5b2d3d", null ],
+    [ "dhyara_ping", "group__tools.html#gadde9b84276139af1ea00d288f0ac01c5", null ],
     [ "dhyara_traceroute", "group__tools.html#ga6c0963b4afbd69b20483e46c3fb9c644", null ]
 ];
