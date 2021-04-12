@@ -3,7 +3,7 @@ Modules
 
 .. toctree::
    
-   communication
+   dhyara
    routing
    packets
    actions

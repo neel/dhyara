@@ -1,6 +1,6 @@
 Communication
 ==============
 
-.. doxygengroup:: communication
+.. doxygengroup:: dhyara
    :project: dhyara
    :content-only:

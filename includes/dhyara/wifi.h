@@ -41,7 +41,7 @@
  * \param target 6 bytes long mac address
  * \param data pointer to the beginnning of the buffer to send
  * \param len length of the data to be sent (if length is set to zero then uses strlen the get the length of data).
- * \ingroup communication 
+ * \ingroup dhyara 
  */
 bool dhyara_send(const unsigned char* target, const void* data, unsigned long len);
 
@@ -70,7 +70,7 @@ extern wifi_promiscuous_filter_t g_dhyara_promiscous_filter;
  * Conveniance function to initialize wifi.
  * \attention esp_wifi_start() should be called after calling this function
  * \attention ESP Now may be initialized (e.g. \ref dhyara_espnow_init) after initializing wifi 
- * \ingroup communication 
+ * \ingroup dhyara 
  * \param mode wifi mode (AP, STA or APSTA)
  */
 esp_err_t dhyara_wifi_init(wifi_mode_t mode);
@@ -78,7 +78,7 @@ esp_err_t dhyara_wifi_init(wifi_mode_t mode);
 /**
  * Initialize ESP-Now. Registers the necessary ESP Now send/receive callbacks.
  * \attention should be called after initializing wifi (e.g. \ref dhyara_wifi_init)
- * \ingroup communication 
+ * \ingroup dhyara 
  */
 esp_err_t dhyara_espnow_init();
 
@@ -86,7 +86,7 @@ esp_err_t dhyara_espnow_init();
  * Initializes wifi, starts wifi, then initializes ESP Now 
  * \see dhyara_wifi_init 
  * \see dhyara_espnow_init
- * \ingroup communication
+ * \ingroup dhyara
  */
 esp_err_t dhyara_init(wifi_mode_t mode);
 
@@ -94,14 +94,14 @@ esp_err_t dhyara_init(wifi_mode_t mode);
  * Creates the default global network. It is equivalent to instantiating \ref dhyara::network 
  * 
  * \warning There should be exactly one instance of \ref dhyara::network 
- * \ingroup communication
+ * \ingroup dhyara
  */
 void dhyara_create_default_network();
 
 /**
  * Starts the default network. Creates a default network if none is set already.
  * 
- * \ingroup communication 
+ * \ingroup dhyara 
  * \see dhyara_create_default_network 
  */
 void dhyara_start_default_network();
@@ -109,20 +109,20 @@ void dhyara_start_default_network();
 /**
  * Checks whether the default network is set or not
  * 
- * \ingroup communication 
+ * \ingroup dhyara 
  */
 bool dhyara_has_default_network();
 
 /**
  * Callback to be called whenever a data packet is arrived.
- * \ingroup communication 
+ * \ingroup dhyara 
  */
 typedef void (*dhyara_data_callback_t) (const unsigned char* source, const void* data, unsigned long len);
 
 /**
  * Sets a callback on the default networks on_data. This callback will be called whenever a data packet is received.
  * 
- * \ingroup communication 
+ * \ingroup dhyara 
  */
 bool dhyara_receive(dhyara_data_callback_t callback);
 
@@ -154,13 +154,13 @@ bool dhyara_traceroute(const unsigned char* target);
 /**
  * gets the mac address of self
  * \param target writable 6 bytes long buffer to hold the mac address
- * \ingroup communication
+ * \ingroup dhyara
  */
 bool dhyara_local(unsigned char* address);
 
 /**
  * Join to an AP using station interface
- * \ingroup communication 
+ * \ingroup dhyara 
  * \internal 
  */
 esp_err_t dhyara_station_join(wifi_config_t* sta_config);
@@ -207,7 +207,7 @@ namespace dhyara{
 
 /**
  * Get dhyara communication link
- * \ingroup communication 
+ * \ingroup dhyara 
  */
 dhyara::link& dhyara_link();
 
@@ -215,7 +215,7 @@ dhyara::link& dhyara_link();
  * Sets an user created network as default
  * 
  * \param network The network to be set
- * \ingroup communication 
+ * \ingroup dhyara 
  * 
  * \see dhyara_get_default_network 
  */
@@ -226,7 +226,7 @@ void dhyara_set_default_network(dhyara::network* network);
  * 
  * \warning ensure that a default network exists before getting it.
  * 
- * \ingroup communication 
+ * \ingroup dhyara 
  */
 dhyara::network* dhyara_get_default_network();
 

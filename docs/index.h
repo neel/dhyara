@@ -1,5 +1,5 @@
 /**
- * \defgroup communication Communication 
+ * \defgroup dhyara Dhyara
  * Dhyara Communication Interface
  */
 
