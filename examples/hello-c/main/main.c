@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include "mainx.h"
 #include "esp_system.h"
 #include "esp_wifi.h"
 #include "esp_log.h"
@@ -11,7 +10,7 @@
 #include "esp_timer.h"
 #include "esp_private/wifi.h"
 #include <string.h>
-#include <dhyara/wifi.h>
+#include <dhyara/dhyara.h>
 
 void data_received(const unsigned char* source, const void* data, unsigned long len){
     ESP_LOGI("hello-c", "data received \"%s\" (length %lu)", (const char*)data, len);

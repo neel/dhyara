@@ -31,7 +31,7 @@
 #include <cassert>
 #include <cstring>
 #include "esp_log.h"
-#include "dhyara/wifi.h"
+#include "dhyara/dhyara.h"
 
 struct ieee_802_11_management_frame{
   int16_t fctl;

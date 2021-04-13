@@ -25,7 +25,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "dhyara/wifi.h"
+#include "dhyara/dhyara.h"
 #include "dhyara/link.h"
 #include "dhyara/network.h"
 #include "dhyara/packets/data.h"
@@ -35,8 +35,6 @@
 #include "esp_wifi.h"
 #include <cstring>
 #include <cstdarg>
-
-#include <iostream>
 
 static dhyara::link g_dhyara_link;
 static dhyara::network* g_dhyara_network_ptr = 0x0;

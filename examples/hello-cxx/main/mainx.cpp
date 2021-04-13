@@ -4,7 +4,7 @@
 #include <freertos/FreeRTOS.h>
 #include <dhyara/link.h>
 #include "esp_wifi.h"
-#include <dhyara/wifi.h>
+#include <dhyara/dhyara.h>
 #include "esp_log.h"
 #include <dhyara/tools/ping.h>
 #include <dhyara/tools/traceroute.h>

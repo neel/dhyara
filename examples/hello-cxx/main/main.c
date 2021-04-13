@@ -11,7 +11,7 @@
 #include "esp_timer.h"
 #include "esp_private/wifi.h"
 #include <string.h>
-#include <dhyara/wifi.h>
+#include <dhyara/dhyara.h>
 
 
 void app_main(){

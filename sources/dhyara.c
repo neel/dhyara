@@ -25,7 +25,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "dhyara/wifi.h"
+#include "dhyara/dhyara.h"
 #include "esp_log.h"
 #include "esp_wifi_types.h"
 #include <assert.h>

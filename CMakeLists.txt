@@ -3,7 +3,6 @@ if(NOT DEFINED ESP_PLATFORM)
     project(dhyara)
     add_subdirectory(docs)
 else()
-    message("ESP_PLATFORM " ${ESP_PLATFORM})
     idf_component_register(
         SRCS 
             "sources/routing.cpp"
@@ -33,8 +32,8 @@ else()
             "sources/utils/http.cpp"
             "sources/tools/ping.cpp"
             "sources/tools/traceroute.cpp"
-            "sources/wifi.cpp"
-            "sources/wifi.c"
+            "sources/dhyara.cpp"
+            "sources/dhyara.c"
         INCLUDE_DIRS 
             "includes"
         REQUIRES 
