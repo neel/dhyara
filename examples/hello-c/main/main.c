@@ -27,7 +27,7 @@ void app_main(){
 	ESP_ERROR_CHECK(dhyara_init(WIFI_MODE_AP));
     dhyara_start_default_network();
     
-    dhyara_receive(&data_received);
+    dhyara_receivef(&data_received);
 
     uint8_t self[] = {0x0, 0x0, 0x0, 0x0, 0x0, 0x0};
     dhyara_local(self);

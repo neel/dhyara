@@ -111,7 +111,7 @@ void dhyara_start_default_network(){
 
 bool dhyara_local(unsigned char* address){
     if(dhyara_has_default_network()){
-        dhyara_get_default_network()->link().address().copy(address);
+        dhyara_default_network().link().address().copy(address);
         return true;
     }
     address = 0x0;
@@ -120,16 +120,34 @@ bool dhyara_local(unsigned char* address){
 
 dhyara::peer_address dhyara_local(){
     if(dhyara_has_default_network()){
-        return dhyara_get_default_network()->link().address();
+        return dhyara_default_network().link().address();
     }
     return dhyara::peer_address::null();
 }
 
-bool dhyara_receive(dhyara_data_callback_t callback){
+bool dhyara_receivef(dhyara_receivef_callback_t callback){
     if(dhyara_has_default_network()){
-        dhyara_get_default_network()->on_data([callback](const dhyara::peer::address& source, const dhyara::packets::data& data){
+        dhyara_default_network().on_data([callback](const dhyara::peer::address& source, const dhyara::packets::data& data){
             callback(data.source().raw(), data.raw(), data.length());
         });
+        return true;
+    }
+    return false;
+}
+
+bool dhyara_receive(dhyara_receive_callback_type callback){
+    if(dhyara_has_default_network()){
+        dhyara_default_network().on_data([callback](const dhyara::peer::address& source, const dhyara::packets::data& data){
+            callback(data.source(), data.begin(), data.end());
+        });
+        return true;
+    }
+    return false;
+}
+
+bool dhyara_receive_data(dhyara_receive_data_callback_type callback){
+    if(dhyara_has_default_network()){
+        dhyara_default_network().on_data(callback);
         return true;
     }
     return false;
@@ -149,11 +167,15 @@ bool dhyara_send_internal(const unsigned char* target, const void* data, unsigne
 }
 
 bool dhyara_send_ping(const unsigned char* target, uint8_t count, int8_t batch, uint8_t sleep){
+    dhyara::peer_address other(target);
+    return dhyara_ping(other);
+}
+
+bool dhyara_ping(const dhyara::peer_address& target, uint8_t count, int8_t batch, uint8_t sleep){
     if(dhyara_has_default_network()){
-        dhyara::peer_address other(target);
-        dhyara::tools::ping ping(*dhyara_get_default_network());
+        dhyara::tools::ping ping(dhyara_default_network());
         ping.count(count).batch(batch).sleep(sleep);
-        ping(other);
+        ping(target);
         vTaskDelay(pdMS_TO_TICKS(2000));
         return true;
     }
@@ -161,9 +183,14 @@ bool dhyara_send_ping(const unsigned char* target, uint8_t count, int8_t batch, 
 }
 
 bool dhyara_traceroute(const unsigned char* target){
+    dhyara::peer_address other(target);
+    return dhyara_traceroute(other);
+}
+
+
+bool dhyara_traceroute(const dhyara::peer_address& target){
     if(dhyara_has_default_network()){
-        dhyara::peer_address other(target);
-        dhyara::tools::traceroute traceroute(*dhyara_get_default_network(), other);
+        dhyara::tools::traceroute traceroute(dhyara_default_network(), target);
         traceroute();
         vTaskDelay(pdMS_TO_TICKS(2000));
         return true;

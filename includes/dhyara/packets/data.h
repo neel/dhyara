@@ -26,6 +26,8 @@ namespace packets{
  */
 struct data{
     typedef std::basic_string<std::uint8_t> dynamic_buffer_type;
+    typedef typename dynamic_buffer_type::const_iterator const_iterator;
+    typedef typename dynamic_buffer_type::iterator iterator;
     
     dhyara::peer::address _target;
     dhyara::peer::address _source;
@@ -128,6 +130,15 @@ struct data{
      * Returns raw data in the buffer
      */
     inline const std::uint8_t* raw() const { return _buffer.data(); }
+    
+    /**
+     * Returns an immutable iterator to the data. The iterator dereferences to std::uint8_t
+     */
+    inline const_iterator begin() const { return _buffer.begin(); }
+    /**
+     * Returns an immutable iterator to the data. The iterator dereferences to std::uint8_t
+     */
+    inline const_iterator end() const { return _buffer.end(); }
 };
     
 }

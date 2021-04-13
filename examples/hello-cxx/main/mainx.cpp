@@ -12,7 +12,7 @@
 
 void mainx(){
     dhyara::network network(dhyara_link());
-    const dhyara::peer_address& local = network.link().address();
+    dhyara_set_default_network(&network);
     
     dhyara::peer_address sink("4c:11:ae:9c:a6:85"), source("4c:11:ae:71:0f:4d");
     
@@ -21,35 +21,23 @@ void mainx(){
 //     Force the source and target to communicate via one or more intermediate nodes
 //     network.isolate(source, sink);
     
-    network.start();
+    dhyara_start_default_network();
     
-    dhyara::peer_address other = (local == source) ? sink : source;
+    dhyara::peer_address local = dhyara_local();
+    dhyara::peer_address other = (local == source) ? sink : ((local == sink) ? source : dhyara::peer_address::null());
     
     // The anonymous function will be called once all chunks of a data packet is received
-    network.on_data([](const dhyara::peer::address& source, const dhyara::packets::data& data){
+    dhyara_receive_data([](const dhyara::peer::address& source, const dhyara::packets::data& data){
         std::cout << "received data " << " originating from " << data.source() << " via " << source << " of size " << data.length() << std::endl;
     });
     
     while(1){
-        
-        { // ping the other node
-            dhyara::tools::ping ping(network);
-            ping.count(4).batch(10);
-            ping(other);
-            vTaskDelay(pdMS_TO_TICKS(2000));
-        }
-        
-        { // traceroute the other node
-            dhyara::tools::traceroute traceroute(network, other);
-            traceroute();
-            vTaskDelay(pdMS_TO_TICKS(2000));
-        }
-        
-        { // send data
+        if(!other.is_null()){
+            dhyara_ping(other, 1, 10);
+            dhyara_traceroute(other);
             std::string buffer = "Hello World";
-            network.send(other, buffer.begin(), buffer.end());
+            dhyara_send(other, buffer.begin(), buffer.end());
         }
-        
         vTaskDelay(pdMS_TO_TICKS(5000));
     }
 } 

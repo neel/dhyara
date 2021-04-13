@@ -38,6 +38,11 @@
 // For documentation only
 
 /**
+ * \name Send variable length data.
+ * 
+ * \{
+ */
+/**
  * \fn bool dhyara_send(const unsigned char* target, const void* data, unsigned long len)
  * \brief Send a variable length data as data packet to the destination over multi hop network.
  * \param target 6 bytes long mac address
@@ -46,12 +51,119 @@
  * \ingroup dhyara 
  */
 bool dhyara_send(const unsigned char* target, const void* data, unsigned long len);
+/**
+ * \brief Send a variable length data as data packet to the destination over multi hop network.
+ * \param target MAC address of the target
+ * \param begin begin iterator 
+ * \param end end iterator
+ * \ingroup dhyara 
+ */
+template <typename InputIt>
+bool dhyara_send(const dhyara::peer_address& target, InputIt begin, InputIt end);
+/**
+ * \brief Send a variable length data as data packet to the destination over multi hop network.
+ * \param target MAC address of the target
+ * \param begin begin iterator 
+ * \param len length of the data to be sent (if length is set to zero then uses strlen the get the length of data).
+ * \ingroup dhyara 
+ */
+template <typename InputIt>
+bool dhyara_send(const dhyara::peer_address& target, InputIt begin, std::size_t len);
+/**
+ * \}
+ */
 
 /**
- * \fn bool dhyara_ping(const unsigned char* target, .count = 254, .batch = 1, .sleep = 15)
+ * \name Receive variable length data.
+ * 
+ * \{
+ */
+/**
+ * Callback for \ref dhyara_receivef.
+ * \ingroup dhyara 
+ */
+
+/**
+ * Sets a callback on the default networks on_data. This callback will be called whenever a data packet is received.
+ * The typedef dhyara_receivef_callback_t is defined as the following.
+ * \code
+ * typedef void (*dhyara_receivef_callback_t) (const unsigned char* source, const void* data, unsigned long len);
+ * \endcode
+ * Following is an example of the callback function.
+ * \code
+ * void callback (const unsigned char* source, const void* data, unsigned long len){
+ * 
+ * }
+ * \endcode
+ * \param callback The callback function 
+ * \ingroup dhyara 
+ */
+bool dhyara_receivef(dhyara_receivef_callback_t callback);
+
+/**
+ * Sets a callback on the default networks on_data. This callback will be called whenever a data packet is received. (accepts C++ anonymous function)
+ * The typedef dhyara_receive_callback_t is defined as the following.
+ * \code
+ * typedef std::function<void (const dhyara::peer_address&, dhyara::packets::data::const_iterator, dhyara::packets::data::const_iterator)> dhyara_receive_callback_type;
+ * \endcode
+ * Following is an example of the callback function.
+ * \code
+ * void callback (const dhyara::peer_address&, dhyara::packets::data::const_iterator, dhyara::packets::data::const_iterator){
+ * 
+ * }
+ * \endcode
+ * \param callback The callback function
+ * \ingroup dhyara 
+ */
+bool dhyara_receive(dhyara_receive_callback_type callback);
+/**
+ * Sets a callback on the default networks on_data. This callback will be called whenever a data packet is received. (accepts C++ anonymous function)
+ * The typedef dhyara_receive_data_callback_type is defined as the following.
+ * \code
+ * typedef std::function<void (const dhyara::peer_address&, const dhyara::packets::data& data)> dhyara_receive_data_callback_type;
+ * \endcode
+ * Following is an example of the callback function.
+ * \code
+ * void callback (const dhyara::peer_address&, const dhyara::packets::data& data){
+ * 
+ * }
+ * \endcode
+ * \param callback The callback function
+ * \ingroup dhyara 
+ */
+bool dhyara_receive_data(dhyara_receive_data_callback_type callback);
+/**
+ * \}
+ */
+
+/**
+ * \name Ping
+ * \{
+ */
+
+/**
+ * pings target with the configuration provided as designated initializers
+ * \code
+ * uint8_t sink[] = {0x4c, 0x11, 0xae, 0x9c, 0xa6, 0x85};
+ * dhyara_ping(sink, .count = 1, .batch = 10);
+ * \endcode
+ * \param target target MAC address
+ * \param count number of ICMPQ batches
+ * \param batch number of ICMPQ Packets in one batch
+ * \param sleep amount of sleep (in ms) between two consecutive batches
  * \attention Only available in C
- * \brief pings target with the provided configuration
- * \param target 6 bytes MAC address
+ * \return boolean success value
+ * \see dhyara::ping 
+ * \ingroup tools 
+ */
+bool dhyara_ping(const unsigned char* target, count = 254, batch = 1, sleep = 15);
+/**
+ * pings target with the provided configuration
+ * \code
+ * dhyara::peer_address sink("4c:11:ae:9c:a6:85");
+ * dhyara_ping(other, 1, 10);
+ * \endcode
+ * \param target target MAC address
  * \param count number of ICMPQ batches
  * \param batch number of ICMPQ Packets in one batch
  * \param sleep amount of sleep (in ms) between two consecutive batches
@@ -59,7 +171,51 @@ bool dhyara_send(const unsigned char* target, const void* data, unsigned long le
  * \see dhyara::ping 
  * \ingroup tools 
  */
-bool dhyara_ping(const unsigned char* target, .count = 254, .batch = 1, .sleep = 15);
+bool dhyara_ping(const dhyara::peer_address& target, uint8_t count = 254, int8_t batch = 1, uint8_t sleep = 15);
+
+/**
+ * \}
+ */
+
+/**
+ * \name Traceroute
+ * \{
+ */
+/**
+ * Run traceroute on target
+ * \param target 6 bytes long mac address
+ * \ingroup tools 
+ */
+bool dhyara_traceroute(const unsigned char* target);
+/**
+ * Run traceroute on target (C++ overload)
+ * \param target MAC address of the destination
+ * \ingroup tools 
+ */
+bool dhyara_traceroute(const dhyara::peer_address& target);
+/**
+ * \}
+ */
+
+/**
+ * \name Local
+ * \{
+ */
+/**
+ * gets the mac address of self
+ * \param address writable 6 bytes long buffer to hold the mac address
+ * \ingroup dhyara
+ */
+bool dhyara_local(unsigned char* address);
+/**
+ * gets the mac address of self
+ * \ingroup dhyara
+ */
+dhyara::peer_address dhyara_local();
+/**
+ * \}
+ */
+
 
 #endif 
 
@@ -118,22 +274,36 @@ void dhyara_start_default_network();
  */
 bool dhyara_has_default_network();
 
-/**
- * Callback to be called whenever a data packet is arrived.
- * \ingroup dhyara 
- */
-typedef void (*dhyara_data_callback_t) (const unsigned char* source, const void* data, unsigned long len);
-
-/**
- * Sets a callback on the default networks on_data. This callback will be called whenever a data packet is received.
- * 
- * \ingroup dhyara 
- */
-bool dhyara_receive(dhyara_data_callback_t callback);
-
 #ifndef __DOXYGEN__
 
+typedef void (*dhyara_receivef_callback_t) (const unsigned char*, const void*, unsigned long);
+bool dhyara_receivef(dhyara_receivef_callback_t callback);
+
+/**
+ * Join to an AP using station interface
+ * \ingroup dhyara 
+ * \internal 
+ */
+esp_err_t dhyara_station_join(wifi_config_t* sta_config);
+
+bool dhyara_traceroute(const unsigned char* target);
+
+bool dhyara_local(unsigned char* address);
+
+bool dhyara_send_ping(const unsigned char* target, uint8_t count, int8_t batch, uint8_t sleep);
 bool dhyara_send_internal(const unsigned char* target, const void* data, unsigned len);
+
+#endif // __DOXYGEN__
+
+#ifdef __cplusplus  
+} // extern "C"  
+#endif
+
+#ifndef __cplusplus
+
+// Visible in C only 
+
+#ifndef __DOXYGEN__
 
 struct dhyara_send_params{
     unsigned long len;
@@ -145,40 +315,6 @@ inline bool (dhyara_send)(const unsigned char* target, const void* data, struct 
     return dhyara_send_internal(target, data, params.len);
 }
 
-bool dhyara_send_ping(const unsigned char* target, uint8_t count, int8_t batch, uint8_t sleep);
-
-#endif
-
-/**
- * Run traceroute on target
- * \param target 6 bytes long mac address
- * \ingroup tools 
- */
-bool dhyara_traceroute(const unsigned char* target);
-
-/**
- * gets the mac address of self
- * \param target writable 6 bytes long buffer to hold the mac address
- * \ingroup dhyara
- */
-bool dhyara_local(unsigned char* address);
-
-/**
- * Join to an AP using station interface
- * \ingroup dhyara 
- * \internal 
- */
-esp_err_t dhyara_station_join(wifi_config_t* sta_config);
-
-#ifdef __cplusplus  
-} // extern "C"  
-#endif
-
-#ifndef __cplusplus
-
-// Visible in C only 
-
-#ifndef __DOXYGEN__
 struct dhyara_ping_conf{
     uint8_t count;
     int8_t  batch;
@@ -195,20 +331,18 @@ struct dhyara_ping_conf{
 inline bool (dhyara_ping)(const unsigned char* target, struct dhyara_ping_conf conf){
     return dhyara_send_ping(target, conf.count, conf.batch, conf.sleep);
 }
-#endif
+#endif // __DOXYGEN__
 
-#endif
+#endif // __cplusplus
 
 #ifdef __cplusplus
 
 // Visible in C++ Only
 
+#include <functional>
 #include <dhyara/peer.h>
-
-namespace dhyara{
-    struct link;
-    struct network;
-};
+#include <dhyara/link.h>
+#include <dhyara/network.h>
 
 /**
  * Get dhyara communication link
@@ -243,12 +377,31 @@ dhyara::network* dhyara_get_default_network();
  */
 dhyara::network& dhyara_default_network();
 
-/**
- * gets the mac address of self
- * \ingroup dhyara
- */
+#ifndef __DOXYGEN__
+
 dhyara::peer_address dhyara_local();
 
-#endif
+bool dhyara_ping(const dhyara::peer_address& target, uint8_t count = 254, int8_t batch = 1, uint8_t sleep = 15);
+
+bool dhyara_traceroute(const dhyara::peer_address& target);
+
+template <typename InputIt>
+bool dhyara_send(const dhyara::peer_address& target, InputIt begin, InputIt end){
+    return dhyara_default_network().send(target, begin, end);
+}
+
+template <typename InputIt>
+bool dhyara_send(const dhyara::peer_address& target, InputIt begin, std::size_t len){
+    return dhyara_default_network().send(target, begin, len);
+}
+
+typedef std::function<void (const dhyara::peer_address&, dhyara::packets::data::const_iterator, dhyara::packets::data::const_iterator)> dhyara_receive_callback_type;
+typedef std::function<void (const dhyara::peer_address&, const dhyara::packets::data& data)> dhyara_receive_data_callback_type;
+bool dhyara_receive(dhyara_receive_callback_type callback);
+bool dhyara_receive_data(dhyara_receive_data_callback_type callback);
+
+#endif // __DOXYGEN__
+
+#endif // __cplusplus
 
 #endif // DHYARA_WIFI_H
