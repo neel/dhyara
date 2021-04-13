@@ -94,6 +94,10 @@ dhyara::network* dhyara_get_default_network(){
     return g_dhyara_network_ptr;
 }
 
+dhyara::network& dhyara_default_network(){
+    return *g_dhyara_network_ptr;
+}
+
 bool dhyara_has_default_network(){
     return !!g_dhyara_network_ptr;
 }
@@ -112,6 +116,13 @@ bool dhyara_local(unsigned char* address){
     }
     address = 0x0;
     return false;
+}
+
+dhyara::peer_address dhyara_local(){
+    if(dhyara_has_default_network()){
+        return dhyara_get_default_network()->link().address();
+    }
+    return dhyara::peer_address::null();
 }
 
 bool dhyara_receive(dhyara_data_callback_t callback){

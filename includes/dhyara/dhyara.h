@@ -35,6 +35,8 @@
 
 #ifdef __DOXYGEN__
 
+// For documentation only
+
 /**
  * \fn bool dhyara_send(const unsigned char* target, const void* data, unsigned long len)
  * \brief Send a variable length data as data packet to the destination over multi hop network.
@@ -65,6 +67,8 @@ bool dhyara_ping(const unsigned char* target, .count = 254, .batch = 1, .sleep =
 extern "C" {  
 #endif  
 
+// Available in both C and C++
+    
 extern wifi_promiscuous_filter_t g_dhyara_promiscous_filter;
 
 /**
@@ -92,8 +96,8 @@ esp_err_t dhyara_espnow_init();
 esp_err_t dhyara_init(wifi_mode_t mode);
 
 /**
- * Creates the default global network. It is equivalent to instantiating \ref dhyara::network 
- * 
+ * Creates the default global network. It is equivalent to instantiating \ref dhyara::network.
+ * \attention User code may not call this function directly. Use \ref dhyara_start_default_network instead.
  * \warning There should be exactly one instance of \ref dhyara::network 
  * \ingroup dhyara
  */
@@ -223,13 +227,27 @@ dhyara::link& dhyara_link();
 void dhyara_set_default_network(dhyara::network* network);
 
 /**
- * Gets the default network set 
- * 
- * \warning ensure that a default network exists before getting it.
+ * Gets a pointer to the default network. 
  * 
  * \ingroup dhyara 
  */
 dhyara::network* dhyara_get_default_network();
+
+/**
+ * Gets a reference to the default network (assuming it is already set). 
+ * 
+ * \warning To ensure that a default network exists before getting it.
+ * 
+ * \ingroup dhyara 
+ * \see dhyara_has_default_network 
+ */
+dhyara::network& dhyara_default_network();
+
+/**
+ * gets the mac address of self
+ * \ingroup dhyara
+ */
+dhyara::peer_address dhyara_local();
 
 #endif
 
