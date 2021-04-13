@@ -117,6 +117,9 @@ struct network{
          */
         inline dhyara::link& link() { return _link; }
         /**
+         * \name Actions
+         */
+        /**
          * synchronizer
          */
         inline dhyara::synchronizer& synchronizer() { return _synchronizer; }
@@ -152,6 +155,9 @@ struct network{
          * delivered action
          */
         inline dhyara::actions::delivered& delivered() { return _delivered; }
+        /**
+         * \}
+         */
     
     private:
         dhyara::link&                    _link;
