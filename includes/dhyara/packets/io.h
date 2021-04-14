@@ -15,7 +15,6 @@ namespace dhyara{
     
 /**
  * write a packet
- * \ingroup packets  
  * \ingroup io 
  */
 template <typename PacketT, typename OutIt>
@@ -25,7 +24,6 @@ OutIt write(const PacketT& packet, OutIt output){
 
 /**
  * read into a packet
- * \ingroup packets 
  * \ingroup io 
  */
 template <typename PacketT, typename InIt>

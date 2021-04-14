@@ -16,7 +16,7 @@ namespace dhyara{
 
 /**
  * serialize a packet
- * \ingroup packets io
+ * \ingroup io
  */
 template <typename PacketT>
 struct serialization{

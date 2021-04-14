@@ -1,12 +1,58 @@
 DHYARA
 ======
 
-Dhyara is a ESP-IDF component for Layer 2 Mobile Ad-Hoc Networks on the top of ESP NOW. Dhyara is Open Source under BSD 2 Clause License. See [LICENSE](docs/LICENSE.md)
+Dhyara is a ESP-IDF component for Mobile Ad-Hoc Networks on the top of ESP NOW (Layer 2). Dhyara is Open Source under BSD 2 Clause License. See [LICENSE](docs/LICENSE.md)
 
 [Doxygen Documentation](http://neel.github.io/dhyara)
 
+
+Basic Usage
+-------------
+
+The dhyara nodes identify each other via MAC address. 
+Once deployed the nodes communicate with each other and each node builds a routing table based on its local view. 
+On the top of that, dhyara provides C and C++ APIs for send/receice/ping/traceroute functionalities.
+
+In the following example, the string "Hello World" is a variable length data which is sent to the destination identified with the mac address `4c:11:ae:9c:a6:85` over the multihop network. 
+If the destination is a direct neighbour of the source then the message will be delivered in one hop.
+Otherwise the message sent will find its path to the destination `4c:11:ae:9c:a6:85` on its own by following the routing decisions of each intermediate nodes.
+
+~~~{.c}
+uint8_t sink[] = {0x4c, 0x11, 0xae, 0x9c, 0xa6, 0x85};
+dhyara_send(sink, "Hello World");
+~~~
+
+C++ version of the above mentined C example.
+
+~~~{.cpp}
+dhyara::peer_address sink("4c:11:ae:9c:a6:85");
+std::string data = "Hello World";
+dhyara_send(sink, data.begin(), data.end());
+~~~
+
+To receive the mesage sent over the network the sink node needs to register a callback where the data is received.
+
+~~~{.c}
+void data_received(const unsigned char* source, const void* data, unsigned long len){
+    // data received here
+}
+dhyara_receivef(&data_received);
+~~~
+
+ESP Now limits maximum size of a frame to 250 bytes. 
+The variable length data is represented as a data packet (\ref dhyara::packets::data), which is broken into multiple smaller sized chunks. 
+On the receiving end these chunks are joined to comstruct a data packet, which is used while calling the receive callback set using \ref dhyara_receivef, \ref dhyara_receive, and \ref dhyara_receive_data.
+
+~~~{cpp}
+dhyara_receive_data([](const dhyara::peer::address& source, const dhyara::packets::data& data){
+    std::cout << "received data " << " originating from " << data.source() << " via " << source << " of size " << data.length() << std::endl;
+});
+~~~
+
+In the above mentioned C++ example, source represents the immediate neighbour of the desination, and `data.source()` is the originator of the message.
+
 Compilation & Integration
------------
+--------------------------
 
 Dhyara is a C++11 library that has to be used as an ESP-IDF component. 
 It can be cloned to the `components` directory or can be used as a `git submodule` inside your projects `components` directory. 
@@ -71,41 +117,6 @@ Additionally ICMP is implemented on the top of L2 to have a ping and traceroute 
 Example
 --------
 
-The example below assumes that the application coed is written in a class named `application` which takes a reference to `dhyara::network` in its constructor and stores it in a member variable `_network`.
-It is also assumed that the `main` method of the `application` class is called through the main.
-
-```cpp
-void application::main(){
-    // defining a source and a target in the multi hop network
-    dhyara::peer_address target("4c:11:ae:9c:a6:85"), source("4c:11:ae:71:0f:4d");
-    
-    // The anonymous function will be called once all chunks of a data packet is received
-    auto lambda = [](const dhyara::peer::address&, const dhyara::packets::data& data){
-        std::cout << "data received from " << data.source() << std::endl;
-        std::string buffer;
-        data.copy(std::back_inserter(buffer));
-        std::cout << buffer << std::endl;
-    };
-    
-    // Bind the lambda to be called after a data is received
-    _network.on_data(lambda);
-    
-    while(1){
-        // Assuming the same application is running on all nodes
-        // The code below should only run in the source node
-        if(_network.link().address() == source){
-            // A data to be sent (strign used in the example, but can be anything that can be iterated as a sequence of bytes)
-            std::string buffer = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
-            
-            // send the dynamically sized data
-            _network.send(target, buffer.begin(), buffer.end());
-        }
-        
-        // Sleep for 5s
-        vTaskDelay(pdMS_TO_TICKS(5000));
-    }
-}
-```
 See [Building the examples](docs/examples.md).
 
 
