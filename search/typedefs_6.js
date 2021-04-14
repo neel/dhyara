@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['incoming_5fdata_5fsource_637',['incoming_data_source',['../structdhyara_1_1actions_1_1chunk.html#a78555a924fef85a802fb32c98ad116c9',1,'dhyara::actions::chunk']]],
-  ['incomming_5fdata_5fmap_638',['incomming_data_map',['../structdhyara_1_1actions_1_1chunk.html#acd283408fa3ad33eaea86d55f28987e4',1,'dhyara::actions::chunk']]]
+  ['next_5fvector_5ftype_640',['next_vector_type',['../structdhyara_1_1routing.html#ada873b04d4e0a4aa9c274ed90e7f9f6f',1,'dhyara::routing']]]
 ];

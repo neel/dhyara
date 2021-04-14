@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['last_5fadvertisement_5fmap_639',['last_advertisement_map',['../structdhyara_1_1synchronizer.html#a3bc99c7069707e2b42173a41de883e03',1,'dhyara::synchronizer']]],
-  ['lost_5fcallback_5ftype_640',['lost_callback_type',['../structdhyara_1_1actions_1_1echo__lost.html#a1fc9e4bf6e8f9d6b0b0f72653b56d3ba',1,'dhyara::actions::echo_lost']]]
+  ['packet_5ftype_641',['packet_type',['../structdhyara_1_1serialization.html#add2f42a39a9f14f70819375c9ab0c473',1,'dhyara::serialization']]],
+  ['peer_5fcollection_5ftype_642',['peer_collection_type',['../structdhyara_1_1neighbourhood.html#a7788dd3d31e67117dd441b8568624040',1,'dhyara::neighbourhood']]]
 ];

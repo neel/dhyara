@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['handlers_5fmap_5ftype_636',['handlers_map_type',['../structdhyara_1_1link.html#a14193930d528e2e7ff90d7be7346876f',1,'dhyara::link']]]
+  ['last_5fadvertisement_5fmap_638',['last_advertisement_map',['../structdhyara_1_1synchronizer.html#a3bc99c7069707e2b42173a41de883e03',1,'dhyara::synchronizer']]],
+  ['lost_5fcallback_5ftype_639',['lost_callback_type',['../structdhyara_1_1actions_1_1echo__lost.html#a1fc9e4bf6e8f9d6b0b0f72653b56d3ba',1,'dhyara::actions::echo_lost']]]
 ];

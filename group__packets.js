@@ -85,15 +85,19 @@ var group__packets =
       [ "_header", "structdhyara_1_1packets_1_1chunk.html#a0b73be2694090e7ad42007794accde55", null ]
     ] ],
     [ "data", "structdhyara_1_1packets_1_1data.html", [
+      [ "const_iterator", "structdhyara_1_1packets_1_1data.html#a9470d00822346746b55ed2222dacfe0f", null ],
       [ "dynamic_buffer_type", "structdhyara_1_1packets_1_1data.html#a0fd43b577390668bb4ad6f87a7d7a221", null ],
+      [ "iterator", "structdhyara_1_1packets_1_1data.html#a9a2ad998451e8d6fc4652b2eacbbfa4c", null ],
       [ "data", "structdhyara_1_1packets_1_1data.html#ab938d03faa747da15d3dddb95af028cb", null ],
       [ "data", "structdhyara_1_1packets_1_1data.html#a3dcf7b242396901e1e041355d23c0f69", null ],
       [ "data", "structdhyara_1_1packets_1_1data.html#abd469f055473383650209a0bb0887df6", null ],
       [ "data", "structdhyara_1_1packets_1_1data.html#a7a641a409f672e185e3064edd09460be", null ],
       [ "data", "structdhyara_1_1packets_1_1data.html#aa67918cb19272ab77cca8da11adaa3c5", null ],
       [ "add", "structdhyara_1_1packets_1_1data.html#abd4bb9ca16fc58ff0ff64f6701531551", null ],
+      [ "begin", "structdhyara_1_1packets_1_1data.html#a177ac60d2b3e48b941c8890f6f1648d1", null ],
       [ "chunks", "structdhyara_1_1packets_1_1data.html#ac85417db453a9f56846410614d298d46", null ],
       [ "copy", "structdhyara_1_1packets_1_1data.html#a33a2f54ce7569731eccc5a7d02514a09", null ],
+      [ "end", "structdhyara_1_1packets_1_1data.html#a9d953c3f2f28a0335c53598a0db0f571", null ],
       [ "fill", "structdhyara_1_1packets_1_1data.html#a89b90f1ec3c8890222b8380f3dc1e26d", null ],
       [ "id", "structdhyara_1_1packets_1_1data.html#a32e8c87868db6670ee2b69fa5967c1fa", null ],
       [ "length", "structdhyara_1_1packets_1_1data.html#a7fa15244b929e1d563054fd49ed3e3a6", null ],
@@ -166,11 +170,6 @@ var group__packets =
       [ "_target", "structdhyara_1_1packets_1_1echo__request.html#a806a778939501fb1e3d0a4dac5cd9e3c", null ],
       [ "_time", "structdhyara_1_1packets_1_1echo__request.html#a2e6346804f13875e9cf1de8e04b58483", null ],
       [ "_ttl", "structdhyara_1_1packets_1_1echo__request.html#a1937de5beb21a2f9f616e7813c536247", null ]
-    ] ],
-    [ "serialization", "structdhyara_1_1serialization.html", [
-      [ "packet_type", "structdhyara_1_1serialization.html#add2f42a39a9f14f70819375c9ab0c473", null ],
-      [ "read", "structdhyara_1_1serialization.html#adb3254a33f7dcc03a625294d1218cef7", null ],
-      [ "write", "structdhyara_1_1serialization.html#a6fffb25d5d0a785cb1335681e74eb024", null ]
     ] ],
     [ "printer", "structdhyara_1_1utils_1_1printer.html", [
       [ "in", "structdhyara_1_1utils_1_1printer.html#a00b71740e17146e78b6c7980b96648df", null ],

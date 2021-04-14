@@ -11,7 +11,7 @@ var searchData=
   ['traceroute_289',['traceroute',['../structdhyara_1_1tools_1_1traceroute.html',1,'dhyara::tools::traceroute'],['../structdhyara_1_1tools_1_1traceroute.html#aaa1d3c63c26b59e19c73c30cc16179db',1,'dhyara::tools::traceroute::traceroute()']]],
   ['traceroute_2eh_290',['traceroute.h',['../traceroute_8h.html',1,'']]],
   ['ttl_291',['ttl',['../structdhyara_1_1packets_1_1echo__reply.html#ada3baf3add365dc0d485b8d3f17855b6',1,'dhyara::packets::echo_reply::ttl()'],['../structdhyara_1_1packets_1_1echo__request.html#a3c30d36103be16ddc2e0602ce5361589',1,'dhyara::packets::echo_request::ttl()']]],
-  ['tx_292',['tx',['../structdhyara_1_1link.html#a796b3353f9d4a3af16436de8d027ba35',1,'dhyara::link']]],
+  ['tx_292',['tx',['../classdhyara_1_1link.html#a796b3353f9d4a3af16436de8d027ba35',1,'dhyara::link']]],
   ['type_293',['type',['../structdhyara_1_1frame.html#aee2168b3d0cc134007eed1e5740d4a18',1,'dhyara::frame::type()'],['../group__packets.html#ga587a117adc54019693a184e4f8b4e0b5',1,'dhyara::packets::type()']]],
   ['types_2eh_294',['types.h',['../types_8h.html',1,'']]]
 ];

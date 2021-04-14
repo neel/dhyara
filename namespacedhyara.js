@@ -6,7 +6,7 @@ var namespacedhyara =
     [ "utils", "namespacedhyara_1_1utils.html", "namespacedhyara_1_1utils" ],
     [ "candidate", "structdhyara_1_1candidate.html", "structdhyara_1_1candidate" ],
     [ "frame", "structdhyara_1_1frame.html", "structdhyara_1_1frame" ],
-    [ "link", "structdhyara_1_1link.html", "structdhyara_1_1link" ],
+    [ "link", "classdhyara_1_1link.html", "classdhyara_1_1link" ],
     [ "message", "structdhyara_1_1message.html", "structdhyara_1_1message" ],
     [ "mutex", "structdhyara_1_1mutex.html", "structdhyara_1_1mutex" ],
     [ "neighbourhood", "structdhyara_1_1neighbourhood.html", "structdhyara_1_1neighbourhood" ],

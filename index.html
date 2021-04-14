@@ -87,9 +87,37 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <div class="title">DHYARA </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>Dhyara is a ESP-IDF component for Layer 2 Mobile Ad-Hoc Networks on the top of ESP NOW. Dhyara is Open Source under BSD 2 Clause License. See <a class="el" href="_l_i_c_e_n_s_e_8md.html">LICENSE</a></p>
-<p><a href="http://neel.github.io/dhyara">Doxygen Documentation</a></p>
-<h1><a class="anchor" id="autotoc_md16"></a>
+<div class="toc"><h3>Table of Contents</h3>
+<ul><li class="level1"><a href="#autotoc_md18">Basic Usage</a></li>
+<li class="level1"><a href="#autotoc_md19">Compilation &amp; Integration</a></li>
+<li class="level1"><a href="#autotoc_md20">C Example</a></li>
+<li class="level1"><a href="#autotoc_md21">C++ Example</a></li>
+</ul>
+</div>
+<div class="textblock"><p><a href="https://github.com/neel/dhyara">GitHub Repository</a> | <a href="http://neel.github.io/dhyara">Doxygen Documentation</a></p>
+<p>Dhyara is a ESP-IDF component for Mobile Ad-Hoc Networks on the top of ESP NOW (Layer 2). Dhyara is Open Source under BSD 2 Clause License. See <a class="el" href="_l_i_c_e_n_s_e_8md.html">LICENSE</a></p>
+<h1><a class="anchor" id="autotoc_md18"></a>
+Basic Usage</h1>
+<p>The dhyara nodes identify each other via MAC address. Once deployed the nodes communicate with each other and each node builds a routing table based on its local view. On the top of that, dhyara provides C and C++ APIs for send/receice/ping/traceroute functionalities.</p>
+<p>In the following example, the string "Hello World" is a variable length data which is sent to the destination identified with the mac address <code>4c:11:ae:9c:a6:85</code> over the multihop network. If the destination is a direct neighbour of the source then the message will be delivered in one hop. Otherwise the message sent will find its path to the destination <code>4c:11:ae:9c:a6:85</code> on its own by following the routing decisions of each intermediate nodes.</p>
+<div class="fragment"><div class="line">uint8_t sink[] = {0x4c, 0x11, 0xae, 0x9c, 0xa6, 0x85};</div>
+<div class="line"><a class="code" href="group__dhyara.html#ga3d7c1e001cecb51f780b7eb3a7db356c">dhyara_send</a>(sink, <span class="stringliteral">&quot;Hello World&quot;</span>);</div>
+</div><!-- fragment --><p>C++ version of the above mentined C example.</p>
+<div class="fragment"><div class="line"><a class="code" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> sink(<span class="stringliteral">&quot;4c:11:ae:9c:a6:85&quot;</span>);</div>
+<div class="line">std::string data = <span class="stringliteral">&quot;Hello World&quot;</span>;</div>
+<div class="line"><a class="code" href="group__dhyara.html#ga3d7c1e001cecb51f780b7eb3a7db356c">dhyara_send</a>(sink, data.begin(), data.end());</div>
+</div><!-- fragment --><p>To receive the mesage sent over the network the sink node needs to register a callback where the data is received.</p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> data_received(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* source, <span class="keyword">const</span> <span class="keywordtype">void</span>* data, <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> len){</div>
+<div class="line">    <span class="comment">// data received here</span></div>
+<div class="line">}</div>
+<div class="line"><a class="code" href="group__dhyara.html#gaaf7792aa443e682cf3dc63f0815c4b9e">dhyara_receivef</a>(&amp;data_received);</div>
+</div><!-- fragment --><p>ESP Now limits maximum size of a frame to 250 bytes. The variable length data is represented as a data packet (<a class="el" href="structdhyara_1_1packets_1_1data.html">dhyara::packets::data</a>), which is broken into multiple smaller sized chunks. On the receiving end these chunks are joined to comstruct a data packet, which is used while calling the receive callback set using <a class="el" href="group__dhyara.html#gaaf7792aa443e682cf3dc63f0815c4b9e">dhyara_receivef</a>, <a class="el" href="group__dhyara.html#gab53490ae8317a4dcdb9308543aaa32ff">dhyara_receive</a>, and <a class="el" href="group__dhyara.html#gae85e9889960b31503c677e2d577f2dd7">dhyara_receive_data</a>.</p>
+<div class="fragment"><div class="line"><a class="code" href="group__dhyara.html#gae85e9889960b31503c677e2d577f2dd7">dhyara_receive_data</a>([](<span class="keyword">const</span> <a class="code" href="structdhyara_1_1peer__address.html">dhyara::peer::address</a>&amp; source, <span class="keyword">const</span> <a class="code" href="structdhyara_1_1packets_1_1data.html">dhyara::packets::data</a>&amp; data){</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;received data &quot;</span> &lt;&lt; <span class="stringliteral">&quot; originating from &quot;</span> &lt;&lt; data.<a class="code" href="structdhyara_1_1packets_1_1data.html#a0460b56294a5939c527c791be14b513c">source</a>() &lt;&lt; <span class="stringliteral">&quot; via &quot;</span> &lt;&lt; source &lt;&lt; <span class="stringliteral">&quot; of size &quot;</span> &lt;&lt; data.<a class="code" href="structdhyara_1_1packets_1_1data.html#a7fa15244b929e1d563054fd49ed3e3a6">length</a>() &lt;&lt; std::endl;</div>
+<div class="line">});</div>
+</div><!-- fragment --><p>In the above mentioned C++ example, source represents the immediate neighbour of the desination, and <code>data.source()</code> is the originator of the message.</p>
+<p><a class="el" href="group__dhyara.html">Read More</a></p>
+<h1><a class="anchor" id="autotoc_md19"></a>
 Compilation &amp; Integration</h1>
 <p>Dhyara is a C++11 library that has to be used as an ESP-IDF component. It can be cloned to the <code>components</code> directory or can be used as a <code>git submodule</code> inside your projects <code>components</code> directory. If the application project is using an extra components directory then path to that directory has to be added in the root directory's CMakeLists.txt file as shown in the following example.</p>
 <div class="fragment"><div class="line">set(EXTRA_COMPONENT_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/components)</div>
@@ -99,58 +127,110 @@ Compilation &amp; Integration</h1>
 <div class="caption">
 menuconfig</div></div>
    <p>See <a class="el" href="examples_8md.html">Building the examples</a>.</p>
-<h1><a class="anchor" id="autotoc_md17"></a>
-Guide</h1>
-<p>ESP wifi subsystem has to be started before starting the dhyara network. <code><a class="el" href="structdhyara_1_1link.html" title="Link Layer Medium is responsible for sending packets and processing the received packets.">dhyara::link</a></code> provides the underlying communication layer over ESP NOW. The registered received callbacks should forward the received data to the <code><a class="el" href="structdhyara_1_1link.html#ad7b4f39ecaf94c52dc5739898da8a627" title="Process raw data received.">dhyara::link::_esp_rcvd_cb</a></code>. Similarly the registered sent callback should forward the arguments to the <code><a class="el" href="structdhyara_1_1link.html#a978706fc680636c3cdaaa9a3781a5754" title="ESP Send Callback.">dhyara::link::_esp_sent_cb</a></code>. A <code><a class="el" href="structdhyara_1_1network.html" title="The dhyara ad-hoc network.">dhyara::network</a></code> instance is created by using a reference to the <code>link</code>. The network is started using nonblocking <code><a class="el" href="structdhyara_1_1network.html#aadf3365c6a5506187b2f9c91ef4fdd0a" title="main network I/O">dhyara::network::start</a></code> method, which creates multiple tasks to maintain the underlying network. For rest of the application using dhyara, a reference to the <code><a class="el" href="structdhyara_1_1network.html" title="The dhyara ad-hoc network.">dhyara::network</a></code> is required. So after starting the network, the application code should pass a reference to the network instance appopriately. All nodes running dhyara will communicate with each other and transmit various packets to maintain the dynamic neighbourhood.</p>
-<h2><a class="anchor" id="autotoc_md18"></a>
-Design</h2>
-<p>Dhyara uses many different packets for communication. The packets are defined in the <a class="el" href="group__packets.html">Packets</a> module. Type of a packet is identified using <code><a class="el" href="group__packets.html#ga587a117adc54019693a184e4f8b4e0b5" title="Packets types.">dhyara::packets::type</a></code> enum. Once a packet is received it is read and enqueued to a queue for further processing. Different actions have been defined to process different packets. The actions are defined in the <a class="el" href="group__actions.html">Actions</a> module. The actions are installed to the <code><a class="el" href="structdhyara_1_1link.html" title="Link Layer Medium is responsible for sending packets and processing the received packets.">dhyara::link</a></code> by passing the packet type and a reference to the action to <code><a class="el" href="structdhyara_1_1link.html#a279e7531ee6dccea83ce1e6c793151ab" title="Conveniance function to install an action (associate an action with a packet type).">dhyara::link::operator[]()</a></code> overload. While dequeuing a packet it finds the appropriate action through the packet type and invokes the action. The action may need to send some other packet in response. For such circumstances the action may take a reference to the <code><a class="el" href="structdhyara_1_1link.html" title="Link Layer Medium is responsible for sending packets and processing the received packets.">dhyara::link</a></code> in its constructor. Depending of the type of packet received, and the action installed, the received packet may be enqueued into another queue for further processing. Each action provides a <a class="el" href="structdhyara_1_1actions_1_1action.html#a0deb780f69c1d083514f14b524b6c1af">connect</a> method to bind a callback which will be called after the action have processed the incomming packet. The <code><a class="el" href="structdhyara_1_1network.html" title="The dhyara ad-hoc network.">dhyara::network</a></code> provides functions to get reference to all installed actions.</p>
-<h2><a class="anchor" id="autotoc_md19"></a>
-Usage</h2>
-<p>Being a network over L2 all nodes are identified through their MAC address. <code><a class="el" href="structdhyara_1_1peer__address.html" title="peer address (mac address)">dhyara::peer_address</a></code> abstracts a MAC address representation. ESP Now uses Wifi Action Frames to communicate, which limits maximuum size of a single packet to 250 bytes. So if the application want to send variable sized messages then dhyara may split that message into multiple chunks and send those packets to the desired destination through the best route over the ad hoc network. To send a message, use <code><a class="el" href="structdhyara_1_1network.html#a6ed3eca266b9da66b2bb422d891cd145" title="Send a variable sized data to the destination.">dhyara::network::send</a></code>, which takes a destination address and <code>begin</code> and <code>end</code> iterators to the data that has to be sent.</p>
 <h1><a class="anchor" id="autotoc_md20"></a>
-Protocol Overview</h1>
-<p>Dhyara does not depend in IP layer. It uses MAC address to identify the nodes in the network. To establish an ad hoc network each nodes broadcasts beacon periodically which is acknowledged by its neighbourhood. The multihop network is established by sharing the routes discoverd by each of these nodes. See <a class="el" href="protocol_8md.html">Protocol</a> for details.</p>
-<p>Additionally ICMP is implemented on the top of L2 to have a ping and traceroute like functionality.</p>
-<h1><a class="anchor" id="autotoc_md21"></a>
-Example</h1>
-<p>The example below assumes that the application coed is written in a class named <code>application</code> which takes a reference to <code><a class="el" href="structdhyara_1_1network.html" title="The dhyara ad-hoc network.">dhyara::network</a></code> in its constructor and stores it in a member variable <code>_network</code>. It is also assumed that the <code>main</code> method of the <code>application</code> class is called through the main.</p>
-<div class="fragment"><div class="line"><span class="keywordtype">void</span> application::main(){</div>
-<div class="line">    <span class="comment">// defining a source and a target in the multi hop network</span></div>
-<div class="line">    <a class="code" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> target(<span class="stringliteral">&quot;4c:11:ae:9c:a6:85&quot;</span>), source(<span class="stringliteral">&quot;4c:11:ae:71:0f:4d&quot;</span>);</div>
+C Example</h1>
+<p>The examples are provided in the examples directory. See <a class="el" href="examples_8md.html">Building the examples</a> for instructions on building the examples.</p>
+<p>Following is a C example demonstrating basic usage of dhyara </p><div class="fragment"><div class="line"><span class="keywordtype">void</span> data_received(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* source, <span class="keyword">const</span> <span class="keywordtype">void</span>* data, <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> len){</div>
+<div class="line">    ESP_LOGI(<span class="stringliteral">&quot;hello-c&quot;</span>, <span class="stringliteral">&quot;data received \&quot;%s\&quot; (length %lu)&quot;</span>, (<span class="keyword">const</span> <span class="keywordtype">char</span>*)data, len);</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> app_main(){</div>
+<div class="line">    esp_err_t ret = nvs_flash_init();</div>
+<div class="line">    <span class="keywordflow">if</span> (ret == ESP_ERR_NVS_NO_FREE_PAGES || ret == ESP_ERR_NVS_NEW_VERSION_FOUND) {</div>
+<div class="line">        ESP_ERROR_CHECK(nvs_flash_erase());</div>
+<div class="line">        ret = nvs_flash_init();</div>
+<div class="line">    }</div>
+<div class="line">    ESP_ERROR_CHECK(ret);</div>
 <div class="line">    </div>
-<div class="line">    <span class="comment">// The anonymous function will be called once all chunks of a data packet is received</span></div>
-<div class="line">    <span class="keyword">auto</span> lambda = [](<span class="keyword">const</span> <a class="code" href="structdhyara_1_1peer__address.html">dhyara::peer::address</a>&amp;, <span class="keyword">const</span> <a class="code" href="structdhyara_1_1packets_1_1data.html">dhyara::packets::data</a>&amp; data){</div>
-<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;data received from &quot;</span> &lt;&lt; data.source() &lt;&lt; std::endl;</div>
-<div class="line">        std::string buffer;</div>
-<div class="line">        data.copy(std::back_inserter(buffer));</div>
-<div class="line">        std::cout &lt;&lt; buffer &lt;&lt; std::endl;</div>
-<div class="line">    };</div>
+<div class="line">    ESP_ERROR_CHECK(<a class="code" href="group__dhyara.html#ga42863788515b1583d0ec0b4fd2b8a0fa">dhyara_init</a>(WIFI_MODE_AP));</div>
+<div class="line">    <a class="code" href="group__dhyara.html#gac4a4e3c727ec3d63ba96f3b5ab963b68">dhyara_start_default_network</a>();</div>
 <div class="line">    </div>
-<div class="line">    <span class="comment">// Bind the lambda to be called after a data is received</span></div>
-<div class="line">    _network.on_data(lambda);</div>
+<div class="line">    <a class="code" href="group__dhyara.html#gaaf7792aa443e682cf3dc63f0815c4b9e">dhyara_receivef</a>(&amp;data_received);</div>
+<div class="line"> </div>
+<div class="line">    uint8_t <span class="keyword">self</span>[] = {0x0, 0x0, 0x0, 0x0, 0x0, 0x0};</div>
+<div class="line">    <a class="code" href="group__dhyara.html#ga672baef2f77147252c5a13bf40022fd6">dhyara_local</a>(<span class="keyword">self</span>);</div>
+<div class="line">    </div>
+<div class="line">    ESP_LOGI(<span class="stringliteral">&quot;hello-c&quot;</span>, <span class="stringliteral">&quot;Local MAC address %x:%x:%x:%x:%x:%x&quot;</span>, <span class="keyword">self</span>[0], <span class="keyword">self</span>[1], <span class="keyword">self</span>[2], <span class="keyword">self</span>[3], <span class="keyword">self</span>[4], <span class="keyword">self</span>[5]);</div>
+<div class="line">    </div>
+<div class="line">    uint8_t source[] = {0x4c, 0x11, 0xae, 0x71, 0x0f, 0x4d};  <span class="comment">// TODO change the source address</span></div>
+<div class="line">    uint8_t sink[]   = {0x4c, 0x11, 0xae, 0x9c, 0xa6, 0x85};  <span class="comment">// TODO change the sink address</span></div>
+<div class="line">    </div>
+<div class="line">    <span class="keyword">const</span> uint8_t* other = 0x0;</div>
+<div class="line">    </div>
+<div class="line">    <span class="keywordflow">if</span>(memcmp(<span class="keyword">self</span>, source, 6) == 0) other = sink;</div>
+<div class="line">    <span class="keywordflow">if</span>(memcmp(<span class="keyword">self</span>, sink,   6) == 0) other = source;</div>
 <div class="line">    </div>
 <div class="line">    <span class="keywordflow">while</span>(1){</div>
-<div class="line">        <span class="comment">// Assuming the same application is running on all nodes</span></div>
-<div class="line">        <span class="comment">// The code below should only run in the source node</span></div>
-<div class="line">        <span class="keywordflow">if</span>(_network.link().address() == source){</div>
-<div class="line">            <span class="comment">// A data to be sent (strign used in the example, but can be anything that can be iterated as a sequence of bytes)</span></div>
-<div class="line">            std::string buffer = <span class="stringliteral">&quot;Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.&quot;</span>;</div>
-<div class="line">            </div>
-<div class="line">            <span class="comment">// send the dynamically sized data</span></div>
-<div class="line">            _network.send(target, buffer.begin(), buffer.end());</div>
+<div class="line">        <span class="keywordflow">if</span>(other){</div>
+<div class="line">            <a class="code" href="group__tools.html#ga551454ddb934682d3fd116fa6bad4a2d">dhyara_ping</a>(other, .count = 1, .batch = 10);</div>
+<div class="line">            <a class="code" href="group__tools.html#ga6c0963b4afbd69b20483e46c3fb9c644">dhyara_traceroute</a>(other);</div>
+<div class="line">            <a class="code" href="group__dhyara.html#ga3d7c1e001cecb51f780b7eb3a7db356c">dhyara_send</a>(other, <span class="stringliteral">&quot;Hello World&quot;</span>);</div>
+<div class="line">            <a class="code" href="group__dhyara.html#ga3d7c1e001cecb51f780b7eb3a7db356c">dhyara_send</a>(other, <span class="stringliteral">&quot;Hello World&quot;</span>, 5);</div>
 <div class="line">        }</div>
-<div class="line">        </div>
-<div class="line">        <span class="comment">// Sleep for 5s</span></div>
-<div class="line">        vTaskDelay(pdMS_TO_TICKS(5000));</div>
+<div class="line">        vTaskDelay(pdMS_TO_TICKS(2000));</div>
 <div class="line">    }</div>
 <div class="line">}</div>
-</div><!-- fragment --><p>See <a class="el" href="examples_8md.html">Building the examples</a>. </p>
-</div></div><!-- PageDoc -->
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md21"></a>
+C++ Example</h1>
+<p>Dhyara is primarily intended to be used for C++ application. To build a C++ application with ESP-IDF we first start from a <code>main.c</code> which calls a C++ function <code>mainx()</code>. Following is the <code>main.c</code> from the example <code>hello-cxx</code></p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> app_main(){</div>
+<div class="line">    esp_err_t ret = nvs_flash_init();</div>
+<div class="line">    <span class="keywordflow">if</span> (ret == ESP_ERR_NVS_NO_FREE_PAGES || ret == ESP_ERR_NVS_NEW_VERSION_FOUND) {</div>
+<div class="line">        ESP_ERROR_CHECK(nvs_flash_erase());</div>
+<div class="line">        ret = nvs_flash_init();</div>
+<div class="line">    }</div>
+<div class="line">    ESP_ERROR_CHECK(ret);</div>
+<div class="line">    </div>
+<div class="line">    ESP_ERROR_CHECK(<a class="code" href="group__dhyara.html#ga42863788515b1583d0ec0b4fd2b8a0fa">dhyara_init</a>(WIFI_MODE_AP));</div>
+<div class="line">    <a class="code" href="group__dhyara.html#gac4a4e3c727ec3d63ba96f3b5ab963b68">dhyara_start_default_network</a>();</div>
+<div class="line">    </div>
+<div class="line">    mainx(); <span class="comment">// Enter C++</span></div>
+<div class="line">}</div>
+</div><!-- fragment --><p>The <code>mainx()</code> is declared and gaurded by <code>extern C{}</code> block in the <code>mainx.h</code>, so that it can be included from c as well as C++. Following is the definition of mainx() which can be found in the <code>mainx.cpp</code> in the <code>hello-cxx</code> example project.</p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> mainx(){</div>
+<div class="line">    <a class="code" href="structdhyara_1_1network.html">dhyara::network</a> network(dhyara_link());</div>
+<div class="line">    dhyara_set_default_network(&amp;network);</div>
+<div class="line">    </div>
+<div class="line">    <a class="code" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> sink(<span class="stringliteral">&quot;4c:11:ae:9c:a6:85&quot;</span>), source(<span class="stringliteral">&quot;4c:11:ae:71:0f:4d&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line">    <a class="code" href="group__dhyara.html#gac4a4e3c727ec3d63ba96f3b5ab963b68">dhyara_start_default_network</a>();</div>
+<div class="line">    </div>
+<div class="line">    <a class="code" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> local = <a class="code" href="group__dhyara.html#ga672baef2f77147252c5a13bf40022fd6">dhyara_local</a>();</div>
+<div class="line">    <a class="code" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> other = (local == source) ? sink : ((local == sink) ? source : <a class="code" href="structdhyara_1_1peer__address.html#a017ba65751f3f7317e5e0da2a7bc7673">dhyara::peer_address::null</a>());</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// The anonymous function will be called once all chunks of a data packet is received</span></div>
+<div class="line">    <a class="code" href="group__dhyara.html#gae85e9889960b31503c677e2d577f2dd7">dhyara_receive_data</a>([](<span class="keyword">const</span> <a class="code" href="structdhyara_1_1peer__address.html">dhyara::peer::address</a>&amp; source, <span class="keyword">const</span> <a class="code" href="structdhyara_1_1packets_1_1data.html">dhyara::packets::data</a>&amp; data){</div>
+<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;received data &quot;</span> &lt;&lt; <span class="stringliteral">&quot; originating from &quot;</span> &lt;&lt; data.<a class="code" href="structdhyara_1_1packets_1_1data.html#a0460b56294a5939c527c791be14b513c">source</a>() &lt;&lt; <span class="stringliteral">&quot; via &quot;</span> &lt;&lt; source &lt;&lt; <span class="stringliteral">&quot; of size &quot;</span> &lt;&lt; data.<a class="code" href="structdhyara_1_1packets_1_1data.html#a7fa15244b929e1d563054fd49ed3e3a6">length</a>() &lt;&lt; std::endl;</div>
+<div class="line">    });</div>
+<div class="line">    </div>
+<div class="line">    <span class="keywordflow">while</span>(1){</div>
+<div class="line">        <span class="keywordflow">if</span>(!other.<a class="code" href="structdhyara_1_1peer__address.html#a0e89a05cb4d854fadc14897a089a0dad">is_null</a>()){</div>
+<div class="line">            <a class="code" href="group__tools.html#ga551454ddb934682d3fd116fa6bad4a2d">dhyara_ping</a>(other, 1, 10);</div>
+<div class="line">            <a class="code" href="group__tools.html#ga6c0963b4afbd69b20483e46c3fb9c644">dhyara_traceroute</a>(other);</div>
+<div class="line">            std::string buffer = <span class="stringliteral">&quot;Hello World&quot;</span>;</div>
+<div class="line">            <a class="code" href="group__dhyara.html#ga3d7c1e001cecb51f780b7eb3a7db356c">dhyara_send</a>(other, buffer.begin(), buffer.end());</div>
+<div class="line">        }</div>
+<div class="line">        vTaskDelay(pdMS_TO_TICKS(5000));</div>
+<div class="line">    }</div>
+<div class="line">} </div>
+</div><!-- fragment --> </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="astructdhyara_1_1peer__address_html"><div class="ttname"><a href="structdhyara_1_1peer__address.html">dhyara::peer_address</a></div><div class="ttdoc">peer address (mac address)</div><div class="ttdef"><b>Definition:</b> <a href="peer_8h_source.html#l00029">peer.h:29</a></div></div>
+<div class="ttc" id="agroup__dhyara_html_gae85e9889960b31503c677e2d577f2dd7"><div class="ttname"><a href="group__dhyara.html#gae85e9889960b31503c677e2d577f2dd7">dhyara_receive_data</a></div><div class="ttdeci">bool dhyara_receive_data(dhyara_receive_data_callback_type callback)</div><div class="ttdoc">Sets a callback on the default networks on_data.</div></div>
 <div class="ttc" id="astructdhyara_1_1packets_1_1data_html"><div class="ttname"><a href="structdhyara_1_1packets_1_1data.html">dhyara::packets::data</a></div><div class="ttdoc">A virtual packet, that is never sent accros the network.</div><div class="ttdef"><b>Definition:</b> <a href="data_8h_source.html#l00027">data.h:27</a></div></div>
+<div class="ttc" id="astructdhyara_1_1packets_1_1data_html_a0460b56294a5939c527c791be14b513c"><div class="ttname"><a href="structdhyara_1_1packets_1_1data.html#a0460b56294a5939c527c791be14b513c">dhyara::packets::data::source</a></div><div class="ttdeci">dhyara::peer::address source() const</div><div class="ttdoc">source of the data packet</div><div class="ttdef"><b>Definition:</b> <a href="data_8h_source.html#l00083">data.h:83</a></div></div>
+<div class="ttc" id="agroup__dhyara_html_gaaf7792aa443e682cf3dc63f0815c4b9e"><div class="ttname"><a href="group__dhyara.html#gaaf7792aa443e682cf3dc63f0815c4b9e">dhyara_receivef</a></div><div class="ttdeci">bool dhyara_receivef(dhyara_receivef_callback_t callback)</div><div class="ttdoc">Callback for dhyara_receivef.</div></div>
+<div class="ttc" id="astructdhyara_1_1peer__address_html_a017ba65751f3f7317e5e0da2a7bc7673"><div class="ttname"><a href="structdhyara_1_1peer__address.html#a017ba65751f3f7317e5e0da2a7bc7673">dhyara::peer_address::null</a></div><div class="ttdeci">static peer_address null()</div><div class="ttdoc">null mac</div><div class="ttdef"><b>Definition:</b> <a href="peer_8h_source.html#l00052">peer.h:52</a></div></div>
+<div class="ttc" id="agroup__tools_html_ga551454ddb934682d3fd116fa6bad4a2d"><div class="ttname"><a href="group__tools.html#ga551454ddb934682d3fd116fa6bad4a2d">dhyara_ping</a></div><div class="ttdeci">bool dhyara_ping(const unsigned char *target, count=254, batch=1, sleep=15)</div><div class="ttdoc">pings target with the configuration provided as designated initializers</div></div>
+<div class="ttc" id="agroup__tools_html_ga6c0963b4afbd69b20483e46c3fb9c644"><div class="ttname"><a href="group__tools.html#ga6c0963b4afbd69b20483e46c3fb9c644">dhyara_traceroute</a></div><div class="ttdeci">bool dhyara_traceroute(const unsigned char *target)</div><div class="ttdoc">Run traceroute on target.</div></div>
+<div class="ttc" id="astructdhyara_1_1packets_1_1data_html_a7fa15244b929e1d563054fd49ed3e3a6"><div class="ttname"><a href="structdhyara_1_1packets_1_1data.html#a7fa15244b929e1d563054fd49ed3e3a6">dhyara::packets::data::length</a></div><div class="ttdeci">std::size_t length() const</div><div class="ttdoc">length of the data packet</div><div class="ttdef"><b>Definition:</b> <a href="data_8h_source.html#l00095">data.h:95</a></div></div>
+<div class="ttc" id="agroup__dhyara_html_ga672baef2f77147252c5a13bf40022fd6"><div class="ttname"><a href="group__dhyara.html#ga672baef2f77147252c5a13bf40022fd6">dhyara_local</a></div><div class="ttdeci">bool dhyara_local(unsigned char *address)</div><div class="ttdoc">gets the mac address of self</div></div>
+<div class="ttc" id="astructdhyara_1_1network_html"><div class="ttname"><a href="structdhyara_1_1network.html">dhyara::network</a></div><div class="ttdoc">The dhyara ad-hoc network.</div><div class="ttdef"><b>Definition:</b> <a href="network_8h_source.html#l00027">network.h:27</a></div></div>
+<div class="ttc" id="agroup__dhyara_html_ga42863788515b1583d0ec0b4fd2b8a0fa"><div class="ttname"><a href="group__dhyara.html#ga42863788515b1583d0ec0b4fd2b8a0fa">dhyara_init</a></div><div class="ttdeci">esp_err_t dhyara_init(wifi_mode_t mode)</div><div class="ttdoc">Initializes wifi, starts wifi, then initializes ESP Now.</div></div>
+<div class="ttc" id="astructdhyara_1_1peer__address_html_a0e89a05cb4d854fadc14897a089a0dad"><div class="ttname"><a href="structdhyara_1_1peer__address.html#a0e89a05cb4d854fadc14897a089a0dad">dhyara::peer_address::is_null</a></div><div class="ttdeci">bool is_null() const</div><div class="ttdoc">check whether the mac address is null</div><div class="ttdef"><b>Definition:</b> <a href="peer_8h_source.html#l00131">peer.h:131</a></div></div>
+<div class="ttc" id="agroup__dhyara_html_gac4a4e3c727ec3d63ba96f3b5ab963b68"><div class="ttname"><a href="group__dhyara.html#gac4a4e3c727ec3d63ba96f3b5ab963b68">dhyara_start_default_network</a></div><div class="ttdeci">void dhyara_start_default_network()</div><div class="ttdoc">Starts the default network.</div></div>
+<div class="ttc" id="agroup__dhyara_html_ga3d7c1e001cecb51f780b7eb3a7db356c"><div class="ttname"><a href="group__dhyara.html#ga3d7c1e001cecb51f780b7eb3a7db356c">dhyara_send</a></div><div class="ttdeci">bool dhyara_send(const unsigned char *target, const void *data, unsigned long len)</div><div class="ttdoc">Send a variable length data as data packet to the destination over multi hop network.</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

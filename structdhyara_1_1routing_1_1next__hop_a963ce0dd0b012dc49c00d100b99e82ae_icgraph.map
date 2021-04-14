@@ -1,4 +1,4 @@
 <map id="dhyara::routing::next_hop::via" name="dhyara::routing::next_hop::via">
 <area shape="rect" id="node1" title="returns the best next hop address for the given target" alt="" coords="192,5,351,47"/>
-<area shape="rect" id="node2" href="$structdhyara_1_1link.html#adc9c6543f44bb258ec27d169dfc2acaf" title="Sends a packet via the best intermediate node." alt="" coords="5,13,144,39"/>
+<area shape="rect" id="node2" href="$classdhyara_1_1link.html#adc9c6543f44bb258ec27d169dfc2acaf" title="Sends a packet via the best intermediate node." alt="" coords="5,13,144,39"/>
 </map>

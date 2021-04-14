@@ -3,6 +3,6 @@
 <area shape="rect" id="node2" href="$group__io.html#ga4ad2c87bab350b99de6805a397698bed" title="write a packet" alt="" coords="437,56,545,83"/>
 <area shape="rect" id="node3" href="$structdhyara_1_1frame.html#ad428874ae06aaf0869c44066fcd7cc4d" title="Create a frame from a packet and a packet type." alt="" coords="209,5,372,32"/>
 <area shape="rect" id="node4" href="$structdhyara_1_1frame.html#ac9a354daa91a03a35a16101b6803eeec" title="Creates a frame on heap with teh given packet and a packet type." alt="" coords="192,56,389,83"/>
-<area shape="rect" id="node5" href="$structdhyara_1_1link.html#ab1b658b908d8ead7315600db746c51f6" title="Sends a packet to an immediate neighbour directly in one hop." alt="" coords="221,107,360,149"/>
-<area shape="rect" id="node6" href="$structdhyara_1_1link.html#adc9c6543f44bb258ec27d169dfc2acaf" title="Sends a packet via the best intermediate node." alt="" coords="5,115,144,141"/>
+<area shape="rect" id="node5" href="$classdhyara_1_1link.html#ab1b658b908d8ead7315600db746c51f6" title="Sends a packet to an immediate neighbour directly in one hop." alt="" coords="221,107,360,149"/>
+<area shape="rect" id="node6" href="$classdhyara_1_1link.html#adc9c6543f44bb258ec27d169dfc2acaf" title="Sends a packet via the best intermediate node." alt="" coords="5,115,144,141"/>
 </map>

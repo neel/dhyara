@@ -23,36 +23,31 @@ for the JavaScript code in this file
 var NAVTREE =
 [
   [ "Dhyara", "index.html", [
-    [ "Compilation & Integration", "index.html#autotoc_md16", null ],
-    [ "Guide", "index.html#autotoc_md17", [
-      [ "Design", "index.html#autotoc_md18", null ],
-      [ "Usage", "index.html#autotoc_md19", null ]
-    ] ],
-    [ "Protocol Overview", "index.html#autotoc_md20", null ],
-    [ "Example", "index.html#autotoc_md21", null ],
-    [ "Building Examples", "examples.html", [
-      [ "Structure", "examples.html#autotoc_md0", null ]
-    ] ],
+    [ "Basic Usage", "index.html#autotoc_md18", null ],
+    [ "Compilation & Integration", "index.html#autotoc_md19", null ],
+    [ "C Example", "index.html#autotoc_md20", null ],
+    [ "C++ Example", "index.html#autotoc_md21", null ],
+    [ "Building Examples", "examples.html", null ],
     [ "LICENSE", "license.html", null ],
     [ "Protocol", "protocol.html", [
-      [ "Routing Table", "protocol.html#autotoc_md1", [
-        [ "Neighbourhood Synchronization", "protocol.html#autotoc_md2", null ],
-        [ "Route Depreciation", "protocol.html#autotoc_md3", null ]
+      [ "Routing Table", "protocol.html#autotoc_md3", [
+        [ "Neighbourhood Synchronization", "protocol.html#autotoc_md4", null ],
+        [ "Route Depreciation", "protocol.html#autotoc_md5", null ]
       ] ],
-      [ "Packets", "protocol.html#autotoc_md4", null ],
-      [ "Basic", "protocol.html#autotoc_md5", [
-        [ "Beacon (BCN)", "protocol.html#autotoc_md6", null ],
-        [ "Acknowledgement (ACK)", "protocol.html#autotoc_md7", null ],
-        [ "Advertisement (ADV)", "protocol.html#autotoc_md8", null ],
-        [ "Data", "protocol.html#autotoc_md9", [
-          [ "Chunk (CNK)", "protocol.html#autotoc_md10", null ],
-          [ "Delivery Report (DLV)", "protocol.html#autotoc_md11", null ]
+      [ "Packets", "protocol.html#autotoc_md6", null ],
+      [ "Basic", "protocol.html#autotoc_md7", [
+        [ "Beacon (BCN)", "protocol.html#autotoc_md8", null ],
+        [ "Acknowledgement (ACK)", "protocol.html#autotoc_md9", null ],
+        [ "Advertisement (ADV)", "protocol.html#autotoc_md10", null ],
+        [ "Data", "protocol.html#autotoc_md11", [
+          [ "Chunk (CNK)", "protocol.html#autotoc_md12", null ],
+          [ "Delivery Report (DLV)", "protocol.html#autotoc_md13", null ]
         ] ]
       ] ],
-      [ "Auxilary", "protocol.html#autotoc_md12", [
-        [ "ICMP over L2", "protocol.html#autotoc_md13", [
-          [ "ICMP Request (ICMPQ)", "protocol.html#autotoc_md14", null ],
-          [ "ICMP Reply (ICMPR)", "protocol.html#autotoc_md15", null ]
+      [ "Auxilary", "protocol.html#autotoc_md14", [
+        [ "ICMP over L2", "protocol.html#autotoc_md15", [
+          [ "ICMP Request (ICMPQ)", "protocol.html#autotoc_md16", null ],
+          [ "ICMP Reply (ICMPR)", "protocol.html#autotoc_md17", null ]
         ] ]
       ] ]
     ] ],
@@ -85,7 +80,6 @@ var NAVTREE =
         [ "All", "globals.html", null ],
         [ "Functions", "globals_func.html", null ],
         [ "Variables", "globals_vars.html", null ],
-        [ "Typedefs", "globals_type.html", null ],
         [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
@@ -95,9 +89,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "action_8h.html",
-"packets_2packets_8h_source.html",
-"structdhyara_1_1packets_1_1chunk__header.html#ab367f5c6f696fc708d8a44f815d898dc",
-"structstd_1_1hash_3_01dhyara_1_1peer__address_01_4.html"
+"namespacemembers_enum.html",
+"structdhyara_1_1packets_1_1chunk__header.html#a5174ad9664a8644a6250253699910a6a",
+"structdhyara_1_1watcher.html#a84aff4fc13360d24afb31faa593cd462"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

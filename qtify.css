@@ -4,6 +4,14 @@
  * Frank Enderle <frank.enderle@anamica.de>
  */
 
+:root {
+    --fg: #00732f;
+    --fg-light: #0e763a;
+    --bg: #f6f6f6;
+    --selected: #e6e6e6;
+    --nav: #363534;
+}
+
 body, table, div, p, dl {
   font: 400 13px/1.3 Verdana,DejaVu Sans,Geneva,sans-serif;
 }
@@ -13,8 +21,8 @@ body, table, div, p, dl {
     margin: 0px;
     width: 100%;
     border: 0px none;
-    background: #f6f6f6;
-    color: #0e763a;
+    background: var(--bg);
+    color: var(--fg-light);
 }
 
 .icon{
@@ -24,7 +32,7 @@ body, table, div, p, dl {
     height: 14px;
     width: 16px;
     display: inline-block;
-    background-color: #0e763a;
+    background-color: var(--fg-light);
     color: white;
     text-align: center;
     border-radius: 4px;
@@ -33,8 +41,8 @@ body, table, div, p, dl {
 }
 
 .sm-dox{
-    background: #f6f6f6 !important;
-    border-bottom: 1px dashed #0e763a !important;
+    background: var(--bg) !important;
+    border-bottom: 1px dashed var(--fg-light) !important;
 }
 
 .sm-dox li{
@@ -42,21 +50,21 @@ body, table, div, p, dl {
 }
 
 .sm-dox li a{
-    color: #0e763a !important;
+    color: var(--fg-light) !important;
     background-image: none !important;
 }
 
 .memtitle {
     padding: 4px !important;
-    border-top: 1px solid #0e763a !important;
-    border-left: 1px solid #0e763a !important;
-    border-right: 1px solid #0e763a !important;
+    border-top: 1px solid var(--fg-light) !important;
+    border-left: 1px solid var(--fg-light) !important;
+    border-right: 1px solid var(--fg-light) !important;
     border-top-right-radius: 4px !important;
     border-top-left-radius: 4px !important;
     margin-bottom: -1px !important;
     background-image: none !important;
     background-repeat: repeat-x !important;
-    background-color: #f6f6f6 !important;
+    background-color: var(--bg) !important;
     line-height: 1.25 !important;
     font-weight: 300 !important;
     float: left !important;
@@ -75,7 +83,7 @@ h1.groupheader {
 
 h2.groupheader {
   border: 0;
-  color: #363534;
+  color: var(--nav);
   font-size: 16px;
   font-weight: 600;
 }
@@ -129,8 +137,8 @@ h3.version {
 }
 
 div.qindex, div.navtab {
-  background-color: #F6F6F6;
-  border: 1px solid #E6E6E6;
+  background-color: var(--bg);
+  border: 1px solid var(--selected);
 }
 
 div.qindex, div.navpath {
@@ -143,11 +151,11 @@ div.navtab {
 /* @group Link Styling */
 
 a {
-  color: #00732F;
+  color: var(--fg);
 }
 
 .contents a:visited {
-  color: #00732F;
+  color: var(--fg);
 }
 
 a:hover {
@@ -171,11 +179,11 @@ a.elRef {
 }
 
 a.code, a.code:visited, a.line, a.line:visited {
-  color: #00732F; 
+  color: var(--fg); 
 }
 
 a.codeRef, a.codeRef:visited, a.lineRef, a.lineRef:visited {
-  color: #00732F; 
+  color: var(--fg); 
 }
 
 /* @end */
@@ -185,13 +193,13 @@ dl.el {
 
 pre.fragment {
     border-width: 0px 0px 0px 4px;
-    border-color: #0e763a;
+    border-color: var(--fg-light);
     padding-left: 10px;
 }
 
 div.fragment {
     border-width: 0px 0px 0px 4px;
-    border-color: #0e763a;
+    border-color: var(--fg-light);
     padding-left: 10px;
 }
 
@@ -219,9 +227,9 @@ span.lineno a:hover {
 
 div.ah {
   background: none;
-  background-color: #F6F6F6;
+  background-color: var(--bg);
   color: #66666E;
-  border: 1px solid #E6E6E6;
+  border: 1px solid var(--selected);
   border-radius: 7px;
   -webkit-border-radius: 7px;
   -moz-border-radius: 7px;
@@ -237,7 +245,7 @@ div.groupText {
 }
 
 body {
-  color: #363534;
+  color: var(--nav);
 }
 
 div.contents {
@@ -339,7 +347,7 @@ th.dirtab {
 }
 
 hr {
-  border-top: 1px solid #E6E6E6;
+  border-top: 1px solid var(--selected);
   margin: 10px 8px 0 12px;
 }
 
@@ -359,12 +367,12 @@ table.memberdecls a {
 }
 
 table.memberdecls .memItemLeft {
-  border: solid #E6E6E6;
+  border: solid var(--selected);
   border-width: 0 0 0 1px;
 }
 
 table.memberdecls .memItemRight {
-  border: solid #E6E6E6;
+  border: solid var(--selected);
   border-width: 0 1px 0 0;
 }
 
@@ -411,7 +419,7 @@ table.memberdecls tr:nth-last-child(2) .memItemRight {
 .memItemLeft, .memItemRight,
 .memTemplItemLeft, .memTemplItemRight, .memTemplParams {
   width: auto;
-  background-color: #F6F6F6;
+  background-color: var(--bg);
 }
 
 .mdescLeft, .mdescRight {
@@ -448,7 +456,7 @@ table.memberdecls tr:nth-last-child(2) .memItemRight {
 /* Styles for detailed member documentation */
 
 .memtemplate {
-    color: #0e763a !important;
+    color: var(--fg-light) !important;
 }
 
 .memnav {
@@ -482,14 +490,14 @@ table.memberdecls tr:nth-last-child(2) .memItemRight {
 }
 
 .memproto, dl.reflist dt {
-  border-top: 1px solid #0e763a;
-  border-right: 1px solid #0e763a;
-  border-left: 1px solid #0e763a;
+  border-top: 1px solid var(--fg-light);
+  border-right: 1px solid var(--fg-light);
+  border-left: 1px solid var(--fg-light);
   padding: 5px 10px;
-  color: #363534;
+  color: var(--nav);
   text-shadow: none;
   background: none;
-  background-color: #F6F6F6;
+  background-color: var(--bg);
   box-shadow: none;
   -moz-box-shadow: none;
   -webkit-box-shadow: none;
@@ -518,9 +526,9 @@ table.memberdecls tr:nth-last-child(2) .memItemRight {
   -moz-box-shadow: none;
   -webkit-border-radius: 0;
   -webkit-box-shadow: none;
-  border-left: 1px solid #0e763a;
-  border-right: 1px solid #0e763a;
-  border-bottom: 1px solid #0e763a;
+  border-left: 1px solid var(--fg-light);
+  border-right: 1px solid var(--fg-light);
+  border-bottom: 1px solid var(--fg-light);
   padding-left: 20px;
   margin-top: -14px;
   padding-top: 10px;
@@ -539,7 +547,7 @@ dl.reflist dd {
 }
 
 .paramname {
-  color: #363534;
+  color: var(--nav);
 }
 
 .paramname em {
@@ -574,7 +582,7 @@ span.mlabels {
 }
 
 span.mlabel {
-  background-color: #E6E6E6;
+  background-color: var(--selected);
   border: 0;
   color: #66666E;
   padding: 4px 5px;
@@ -607,7 +615,7 @@ div.directory {
 }
 
 .directory td.desc {
-  border-color: #E6E6E6;
+  border-color: var(--selected);
 }
 
 .directory tr.even {
@@ -634,19 +642,19 @@ table.doxtable {
 }
 
 table.doxtable td, table.doxtable th {
-  border: 1px solid #E6E6E6;
+  border: 1px solid var(--selected);
 }
 
 table.doxtable th {
-  background-color: #F6F6F6;
+  background-color: var(--bg);
   color: #66666E;
   font-size: 13px;
 }
 
 table.fieldtable {
   padding: 5px 10px;
-  border: 1px solid #E6E6E6;
-  background-color: #F6F6F6;
+  border: 1px solid var(--selected);
+  background-color: var(--bg);
   box-shadow: none;
   border-radius: 7px;
   -moz-box-shadow: none;
@@ -696,10 +704,10 @@ table.fieldtable {
 
 .fieldtable th {
   background: none;
-  background-color: #E6E6E6;
+  background-color: var(--selected);
   font-size: 13px;
   font-weight: normal;
-  color: #363534;
+  color: var(--nav);
   border-radius: 0;
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
@@ -711,26 +719,26 @@ table.fieldtable {
 
 .navpath ul {
   background: none;
-  background-color: #E6E6E6;
-  color: #363534;
+  background-color: var(--selected);
+  color: var(--nav);
   border: 0;
   font-size: 13px;
 }
 
 .navpath li {
-  color: #363534;
+  color: var(--nav);
 }
 
 .navpath li.navelem a {
-  color: #363534;
+  color: var(--nav);
 }
 
 .navpath li.navelem a:hover {
-  color: #363534;
+  color: var(--nav);
 }
 
 .navpath li.footer {
-  color: #363534;
+  color: var(--nav);
   font-size: 13px;
 }
 
@@ -742,8 +750,8 @@ div.summary {
   color: transparent;
   line-height: 0;
   padding: 15px 25px;      
-  border: 1px solid #E6E6E6;
-  background-color: #F6F6F6;
+  border: 1px solid var(--selected);
+  background-color: var(--bg);
   border-radius: 7px;
   -moz-border-radius: 7px;
   -webkit-border-radius: 7px;
@@ -850,12 +858,14 @@ dl.citelist dd {
 }
 
 div.toc {
+    background-color: var(--bg) !important;
 }
 
 div.toc li {
 }
 
 div.toc h3 {
+    color: var(--fg) !important;
 }
 
 div.toc ul {
@@ -907,7 +917,7 @@ tr.heading h2 {
 
 #powerTip div {
   font: 13px/1.3 Verdana,DejaVu Sans,Geneva,sans-serif;
-  color: #363534;
+  color: var(--nav);
 }
 
 #powerTip:before, #powerTip:after {
@@ -995,9 +1005,9 @@ tr.heading h2 {
 
 .tabs, .tabs2, .tabs3 {
   background: none;
-  background-color: #F6F6F6;
+  background-color: var(--bg);
   font: 13px Verdana,DejaVu Sans,Geneva,sans-serif;
-  border-bottom: 1px solid #E6E6E6;
+  border-bottom: 1px solid var(--selected);
 }
 
 .tabs2 {
@@ -1019,7 +1029,7 @@ tr.heading h2 {
   padding: 0 10px;
   font-weight: normal;
   background: none;
-  color: #00732F;
+  color: var(--fg);
   text-shadow: none;
 }
 
@@ -1028,13 +1038,13 @@ tr.heading h2 {
 
 .tablist a:hover {
   background: none;
-  color: #00732F;
+  color: var(--fg);
   text-shadow: none;
 }
 
 .tablist li.current a {
   background: none;
-  color: #00732F;
+  color: var(--fg);
   text-shadow: none;
 }
 
@@ -1054,8 +1064,8 @@ tr.heading h2 {
 
 #nav-tree .selected {
   background: none;
-  background-color: #E6E6E6;
-  color: #00732F;
+  background-color: var(--selected);
+  color: var(--fg);
   text-shadow: none;
 }
 
@@ -1073,7 +1083,7 @@ tr.heading h2 {
 }
 
 #nav-tree .selected a {
-  color: #00732F;
+  color: var(--fg);
 }
 
 #nav-tree .children_ul {
@@ -1083,7 +1093,7 @@ tr.heading h2 {
 }
 
 #nav-tree {
-  background-color: #F6F6F6; 
+  background-color: var(--bg); 
 }
 
 #doc-content {
@@ -1097,7 +1107,7 @@ tr.heading h2 {
 
 .ui-resizable-e {
   background: none;
-  background-color: #E6E6E6;
+  background-color: var(--selected);
 }
 
 .ui-resizable-handle {
@@ -1108,7 +1118,7 @@ tr.heading h2 {
 
 #nav-tree {
   background: none;
-  background-color: #F6F6F6;
+  background-color: var(--bg);
 }
 
 #nav-sync {

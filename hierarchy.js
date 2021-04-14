@@ -40,7 +40,7 @@ var hierarchy =
     [ "std::hash< dhyara::peer >", "structstd_1_1hash_3_01dhyara_1_1peer_01_4.html", null ],
     [ "std::hash< dhyara::peer_address >", "structstd_1_1hash_3_01dhyara_1_1peer__address_01_4.html", null ],
     [ "dhyara::utils::http", "structdhyara_1_1utils_1_1http.html", null ],
-    [ "dhyara::link", "structdhyara_1_1link.html", null ],
+    [ "dhyara::link", "classdhyara_1_1link.html", null ],
     [ "dhyara::message", "structdhyara_1_1message.html", null ],
     [ "dhyara::neighbourhood", "structdhyara_1_1neighbourhood.html", null ],
     [ "dhyara::network", "structdhyara_1_1network.html", null ],

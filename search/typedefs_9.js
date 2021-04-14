@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['packet_5ftype_642',['packet_type',['../structdhyara_1_1serialization.html#add2f42a39a9f14f70819375c9ab0c473',1,'dhyara::serialization']]],
-  ['peer_5fcollection_5ftype_643',['peer_collection_type',['../structdhyara_1_1neighbourhood.html#a7788dd3d31e67117dd441b8568624040',1,'dhyara::neighbourhood']]]
+  ['self_5ftype_644',['self_type',['../structdhyara_1_1peer.html#a070e1eb9a75e40c07b82a83fefa44d45',1,'dhyara::peer::self_type()'],['../structdhyara_1_1network__fifo.html#a21decb239670f9c2a66abf3ea9a690b5',1,'dhyara::network_fifo::self_type()']]],
+  ['size_5ftype_645',['size_type',['../structdhyara_1_1frame.html#afa969584acb41efbe5d3479650ddf962',1,'dhyara::frame']]],
+  ['slot_5ftype_646',['slot_type',['../structdhyara_1_1actions_1_1action.html#a1cd09164189d292e0f2965670e64e4d5',1,'dhyara::actions::action']]],
+  ['sync_5fqueue_5ftype_647',['sync_queue_type',['../structdhyara_1_1synchronizer.html#ab634118f5d6aaf86a10cad3d19d0e71f',1,'dhyara::synchronizer']]]
 ];

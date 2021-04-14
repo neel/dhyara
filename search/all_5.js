@@ -9,7 +9,7 @@ var searchData=
   ['empty_132',['empty',['../classdhyara_1_1xqueue.html#a363b23ddea78a7d141ecc7a9b0d7e801',1,'dhyara::xqueue::empty()'],['../structdhyara_1_1network__fifo.html#a646d59f833447151c055afa7024e8232',1,'dhyara::network_fifo::empty()']]],
   ['en_133',['en',['../classdhyara_1_1xqueue.html#aac33a333b68637c12c0977993fc885df',1,'dhyara::xqueue']]],
   ['encrypt_134',['encrypt',['../structdhyara_1_1peer.html#a65fe52e25eb4293064caa5ce22b35f42',1,'dhyara::peer::encrypt(bool flag)'],['../structdhyara_1_1peer.html#a09649d4ec08d5acd6d9baa7dfa7c2a28',1,'dhyara::peer::encrypt() const']]],
-  ['end_135',['end',['../structdhyara_1_1neighbourhood.html#a5631251297e1d2cc09acaf3ae0d3361e',1,'dhyara::neighbourhood::end()'],['../structdhyara_1_1packets_1_1chunk.html#ac7a7865cb9d3ddf2eebfa73bac58d34f',1,'dhyara::packets::chunk::end()']]],
+  ['end_135',['end',['../structdhyara_1_1neighbourhood.html#a5631251297e1d2cc09acaf3ae0d3361e',1,'dhyara::neighbourhood::end()'],['../structdhyara_1_1packets_1_1chunk.html#ac7a7865cb9d3ddf2eebfa73bac58d34f',1,'dhyara::packets::chunk::end()'],['../structdhyara_1_1packets_1_1data.html#a9d953c3f2f28a0335c53598a0db0f571',1,'dhyara::packets::data::end()']]],
   ['enqueue_136',['enqueue',['../structdhyara_1_1network__fifo.html#ad4517f5f2ff72e877a54f0b509916643',1,'dhyara::network_fifo']]],
   ['espnow_5fbroadcast_5fchannel_137',['espnow_broadcast_channel',['../namespacedhyara.html#ac46639e74431d3742ee82643fbd3ced6',1,'dhyara']]],
   ['espnow_5fpeer_5fchannel_138',['espnow_peer_channel',['../namespacedhyara.html#abc95df1d426ac135be36efdc410a756f',1,'dhyara']]],

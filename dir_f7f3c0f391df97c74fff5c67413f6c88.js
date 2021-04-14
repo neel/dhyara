@@ -6,6 +6,7 @@ var dir_f7f3c0f391df97c74fff5c67413f6c88 =
     [ "utils", "dir_5342d3aa1e443377937e69c5f06c25a1.html", "dir_5342d3aa1e443377937e69c5f06c25a1" ],
     [ "actions.h", "actions_8h.html", null ],
     [ "defs.h", "defs_8h.html", "defs_8h" ],
+    [ "dhyara.h", "dhyara_8h.html", "dhyara_8h" ],
     [ "frame.h", "frame_8h.html", null ],
     [ "link.h", "link_8h.html", [
       [ "proxy", "structdhyara_1_1link_1_1proxy.html", "structdhyara_1_1link_1_1proxy" ]
@@ -18,7 +19,6 @@ var dir_f7f3c0f391df97c74fff5c67413f6c88 =
     [ "peer.h", "peer_8h.html", "peer_8h" ],
     [ "routing.h", "routing_8h.html", "routing_8h" ],
     [ "synchronizer.h", "synchronizer_8h.html", null ],
-    [ "wifi.h", "wifi_8h.html", "wifi_8h" ],
     [ "xqueue.h", "xqueue_8h.html", [
       [ "xqueue", "classdhyara_1_1xqueue.html", "classdhyara_1_1xqueue" ],
       [ "watcher", "structdhyara_1_1watcher.html", "structdhyara_1_1watcher" ],

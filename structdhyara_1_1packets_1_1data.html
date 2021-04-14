@@ -112,6 +112,10 @@ Collaboration diagram for dhyara::packets::data:</div>
 Public Types</h2></td></tr>
 <tr class="memitem:a0fd43b577390668bb4ad6f87a7d7a221"><td class="memItemLeft" align="right" valign="top">typedef std::basic_string&lt; std::uint8_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1packets_1_1data.html#a0fd43b577390668bb4ad6f87a7d7a221">dynamic_buffer_type</a></td></tr>
 <tr class="separator:a0fd43b577390668bb4ad6f87a7d7a221"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9470d00822346746b55ed2222dacfe0f"><td class="memItemLeft" align="right" valign="top">typedef dynamic_buffer_type::const_iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1packets_1_1data.html#a9470d00822346746b55ed2222dacfe0f">const_iterator</a></td></tr>
+<tr class="separator:a9470d00822346746b55ed2222dacfe0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a2ad998451e8d6fc4652b2eacbbfa4c"><td class="memItemLeft" align="right" valign="top">typedef dynamic_buffer_type::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1packets_1_1data.html#a9a2ad998451e8d6fc4652b2eacbbfa4c">iterator</a></td></tr>
+<tr class="separator:a9a2ad998451e8d6fc4652b2eacbbfa4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -128,7 +132,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a7a641a409f672e185e3064edd09460be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a data packet.  <a href="structdhyara_1_1packets_1_1data.html#a7a641a409f672e185e3064edd09460be">More...</a><br /></td></tr>
 <tr class="separator:a7a641a409f672e185e3064edd09460be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa67918cb19272ab77cca8da11adaa3c5"><td class="memTemplParams" colspan="2">template&lt;typename InputIt &gt; </td></tr>
-<tr class="memitem:aa67918cb19272ab77cca8da11adaa3c5"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structdhyara_1_1packets_1_1data.html#aa67918cb19272ab77cca8da11adaa3c5">data</a> (const <a class="el" href="structdhyara_1_1peer.html#ab47a3a3728c310f38d6f2064b81a80e1">dhyara::peer::address</a> &amp;<a class="el" href="structdhyara_1_1packets_1_1data.html#a1afb45da5d1cdacfaa62cb486c38a17c">target</a>, InputIt begin, InputIt end)</td></tr>
+<tr class="memitem:aa67918cb19272ab77cca8da11adaa3c5"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structdhyara_1_1packets_1_1data.html#aa67918cb19272ab77cca8da11adaa3c5">data</a> (const <a class="el" href="structdhyara_1_1peer.html#ab47a3a3728c310f38d6f2064b81a80e1">dhyara::peer::address</a> &amp;<a class="el" href="structdhyara_1_1packets_1_1data.html#a1afb45da5d1cdacfaa62cb486c38a17c">target</a>, InputIt <a class="el" href="structdhyara_1_1packets_1_1data.html#a177ac60d2b3e48b941c8890f6f1648d1">begin</a>, InputIt <a class="el" href="structdhyara_1_1packets_1_1data.html#a9d953c3f2f28a0335c53598a0db0f571">end</a>)</td></tr>
 <tr class="memdesc:aa67918cb19272ab77cca8da11adaa3c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a data packet by iterating over.  <a href="structdhyara_1_1packets_1_1data.html#aa67918cb19272ab77cca8da11adaa3c5">More...</a><br /></td></tr>
 <tr class="separator:aa67918cb19272ab77cca8da11adaa3c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1afb45da5d1cdacfaa62cb486c38a17c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdhyara_1_1peer.html#ab47a3a3728c310f38d6f2064b81a80e1">dhyara::peer::address</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1packets_1_1data.html#a1afb45da5d1cdacfaa62cb486c38a17c">target</a> () const</td></tr>
@@ -153,7 +157,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:aaf53c1f0615c8a28188991792da83688"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate the n'th chunk for this data packet.  <a href="structdhyara_1_1packets_1_1data.html#aaf53c1f0615c8a28188991792da83688">More...</a><br /></td></tr>
 <tr class="separator:aaf53c1f0615c8a28188991792da83688"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a89b90f1ec3c8890222b8380f3dc1e26d"><td class="memTemplParams" colspan="2">template&lt;typename InputIt &gt; </td></tr>
-<tr class="memitem:a89b90f1ec3c8890222b8380f3dc1e26d"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structdhyara_1_1packets_1_1data.html#a89b90f1ec3c8890222b8380f3dc1e26d">fill</a> (InputIt begin, InputIt end)</td></tr>
+<tr class="memitem:a89b90f1ec3c8890222b8380f3dc1e26d"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structdhyara_1_1packets_1_1data.html#a89b90f1ec3c8890222b8380f3dc1e26d">fill</a> (InputIt <a class="el" href="structdhyara_1_1packets_1_1data.html#a177ac60d2b3e48b941c8890f6f1648d1">begin</a>, InputIt <a class="el" href="structdhyara_1_1packets_1_1data.html#a9d953c3f2f28a0335c53598a0db0f571">end</a>)</td></tr>
 <tr class="memdesc:a89b90f1ec3c8890222b8380f3dc1e26d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill the data packet by copying elements within [begin, end) range.  <a href="structdhyara_1_1packets_1_1data.html#a89b90f1ec3c8890222b8380f3dc1e26d">More...</a><br /></td></tr>
 <tr class="separator:a89b90f1ec3c8890222b8380f3dc1e26d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33a2f54ce7569731eccc5a7d02514a09"><td class="memTemplParams" colspan="2">template&lt;typename OutputIt &gt; </td></tr>
@@ -169,6 +173,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac35b8f7f9e749512ad662182455b2d39"><td class="memItemLeft" align="right" valign="top">const std::uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1packets_1_1data.html#ac35b8f7f9e749512ad662182455b2d39">raw</a> () const</td></tr>
 <tr class="memdesc:ac35b8f7f9e749512ad662182455b2d39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns raw data in the buffer.  <a href="structdhyara_1_1packets_1_1data.html#ac35b8f7f9e749512ad662182455b2d39">More...</a><br /></td></tr>
 <tr class="separator:ac35b8f7f9e749512ad662182455b2d39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a177ac60d2b3e48b941c8890f6f1648d1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdhyara_1_1packets_1_1data.html#a9470d00822346746b55ed2222dacfe0f">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1packets_1_1data.html#a177ac60d2b3e48b941c8890f6f1648d1">begin</a> () const</td></tr>
+<tr class="memdesc:a177ac60d2b3e48b941c8890f6f1648d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an immutable iterator to the data.  <a href="structdhyara_1_1packets_1_1data.html#a177ac60d2b3e48b941c8890f6f1648d1">More...</a><br /></td></tr>
+<tr class="separator:a177ac60d2b3e48b941c8890f6f1648d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d953c3f2f28a0335c53598a0db0f571"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdhyara_1_1packets_1_1data.html#a9470d00822346746b55ed2222dacfe0f">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1packets_1_1data.html#a9d953c3f2f28a0335c53598a0db0f571">end</a> () const</td></tr>
+<tr class="memdesc:a9d953c3f2f28a0335c53598a0db0f571"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an immutable iterator to the data.  <a href="structdhyara_1_1packets_1_1data.html#a9d953c3f2f28a0335c53598a0db0f571">More...</a><br /></td></tr>
+<tr class="separator:a9d953c3f2f28a0335c53598a0db0f571"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -192,6 +202,22 @@ Static Public Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="data_8h_source.html#l00027">27</a> of file <a class="el" href="data_8h_source.html">data.h</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a9470d00822346746b55ed2222dacfe0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9470d00822346746b55ed2222dacfe0f">&#9670;&nbsp;</a></span>const_iterator</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef dynamic_buffer_type::const_iterator <a class="el" href="structdhyara_1_1packets_1_1data.html#a9470d00822346746b55ed2222dacfe0f">dhyara::packets::data::const_iterator</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="data_8h_source.html#l00029">29</a> of file <a class="el" href="data_8h_source.html">data.h</a>.</p>
+
+</div>
+</div>
 <a id="a0fd43b577390668bb4ad6f87a7d7a221"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0fd43b577390668bb4ad6f87a7d7a221">&#9670;&nbsp;</a></span>dynamic_buffer_type</h2>
 
@@ -205,6 +231,22 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="data_8h_source.html#l00028">28</a> of file <a class="el" href="data_8h_source.html">data.h</a>.</p>
+
+</div>
+</div>
+<a id="a9a2ad998451e8d6fc4652b2eacbbfa4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a2ad998451e8d6fc4652b2eacbbfa4c">&#9670;&nbsp;</a></span>iterator</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef dynamic_buffer_type::iterator <a class="el" href="structdhyara_1_1packets_1_1data.html#a9a2ad998451e8d6fc4652b2eacbbfa4c">dhyara::packets::data::iterator</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="data_8h_source.html#l00030">30</a> of file <a class="el" href="data_8h_source.html">data.h</a>.</p>
 
 </div>
 </div>
@@ -253,7 +295,7 @@ Static Public Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="data_8h_source.html#l00043">43</a> of file <a class="el" href="data_8h_source.html">data.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="data_8h_source.html#l00045">45</a> of file <a class="el" href="data_8h_source.html">data.h</a>.</p>
 
 </div>
 </div>
@@ -300,7 +342,7 @@ Static Public Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="data_8h_source.html#l00049">49</a> of file <a class="el" href="data_8h_source.html">data.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="data_8h_source.html#l00051">51</a> of file <a class="el" href="data_8h_source.html">data.h</a>.</p>
 
 </div>
 </div>
@@ -337,7 +379,7 @@ Static Public Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="data_8h_source.html#l00055">55</a> of file <a class="el" href="data_8h_source.html">data.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="data_8h_source.html#l00057">57</a> of file <a class="el" href="data_8h_source.html">data.h</a>.</p>
 
 </div>
 </div>
@@ -391,7 +433,7 @@ Static Public Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="data_8h_source.html#l00062">62</a> of file <a class="el" href="data_8h_source.html">data.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="data_8h_source.html#l00064">64</a> of file <a class="el" href="data_8h_source.html">data.h</a>.</p>
 
 </div>
 </div>
@@ -448,9 +490,9 @@ template&lt;typename InputIt &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="data_8h_source.html#l00071">71</a> of file <a class="el" href="data_8h_source.html">data.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="data_8h_source.html#l00073">73</a> of file <a class="el" href="data_8h_source.html">data.h</a>.</p>
 
-<p class="reference">References <a class="el" href="data_8h_source.html#l00108">fill()</a>.</p>
+<p class="reference">References <a class="el" href="data_8h_source.html#l00137">begin()</a>, <a class="el" href="data_8h_source.html#l00141">end()</a>, and <a class="el" href="data_8h_source.html#l00110">fill()</a>.</p>
 
 </div>
 </div>
@@ -472,6 +514,50 @@ template&lt;typename InputIt &gt; </div>
 </div><div class="memdoc">
 
 <p>appends a chunk with the data packet </p>
+
+</div>
+</div>
+<a id="a177ac60d2b3e48b941c8890f6f1648d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a177ac60d2b3e48b941c8890f6f1648d1">&#9670;&nbsp;</a></span>begin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structdhyara_1_1packets_1_1data.html#a9470d00822346746b55ed2222dacfe0f">const_iterator</a> dhyara::packets::data::begin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns an immutable iterator to the data. </p>
+<p>The iterator dereferences to std::uint8_t </p>
+
+<p class="definition">Definition at line <a class="el" href="data_8h_source.html#l00137">137</a> of file <a class="el" href="data_8h_source.html">data.h</a>.</p>
+
+<p class="reference">References <a class="el" href="data_8h_source.html#l00035">_buffer</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="data_8h_source.html#l00073">data()</a>, and <a class="el" href="data_8h_source.html#l00110">fill()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="structdhyara_1_1packets_1_1data_a177ac60d2b3e48b941c8890f6f1648d1_icgraph.png" border="0" usemap="#structdhyara_1_1packets_1_1data_a177ac60d2b3e48b941c8890f6f1648d1_icgraph" alt=""/></div>
+<map name="structdhyara_1_1packets_1_1data_a177ac60d2b3e48b941c8890f6f1648d1_icgraph" id="structdhyara_1_1packets_1_1data_a177ac60d2b3e48b941c8890f6f1648d1_icgraph">
+<area shape="rect" title="Returns an immutable iterator to the data." alt="" coords="427,5,589,47"/>
+<area shape="rect" href="structdhyara_1_1packets_1_1data.html#aa67918cb19272ab77cca8da11adaa3c5" title="Construct a data packet by iterating over." alt="" coords="5,5,168,47"/>
+<area shape="rect" href="structdhyara_1_1packets_1_1data.html#a89b90f1ec3c8890222b8380f3dc1e26d" title="Fill the data packet by copying elements within [begin, end) range." alt="" coords="216,35,379,76"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -500,9 +586,9 @@ template&lt;typename InputIt &gt; </div>
 
 <p>number of chunks required to send this data packet </p>
 
-<p class="definition">Definition at line <a class="el" href="data_8h_source.html#l00097">97</a> of file <a class="el" href="data_8h_source.html">data.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="data_8h_source.html#l00099">99</a> of file <a class="el" href="data_8h_source.html">data.h</a>.</p>
 
-<p class="reference">References <a class="el" href="packets_2chunk_8h_source.html#l00087">dhyara::packets::chunk::capacity</a>, and <a class="el" href="data_8h_source.html#l00093">length()</a>.</p>
+<p class="reference">References <a class="el" href="packets_2chunk_8h_source.html#l00087">dhyara::packets::chunk::capacity</a>, and <a class="el" href="data_8h_source.html#l00095">length()</a>.</p>
 
 </div>
 </div>
@@ -540,9 +626,53 @@ template&lt;typename OutputIt &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="data_8h_source.html#l00116">116</a> of file <a class="el" href="data_8h_source.html">data.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="data_8h_source.html#l00118">118</a> of file <a class="el" href="data_8h_source.html">data.h</a>.</p>
 
-<p class="reference">References <a class="el" href="data_8h_source.html#l00033">_buffer</a>.</p>
+<p class="reference">References <a class="el" href="data_8h_source.html#l00035">_buffer</a>.</p>
+
+</div>
+</div>
+<a id="a9d953c3f2f28a0335c53598a0db0f571"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d953c3f2f28a0335c53598a0db0f571">&#9670;&nbsp;</a></span>end()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structdhyara_1_1packets_1_1data.html#a9470d00822346746b55ed2222dacfe0f">const_iterator</a> dhyara::packets::data::end </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns an immutable iterator to the data. </p>
+<p>The iterator dereferences to std::uint8_t </p>
+
+<p class="definition">Definition at line <a class="el" href="data_8h_source.html#l00141">141</a> of file <a class="el" href="data_8h_source.html">data.h</a>.</p>
+
+<p class="reference">References <a class="el" href="data_8h_source.html#l00035">_buffer</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="data_8h_source.html#l00073">data()</a>, and <a class="el" href="data_8h_source.html#l00110">fill()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="structdhyara_1_1packets_1_1data_a9d953c3f2f28a0335c53598a0db0f571_icgraph.png" border="0" usemap="#structdhyara_1_1packets_1_1data_a9d953c3f2f28a0335c53598a0db0f571_icgraph" alt=""/></div>
+<map name="structdhyara_1_1packets_1_1data_a9d953c3f2f28a0335c53598a0db0f571_icgraph" id="structdhyara_1_1packets_1_1data_a9d953c3f2f28a0335c53598a0db0f571_icgraph">
+<area shape="rect" title="Returns an immutable iterator to the data." alt="" coords="427,13,621,39"/>
+<area shape="rect" href="structdhyara_1_1packets_1_1data.html#aa67918cb19272ab77cca8da11adaa3c5" title="Construct a data packet by iterating over." alt="" coords="5,5,168,47"/>
+<area shape="rect" href="structdhyara_1_1packets_1_1data.html#a89b90f1ec3c8890222b8380f3dc1e26d" title="Fill the data packet by copying elements within [begin, end) range." alt="" coords="216,35,379,76"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -591,11 +721,11 @@ template&lt;typename InputIt &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="data_8h_source.html#l00108">108</a> of file <a class="el" href="data_8h_source.html">data.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="data_8h_source.html#l00110">110</a> of file <a class="el" href="data_8h_source.html">data.h</a>.</p>
 
-<p class="reference">References <a class="el" href="data_8h_source.html#l00033">_buffer</a>.</p>
+<p class="reference">References <a class="el" href="data_8h_source.html#l00035">_buffer</a>, <a class="el" href="data_8h_source.html#l00137">begin()</a>, and <a class="el" href="data_8h_source.html#l00141">end()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="data_8h_source.html#l00071">data()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="data_8h_source.html#l00073">data()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -633,9 +763,9 @@ Here is the caller graph for this function:</div>
 
 <p>packet id of data packet </p>
 
-<p class="definition">Definition at line <a class="el" href="data_8h_source.html#l00085">85</a> of file <a class="el" href="data_8h_source.html">data.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="data_8h_source.html#l00087">87</a> of file <a class="el" href="data_8h_source.html">data.h</a>.</p>
 
-<p class="reference">References <a class="el" href="data_8h_source.html#l00032">_packet</a>.</p>
+<p class="reference">References <a class="el" href="data_8h_source.html#l00034">_packet</a>.</p>
 
 </div>
 </div>
@@ -664,11 +794,11 @@ Here is the caller graph for this function:</div>
 
 <p>length of the data packet </p>
 
-<p class="definition">Definition at line <a class="el" href="data_8h_source.html#l00093">93</a> of file <a class="el" href="data_8h_source.html">data.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="data_8h_source.html#l00095">95</a> of file <a class="el" href="data_8h_source.html">data.h</a>.</p>
 
-<p class="reference">References <a class="el" href="data_8h_source.html#l00033">_buffer</a>.</p>
+<p class="reference">References <a class="el" href="data_8h_source.html#l00035">_buffer</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="data_8h_source.html#l00097">chunks()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="data_8h_source.html#l00099">chunks()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -707,9 +837,9 @@ Here is the caller graph for this function:</div>
 
 <p>Less than comparison operator checks packet id. </p>
 
-<p class="definition">Definition at line <a class="el" href="data_8h_source.html#l00089">89</a> of file <a class="el" href="data_8h_source.html">data.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="data_8h_source.html#l00091">91</a> of file <a class="el" href="data_8h_source.html">data.h</a>.</p>
 
-<p class="reference">References <a class="el" href="data_8h_source.html#l00032">_packet</a>.</p>
+<p class="reference">References <a class="el" href="data_8h_source.html#l00034">_packet</a>.</p>
 
 </div>
 </div>
@@ -758,9 +888,9 @@ Here is the caller graph for this function:</div>
 
 <p>Returns raw data in the buffer. </p>
 
-<p class="definition">Definition at line <a class="el" href="data_8h_source.html#l00130">130</a> of file <a class="el" href="data_8h_source.html">data.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="data_8h_source.html#l00132">132</a> of file <a class="el" href="data_8h_source.html">data.h</a>.</p>
 
-<p class="reference">References <a class="el" href="data_8h_source.html#l00033">_buffer</a>.</p>
+<p class="reference">References <a class="el" href="data_8h_source.html#l00035">_buffer</a>.</p>
 
 </div>
 </div>
@@ -809,9 +939,9 @@ Here is the caller graph for this function:</div>
 
 <p>source of the data packet </p>
 
-<p class="definition">Definition at line <a class="el" href="data_8h_source.html#l00081">81</a> of file <a class="el" href="data_8h_source.html">data.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="data_8h_source.html#l00083">83</a> of file <a class="el" href="data_8h_source.html">data.h</a>.</p>
 
-<p class="reference">References <a class="el" href="data_8h_source.html#l00031">_source</a>.</p>
+<p class="reference">References <a class="el" href="data_8h_source.html#l00033">_source</a>.</p>
 
 </div>
 </div>
@@ -840,9 +970,9 @@ Here is the caller graph for this function:</div>
 
 <p>target of the data packet </p>
 
-<p class="definition">Definition at line <a class="el" href="data_8h_source.html#l00077">77</a> of file <a class="el" href="data_8h_source.html">data.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="data_8h_source.html#l00079">79</a> of file <a class="el" href="data_8h_source.html">data.h</a>.</p>
 
-<p class="reference">References <a class="el" href="data_8h_source.html#l00030">_target</a>.</p>
+<p class="reference">References <a class="el" href="data_8h_source.html#l00032">_target</a>.</p>
 
 </div>
 </div>
@@ -859,9 +989,9 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="data_8h_source.html#l00033">33</a> of file <a class="el" href="data_8h_source.html">data.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="data_8h_source.html#l00035">35</a> of file <a class="el" href="data_8h_source.html">data.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="data_8h_source.html#l00116">copy()</a>, <a class="el" href="data_8h_source.html#l00108">fill()</a>, <a class="el" href="data_8h_source.html#l00093">length()</a>, and <a class="el" href="data_8h_source.html#l00130">raw()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="data_8h_source.html#l00137">begin()</a>, <a class="el" href="data_8h_source.html#l00118">copy()</a>, <a class="el" href="data_8h_source.html#l00141">end()</a>, <a class="el" href="data_8h_source.html#l00110">fill()</a>, <a class="el" href="data_8h_source.html#l00095">length()</a>, and <a class="el" href="data_8h_source.html#l00132">raw()</a>.</p>
 
 </div>
 </div>
@@ -877,9 +1007,9 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="data_8h_source.html#l00032">32</a> of file <a class="el" href="data_8h_source.html">data.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="data_8h_source.html#l00034">34</a> of file <a class="el" href="data_8h_source.html">data.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="data_8h_source.html#l00085">id()</a>, and <a class="el" href="data_8h_source.html#l00089">operator&lt;()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="data_8h_source.html#l00087">id()</a>, and <a class="el" href="data_8h_source.html#l00091">operator&lt;()</a>.</p>
 
 </div>
 </div>
@@ -895,9 +1025,9 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="data_8h_source.html#l00031">31</a> of file <a class="el" href="data_8h_source.html">data.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="data_8h_source.html#l00033">33</a> of file <a class="el" href="data_8h_source.html">data.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="data_8h_source.html#l00081">source()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="data_8h_source.html#l00083">source()</a>.</p>
 
 </div>
 </div>
@@ -913,9 +1043,9 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="data_8h_source.html#l00030">30</a> of file <a class="el" href="data_8h_source.html">data.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="data_8h_source.html#l00032">32</a> of file <a class="el" href="data_8h_source.html">data.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="data_8h_source.html#l00077">target()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="data_8h_source.html#l00079">target()</a>.</p>
 
 </div>
 </div>
@@ -939,7 +1069,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="data_8h_source.html#l00035">35</a> of file <a class="el" href="data_8h_source.html">data.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="data_8h_source.html#l00037">37</a> of file <a class="el" href="data_8h_source.html">data.h</a>.</p>
 
 </div>
 </div>
