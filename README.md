@@ -1,9 +1,11 @@
 DHYARA
 ======
 
+[GitHub Repository](https://github.com/neel/dhyara) | [Doxygen Documentation](http://neel.github.io/dhyara)
+
 Dhyara is a ESP-IDF component for Mobile Ad-Hoc Networks on the top of ESP NOW (Layer 2). Dhyara is Open Source under BSD 2 Clause License. See [LICENSE](docs/LICENSE.md)
 
-[Doxygen Documentation](http://neel.github.io/dhyara)
+[TOC]
 
 
 Basic Usage
@@ -51,6 +53,8 @@ dhyara_receive_data([](const dhyara::peer::address& source, const dhyara::packet
 
 In the above mentioned C++ example, source represents the immediate neighbour of the desination, and `data.source()` is the originator of the message.
 
+[Read More](\ref dhyara)
+
 Compilation & Integration
 --------------------------
 
@@ -69,54 +73,112 @@ To build and flash the application use `idf.py build` and `idf.py flash` as usua
 
 See [Building the examples](docs/examples.md).
 
-Guide
-------
+C Example
+----------
 
-ESP wifi subsystem has to be started before starting the dhyara network.
-`dhyara::link` provides the underlying communication layer over ESP NOW. 
-The registered received callbacks should forward the received data to the `dhyara::link::_esp_rcvd_cb`.
-Similarly the registered sent callback should forward the arguments to the `dhyara::link::_esp_sent_cb`.
-A `dhyara::network` instance is created by using a reference to the `link`.
-The network is started using nonblocking `dhyara::network::start` method, which creates multiple tasks to maintain the underlying network.
-For rest of the application using dhyara, a reference to the `dhyara::network` is required.
-So after starting the network, the application code should pass a reference to the network instance appopriately.
-All nodes running dhyara will communicate with each other and transmit various packets to maintain the dynamic neighbourhood.
+The examples are provided in the examples directory. See [Building the examples](docs/examples.md) for instructions on building the examples.
 
-### Design
+Following is a C example demonstrating basic usage of dhyara
+~~~{.c}
 
-Dhyara uses many different packets for communication. 
-The packets are defined in the \ref packets module. 
-Type of a packet is identified using `dhyara::packets::type` enum.
-Once a packet is received it is read and enqueued to a queue for further processing. 
-Different actions have been defined to process different packets. 
-The actions are defined in the \ref actions module.
-The actions are installed to the `dhyara::link` by passing the packet type and a reference to the action to `dhyara::link::operator[]()` overload.
-While dequeuing a packet it finds the appropriate action through the packet type and invokes the action.
-The action may need to send some other packet in response.
-For such circumstances the action may take a reference to the `dhyara::link` in its constructor.
-Depending of the type of packet received, and the action installed, the received packet may be enqueued into another queue for further processing.
-Each action provides a \ref dhyara::actions::action<DerivedT, PacketT>::connect "connect" method to bind a callback which will be called after the action have processed the incomming packet.
-The `dhyara::network` provides functions to get reference to all installed actions.
+void data_received(const unsigned char* source, const void* data, unsigned long len){
+    ESP_LOGI("hello-c", "data received \"%s\" (length %lu)", (const char*)data, len);
+}
 
-### Usage
+void app_main(){
+    esp_err_t ret = nvs_flash_init();
+    if (ret == ESP_ERR_NVS_NO_FREE_PAGES || ret == ESP_ERR_NVS_NEW_VERSION_FOUND) {
+        ESP_ERROR_CHECK(nvs_flash_erase());
+        ret = nvs_flash_init();
+    }
+    ESP_ERROR_CHECK(ret);
+    
+	ESP_ERROR_CHECK(dhyara_init(WIFI_MODE_AP));
+    dhyara_start_default_network();
+    
+    dhyara_receivef(&data_received);
 
-Being a network over L2 all nodes are identified through their MAC address. `dhyara::peer_address` abstracts a MAC address representation. 
-ESP Now uses Wifi Action Frames to communicate, which limits maximuum size of a single packet to 250 bytes. 
-So if the application want to send variable sized messages then dhyara may split that message into multiple chunks and send those packets to the desired destination through the best route over the ad hoc network. 
-To send a message, use `dhyara::network::send`, which takes a destination address and `begin` and `end` iterators to the data that has to be sent.
+    uint8_t self[] = {0x0, 0x0, 0x0, 0x0, 0x0, 0x0};
+    dhyara_local(self);
+    
+    ESP_LOGI("hello-c", "Local MAC address %x:%x:%x:%x:%x:%x", self[0], self[1], self[2], self[3], self[4], self[5]);
+    
+    uint8_t source[] = {0x4c, 0x11, 0xae, 0x71, 0x0f, 0x4d};  // TODO change the source address
+    uint8_t sink[]   = {0x4c, 0x11, 0xae, 0x9c, 0xa6, 0x85};  // TODO change the sink address
+    
+    const uint8_t* other = 0x0;
+    
+    if(memcmp(self, source, 6) == 0) other = sink;
+    if(memcmp(self, sink,   6) == 0) other = source;
+    
+    while(1){
+        if(other){
+            dhyara_ping(other, .count = 1, .batch = 10);
+            dhyara_traceroute(other);
+            dhyara_send(other, "Hello World");
+            dhyara_send(other, "Hello World", 5);
+        }
+        vTaskDelay(pdMS_TO_TICKS(2000));
+    }
+}
+~~~
 
-Protocol Overview
-------------------
+C++ Example
+-----------
 
-Dhyara does not depend in IP layer. It uses MAC address to identify the nodes in the network. 
-To establish an ad hoc network each nodes broadcasts beacon periodically which is acknowledged by its neighbourhood.
-The multihop network is established by sharing the routes discoverd by each of these nodes. See [Protocol](docs/protocol.md) for details.
+Dhyara is primarily intended to be used for C++ application. 
+To build a C++ application with ESP-IDF we first start from a `main.c` which calls a C++ function `mainx()`. 
+Following is the `main.c` from the example `hello-cxx`
 
-Additionally ICMP is implemented on the top of L2 to have a ping and traceroute like functionality.
+~~~{.c}
 
-Example
---------
+void app_main(){
+    esp_err_t ret = nvs_flash_init();
+    if (ret == ESP_ERR_NVS_NO_FREE_PAGES || ret == ESP_ERR_NVS_NEW_VERSION_FOUND) {
+        ESP_ERROR_CHECK(nvs_flash_erase());
+        ret = nvs_flash_init();
+    }
+    ESP_ERROR_CHECK(ret);
+    
+	ESP_ERROR_CHECK(dhyara_init(WIFI_MODE_AP));
+    dhyara_start_default_network();
+    
+    mainx(); // Enter C++
+}
 
-See [Building the examples](docs/examples.md).
+~~~
+
+The `mainx()` is declared and gaurded by `extern C{}` block in the `mainx.h`, so that it can be included from c as well as C++.
+Following is the definition of mainx() which can be found in the `mainx.cpp` in the `hello-cxx` example project.
+
+~~~{.cpp}
+void mainx(){
+    dhyara::network network(dhyara_link());
+    dhyara_set_default_network(&network);
+    
+    dhyara::peer_address sink("4c:11:ae:9c:a6:85"), source("4c:11:ae:71:0f:4d");
+
+    dhyara_start_default_network();
+    
+    dhyara::peer_address local = dhyara_local();
+    dhyara::peer_address other = (local == source) ? sink : ((local == sink) ? source : dhyara::peer_address::null());
+    
+    // The anonymous function will be called once all chunks of a data packet is received
+    dhyara_receive_data([](const dhyara::peer::address& source, const dhyara::packets::data& data){
+        std::cout << "received data " << " originating from " << data.source() << " via " << source << " of size " << data.length() << std::endl;
+    });
+    
+    while(1){
+        if(!other.is_null()){
+            dhyara_ping(other, 1, 10);
+            dhyara_traceroute(other);
+            std::string buffer = "Hello World";
+            dhyara_send(other, buffer.begin(), buffer.end());
+        }
+        vTaskDelay(pdMS_TO_TICKS(5000));
+    }
+} 
+~~~
+
 
 

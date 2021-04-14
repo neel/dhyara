@@ -4,6 +4,11 @@
  * Frank Enderle <frank.enderle@anamica.de>
  */
 
+:root {
+    --fg: #00732f;
+    --bg: #f6f6f6;
+}
+
 body, table, div, p, dl {
   font: 400 13px/1.3 Verdana,DejaVu Sans,Geneva,sans-serif;
 }
@@ -850,12 +855,14 @@ dl.citelist dd {
 }
 
 div.toc {
+    background-color: #f6f6f6 !important;
 }
 
 div.toc li {
 }
 
 div.toc h3 {
+    color: #00732f !important;
 }
 
 div.toc ul {
