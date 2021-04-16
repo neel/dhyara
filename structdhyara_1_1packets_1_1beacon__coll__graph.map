@@ -1,0 +1,5 @@
+<map id="dhyara::packets::beacon" name="dhyara::packets::beacon">
+<area shape="rect" id="node1" title="beacon packet" alt="" coords="5,185,185,212"/>
+<area shape="rect" id="node2" title="STL class." alt="" coords="52,96,139,123"/>
+<area shape="rect" id="node3" title="STL class." alt="" coords="26,5,165,47"/>
+</map>

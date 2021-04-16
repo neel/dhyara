@@ -1,3 +1,4 @@
+<!-- HTML header for doxygen 1.9.1-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -6,6 +7,13 @@
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Dhyara: includes/dhyara/peer.h Source File</title>
+<script>
+function togglemenu(){
+    let nav = document.getElementById("main-nav");
+    const style = nav.style.display;
+    nav.style.display = (style == 'none') ? 'block' : 'none';
+}
+</script>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -16,12 +24,15 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css" />
 <link href="qtify.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
 <div id="titlearea">
+<div id="togglenav" onclick="togglemenu()">
+&#9776;
+</div>
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
@@ -190,7 +201,7 @@ $(document).ready(function(){initNavTree('peer_8h_source.html',''); initResizabl
 <div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    </div>
 <div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;}</div>
 <div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160; </div>
-<div class="line"><a name="l00218"></a><span class="lineno"><a class="line" href="namespacestd.html">  218</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacestd.html">std</a> {</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;<span class="keyword">namespace </span>std {</div>
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160; </div>
 <div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;<span class="keyword">template</span> &lt;&gt;</div>
 <div class="line"><a name="l00221"></a><span class="lineno"><a class="line" href="structstd_1_1hash_3_01dhyara_1_1peer__address_01_4.html">  221</a></span>&#160;<span class="keyword">struct </span>hash&lt;<a class="code" href="namespacedhyara.html">dhyara</a>::peer_address&gt;{</div>
@@ -243,7 +254,6 @@ $(document).ready(function(){initNavTree('peer_8h_source.html',''); initResizabl
 <div class="ttc" id="astructdhyara_1_1peer__address_html_a0e89a05cb4d854fadc14897a089a0dad"><div class="ttname"><a href="structdhyara_1_1peer__address.html#a0e89a05cb4d854fadc14897a089a0dad">dhyara::peer_address::is_null</a></div><div class="ttdeci">bool is_null() const</div><div class="ttdoc">check whether the mac address is null</div><div class="ttdef"><b>Definition:</b> <a href="peer_8h_source.html#l00131">peer.h:131</a></div></div>
 <div class="ttc" id="anamespacedhyara_html_ac8accaf09ed4c846b1c463a9b89ee992"><div class="ttname"><a href="namespacedhyara.html#ac8accaf09ed4c846b1c463a9b89ee992">dhyara::operator&lt;&lt;</a></div><div class="ttdeci">std::ostream &amp; operator&lt;&lt;(std::ostream &amp;os, const dhyara::peer::address &amp;address)</div></div>
 <div class="ttc" id="astructstd_1_1hash_3_01dhyara_1_1peer__address_01_4_html_a7cbadb750d9ab8175ae44ddf1929faac"><div class="ttname"><a href="structstd_1_1hash_3_01dhyara_1_1peer__address_01_4.html#a7cbadb750d9ab8175ae44ddf1929faac">std::hash&lt; dhyara::peer_address &gt;::operator()</a></div><div class="ttdeci">std::uint64_t operator()(const dhyara::peer_address &amp;addr) const</div><div class="ttdef"><b>Definition:</b> <a href="peer_8h_source.html#l00222">peer.h:222</a></div></div>
-<div class="ttc" id="anamespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div><div class="ttdef"><b>Definition:</b> <a href="peer_8h_source.html#l00218">peer.h:218</a></div></div>
 <div class="ttc" id="astructdhyara_1_1peer__address_html_aabc29862808426f70dc57f8d87f9c346"><div class="ttname"><a href="structdhyara_1_1peer__address.html#aabc29862808426f70dc57f8d87f9c346">dhyara::peer_address::raw</a></div><div class="ttdeci">const std::uint8_t * raw() const</div><div class="ttdoc">raw array</div><div class="ttdef"><b>Definition:</b> <a href="peer_8h_source.html#l00065">peer.h:65</a></div></div>
 <div class="ttc" id="astructdhyara_1_1peer__address_html_a640a69e0edc54e4d80870b58e9853d9e"><div class="ttname"><a href="structdhyara_1_1peer__address.html#a640a69e0edc54e4d80870b58e9853d9e">dhyara::peer_address::operator!=</a></div><div class="ttdeci">bool operator!=(const peer_address &amp;other) const</div><div class="ttdoc">Comparator.</div><div class="ttdef"><b>Definition:</b> <a href="peer_8h_source.html#l00109">peer.h:109</a></div></div>
 <div class="ttc" id="astructdhyara_1_1peer_html_aea88a6a24459b4f1d951711268812417"><div class="ttname"><a href="structdhyara_1_1peer.html#aea88a6a24459b4f1d951711268812417">dhyara::peer::peer</a></div><div class="ttdeci">peer(const address &amp;addr)</div></div>
@@ -254,13 +264,12 @@ $(document).ready(function(){initNavTree('peer_8h_source.html',''); initResizabl
 <div class="ttc" id="astructdhyara_1_1peer__address_html_ad86931191672fda181fc50771e638b34"><div class="ttname"><a href="structdhyara_1_1peer__address.html#ad86931191672fda181fc50771e638b34">dhyara::peer_address::peer_address</a></div><div class="ttdeci">peer_address(const container_type &amp;addr)</div><div class="ttdoc">construct mac address by an array</div></div>
 <div class="ttc" id="astructdhyara_1_1peer__address_html_a9e1965af3ba5bcd03eee4f16fb5873f9"><div class="ttname"><a href="structdhyara_1_1peer__address.html#a9e1965af3ba5bcd03eee4f16fb5873f9">dhyara::peer_address::all</a></div><div class="ttdeci">static peer_address all()</div><div class="ttdoc">broadcast mac</div><div class="ttdef"><b>Definition:</b> <a href="peer_8h_source.html#l00056">peer.h:56</a></div></div>
 <div class="ttc" id="astructdhyara_1_1peer_html_aa3f75941d2db077872c5990fb2abb019"><div class="ttname"><a href="structdhyara_1_1peer.html#aa3f75941d2db077872c5990fb2abb019">dhyara::peer::name</a></div><div class="ttdeci">void name(const std::string &amp;n)</div><div class="ttdef"><b>Definition:</b> <a href="peer_8h_source.html#l00190">peer.h:190</a></div></div>
+<!-- HTML footer for doxygen 1.9.1-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_09e761304027c904456130627fd4dcf5.html">includes</a></li><li class="navelem"><a class="el" href="dir_f7f3c0f391df97c74fff5c67413f6c88.html">dhyara</a></li><li class="navelem"><a class="el" href="peer_8h.html">peer.h</a></li>
-    <li class="footer">Generated by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.17 </li>
   </ul>
 </div>
 </body>

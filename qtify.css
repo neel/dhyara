@@ -25,6 +25,27 @@ body, table, div, p, dl {
     color: var(--fg-light);
 }
 
+#togglenav{
+    position: absolute;
+    top: 22px;
+    right: 10px;
+    display: none;
+}
+
+#main-nav{
+    display: block;
+}
+
+@media only screen and (max-device-width: 768px){
+    #togglenav{
+        display: block;
+    }
+    #main-nav{
+        display: none;
+    }
+}
+
+
 .icon{
     font-family: Arial, Helvetica;
     font-weight: bold;

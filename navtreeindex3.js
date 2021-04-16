@@ -1,6 +1,5 @@
 var NAVTREEINDEX3 =
 {
-"structdhyara_1_1watcher.html#a84aff4fc13360d24afb31faa593cd462":[9,0,0,19,3],
 "structdhyara_1_1watcher.html#a9ef281d282e356b371cce216d54b4d3f":[9,0,0,19,0],
 "structdhyara_1_1watcher.html#ab6282121beeec6c408df3286cd49cd11":[9,0,0,19,2],
 "structstd_1_1hash_3_01dhyara_1_1peer_01_4.html":[9,0,1,0],

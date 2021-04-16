@@ -1,3 +1,4 @@
+<!-- HTML header for doxygen 1.9.1-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -6,6 +7,13 @@
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Dhyara: includes/dhyara/packets/chunk.h Source File</title>
+<script>
+function togglemenu(){
+    let nav = document.getElementById("main-nav");
+    const style = nav.style.display;
+    nav.style.display = (style == 'none') ? 'block' : 'none';
+}
+</script>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -16,12 +24,15 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css" />
 <link href="qtify.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
 <div id="titlearea">
+<div id="togglenav" onclick="togglemenu()">
+&#9776;
+</div>
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
@@ -145,7 +156,7 @@ $(document).ready(function(){initNavTree('packets_2chunk_8h_source.html',''); in
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    }</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    </div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> InputIt&gt;</div>
-<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="structdhyara_1_1packets_1_1chunk.html#acf18dc3ba1ffe7fb8b03a0813d689c54">  111</a></span>&#160;    <span class="keyword">inline</span> <a class="code" href="structdhyara_1_1packets_1_1chunk.html#acf18dc3ba1ffe7fb8b03a0813d689c54">chunk</a>(<span class="keyword">const</span> <a class="code" href="structdhyara_1_1peer__address.html">dhyara::peer::address</a>&amp; <a class="code" href="structdhyara_1_1packets_1_1chunk.html#ae1219dec8825bca1d886af38001f39a9">target</a>, <span class="keyword">const</span> <a class="code" href="structdhyara_1_1peer__address.html">dhyara::peer::address</a>&amp; <a class="code" href="structdhyara_1_1packets_1_1chunk.html#a0c76502418330ed57a9d3508c64ecf96">source</a>, InputIt <a class="code" href="structdhyara_1_1packets_1_1chunk.html#afc95a131bccd685672ed680aa5e5a457">begin</a>, std::uint8_t <a class="code" href="structdhyara_1_1packets_1_1chunk.html#af2f27ce4398a7c955a884f96999e74ae">length</a>, std::uint8_t <a class="code" href="structdhyara_1_1packets_1_1chunk.html#a592368097ba3968c0a393a873b8e38e0">packet</a>, std::uint8_t <a class="code" href="structdhyara_1_1packets_1_1chunk.html#afe5af1f44a01083f2f6bff0e5f5340bf">pending</a> = 0): <a class="code" href="structdhyara_1_1packets_1_1chunk.html#a0b73be2694090e7ad42007794accde55">_header</a>(<a class="code" href="structdhyara_1_1packets_1_1chunk.html#ae1219dec8825bca1d886af38001f39a9">target</a>, <a class="code" href="structdhyara_1_1packets_1_1chunk.html#a0c76502418330ed57a9d3508c64ecf96">source</a>, <a class="code" href="namespacestd.html">std</a>::min(static_cast&lt;<a class="code" href="namespacestd.html">std</a>::uint8_t&gt;(<a class="code" href="structdhyara_1_1packets_1_1chunk.html#a706499e02f71fca56a45bebc41f7fa6aa0056fc847a1ec739f93dd86ecf503b1c">capacity</a>), <a class="code" href="structdhyara_1_1packets_1_1chunk.html#af2f27ce4398a7c955a884f96999e74ae">length</a>), <a class="code" href="structdhyara_1_1packets_1_1chunk.html#a592368097ba3968c0a393a873b8e38e0">packet</a>, <a class="code" href="structdhyara_1_1packets_1_1chunk.html#afe5af1f44a01083f2f6bff0e5f5340bf">pending</a>) {</div>
+<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="structdhyara_1_1packets_1_1chunk.html#acf18dc3ba1ffe7fb8b03a0813d689c54">  111</a></span>&#160;    <span class="keyword">inline</span> <a class="code" href="structdhyara_1_1packets_1_1chunk.html#acf18dc3ba1ffe7fb8b03a0813d689c54">chunk</a>(<span class="keyword">const</span> <a class="code" href="structdhyara_1_1peer__address.html">dhyara::peer::address</a>&amp; <a class="code" href="structdhyara_1_1packets_1_1chunk.html#ae1219dec8825bca1d886af38001f39a9">target</a>, <span class="keyword">const</span> <a class="code" href="structdhyara_1_1peer__address.html">dhyara::peer::address</a>&amp; <a class="code" href="structdhyara_1_1packets_1_1chunk.html#a0c76502418330ed57a9d3508c64ecf96">source</a>, InputIt <a class="code" href="structdhyara_1_1packets_1_1chunk.html#afc95a131bccd685672ed680aa5e5a457">begin</a>, std::uint8_t <a class="code" href="structdhyara_1_1packets_1_1chunk.html#af2f27ce4398a7c955a884f96999e74ae">length</a>, std::uint8_t <a class="code" href="structdhyara_1_1packets_1_1chunk.html#a592368097ba3968c0a393a873b8e38e0">packet</a>, std::uint8_t <a class="code" href="structdhyara_1_1packets_1_1chunk.html#afe5af1f44a01083f2f6bff0e5f5340bf">pending</a> = 0): <a class="code" href="structdhyara_1_1packets_1_1chunk.html#a0b73be2694090e7ad42007794accde55">_header</a>(<a class="code" href="structdhyara_1_1packets_1_1chunk.html#ae1219dec8825bca1d886af38001f39a9">target</a>, <a class="code" href="structdhyara_1_1packets_1_1chunk.html#a0c76502418330ed57a9d3508c64ecf96">source</a>, std::min(static_cast&lt;std::uint8_t&gt;(<a class="code" href="structdhyara_1_1packets_1_1chunk.html#a706499e02f71fca56a45bebc41f7fa6aa0056fc847a1ec739f93dd86ecf503b1c">capacity</a>), <a class="code" href="structdhyara_1_1packets_1_1chunk.html#af2f27ce4398a7c955a884f96999e74ae">length</a>), <a class="code" href="structdhyara_1_1packets_1_1chunk.html#a592368097ba3968c0a393a873b8e38e0">packet</a>, <a class="code" href="structdhyara_1_1packets_1_1chunk.html#afe5af1f44a01083f2f6bff0e5f5340bf">pending</a>) {</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        InputIt <a class="code" href="structdhyara_1_1packets_1_1chunk.html#ac7a7865cb9d3ddf2eebfa73bac58d34f">end</a> = <a class="code" href="structdhyara_1_1packets_1_1chunk.html#afc95a131bccd685672ed680aa5e5a457">begin</a> + <a class="code" href="structdhyara_1_1packets_1_1chunk.html#a0b73be2694090e7ad42007794accde55">_header</a>.<a class="code" href="structdhyara_1_1packets_1_1chunk__header.html#a2b6d65c2b698602a58940acc0707c933">length</a>();</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        std::copy(<a class="code" href="structdhyara_1_1packets_1_1chunk.html#afc95a131bccd685672ed680aa5e5a457">begin</a>, <a class="code" href="structdhyara_1_1packets_1_1chunk.html#ac7a7865cb9d3ddf2eebfa73bac58d34f">end</a>, <a class="code" href="structdhyara_1_1packets_1_1chunk.html#ae64d0af3a6ef9d69ad6a520fee37826a">_buffer</a>.begin());</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    }</div>
@@ -210,7 +221,6 @@ $(document).ready(function(){initNavTree('packets_2chunk_8h_source.html',''); in
 <div class="ttc" id="astructdhyara_1_1packets_1_1chunk__header_html_aeda8280fd70fbf6861acca7be4c91167"><div class="ttname"><a href="structdhyara_1_1packets_1_1chunk__header.html#aeda8280fd70fbf6861acca7be4c91167">dhyara::packets::chunk_header::size</a></div><div class="ttdeci">std::size_t size() const</div><div class="ttdoc">byte size of the header</div><div class="ttdef"><b>Definition:</b> <a href="packets_2chunk_8h_source.html#l00057">chunk.h:57</a></div></div>
 <div class="ttc" id="astructdhyara_1_1packets_1_1chunk__header_html_a97ed3c9acc059f68a8ccdf9781040b3a"><div class="ttname"><a href="structdhyara_1_1packets_1_1chunk__header.html#a97ed3c9acc059f68a8ccdf9781040b3a">dhyara::packets::chunk_header::target</a></div><div class="ttdeci">dhyara::peer::address target() const</div><div class="ttdoc">target MAC address of the chunk</div><div class="ttdef"><b>Definition:</b> <a href="packets_2chunk_8h_source.html#l00061">chunk.h:61</a></div></div>
 <div class="ttc" id="astructdhyara_1_1packets_1_1chunk__header_html_a61180a004421f95423ff26e9ce11b17e"><div class="ttname"><a href="structdhyara_1_1packets_1_1chunk__header.html#a61180a004421f95423ff26e9ce11b17e">dhyara::packets::chunk_header::pending</a></div><div class="ttdeci">std::uint8_t pending() const</div><div class="ttdoc">number of pending chunks after this</div><div class="ttdef"><b>Definition:</b> <a href="packets_2chunk_8h_source.html#l00073">chunk.h:73</a></div></div>
-<div class="ttc" id="anamespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div><div class="ttdef"><b>Definition:</b> <a href="peer_8h_source.html#l00218">peer.h:218</a></div></div>
 <div class="ttc" id="astructdhyara_1_1packets_1_1chunk__header_html_ae7ebdde566a3bf33d6944b30baf90def"><div class="ttname"><a href="structdhyara_1_1packets_1_1chunk__header.html#ae7ebdde566a3bf33d6944b30baf90def">dhyara::packets::chunk_header::source</a></div><div class="ttdeci">dhyara::peer::address source() const</div><div class="ttdoc">source MAC address of the chunk</div><div class="ttdef"><b>Definition:</b> <a href="packets_2chunk_8h_source.html#l00065">chunk.h:65</a></div></div>
 <div class="ttc" id="astructdhyara_1_1packets_1_1chunk_html_afe5af1f44a01083f2f6bff0e5f5340bf"><div class="ttname"><a href="structdhyara_1_1packets_1_1chunk.html#afe5af1f44a01083f2f6bff0e5f5340bf">dhyara::packets::chunk::pending</a></div><div class="ttdeci">std::uint8_t pending() const</div><div class="ttdoc">number of chunks pending after this</div><div class="ttdef"><b>Definition:</b> <a href="packets_2chunk_8h_source.html#l00161">chunk.h:161</a></div></div>
 <div class="ttc" id="astructdhyara_1_1packets_1_1chunk__header_html_a76e38317628f8e7c1cd31a2e413cb03b"><div class="ttname"><a href="structdhyara_1_1packets_1_1chunk__header.html#a76e38317628f8e7c1cd31a2e413cb03b">dhyara::packets::chunk_header::_target</a></div><div class="ttdeci">raw_address_type _target</div><div class="ttdef"><b>Definition:</b> <a href="packets_2chunk_8h_source.html#l00027">chunk.h:27</a></div></div>
@@ -222,13 +232,12 @@ $(document).ready(function(){initNavTree('packets_2chunk_8h_source.html',''); in
 <div class="ttc" id="astructdhyara_1_1peer__address_html_ad47febdc4c685b610eb7e7b63883c503"><div class="ttname"><a href="structdhyara_1_1peer__address.html#ad47febdc4c685b610eb7e7b63883c503">dhyara::peer_address::b6</a></div><div class="ttdeci">std::uint8_t b6() const</div><div class="ttdoc">sixth octed of the mac address</div><div class="ttdef"><b>Definition:</b> <a href="peer_8h_source.html#l00089">peer.h:89</a></div></div>
 <div class="ttc" id="astructdhyara_1_1packets_1_1chunk__header_html_ac2b979ae62cf6ca8b7e289376a87b588"><div class="ttname"><a href="structdhyara_1_1packets_1_1chunk__header.html#ac2b979ae62cf6ca8b7e289376a87b588">dhyara::packets::chunk_header::chunk_header</a></div><div class="ttdeci">chunk_header(const dhyara::peer::address &amp;target, const dhyara::peer::address &amp;source, std::uint8_t length, std::uint8_t packet, std::uint8_t pending=0)</div><div class="ttdoc">Construct a chunk header with provided parameters.</div><div class="ttdef"><b>Definition:</b> <a href="packets_2chunk_8h_source.html#l00045">chunk.h:45</a></div></div>
 <div class="ttc" id="astructdhyara_1_1packets_1_1chunk_html_af2f27ce4398a7c955a884f96999e74ae"><div class="ttname"><a href="structdhyara_1_1packets_1_1chunk.html#af2f27ce4398a7c955a884f96999e74ae">dhyara::packets::chunk::length</a></div><div class="ttdeci">std::uint8_t length() const</div><div class="ttdoc">length of the chunk</div><div class="ttdef"><b>Definition:</b> <a href="packets_2chunk_8h_source.html#l00145">chunk.h:145</a></div></div>
+<!-- HTML footer for doxygen 1.9.1-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_09e761304027c904456130627fd4dcf5.html">includes</a></li><li class="navelem"><a class="el" href="dir_f7f3c0f391df97c74fff5c67413f6c88.html">dhyara</a></li><li class="navelem"><a class="el" href="dir_8306a184a76653b2e13c56fe08a22361.html">packets</a></li><li class="navelem"><a class="el" href="packets_2chunk_8h.html">chunk.h</a></li>
-    <li class="footer">Generated by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.17 </li>
   </ul>
 </div>
 </body>

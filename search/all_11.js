@@ -17,9 +17,8 @@ var searchData=
   ['start_273',['start',['../structdhyara_1_1network.html#aadf3365c6a5506187b2f9c91ef4fdd0a',1,'dhyara::network']]],
   ['start_5frcv_274',['start_rcv',['../classdhyara_1_1link.html#a48d84ff3fff1d76658acfa4df424d943',1,'dhyara::link']]],
   ['start_5fsnd_275',['start_snd',['../classdhyara_1_1link.html#a379534b3f0faa7c9c927d9205ebec850',1,'dhyara::link']]],
-  ['std_276',['std',['../namespacestd.html',1,'']]],
-  ['sync_5fqueue_5fsize_277',['sync_queue_size',['../namespacedhyara.html#a8d3440d06fd4af0c050b6d060f756caf',1,'dhyara']]],
-  ['sync_5fqueue_5ftype_278',['sync_queue_type',['../structdhyara_1_1synchronizer.html#ab634118f5d6aaf86a10cad3d19d0e71f',1,'dhyara::synchronizer']]],
-  ['synchronizer_279',['synchronizer',['../structdhyara_1_1synchronizer.html',1,'dhyara::synchronizer'],['../structdhyara_1_1network.html#ae289d391b359a937d34f906a132b2696',1,'dhyara::network::synchronizer()'],['../structdhyara_1_1synchronizer.html#a8daf0ea3660c4ff21e4abe6e4fd5abfb',1,'dhyara::synchronizer::synchronizer(dhyara::link &amp;link)'],['../structdhyara_1_1synchronizer.html#a2453ea7e57316d8ab3bb98e17fad7fcf',1,'dhyara::synchronizer::synchronizer(const synchronizer &amp;)=delete']]],
-  ['synchronizer_2eh_280',['synchronizer.h',['../synchronizer_8h.html',1,'']]]
+  ['sync_5fqueue_5fsize_276',['sync_queue_size',['../namespacedhyara.html#a8d3440d06fd4af0c050b6d060f756caf',1,'dhyara']]],
+  ['sync_5fqueue_5ftype_277',['sync_queue_type',['../structdhyara_1_1synchronizer.html#ab634118f5d6aaf86a10cad3d19d0e71f',1,'dhyara::synchronizer']]],
+  ['synchronizer_278',['synchronizer',['../structdhyara_1_1synchronizer.html',1,'dhyara::synchronizer'],['../structdhyara_1_1network.html#ae289d391b359a937d34f906a132b2696',1,'dhyara::network::synchronizer()'],['../structdhyara_1_1synchronizer.html#a8daf0ea3660c4ff21e4abe6e4fd5abfb',1,'dhyara::synchronizer::synchronizer(dhyara::link &amp;link)'],['../structdhyara_1_1synchronizer.html#a2453ea7e57316d8ab3bb98e17fad7fcf',1,'dhyara::synchronizer::synchronizer(const synchronizer &amp;)=delete']]],
+  ['synchronizer_2eh_279',['synchronizer.h',['../synchronizer_8h.html',1,'']]]
 ];
