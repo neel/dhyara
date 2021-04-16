@@ -101,7 +101,8 @@ $(document).ready(function(){initNavTree('group__routing.html',''); initResizabl
 </div><!--header-->
 <div class="contents">
 
-<p>Dhyara Routing.  
+<p>Dhyara Routing module is responsible for maintaining the distributed routing table across the network. Each node <code>Xᵢ ∊ X</code> maintains a <b>routing table</b> of the following form which is gradually built up by the protocol. <br  />
+ Each row of this table denotes a route to a destination node (first column) via an intermediate nde (second column) and its corresponding delay. 0x0 is used to depict direct communication (not via any intermediate node).  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
@@ -117,7 +118,19 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Dhyara Routing. </p>
+<p>Dhyara Routing module is responsible for maintaining the distributed routing table across the network. Each node <code>Xᵢ ∊ X</code> maintains a <b>routing table</b> of the following form which is gradually built up by the protocol. <br  />
+ Each row of this table denotes a route to a destination node (first column) via an intermediate nde (second column) and its corresponding delay. 0x0 is used to depict direct communication (not via any intermediate node). </p>
+<div class="fragment"><div class="line">Xⱼ 0x0 𝛿ⱼ₀ ∀ j ≠ i</div>
+<div class="line">Xⱼ Xₖ  𝛿ⱼₖ ∀ j,k ≠ i and ∀ j ≠ k</div>
+</div><!-- fragment --><p>Based on this table a <b>best vector</b> is calculated</p>
+<div class="fragment"><div class="line">Xⱼ ← Min(y ∊ Intermediate(Xⱼ)) ∀ j ≠ i</div>
+</div><!-- fragment --><p>While sending data to <code>Xⱼ</code> the best vector is looked for the immediate neighbor</p>
+<h3><a class="anchor" id="autotoc_md3"></a>
+Neighbourhood Synchronization</h3>
+<p>If any operation on the routing table of <code>Xᵢ</code> alters the best route or the delay of the best route for destination <code>Xⱼ</code> then an <code>Advertisement</code> packet is sent to <code>∀ Xₖ ∊ X : k ≠ j</code> The Advertisement packet contains the destination node <code>Xⱼ</code> and <code>𝛿ⱼᵢ</code> the minimum delay to reach that node from <code>Xᵢ</code>. Node <code>Xᵢ</code> does not advertise the best intermediate node (which can be 0x0 also). If the best vector is not altered by routing table update then no <code>advertisement</code> packet is sent However if <code>∃ Xₖ ∊ X</code> for which no broadcast packet has been sent for a large amount of time then an advertisement packet is sent even if there is not change in the best vector.</p>
+<h3><a class="anchor" id="autotoc_md4"></a>
+Route Depreciation</h3>
+<p>If a node <code>Xᵢ</code> doesn't receive any beacon from node <code>Xⱼ</code> for a threshold, the delay of all routes involved with <code>Xᵢ</code> is doubled. Then thr routing table update follows the <code>sync_neighbors</code> routine. Once the delay reaches the integer boundary then the node is remove from thr routing table after transmiting the advertisement packet in the <code>sync_neighbours</code> routine. </p>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.9.1-->

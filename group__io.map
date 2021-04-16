@@ -1,4 +1,4 @@
 <map id="IO" name="IO">
-<area shape="rect" id="node1" title=" " alt="" coords="5,7,44,33"/>
-<area shape="rect" id="node2" href="$group__packets.html" title="Dhyara Packets." alt="" coords="225,7,296,33"/>
+<area shape="rect" id="node1" title="Serialization/Deserialization and Input/Output of the packets are performed in this module." alt="" coords="5,7,44,33"/>
+<area shape="rect" id="node2" href="$group__packets.html" title="Dhyara Packets provide definitions for all packets that are sent/received over the network." alt="" coords="225,7,296,33"/>
 </map>

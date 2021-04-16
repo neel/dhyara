@@ -103,21 +103,22 @@ $(document).ready(function(){initNavTree('group__packets.html',''); initResizabl
 </div><!--header-->
 <div class="contents">
 
-<p>Dhyara Packets.  
+<p>Dhyara Packets provide definitions for all packets that are sent/received over the network.  
 <a href="#details">More...</a></p>
 <div class="dynheader">
 Collaboration diagram for Packets:</div>
 <div class="dyncontent">
 <div class="center"><img src="group__packets.png" border="0" usemap="#group____packets" alt=""/></div>
 <map name="group____packets" id="group____packets">
-<area shape="rect" href="group__io.html" title=" " alt="" coords="257,5,296,31"/>
-<area shape="rect" title="Dhyara Packets." alt="" coords="5,5,76,31"/>
+<area shape="rect" href="group__io.html" title="Serialization/Deserialization and Input/Output of the packets are performed in this module." alt="" coords="257,5,296,31"/>
+<area shape="rect" title="Dhyara Packets provide definitions for all packets that are sent/received over the network." alt="" coords="5,5,76,31"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="groups"></a>
 Modules</h2></td></tr>
 <tr class="memitem:group__io"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__io.html">IO</a></td></tr>
+<tr class="memdesc:group__io"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serialization/Deserialization and Input/Output of the packets are performed in this module. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
@@ -179,7 +180,34 @@ Enumerations</h2></td></tr>
 <tr class="separator:ga587a117adc54019693a184e4f8b4e0b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Dhyara Packets. </p>
+<p>Dhyara Packets provide definitions for all packets that are sent/received over the network. </p>
+<h2><a class="anchor" id="autotoc_md5"></a>
+Basic</h2>
+<p>The following packets are used for maintaining the basic network.</p>
+<h3><a class="anchor" id="autotoc_md6"></a>
+Beacon (BCN)</h3>
+<p>Every node <code>x ∊ X</code> broadcasts a beacon packet at a fixed interval to <code>0xff:0xff:0xff:0xff:0xff:0xff</code>. The packet contains <code>Tx</code> (time at node <code>x</code>).</p>
+<h3><a class="anchor" id="autotoc_md7"></a>
+Acknowledgement (ACK)</h3>
+<p>A node <code>y ∊ X</code> when receives the broadcasted beacon, adds <code>x</code> to its peers and sends an acknowledgement packet to <code>x</code> with the same <code>Tx</code> of the beacon packet. The node <code>x</code> on receiving the acknowledgement calculates RTT as <code>(T - Tx)</code> where T is the current time on node <code>x</code>. The delay of one trip is calculated as <code>𝛿 = RTT / 2</code> The node <code>x</code> adds / updates <code>(x, y, 𝛿)</code> in its routing table and follows the <code>sync_neighbors</code> routine.</p>
+<h3><a class="anchor" id="autotoc_md8"></a>
+Advertisement (ADV)</h3>
+<p>An Advertisement packet originated from <code>Xᵢ</code> contains a destination mac <code>Xⱼ</code> and delay <code>d</code>. <code>Xₜ</code> updates route <code>(Xⱼ Xᵢ d + 𝛿ⱼᵢ)</code> in its routing table and follows the <code>sync_neighbors</code> routine. The value of is obtained from the existing routes in the routing table.</p>
+<h3><a class="anchor" id="autotoc_md9"></a>
+Data</h3>
+<p>ESP Now limits maximum size of payload in each frame to 250 bytes only. So variable length data like <a class="el" href="structdhyara_1_1packets_1_1data.html">dhyara::packets::data</a> is splitted into multiple chunks.</p>
+<h4><a class="anchor" id="autotoc_md10"></a>
+Chunk (CNK)</h4>
+<h4><a class="anchor" id="autotoc_md11"></a>
+Delivery Report (DLV)</h4>
+<h2><a class="anchor" id="autotoc_md12"></a>
+Auxilary</h2>
+<h3><a class="anchor" id="autotoc_md13"></a>
+ICMP over L2</h3>
+<h4><a class="anchor" id="autotoc_md14"></a>
+ICMP Request (ICMPQ)</h4>
+<h4><a class="anchor" id="autotoc_md15"></a>
+ICMP Reply (ICMPR)</h4>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
 <a id="ga587a117adc54019693a184e4f8b4e0b5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga587a117adc54019693a184e4f8b4e0b5">&#9670;&nbsp;</a></span>type</h2>
