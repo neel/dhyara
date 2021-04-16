@@ -98,7 +98,7 @@ $(document).ready(function(){initNavTree('io_8h_source.html',''); initResizable(
 <div class="title">io.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="io_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * Copyright (c) 2020, Sunanda Bose (a.k.a. Neel Basu)</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> * All rights reserved.</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * </span></div>
@@ -109,9 +109,9 @@ $(document).ready(function(){initNavTree('io_8h_source.html',''); initResizable(
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifndef DHYARA_PACKETS_IO_H</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define DHYARA_PACKETS_IO_H</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="serialization_8h.html">dhyara/packets/serialization.h</a>&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;dhyara/packets/serialization.h&quot;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacedhyara.html">dhyara</a>{</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span>dhyara{</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    </div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> PacketT, <span class="keyword">typename</span> OutIt&gt;</div>
 <div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="group__io.html#ga4ad2c87bab350b99de6805a397698bed">   21</a></span>&#160;OutIt <a class="code" href="group__io.html#ga4ad2c87bab350b99de6805a397698bed">write</a>(<span class="keyword">const</span> PacketT&amp; packet, OutIt output){</div>
@@ -130,15 +130,13 @@ $(document).ready(function(){initNavTree('io_8h_source.html',''); initResizable(
 </div><!-- doc-content -->
 <div class="ttc" id="astructdhyara_1_1serialization_html_adb3254a33f7dcc03a625294d1218cef7"><div class="ttname"><a href="structdhyara_1_1serialization.html#adb3254a33f7dcc03a625294d1218cef7">dhyara::serialization::read</a></div><div class="ttdeci">static InIt read(packet_type &amp;packet, InIt input, std::size_t length)</div><div class="ttdoc">deserializes a packet by reading length bytes from the input iterator</div><div class="ttdef"><b>Definition:</b> <a href="serialization_8h_source.html#l00045">serialization.h:45</a></div></div>
 <div class="ttc" id="agroup__io_html_ga4ad2c87bab350b99de6805a397698bed"><div class="ttname"><a href="group__io.html#ga4ad2c87bab350b99de6805a397698bed">dhyara::write</a></div><div class="ttdeci">OutIt write(const PacketT &amp;packet, OutIt output)</div><div class="ttdoc">write a packet</div><div class="ttdef"><b>Definition:</b> <a href="io_8h_source.html#l00021">io.h:21</a></div></div>
-<div class="ttc" id="anamespacedhyara_html"><div class="ttname"><a href="namespacedhyara.html">dhyara</a></div><div class="ttdef"><b>Definition:</b> <a href="actions_2acknowledgement_8h_source.html#l00016">acknowledgement.h:16</a></div></div>
-<div class="ttc" id="aserialization_8h_html"><div class="ttname"><a href="serialization_8h.html">serialization.h</a></div></div>
 <div class="ttc" id="astructdhyara_1_1serialization_html_a6fffb25d5d0a785cb1335681e74eb024"><div class="ttname"><a href="structdhyara_1_1serialization.html#a6fffb25d5d0a785cb1335681e74eb024">dhyara::serialization::write</a></div><div class="ttdeci">static OutIt write(const packet_type &amp;packet, OutIt output)</div><div class="ttdoc">serialize a packet and write to the output iterator</div><div class="ttdef"><b>Definition:</b> <a href="serialization_8h_source.html#l00032">serialization.h:32</a></div></div>
 <div class="ttc" id="agroup__io_html_ga1b83b801d54296c6cc9fc793b9141594"><div class="ttname"><a href="group__io.html#ga1b83b801d54296c6cc9fc793b9141594">dhyara::read</a></div><div class="ttdeci">InIt read(PacketT &amp;packet, InIt input, std::size_t length=0)</div><div class="ttdoc">read into a packet</div><div class="ttdef"><b>Definition:</b> <a href="io_8h_source.html#l00030">io.h:30</a></div></div>
 <!-- HTML footer for doxygen 1.9.1-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_09e761304027c904456130627fd4dcf5.html">includes</a></li><li class="navelem"><a class="el" href="dir_f7f3c0f391df97c74fff5c67413f6c88.html">dhyara</a></li><li class="navelem"><a class="el" href="dir_8306a184a76653b2e13c56fe08a22361.html">packets</a></li><li class="navelem"><a class="el" href="io_8h.html">io.h</a></li>
+    <li class="navelem"><a class="el" href="dir_09e761304027c904456130627fd4dcf5.html">includes</a></li><li class="navelem"><a class="el" href="dir_f7f3c0f391df97c74fff5c67413f6c88.html">dhyara</a></li><li class="navelem"><a class="el" href="dir_8306a184a76653b2e13c56fe08a22361.html">packets</a></li><li class="navelem"><b>io.h</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.17 </li>
   </ul>
 </div>

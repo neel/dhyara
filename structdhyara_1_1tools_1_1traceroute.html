@@ -96,6 +96,7 @@ $(document).ready(function(){initNavTree('structdhyara_1_1tools_1_1traceroute.ht
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="structdhyara_1_1tools_1_1traceroute-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">dhyara::tools::traceroute Struct Reference<div class="ingroups"><a class="el" href="group__tools.html">Tools</a></div></div>  </div>
@@ -106,21 +107,75 @@ $(document).ready(function(){initNavTree('structdhyara_1_1tools_1_1traceroute.ht
  <a href="structdhyara_1_1tools_1_1traceroute.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="traceroute_8h_source.html">traceroute.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for dhyara::tools::traceroute:</div>
+<div class="dyncontent">
+<div class="center"><img src="structdhyara_1_1tools_1_1traceroute__coll__graph.png" border="0" usemap="#dhyara_1_1tools_1_1traceroute_coll__map" alt="Collaboration graph"/></div>
+<map name="dhyara_1_1tools_1_1traceroute_coll__map" id="dhyara_1_1tools_1_1traceroute_coll__map">
+<area shape="rect" title="Perform a traceroute operation." alt="" coords="2332,263,2515,289"/>
+<area shape="rect" href="structdhyara_1_1peer__address.html" title="peer address (mac address)" alt="" coords="23,159,185,185"/>
+<area shape="rect" href="classdhyara_1_1link.html" title="Link is responsible for low level sending/receiving." alt="" coords="1041,453,1140,480"/>
+<area shape="rect" href="structdhyara_1_1message.html" title="Envelop for both to be sent and has been received messages." alt="" coords="369,159,504,185"/>
+<area shape="rect" href="structdhyara_1_1network.html" title="The dhyara ad&#45;hoc network." alt="" coords="2091,529,2219,556"/>
+<area shape="rect" href="structdhyara_1_1actions_1_1beacon.html" title="action to handle an incoming beacon packet" alt="" coords="1317,259,1495,285"/>
+<area shape="rect" href="structdhyara_1_1actions_1_1action.html" title=" " alt="" coords="993,284,1188,340"/>
+<area shape="rect" href="structdhyara_1_1actions_1_1chunk.html" title="action to handle an incoming chunk packet" alt="" coords="1321,208,1491,235"/>
+<area shape="rect" href="structdhyara_1_1actions_1_1advertisement.html" title="action to handle an incoming advertisement packet" alt="" coords="1673,435,1898,461"/>
+<area shape="rect" href="structdhyara_1_1synchronizer.html" title="Synchronize routes accross all nodes in the network." alt="" coords="1327,595,1485,621"/>
+<area shape="rect" href="structdhyara_1_1actions_1_1echo__lost.html" title="action to handle an incoming echo lost packet" alt="" coords="1310,697,1502,724"/>
+<area shape="rect" href="structdhyara_1_1actions_1_1echo__request.html" title="action to handle an incoming echo request packet" alt="" coords="1325,753,1487,794"/>
+<area shape="rect" href="structdhyara_1_1actions_1_1delivered.html" title="action to handle an incoming delivery report" alt="" coords="1311,823,1501,849"/>
+<area shape="rect" href="structdhyara_1_1actions_1_1echo__reply.html" title="action to handle an incoming echo reply packet" alt="" coords="1325,141,1487,182"/>
+<area shape="rect" href="structdhyara_1_1actions_1_1acknowledgement.html" title="action to handle an incoming acknowledgement packet" alt="" coords="1660,529,1911,556"/>
+<area shape="rect" href="structdhyara_1_1notifier.html" title="notifier" alt="" coords="697,587,819,613"/>
+<area shape="rect" href="structdhyara_1_1watcher.html" title=" " alt="" coords="344,587,529,613"/>
+<area shape="rect" href="classdhyara_1_1xqueue.html" title=" " alt="" coords="5,587,203,613"/>
+<area shape="rect" href="classdhyara_1_1xqueue.html" title=" " alt="" coords="663,405,853,461"/>
+<area shape="rect" href="structdhyara_1_1neighbourhood.html" title="Neighbourhood of a node." alt="" coords="672,485,844,512"/>
+<area shape="rect" href="structdhyara_1_1routing.html" title="routing table" alt="" coords="697,536,819,563"/>
+<area shape="rect" href="structdhyara_1_1frame.html" title="A 250 bytes frame is defined by a 2 bytes header and 248 bytes payload." alt="" coords="47,332,161,359"/>
+<area shape="rect" href="structdhyara_1_1network__fifo.html" title=" " alt="" coords="669,210,847,251"/>
+<area shape="rect" href="classdhyara_1_1xqueue.html" title=" " alt="" coords="336,210,537,251"/>
+<area shape="rect" href="structdhyara_1_1actions_1_1action.html" title=" " alt="" coords="997,204,1184,260"/>
+<area shape="rect" href="structdhyara_1_1actions_1_1action.html" title=" " alt="" coords="1307,309,1505,365"/>
+<area shape="rect" href="classdhyara_1_1xqueue.html" title=" " alt="" coords="987,587,1194,629"/>
+<area shape="rect" href="structdhyara_1_1actions_1_1action.html" title=" " alt="" coords="985,713,1196,769"/>
+<area shape="rect" href="structdhyara_1_1actions_1_1action.html" title=" " alt="" coords="995,793,1186,849"/>
+<area shape="rect" href="structdhyara_1_1actions_1_1action.html" title=" " alt="" coords="986,873,1195,929"/>
+<area shape="rect" href="structdhyara_1_1actions_1_1action.html" title=" " alt="" coords="1005,124,1176,180"/>
+<area shape="rect" href="structdhyara_1_1actions_1_1echo__reply_1_1rtt__stat.html" title="RTT statistics, containing min, max, total and average values observed since last reset." alt="" coords="1010,58,1171,99"/>
+<area shape="rect" href="structdhyara_1_1actions_1_1action.html" title=" " alt="" coords="1295,515,1517,571"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aaa1d3c63c26b59e19c73c30cc16179db"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1tools_1_1traceroute.html#aaa1d3c63c26b59e19c73c30cc16179db">traceroute</a> (<a class="el" href="structdhyara_1_1network.html">dhyara::network</a> &amp;<a class="el" href="structdhyara_1_1network.html">network</a>, const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> &amp;target)</td></tr>
 <tr class="memdesc:aaa1d3c63c26b59e19c73c30cc16179db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a traceroute.  <a href="structdhyara_1_1tools_1_1traceroute.html#aaa1d3c63c26b59e19c73c30cc16179db">More...</a><br /></td></tr>
 <tr class="separator:aaa1d3c63c26b59e19c73c30cc16179db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae7aee95d988b347a8782bf04c15e95d7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1tools_1_1traceroute.html#ae7aee95d988b347a8782bf04c15e95d7">~traceroute</a> ()</td></tr>
-<tr class="memdesc:ae7aee95d988b347a8782bf04c15e95d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">release the connection with the echo_lost action  <a href="structdhyara_1_1tools_1_1traceroute.html#ae7aee95d988b347a8782bf04c15e95d7">More...</a><br /></td></tr>
+<tr class="memitem:ae7aee95d988b347a8782bf04c15e95d7"><td class="memItemLeft" align="right" valign="top"><a id="ae7aee95d988b347a8782bf04c15e95d7"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1tools_1_1traceroute.html#ae7aee95d988b347a8782bf04c15e95d7">~traceroute</a> ()</td></tr>
+<tr class="memdesc:ae7aee95d988b347a8782bf04c15e95d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">release the connection with the echo_lost action <br /></td></tr>
 <tr class="separator:ae7aee95d988b347a8782bf04c15e95d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afe32ccddc6954f1d6b30b85e0cfb2c7e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1tools_1_1traceroute.html#afe32ccddc6954f1d6b30b85e0cfb2c7e">operator()</a> ()</td></tr>
 <tr class="memdesc:afe32ccddc6954f1d6b30b85e0cfb2c7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run the traceroute.  <a href="structdhyara_1_1tools_1_1traceroute.html#afe32ccddc6954f1d6b30b85e0cfb2c7e">More...</a><br /></td></tr>
 <tr class="separator:afe32ccddc6954f1d6b30b85e0cfb2c7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa91b4dec3ee77fbb9479c8c22bc4f69f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1tools_1_1traceroute.html#aa91b4dec3ee77fbb9479c8c22bc4f69f">reset</a> ()</td></tr>
-<tr class="memdesc:aa91b4dec3ee77fbb9479c8c22bc4f69f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset before starting another traceroute.  <a href="structdhyara_1_1tools_1_1traceroute.html#aa91b4dec3ee77fbb9479c8c22bc4f69f">More...</a><br /></td></tr>
+<tr class="memitem:aa91b4dec3ee77fbb9479c8c22bc4f69f"><td class="memItemLeft" align="right" valign="top"><a id="aa91b4dec3ee77fbb9479c8c22bc4f69f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1tools_1_1traceroute.html#aa91b4dec3ee77fbb9479c8c22bc4f69f">reset</a> ()</td></tr>
+<tr class="memdesc:aa91b4dec3ee77fbb9479c8c22bc4f69f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset before starting another traceroute. <br /></td></tr>
 <tr class="separator:aa91b4dec3ee77fbb9479c8c22bc4f69f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:acde3d2487a98d59953aacf3fe487ae60"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1tools_1_1traceroute.html#acde3d2487a98d59953aacf3fe487ae60">run</a> (const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> &amp;target, std::uint8_t ttl)</td></tr>
+<tr class="memdesc:acde3d2487a98d59953aacf3fe487ae60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send an ICMP request with the ttl specified.  <a href="structdhyara_1_1tools_1_1traceroute.html#acde3d2487a98d59953aacf3fe487ae60">More...</a><br /></td></tr>
+<tr class="separator:acde3d2487a98d59953aacf3fe487ae60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90556482330d2a2218e464fad02f0992"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1tools_1_1traceroute.html#a90556482330d2a2218e464fad02f0992">lost</a> (const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> &amp;, const <a class="el" href="structdhyara_1_1packets_1_1echo__lost.html">dhyara::packets::echo_lost</a> &amp;lost)</td></tr>
+<tr class="memdesc:a90556482330d2a2218e464fad02f0992"><td class="mdescLeft">&#160;</td><td class="mdescRight">The callback to capture the lost packet and print the destination till which the previous ICMP request packet has reached.  <a href="structdhyara_1_1tools_1_1traceroute.html#a90556482330d2a2218e464fad02f0992">More...</a><br /></td></tr>
+<tr class="separator:a90556482330d2a2218e464fad02f0992"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26d00eede7ea7ada127959a039b62935"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1tools_1_1traceroute.html#a26d00eede7ea7ada127959a039b62935">reply</a> (const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> &amp;, const <a class="el" href="structdhyara_1_1packets_1_1echo__reply.html">dhyara::packets::echo_reply</a> &amp;reply)</td></tr>
+<tr class="memdesc:a26d00eede7ea7ada127959a039b62935"><td class="mdescLeft">&#160;</td><td class="mdescRight">The callback to capture the reply packet and print the destination till which the previous ICMP request packet has reached.  <a href="structdhyara_1_1tools_1_1traceroute.html#a26d00eede7ea7ada127959a039b62935">More...</a><br /></td></tr>
+<tr class="separator:a26d00eede7ea7ada127959a039b62935"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Perform a traceroute operation. </p>
@@ -164,26 +219,46 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ae7aee95d988b347a8782bf04c15e95d7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae7aee95d988b347a8782bf04c15e95d7">&#9670;&nbsp;</a></span>~traceroute()</h2>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a90556482330d2a2218e464fad02f0992"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90556482330d2a2218e464fad02f0992">&#9670;&nbsp;</a></span>lost()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">dhyara::tools::traceroute::~traceroute </td>
+          <td class="memname">void dhyara::tools::traceroute::lost </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const <a class="el" href="structdhyara_1_1packets_1_1echo__lost.html">dhyara::packets::echo_lost</a> &amp;&#160;</td>
+          <td class="paramname"><em>lost</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>release the connection with the echo_lost action </p>
+<p>The callback to capture the lost packet and print the destination till which the previous ICMP request packet has reached. </p>
+<p>If that destination is the desired destination then stop sending another ICMP request. Otherwise send another with increased ttl value. </p>
 
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
 <a id="afe32ccddc6954f1d6b30b85e0cfb2c7e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afe32ccddc6954f1d6b30b85e0cfb2c7e">&#9670;&nbsp;</a></span>operator()()</h2>
 
@@ -204,22 +279,87 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aa91b4dec3ee77fbb9479c8c22bc4f69f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa91b4dec3ee77fbb9479c8c22bc4f69f">&#9670;&nbsp;</a></span>reset()</h2>
+<a id="a26d00eede7ea7ada127959a039b62935"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26d00eede7ea7ada127959a039b62935">&#9670;&nbsp;</a></span>reply()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void dhyara::tools::traceroute::reset </td>
+          <td class="memname">void dhyara::tools::traceroute::reply </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const <a class="el" href="structdhyara_1_1packets_1_1echo__reply.html">dhyara::packets::echo_reply</a> &amp;&#160;</td>
+          <td class="paramname"><em>reply</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Reset before starting another traceroute. </p>
+<p>The callback to capture the reply packet and print the destination till which the previous ICMP request packet has reached. </p>
+<p>If that destination is the desired destination then stop sending another ICMP request. Otherwise send another with increased ttl value. </p>
+
+</div>
+</div>
+<a id="acde3d2487a98d59953aacf3fe487ae60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acde3d2487a98d59953aacf3fe487ae60">&#9670;&nbsp;</a></span>run()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void dhyara::tools::traceroute::run </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> &amp;&#160;</td>
+          <td class="paramname"><em>target</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::uint8_t&#160;</td>
+          <td class="paramname"><em>ttl</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Send an ICMP request with the ttl specified. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target</td><td>the destination mac address </td></tr>
+    <tr><td class="paramname">ttl</td><td>TTL of the ICMP request which is to be sent </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -232,7 +372,7 @@ Public Member Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacedhyara.html">dhyara</a></li><li class="navelem"><a class="el" href="namespacedhyara_1_1tools.html">tools</a></li><li class="navelem"><a class="el" href="structdhyara_1_1tools_1_1traceroute.html">traceroute</a></li>
+    <li class="navelem"><b>dhyara</b></li><li class="navelem"><b>tools</b></li><li class="navelem"><a class="el" href="structdhyara_1_1tools_1_1traceroute.html">traceroute</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.17 </li>
   </ul>
 </div>

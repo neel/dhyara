@@ -95,9 +95,7 @@ $(document).ready(function(){initNavTree('structdhyara_1_1packets_1_1advertiseme
 
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="structdhyara_1_1packets_1_1advertisement-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">dhyara::packets::advertisement Struct Reference<div class="ingroups"><a class="el" href="group__packets.html">Packets</a></div></div>  </div>
@@ -108,111 +106,37 @@ $(document).ready(function(){initNavTree('structdhyara_1_1packets_1_1advertiseme
  <a href="structdhyara_1_1packets_1_1advertisement.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="packets_2advertisement_8h_source.html">advertisement.h</a>&gt;</code></p>
-<div class="dynheader">
-Collaboration diagram for dhyara::packets::advertisement:</div>
-<div class="dyncontent">
-<div class="center"><img src="structdhyara_1_1packets_1_1advertisement__coll__graph.png" border="0" usemap="#dhyara_1_1packets_1_1advertisement_coll__map" alt="Collaboration graph"/></div>
-<map name="dhyara_1_1packets_1_1advertisement_coll__map" id="dhyara_1_1packets_1_1advertisement_coll__map">
-<area shape="rect" title="advertisement packet sent after an acknowledgement packet is received." alt="" coords="5,109,233,136"/>
-<area shape="rect" title=" " alt="" coords="39,5,199,47"/>
-</map>
-<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:a7f4047cf1da13c5d9ce4201578e5d4d6"><td class="memItemLeft" align="right" valign="top">typedef std::array&lt; std::uint8_t, 6 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1packets_1_1advertisement.html#a7f4047cf1da13c5d9ce4201578e5d4d6">raw_address_type</a></td></tr>
-<tr class="separator:a7f4047cf1da13c5d9ce4201578e5d4d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1f2c6de70f75715e15425da9bcf3a579"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1packets_1_1advertisement.html#a1f2c6de70f75715e15425da9bcf3a579">advertisement</a> ()</td></tr>
-<tr class="memdesc:a1f2c6de70f75715e15425da9bcf3a579"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct an advertisement packet with null destination and no delay.  <a href="structdhyara_1_1packets_1_1advertisement.html#a1f2c6de70f75715e15425da9bcf3a579">More...</a><br /></td></tr>
+<tr class="memitem:a1f2c6de70f75715e15425da9bcf3a579"><td class="memItemLeft" align="right" valign="top"><a id="a1f2c6de70f75715e15425da9bcf3a579"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1packets_1_1advertisement.html#a1f2c6de70f75715e15425da9bcf3a579">advertisement</a> ()</td></tr>
+<tr class="memdesc:a1f2c6de70f75715e15425da9bcf3a579"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct an advertisement packet with null destination and no delay. <br /></td></tr>
 <tr class="separator:a1f2c6de70f75715e15425da9bcf3a579"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac59a84b282b961fd68866f9491473a9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1packets_1_1advertisement.html#aac59a84b282b961fd68866f9491473a9">advertisement</a> (const <a class="el" href="structdhyara_1_1peer.html#ab47a3a3728c310f38d6f2064b81a80e1">dhyara::peer::address</a> &amp;<a class="el" href="structdhyara_1_1packets_1_1advertisement.html#aeeb3ccdb2fd0bd4c9f8cf7c4c13ce697">dest</a>, <a class="el" href="namespacedhyara.html#a40258d037f7e261f737381612d402a35">delay_type</a> <a class="el" href="structdhyara_1_1packets_1_1advertisement.html#a27a713440424b80493a0694c5ab6a6fe">delay</a>)</td></tr>
+<tr class="memitem:aac59a84b282b961fd68866f9491473a9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1packets_1_1advertisement.html#aac59a84b282b961fd68866f9491473a9">advertisement</a> (const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer::address</a> &amp;<a class="el" href="structdhyara_1_1packets_1_1advertisement.html#aeeb3ccdb2fd0bd4c9f8cf7c4c13ce697">dest</a>, delay_type <a class="el" href="structdhyara_1_1packets_1_1advertisement.html#a27a713440424b80493a0694c5ab6a6fe">delay</a>)</td></tr>
 <tr class="memdesc:aac59a84b282b961fd68866f9491473a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct an advertisement packet with the given destination and the delay specified.  <a href="structdhyara_1_1packets_1_1advertisement.html#aac59a84b282b961fd68866f9491473a9">More...</a><br /></td></tr>
 <tr class="separator:aac59a84b282b961fd68866f9491473a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa493edf76d104f4c28fc855af1072199"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1packets_1_1advertisement.html#aa493edf76d104f4c28fc855af1072199">size</a> () const</td></tr>
-<tr class="memdesc:aa493edf76d104f4c28fc855af1072199"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of the packet.  <a href="structdhyara_1_1packets_1_1advertisement.html#aa493edf76d104f4c28fc855af1072199">More...</a><br /></td></tr>
+<tr class="memitem:aa493edf76d104f4c28fc855af1072199"><td class="memItemLeft" align="right" valign="top"><a id="aa493edf76d104f4c28fc855af1072199"></a>
+std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1packets_1_1advertisement.html#aa493edf76d104f4c28fc855af1072199">size</a> () const</td></tr>
+<tr class="memdesc:aa493edf76d104f4c28fc855af1072199"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of the packet. <br /></td></tr>
 <tr class="separator:aa493edf76d104f4c28fc855af1072199"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeeb3ccdb2fd0bd4c9f8cf7c4c13ce697"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdhyara_1_1peer.html#ab47a3a3728c310f38d6f2064b81a80e1">dhyara::peer::address</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1packets_1_1advertisement.html#aeeb3ccdb2fd0bd4c9f8cf7c4c13ce697">dest</a> () const</td></tr>
-<tr class="memdesc:aeeb3ccdb2fd0bd4c9f8cf7c4c13ce697"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destination in the advertisement packet.  <a href="structdhyara_1_1packets_1_1advertisement.html#aeeb3ccdb2fd0bd4c9f8cf7c4c13ce697">More...</a><br /></td></tr>
+<tr class="memitem:aeeb3ccdb2fd0bd4c9f8cf7c4c13ce697"><td class="memItemLeft" align="right" valign="top"><a id="aeeb3ccdb2fd0bd4c9f8cf7c4c13ce697"></a>
+<a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer::address</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1packets_1_1advertisement.html#aeeb3ccdb2fd0bd4c9f8cf7c4c13ce697">dest</a> () const</td></tr>
+<tr class="memdesc:aeeb3ccdb2fd0bd4c9f8cf7c4c13ce697"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destination in the advertisement packet. <br /></td></tr>
 <tr class="separator:aeeb3ccdb2fd0bd4c9f8cf7c4c13ce697"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27a713440424b80493a0694c5ab6a6fe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacedhyara.html#a40258d037f7e261f737381612d402a35">delay_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1packets_1_1advertisement.html#a27a713440424b80493a0694c5ab6a6fe">delay</a> () const</td></tr>
-<tr class="memdesc:a27a713440424b80493a0694c5ab6a6fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delay in teh advertisement packet.  <a href="structdhyara_1_1packets_1_1advertisement.html#a27a713440424b80493a0694c5ab6a6fe">More...</a><br /></td></tr>
+<tr class="memitem:a27a713440424b80493a0694c5ab6a6fe"><td class="memItemLeft" align="right" valign="top"><a id="a27a713440424b80493a0694c5ab6a6fe"></a>
+delay_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1packets_1_1advertisement.html#a27a713440424b80493a0694c5ab6a6fe">delay</a> () const</td></tr>
+<tr class="memdesc:a27a713440424b80493a0694c5ab6a6fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delay in teh advertisement packet. <br /></td></tr>
 <tr class="separator:a27a713440424b80493a0694c5ab6a6fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:abd0e6d95a638e1a0c71ebb787dc319f5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdhyara_1_1packets_1_1advertisement.html#a7f4047cf1da13c5d9ce4201578e5d4d6">raw_address_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1packets_1_1advertisement.html#abd0e6d95a638e1a0c71ebb787dc319f5">_dest</a></td></tr>
-<tr class="separator:abd0e6d95a638e1a0c71ebb787dc319f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec18b72a0fdeeb74c44d0b171c1e69d5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacedhyara.html#a40258d037f7e261f737381612d402a35">delay_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1packets_1_1advertisement.html#aec18b72a0fdeeb74c44d0b171c1e69d5">_delay</a></td></tr>
-<tr class="separator:aec18b72a0fdeeb74c44d0b171c1e69d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>advertisement packet sent after an acknowledgement packet is received. </p>
 <p>The advertisement packet contains route information about a neighbour. The route information includes one trip delay. </p>
 
 <p class="definition">Definition at line <a class="el" href="packets_2advertisement_8h_source.html#l00027">27</a> of file <a class="el" href="packets_2advertisement_8h_source.html">advertisement.h</a>.</p>
-</div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a7f4047cf1da13c5d9ce4201578e5d4d6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7f4047cf1da13c5d9ce4201578e5d4d6">&#9670;&nbsp;</a></span>raw_address_type</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef std::array&lt;std::uint8_t, 6&gt; <a class="el" href="structdhyara_1_1packets_1_1advertisement.html#a7f4047cf1da13c5d9ce4201578e5d4d6">dhyara::packets::advertisement::raw_address_type</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="packets_2advertisement_8h_source.html#l00028">28</a> of file <a class="el" href="packets_2advertisement_8h_source.html">advertisement.h</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a1f2c6de70f75715e15425da9bcf3a579"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1f2c6de70f75715e15425da9bcf3a579">&#9670;&nbsp;</a></span>advertisement() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">dhyara::packets::advertisement::advertisement </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Construct an advertisement packet with null destination and no delay. </p>
-
-<p class="definition">Definition at line <a class="el" href="packets_2advertisement_8h_source.html#l00036">36</a> of file <a class="el" href="packets_2advertisement_8h_source.html">advertisement.h</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="packets_2advertisement_8h_source.html#l00049">size()</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="structdhyara_1_1packets_1_1advertisement_a1f2c6de70f75715e15425da9bcf3a579_icgraph.png" border="0" usemap="#structdhyara_1_1packets_1_1advertisement_a1f2c6de70f75715e15425da9bcf3a579_icgraph" alt=""/></div>
-<map name="structdhyara_1_1packets_1_1advertisement_a1f2c6de70f75715e15425da9bcf3a579_icgraph" id="structdhyara_1_1packets_1_1advertisement_a1f2c6de70f75715e15425da9bcf3a579_icgraph">
-<area shape="rect" title="Construct an advertisement packet with null destination and no delay." alt="" coords="281,5,509,47"/>
-<area shape="rect" href="structdhyara_1_1packets_1_1advertisement.html#aa493edf76d104f4c28fc855af1072199" title="Size of the packet." alt="" coords="5,5,233,47"/>
-</map>
-</div>
-
-</div>
-</div>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aac59a84b282b961fd68866f9491473a9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aac59a84b282b961fd68866f9491473a9">&#9670;&nbsp;</a></span>advertisement() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aac59a84b282b961fd68866f9491473a9">&#9670;&nbsp;</a></span>advertisement()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -223,13 +147,13 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">dhyara::packets::advertisement::advertisement </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structdhyara_1_1peer.html#ab47a3a3728c310f38d6f2064b81a80e1">dhyara::peer::address</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer::address</a> &amp;&#160;</td>
           <td class="paramname"><em>dest</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="namespacedhyara.html#a40258d037f7e261f737381612d402a35">delay_type</a>&#160;</td>
+          <td class="paramtype">delay_type&#160;</td>
           <td class="paramname"><em>delay</em>&#160;</td>
         </tr>
         <tr>
@@ -260,148 +184,6 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a27a713440424b80493a0694c5ab6a6fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a27a713440424b80493a0694c5ab6a6fe">&#9670;&nbsp;</a></span>delay()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="namespacedhyara.html#a40258d037f7e261f737381612d402a35">delay_type</a> dhyara::packets::advertisement::delay </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Delay in teh advertisement packet. </p>
-
-<p class="definition">Definition at line <a class="el" href="packets_2advertisement_8h_source.html#l00057">57</a> of file <a class="el" href="packets_2advertisement_8h_source.html">advertisement.h</a>.</p>
-
-<p class="reference">References <a class="el" href="packets_2advertisement_8h_source.html#l00031">_delay</a>.</p>
-
-</div>
-</div>
-<a id="aeeb3ccdb2fd0bd4c9f8cf7c4c13ce697"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeeb3ccdb2fd0bd4c9f8cf7c4c13ce697">&#9670;&nbsp;</a></span>dest()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structdhyara_1_1peer.html#ab47a3a3728c310f38d6f2064b81a80e1">dhyara::peer::address</a> dhyara::packets::advertisement::dest </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Destination in the advertisement packet. </p>
-
-<p class="definition">Definition at line <a class="el" href="packets_2advertisement_8h_source.html#l00053">53</a> of file <a class="el" href="packets_2advertisement_8h_source.html">advertisement.h</a>.</p>
-
-<p class="reference">References <a class="el" href="packets_2advertisement_8h_source.html#l00030">_dest</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="packets_2advertisement_8h_source.html#l00043">advertisement()</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="structdhyara_1_1packets_1_1advertisement_aeeb3ccdb2fd0bd4c9f8cf7c4c13ce697_icgraph.png" border="0" usemap="#structdhyara_1_1packets_1_1advertisement_aeeb3ccdb2fd0bd4c9f8cf7c4c13ce697_icgraph" alt=""/></div>
-<map name="structdhyara_1_1packets_1_1advertisement_aeeb3ccdb2fd0bd4c9f8cf7c4c13ce697_icgraph" id="structdhyara_1_1packets_1_1advertisement_aeeb3ccdb2fd0bd4c9f8cf7c4c13ce697_icgraph">
-<area shape="rect" title="Destination in the advertisement packet." alt="" coords="281,5,509,47"/>
-<area shape="rect" href="structdhyara_1_1packets_1_1advertisement.html#aac59a84b282b961fd68866f9491473a9" title="Construct an advertisement packet with the given destination and the delay specified." alt="" coords="5,5,233,47"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="aa493edf76d104f4c28fc855af1072199"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa493edf76d104f4c28fc855af1072199">&#9670;&nbsp;</a></span>size()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::size_t dhyara::packets::advertisement::size </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Size of the packet. </p>
-
-<p class="definition">Definition at line <a class="el" href="packets_2advertisement_8h_source.html#l00049">49</a> of file <a class="el" href="packets_2advertisement_8h_source.html">advertisement.h</a>.</p>
-
-<p class="reference">References <a class="el" href="packets_2advertisement_8h_source.html#l00036">advertisement()</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="aec18b72a0fdeeb74c44d0b171c1e69d5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aec18b72a0fdeeb74c44d0b171c1e69d5">&#9670;&nbsp;</a></span>_delay</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="namespacedhyara.html#a40258d037f7e261f737381612d402a35">delay_type</a> dhyara::packets::advertisement::_delay</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="packets_2advertisement_8h_source.html#l00031">31</a> of file <a class="el" href="packets_2advertisement_8h_source.html">advertisement.h</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="packets_2advertisement_8h_source.html#l00057">delay()</a>.</p>
-
-</div>
-</div>
-<a id="abd0e6d95a638e1a0c71ebb787dc319f5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abd0e6d95a638e1a0c71ebb787dc319f5">&#9670;&nbsp;</a></span>_dest</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structdhyara_1_1packets_1_1advertisement.html#a7f4047cf1da13c5d9ce4201578e5d4d6">raw_address_type</a> dhyara::packets::advertisement::_dest</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="packets_2advertisement_8h_source.html#l00030">30</a> of file <a class="el" href="packets_2advertisement_8h_source.html">advertisement.h</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="packets_2advertisement_8h_source.html#l00053">dest()</a>.</p>
-
-</div>
-</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>includes/dhyara/packets/<a class="el" href="packets_2advertisement_8h_source.html">advertisement.h</a></li>
 </ul>
@@ -411,7 +193,7 @@ Here is the caller graph for this function:</div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacedhyara.html">dhyara</a></li><li class="navelem"><a class="el" href="namespacedhyara_1_1packets.html">packets</a></li><li class="navelem"><a class="el" href="structdhyara_1_1packets_1_1advertisement.html">advertisement</a></li>
+    <li class="navelem"><b>dhyara</b></li><li class="navelem"><b>packets</b></li><li class="navelem"><a class="el" href="structdhyara_1_1packets_1_1advertisement.html">advertisement</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.17 </li>
   </ul>
 </div>

@@ -1,8 +1,5 @@
 var structdhyara_1_1network__fifo =
 [
-    [ "callback_type", "structdhyara_1_1network__fifo.html#a6015844020545f4d223f4c1c3dbde9cb", null ],
-    [ "self_type", "structdhyara_1_1network__fifo.html#a21decb239670f9c2a66abf3ea9a690b5", null ],
-    [ "xqueue_type", "structdhyara_1_1network__fifo.html#af14341ea7339a07b0ce1b5c0a66fce28", null ],
     [ "network_fifo", "structdhyara_1_1network__fifo.html#a387cad5d89dcaa2a92edf8c527fc9a18", null ],
     [ "count", "structdhyara_1_1network__fifo.html#a850c9bc0b019e551967abf4dccd215bc", null ],
     [ "dequeue", "structdhyara_1_1network__fifo.html#a55eda47c85b77ade22804dfce0aee131", null ],

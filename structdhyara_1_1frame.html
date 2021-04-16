@@ -95,10 +95,8 @@ $(document).ready(function(){initNavTree('structdhyara_1_1frame.html',''); initR
 
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="structdhyara_1_1frame-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">dhyara::frame Struct Reference<div class="ingroups"><a class="el" href="group__packets.html">Packets</a></div></div>  </div>
@@ -110,15 +108,11 @@ $(document).ready(function(){initNavTree('structdhyara_1_1frame.html',''); initR
 
 <p><code>#include &lt;<a class="el" href="frame_8h_source.html">frame.h</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:afa969584acb41efbe5d3479650ddf962"><td class="memItemLeft" align="right" valign="top">typedef std::uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1frame.html#afa969584acb41efbe5d3479650ddf962">size_type</a></td></tr>
-<tr class="separator:afa969584acb41efbe5d3479650ddf962"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a6a24c711a13ca7ba2d2691aa7d43c092"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1frame.html#a6a24c711a13ca7ba2d2691aa7d43c092">frame</a> ()</td></tr>
-<tr class="memdesc:a6a24c711a13ca7ba2d2691aa7d43c092"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a frame that is supposed to contain a packet of unknown type.  <a href="structdhyara_1_1frame.html#a6a24c711a13ca7ba2d2691aa7d43c092">More...</a><br /></td></tr>
+<tr class="memitem:a6a24c711a13ca7ba2d2691aa7d43c092"><td class="memItemLeft" align="right" valign="top"><a id="a6a24c711a13ca7ba2d2691aa7d43c092"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1frame.html#a6a24c711a13ca7ba2d2691aa7d43c092">frame</a> ()</td></tr>
+<tr class="memdesc:a6a24c711a13ca7ba2d2691aa7d43c092"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a frame that is supposed to contain a packet of unknown type. <br /></td></tr>
 <tr class="separator:a6a24c711a13ca7ba2d2691aa7d43c092"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca83c4276419313c7378a0b0adbb2cb5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1frame.html#aca83c4276419313c7378a0b0adbb2cb5">frame</a> (<a class="el" href="group__packets.html#ga587a117adc54019693a184e4f8b4e0b5">packets::type</a> <a class="el" href="structdhyara_1_1frame.html#aee2168b3d0cc134007eed1e5740d4a18">type</a>)</td></tr>
 <tr class="memdesc:aca83c4276419313c7378a0b0adbb2cb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a frame that is supposed to contain a packet of the given type.  <a href="structdhyara_1_1frame.html#aca83c4276419313c7378a0b0adbb2cb5">More...</a><br /></td></tr>
@@ -126,26 +120,32 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7456e6c44389d45c8ea0a3418ff3c1dd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1frame.html#a7456e6c44389d45c8ea0a3418ff3c1dd">frame</a> (<a class="el" href="group__packets.html#ga587a117adc54019693a184e4f8b4e0b5">packets::type</a> <a class="el" href="structdhyara_1_1frame.html#aee2168b3d0cc134007eed1e5740d4a18">type</a>, std::size_t len)</td></tr>
 <tr class="memdesc:a7456e6c44389d45c8ea0a3418ff3c1dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a frame of provided payload payload that is supposed to contain a packet of the given type.  <a href="structdhyara_1_1frame.html#a7456e6c44389d45c8ea0a3418ff3c1dd">More...</a><br /></td></tr>
 <tr class="separator:a7456e6c44389d45c8ea0a3418ff3c1dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a17346bf88c8ae5b1f1748b6ef2acce2d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1frame.html#a17346bf88c8ae5b1f1748b6ef2acce2d">valid</a> () const</td></tr>
-<tr class="memdesc:a17346bf88c8ae5b1f1748b6ef2acce2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">CHecks whether the frame is valid or not.  <a href="structdhyara_1_1frame.html#a17346bf88c8ae5b1f1748b6ef2acce2d">More...</a><br /></td></tr>
+<tr class="memitem:a17346bf88c8ae5b1f1748b6ef2acce2d"><td class="memItemLeft" align="right" valign="top"><a id="a17346bf88c8ae5b1f1748b6ef2acce2d"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1frame.html#a17346bf88c8ae5b1f1748b6ef2acce2d">valid</a> () const</td></tr>
+<tr class="memdesc:a17346bf88c8ae5b1f1748b6ef2acce2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">CHecks whether the frame is valid or not. <br /></td></tr>
 <tr class="separator:a17346bf88c8ae5b1f1748b6ef2acce2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee2168b3d0cc134007eed1e5740d4a18"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__packets.html#ga587a117adc54019693a184e4f8b4e0b5">packets::type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1frame.html#aee2168b3d0cc134007eed1e5740d4a18">type</a> () const</td></tr>
-<tr class="memdesc:aee2168b3d0cc134007eed1e5740d4a18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Packet type in the frame.  <a href="structdhyara_1_1frame.html#aee2168b3d0cc134007eed1e5740d4a18">More...</a><br /></td></tr>
+<tr class="memitem:aee2168b3d0cc134007eed1e5740d4a18"><td class="memItemLeft" align="right" valign="top"><a id="aee2168b3d0cc134007eed1e5740d4a18"></a>
+<a class="el" href="group__packets.html#ga587a117adc54019693a184e4f8b4e0b5">packets::type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1frame.html#aee2168b3d0cc134007eed1e5740d4a18">type</a> () const</td></tr>
+<tr class="memdesc:aee2168b3d0cc134007eed1e5740d4a18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Packet type in the frame. <br /></td></tr>
 <tr class="separator:aee2168b3d0cc134007eed1e5740d4a18"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a7cb611026b240fa44528b259824047"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1frame.html#a4a7cb611026b240fa44528b259824047">length</a> () const</td></tr>
-<tr class="memdesc:a4a7cb611026b240fa44528b259824047"><td class="mdescLeft">&#160;</td><td class="mdescRight">Length of the frame.  <a href="structdhyara_1_1frame.html#a4a7cb611026b240fa44528b259824047">More...</a><br /></td></tr>
+<tr class="memitem:a4a7cb611026b240fa44528b259824047"><td class="memItemLeft" align="right" valign="top"><a id="a4a7cb611026b240fa44528b259824047"></a>
+std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1frame.html#a4a7cb611026b240fa44528b259824047">length</a> () const</td></tr>
+<tr class="memdesc:a4a7cb611026b240fa44528b259824047"><td class="mdescLeft">&#160;</td><td class="mdescRight">Length of the frame. <br /></td></tr>
 <tr class="separator:a4a7cb611026b240fa44528b259824047"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a89311feee64ed9e3100ae21890492d4b"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1frame.html#a89311feee64ed9e3100ae21890492d4b">size</a> () const</td></tr>
-<tr class="memdesc:a89311feee64ed9e3100ae21890492d4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of the frame.  <a href="structdhyara_1_1frame.html#a89311feee64ed9e3100ae21890492d4b">More...</a><br /></td></tr>
+<tr class="memitem:a89311feee64ed9e3100ae21890492d4b"><td class="memItemLeft" align="right" valign="top"><a id="a89311feee64ed9e3100ae21890492d4b"></a>
+std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1frame.html#a89311feee64ed9e3100ae21890492d4b">size</a> () const</td></tr>
+<tr class="memdesc:a89311feee64ed9e3100ae21890492d4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of the frame. <br /></td></tr>
 <tr class="separator:a89311feee64ed9e3100ae21890492d4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a929a055075b3dec5f920e4cc2e57e846"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1frame.html#a929a055075b3dec5f920e4cc2e57e846">clear</a> ()</td></tr>
-<tr class="memdesc:a929a055075b3dec5f920e4cc2e57e846"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the frame, zerofills the internal buffer.  <a href="structdhyara_1_1frame.html#a929a055075b3dec5f920e4cc2e57e846">More...</a><br /></td></tr>
+<tr class="memitem:a929a055075b3dec5f920e4cc2e57e846"><td class="memItemLeft" align="right" valign="top"><a id="a929a055075b3dec5f920e4cc2e57e846"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1frame.html#a929a055075b3dec5f920e4cc2e57e846">clear</a> ()</td></tr>
+<tr class="memdesc:a929a055075b3dec5f920e4cc2e57e846"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the frame, zerofills the internal buffer. <br /></td></tr>
 <tr class="separator:a929a055075b3dec5f920e4cc2e57e846"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:acbad15c3e9986647993d943d7a74fbd3"><td class="memItemLeft" align="right" valign="top">static constexpr std::uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1frame.html#acbad15c3e9986647993d943d7a74fbd3">header_size</a> ()</td></tr>
-<tr class="memdesc:acbad15c3e9986647993d943d7a74fbd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of the header of the frame (2 bytes)  <a href="structdhyara_1_1frame.html#acbad15c3e9986647993d943d7a74fbd3">More...</a><br /></td></tr>
+<tr class="memitem:acbad15c3e9986647993d943d7a74fbd3"><td class="memItemLeft" align="right" valign="top"><a id="acbad15c3e9986647993d943d7a74fbd3"></a>
+static constexpr std::uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1frame.html#acbad15c3e9986647993d943d7a74fbd3">header_size</a> ()</td></tr>
+<tr class="memdesc:acbad15c3e9986647993d943d7a74fbd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of the header of the frame (2 bytes) <br /></td></tr>
 <tr class="separator:acbad15c3e9986647993d943d7a74fbd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad428874ae06aaf0869c44066fcd7cc4d"><td class="memTemplParams" colspan="2">template&lt;typename PacketT &gt; </td></tr>
 <tr class="memitem:ad428874ae06aaf0869c44066fcd7cc4d"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="structdhyara_1_1frame.html">frame</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structdhyara_1_1frame.html#ad428874ae06aaf0869c44066fcd7cc4d">create</a> (<a class="el" href="group__packets.html#ga587a117adc54019693a184e4f8b4e0b5">packets::type</a> <a class="el" href="structdhyara_1_1frame.html#aee2168b3d0cc134007eed1e5740d4a18">type</a>, const PacketT &amp;packet)</td></tr>
@@ -155,83 +155,15 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ac9a354daa91a03a35a16101b6803eeec"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="structdhyara_1_1frame.html">frame</a> *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structdhyara_1_1frame.html#ac9a354daa91a03a35a16101b6803eeec">create_new</a> (<a class="el" href="group__packets.html#ga587a117adc54019693a184e4f8b4e0b5">packets::type</a> <a class="el" href="structdhyara_1_1frame.html#aee2168b3d0cc134007eed1e5740d4a18">type</a>, const PacketT &amp;packet)</td></tr>
 <tr class="memdesc:ac9a354daa91a03a35a16101b6803eeec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a frame on heap with teh given packet and a packet type.  <a href="structdhyara_1_1frame.html#ac9a354daa91a03a35a16101b6803eeec">More...</a><br /></td></tr>
 <tr class="separator:ac9a354daa91a03a35a16101b6803eeec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:a28de790d74a648d5f237c5939905d348"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__packets.html#ga587a117adc54019693a184e4f8b4e0b5">packets::type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1frame.html#a28de790d74a648d5f237c5939905d348">_type</a></td></tr>
-<tr class="separator:a28de790d74a648d5f237c5939905d348"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a5e5178102e7f1f71f5439db1f75d63"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdhyara_1_1frame.html#afa969584acb41efbe5d3479650ddf962">size_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1frame.html#a1a5e5178102e7f1f71f5439db1f75d63">_length</a></td></tr>
-<tr class="separator:a1a5e5178102e7f1f71f5439db1f75d63"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9e0bf0fda92447572a0be0c5aa154a9"><td class="memItemLeft" align="right" valign="top">std::uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1frame.html#af9e0bf0fda92447572a0be0c5aa154a9">_buffer</a> [248]</td></tr>
-<tr class="separator:af9e0bf0fda92447572a0be0c5aa154a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A 250 bytes frame is defined by a 2 bytes header and 248 bytes payload. </p>
 <p>The 2 bytes header insludes one byte for packet type and another byte for the length of the payload. </p>
 
 <p class="definition">Definition at line <a class="el" href="frame_8h_source.html#l00022">22</a> of file <a class="el" href="frame_8h_source.html">frame.h</a>.</p>
-</div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="afa969584acb41efbe5d3479650ddf962"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afa969584acb41efbe5d3479650ddf962">&#9670;&nbsp;</a></span>size_type</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef std::uint8_t <a class="el" href="structdhyara_1_1frame.html#afa969584acb41efbe5d3479650ddf962">dhyara::frame::size_type</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="frame_8h_source.html#l00023">23</a> of file <a class="el" href="frame_8h_source.html">frame.h</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a6a24c711a13ca7ba2d2691aa7d43c092"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6a24c711a13ca7ba2d2691aa7d43c092">&#9670;&nbsp;</a></span>frame() <span class="overload">[1/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">dhyara::frame::frame </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Construct a frame that is supposed to contain a packet of unknown type. </p>
-
-<p class="definition">Definition at line <a class="el" href="frame_8h_source.html#l00032">32</a> of file <a class="el" href="frame_8h_source.html">frame.h</a>.</p>
-
-<p class="reference">References <a class="el" href="frame_8h_source.html#l00027">_buffer</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="frame_8h_source.html#l00104">create_new()</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="structdhyara_1_1frame_a6a24c711a13ca7ba2d2691aa7d43c092_icgraph.png" border="0" usemap="#structdhyara_1_1frame_a6a24c711a13ca7ba2d2691aa7d43c092_icgraph" alt=""/></div>
-<map name="structdhyara_1_1frame_a6a24c711a13ca7ba2d2691aa7d43c092_icgraph" id="structdhyara_1_1frame_a6a24c711a13ca7ba2d2691aa7d43c092_icgraph">
-<area shape="rect" title="Construct a frame that is supposed to contain a packet of unknown type." alt="" coords="251,5,412,32"/>
-<area shape="rect" href="structdhyara_1_1frame.html#ac9a354daa91a03a35a16101b6803eeec" title="Creates a frame on heap with teh given packet and a packet type." alt="" coords="5,5,203,32"/>
-</map>
-</div>
-
-</div>
-</div>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aca83c4276419313c7378a0b0adbb2cb5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aca83c4276419313c7378a0b0adbb2cb5">&#9670;&nbsp;</a></span>frame() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aca83c4276419313c7378a0b0adbb2cb5">&#9670;&nbsp;</a></span>frame() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -264,12 +196,10 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="frame_8h_source.html#l00039">39</a> of file <a class="el" href="frame_8h_source.html">frame.h</a>.</p>
 
-<p class="reference">References <a class="el" href="frame_8h_source.html#l00027">_buffer</a>.</p>
-
 </div>
 </div>
 <a id="a7456e6c44389d45c8ea0a3418ff3c1dd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7456e6c44389d45c8ea0a3418ff3c1dd">&#9670;&nbsp;</a></span>frame() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7456e6c44389d45c8ea0a3418ff3c1dd">&#9670;&nbsp;</a></span>frame() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -313,54 +243,9 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="frame_8h_source.html#l00047">47</a> of file <a class="el" href="frame_8h_source.html">frame.h</a>.</p>
 
-<p class="reference">References <a class="el" href="frame_8h_source.html#l00027">_buffer</a>.</p>
-
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a929a055075b3dec5f920e4cc2e57e846"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a929a055075b3dec5f920e4cc2e57e846">&#9670;&nbsp;</a></span>clear()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void dhyara::frame::clear </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Clears the frame, zerofills the internal buffer. </p>
-
-<p class="definition">Definition at line <a class="el" href="frame_8h_source.html#l00079">79</a> of file <a class="el" href="frame_8h_source.html">frame.h</a>.</p>
-
-<p class="reference">References <a class="el" href="frame_8h_source.html#l00027">_buffer</a>, <a class="el" href="frame_8h_source.html#l00026">_length</a>, <a class="el" href="frame_8h_source.html#l00025">_type</a>, and <a class="el" href="group__packets.html#gga587a117adc54019693a184e4f8b4e0b5aad921d60486366258809553a3db49a4a">dhyara::packets::unknown</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="xqueue_8h_source.html#l00217">dhyara::message::clear()</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="structdhyara_1_1frame_a929a055075b3dec5f920e4cc2e57e846_icgraph.png" border="0" usemap="#structdhyara_1_1frame_a929a055075b3dec5f920e4cc2e57e846_icgraph" alt=""/></div>
-<map name="structdhyara_1_1frame_a929a055075b3dec5f920e4cc2e57e846_icgraph" id="structdhyara_1_1frame_a929a055075b3dec5f920e4cc2e57e846_icgraph">
-<area shape="rect" title="Clears the frame, zerofills the internal buffer." alt="" coords="439,20,593,47"/>
-<area shape="rect" href="structdhyara_1_1message.html#a2230c1c0b76ceea2041128a8368bda69" title=" " alt="" coords="216,20,391,47"/>
-<area shape="rect" href="structdhyara_1_1network__fifo.html#a39097c116723e96957ec82edae13c326" title="Start the receive loop that never returns." alt="" coords="5,5,168,61"/>
-</map>
-</div>
-
-</div>
-</div>
 <a id="ad428874ae06aaf0869c44066fcd7cc4d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad428874ae06aaf0869c44066fcd7cc4d">&#9670;&nbsp;</a></span>create()</h2>
 
@@ -409,7 +294,7 @@ template&lt;typename PacketT &gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="frame_8h_source.html#l00092">92</a> of file <a class="el" href="frame_8h_source.html">frame.h</a>.</p>
 
-<p class="reference">References <a class="el" href="frame_8h_source.html#l00027">_buffer</a>, <a class="el" href="frame_8h_source.html#l00066">type()</a>, and <a class="el" href="io_8h_source.html#l00021">dhyara::write()</a>.</p>
+<p class="reference">References <a class="el" href="frame_8h_source.html#l00066">type()</a>, and <a class="el" href="io_8h_source.html#l00021">dhyara::write()</a>.</p>
 
 </div>
 </div>
@@ -461,239 +346,7 @@ template&lt;typename PacketT &gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="frame_8h_source.html#l00104">104</a> of file <a class="el" href="frame_8h_source.html">frame.h</a>.</p>
 
-<p class="reference">References <a class="el" href="frame_8h_source.html#l00027">_buffer</a>, <a class="el" href="frame_8h_source.html#l00032">frame()</a>, <a class="el" href="frame_8h_source.html#l00066">type()</a>, and <a class="el" href="io_8h_source.html#l00021">dhyara::write()</a>.</p>
-
-</div>
-</div>
-<a id="acbad15c3e9986647993d943d7a74fbd3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acbad15c3e9986647993d943d7a74fbd3">&#9670;&nbsp;</a></span>header_size()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static constexpr std::uint8_t dhyara::frame::header_size </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Size of the header of the frame (2 bytes) </p>
-
-<p class="definition">Definition at line <a class="el" href="frame_8h_source.html#l00061">61</a> of file <a class="el" href="frame_8h_source.html">frame.h</a>.</p>
-
-</div>
-</div>
-<a id="a4a7cb611026b240fa44528b259824047"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4a7cb611026b240fa44528b259824047">&#9670;&nbsp;</a></span>length()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::size_t dhyara::frame::length </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Length of the frame. </p>
-
-<p class="definition">Definition at line <a class="el" href="frame_8h_source.html#l00070">70</a> of file <a class="el" href="frame_8h_source.html">frame.h</a>.</p>
-
-<p class="reference">References <a class="el" href="frame_8h_source.html#l00026">_length</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="action_8h_source.html#l00043">dhyara::actions::action&lt; echo_request, dhyara::packets::echo_request &gt;::operator()()</a>, and <a class="el" href="frame_8h_source.html#l00074">size()</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="structdhyara_1_1frame_a4a7cb611026b240fa44528b259824047_icgraph.png" border="0" usemap="#structdhyara_1_1frame_a4a7cb611026b240fa44528b259824047_icgraph" alt=""/></div>
-<map name="structdhyara_1_1frame_a4a7cb611026b240fa44528b259824047_icgraph" id="structdhyara_1_1frame_a4a7cb611026b240fa44528b259824047_icgraph">
-<area shape="rect" title="Length of the frame." alt="" coords="231,65,393,91"/>
-<area shape="rect" href="structdhyara_1_1actions_1_1action.html#a6273443e685fadf590c7e06c9981fd0d" title="Creates a packet from the received frame." alt="" coords="5,5,183,76"/>
-<area shape="rect" href="structdhyara_1_1frame.html#a89311feee64ed9e3100ae21890492d4b" title="Size of the frame." alt="" coords="20,101,168,127"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a89311feee64ed9e3100ae21890492d4b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a89311feee64ed9e3100ae21890492d4b">&#9670;&nbsp;</a></span>size()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::size_t dhyara::frame::size </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Size of the frame. </p>
-
-<p class="definition">Definition at line <a class="el" href="frame_8h_source.html#l00074">74</a> of file <a class="el" href="frame_8h_source.html">frame.h</a>.</p>
-
-<p class="reference">References <a class="el" href="frame_8h_source.html#l00070">length()</a>.</p>
-
-</div>
-</div>
-<a id="aee2168b3d0cc134007eed1e5740d4a18"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aee2168b3d0cc134007eed1e5740d4a18">&#9670;&nbsp;</a></span>type()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="group__packets.html#ga587a117adc54019693a184e4f8b4e0b5">packets::type</a> dhyara::frame::type </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Packet type in the frame. </p>
-
-<p class="definition">Definition at line <a class="el" href="frame_8h_source.html#l00066">66</a> of file <a class="el" href="frame_8h_source.html">frame.h</a>.</p>
-
-<p class="reference">References <a class="el" href="frame_8h_source.html#l00025">_type</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="frame_8h_source.html#l00092">create()</a>, and <a class="el" href="frame_8h_source.html#l00104">create_new()</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="structdhyara_1_1frame_aee2168b3d0cc134007eed1e5740d4a18_icgraph.png" border="0" usemap="#structdhyara_1_1frame_aee2168b3d0cc134007eed1e5740d4a18_icgraph" alt=""/></div>
-<map name="structdhyara_1_1frame_aee2168b3d0cc134007eed1e5740d4a18_icgraph" id="structdhyara_1_1frame_aee2168b3d0cc134007eed1e5740d4a18_icgraph">
-<area shape="rect" title="Packet type in the frame." alt="" coords="251,31,401,57"/>
-<area shape="rect" href="structdhyara_1_1frame.html#ad428874ae06aaf0869c44066fcd7cc4d" title="Create a frame from a packet and a packet type." alt="" coords="23,5,185,32"/>
-<area shape="rect" href="structdhyara_1_1frame.html#ac9a354daa91a03a35a16101b6803eeec" title="Creates a frame on heap with teh given packet and a packet type." alt="" coords="5,56,203,83"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a17346bf88c8ae5b1f1748b6ef2acce2d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a17346bf88c8ae5b1f1748b6ef2acce2d">&#9670;&nbsp;</a></span>valid()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool dhyara::frame::valid </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>CHecks whether the frame is valid or not. </p>
-
-<p class="definition">Definition at line <a class="el" href="frame_8h_source.html#l00054">54</a> of file <a class="el" href="frame_8h_source.html">frame.h</a>.</p>
-
-<p class="reference">References <a class="el" href="frame_8h_source.html#l00026">_length</a>, <a class="el" href="frame_8h_source.html#l00025">_type</a>, and <a class="el" href="group__packets.html#gga587a117adc54019693a184e4f8b4e0b5aad921d60486366258809553a3db49a4a">dhyara::packets::unknown</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="af9e0bf0fda92447572a0be0c5aa154a9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af9e0bf0fda92447572a0be0c5aa154a9">&#9670;&nbsp;</a></span>_buffer</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::uint8_t dhyara::frame::_buffer[248]</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="frame_8h_source.html#l00027">27</a> of file <a class="el" href="frame_8h_source.html">frame.h</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="frame_8h_source.html#l00079">clear()</a>, <a class="el" href="frame_8h_source.html#l00092">create()</a>, <a class="el" href="frame_8h_source.html#l00104">create_new()</a>, <a class="el" href="frame_8h_source.html#l00032">frame()</a>, <a class="el" href="action_8h_source.html#l00043">dhyara::actions::action&lt; echo_request, dhyara::packets::echo_request &gt;::operator()()</a>, and <a class="el" href="link_8h_source.html#l00078">dhyara::link::send_local()</a>.</p>
-
-</div>
-</div>
-<a id="a1a5e5178102e7f1f71f5439db1f75d63"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1a5e5178102e7f1f71f5439db1f75d63">&#9670;&nbsp;</a></span>_length</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structdhyara_1_1frame.html#afa969584acb41efbe5d3479650ddf962">size_type</a> dhyara::frame::_length</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="frame_8h_source.html#l00026">26</a> of file <a class="el" href="frame_8h_source.html">frame.h</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="frame_8h_source.html#l00079">clear()</a>, <a class="el" href="frame_8h_source.html#l00070">length()</a>, and <a class="el" href="frame_8h_source.html#l00054">valid()</a>.</p>
-
-</div>
-</div>
-<a id="a28de790d74a648d5f237c5939905d348"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a28de790d74a648d5f237c5939905d348">&#9670;&nbsp;</a></span>_type</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="group__packets.html#ga587a117adc54019693a184e4f8b4e0b5">packets::type</a> dhyara::frame::_type</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="frame_8h_source.html#l00025">25</a> of file <a class="el" href="frame_8h_source.html">frame.h</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="frame_8h_source.html#l00079">clear()</a>, <a class="el" href="frame_8h_source.html#l00066">type()</a>, and <a class="el" href="frame_8h_source.html#l00054">valid()</a>.</p>
+<p class="reference">References <a class="el" href="frame_8h_source.html#l00032">frame()</a>, <a class="el" href="frame_8h_source.html#l00066">type()</a>, and <a class="el" href="io_8h_source.html#l00021">dhyara::write()</a>.</p>
 
 </div>
 </div>
@@ -706,7 +359,7 @@ Here is the caller graph for this function:</div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacedhyara.html">dhyara</a></li><li class="navelem"><a class="el" href="structdhyara_1_1frame.html">frame</a></li>
+    <li class="navelem"><b>dhyara</b></li><li class="navelem"><a class="el" href="structdhyara_1_1frame.html">frame</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.17 </li>
   </ul>
 </div>

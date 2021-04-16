@@ -1,6 +1,5 @@
 var structdhyara_1_1peer__address =
 [
-    [ "container_type", "structdhyara_1_1peer__address.html#a34fc4401c9bc1f91f6b7c1d5449cc400", null ],
     [ "peer_address", "structdhyara_1_1peer__address.html#ad86931191672fda181fc50771e638b34", null ],
     [ "peer_address", "structdhyara_1_1peer__address.html#a51d6321024c2db6cf49e3678935edac9", null ],
     [ "peer_address", "structdhyara_1_1peer__address.html#a4dfe03c45d52def18ac9d797058eae7b", null ],

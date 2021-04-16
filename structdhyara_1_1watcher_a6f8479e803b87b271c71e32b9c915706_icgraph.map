@@ -1,5 +1,0 @@
-<map id="dhyara::watcher::notify" name="dhyara::watcher::notify">
-<area shape="rect" id="node1" title="notify the watcher" alt="" coords="221,31,393,57"/>
-<area shape="rect" id="node2" href="$structdhyara_1_1notifier.html#a4a0a8c97e37beadbc0cbfea7c73e9f28" title=" " alt="" coords="6,5,173,32"/>
-<area shape="rect" id="node3" href="$structdhyara_1_1mutex.html#ae7e8bbd70d2a4072ff32ee0e70b596eb" title=" " alt="" coords="5,56,173,83"/>
-</map>

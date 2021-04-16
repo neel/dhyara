@@ -6,7 +6,5 @@ var structdhyara_1_1packets_1_1beacon =
     [ "name", "structdhyara_1_1packets_1_1beacon.html#a9c5fcf8b2ee835f097d389ececf51a2a", null ],
     [ "name", "structdhyara_1_1packets_1_1beacon.html#a2cc396e19b558e7aaeacf57731fb26d9", null ],
     [ "size", "structdhyara_1_1packets_1_1beacon.html#aecc63dfa197e8b4d1b87d1d55f89fb4b", null ],
-    [ "time", "structdhyara_1_1packets_1_1beacon.html#afffd80083d54fb53a929c0ed586aa18c", null ],
-    [ "_name", "structdhyara_1_1packets_1_1beacon.html#a5276657e519d2ea3b1f625c39498e5bd", null ],
-    [ "_time", "structdhyara_1_1packets_1_1beacon.html#a534662cf4e74b788a939b2a5f19a1eb3", null ]
+    [ "time", "structdhyara_1_1packets_1_1beacon.html#afffd80083d54fb53a929c0ed586aa18c", null ]
 ];

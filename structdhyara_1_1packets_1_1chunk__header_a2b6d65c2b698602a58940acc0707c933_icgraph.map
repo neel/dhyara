@@ -1,6 +1,0 @@
-<map id="dhyara::packets::chunk_header::length" name="dhyara::packets::chunk_header::length">
-<area shape="rect" id="node1" title="length of the chunk" alt="" coords="477,26,649,68"/>
-<area shape="rect" id="node2" href="$structdhyara_1_1packets_1_1chunk.html#acf18dc3ba1ffe7fb8b03a0813d689c54" title="Construct a chunk by reading length bytes from begin iterator." alt="" coords="5,26,177,68"/>
-<area shape="rect" id="node3" href="$structdhyara_1_1packets_1_1chunk.html#ac1ca288a7fff3f359639c112418f313f" title="copy the contents of the chunk to the output iterator provided" alt="" coords="241,26,413,68"/>
-<area shape="rect" id="node4" href="$structdhyara_1_1packets_1_1chunk.html#ac7a7865cb9d3ddf2eebfa73bac58d34f" title="end of teh chunk payload" alt="" coords="225,92,429,119"/>
-</map>

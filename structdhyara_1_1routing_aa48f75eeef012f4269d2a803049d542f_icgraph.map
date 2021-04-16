@@ -1,4 +1,0 @@
-<map id="dhyara::routing::next" name="dhyara::routing::next">
-<area shape="rect" id="node1" title="next node to for the final destination dst" alt="" coords="192,5,351,32"/>
-<area shape="rect" id="node2" href="$classdhyara_1_1link.html#adc9c6543f44bb258ec27d169dfc2acaf" title="Sends a packet via the best intermediate node." alt="" coords="5,5,144,32"/>
-</map>

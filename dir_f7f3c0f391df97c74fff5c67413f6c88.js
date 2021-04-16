@@ -4,27 +4,16 @@ var dir_f7f3c0f391df97c74fff5c67413f6c88 =
     [ "packets", "dir_8306a184a76653b2e13c56fe08a22361.html", "dir_8306a184a76653b2e13c56fe08a22361" ],
     [ "tools", "dir_1fe1bb9127abd14a57005c34a7020e3d.html", "dir_1fe1bb9127abd14a57005c34a7020e3d" ],
     [ "utils", "dir_5342d3aa1e443377937e69c5f06c25a1.html", "dir_5342d3aa1e443377937e69c5f06c25a1" ],
-    [ "actions.h", "actions_8h.html", null ],
-    [ "defs.h", "defs_8h.html", "defs_8h" ],
-    [ "dhyara.h", "dhyara_8h.html", "dhyara_8h" ],
-    [ "frame.h", "frame_8h.html", null ],
-    [ "link.h", "link_8h.html", [
-      [ "proxy", "structdhyara_1_1link_1_1proxy.html", "structdhyara_1_1link_1_1proxy" ]
-    ] ],
-    [ "neighbourhood.h", "neighbourhood_8h.html", [
-      [ "neighbourhood", "structdhyara_1_1neighbourhood.html", "structdhyara_1_1neighbourhood" ]
-    ] ],
-    [ "network.h", "network_8h.html", null ],
-    [ "packets.h", "packets_8h.html", null ],
-    [ "peer.h", "peer_8h.html", "peer_8h" ],
-    [ "routing.h", "routing_8h.html", "routing_8h" ],
-    [ "synchronizer.h", "synchronizer_8h.html", null ],
-    [ "xqueue.h", "xqueue_8h.html", [
-      [ "xqueue", "classdhyara_1_1xqueue.html", "classdhyara_1_1xqueue" ],
-      [ "watcher", "structdhyara_1_1watcher.html", "structdhyara_1_1watcher" ],
-      [ "notifier", "structdhyara_1_1notifier.html", "structdhyara_1_1notifier" ],
-      [ "mutex", "structdhyara_1_1mutex.html", "structdhyara_1_1mutex" ],
-      [ "message", "structdhyara_1_1message.html", "structdhyara_1_1message" ],
-      [ "network_fifo", "structdhyara_1_1network__fifo.html", "structdhyara_1_1network__fifo" ]
-    ] ]
+    [ "actions.h", "actions_8h_source.html", null ],
+    [ "defs.h", "defs_8h_source.html", null ],
+    [ "dhyara.h", "dhyara_8h_source.html", null ],
+    [ "frame.h", "frame_8h_source.html", null ],
+    [ "link.h", "link_8h_source.html", null ],
+    [ "neighbourhood.h", "neighbourhood_8h_source.html", null ],
+    [ "network.h", "network_8h_source.html", null ],
+    [ "packets.h", "packets_8h_source.html", null ],
+    [ "peer.h", "peer_8h_source.html", null ],
+    [ "routing.h", "routing_8h_source.html", null ],
+    [ "synchronizer.h", "synchronizer_8h_source.html", null ],
+    [ "xqueue.h", "xqueue_8h_source.html", null ]
 ];

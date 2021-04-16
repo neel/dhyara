@@ -1,5 +1,0 @@
-<map id="dhyara::packets::chunk_header::target" name="dhyara::packets::chunk_header::target">
-<area shape="rect" id="node1" title="target MAC address of the chunk" alt="" coords="227,39,399,80"/>
-<area shape="rect" id="node2" href="$structdhyara_1_1packets_1_1chunk__header.html#ac2b979ae62cf6ca8b7e289376a87b588" title="Construct a chunk header with provided parameters." alt="" coords="5,5,179,47"/>
-<area shape="rect" id="node3" href="$structdhyara_1_1packets_1_1chunk.html#ae1219dec8825bca1d886af38001f39a9" title="target of the chunk" alt="" coords="6,71,178,112"/>
-</map>

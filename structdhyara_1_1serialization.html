@@ -95,7 +95,6 @@ $(document).ready(function(){initNavTree('structdhyara_1_1serialization.html',''
 
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="structdhyara_1_1serialization-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -108,19 +107,14 @@ $(document).ready(function(){initNavTree('structdhyara_1_1serialization.html',''
 
 <p><code>#include &lt;<a class="el" href="serialization_8h_source.html">serialization.h</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:add2f42a39a9f14f70819375c9ab0c473"><td class="memItemLeft" align="right" valign="top">typedef PacketT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1serialization.html#add2f42a39a9f14f70819375c9ab0c473">packet_type</a></td></tr>
-<tr class="separator:add2f42a39a9f14f70819375c9ab0c473"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a6fffb25d5d0a785cb1335681e74eb024"><td class="memTemplParams" colspan="2">template&lt;typename OutIt &gt; </td></tr>
-<tr class="memitem:a6fffb25d5d0a785cb1335681e74eb024"><td class="memTemplItemLeft" align="right" valign="top">static OutIt&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structdhyara_1_1serialization.html#a6fffb25d5d0a785cb1335681e74eb024">write</a> (const <a class="el" href="structdhyara_1_1serialization.html#add2f42a39a9f14f70819375c9ab0c473">packet_type</a> &amp;packet, OutIt output)</td></tr>
+<tr class="memitem:a6fffb25d5d0a785cb1335681e74eb024"><td class="memTemplItemLeft" align="right" valign="top">static OutIt&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structdhyara_1_1serialization.html#a6fffb25d5d0a785cb1335681e74eb024">write</a> (const packet_type &amp;packet, OutIt output)</td></tr>
 <tr class="memdesc:a6fffb25d5d0a785cb1335681e74eb024"><td class="mdescLeft">&#160;</td><td class="mdescRight">serialize a packet and write to the output iterator  <a href="structdhyara_1_1serialization.html#a6fffb25d5d0a785cb1335681e74eb024">More...</a><br /></td></tr>
 <tr class="separator:a6fffb25d5d0a785cb1335681e74eb024"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb3254a33f7dcc03a625294d1218cef7"><td class="memTemplParams" colspan="2">template&lt;typename InIt &gt; </td></tr>
-<tr class="memitem:adb3254a33f7dcc03a625294d1218cef7"><td class="memTemplItemLeft" align="right" valign="top">static InIt&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structdhyara_1_1serialization.html#adb3254a33f7dcc03a625294d1218cef7">read</a> (<a class="el" href="structdhyara_1_1serialization.html#add2f42a39a9f14f70819375c9ab0c473">packet_type</a> &amp;packet, InIt input, std::size_t length)</td></tr>
+<tr class="memitem:adb3254a33f7dcc03a625294d1218cef7"><td class="memTemplItemLeft" align="right" valign="top">static InIt&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structdhyara_1_1serialization.html#adb3254a33f7dcc03a625294d1218cef7">read</a> (packet_type &amp;packet, InIt input, std::size_t length)</td></tr>
 <tr class="memdesc:adb3254a33f7dcc03a625294d1218cef7"><td class="mdescLeft">&#160;</td><td class="mdescRight">deserializes a packet by reading length bytes from the input iterator  <a href="structdhyara_1_1serialization.html#adb3254a33f7dcc03a625294d1218cef7">More...</a><br /></td></tr>
 <tr class="separator:adb3254a33f7dcc03a625294d1218cef7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -131,26 +125,7 @@ struct dhyara::serialization&lt; PacketT &gt;</h3>
 <p>serialize a packet </p>
 
 <p class="definition">Definition at line <a class="el" href="serialization_8h_source.html#l00022">22</a> of file <a class="el" href="serialization_8h_source.html">serialization.h</a>.</p>
-</div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="add2f42a39a9f14f70819375c9ab0c473"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#add2f42a39a9f14f70819375c9ab0c473">&#9670;&nbsp;</a></span>packet_type</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename PacketT &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef PacketT <a class="el" href="structdhyara_1_1serialization.html">dhyara::serialization</a>&lt; PacketT &gt;::<a class="el" href="structdhyara_1_1serialization.html#add2f42a39a9f14f70819375c9ab0c473">packet_type</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="serialization_8h_source.html#l00023">23</a> of file <a class="el" href="serialization_8h_source.html">serialization.h</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="adb3254a33f7dcc03a625294d1218cef7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adb3254a33f7dcc03a625294d1218cef7">&#9670;&nbsp;</a></span>read()</h2>
 
@@ -167,7 +142,7 @@ template&lt;typename InIt &gt; </div>
         <tr>
           <td class="memname">static InIt <a class="el" href="structdhyara_1_1serialization.html">dhyara::serialization</a>&lt; PacketT &gt;::read </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structdhyara_1_1serialization.html#add2f42a39a9f14f70819375c9ab0c473">packet_type</a> &amp;&#160;</td>
+          <td class="paramtype">packet_type &amp;&#160;</td>
           <td class="paramname"><em>packet</em>, </td>
         </tr>
         <tr>
@@ -237,7 +212,7 @@ template&lt;typename OutIt &gt; </div>
         <tr>
           <td class="memname">static OutIt <a class="el" href="structdhyara_1_1serialization.html">dhyara::serialization</a>&lt; PacketT &gt;::write </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structdhyara_1_1serialization.html#add2f42a39a9f14f70819375c9ab0c473">packet_type</a> &amp;&#160;</td>
+          <td class="paramtype">const packet_type &amp;&#160;</td>
           <td class="paramname"><em>packet</em>, </td>
         </tr>
         <tr>
@@ -296,7 +271,7 @@ Here is the caller graph for this function:</div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacedhyara.html">dhyara</a></li><li class="navelem"><a class="el" href="structdhyara_1_1serialization.html">serialization</a></li>
+    <li class="navelem"><b>dhyara</b></li><li class="navelem"><a class="el" href="structdhyara_1_1serialization.html">serialization</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.17 </li>
   </ul>
 </div>

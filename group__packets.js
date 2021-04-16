@@ -2,7 +2,6 @@ var group__packets =
 [
     [ "IO", "group__io.html", "group__io" ],
     [ "frame", "structdhyara_1_1frame.html", [
-      [ "size_type", "structdhyara_1_1frame.html#afa969584acb41efbe5d3479650ddf962", null ],
       [ "frame", "structdhyara_1_1frame.html#a6a24c711a13ca7ba2d2691aa7d43c092", null ],
       [ "frame", "structdhyara_1_1frame.html#aca83c4276419313c7378a0b0adbb2cb5", null ],
       [ "frame", "structdhyara_1_1frame.html#a7456e6c44389d45c8ea0a3418ff3c1dd", null ],
@@ -13,27 +12,20 @@ var group__packets =
       [ "length", "structdhyara_1_1frame.html#a4a7cb611026b240fa44528b259824047", null ],
       [ "size", "structdhyara_1_1frame.html#a89311feee64ed9e3100ae21890492d4b", null ],
       [ "type", "structdhyara_1_1frame.html#aee2168b3d0cc134007eed1e5740d4a18", null ],
-      [ "valid", "structdhyara_1_1frame.html#a17346bf88c8ae5b1f1748b6ef2acce2d", null ],
-      [ "_buffer", "structdhyara_1_1frame.html#af9e0bf0fda92447572a0be0c5aa154a9", null ],
-      [ "_length", "structdhyara_1_1frame.html#a1a5e5178102e7f1f71f5439db1f75d63", null ],
-      [ "_type", "structdhyara_1_1frame.html#a28de790d74a648d5f237c5939905d348", null ]
+      [ "valid", "structdhyara_1_1frame.html#a17346bf88c8ae5b1f1748b6ef2acce2d", null ]
     ] ],
     [ "acknowledgement", "structdhyara_1_1packets_1_1acknowledgement.html", [
       [ "acknowledgement", "structdhyara_1_1packets_1_1acknowledgement.html#acb777380b534ac504d25d84a56d05d13", null ],
       [ "acknowledgement", "structdhyara_1_1packets_1_1acknowledgement.html#adcdc2fe12da41d8b1ce21c7a524ff2e6", null ],
       [ "size", "structdhyara_1_1packets_1_1acknowledgement.html#acd90cbc8bb5e3d0373783eb3dbecd6df", null ],
-      [ "time", "structdhyara_1_1packets_1_1acknowledgement.html#a9240a88879a28b7c4871f3d2a29fbd14", null ],
-      [ "_time", "structdhyara_1_1packets_1_1acknowledgement.html#a3c419de1f6cf75746683308e2759e345", null ]
+      [ "time", "structdhyara_1_1packets_1_1acknowledgement.html#a9240a88879a28b7c4871f3d2a29fbd14", null ]
     ] ],
     [ "advertisement", "structdhyara_1_1packets_1_1advertisement.html", [
-      [ "raw_address_type", "structdhyara_1_1packets_1_1advertisement.html#a7f4047cf1da13c5d9ce4201578e5d4d6", null ],
       [ "advertisement", "structdhyara_1_1packets_1_1advertisement.html#a1f2c6de70f75715e15425da9bcf3a579", null ],
       [ "advertisement", "structdhyara_1_1packets_1_1advertisement.html#aac59a84b282b961fd68866f9491473a9", null ],
       [ "delay", "structdhyara_1_1packets_1_1advertisement.html#a27a713440424b80493a0694c5ab6a6fe", null ],
       [ "dest", "structdhyara_1_1packets_1_1advertisement.html#aeeb3ccdb2fd0bd4c9f8cf7c4c13ce697", null ],
-      [ "size", "structdhyara_1_1packets_1_1advertisement.html#aa493edf76d104f4c28fc855af1072199", null ],
-      [ "_delay", "structdhyara_1_1packets_1_1advertisement.html#aec18b72a0fdeeb74c44d0b171c1e69d5", null ],
-      [ "_dest", "structdhyara_1_1packets_1_1advertisement.html#abd0e6d95a638e1a0c71ebb787dc319f5", null ]
+      [ "size", "structdhyara_1_1packets_1_1advertisement.html#aa493edf76d104f4c28fc855af1072199", null ]
     ] ],
     [ "beacon", "structdhyara_1_1packets_1_1beacon.html", [
       [ "beacon", "structdhyara_1_1packets_1_1beacon.html#aedbb703f0bdc4de0dbd787480a2acdfc", null ],
@@ -42,12 +34,9 @@ var group__packets =
       [ "name", "structdhyara_1_1packets_1_1beacon.html#a9c5fcf8b2ee835f097d389ececf51a2a", null ],
       [ "name", "structdhyara_1_1packets_1_1beacon.html#a2cc396e19b558e7aaeacf57731fb26d9", null ],
       [ "size", "structdhyara_1_1packets_1_1beacon.html#aecc63dfa197e8b4d1b87d1d55f89fb4b", null ],
-      [ "time", "structdhyara_1_1packets_1_1beacon.html#afffd80083d54fb53a929c0ed586aa18c", null ],
-      [ "_name", "structdhyara_1_1packets_1_1beacon.html#a5276657e519d2ea3b1f625c39498e5bd", null ],
-      [ "_time", "structdhyara_1_1packets_1_1beacon.html#a534662cf4e74b788a939b2a5f19a1eb3", null ]
+      [ "time", "structdhyara_1_1packets_1_1beacon.html#afffd80083d54fb53a929c0ed586aa18c", null ]
     ] ],
     [ "chunk_header", "structdhyara_1_1packets_1_1chunk__header.html", [
-      [ "raw_address_type", "structdhyara_1_1packets_1_1chunk__header.html#a058f9b5ededfe52b3d231e8a32d41d5f", null ],
       [ "chunk_header", "structdhyara_1_1packets_1_1chunk__header.html#a5174ad9664a8644a6250253699910a6a", null ],
       [ "chunk_header", "structdhyara_1_1packets_1_1chunk__header.html#ac2b979ae62cf6ca8b7e289376a87b588", null ],
       [ "is_last", "structdhyara_1_1packets_1_1chunk__header.html#af7cbea62fc3e14316358142de51c0b30", null ],
@@ -56,18 +45,9 @@ var group__packets =
       [ "pending", "structdhyara_1_1packets_1_1chunk__header.html#a61180a004421f95423ff26e9ce11b17e", null ],
       [ "size", "structdhyara_1_1packets_1_1chunk__header.html#aeda8280fd70fbf6861acca7be4c91167", null ],
       [ "source", "structdhyara_1_1packets_1_1chunk__header.html#ae7ebdde566a3bf33d6944b30baf90def", null ],
-      [ "target", "structdhyara_1_1packets_1_1chunk__header.html#a97ed3c9acc059f68a8ccdf9781040b3a", null ],
-      [ "_length", "structdhyara_1_1packets_1_1chunk__header.html#ac1318aea45c1bc929443e3690fe4d6ff", null ],
-      [ "_packet", "structdhyara_1_1packets_1_1chunk__header.html#ab367f5c6f696fc708d8a44f815d898dc", null ],
-      [ "_pending", "structdhyara_1_1packets_1_1chunk__header.html#ae89d391e2c28c109b29805ca2229767e", null ],
-      [ "_source", "structdhyara_1_1packets_1_1chunk__header.html#ad14bf2ea9e822cf974c8e892b127b5c3", null ],
-      [ "_target", "structdhyara_1_1packets_1_1chunk__header.html#a76e38317628f8e7c1cd31a2e413cb03b", null ]
+      [ "target", "structdhyara_1_1packets_1_1chunk__header.html#a97ed3c9acc059f68a8ccdf9781040b3a", null ]
     ] ],
     [ "chunk", "structdhyara_1_1packets_1_1chunk.html", [
-      [ "buffer_type", "structdhyara_1_1packets_1_1chunk.html#a4ff228ab2470472277ff68994d2e5647", null ],
-      [ "const_iterator_type", "structdhyara_1_1packets_1_1chunk.html#ae35ac475116a36696334476659c00a1a", null ],
-      [ "raw_address_type", "structdhyara_1_1packets_1_1chunk.html#a1442dfa2e2463f7eb54d22131d9d2685", null ],
-      [ "capacity", "structdhyara_1_1packets_1_1chunk.html#a706499e02f71fca56a45bebc41f7fa6aa0056fc847a1ec739f93dd86ecf503b1c", null ],
       [ "chunk", "structdhyara_1_1packets_1_1chunk.html#a58c5c7fcd001bcbeb79f6cd1c163d275", null ],
       [ "chunk", "structdhyara_1_1packets_1_1chunk.html#acf18dc3ba1ffe7fb8b03a0813d689c54", null ],
       [ "begin", "structdhyara_1_1packets_1_1chunk.html#afc95a131bccd685672ed680aa5e5a457", null ],
@@ -80,14 +60,9 @@ var group__packets =
       [ "pending", "structdhyara_1_1packets_1_1chunk.html#afe5af1f44a01083f2f6bff0e5f5340bf", null ],
       [ "size", "structdhyara_1_1packets_1_1chunk.html#a05ba2e4dec4caa99e783c1d21611075d", null ],
       [ "source", "structdhyara_1_1packets_1_1chunk.html#a0c76502418330ed57a9d3508c64ecf96", null ],
-      [ "target", "structdhyara_1_1packets_1_1chunk.html#ae1219dec8825bca1d886af38001f39a9", null ],
-      [ "_buffer", "structdhyara_1_1packets_1_1chunk.html#ae64d0af3a6ef9d69ad6a520fee37826a", null ],
-      [ "_header", "structdhyara_1_1packets_1_1chunk.html#a0b73be2694090e7ad42007794accde55", null ]
+      [ "target", "structdhyara_1_1packets_1_1chunk.html#ae1219dec8825bca1d886af38001f39a9", null ]
     ] ],
     [ "data", "structdhyara_1_1packets_1_1data.html", [
-      [ "const_iterator", "structdhyara_1_1packets_1_1data.html#a9470d00822346746b55ed2222dacfe0f", null ],
-      [ "dynamic_buffer_type", "structdhyara_1_1packets_1_1data.html#a0fd43b577390668bb4ad6f87a7d7a221", null ],
-      [ "iterator", "structdhyara_1_1packets_1_1data.html#a9a2ad998451e8d6fc4652b2eacbbfa4c", null ],
       [ "data", "structdhyara_1_1packets_1_1data.html#ab938d03faa747da15d3dddb95af028cb", null ],
       [ "data", "structdhyara_1_1packets_1_1data.html#a3dcf7b242396901e1e041355d23c0f69", null ],
       [ "data", "structdhyara_1_1packets_1_1data.html#abd469f055473383650209a0bb0887df6", null ],
@@ -106,41 +81,26 @@ var group__packets =
       [ "raw", "structdhyara_1_1packets_1_1data.html#ac35b8f7f9e749512ad662182455b2d39", null ],
       [ "reserve", "structdhyara_1_1packets_1_1data.html#acddf864eee239004d78f70873bce815a", null ],
       [ "source", "structdhyara_1_1packets_1_1data.html#a0460b56294a5939c527c791be14b513c", null ],
-      [ "target", "structdhyara_1_1packets_1_1data.html#a1afb45da5d1cdacfaa62cb486c38a17c", null ],
-      [ "_buffer", "structdhyara_1_1packets_1_1data.html#a26ced44358f4b532cd1fca84fd434ae1", null ],
-      [ "_packet", "structdhyara_1_1packets_1_1data.html#ad714cd2d28764c21f4cff55e13738316", null ],
-      [ "_source", "structdhyara_1_1packets_1_1data.html#a63c1aaf81a717c3cc1618ebbf2c90932", null ],
-      [ "_target", "structdhyara_1_1packets_1_1data.html#ac475cf8455e5a4e081189cea021b2290", null ],
-      [ "counter", "structdhyara_1_1packets_1_1data.html#af6f5b763d0a2386359341e5ae5e0f29c", null ]
+      [ "target", "structdhyara_1_1packets_1_1data.html#a1afb45da5d1cdacfaa62cb486c38a17c", null ]
     ] ],
     [ "delivered", "structdhyara_1_1packets_1_1delivered.html", [
-      [ "raw_address_type", "structdhyara_1_1packets_1_1delivered.html#ac520a13a1b219b3212a9617001bfc8e3", null ],
       [ "delivered", "structdhyara_1_1packets_1_1delivered.html#a8990d253d781b4b3fd4eda6a32619a25", null ],
       [ "delivered", "structdhyara_1_1packets_1_1delivered.html#adeefcf1e98f2eaee5925571e35eeb164", null ],
       [ "packet", "structdhyara_1_1packets_1_1delivered.html#a1ef161549f52e3e00f2badcf24cfec33", null ],
       [ "size", "structdhyara_1_1packets_1_1delivered.html#adc5d7cc2a5704e78928008180716a603", null ],
       [ "source", "structdhyara_1_1packets_1_1delivered.html#ae4bf45e23d14673c5ecabd9f291693ac", null ],
-      [ "target", "structdhyara_1_1packets_1_1delivered.html#a4f5aaecd68b5e6649c6942a8195c79ae", null ],
-      [ "_packet", "structdhyara_1_1packets_1_1delivered.html#aea36f132ab2f1e5f9a3dbd4f1a96cbb9", null ],
-      [ "_source", "structdhyara_1_1packets_1_1delivered.html#a9aa64c95ddb7c46fe4c590fbf54680e7", null ],
-      [ "_target", "structdhyara_1_1packets_1_1delivered.html#a9df2acbdbec6dfd60a325cde5d25206c", null ]
+      [ "target", "structdhyara_1_1packets_1_1delivered.html#a4f5aaecd68b5e6649c6942a8195c79ae", null ]
     ] ],
     [ "echo_lost", "structdhyara_1_1packets_1_1echo__lost.html", [
-      [ "raw_address_type", "structdhyara_1_1packets_1_1echo__lost.html#ae5f9ff7781f09680f4ac7456df331a36", null ],
       [ "echo_lost", "structdhyara_1_1packets_1_1echo__lost.html#afc33b52d021432d107ede709c4344dfe", null ],
       [ "echo_lost", "structdhyara_1_1packets_1_1echo__lost.html#a3c6d7104aa51f20e422e94b13ac41616", null ],
       [ "seq", "structdhyara_1_1packets_1_1echo__lost.html#a550c8f374b022c4183c31bf818113e09", null ],
       [ "size", "structdhyara_1_1packets_1_1echo__lost.html#a29addee5a8c8670944bfa928843b5845", null ],
       [ "source", "structdhyara_1_1packets_1_1echo__lost.html#a383d14b20d9bf26b843f78ddf06dc8cf", null ],
       [ "target", "structdhyara_1_1packets_1_1echo__lost.html#ab7b9e83778519c9178745b9b1a3d795d", null ],
-      [ "time", "structdhyara_1_1packets_1_1echo__lost.html#a6f161bb059fd29be3546a713d1df63c7", null ],
-      [ "_seq", "structdhyara_1_1packets_1_1echo__lost.html#ac61ad4a5c013bb208ad33195c73f0e39", null ],
-      [ "_source", "structdhyara_1_1packets_1_1echo__lost.html#a97daccbcce787050bb9428bc0cc184da", null ],
-      [ "_target", "structdhyara_1_1packets_1_1echo__lost.html#a1658cb4fa8f277d474fa07f56113228c", null ],
-      [ "_time", "structdhyara_1_1packets_1_1echo__lost.html#a74f0d6e7d8c3959b04440afb2c49ea2c", null ]
+      [ "time", "structdhyara_1_1packets_1_1echo__lost.html#a6f161bb059fd29be3546a713d1df63c7", null ]
     ] ],
     [ "echo_reply", "structdhyara_1_1packets_1_1echo__reply.html", [
-      [ "raw_address_type", "structdhyara_1_1packets_1_1echo__reply.html#a2ec087899391f2814b077938cc0ceedc", null ],
       [ "echo_reply", "structdhyara_1_1packets_1_1echo__reply.html#a8c4bfd0ba376b06244091a6b4dbae99f", null ],
       [ "echo_reply", "structdhyara_1_1packets_1_1echo__reply.html#a329940211aa3bd2636372e2cedccda93", null ],
       [ "seq", "structdhyara_1_1packets_1_1echo__reply.html#ae09f0e791dc03342fed480dfdf9225c2", null ],
@@ -148,15 +108,9 @@ var group__packets =
       [ "source", "structdhyara_1_1packets_1_1echo__reply.html#aa8e6d1c3313dd9524b173c09c63748f1", null ],
       [ "target", "structdhyara_1_1packets_1_1echo__reply.html#a2f966a5cfebf25c6508bff463a44b7f0", null ],
       [ "time", "structdhyara_1_1packets_1_1echo__reply.html#ae155f8b398cef0e9c46e61668ac4369b", null ],
-      [ "ttl", "structdhyara_1_1packets_1_1echo__reply.html#ada3baf3add365dc0d485b8d3f17855b6", null ],
-      [ "_seq", "structdhyara_1_1packets_1_1echo__reply.html#a589198706dc9db3857e176b1ebf13c82", null ],
-      [ "_source", "structdhyara_1_1packets_1_1echo__reply.html#a411922fa8368100bf78b64faff46e12e", null ],
-      [ "_target", "structdhyara_1_1packets_1_1echo__reply.html#ab7341e843890e5950128845607870b9f", null ],
-      [ "_time", "structdhyara_1_1packets_1_1echo__reply.html#a3b2d36ca6ebbb4798edc1e74d193a797", null ],
-      [ "_ttl", "structdhyara_1_1packets_1_1echo__reply.html#acbfaa9f012fbbb3cc6461ef8ebf084b1", null ]
+      [ "ttl", "structdhyara_1_1packets_1_1echo__reply.html#ada3baf3add365dc0d485b8d3f17855b6", null ]
     ] ],
     [ "echo_request", "structdhyara_1_1packets_1_1echo__request.html", [
-      [ "raw_address_type", "structdhyara_1_1packets_1_1echo__request.html#af30acb883876a107c35971c5ecd858f2", null ],
       [ "echo_request", "structdhyara_1_1packets_1_1echo__request.html#abb56113f49fabb6815c7ba8f0abd1406", null ],
       [ "echo_request", "structdhyara_1_1packets_1_1echo__request.html#a6988fdd66dc08c26fff5bd8e222f314d", null ],
       [ "seq", "structdhyara_1_1packets_1_1echo__request.html#a6fd50e99263d6806f8c988b4bf4ecca4", null ],
@@ -164,40 +118,8 @@ var group__packets =
       [ "source", "structdhyara_1_1packets_1_1echo__request.html#aa85f134ee7d0ca5534e257e67cf34d97", null ],
       [ "target", "structdhyara_1_1packets_1_1echo__request.html#afa855e5098360a0174056f7d05d4012e", null ],
       [ "time", "structdhyara_1_1packets_1_1echo__request.html#a1dfb2d6e9c385da0a17c05006ab0d671", null ],
-      [ "ttl", "structdhyara_1_1packets_1_1echo__request.html#a3c30d36103be16ddc2e0602ce5361589", null ],
-      [ "_seq", "structdhyara_1_1packets_1_1echo__request.html#a12fd2d2de208e47e20f825d9237f2d24", null ],
-      [ "_source", "structdhyara_1_1packets_1_1echo__request.html#aeb16c62eefd0579d7d3af040145c754c", null ],
-      [ "_target", "structdhyara_1_1packets_1_1echo__request.html#a806a778939501fb1e3d0a4dac5cd9e3c", null ],
-      [ "_time", "structdhyara_1_1packets_1_1echo__request.html#a2e6346804f13875e9cf1de8e04b58483", null ],
-      [ "_ttl", "structdhyara_1_1packets_1_1echo__request.html#a1937de5beb21a2f9f616e7813c536247", null ]
+      [ "ttl", "structdhyara_1_1packets_1_1echo__request.html#a3c30d36103be16ddc2e0602ce5361589", null ]
     ] ],
-    [ "printer", "structdhyara_1_1utils_1_1printer.html", [
-      [ "in", "structdhyara_1_1utils_1_1printer.html#a00b71740e17146e78b6c7980b96648df", null ],
-      [ "in", "structdhyara_1_1utils_1_1printer.html#a39c28dc5ead6959b62582f50135abd9d", null ],
-      [ "in", "structdhyara_1_1utils_1_1printer.html#aed22be6807518bf4ee90e7f759435cdc", null ],
-      [ "in", "structdhyara_1_1utils_1_1printer.html#ae867394db08088e5a44af51f6d0414c6", null ],
-      [ "in", "structdhyara_1_1utils_1_1printer.html#a26b08e1e736b6b85d1718e9e740d54d2", null ],
-      [ "in", "structdhyara_1_1utils_1_1printer.html#a4d1ec0d75a0ad0ca16220b1dfb23469e", null ],
-      [ "in", "structdhyara_1_1utils_1_1printer.html#acc65047766923286dd7e07770e12cdfb", null ],
-      [ "in", "structdhyara_1_1utils_1_1printer.html#ac1ccd4655169529bade05f35e4f70b30", null ],
-      [ "out", "structdhyara_1_1utils_1_1printer.html#a3d1089f1e9e8cf5c1438ddb90be5b22b", null ],
-      [ "out", "structdhyara_1_1utils_1_1printer.html#a8ccc240fe24ccab7e09c0a53c8034824", null ],
-      [ "out", "structdhyara_1_1utils_1_1printer.html#a7ba0d4e79a1320ced251b88a4c584fd7", null ],
-      [ "out", "structdhyara_1_1utils_1_1printer.html#a8765e1898924af8bf20e8c5f036094f8", null ],
-      [ "out", "structdhyara_1_1utils_1_1printer.html#ad0b43ad8908ba755a4e1587301176d50", null ],
-      [ "out", "structdhyara_1_1utils_1_1printer.html#a474fc0af37a1b1d6bcb7450844891226", null ],
-      [ "out", "structdhyara_1_1utils_1_1printer.html#a072e5fc078a3144ac9c6ec47654f2b88", null ],
-      [ "out", "structdhyara_1_1utils_1_1printer.html#afc62b4e60fc24299ac8349c34823903e", null ]
-    ] ],
-    [ "type", "group__packets.html#ga587a117adc54019693a184e4f8b4e0b5", [
-      [ "unknown", "group__packets.html#gga587a117adc54019693a184e4f8b4e0b5aad921d60486366258809553a3db49a4a", null ],
-      [ "beacon", "group__packets.html#gga587a117adc54019693a184e4f8b4e0b5a41b89d10619cdd3e30fb6c401c17c7d9", null ],
-      [ "acknowledgement", "group__packets.html#gga587a117adc54019693a184e4f8b4e0b5a0421784420643cbd77fd5fed9006293f", null ],
-      [ "advertisement", "group__packets.html#gga587a117adc54019693a184e4f8b4e0b5af3334ac9ef26166dedebd319a18f9cc7", null ],
-      [ "chunk", "group__packets.html#gga587a117adc54019693a184e4f8b4e0b5a5a8f4fa2aeab5431888ee8a18ce3bcea", null ],
-      [ "echo_request", "group__packets.html#gga587a117adc54019693a184e4f8b4e0b5a3a38e419d02b6edb300073943df3831e", null ],
-      [ "echo_reply", "group__packets.html#gga587a117adc54019693a184e4f8b4e0b5a7b7c79594ac8d4d2e14576c2af6ad76e", null ],
-      [ "echo_lost", "group__packets.html#gga587a117adc54019693a184e4f8b4e0b5acf040646eb1337c0e8ac22d672647389", null ],
-      [ "delivered", "group__packets.html#gga587a117adc54019693a184e4f8b4e0b5a0e3a8d38d6a037ceca6885c6b654124e", null ]
-    ] ]
+    [ "printer", "structdhyara_1_1utils_1_1printer.html", null ],
+    [ "type", "group__packets.html#ga587a117adc54019693a184e4f8b4e0b5", null ]
 ];

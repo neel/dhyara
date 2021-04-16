@@ -26,8 +26,6 @@ var group__routing =
         [ "update", "structdhyara_1_1routing_1_1route__metric.html#a04a3867e95c1d41fc6c22fd433bfb2dd", null ],
         [ "updated", "structdhyara_1_1routing_1_1route__metric.html#a73ff210abbd40be164e931f1a7728c46", null ]
       ] ],
-      [ "next_vector_type", "structdhyara_1_1routing.html#ada873b04d4e0a4aa9c274ed90e7f9f6f", null ],
-      [ "table_type", "structdhyara_1_1routing.html#a7ddf3df4f19a1e81e5311d511198edea", null ],
       [ "routing", "structdhyara_1_1routing.html#a3200fe79309ef0e386d098e67073e261", null ],
       [ "depreciate", "structdhyara_1_1routing.html#aab678bd2a9abf93093ef1ee114a529fe", null ],
       [ "depreciate", "structdhyara_1_1routing.html#aa964c17c9c12e1e62b188654a8449e4a", null ],
@@ -44,21 +42,12 @@ var group__routing =
       [ "update", "structdhyara_1_1routing.html#a4c5b595aba206265805f31070da27ed1", null ]
     ] ],
     [ "candidate", "structdhyara_1_1candidate.html", [
-      [ "candidate", "structdhyara_1_1candidate.html#a796e6d6fd00e84cc66cd1c740c2e53c6", null ],
-      [ "candidate", "structdhyara_1_1candidate.html#a0029633bd4b70497c8a3cabe041de4e3", null ],
       [ "delay", "structdhyara_1_1candidate.html#a8ab3dfbe0ac359520a15a94422810ed0", null ],
       [ "dest", "structdhyara_1_1candidate.html#a2b4c56ae900d3f4baa2beae131e64eb3", null ],
-      [ "via", "structdhyara_1_1candidate.html#abc8441578cbee53ab2230720ff5d0490", null ],
-      [ "_delay", "structdhyara_1_1candidate.html#acefe4db31195280d25232a3866032847", null ],
-      [ "_dest", "structdhyara_1_1candidate.html#aa7597a19f3bb5af84007ad42fe1b84fd", null ],
-      [ "_via", "structdhyara_1_1candidate.html#ab8f800d7b6173a2bfe0dabedcff65e8e", null ]
+      [ "via", "structdhyara_1_1candidate.html#abc8441578cbee53ab2230720ff5d0490", null ]
     ] ],
     [ "synchronizer", "structdhyara_1_1synchronizer.html", [
-      [ "last_advertisement_map", "structdhyara_1_1synchronizer.html#a3bc99c7069707e2b42173a41de883e03", null ],
-      [ "sync_queue_type", "structdhyara_1_1synchronizer.html#ab634118f5d6aaf86a10cad3d19d0e71f", null ],
       [ "synchronizer", "structdhyara_1_1synchronizer.html#a8daf0ea3660c4ff21e4abe6e4fd5abfb", null ],
-      [ "synchronizer", "structdhyara_1_1synchronizer.html#a2453ea7e57316d8ab3bb98e17fad7fcf", null ],
-      [ "operator=", "structdhyara_1_1synchronizer.html#aa900b4983d539160f6c1eabeaf164b88", null ],
       [ "queue", "structdhyara_1_1synchronizer.html#a44c292309f9c5c87757d5baafa58f210", null ],
       [ "queue", "structdhyara_1_1synchronizer.html#a79b9123408ce352be996700f5a27fb11", null ],
       [ "run", "structdhyara_1_1synchronizer.html#a2c986de495df7717564769e91c3660e4", null ]

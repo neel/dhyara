@@ -101,8 +101,7 @@ $(document).ready(function(){initNavTree('group__routing.html',''); initResizabl
 </div><!--header-->
 <div class="contents">
 
-<p>Dhyara Routing module is responsible for maintaining the distributed routing table across the network. Each node <code>Xᵢ ∊ X</code> maintains a <b>routing table</b> of the following form which is gradually built up by the protocol. <br  />
- Each row of this table denotes a route to a destination node (first column) via an intermediate nde (second column) and its corresponding delay. 0x0 is used to depict direct communication (not via any intermediate node).  
+<p>Dhyara Routing module is responsible for maintaining the distributed routing table across the network.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
@@ -118,8 +117,9 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Dhyara Routing module is responsible for maintaining the distributed routing table across the network. Each node <code>Xᵢ ∊ X</code> maintains a <b>routing table</b> of the following form which is gradually built up by the protocol. <br  />
- Each row of this table denotes a route to a destination node (first column) via an intermediate nde (second column) and its corresponding delay. 0x0 is used to depict direct communication (not via any intermediate node). </p>
+<p>Dhyara Routing module is responsible for maintaining the distributed routing table across the network. </p>
+<p>Each node <code>Xᵢ ∊ X</code> maintains a <b>routing table</b> of the following form which is gradually built up by the protocol. <br  />
+ Each row of this table denotes a route to a destination node (first column) via an intermediate nde (second column) and its corresponding delay. 0x0 is used to depict direct communication (not via any intermediate node).</p>
 <div class="fragment"><div class="line">Xⱼ 0x0 𝛿ⱼ₀ ∀ j ≠ i</div>
 <div class="line">Xⱼ Xₖ  𝛿ⱼₖ ∀ j,k ≠ i and ∀ j ≠ k</div>
 </div><!-- fragment --><p>Based on this table a <b>best vector</b> is calculated</p>

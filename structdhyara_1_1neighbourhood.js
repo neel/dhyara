@@ -1,6 +1,5 @@
 var structdhyara_1_1neighbourhood =
 [
-    [ "peer_collection_type", "structdhyara_1_1neighbourhood.html#a7788dd3d31e67117dd441b8568624040", null ],
     [ "add", "structdhyara_1_1neighbourhood.html#a84c19335c1d9442047e96362681e0f45", null ],
     [ "add", "structdhyara_1_1neighbourhood.html#a13e42c1869b10f48a8a07e02acf64fb5", null ],
     [ "add", "structdhyara_1_1neighbourhood.html#a6c0d662fabe197fb691ae9551d9b1f03", null ],

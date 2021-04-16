@@ -1,4 +1,0 @@
-<map id="dhyara::xqueue::empty" name="dhyara::xqueue::empty">
-<area shape="rect" id="node1" title="Check whether the queue is empty or not." alt="" coords="216,20,389,47"/>
-<area shape="rect" id="node2" href="$structdhyara_1_1network__fifo.html#a646d59f833447151c055afa7024e8232" title="Check whether the queue is empty or not." alt="" coords="5,5,168,61"/>
-</map>

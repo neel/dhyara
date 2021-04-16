@@ -1,4 +1,0 @@
-<map id="dhyara::packets::echo_reply::echo_reply" name="dhyara::packets::echo_reply::echo_reply">
-<area shape="rect" id="node1" title="Construct an echo reply to null destination originating from null destination on current time." alt="" coords="217,5,381,47"/>
-<area shape="rect" id="node2" href="$structdhyara_1_1packets_1_1echo__reply.html#ad9b68a7769b89a78a8eeb46135cea817" title="Size of the packet." alt="" coords="5,5,169,47"/>
-</map>

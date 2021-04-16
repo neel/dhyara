@@ -1,4 +1,0 @@
-<map id="dhyara::packets::echo_reply::target" name="dhyara::packets::echo_reply::target">
-<area shape="rect" id="node1" title="target address" alt="" coords="217,5,381,47"/>
-<area shape="rect" id="node2" href="$structdhyara_1_1packets_1_1echo__reply.html#a329940211aa3bd2636372e2cedccda93" title="Construct an echo reply to the target originating from the source with the provided sequence number a..." alt="" coords="5,5,169,47"/>
-</map>

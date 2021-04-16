@@ -98,7 +98,7 @@ $(document).ready(function(){initNavTree('serialization_8h_source.html',''); ini
 <div class="title">serialization.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="serialization_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * Copyright (c) 2020, Sunanda Bose (a.k.a. Neel Basu)</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> * All rights reserved.</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * </span></div>
@@ -112,22 +112,22 @@ $(document).ready(function(){initNavTree('serialization_8h_source.html',''); ini
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;cstdint&gt;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;functional&gt;</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacedhyara.html">dhyara</a>{</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span>dhyara{</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> PacketT&gt;</div>
 <div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="structdhyara_1_1serialization.html">   22</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structdhyara_1_1serialization.html">serialization</a>{</div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="structdhyara_1_1serialization.html#add2f42a39a9f14f70819375c9ab0c473">   23</a></span>&#160;    <span class="keyword">typedef</span> PacketT <a class="code" href="structdhyara_1_1serialization.html#add2f42a39a9f14f70819375c9ab0c473">packet_type</a>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">typedef</span> PacketT packet_type;</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    </div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> OutIt&gt;</div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="structdhyara_1_1serialization.html#a6fffb25d5d0a785cb1335681e74eb024">   32</a></span>&#160;    <span class="keyword">static</span> OutIt <a class="code" href="structdhyara_1_1serialization.html#a6fffb25d5d0a785cb1335681e74eb024">write</a>(<span class="keyword">const</span> <a class="code" href="structdhyara_1_1serialization.html#add2f42a39a9f14f70819375c9ab0c473">packet_type</a>&amp; packet, OutIt output){</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="structdhyara_1_1serialization.html#a6fffb25d5d0a785cb1335681e74eb024">   32</a></span>&#160;    <span class="keyword">static</span> OutIt <a class="code" href="structdhyara_1_1serialization.html#a6fffb25d5d0a785cb1335681e74eb024">write</a>(<span class="keyword">const</span> packet_type&amp; packet, OutIt output){</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keyword">const</span> std::uint8_t* buffer = <span class="keyword">reinterpret_cast&lt;</span><span class="keyword">const </span>std::uint8_t*<span class="keyword">&gt;</span>(&amp;packet);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordflow">return</span> std::copy(buffer, buffer + <span class="keyword">sizeof</span>(<a class="code" href="structdhyara_1_1serialization.html#add2f42a39a9f14f70819375c9ab0c473">packet_type</a>), output);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordflow">return</span> std::copy(buffer, buffer + <span class="keyword">sizeof</span>(packet_type), output);</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    }</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    </div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> InIt&gt;</div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="structdhyara_1_1serialization.html#adb3254a33f7dcc03a625294d1218cef7">   45</a></span>&#160;    <span class="keyword">static</span> InIt <a class="code" href="structdhyara_1_1serialization.html#adb3254a33f7dcc03a625294d1218cef7">read</a>(<a class="code" href="structdhyara_1_1serialization.html#add2f42a39a9f14f70819375c9ab0c473">packet_type</a>&amp; packet, InIt input, std::size_t length){</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="structdhyara_1_1serialization.html#adb3254a33f7dcc03a625294d1218cef7">   45</a></span>&#160;    <span class="keyword">static</span> InIt <a class="code" href="structdhyara_1_1serialization.html#adb3254a33f7dcc03a625294d1218cef7">read</a>(packet_type&amp; packet, InIt input, std::size_t length){</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        std::uint8_t* buffer = <span class="keyword">reinterpret_cast&lt;</span>std::uint8_t*<span class="keyword">&gt;</span>(&amp;packet);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        InIt end = input + (length ? std::min(length, <span class="keyword">sizeof</span>(<a class="code" href="structdhyara_1_1serialization.html#add2f42a39a9f14f70819375c9ab0c473">packet_type</a>)) : <span class="keyword">sizeof</span>(<a class="code" href="structdhyara_1_1serialization.html#add2f42a39a9f14f70819375c9ab0c473">packet_type</a>));</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        InIt end = input + (length ? std::min(length, <span class="keyword">sizeof</span>(packet_type)) : <span class="keyword">sizeof</span>(packet_type));</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        std::copy(input, end, buffer);</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordflow">return</span> end;</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    }</div>
@@ -140,14 +140,12 @@ $(document).ready(function(){initNavTree('serialization_8h_source.html',''); ini
 </div><!-- doc-content -->
 <div class="ttc" id="astructdhyara_1_1serialization_html_adb3254a33f7dcc03a625294d1218cef7"><div class="ttname"><a href="structdhyara_1_1serialization.html#adb3254a33f7dcc03a625294d1218cef7">dhyara::serialization::read</a></div><div class="ttdeci">static InIt read(packet_type &amp;packet, InIt input, std::size_t length)</div><div class="ttdoc">deserializes a packet by reading length bytes from the input iterator</div><div class="ttdef"><b>Definition:</b> <a href="serialization_8h_source.html#l00045">serialization.h:45</a></div></div>
 <div class="ttc" id="astructdhyara_1_1serialization_html"><div class="ttname"><a href="structdhyara_1_1serialization.html">dhyara::serialization</a></div><div class="ttdoc">serialize a packet</div><div class="ttdef"><b>Definition:</b> <a href="serialization_8h_source.html#l00022">serialization.h:22</a></div></div>
-<div class="ttc" id="anamespacedhyara_html"><div class="ttname"><a href="namespacedhyara.html">dhyara</a></div><div class="ttdef"><b>Definition:</b> <a href="actions_2acknowledgement_8h_source.html#l00016">acknowledgement.h:16</a></div></div>
 <div class="ttc" id="astructdhyara_1_1serialization_html_a6fffb25d5d0a785cb1335681e74eb024"><div class="ttname"><a href="structdhyara_1_1serialization.html#a6fffb25d5d0a785cb1335681e74eb024">dhyara::serialization::write</a></div><div class="ttdeci">static OutIt write(const packet_type &amp;packet, OutIt output)</div><div class="ttdoc">serialize a packet and write to the output iterator</div><div class="ttdef"><b>Definition:</b> <a href="serialization_8h_source.html#l00032">serialization.h:32</a></div></div>
-<div class="ttc" id="astructdhyara_1_1serialization_html_add2f42a39a9f14f70819375c9ab0c473"><div class="ttname"><a href="structdhyara_1_1serialization.html#add2f42a39a9f14f70819375c9ab0c473">dhyara::serialization::packet_type</a></div><div class="ttdeci">PacketT packet_type</div><div class="ttdef"><b>Definition:</b> <a href="serialization_8h_source.html#l00023">serialization.h:23</a></div></div>
 <!-- HTML footer for doxygen 1.9.1-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_09e761304027c904456130627fd4dcf5.html">includes</a></li><li class="navelem"><a class="el" href="dir_f7f3c0f391df97c74fff5c67413f6c88.html">dhyara</a></li><li class="navelem"><a class="el" href="dir_8306a184a76653b2e13c56fe08a22361.html">packets</a></li><li class="navelem"><a class="el" href="serialization_8h.html">serialization.h</a></li>
+    <li class="navelem"><a class="el" href="dir_09e761304027c904456130627fd4dcf5.html">includes</a></li><li class="navelem"><a class="el" href="dir_f7f3c0f391df97c74fff5c67413f6c88.html">dhyara</a></li><li class="navelem"><a class="el" href="dir_8306a184a76653b2e13c56fe08a22361.html">packets</a></li><li class="navelem"><b>serialization.h</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.17 </li>
   </ul>
 </div>

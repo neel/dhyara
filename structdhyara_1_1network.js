@@ -15,9 +15,14 @@ var structdhyara_1_1network =
     [ "link", "structdhyara_1_1network.html#a5852cc388eca2af88a08fcebc88ee0b4", null ],
     [ "on_data", "structdhyara_1_1network.html#a51dcda4002e9fe16284c568fde041a54", null ],
     [ "operator=", "structdhyara_1_1network.html#abb7b565d80e22ecdd00932c1325c0b2b", null ],
+    [ "presence", "structdhyara_1_1network.html#aa1a11abfeedf53785cc3ff2ec1debd26", null ],
     [ "send", "structdhyara_1_1network.html#afa2a0cd07ef8508f7ce950449d5dff17", null ],
     [ "send", "structdhyara_1_1network.html#a6ed3eca266b9da66b2bb422d891cd145", null ],
     [ "send", "structdhyara_1_1network.html#a4bcc4aff7a5bb51182f80088814de099", null ],
     [ "start", "structdhyara_1_1network.html#aadf3365c6a5506187b2f9c91ef4fdd0a", null ],
-    [ "synchronizer", "structdhyara_1_1network.html#ae289d391b359a937d34f906a132b2696", null ]
+    [ "sync", "structdhyara_1_1network.html#a1f6b8a3cdcc95deb43b6a4c5c7705aeb", null ],
+    [ "synchronizer", "structdhyara_1_1network.html#ae289d391b359a937d34f906a132b2696", null ],
+    [ "task_presence", "structdhyara_1_1network.html#a24fee5e5bfed0900b7a634b0ee9aba21", null ],
+    [ "task_start_rcvd", "structdhyara_1_1network.html#a92e866529312c57b5766865d1e256ebb", null ],
+    [ "task_synchronize", "structdhyara_1_1network.html#a9da513dd22984f40c778be8a0f4ee80b", null ]
 ];

@@ -1,16 +1,12 @@
 var group__dhyara =
 [
     [ "link", "classdhyara_1_1link.html", [
-      [ "proxy", "structdhyara_1_1link_1_1proxy.html", [
-        [ "proxy", "structdhyara_1_1link_1_1proxy.html#af562989c51feb76de7596810d48dd445", null ],
-        [ "operator=", "structdhyara_1_1link_1_1proxy.html#a3ed7b5e7fb5cbd9447e35bb05a96c79e", null ],
-        [ "_link", "structdhyara_1_1link_1_1proxy.html#a92a3d229e04244d99ea36078277c17c6", null ],
-        [ "_type", "structdhyara_1_1link_1_1proxy.html#ab38692d80041c99cfc778b8492edc08d", null ]
-      ] ],
+      [ "proxy", "structdhyara_1_1link_1_1proxy.html", null ],
       [ "link", "classdhyara_1_1link.html#a281463ac305d61d1a62d44d05bafcdde", null ],
       [ "_esp_promiscous_rx_cb", "classdhyara_1_1link.html#a45aedba311a6021cafbdcbb9d2dfa09a", null ],
       [ "_esp_rcvd_cb", "classdhyara_1_1link.html#ad7b4f39ecaf94c52dc5739898da8a627", null ],
       [ "_esp_sent_cb", "classdhyara_1_1link.html#a978706fc680636c3cdaaa9a3781a5754", null ],
+      [ "_transmit", "classdhyara_1_1link.html#a5fc3a07a12711ca617ff8ef8296aaba2", null ],
       [ "address", "classdhyara_1_1link.html#a14215f8d36d2ab205737ac3dc9f30d79", null ],
       [ "connect", "classdhyara_1_1link.html#a9ffc74d64e082b29665d91a217411b4f", null ],
       [ "init", "classdhyara_1_1link.html#a1c9f0b94a68b78b3ca2b55263642fdd4", null ],
@@ -19,6 +15,7 @@ var group__dhyara =
       [ "max_rssi", "classdhyara_1_1link.html#a19975b8c23faef8962e6dd69eb7d1139", null ],
       [ "neighbours", "classdhyara_1_1link.html#ad52747ce9c6acc559df80526a9286b5a", null ],
       [ "operator[]", "classdhyara_1_1link.html#a279e7531ee6dccea83ce1e6c793151ab", null ],
+      [ "q_receive", "classdhyara_1_1link.html#aa4e985816289a5e054aed2d744aad77e", null ],
       [ "reset", "classdhyara_1_1link.html#a388cf4322e818fd5d33665c571c3ca37", null ],
       [ "routes", "classdhyara_1_1link.html#afb967dd39b9e1982e5411e9d8005fc27", null ],
       [ "rx", "classdhyara_1_1link.html#ae84e6d577ba8d0e9c3c575f735f55eb3", null ],
@@ -26,7 +23,12 @@ var group__dhyara =
       [ "send_local", "classdhyara_1_1link.html#ab1b658b908d8ead7315600db746c51f6", null ],
       [ "start_rcv", "classdhyara_1_1link.html#a48d84ff3fff1d76658acfa4df424d943", null ],
       [ "start_snd", "classdhyara_1_1link.html#a379534b3f0faa7c9c927d9205ebec850", null ],
-      [ "tx", "classdhyara_1_1link.html#a796b3353f9d4a3af16436de8d027ba35", null ]
+      [ "transmit", "classdhyara_1_1link.html#a24055fe76a8ee2619c36650d98c1bae4", null ],
+      [ "tx", "classdhyara_1_1link.html#a796b3353f9d4a3af16436de8d027ba35", null ],
+      [ "_fifo_rcv", "classdhyara_1_1link.html#a9061df127c6389787dff79bf599e97b5", null ],
+      [ "_frame_rcv", "classdhyara_1_1link.html#ab4299a8535deae2df7e0485fda84023c", null ],
+      [ "_notifier", "classdhyara_1_1link.html#a2256e594c14127d3e51a04e44baafce9", null ],
+      [ "_queue_snd", "classdhyara_1_1link.html#ace3e11bfff2f5cfe858dc85ed536b337", null ]
     ] ],
     [ "network", "structdhyara_1_1network.html", [
       [ "network", "structdhyara_1_1network.html#aa2b86d3f194284eb41b8b9fd46b58622", null ],
@@ -44,14 +46,18 @@ var group__dhyara =
       [ "link", "structdhyara_1_1network.html#a5852cc388eca2af88a08fcebc88ee0b4", null ],
       [ "on_data", "structdhyara_1_1network.html#a51dcda4002e9fe16284c568fde041a54", null ],
       [ "operator=", "structdhyara_1_1network.html#abb7b565d80e22ecdd00932c1325c0b2b", null ],
+      [ "presence", "structdhyara_1_1network.html#aa1a11abfeedf53785cc3ff2ec1debd26", null ],
       [ "send", "structdhyara_1_1network.html#afa2a0cd07ef8508f7ce950449d5dff17", null ],
       [ "send", "structdhyara_1_1network.html#a6ed3eca266b9da66b2bb422d891cd145", null ],
       [ "send", "structdhyara_1_1network.html#a4bcc4aff7a5bb51182f80088814de099", null ],
       [ "start", "structdhyara_1_1network.html#aadf3365c6a5506187b2f9c91ef4fdd0a", null ],
-      [ "synchronizer", "structdhyara_1_1network.html#ae289d391b359a937d34f906a132b2696", null ]
+      [ "sync", "structdhyara_1_1network.html#a1f6b8a3cdcc95deb43b6a4c5c7705aeb", null ],
+      [ "synchronizer", "structdhyara_1_1network.html#ae289d391b359a937d34f906a132b2696", null ],
+      [ "task_presence", "structdhyara_1_1network.html#a24fee5e5bfed0900b7a634b0ee9aba21", null ],
+      [ "task_start_rcvd", "structdhyara_1_1network.html#a92e866529312c57b5766865d1e256ebb", null ],
+      [ "task_synchronize", "structdhyara_1_1network.html#a9da513dd22984f40c778be8a0f4ee80b", null ]
     ] ],
     [ "peer_address", "structdhyara_1_1peer__address.html", [
-      [ "container_type", "structdhyara_1_1peer__address.html#a34fc4401c9bc1f91f6b7c1d5449cc400", null ],
       [ "peer_address", "structdhyara_1_1peer__address.html#ad86931191672fda181fc50771e638b34", null ],
       [ "peer_address", "structdhyara_1_1peer__address.html#a51d6321024c2db6cf49e3678935edac9", null ],
       [ "peer_address", "structdhyara_1_1peer__address.html#a4dfe03c45d52def18ac9d797058eae7b", null ],

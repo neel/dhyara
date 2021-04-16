@@ -1,9 +1,0 @@
-<map id="includes/dhyara/actions" name="includes/dhyara/actions">
-<area shape="rect" id="node1" href="dir_4981cfb6e0625434ea002fdb075fc9ab.html" title="actions" alt="" coords="43,52,115,100"/>
-<area shape="rect" id="node2" href="dir_5342d3aa1e443377937e69c5f06c25a1.html" title="utils" alt="" coords="5,148,77,196"/>
-<area shape="rect" id="edge2-headlabel" href="dir_000004_000007.html" title="1" alt="" coords="60,127,70,142"/>
-<area shape="rect" id="node3" href="dir_8306a184a76653b2e13c56fe08a22361.html" title="packets" alt="" coords="41,244,113,292"/>
-<area shape="rect" id="edge3-headlabel" href="dir_000004_000005.html" title="8" alt="" coords="89,220,98,235"/>
-<area shape="rect" id="edge1-headlabel" href="dir_000007_000005.html" title="1" alt="" coords="65,217,75,231"/>
-<area shape="rect" id="clust1" href="dir_f7f3c0f391df97c74fff5c67413f6c88.html" title="dhyara" alt="" coords="32,16,125,111"/>
-</map>

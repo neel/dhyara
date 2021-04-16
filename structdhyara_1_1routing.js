@@ -3,8 +3,6 @@ var structdhyara_1_1routing =
     [ "next_hop", "structdhyara_1_1routing_1_1next__hop.html", "structdhyara_1_1routing_1_1next__hop" ],
     [ "route", "structdhyara_1_1routing_1_1route.html", "structdhyara_1_1routing_1_1route" ],
     [ "route_metric", "structdhyara_1_1routing_1_1route__metric.html", "structdhyara_1_1routing_1_1route__metric" ],
-    [ "next_vector_type", "structdhyara_1_1routing.html#ada873b04d4e0a4aa9c274ed90e7f9f6f", null ],
-    [ "table_type", "structdhyara_1_1routing.html#a7ddf3df4f19a1e81e5311d511198edea", null ],
     [ "routing", "structdhyara_1_1routing.html#a3200fe79309ef0e386d098e67073e261", null ],
     [ "depreciate", "structdhyara_1_1routing.html#aab678bd2a9abf93093ef1ee114a529fe", null ],
     [ "depreciate", "structdhyara_1_1routing.html#aa964c17c9c12e1e62b188654a8449e4a", null ],

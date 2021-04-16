@@ -1,4 +1,17 @@
 <map id="dhyara::actions::echo_reply" name="dhyara::actions::echo_reply">
-<area shape="rect" id="node1" title="action to handle an incoming echo reply packet" alt="" coords="10,109,171,151"/>
-<area shape="rect" id="node2" href="$structdhyara_1_1actions_1_1action.html" title=" " alt="" coords="5,5,176,61"/>
+<area shape="rect" id="node1" title="action to handle an incoming echo reply packet" alt="" coords="1241,181,1403,222"/>
+<area shape="rect" id="node2" href="$structdhyara_1_1actions_1_1action.html" title=" " alt="" coords="985,108,1156,164"/>
+<area shape="rect" id="node3" href="$classdhyara_1_1link.html" title="Link is responsible for low level sending/receiving." alt="" coords="1021,188,1120,215"/>
+<area shape="rect" id="node4" href="$structdhyara_1_1notifier.html" title="notifier" alt="" coords="697,7,819,33"/>
+<area shape="rect" id="node5" href="$structdhyara_1_1watcher.html" title=" " alt="" coords="344,7,529,33"/>
+<area shape="rect" id="node6" href="$classdhyara_1_1xqueue.html" title=" " alt="" coords="5,7,203,33"/>
+<area shape="rect" id="node7" href="$classdhyara_1_1xqueue.html" title=" " alt="" coords="663,57,853,113"/>
+<area shape="rect" id="node8" href="$structdhyara_1_1neighbourhood.html" title="Neighbourhood of a node." alt="" coords="672,137,844,164"/>
+<area shape="rect" id="node9" href="$structdhyara_1_1peer__address.html" title="peer address (mac address)" alt="" coords="23,219,185,245"/>
+<area shape="rect" id="node13" href="$structdhyara_1_1message.html" title="Envelop for both to be sent and has been received messages." alt="" coords="369,239,504,265"/>
+<area shape="rect" id="node10" href="$structdhyara_1_1routing.html" title="routing table" alt="" coords="697,407,819,433"/>
+<area shape="rect" id="node11" href="$structdhyara_1_1frame.html" title="A 250 bytes frame is defined by a 2 bytes header and 248 bytes payload." alt="" coords="47,311,161,337"/>
+<area shape="rect" id="node12" href="$structdhyara_1_1network__fifo.html" title=" " alt="" coords="669,239,847,281"/>
+<area shape="rect" id="node14" href="$classdhyara_1_1xqueue.html" title=" " alt="" coords="336,290,537,331"/>
+<area shape="rect" id="node15" href="$structdhyara_1_1actions_1_1echo__reply_1_1rtt__stat.html" title="RTT statistics, containing min, max, total and average values observed since last reset." alt="" coords="990,239,1151,281"/>
 </map>

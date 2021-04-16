@@ -120,19 +120,34 @@ Collaboration diagram for dhyara::actions::beacon:</div>
 <div class="dyncontent">
 <div class="center"><img src="structdhyara_1_1actions_1_1beacon__coll__graph.png" border="0" usemap="#dhyara_1_1actions_1_1beacon_coll__map" alt="Collaboration graph"/></div>
 <map name="dhyara_1_1actions_1_1beacon_coll__map" id="dhyara_1_1actions_1_1beacon_coll__map">
-<area shape="rect" title="action to handle an incoming beacon packet" alt="" coords="14,109,191,136"/>
-<area shape="rect" href="structdhyara_1_1actions_1_1action.html" title=" " alt="" coords="5,5,200,61"/>
+<area shape="rect" title="action to handle an incoming beacon packet" alt="" coords="1264,155,1441,181"/>
+<area shape="rect" href="structdhyara_1_1actions_1_1action.html" title=" " alt="" coords="985,108,1180,164"/>
+<area shape="rect" href="classdhyara_1_1link.html" title="Link is responsible for low level sending/receiving." alt="" coords="1033,188,1132,215"/>
+<area shape="rect" href="structdhyara_1_1notifier.html" title="notifier" alt="" coords="697,7,819,33"/>
+<area shape="rect" href="structdhyara_1_1watcher.html" title=" " alt="" coords="344,7,529,33"/>
+<area shape="rect" href="classdhyara_1_1xqueue.html" title=" " alt="" coords="5,7,203,33"/>
+<area shape="rect" href="classdhyara_1_1xqueue.html" title=" " alt="" coords="663,57,853,113"/>
+<area shape="rect" href="structdhyara_1_1neighbourhood.html" title="Neighbourhood of a node." alt="" coords="672,137,844,164"/>
+<area shape="rect" href="structdhyara_1_1peer__address.html" title="peer address (mac address)" alt="" coords="23,219,185,245"/>
+<area shape="rect" href="structdhyara_1_1message.html" title="Envelop for both to be sent and has been received messages." alt="" coords="369,239,504,265"/>
+<area shape="rect" href="structdhyara_1_1routing.html" title="routing table" alt="" coords="697,407,819,433"/>
+<area shape="rect" href="structdhyara_1_1frame.html" title="A 250 bytes frame is defined by a 2 bytes header and 248 bytes payload." alt="" coords="47,311,161,337"/>
+<area shape="rect" href="structdhyara_1_1network__fifo.html" title=" " alt="" coords="669,239,847,281"/>
+<area shape="rect" href="classdhyara_1_1xqueue.html" title=" " alt="" coords="336,290,537,331"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a9c48ecb9e2f2624216d0db83cedf8632"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1actions_1_1beacon.html#a9c48ecb9e2f2624216d0db83cedf8632">beacon</a> (<a class="el" href="classdhyara_1_1link.html">dhyara::link</a> &amp;<a class="el" href="classdhyara_1_1link.html">link</a>)</td></tr>
+<tr class="memdesc:a9c48ecb9e2f2624216d0db83cedf8632"><td class="mdescLeft">&#160;</td><td class="mdescRight">A beacon action constructor requires the link in order to respond with an aacknowledgement.  <a href="structdhyara_1_1actions_1_1beacon.html#a9c48ecb9e2f2624216d0db83cedf8632">More...</a><br /></td></tr>
 <tr class="separator:a9c48ecb9e2f2624216d0db83cedf8632"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4abcc7b031c50c0c9436cf0be39294a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1actions_1_1beacon.html#a4abcc7b031c50c0c9436cf0be39294a4">operator()</a> (const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> &amp;addr, const <a class="el" href="structdhyara_1_1packets_1_1beacon.html">dhyara::packets::beacon</a> &amp;<a class="el" href="structdhyara_1_1actions_1_1beacon.html">beacon</a>)</td></tr>
+<tr class="memdesc:a4abcc7b031c50c0c9436cf0be39294a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">The received beacon is processed in this function.  <a href="structdhyara_1_1actions_1_1beacon.html#a4abcc7b031c50c0c9436cf0be39294a4">More...</a><br /></td></tr>
 <tr class="separator:a4abcc7b031c50c0c9436cf0be39294a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3c07f2f718aa58ddb6f8ebbc1aabb6d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1actions_1_1beacon.html#aa3c07f2f718aa58ddb6f8ebbc1aabb6d">broadcast</a> ()</td></tr>
-<tr class="memdesc:aa3c07f2f718aa58ddb6f8ebbc1aabb6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">broadcast a beacon packet to the immediate neighbours.  <a href="structdhyara_1_1actions_1_1beacon.html#aa3c07f2f718aa58ddb6f8ebbc1aabb6d">More...</a><br /></td></tr>
+<tr class="memitem:aa3c07f2f718aa58ddb6f8ebbc1aabb6d"><td class="memItemLeft" align="right" valign="top"><a id="aa3c07f2f718aa58ddb6f8ebbc1aabb6d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1actions_1_1beacon.html#aa3c07f2f718aa58ddb6f8ebbc1aabb6d">broadcast</a> ()</td></tr>
+<tr class="memdesc:aa3c07f2f718aa58ddb6f8ebbc1aabb6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">broadcast a beacon packet to the immediate neighbours. <br /></td></tr>
 <tr class="separator:aa3c07f2f718aa58ddb6f8ebbc1aabb6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43baca4030e6150534c4736b6b380d05"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1actions_1_1beacon.html#a43baca4030e6150534c4736b6b380d05">ban</a> (const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> &amp;addr)</td></tr>
 <tr class="memdesc:a43baca4030e6150534c4736b6b380d05"><td class="mdescLeft">&#160;</td><td class="mdescRight">ban a peer from getting acknowledgement of its beacon.  <a href="structdhyara_1_1actions_1_1beacon.html#a43baca4030e6150534c4736b6b380d05">More...</a><br /></td></tr>
@@ -141,27 +156,27 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a9f9c7fed74fec3fd9602b51b7f02be9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether a peer is banned or not.  <a href="structdhyara_1_1actions_1_1beacon.html#a9f9c7fed74fec3fd9602b51b7f02be9d">More...</a><br /></td></tr>
 <tr class="separator:a9f9c7fed74fec3fd9602b51b7f02be9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_structdhyara_1_1actions_1_1action"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_structdhyara_1_1actions_1_1action')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="structdhyara_1_1actions_1_1action.html">dhyara::actions::action&lt; beacon, dhyara::packets::beacon &gt;</a></td></tr>
-<tr class="memitem:a046d7e662195162d4dc5fbc102d69359 inherit pub_methods_structdhyara_1_1actions_1_1action"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1actions_1_1action.html#a046d7e662195162d4dc5fbc102d69359">action</a> ()</td></tr>
+<tr class="memitem:a046d7e662195162d4dc5fbc102d69359 inherit pub_methods_structdhyara_1_1actions_1_1action"><td class="memItemLeft" align="right" valign="top"><a id="a046d7e662195162d4dc5fbc102d69359"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1actions_1_1action.html#a046d7e662195162d4dc5fbc102d69359">action</a> ()</td></tr>
+<tr class="memdesc:a046d7e662195162d4dc5fbc102d69359 inherit pub_methods_structdhyara_1_1actions_1_1action"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default action constructor. <br /></td></tr>
 <tr class="separator:a046d7e662195162d4dc5fbc102d69359 inherit pub_methods_structdhyara_1_1actions_1_1action"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2afbbf0b3228c2eab32335f4e9ce12cf inherit pub_methods_structdhyara_1_1actions_1_1action"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1actions_1_1action.html#a2afbbf0b3228c2eab32335f4e9ce12cf">action</a> (const <a class="el" href="structdhyara_1_1actions_1_1action.html">action</a>&lt; <a class="el" href="structdhyara_1_1actions_1_1beacon.html">beacon</a>, <a class="el" href="structdhyara_1_1packets_1_1beacon.html">dhyara::packets::beacon</a> &gt; &amp;)=delete</td></tr>
+<tr class="memitem:a2afbbf0b3228c2eab32335f4e9ce12cf inherit pub_methods_structdhyara_1_1actions_1_1action"><td class="memItemLeft" align="right" valign="top"><a id="a2afbbf0b3228c2eab32335f4e9ce12cf"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1actions_1_1action.html#a2afbbf0b3228c2eab32335f4e9ce12cf">action</a> (const <a class="el" href="structdhyara_1_1actions_1_1action.html">action</a>&lt; <a class="el" href="structdhyara_1_1actions_1_1beacon.html">beacon</a>, <a class="el" href="structdhyara_1_1packets_1_1beacon.html">dhyara::packets::beacon</a> &gt; &amp;)=delete</td></tr>
+<tr class="memdesc:a2afbbf0b3228c2eab32335f4e9ce12cf inherit pub_methods_structdhyara_1_1actions_1_1action"><td class="mdescLeft">&#160;</td><td class="mdescRight">An action cannot be copy-constructed. <br /></td></tr>
 <tr class="separator:a2afbbf0b3228c2eab32335f4e9ce12cf inherit pub_methods_structdhyara_1_1actions_1_1action"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab02e2d337f58ae824c7fe9552e0bf821 inherit pub_methods_structdhyara_1_1actions_1_1action"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdhyara_1_1actions_1_1action.html">action</a>&lt; <a class="el" href="structdhyara_1_1actions_1_1beacon.html">beacon</a>, <a class="el" href="structdhyara_1_1packets_1_1beacon.html">dhyara::packets::beacon</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1actions_1_1action.html#ab02e2d337f58ae824c7fe9552e0bf821">operator=</a> (const <a class="el" href="structdhyara_1_1actions_1_1action.html">action</a>&lt; <a class="el" href="structdhyara_1_1actions_1_1beacon.html">beacon</a>, <a class="el" href="structdhyara_1_1packets_1_1beacon.html">dhyara::packets::beacon</a> &gt; &amp;)=delete</td></tr>
+<tr class="memitem:ab02e2d337f58ae824c7fe9552e0bf821 inherit pub_methods_structdhyara_1_1actions_1_1action"><td class="memItemLeft" align="right" valign="top"><a id="ab02e2d337f58ae824c7fe9552e0bf821"></a>
+<a class="el" href="structdhyara_1_1actions_1_1action.html">action</a>&lt; <a class="el" href="structdhyara_1_1actions_1_1beacon.html">beacon</a>, <a class="el" href="structdhyara_1_1packets_1_1beacon.html">dhyara::packets::beacon</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1actions_1_1action.html#ab02e2d337f58ae824c7fe9552e0bf821">operator=</a> (const <a class="el" href="structdhyara_1_1actions_1_1action.html">action</a>&lt; <a class="el" href="structdhyara_1_1actions_1_1beacon.html">beacon</a>, <a class="el" href="structdhyara_1_1packets_1_1beacon.html">dhyara::packets::beacon</a> &gt; &amp;)=delete</td></tr>
+<tr class="memdesc:ab02e2d337f58ae824c7fe9552e0bf821 inherit pub_methods_structdhyara_1_1actions_1_1action"><td class="mdescLeft">&#160;</td><td class="mdescRight">An action is not copy-assignable. <br /></td></tr>
 <tr class="separator:ab02e2d337f58ae824c7fe9552e0bf821 inherit pub_methods_structdhyara_1_1actions_1_1action"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6273443e685fadf590c7e06c9981fd0d inherit pub_methods_structdhyara_1_1actions_1_1action"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1actions_1_1action.html#a6273443e685fadf590c7e06c9981fd0d">operator()</a> (const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> &amp;address, const <a class="el" href="structdhyara_1_1frame.html">dhyara::frame</a> &amp;<a class="el" href="structdhyara_1_1frame.html">frame</a>)</td></tr>
 <tr class="memdesc:a6273443e685fadf590c7e06c9981fd0d inherit pub_methods_structdhyara_1_1actions_1_1action"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a packet from the received frame.  <a href="structdhyara_1_1actions_1_1action.html#a6273443e685fadf590c7e06c9981fd0d">More...</a><br /></td></tr>
 <tr class="separator:a6273443e685fadf590c7e06c9981fd0d inherit pub_methods_structdhyara_1_1actions_1_1action"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0deb780f69c1d083514f14b524b6c1af inherit pub_methods_structdhyara_1_1actions_1_1action"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1actions_1_1action.html#a0deb780f69c1d083514f14b524b6c1af">connect</a> (<a class="el" href="structdhyara_1_1actions_1_1action.html#a1cd09164189d292e0f2965670e64e4d5">slot_type</a> slot)</td></tr>
+<tr class="memitem:a0deb780f69c1d083514f14b524b6c1af inherit pub_methods_structdhyara_1_1actions_1_1action"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1actions_1_1action.html#a0deb780f69c1d083514f14b524b6c1af">connect</a> (slot_type slot)</td></tr>
 <tr class="memdesc:a0deb780f69c1d083514f14b524b6c1af inherit pub_methods_structdhyara_1_1actions_1_1action"><td class="mdescLeft">&#160;</td><td class="mdescRight">Connect a slot (callback) which will be called after the action is executed.  <a href="structdhyara_1_1actions_1_1action.html#a0deb780f69c1d083514f14b524b6c1af">More...</a><br /></td></tr>
 <tr class="separator:a0deb780f69c1d083514f14b524b6c1af inherit pub_methods_structdhyara_1_1actions_1_1action"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af2209dc2497199b75cf9cdd4fde02a39 inherit pub_methods_structdhyara_1_1actions_1_1action"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1actions_1_1action.html#af2209dc2497199b75cf9cdd4fde02a39">disconnect</a> (std::size_t id)</td></tr>
 <tr class="memdesc:af2209dc2497199b75cf9cdd4fde02a39 inherit pub_methods_structdhyara_1_1actions_1_1action"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disconnects an already connected slot by id.  <a href="structdhyara_1_1actions_1_1action.html#af2209dc2497199b75cf9cdd4fde02a39">More...</a><br /></td></tr>
 <tr class="separator:af2209dc2497199b75cf9cdd4fde02a39 inherit pub_methods_structdhyara_1_1actions_1_1action"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
-Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pub_types_structdhyara_1_1actions_1_1action"><td colspan="2" onclick="javascript:toggleInherit('pub_types_structdhyara_1_1actions_1_1action')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="structdhyara_1_1actions_1_1action.html">dhyara::actions::action&lt; beacon, dhyara::packets::beacon &gt;</a></td></tr>
-<tr class="memitem:a1cd09164189d292e0f2965670e64e4d5 inherit pub_types_structdhyara_1_1actions_1_1action"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; void(const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> &amp;, const <a class="el" href="structdhyara_1_1packets_1_1beacon.html">dhyara::packets::beacon</a> &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1actions_1_1action.html#a1cd09164189d292e0f2965670e64e4d5">slot_type</a></td></tr>
-<tr class="separator:a1cd09164189d292e0f2965670e64e4d5 inherit pub_types_structdhyara_1_1actions_1_1action"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>action to handle an incoming beacon packet </p>
@@ -191,6 +206,14 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>A beacon action constructor requires the link in order to respond with an aacknowledgement. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">link</td><td>a reference to the link. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -254,26 +277,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if that address is banned, false otherwise </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="actions_2beacon_8h_source.html#l00051">51</a> of file <a class="el" href="actions_2beacon_8h_source.html">beacon.h</a>.</p>
-
-</div>
-</div>
-<a id="aa3c07f2f718aa58ddb6f8ebbc1aabb6d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa3c07f2f718aa58ddb6f8ebbc1aabb6d">&#9670;&nbsp;</a></span>broadcast()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void dhyara::actions::beacon::broadcast </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>broadcast a beacon packet to the immediate neighbours. </p>
+<p class="definition">Definition at line <a class="el" href="actions_2beacon_8h_source.html#l00061">61</a> of file <a class="el" href="actions_2beacon_8h_source.html">beacon.h</a>.</p>
 
 </div>
 </div>
@@ -303,6 +307,15 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>The received beacon is processed in this function. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">addr</td><td>source address </td></tr>
+    <tr><td class="paramname">beacon</td><td>the received beacon </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
@@ -314,7 +327,7 @@ Additional Inherited Members</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacedhyara.html">dhyara</a></li><li class="navelem"><a class="el" href="namespacedhyara_1_1actions.html">actions</a></li><li class="navelem"><a class="el" href="structdhyara_1_1actions_1_1beacon.html">beacon</a></li>
+    <li class="navelem"><b>dhyara</b></li><li class="navelem"><b>actions</b></li><li class="navelem"><a class="el" href="structdhyara_1_1actions_1_1beacon.html">beacon</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.17 </li>
   </ul>
 </div>

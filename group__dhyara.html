@@ -102,7 +102,7 @@ $(document).ready(function(){initNavTree('group__dhyara.html',''); initResizable
 </div><!--header-->
 <div class="contents">
 
-<p>Dhyara Communication Interface provides a simplified abstraction over the underlying Ad-Hoc Network. Unless there is a need to customize the internal mechanism of maintaining the usercode only needs to interact through this module. Dhyara is written in C++11. Some functionalities are exposed as C functions, so that it can also be incorporated into a C project.  
+<p>Dhyara Communication Interface provides a simplified abstraction over the underlying Ad-Hoc Network.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
@@ -134,8 +134,9 @@ Functions</h2></td></tr>
 <tr class="memitem:gac4a4e3c727ec3d63ba96f3b5ab963b68"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dhyara.html#gac4a4e3c727ec3d63ba96f3b5ab963b68">dhyara_start_default_network</a> ()</td></tr>
 <tr class="memdesc:gac4a4e3c727ec3d63ba96f3b5ab963b68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the default network.  <a href="group__dhyara.html#gac4a4e3c727ec3d63ba96f3b5ab963b68">More...</a><br /></td></tr>
 <tr class="separator:gac4a4e3c727ec3d63ba96f3b5ab963b68"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad860e0c89a7d23dd21693769dd7d528e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dhyara.html#gad860e0c89a7d23dd21693769dd7d528e">dhyara_has_default_network</a> ()</td></tr>
-<tr class="memdesc:gad860e0c89a7d23dd21693769dd7d528e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the default network is set or not.  <a href="group__dhyara.html#gad860e0c89a7d23dd21693769dd7d528e">More...</a><br /></td></tr>
+<tr class="memitem:gad860e0c89a7d23dd21693769dd7d528e"><td class="memItemLeft" align="right" valign="top"><a id="gad860e0c89a7d23dd21693769dd7d528e"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dhyara.html#gad860e0c89a7d23dd21693769dd7d528e">dhyara_has_default_network</a> ()</td></tr>
+<tr class="memdesc:gad860e0c89a7d23dd21693769dd7d528e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the default network is set or not. <br /></td></tr>
 <tr class="separator:gad860e0c89a7d23dd21693769dd7d528e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
@@ -169,12 +170,14 @@ Local</h2></td></tr>
 <tr class="memitem:ga672baef2f77147252c5a13bf40022fd6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dhyara.html#ga672baef2f77147252c5a13bf40022fd6">dhyara_local</a> (unsigned char *address)</td></tr>
 <tr class="memdesc:ga672baef2f77147252c5a13bf40022fd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets the mac address of self  <a href="group__dhyara.html#ga672baef2f77147252c5a13bf40022fd6">More...</a><br /></td></tr>
 <tr class="separator:ga672baef2f77147252c5a13bf40022fd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga36d8ce61d2823d3dfd1b93ecdbc3a8d9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dhyara.html#ga36d8ce61d2823d3dfd1b93ecdbc3a8d9">dhyara_local</a> ()</td></tr>
-<tr class="memdesc:ga36d8ce61d2823d3dfd1b93ecdbc3a8d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets the mac address of self  <a href="group__dhyara.html#ga36d8ce61d2823d3dfd1b93ecdbc3a8d9">More...</a><br /></td></tr>
+<tr class="memitem:ga36d8ce61d2823d3dfd1b93ecdbc3a8d9"><td class="memItemLeft" align="right" valign="top"><a id="ga36d8ce61d2823d3dfd1b93ecdbc3a8d9"></a>
+<a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dhyara.html#ga36d8ce61d2823d3dfd1b93ecdbc3a8d9">dhyara_local</a> ()</td></tr>
+<tr class="memdesc:ga36d8ce61d2823d3dfd1b93ecdbc3a8d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets the mac address of self <br /></td></tr>
 <tr class="separator:ga36d8ce61d2823d3dfd1b93ecdbc3a8d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Dhyara Communication Interface provides a simplified abstraction over the underlying Ad-Hoc Network. Unless there is a need to customize the internal mechanism of maintaining the usercode only needs to interact through this module. Dhyara is written in C++11. Some functionalities are exposed as C functions, so that it can also be incorporated into a C project. </p>
+<p>Dhyara Communication Interface provides a simplified abstraction over the underlying Ad-Hoc Network. </p>
+<p>Unless there is a need to customize the internal mechanism of maintaining the usercode only needs to interact through this module. Dhyara is written in C++11. Some functionalities are exposed as C functions, so that it can also be incorporated into a C project.</p>
 <h3><a class="anchor" id="autotoc_md0"></a>
 Architecture</h3>
 <p><a class="el" href="classdhyara_1_1link.html">dhyara::link</a> is responsible for performing the low level IO operations in the network. <a class="el" href="classdhyara_1_1link.html">dhyara::link</a> also maintains the neighbourhood, routing and message queue for sending and receiving frames over the network. <a class="el" href="structdhyara_1_1network.html">dhyara::network</a> configures the link and creates FreeRTOS tasks to initialize and maintain the Ad-Hoc Network. <a class="el" href="structdhyara_1_1network.html">dhyara::network</a> also provides convenience functions to interact with the underlying link. There should be exactly one instance of the link and the network. While initializing dhyara, certain functions <a class="el" href="classdhyara_1_1link.html">dhyara::link</a> are required to be plugged in as callbacks to the espnow and wifi subsystem.</p>
@@ -236,25 +239,6 @@ Basic Operations</h3>
 
 </div>
 </div>
-<a id="gad860e0c89a7d23dd21693769dd7d528e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gad860e0c89a7d23dd21693769dd7d528e">&#9670;&nbsp;</a></span>dhyara_has_default_network()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool dhyara_has_default_network </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Checks whether the default network is set or not. </p>
-
-</div>
-</div>
 <a id="ga42863788515b1583d0ec0b4fd2b8a0fa"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga42863788515b1583d0ec0b4fd2b8a0fa">&#9670;&nbsp;</a></span>dhyara_init()</h2>
 
@@ -278,27 +262,8 @@ Basic Operations</h3>
 
 </div>
 </div>
-<a id="ga36d8ce61d2823d3dfd1b93ecdbc3a8d9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga36d8ce61d2823d3dfd1b93ecdbc3a8d9">&#9670;&nbsp;</a></span>dhyara_local() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> dhyara_local </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>gets the mac address of self </p>
-
-</div>
-</div>
 <a id="ga672baef2f77147252c5a13bf40022fd6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga672baef2f77147252c5a13bf40022fd6">&#9670;&nbsp;</a></span>dhyara_local() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ga672baef2f77147252c5a13bf40022fd6">&#9670;&nbsp;</a></span>dhyara_local()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -340,8 +305,8 @@ Basic Operations</h3>
 </div><div class="memdoc">
 
 <p>Sets a callback on the default networks on_data. </p>
-<p>This callback will be called whenever a data packet is received. (accepts C++ anonymous function) The typedef dhyara_receive_callback_t is defined as the following. </p><div class="fragment"><div class="line"><span class="keyword">typedef</span> std::function&lt;void (<span class="keyword">const</span> <a class="code" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a>&amp;, <a class="code" href="structdhyara_1_1packets_1_1data.html#a9470d00822346746b55ed2222dacfe0f">dhyara::packets::data::const_iterator</a>, <a class="code" href="structdhyara_1_1packets_1_1data.html#a9470d00822346746b55ed2222dacfe0f">dhyara::packets::data::const_iterator</a>)&gt; dhyara_receive_callback_type;</div>
-</div><!-- fragment --><p> Following is an example of the callback function. </p><div class="fragment"><div class="line"><span class="keywordtype">void</span> callback (<span class="keyword">const</span> <a class="code" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a>&amp;, <a class="code" href="structdhyara_1_1packets_1_1data.html#a9470d00822346746b55ed2222dacfe0f">dhyara::packets::data::const_iterator</a>, <a class="code" href="structdhyara_1_1packets_1_1data.html#a9470d00822346746b55ed2222dacfe0f">dhyara::packets::data::const_iterator</a>){</div>
+<p>This callback will be called whenever a data packet is received. (accepts C++ anonymous function) The typedef dhyara_receive_callback_t is defined as the following. </p><div class="fragment"><div class="line"><span class="keyword">typedef</span> std::function&lt;void (<span class="keyword">const</span> <a class="code" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a>&amp;, dhyara::packets::data::const_iterator, dhyara::packets::data::const_iterator)&gt; dhyara_receive_callback_type;</div>
+</div><!-- fragment --><p> Following is an example of the callback function. </p><div class="fragment"><div class="line"><span class="keywordtype">void</span> callback (<span class="keyword">const</span> <a class="code" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a>&amp;, dhyara::packets::data::const_iterator, dhyara::packets::data::const_iterator){</div>
 <div class="line"> </div>
 <div class="line">}</div>
 </div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
@@ -602,7 +567,6 @@ ESP Now may be initialized (e.g. <a class="el" href="group__dhyara.html#ga86084d
 </div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="astructdhyara_1_1peer__address_html"><div class="ttname"><a href="structdhyara_1_1peer__address.html">dhyara::peer_address</a></div><div class="ttdoc">peer address (mac address)</div><div class="ttdef"><b>Definition:</b> <a href="peer_8h_source.html#l00029">peer.h:29</a></div></div>
-<div class="ttc" id="astructdhyara_1_1packets_1_1data_html_a9470d00822346746b55ed2222dacfe0f"><div class="ttname"><a href="structdhyara_1_1packets_1_1data.html#a9470d00822346746b55ed2222dacfe0f">dhyara::packets::data::const_iterator</a></div><div class="ttdeci">dynamic_buffer_type::const_iterator const_iterator</div><div class="ttdef"><b>Definition:</b> <a href="data_8h_source.html#l00029">data.h:29</a></div></div>
 <div class="ttc" id="astructdhyara_1_1packets_1_1data_html"><div class="ttname"><a href="structdhyara_1_1packets_1_1data.html">dhyara::packets::data</a></div><div class="ttdoc">A virtual packet, that is never sent accros the network.</div><div class="ttdef"><b>Definition:</b> <a href="data_8h_source.html#l00027">data.h:27</a></div></div>
 <div class="ttc" id="agroup__dhyara_html_ga42863788515b1583d0ec0b4fd2b8a0fa"><div class="ttname"><a href="group__dhyara.html#ga42863788515b1583d0ec0b4fd2b8a0fa">dhyara_init</a></div><div class="ttdeci">esp_err_t dhyara_init(wifi_mode_t mode)</div><div class="ttdoc">Initializes wifi, starts wifi, then initializes ESP Now.</div></div>
 <div class="ttc" id="agroup__dhyara_html_gac4a4e3c727ec3d63ba96f3b5ab963b68"><div class="ttname"><a href="group__dhyara.html#gac4a4e3c727ec3d63ba96f3b5ab963b68">dhyara_start_default_network</a></div><div class="ttdeci">void dhyara_start_default_network()</div><div class="ttdoc">Starts the default network.</div></div>

@@ -1,6 +1,4 @@
 <map id="dhyara::packets::chunk" name="dhyara::packets::chunk">
-<area shape="rect" id="node1" title="Chunk of a variable sized data." alt="" coords="39,228,211,255"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,124,165,165"/>
-<area shape="rect" id="node3" href="$structdhyara_1_1packets_1_1chunk__header.html" title="Header in the chunk." alt="" coords="190,124,362,165"/>
-<area shape="rect" id="node4" title=" " alt="" coords="196,5,356,47"/>
+<area shape="rect" id="node1" title="Chunk of a variable sized data." alt="" coords="5,109,177,136"/>
+<area shape="rect" id="node2" href="$structdhyara_1_1packets_1_1chunk__header.html" title="Header in the chunk." alt="" coords="5,5,177,47"/>
 </map>

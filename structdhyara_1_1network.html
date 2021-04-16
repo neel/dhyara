@@ -96,6 +96,8 @@ $(document).ready(function(){initNavTree('structdhyara_1_1network.html',''); ini
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-static-methods">Static Private Member Functions</a> &#124;
 <a href="structdhyara_1_1network-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">dhyara::network Struct Reference<div class="ingroups"><a class="el" href="group__dhyara.html">Dhyara</a></div></div>  </div>
@@ -106,23 +108,67 @@ $(document).ready(function(){initNavTree('structdhyara_1_1network.html',''); ini
  <a href="structdhyara_1_1network.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="network_8h_source.html">network.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for dhyara::network:</div>
+<div class="dyncontent">
+<div class="center"><img src="structdhyara_1_1network__coll__graph.png" border="0" usemap="#dhyara_1_1network_coll__map" alt="Collaboration graph"/></div>
+<map name="dhyara_1_1network_coll__map" id="dhyara_1_1network_coll__map">
+<area shape="rect" title="The dhyara ad&#45;hoc network." alt="" coords="2077,363,2205,389"/>
+<area shape="rect" href="structdhyara_1_1actions_1_1beacon.html" title="action to handle an incoming beacon packet" alt="" coords="1304,52,1481,79"/>
+<area shape="rect" href="structdhyara_1_1actions_1_1action.html" title=" " alt="" coords="993,5,1188,61"/>
+<area shape="rect" href="classdhyara_1_1link.html" title="Link is responsible for low level sending/receiving." alt="" coords="1041,372,1140,399"/>
+<area shape="rect" href="structdhyara_1_1actions_1_1chunk.html" title="action to handle an incoming chunk packet" alt="" coords="1308,103,1477,129"/>
+<area shape="rect" href="structdhyara_1_1actions_1_1advertisement.html" title="action to handle an incoming advertisement packet" alt="" coords="1659,225,1885,252"/>
+<area shape="rect" href="structdhyara_1_1synchronizer.html" title="Synchronize routes accross all nodes in the network." alt="" coords="1313,347,1472,373"/>
+<area shape="rect" href="structdhyara_1_1actions_1_1echo__lost.html" title="action to handle an incoming echo lost packet" alt="" coords="1297,540,1489,567"/>
+<area shape="rect" href="structdhyara_1_1actions_1_1echo__request.html" title="action to handle an incoming echo request packet" alt="" coords="1312,591,1473,633"/>
+<area shape="rect" href="structdhyara_1_1actions_1_1delivered.html" title="action to handle an incoming delivery report" alt="" coords="1297,657,1488,684"/>
+<area shape="rect" href="structdhyara_1_1actions_1_1echo__reply.html" title="action to handle an incoming echo reply packet" alt="" coords="1312,715,1473,757"/>
+<area shape="rect" href="structdhyara_1_1actions_1_1acknowledgement.html" title="action to handle an incoming acknowledgement packet" alt="" coords="1647,415,1897,441"/>
+<area shape="rect" href="structdhyara_1_1notifier.html" title="notifier" alt="" coords="697,191,819,217"/>
+<area shape="rect" href="structdhyara_1_1watcher.html" title=" " alt="" coords="344,191,529,217"/>
+<area shape="rect" href="classdhyara_1_1xqueue.html" title=" " alt="" coords="5,191,203,217"/>
+<area shape="rect" href="classdhyara_1_1xqueue.html" title=" " alt="" coords="663,241,853,297"/>
+<area shape="rect" href="structdhyara_1_1neighbourhood.html" title="Neighbourhood of a node." alt="" coords="672,321,844,348"/>
+<area shape="rect" href="structdhyara_1_1peer__address.html" title="peer address (mac address)" alt="" coords="23,399,185,425"/>
+<area shape="rect" href="structdhyara_1_1message.html" title="Envelop for both to be sent and has been received messages." alt="" coords="369,489,504,516"/>
+<area shape="rect" href="structdhyara_1_1routing.html" title="routing table" alt="" coords="697,423,819,449"/>
+<area shape="rect" href="structdhyara_1_1frame.html" title="A 250 bytes frame is defined by a 2 bytes header and 248 bytes payload." alt="" coords="47,516,161,543"/>
+<area shape="rect" href="structdhyara_1_1network__fifo.html" title=" " alt="" coords="669,474,847,515"/>
+<area shape="rect" href="classdhyara_1_1xqueue.html" title=" " alt="" coords="336,423,537,465"/>
+<area shape="rect" href="structdhyara_1_1actions_1_1action.html" title=" " alt="" coords="997,85,1184,141"/>
+<area shape="rect" href="structdhyara_1_1actions_1_1action.html" title=" " alt="" coords="1293,216,1492,272"/>
+<area shape="rect" href="classdhyara_1_1xqueue.html" title=" " alt="" coords="987,173,1194,214"/>
+<area shape="rect" href="structdhyara_1_1actions_1_1action.html" title=" " alt="" coords="985,483,1196,539"/>
+<area shape="rect" href="structdhyara_1_1actions_1_1action.html" title=" " alt="" coords="995,563,1186,619"/>
+<area shape="rect" href="structdhyara_1_1actions_1_1action.html" title=" " alt="" coords="986,643,1195,699"/>
+<area shape="rect" href="structdhyara_1_1actions_1_1action.html" title=" " alt="" coords="1005,723,1176,779"/>
+<area shape="rect" href="structdhyara_1_1actions_1_1echo__reply_1_1rtt__stat.html" title="RTT statistics, containing min, max, total and average values observed since last reset." alt="" coords="1010,803,1171,845"/>
+<area shape="rect" href="structdhyara_1_1actions_1_1action.html" title=" " alt="" coords="1281,460,1504,516"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa2b86d3f194284eb41b8b9fd46b58622"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1network.html#aa2b86d3f194284eb41b8b9fd46b58622">network</a> ()=delete</td></tr>
-<tr class="memdesc:aa2b86d3f194284eb41b8b9fd46b58622"><td class="mdescLeft">&#160;</td><td class="mdescRight">Not default constructible.  <a href="structdhyara_1_1network.html#aa2b86d3f194284eb41b8b9fd46b58622">More...</a><br /></td></tr>
+<tr class="memitem:aa2b86d3f194284eb41b8b9fd46b58622"><td class="memItemLeft" align="right" valign="top"><a id="aa2b86d3f194284eb41b8b9fd46b58622"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1network.html#aa2b86d3f194284eb41b8b9fd46b58622">network</a> ()=delete</td></tr>
+<tr class="memdesc:aa2b86d3f194284eb41b8b9fd46b58622"><td class="mdescLeft">&#160;</td><td class="mdescRight">Not default constructible. <br /></td></tr>
 <tr class="separator:aa2b86d3f194284eb41b8b9fd46b58622"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad6d89f13164eeede7b24ffe9c8c7640"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1network.html#aad6d89f13164eeede7b24ffe9c8c7640">network</a> (const <a class="el" href="structdhyara_1_1network.html">network</a> &amp;)=delete</td></tr>
-<tr class="memdesc:aad6d89f13164eeede7b24ffe9c8c7640"><td class="mdescLeft">&#160;</td><td class="mdescRight">Not copyable.  <a href="structdhyara_1_1network.html#aad6d89f13164eeede7b24ffe9c8c7640">More...</a><br /></td></tr>
+<tr class="memitem:aad6d89f13164eeede7b24ffe9c8c7640"><td class="memItemLeft" align="right" valign="top"><a id="aad6d89f13164eeede7b24ffe9c8c7640"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1network.html#aad6d89f13164eeede7b24ffe9c8c7640">network</a> (const <a class="el" href="structdhyara_1_1network.html">network</a> &amp;)=delete</td></tr>
+<tr class="memdesc:aad6d89f13164eeede7b24ffe9c8c7640"><td class="mdescLeft">&#160;</td><td class="mdescRight">Not copyable. <br /></td></tr>
 <tr class="separator:aad6d89f13164eeede7b24ffe9c8c7640"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb7b565d80e22ecdd00932c1325c0b2b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdhyara_1_1network.html">network</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1network.html#abb7b565d80e22ecdd00932c1325c0b2b">operator=</a> (const <a class="el" href="structdhyara_1_1network.html">network</a> &amp;)=delete</td></tr>
-<tr class="memdesc:abb7b565d80e22ecdd00932c1325c0b2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Not Copyable.  <a href="structdhyara_1_1network.html#abb7b565d80e22ecdd00932c1325c0b2b">More...</a><br /></td></tr>
+<tr class="memitem:abb7b565d80e22ecdd00932c1325c0b2b"><td class="memItemLeft" align="right" valign="top"><a id="abb7b565d80e22ecdd00932c1325c0b2b"></a>
+<a class="el" href="structdhyara_1_1network.html">network</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1network.html#abb7b565d80e22ecdd00932c1325c0b2b">operator=</a> (const <a class="el" href="structdhyara_1_1network.html">network</a> &amp;)=delete</td></tr>
+<tr class="memdesc:abb7b565d80e22ecdd00932c1325c0b2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Not Copyable. <br /></td></tr>
 <tr class="separator:abb7b565d80e22ecdd00932c1325c0b2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a56f17119fdd216f1b48f0f6173248245"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1network.html#a56f17119fdd216f1b48f0f6173248245">network</a> (<a class="el" href="classdhyara_1_1link.html">dhyara::link</a> &amp;<a class="el" href="classdhyara_1_1link.html">link</a>)</td></tr>
-<tr class="memdesc:a56f17119fdd216f1b48f0f6173248245"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a network with a reference to the link.  <a href="structdhyara_1_1network.html#a56f17119fdd216f1b48f0f6173248245">More...</a><br /></td></tr>
+<tr class="memitem:a56f17119fdd216f1b48f0f6173248245"><td class="memItemLeft" align="right" valign="top"><a id="a56f17119fdd216f1b48f0f6173248245"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1network.html#a56f17119fdd216f1b48f0f6173248245">network</a> (<a class="el" href="classdhyara_1_1link.html">dhyara::link</a> &amp;<a class="el" href="classdhyara_1_1link.html">link</a>)</td></tr>
+<tr class="memdesc:a56f17119fdd216f1b48f0f6173248245"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a network with a reference to the link. <br /></td></tr>
 <tr class="separator:a56f17119fdd216f1b48f0f6173248245"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aadf3365c6a5506187b2f9c91ef4fdd0a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1network.html#aadf3365c6a5506187b2f9c91ef4fdd0a">start</a> ()</td></tr>
-<tr class="memdesc:aadf3365c6a5506187b2f9c91ef4fdd0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">main network I/O  <a href="structdhyara_1_1network.html#aadf3365c6a5506187b2f9c91ef4fdd0a">More...</a><br /></td></tr>
+<tr class="memitem:aadf3365c6a5506187b2f9c91ef4fdd0a"><td class="memItemLeft" align="right" valign="top"><a id="aadf3365c6a5506187b2f9c91ef4fdd0a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1network.html#aadf3365c6a5506187b2f9c91ef4fdd0a">start</a> ()</td></tr>
+<tr class="memdesc:aadf3365c6a5506187b2f9c91ef4fdd0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">main network I/O <br /></td></tr>
 <tr class="separator:aadf3365c6a5506187b2f9c91ef4fdd0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ed3eca266b9da66b2bb422d891cd145"><td class="memTemplParams" colspan="2">template&lt;typename InputIt &gt; </td></tr>
 <tr class="memitem:a6ed3eca266b9da66b2bb422d891cd145"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structdhyara_1_1network.html#a6ed3eca266b9da66b2bb422d891cd145">send</a> (const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> &amp;target, InputIt begin, InputIt end)</td></tr>
@@ -138,355 +184,83 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aa46dd5254cbc3a8431fa866e010d029c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1network.html#aa46dd5254cbc3a8431fa866e010d029c">isolate</a> (const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> &amp;x, const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> &amp;y)</td></tr>
 <tr class="memdesc:aa46dd5254cbc3a8431fa866e010d029c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Isolate two nodes from each other.  <a href="structdhyara_1_1network.html#aa46dd5254cbc3a8431fa866e010d029c">More...</a><br /></td></tr>
 <tr class="separator:aa46dd5254cbc3a8431fa866e010d029c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a51dcda4002e9fe16284c568fde041a54"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1network.html#a51dcda4002e9fe16284c568fde041a54">on_data</a> (<a class="el" href="structdhyara_1_1actions_1_1chunk.html#a5366ec7abfa056df5f70bc65e97a9beb">dhyara::actions::chunk::data_callback_type</a> slot)</td></tr>
-<tr class="memdesc:a51dcda4002e9fe16284c568fde041a54"><td class="mdescLeft">&#160;</td><td class="mdescRight">set a callback which will be called once a complete data is received  <a href="structdhyara_1_1network.html#a51dcda4002e9fe16284c568fde041a54">More...</a><br /></td></tr>
+<tr class="memitem:a51dcda4002e9fe16284c568fde041a54"><td class="memItemLeft" align="right" valign="top"><a id="a51dcda4002e9fe16284c568fde041a54"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1network.html#a51dcda4002e9fe16284c568fde041a54">on_data</a> (dhyara::actions::chunk::data_callback_type slot)</td></tr>
+<tr class="memdesc:a51dcda4002e9fe16284c568fde041a54"><td class="mdescLeft">&#160;</td><td class="mdescRight">set a callback which will be called once a complete data is received <br /></td></tr>
 <tr class="separator:a51dcda4002e9fe16284c568fde041a54"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5852cc388eca2af88a08fcebc88ee0b4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdhyara_1_1link.html">dhyara::link</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1network.html#a5852cc388eca2af88a08fcebc88ee0b4">link</a> ()</td></tr>
-<tr class="memdesc:a5852cc388eca2af88a08fcebc88ee0b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Link.  <a href="structdhyara_1_1network.html#a5852cc388eca2af88a08fcebc88ee0b4">More...</a><br /></td></tr>
+<tr class="memitem:a5852cc388eca2af88a08fcebc88ee0b4"><td class="memItemLeft" align="right" valign="top"><a id="a5852cc388eca2af88a08fcebc88ee0b4"></a>
+<a class="el" href="classdhyara_1_1link.html">dhyara::link</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1network.html#a5852cc388eca2af88a08fcebc88ee0b4">link</a> ()</td></tr>
+<tr class="memdesc:a5852cc388eca2af88a08fcebc88ee0b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Link. <br /></td></tr>
 <tr class="separator:a5852cc388eca2af88a08fcebc88ee0b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Actions</div></td></tr>
-<tr class="memitem:ae289d391b359a937d34f906a132b2696"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdhyara_1_1synchronizer.html">dhyara::synchronizer</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1network.html#ae289d391b359a937d34f906a132b2696">synchronizer</a> ()</td></tr>
-<tr class="memdesc:ae289d391b359a937d34f906a132b2696"><td class="mdescLeft">&#160;</td><td class="mdescRight">synchronizer  <a href="structdhyara_1_1network.html#ae289d391b359a937d34f906a132b2696">More...</a><br /></td></tr>
+<tr class="memitem:ae289d391b359a937d34f906a132b2696"><td class="memItemLeft" align="right" valign="top"><a id="ae289d391b359a937d34f906a132b2696"></a>
+<a class="el" href="structdhyara_1_1synchronizer.html">dhyara::synchronizer</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1network.html#ae289d391b359a937d34f906a132b2696">synchronizer</a> ()</td></tr>
+<tr class="memdesc:ae289d391b359a937d34f906a132b2696"><td class="mdescLeft">&#160;</td><td class="mdescRight">synchronizer <br /></td></tr>
 <tr class="separator:ae289d391b359a937d34f906a132b2696"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c209ebe9f41aa32ec7979aafe94b1ed"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdhyara_1_1actions_1_1beacon.html">dhyara::actions::beacon</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1network.html#a7c209ebe9f41aa32ec7979aafe94b1ed">beacon</a> ()</td></tr>
-<tr class="memdesc:a7c209ebe9f41aa32ec7979aafe94b1ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">beacon action  <a href="structdhyara_1_1network.html#a7c209ebe9f41aa32ec7979aafe94b1ed">More...</a><br /></td></tr>
+<tr class="memitem:a7c209ebe9f41aa32ec7979aafe94b1ed"><td class="memItemLeft" align="right" valign="top"><a id="a7c209ebe9f41aa32ec7979aafe94b1ed"></a>
+<a class="el" href="structdhyara_1_1actions_1_1beacon.html">dhyara::actions::beacon</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1network.html#a7c209ebe9f41aa32ec7979aafe94b1ed">beacon</a> ()</td></tr>
+<tr class="memdesc:a7c209ebe9f41aa32ec7979aafe94b1ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">beacon action <br /></td></tr>
 <tr class="separator:a7c209ebe9f41aa32ec7979aafe94b1ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad5bfa163e3e7d49f2d4b7457d9359b1f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdhyara_1_1actions_1_1acknowledgement.html">dhyara::actions::acknowledgement</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1network.html#ad5bfa163e3e7d49f2d4b7457d9359b1f">acknowledgement</a> ()</td></tr>
-<tr class="memdesc:ad5bfa163e3e7d49f2d4b7457d9359b1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">acknowledgement action  <a href="structdhyara_1_1network.html#ad5bfa163e3e7d49f2d4b7457d9359b1f">More...</a><br /></td></tr>
+<tr class="memitem:ad5bfa163e3e7d49f2d4b7457d9359b1f"><td class="memItemLeft" align="right" valign="top"><a id="ad5bfa163e3e7d49f2d4b7457d9359b1f"></a>
+<a class="el" href="structdhyara_1_1actions_1_1acknowledgement.html">dhyara::actions::acknowledgement</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1network.html#ad5bfa163e3e7d49f2d4b7457d9359b1f">acknowledgement</a> ()</td></tr>
+<tr class="memdesc:ad5bfa163e3e7d49f2d4b7457d9359b1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">acknowledgement action <br /></td></tr>
 <tr class="separator:ad5bfa163e3e7d49f2d4b7457d9359b1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3c467f761557bec1fcb0f2e979235b17"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdhyara_1_1actions_1_1advertisement.html">dhyara::actions::advertisement</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1network.html#a3c467f761557bec1fcb0f2e979235b17">advertisement</a> ()</td></tr>
-<tr class="memdesc:a3c467f761557bec1fcb0f2e979235b17"><td class="mdescLeft">&#160;</td><td class="mdescRight">advertisement action  <a href="structdhyara_1_1network.html#a3c467f761557bec1fcb0f2e979235b17">More...</a><br /></td></tr>
+<tr class="memitem:a3c467f761557bec1fcb0f2e979235b17"><td class="memItemLeft" align="right" valign="top"><a id="a3c467f761557bec1fcb0f2e979235b17"></a>
+<a class="el" href="structdhyara_1_1actions_1_1advertisement.html">dhyara::actions::advertisement</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1network.html#a3c467f761557bec1fcb0f2e979235b17">advertisement</a> ()</td></tr>
+<tr class="memdesc:a3c467f761557bec1fcb0f2e979235b17"><td class="mdescLeft">&#160;</td><td class="mdescRight">advertisement action <br /></td></tr>
 <tr class="separator:a3c467f761557bec1fcb0f2e979235b17"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a432dd82d92d6dde8a4f3927d0f61e429"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdhyara_1_1actions_1_1echo__request.html">dhyara::actions::echo_request</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1network.html#a432dd82d92d6dde8a4f3927d0f61e429">echo_request</a> ()</td></tr>
-<tr class="memdesc:a432dd82d92d6dde8a4f3927d0f61e429"><td class="mdescLeft">&#160;</td><td class="mdescRight">echo_request action  <a href="structdhyara_1_1network.html#a432dd82d92d6dde8a4f3927d0f61e429">More...</a><br /></td></tr>
+<tr class="memitem:a432dd82d92d6dde8a4f3927d0f61e429"><td class="memItemLeft" align="right" valign="top"><a id="a432dd82d92d6dde8a4f3927d0f61e429"></a>
+<a class="el" href="structdhyara_1_1actions_1_1echo__request.html">dhyara::actions::echo_request</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1network.html#a432dd82d92d6dde8a4f3927d0f61e429">echo_request</a> ()</td></tr>
+<tr class="memdesc:a432dd82d92d6dde8a4f3927d0f61e429"><td class="mdescLeft">&#160;</td><td class="mdescRight">echo_request action <br /></td></tr>
 <tr class="separator:a432dd82d92d6dde8a4f3927d0f61e429"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab37ed765a5b448ed2b3f13b71bbfbc51"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdhyara_1_1actions_1_1echo__reply.html">dhyara::actions::echo_reply</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1network.html#ab37ed765a5b448ed2b3f13b71bbfbc51">echo_reply</a> ()</td></tr>
-<tr class="memdesc:ab37ed765a5b448ed2b3f13b71bbfbc51"><td class="mdescLeft">&#160;</td><td class="mdescRight">echo_reply action  <a href="structdhyara_1_1network.html#ab37ed765a5b448ed2b3f13b71bbfbc51">More...</a><br /></td></tr>
+<tr class="memitem:ab37ed765a5b448ed2b3f13b71bbfbc51"><td class="memItemLeft" align="right" valign="top"><a id="ab37ed765a5b448ed2b3f13b71bbfbc51"></a>
+<a class="el" href="structdhyara_1_1actions_1_1echo__reply.html">dhyara::actions::echo_reply</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1network.html#ab37ed765a5b448ed2b3f13b71bbfbc51">echo_reply</a> ()</td></tr>
+<tr class="memdesc:ab37ed765a5b448ed2b3f13b71bbfbc51"><td class="mdescLeft">&#160;</td><td class="mdescRight">echo_reply action <br /></td></tr>
 <tr class="separator:ab37ed765a5b448ed2b3f13b71bbfbc51"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae246456020c39501289475ec3373c4d1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdhyara_1_1actions_1_1echo__lost.html">dhyara::actions::echo_lost</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1network.html#ae246456020c39501289475ec3373c4d1">echo_lost</a> ()</td></tr>
-<tr class="memdesc:ae246456020c39501289475ec3373c4d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">echo_lost action  <a href="structdhyara_1_1network.html#ae246456020c39501289475ec3373c4d1">More...</a><br /></td></tr>
+<tr class="memitem:ae246456020c39501289475ec3373c4d1"><td class="memItemLeft" align="right" valign="top"><a id="ae246456020c39501289475ec3373c4d1"></a>
+<a class="el" href="structdhyara_1_1actions_1_1echo__lost.html">dhyara::actions::echo_lost</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1network.html#ae246456020c39501289475ec3373c4d1">echo_lost</a> ()</td></tr>
+<tr class="memdesc:ae246456020c39501289475ec3373c4d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">echo_lost action <br /></td></tr>
 <tr class="separator:ae246456020c39501289475ec3373c4d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acee9c708958eac3acf40a6b8d5d82493"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdhyara_1_1actions_1_1chunk.html">dhyara::actions::chunk</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1network.html#acee9c708958eac3acf40a6b8d5d82493">chunk</a> ()</td></tr>
-<tr class="memdesc:acee9c708958eac3acf40a6b8d5d82493"><td class="mdescLeft">&#160;</td><td class="mdescRight">chunk action  <a href="structdhyara_1_1network.html#acee9c708958eac3acf40a6b8d5d82493">More...</a><br /></td></tr>
+<tr class="memitem:acee9c708958eac3acf40a6b8d5d82493"><td class="memItemLeft" align="right" valign="top"><a id="acee9c708958eac3acf40a6b8d5d82493"></a>
+<a class="el" href="structdhyara_1_1actions_1_1chunk.html">dhyara::actions::chunk</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1network.html#acee9c708958eac3acf40a6b8d5d82493">chunk</a> ()</td></tr>
+<tr class="memdesc:acee9c708958eac3acf40a6b8d5d82493"><td class="mdescLeft">&#160;</td><td class="mdescRight">chunk action <br /></td></tr>
 <tr class="separator:acee9c708958eac3acf40a6b8d5d82493"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a907cd74e15dc712a43453198c67a44d5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdhyara_1_1actions_1_1delivered.html">dhyara::actions::delivered</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1network.html#a907cd74e15dc712a43453198c67a44d5">delivered</a> ()</td></tr>
-<tr class="memdesc:a907cd74e15dc712a43453198c67a44d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">delivered action  <a href="structdhyara_1_1network.html#a907cd74e15dc712a43453198c67a44d5">More...</a><br /></td></tr>
+<tr class="memitem:a907cd74e15dc712a43453198c67a44d5"><td class="memItemLeft" align="right" valign="top"><a id="a907cd74e15dc712a43453198c67a44d5"></a>
+<a class="el" href="structdhyara_1_1actions_1_1delivered.html">dhyara::actions::delivered</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1network.html#a907cd74e15dc712a43453198c67a44d5">delivered</a> ()</td></tr>
+<tr class="memdesc:a907cd74e15dc712a43453198c67a44d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">delivered action <br /></td></tr>
 <tr class="separator:a907cd74e15dc712a43453198c67a44d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:aa1a11abfeedf53785cc3ff2ec1debd26"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1network.html#aa1a11abfeedf53785cc3ff2ec1debd26">presence</a> ()</td></tr>
+<tr class="memdesc:aa1a11abfeedf53785cc3ff2ec1debd26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send presense beacon.  <a href="structdhyara_1_1network.html#aa1a11abfeedf53785cc3ff2ec1debd26">More...</a><br /></td></tr>
+<tr class="separator:aa1a11abfeedf53785cc3ff2ec1debd26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f6b8a3cdcc95deb43b6a4c5c7705aeb"><td class="memItemLeft" align="right" valign="top"><a id="a1f6b8a3cdcc95deb43b6a4c5c7705aeb"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1network.html#a1f6b8a3cdcc95deb43b6a4c5c7705aeb">sync</a> ()</td></tr>
+<tr class="memdesc:a1f6b8a3cdcc95deb43b6a4c5c7705aeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Synchronize neighbourhood. <br /></td></tr>
+<tr class="separator:a1f6b8a3cdcc95deb43b6a4c5c7705aeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-methods"></a>
+Static Private Member Functions</h2></td></tr>
+<tr class="memitem:a24fee5e5bfed0900b7a634b0ee9aba21"><td class="memItemLeft" align="right" valign="top"><a id="a24fee5e5bfed0900b7a634b0ee9aba21"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1network.html#a24fee5e5bfed0900b7a634b0ee9aba21">task_presence</a> (void *arg)</td></tr>
+<tr class="memdesc:a24fee5e5bfed0900b7a634b0ee9aba21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Presence Task. <br /></td></tr>
+<tr class="separator:a24fee5e5bfed0900b7a634b0ee9aba21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9da513dd22984f40c778be8a0f4ee80b"><td class="memItemLeft" align="right" valign="top"><a id="a9da513dd22984f40c778be8a0f4ee80b"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1network.html#a9da513dd22984f40c778be8a0f4ee80b">task_synchronize</a> (void *arg)</td></tr>
+<tr class="memdesc:a9da513dd22984f40c778be8a0f4ee80b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Neighbourhood synchronization task. <br /></td></tr>
+<tr class="separator:a9da513dd22984f40c778be8a0f4ee80b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92e866529312c57b5766865d1e256ebb"><td class="memItemLeft" align="right" valign="top"><a id="a92e866529312c57b5766865d1e256ebb"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1network.html#a92e866529312c57b5766865d1e256ebb">task_start_rcvd</a> (void *arg)</td></tr>
+<tr class="memdesc:a92e866529312c57b5766865d1e256ebb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receive Task. <br /></td></tr>
+<tr class="separator:a92e866529312c57b5766865d1e256ebb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The dhyara ad-hoc network. </p>
 <p>The network is started using the <a class="el" href="structdhyara_1_1network.html#aadf3365c6a5506187b2f9c91ef4fdd0a">start</a> method. All related networking tasks and actions are created and maintained by the network. </p>
 
 <p class="definition">Definition at line <a class="el" href="network_8h_source.html#l00027">27</a> of file <a class="el" href="network_8h_source.html">network.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="aa2b86d3f194284eb41b8b9fd46b58622"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa2b86d3f194284eb41b8b9fd46b58622">&#9670;&nbsp;</a></span>network() <span class="overload">[1/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">dhyara::network::network </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Not default constructible. </p>
-
-</div>
-</div>
-<a id="aad6d89f13164eeede7b24ffe9c8c7640"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aad6d89f13164eeede7b24ffe9c8c7640">&#9670;&nbsp;</a></span>network() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">dhyara::network::network </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="structdhyara_1_1network.html">network</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Not copyable. </p>
-
-</div>
-</div>
-<a id="a56f17119fdd216f1b48f0f6173248245"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a56f17119fdd216f1b48f0f6173248245">&#9670;&nbsp;</a></span>network() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">dhyara::network::network </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classdhyara_1_1link.html">dhyara::link</a> &amp;&#160;</td>
-          <td class="paramname"><em>link</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Construct a network with a reference to the link. </p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="ad5bfa163e3e7d49f2d4b7457d9359b1f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad5bfa163e3e7d49f2d4b7457d9359b1f">&#9670;&nbsp;</a></span>acknowledgement()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structdhyara_1_1actions_1_1acknowledgement.html">dhyara::actions::acknowledgement</a>&amp; dhyara::network::acknowledgement </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>acknowledgement action </p>
-
-<p class="definition">Definition at line <a class="el" href="network_8h_source.html#l00133">133</a> of file <a class="el" href="network_8h_source.html">network.h</a>.</p>
-
-</div>
-</div>
-<a id="a3c467f761557bec1fcb0f2e979235b17"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3c467f761557bec1fcb0f2e979235b17">&#9670;&nbsp;</a></span>advertisement()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structdhyara_1_1actions_1_1advertisement.html">dhyara::actions::advertisement</a>&amp; dhyara::network::advertisement </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>advertisement action </p>
-
-<p class="definition">Definition at line <a class="el" href="network_8h_source.html#l00137">137</a> of file <a class="el" href="network_8h_source.html">network.h</a>.</p>
-
-</div>
-</div>
-<a id="a7c209ebe9f41aa32ec7979aafe94b1ed"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7c209ebe9f41aa32ec7979aafe94b1ed">&#9670;&nbsp;</a></span>beacon()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structdhyara_1_1actions_1_1beacon.html">dhyara::actions::beacon</a>&amp; dhyara::network::beacon </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>beacon action </p>
-
-<p class="definition">Definition at line <a class="el" href="network_8h_source.html#l00129">129</a> of file <a class="el" href="network_8h_source.html">network.h</a>.</p>
-
-</div>
-</div>
-<a id="acee9c708958eac3acf40a6b8d5d82493"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acee9c708958eac3acf40a6b8d5d82493">&#9670;&nbsp;</a></span>chunk()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structdhyara_1_1actions_1_1chunk.html">dhyara::actions::chunk</a>&amp; dhyara::network::chunk </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>chunk action </p>
-
-<p class="definition">Definition at line <a class="el" href="network_8h_source.html#l00153">153</a> of file <a class="el" href="network_8h_source.html">network.h</a>.</p>
-
-</div>
-</div>
-<a id="a907cd74e15dc712a43453198c67a44d5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a907cd74e15dc712a43453198c67a44d5">&#9670;&nbsp;</a></span>delivered()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structdhyara_1_1actions_1_1delivered.html">dhyara::actions::delivered</a>&amp; dhyara::network::delivered </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>delivered action </p>
-
-<p class="definition">Definition at line <a class="el" href="network_8h_source.html#l00157">157</a> of file <a class="el" href="network_8h_source.html">network.h</a>.</p>
-
-</div>
-</div>
-<a id="ae246456020c39501289475ec3373c4d1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae246456020c39501289475ec3373c4d1">&#9670;&nbsp;</a></span>echo_lost()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structdhyara_1_1actions_1_1echo__lost.html">dhyara::actions::echo_lost</a>&amp; dhyara::network::echo_lost </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>echo_lost action </p>
-
-<p class="definition">Definition at line <a class="el" href="network_8h_source.html#l00149">149</a> of file <a class="el" href="network_8h_source.html">network.h</a>.</p>
-
-</div>
-</div>
-<a id="ab37ed765a5b448ed2b3f13b71bbfbc51"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab37ed765a5b448ed2b3f13b71bbfbc51">&#9670;&nbsp;</a></span>echo_reply()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structdhyara_1_1actions_1_1echo__reply.html">dhyara::actions::echo_reply</a>&amp; dhyara::network::echo_reply </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>echo_reply action </p>
-
-<p class="definition">Definition at line <a class="el" href="network_8h_source.html#l00145">145</a> of file <a class="el" href="network_8h_source.html">network.h</a>.</p>
-
-</div>
-</div>
-<a id="a432dd82d92d6dde8a4f3927d0f61e429"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a432dd82d92d6dde8a4f3927d0f61e429">&#9670;&nbsp;</a></span>echo_request()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structdhyara_1_1actions_1_1echo__request.html">dhyara::actions::echo_request</a>&amp; dhyara::network::echo_request </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>echo_request action </p>
-
-<p class="definition">Definition at line <a class="el" href="network_8h_source.html#l00141">141</a> of file <a class="el" href="network_8h_source.html">network.h</a>.</p>
-
-</div>
-</div>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="aa46dd5254cbc3a8431fa866e010d029c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa46dd5254cbc3a8431fa866e010d029c">&#9670;&nbsp;</a></span>isolate()</h2>
 
@@ -528,8 +302,8 @@ It is desirable but not necessary to perform isolation before the network is sta
 
 </div>
 </div>
-<a id="a5852cc388eca2af88a08fcebc88ee0b4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5852cc388eca2af88a08fcebc88ee0b4">&#9670;&nbsp;</a></span>link()</h2>
+<a id="aa1a11abfeedf53785cc3ff2ec1debd26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1a11abfeedf53785cc3ff2ec1debd26">&#9670;&nbsp;</a></span>presence()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -538,7 +312,7 @@ It is desirable but not necessary to perform isolation before the network is sta
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classdhyara_1_1link.html">dhyara::link</a>&amp; dhyara::network::link </td>
+          <td class="memname">void dhyara::network::presence </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -546,62 +320,13 @@ It is desirable but not necessary to perform isolation before the network is sta
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Link. </p>
-
-<p class="definition">Definition at line <a class="el" href="network_8h_source.html#l00118">118</a> of file <a class="el" href="network_8h_source.html">network.h</a>.</p>
-
-</div>
-</div>
-<a id="a51dcda4002e9fe16284c568fde041a54"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a51dcda4002e9fe16284c568fde041a54">&#9670;&nbsp;</a></span>on_data()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void dhyara::network::on_data </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structdhyara_1_1actions_1_1chunk.html#a5366ec7abfa056df5f70bc65e97a9beb">dhyara::actions::chunk::data_callback_type</a>&#160;</td>
-          <td class="paramname"><em>slot</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>set a callback which will be called once a complete data is received </p>
-
-</div>
-</div>
-<a id="abb7b565d80e22ecdd00932c1325c0b2b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abb7b565d80e22ecdd00932c1325c0b2b">&#9670;&nbsp;</a></span>operator=()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structdhyara_1_1network.html">network</a>&amp; dhyara::network::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="structdhyara_1_1network.html">network</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Not Copyable. </p>
+<p>Send presense beacon. </p>
+<p>Depreciates inactive routes. </p>
 
 </div>
 </div>
@@ -763,54 +488,6 @@ template&lt;typename InputIt &gt; </div>
 
 </div>
 </div>
-<a id="aadf3365c6a5506187b2f9c91ef4fdd0a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aadf3365c6a5506187b2f9c91ef4fdd0a">&#9670;&nbsp;</a></span>start()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void dhyara::network::start </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>main network I/O </p>
-
-</div>
-</div>
-<a id="ae289d391b359a937d34f906a132b2696"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae289d391b359a937d34f906a132b2696">&#9670;&nbsp;</a></span>synchronizer()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structdhyara_1_1synchronizer.html">dhyara::synchronizer</a>&amp; dhyara::network::synchronizer </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>synchronizer </p>
-
-<p class="definition">Definition at line <a class="el" href="network_8h_source.html#l00125">125</a> of file <a class="el" href="network_8h_source.html">network.h</a>.</p>
-
-</div>
-</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>includes/dhyara/<a class="el" href="network_8h_source.html">network.h</a></li>
 </ul>
@@ -820,7 +497,7 @@ template&lt;typename InputIt &gt; </div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacedhyara.html">dhyara</a></li><li class="navelem"><a class="el" href="structdhyara_1_1network.html">network</a></li>
+    <li class="navelem"><b>dhyara</b></li><li class="navelem"><a class="el" href="structdhyara_1_1network.html">network</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.17 </li>
   </ul>
 </div>

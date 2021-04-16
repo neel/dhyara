@@ -96,6 +96,7 @@ $(document).ready(function(){initNavTree('structdhyara_1_1tools_1_1ping.html',''
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="structdhyara_1_1tools_1_1ping-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">dhyara::tools::ping Struct Reference<div class="ingroups"><a class="el" href="group__tools.html">Tools</a></div></div>  </div>
@@ -106,6 +107,46 @@ $(document).ready(function(){initNavTree('structdhyara_1_1tools_1_1ping.html',''
  <a href="structdhyara_1_1tools_1_1ping.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="ping_8h_source.html">ping.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for dhyara::tools::ping:</div>
+<div class="dyncontent">
+<div class="center"><img src="structdhyara_1_1tools_1_1ping__coll__graph.png" border="0" usemap="#dhyara_1_1tools_1_1ping_coll__map" alt="Collaboration graph"/></div>
+<map name="dhyara_1_1tools_1_1ping_coll__map" id="dhyara_1_1tools_1_1ping_coll__map">
+<area shape="rect" title="ping tool sends ICMP requests in batches." alt="" coords="2319,363,2461,389"/>
+<area shape="rect" href="structdhyara_1_1network.html" title="The dhyara ad&#45;hoc network." alt="" coords="2077,363,2205,389"/>
+<area shape="rect" href="structdhyara_1_1actions_1_1beacon.html" title="action to handle an incoming beacon packet" alt="" coords="1304,52,1481,79"/>
+<area shape="rect" href="structdhyara_1_1actions_1_1action.html" title=" " alt="" coords="993,5,1188,61"/>
+<area shape="rect" href="classdhyara_1_1link.html" title="Link is responsible for low level sending/receiving." alt="" coords="1041,372,1140,399"/>
+<area shape="rect" href="structdhyara_1_1actions_1_1chunk.html" title="action to handle an incoming chunk packet" alt="" coords="1308,103,1477,129"/>
+<area shape="rect" href="structdhyara_1_1actions_1_1advertisement.html" title="action to handle an incoming advertisement packet" alt="" coords="1659,225,1885,252"/>
+<area shape="rect" href="structdhyara_1_1synchronizer.html" title="Synchronize routes accross all nodes in the network." alt="" coords="1313,347,1472,373"/>
+<area shape="rect" href="structdhyara_1_1actions_1_1echo__lost.html" title="action to handle an incoming echo lost packet" alt="" coords="1297,540,1489,567"/>
+<area shape="rect" href="structdhyara_1_1actions_1_1echo__request.html" title="action to handle an incoming echo request packet" alt="" coords="1312,591,1473,633"/>
+<area shape="rect" href="structdhyara_1_1actions_1_1delivered.html" title="action to handle an incoming delivery report" alt="" coords="1297,657,1488,684"/>
+<area shape="rect" href="structdhyara_1_1actions_1_1echo__reply.html" title="action to handle an incoming echo reply packet" alt="" coords="1312,715,1473,757"/>
+<area shape="rect" href="structdhyara_1_1actions_1_1acknowledgement.html" title="action to handle an incoming acknowledgement packet" alt="" coords="1647,415,1897,441"/>
+<area shape="rect" href="structdhyara_1_1notifier.html" title="notifier" alt="" coords="697,191,819,217"/>
+<area shape="rect" href="structdhyara_1_1watcher.html" title=" " alt="" coords="344,191,529,217"/>
+<area shape="rect" href="classdhyara_1_1xqueue.html" title=" " alt="" coords="5,191,203,217"/>
+<area shape="rect" href="classdhyara_1_1xqueue.html" title=" " alt="" coords="663,241,853,297"/>
+<area shape="rect" href="structdhyara_1_1neighbourhood.html" title="Neighbourhood of a node." alt="" coords="672,321,844,348"/>
+<area shape="rect" href="structdhyara_1_1peer__address.html" title="peer address (mac address)" alt="" coords="23,399,185,425"/>
+<area shape="rect" href="structdhyara_1_1message.html" title="Envelop for both to be sent and has been received messages." alt="" coords="369,489,504,516"/>
+<area shape="rect" href="structdhyara_1_1routing.html" title="routing table" alt="" coords="697,423,819,449"/>
+<area shape="rect" href="structdhyara_1_1frame.html" title="A 250 bytes frame is defined by a 2 bytes header and 248 bytes payload." alt="" coords="47,516,161,543"/>
+<area shape="rect" href="structdhyara_1_1network__fifo.html" title=" " alt="" coords="669,474,847,515"/>
+<area shape="rect" href="classdhyara_1_1xqueue.html" title=" " alt="" coords="336,423,537,465"/>
+<area shape="rect" href="structdhyara_1_1actions_1_1action.html" title=" " alt="" coords="997,85,1184,141"/>
+<area shape="rect" href="structdhyara_1_1actions_1_1action.html" title=" " alt="" coords="1293,216,1492,272"/>
+<area shape="rect" href="classdhyara_1_1xqueue.html" title=" " alt="" coords="987,173,1194,214"/>
+<area shape="rect" href="structdhyara_1_1actions_1_1action.html" title=" " alt="" coords="985,483,1196,539"/>
+<area shape="rect" href="structdhyara_1_1actions_1_1action.html" title=" " alt="" coords="995,563,1186,619"/>
+<area shape="rect" href="structdhyara_1_1actions_1_1action.html" title=" " alt="" coords="986,643,1195,699"/>
+<area shape="rect" href="structdhyara_1_1actions_1_1action.html" title=" " alt="" coords="1005,723,1176,779"/>
+<area shape="rect" href="structdhyara_1_1actions_1_1echo__reply_1_1rtt__stat.html" title="RTT statistics, containing min, max, total and average values observed since last reset." alt="" coords="1010,803,1171,845"/>
+<area shape="rect" href="structdhyara_1_1actions_1_1action.html" title=" " alt="" coords="1281,460,1504,516"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -121,14 +162,17 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a51d116887dc938d5ba6462f57d8565ba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdhyara_1_1tools_1_1ping.html">ping</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1tools_1_1ping.html#a51d116887dc938d5ba6462f57d8565ba">sleep</a> (std::uint8_t s)</td></tr>
 <tr class="memdesc:a51d116887dc938d5ba6462f57d8565ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">set sleep (in ms)  <a href="structdhyara_1_1tools_1_1ping.html#a51d116887dc938d5ba6462f57d8565ba">More...</a><br /></td></tr>
 <tr class="separator:a51d116887dc938d5ba6462f57d8565ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a07c71e6380cdc0204a86865779f550ec"><td class="memItemLeft" align="right" valign="top">std::uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1tools_1_1ping.html#a07c71e6380cdc0204a86865779f550ec">count</a> () const</td></tr>
-<tr class="memdesc:a07c71e6380cdc0204a86865779f550ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">get number of batches  <a href="structdhyara_1_1tools_1_1ping.html#a07c71e6380cdc0204a86865779f550ec">More...</a><br /></td></tr>
+<tr class="memitem:a07c71e6380cdc0204a86865779f550ec"><td class="memItemLeft" align="right" valign="top"><a id="a07c71e6380cdc0204a86865779f550ec"></a>
+std::uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1tools_1_1ping.html#a07c71e6380cdc0204a86865779f550ec">count</a> () const</td></tr>
+<tr class="memdesc:a07c71e6380cdc0204a86865779f550ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">get number of batches <br /></td></tr>
 <tr class="separator:a07c71e6380cdc0204a86865779f550ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a891da783376d96acf6be24df7917baa5"><td class="memItemLeft" align="right" valign="top">std::int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1tools_1_1ping.html#a891da783376d96acf6be24df7917baa5">batch</a> () const</td></tr>
-<tr class="memdesc:a891da783376d96acf6be24df7917baa5"><td class="mdescLeft">&#160;</td><td class="mdescRight">get batch size  <a href="structdhyara_1_1tools_1_1ping.html#a891da783376d96acf6be24df7917baa5">More...</a><br /></td></tr>
+<tr class="memitem:a891da783376d96acf6be24df7917baa5"><td class="memItemLeft" align="right" valign="top"><a id="a891da783376d96acf6be24df7917baa5"></a>
+std::int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1tools_1_1ping.html#a891da783376d96acf6be24df7917baa5">batch</a> () const</td></tr>
+<tr class="memdesc:a891da783376d96acf6be24df7917baa5"><td class="mdescLeft">&#160;</td><td class="mdescRight">get batch size <br /></td></tr>
 <tr class="separator:a891da783376d96acf6be24df7917baa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a030ea2ad877334dc72d7687ed0d98280"><td class="memItemLeft" align="right" valign="top">std::uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1tools_1_1ping.html#a030ea2ad877334dc72d7687ed0d98280">sleep</a> () const</td></tr>
-<tr class="memdesc:a030ea2ad877334dc72d7687ed0d98280"><td class="mdescLeft">&#160;</td><td class="mdescRight">get sleep (in ms)  <a href="structdhyara_1_1tools_1_1ping.html#a030ea2ad877334dc72d7687ed0d98280">More...</a><br /></td></tr>
+<tr class="memitem:a030ea2ad877334dc72d7687ed0d98280"><td class="memItemLeft" align="right" valign="top"><a id="a030ea2ad877334dc72d7687ed0d98280"></a>
+std::uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1tools_1_1ping.html#a030ea2ad877334dc72d7687ed0d98280">sleep</a> () const</td></tr>
+<tr class="memdesc:a030ea2ad877334dc72d7687ed0d98280"><td class="mdescLeft">&#160;</td><td class="mdescRight">get sleep (in ms) <br /></td></tr>
 <tr class="separator:a030ea2ad877334dc72d7687ed0d98280"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a20beb72d56111c3ea6abc6fab4642111"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1tools_1_1ping.html#a20beb72d56111c3ea6abc6fab4642111">operator()</a> (const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> &amp;addr)</td></tr>
 <tr class="memdesc:a20beb72d56111c3ea6abc6fab4642111"><td class="mdescLeft">&#160;</td><td class="mdescRight">perform ping operation.  <a href="structdhyara_1_1tools_1_1ping.html#a20beb72d56111c3ea6abc6fab4642111">More...</a><br /></td></tr>
@@ -136,11 +180,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a30c6ae46539042028ee4210c16c72490"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1tools_1_1ping.html#a30c6ae46539042028ee4210c16c72490">operator()</a> (const std::string &amp;addr)</td></tr>
 <tr class="memdesc:a30c6ae46539042028ee4210c16c72490"><td class="mdescLeft">&#160;</td><td class="mdescRight">perform ping operation.  <a href="structdhyara_1_1tools_1_1ping.html#a30c6ae46539042028ee4210c16c72490">More...</a><br /></td></tr>
 <tr class="separator:a30c6ae46539042028ee4210c16c72490"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a974f13a55eaa986021fd6af4db5664bc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1tools_1_1ping.html#a974f13a55eaa986021fd6af4db5664bc">reset</a> ()</td></tr>
-<tr class="memdesc:a974f13a55eaa986021fd6af4db5664bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset before starting another traceroute.  <a href="structdhyara_1_1tools_1_1ping.html#a974f13a55eaa986021fd6af4db5664bc">More...</a><br /></td></tr>
+<tr class="memitem:a974f13a55eaa986021fd6af4db5664bc"><td class="memItemLeft" align="right" valign="top"><a id="a974f13a55eaa986021fd6af4db5664bc"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1tools_1_1ping.html#a974f13a55eaa986021fd6af4db5664bc">reset</a> ()</td></tr>
+<tr class="memdesc:a974f13a55eaa986021fd6af4db5664bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset before starting another traceroute. <br /></td></tr>
 <tr class="separator:a974f13a55eaa986021fd6af4db5664bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7269c446f00f08a047af2ad718cf641e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1tools_1_1ping.html#a7269c446f00f08a047af2ad718cf641e">~ping</a> ()</td></tr>
-<tr class="separator:a7269c446f00f08a047af2ad718cf641e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a6b02ca4ead0923fa91ac8efab53354c6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1tools_1_1ping.html#a6b02ca4ead0923fa91ac8efab53354c6">reply</a> (const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> &amp;addr, const <a class="el" href="structdhyara_1_1packets_1_1echo__reply.html">dhyara::packets::echo_reply</a> &amp;reply)</td></tr>
+<tr class="memdesc:a6b02ca4ead0923fa91ac8efab53354c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">The callback to capture the reply packet and print the destination till which the previous ICMP request packet has reached.  <a href="structdhyara_1_1tools_1_1ping.html#a6b02ca4ead0923fa91ac8efab53354c6">More...</a><br /></td></tr>
+<tr class="separator:a6b02ca4ead0923fa91ac8efab53354c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>ping tool sends ICMP requests in batches. </p>
@@ -149,7 +198,7 @@ Public Member Functions</h2></td></tr>
 <div class="line">I (42140) <a class="code" href="structdhyara_1_1tools_1_1ping.html#a1ebd240a8893b75b9dc20aab35e46919">ping</a>: 20/20 received, 0.00% lost, rtt min/avg/max/total = 1.07/1.24/1.78/24.85 ms</div>
 <div class="line">I (42140) <a class="code" href="structdhyara_1_1tools_1_1ping.html#a1ebd240a8893b75b9dc20aab35e46919">ping</a>: 5000/5000 bytes in 12.7 ms</div>
 </div><!-- fragment --><p> Following example demonstarate usage of ping tool. </p><div class="fragment"><div class="line"><a class="code" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> target(<span class="stringliteral">&quot;4c:11:ae:9c:a6:85&quot;</span>)</div>
-<div class="line"><a class="code" href="namespacedhyara.html">dhyara</a>::tools::<a class="code" href="structdhyara_1_1tools_1_1ping.html#a1ebd240a8893b75b9dc20aab35e46919">ping</a> <a class="code" href="structdhyara_1_1tools_1_1ping.html#a1ebd240a8893b75b9dc20aab35e46919">ping</a>(_network);</div>
+<div class="line">dhyara::tools::<a class="code" href="structdhyara_1_1tools_1_1ping.html#a1ebd240a8893b75b9dc20aab35e46919">ping</a> <a class="code" href="structdhyara_1_1tools_1_1ping.html#a1ebd240a8893b75b9dc20aab35e46919">ping</a>(_network);</div>
 <div class="line"><a class="code" href="structdhyara_1_1tools_1_1ping.html#a1ebd240a8893b75b9dc20aab35e46919">ping</a>.<a class="code" href="structdhyara_1_1tools_1_1ping.html#a07c71e6380cdc0204a86865779f550ec">count</a>(50).<a class="code" href="structdhyara_1_1tools_1_1ping.html#a891da783376d96acf6be24df7917baa5">batch</a>(20).<a class="code" href="structdhyara_1_1tools_1_1ping.html#a030ea2ad877334dc72d7687ed0d98280">sleep</a>(1);</div>
 <div class="line"><a class="code" href="structdhyara_1_1tools_1_1ping.html#a1ebd240a8893b75b9dc20aab35e46919">ping</a>(target);</div>
 </div><!-- fragment --> 
@@ -206,55 +255,9 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a7269c446f00f08a047af2ad718cf641e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7269c446f00f08a047af2ad718cf641e">&#9670;&nbsp;</a></span>~ping()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">dhyara::tools::ping::~ping </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a891da783376d96acf6be24df7917baa5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a891da783376d96acf6be24df7917baa5">&#9670;&nbsp;</a></span>batch() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::int8_t dhyara::tools::ping::batch </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>get batch size </p>
-
-<p class="definition">Definition at line <a class="el" href="ping_8h_source.html#l00075">75</a> of file <a class="el" href="ping_8h_source.html">ping.h</a>.</p>
-
-</div>
-</div>
 <a id="a1c9453543c30b36ee43547a11c88773a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1c9453543c30b36ee43547a11c88773a">&#9670;&nbsp;</a></span>batch() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c9453543c30b36ee43547a11c88773a">&#9670;&nbsp;</a></span>batch()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -289,37 +292,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a07c71e6380cdc0204a86865779f550ec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a07c71e6380cdc0204a86865779f550ec">&#9670;&nbsp;</a></span>count() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::uint8_t dhyara::tools::ping::count </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>get number of batches </p>
-
-<p class="definition">Definition at line <a class="el" href="ping_8h_source.html#l00071">71</a> of file <a class="el" href="ping_8h_source.html">ping.h</a>.</p>
-
-</div>
-</div>
 <a id="a9cea341735c8b8c08fa222c0a3a6d1e1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9cea341735c8b8c08fa222c0a3a6d1e1">&#9670;&nbsp;</a></span>count() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9cea341735c8b8c08fa222c0a3a6d1e1">&#9670;&nbsp;</a></span>count()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -406,27 +380,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a974f13a55eaa986021fd6af4db5664bc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a974f13a55eaa986021fd6af4db5664bc">&#9670;&nbsp;</a></span>reset()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void dhyara::tools::ping::reset </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Reset before starting another traceroute. </p>
-
-</div>
-</div>
-<a id="a030ea2ad877334dc72d7687ed0d98280"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a030ea2ad877334dc72d7687ed0d98280">&#9670;&nbsp;</a></span>sleep() <span class="overload">[1/2]</span></h2>
+<a id="a6b02ca4ead0923fa91ac8efab53354c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b02ca4ead0923fa91ac8efab53354c6">&#9670;&nbsp;</a></span>reply()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -435,27 +390,37 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::uint8_t dhyara::tools::ping::sleep </td>
+          <td class="memname">void dhyara::tools::ping::reply </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype">const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> &amp;&#160;</td>
+          <td class="paramname"><em>addr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structdhyara_1_1packets_1_1echo__reply.html">dhyara::packets::echo_reply</a> &amp;&#160;</td>
+          <td class="paramname"><em>reply</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>get sleep (in ms) </p>
-
-<p class="definition">Definition at line <a class="el" href="ping_8h_source.html#l00079">79</a> of file <a class="el" href="ping_8h_source.html">ping.h</a>.</p>
+<p>The callback to capture the reply packet and print the destination till which the previous ICMP request packet has reached. </p>
+<p>If that destination is the desired destination then stop sending another ICMP request. Otherwise send another with increased ttl value. </p>
 
 </div>
 </div>
 <a id="a51d116887dc938d5ba6462f57d8565ba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a51d116887dc938d5ba6462f57d8565ba">&#9670;&nbsp;</a></span>sleep() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a51d116887dc938d5ba6462f57d8565ba">&#9670;&nbsp;</a></span>sleep()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -499,13 +464,12 @@ Public Member Functions</h2></td></tr>
 <div class="ttc" id="astructdhyara_1_1tools_1_1ping_html_a030ea2ad877334dc72d7687ed0d98280"><div class="ttname"><a href="structdhyara_1_1tools_1_1ping.html#a030ea2ad877334dc72d7687ed0d98280">dhyara::tools::ping::sleep</a></div><div class="ttdeci">std::uint8_t sleep() const</div><div class="ttdoc">get sleep (in ms)</div><div class="ttdef"><b>Definition:</b> <a href="ping_8h_source.html#l00079">ping.h:79</a></div></div>
 <div class="ttc" id="astructdhyara_1_1tools_1_1ping_html_a891da783376d96acf6be24df7917baa5"><div class="ttname"><a href="structdhyara_1_1tools_1_1ping.html#a891da783376d96acf6be24df7917baa5">dhyara::tools::ping::batch</a></div><div class="ttdeci">std::int8_t batch() const</div><div class="ttdoc">get batch size</div><div class="ttdef"><b>Definition:</b> <a href="ping_8h_source.html#l00075">ping.h:75</a></div></div>
 <div class="ttc" id="astructdhyara_1_1tools_1_1ping_html_a1ebd240a8893b75b9dc20aab35e46919"><div class="ttname"><a href="structdhyara_1_1tools_1_1ping.html#a1ebd240a8893b75b9dc20aab35e46919">dhyara::tools::ping::ping</a></div><div class="ttdeci">ping(dhyara::network &amp;network, std::uint8_t count=254, std::int8_t batch=1, std::uint8_t sleep=15)</div><div class="ttdoc">construct</div></div>
-<div class="ttc" id="anamespacedhyara_html"><div class="ttname"><a href="namespacedhyara.html">dhyara</a></div><div class="ttdef"><b>Definition:</b> <a href="actions_2acknowledgement_8h_source.html#l00016">acknowledgement.h:16</a></div></div>
 <div class="ttc" id="astructdhyara_1_1tools_1_1ping_html_a07c71e6380cdc0204a86865779f550ec"><div class="ttname"><a href="structdhyara_1_1tools_1_1ping.html#a07c71e6380cdc0204a86865779f550ec">dhyara::tools::ping::count</a></div><div class="ttdeci">std::uint8_t count() const</div><div class="ttdoc">get number of batches</div><div class="ttdef"><b>Definition:</b> <a href="ping_8h_source.html#l00071">ping.h:71</a></div></div>
 <!-- HTML footer for doxygen 1.9.1-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacedhyara.html">dhyara</a></li><li class="navelem"><a class="el" href="namespacedhyara_1_1tools.html">tools</a></li><li class="navelem"><a class="el" href="structdhyara_1_1tools_1_1ping.html">ping</a></li>
+    <li class="navelem"><b>dhyara</b></li><li class="navelem"><b>tools</b></li><li class="navelem"><a class="el" href="structdhyara_1_1tools_1_1ping.html">ping</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.17 </li>
   </ul>
 </div>

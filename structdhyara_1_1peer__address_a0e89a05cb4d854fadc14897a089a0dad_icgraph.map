@@ -1,5 +1,0 @@
-<map id="dhyara::peer_address::is_null" name="dhyara::peer_address::is_null">
-<area shape="rect" id="node1" title="check whether the mac address is null" alt="" coords="228,23,391,65"/>
-<area shape="rect" id="node2" href="$classdhyara_1_1link.html#adc9c6543f44bb258ec27d169dfc2acaf" title="Sends a packet via the best intermediate node." alt="" coords="23,5,162,32"/>
-<area shape="rect" id="node3" href="$structdhyara_1_1message.html#ab8f8893caa40f4ecffc4b0644d86a40d" title=" " alt="" coords="5,56,180,83"/>
-</map>

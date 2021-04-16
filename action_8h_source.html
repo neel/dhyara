@@ -98,7 +98,7 @@ $(document).ready(function(){initNavTree('action_8h_source.html',''); initResiza
 <div class="title">action.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="action_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * Copyright (c) 2020, Sunanda Bose (a.k.a. Neel Basu)</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> * All rights reserved.</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * </span></div>
@@ -109,84 +109,77 @@ $(document).ready(function(){initNavTree('action_8h_source.html',''); initResiza
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifndef DHYARA_ACTIONS_ACTION_H</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define DHYARA_ACTIONS_ACTION_H</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="frame_8h.html">dhyara/frame.h</a>&quot;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="peer_8h.html">dhyara/peer.h</a>&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;dhyara/frame.h&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;dhyara/peer.h&quot;</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;functional&gt;</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="printer_8h.html">dhyara/utils/printer.h</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;dhyara/utils/printer.h&quot;</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacedhyara.html">dhyara</a>{</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">namespace </span>dhyara{</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    </div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">namespace </span>actions{</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    </div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> DerivedT, <span class="keyword">typename</span> PacketT&gt;</div>
 <div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="structdhyara_1_1actions_1_1action.html">   34</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structdhyara_1_1actions_1_1action.html">action</a>{</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="structdhyara_1_1actions_1_1action.html#a1cd09164189d292e0f2965670e64e4d5">   35</a></span>&#160;    <span class="keyword">typedef</span> std::function&lt;void (<span class="keyword">const</span> <a class="code" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a>&amp;, <span class="keyword">const</span> PacketT&amp;)&gt; <a class="code" href="structdhyara_1_1actions_1_1action.html#a1cd09164189d292e0f2965670e64e4d5">slot_type</a>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">typedef</span> std::function&lt;void (<span class="keyword">const</span> <a class="code" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a>&amp;, <span class="keyword">const</span> PacketT&amp;)&gt; slot_type;</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    </div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="structdhyara_1_1actions_1_1action.html#a046d7e662195162d4dc5fbc102d69359">   37</a></span>&#160;    <a class="code" href="structdhyara_1_1actions_1_1action.html#a046d7e662195162d4dc5fbc102d69359">action</a>(): _last(0) {}</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="structdhyara_1_1actions_1_1action.html#a046d7e662195162d4dc5fbc102d69359">action</a>(<span class="keyword">const</span> <a class="code" href="structdhyara_1_1actions_1_1action.html">action&lt;DerivedT, PacketT&gt;</a>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="structdhyara_1_1actions_1_1action.html">action&lt;DerivedT, PacketT&gt;</a>&amp; <a class="code" href="structdhyara_1_1actions_1_1action.html#ab02e2d337f58ae824c7fe9552e0bf821">operator=</a>(<span class="keyword">const</span> <a class="code" href="structdhyara_1_1actions_1_1action.html">action&lt;DerivedT, PacketT&gt;</a>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="structdhyara_1_1actions_1_1action.html#a6273443e685fadf590c7e06c9981fd0d">   43</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="structdhyara_1_1actions_1_1action.html#a6273443e685fadf590c7e06c9981fd0d">operator()</a>(<span class="keyword">const</span> <a class="code" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a>&amp; address, <span class="keyword">const</span> <a class="code" href="structdhyara_1_1frame.html">dhyara::frame</a>&amp; <a class="code" href="structdhyara_1_1frame.html">frame</a>){</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        PacketT packet;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <a class="code" href="group__io.html#ga1b83b801d54296c6cc9fc793b9141594">dhyara::read</a>(packet, <a class="code" href="structdhyara_1_1frame.html">frame</a>.<a class="code" href="structdhyara_1_1frame.html#af9e0bf0fda92447572a0be0c5aa154a9">_buffer</a>, <a class="code" href="structdhyara_1_1frame.html">frame</a>.<a class="code" href="structdhyara_1_1frame.html#a4a7cb611026b240fa44528b259824047">length</a>());</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <a class="code" href="structdhyara_1_1utils_1_1printer.html">dhyara::utils::printer</a> printer;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        printer.<a class="code" href="structdhyara_1_1utils_1_1printer.html#aed22be6807518bf4ee90e7f759435cdc">in</a>(address, packet);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keyword">static_cast&lt;</span>DerivedT*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<span class="keyword">operator</span>()(address, packet);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp; pair: _slots){</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <span class="keywordflow">if</span>(pair.second){</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                pair.second(address, packet);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            }</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        }</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    }</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    </div>
-<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="structdhyara_1_1actions_1_1action.html#a0deb780f69c1d083514f14b524b6c1af">   62</a></span>&#160;    std::size_t <a class="code" href="structdhyara_1_1actions_1_1action.html#a0deb780f69c1d083514f14b524b6c1af">connect</a>(<a class="code" href="structdhyara_1_1actions_1_1action.html#a1cd09164189d292e0f2965670e64e4d5">slot_type</a> slot){</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        std::size_t <span class="keywordtype">id</span> = ++_last;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        _slots.insert(std::make_pair(<span class="keywordtype">id</span>, slot));</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordflow">return</span> id;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    }</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    </div>
-<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="structdhyara_1_1actions_1_1action.html#af2209dc2497199b75cf9cdd4fde02a39">   73</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="structdhyara_1_1actions_1_1action.html#af2209dc2497199b75cf9cdd4fde02a39">disconnect</a>(std::size_t <span class="keywordtype">id</span>){</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keyword">auto</span> it = _slots.find(<span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordflow">if</span>(it != _slots.end()){</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            _slots.erase(it);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        }</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    }</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        std::map&lt;std::size_t, slot_type&gt; _slots;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        std::size_t _last;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;};</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;}</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;}</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="preprocessor">#endif // DHYARA_ACTION_H</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="structdhyara_1_1actions_1_1action.html#a046d7e662195162d4dc5fbc102d69359">   40</a></span>&#160;    <a class="code" href="structdhyara_1_1actions_1_1action.html#a046d7e662195162d4dc5fbc102d69359">action</a>(): _last(0) {}</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="structdhyara_1_1actions_1_1action.html#a046d7e662195162d4dc5fbc102d69359">action</a>(<span class="keyword">const</span> <a class="code" href="structdhyara_1_1actions_1_1action.html">action&lt;DerivedT, PacketT&gt;</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <a class="code" href="structdhyara_1_1actions_1_1action.html">action&lt;DerivedT, PacketT&gt;</a>&amp; <a class="code" href="structdhyara_1_1actions_1_1action.html#ab02e2d337f58ae824c7fe9552e0bf821">operator=</a>(<span class="keyword">const</span> <a class="code" href="structdhyara_1_1actions_1_1action.html">action&lt;DerivedT, PacketT&gt;</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="structdhyara_1_1actions_1_1action.html#a6273443e685fadf590c7e06c9981fd0d">   52</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="structdhyara_1_1actions_1_1action.html#a6273443e685fadf590c7e06c9981fd0d">operator()</a>(<span class="keyword">const</span> <a class="code" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a>&amp; address, <span class="keyword">const</span> <a class="code" href="structdhyara_1_1frame.html">dhyara::frame</a>&amp; <a class="code" href="structdhyara_1_1frame.html">frame</a>){</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        PacketT packet;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <a class="code" href="group__io.html#ga1b83b801d54296c6cc9fc793b9141594">dhyara::read</a>(packet, <a class="code" href="structdhyara_1_1frame.html">frame</a>._buffer, <a class="code" href="structdhyara_1_1frame.html">frame</a>.<a class="code" href="structdhyara_1_1frame.html#a4a7cb611026b240fa44528b259824047">length</a>());</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <a class="code" href="structdhyara_1_1utils_1_1printer.html">dhyara::utils::printer</a> printer;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        printer.in(address, packet);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keyword">static_cast&lt;</span>DerivedT*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<span class="keyword">operator</span>()(address, packet);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp; pair: _slots){</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <span class="keywordflow">if</span>(pair.second){</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                pair.second(address, packet);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            }</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        }</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    }</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    </div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="structdhyara_1_1actions_1_1action.html#a0deb780f69c1d083514f14b524b6c1af">   71</a></span>&#160;    std::size_t <a class="code" href="structdhyara_1_1actions_1_1action.html#a0deb780f69c1d083514f14b524b6c1af">connect</a>(slot_type slot){</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        std::size_t <span class="keywordtype">id</span> = ++_last;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        _slots.insert(std::make_pair(<span class="keywordtype">id</span>, slot));</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordflow">return</span> id;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    }</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    </div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="structdhyara_1_1actions_1_1action.html#af2209dc2497199b75cf9cdd4fde02a39">   82</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="structdhyara_1_1actions_1_1action.html#af2209dc2497199b75cf9cdd4fde02a39">disconnect</a>(std::size_t <span class="keywordtype">id</span>){</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keyword">auto</span> it = _slots.find(<span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordflow">if</span>(it != _slots.end()){</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            _slots.erase(it);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        }</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    }</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        std::map&lt;std::size_t, slot_type&gt; _slots;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        std::size_t _last;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;};</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;}</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;}</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="preprocessor">#endif // DHYARA_ACTION_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="astructdhyara_1_1peer__address_html"><div class="ttname"><a href="structdhyara_1_1peer__address.html">dhyara::peer_address</a></div><div class="ttdoc">peer address (mac address)</div><div class="ttdef"><b>Definition:</b> <a href="peer_8h_source.html#l00029">peer.h:29</a></div></div>
-<div class="ttc" id="astructdhyara_1_1actions_1_1action_html_ab02e2d337f58ae824c7fe9552e0bf821"><div class="ttname"><a href="structdhyara_1_1actions_1_1action.html#ab02e2d337f58ae824c7fe9552e0bf821">dhyara::actions::action::operator=</a></div><div class="ttdeci">action&lt; DerivedT, PacketT &gt; &amp; operator=(const action&lt; DerivedT, PacketT &gt; &amp;)=delete</div></div>
+<div class="ttc" id="astructdhyara_1_1actions_1_1action_html_ab02e2d337f58ae824c7fe9552e0bf821"><div class="ttname"><a href="structdhyara_1_1actions_1_1action.html#ab02e2d337f58ae824c7fe9552e0bf821">dhyara::actions::action::operator=</a></div><div class="ttdeci">action&lt; DerivedT, PacketT &gt; &amp; operator=(const action&lt; DerivedT, PacketT &gt; &amp;)=delete</div><div class="ttdoc">An action is not copy-assignable.</div></div>
 <div class="ttc" id="astructdhyara_1_1actions_1_1action_html"><div class="ttname"><a href="structdhyara_1_1actions_1_1action.html">dhyara::actions::action</a></div><div class="ttdoc">All actions must subclass from this template.</div><div class="ttdef"><b>Definition:</b> <a href="action_8h_source.html#l00034">action.h:34</a></div></div>
 <div class="ttc" id="astructdhyara_1_1frame_html_a4a7cb611026b240fa44528b259824047"><div class="ttname"><a href="structdhyara_1_1frame.html#a4a7cb611026b240fa44528b259824047">dhyara::frame::length</a></div><div class="ttdeci">std::size_t length() const</div><div class="ttdoc">Length of the frame.</div><div class="ttdef"><b>Definition:</b> <a href="frame_8h_source.html#l00070">frame.h:70</a></div></div>
-<div class="ttc" id="astructdhyara_1_1frame_html_af9e0bf0fda92447572a0be0c5aa154a9"><div class="ttname"><a href="structdhyara_1_1frame.html#af9e0bf0fda92447572a0be0c5aa154a9">dhyara::frame::_buffer</a></div><div class="ttdeci">std::uint8_t _buffer[248]</div><div class="ttdef"><b>Definition:</b> <a href="frame_8h_source.html#l00027">frame.h:27</a></div></div>
-<div class="ttc" id="astructdhyara_1_1actions_1_1action_html_a0deb780f69c1d083514f14b524b6c1af"><div class="ttname"><a href="structdhyara_1_1actions_1_1action.html#a0deb780f69c1d083514f14b524b6c1af">dhyara::actions::action::connect</a></div><div class="ttdeci">std::size_t connect(slot_type slot)</div><div class="ttdoc">Connect a slot (callback) which will be called after the action is executed.</div><div class="ttdef"><b>Definition:</b> <a href="action_8h_source.html#l00062">action.h:62</a></div></div>
-<div class="ttc" id="astructdhyara_1_1actions_1_1action_html_a1cd09164189d292e0f2965670e64e4d5"><div class="ttname"><a href="structdhyara_1_1actions_1_1action.html#a1cd09164189d292e0f2965670e64e4d5">dhyara::actions::action::slot_type</a></div><div class="ttdeci">std::function&lt; void(const dhyara::peer_address &amp;, const PacketT &amp;)&gt; slot_type</div><div class="ttdef"><b>Definition:</b> <a href="action_8h_source.html#l00035">action.h:35</a></div></div>
-<div class="ttc" id="aprinter_8h_html"><div class="ttname"><a href="printer_8h.html">printer.h</a></div></div>
-<div class="ttc" id="astructdhyara_1_1actions_1_1action_html_af2209dc2497199b75cf9cdd4fde02a39"><div class="ttname"><a href="structdhyara_1_1actions_1_1action.html#af2209dc2497199b75cf9cdd4fde02a39">dhyara::actions::action::disconnect</a></div><div class="ttdeci">void disconnect(std::size_t id)</div><div class="ttdoc">Disconnects an already connected slot by id.</div><div class="ttdef"><b>Definition:</b> <a href="action_8h_source.html#l00073">action.h:73</a></div></div>
+<div class="ttc" id="astructdhyara_1_1actions_1_1action_html_a0deb780f69c1d083514f14b524b6c1af"><div class="ttname"><a href="structdhyara_1_1actions_1_1action.html#a0deb780f69c1d083514f14b524b6c1af">dhyara::actions::action::connect</a></div><div class="ttdeci">std::size_t connect(slot_type slot)</div><div class="ttdoc">Connect a slot (callback) which will be called after the action is executed.</div><div class="ttdef"><b>Definition:</b> <a href="action_8h_source.html#l00071">action.h:71</a></div></div>
+<div class="ttc" id="astructdhyara_1_1actions_1_1action_html_af2209dc2497199b75cf9cdd4fde02a39"><div class="ttname"><a href="structdhyara_1_1actions_1_1action.html#af2209dc2497199b75cf9cdd4fde02a39">dhyara::actions::action::disconnect</a></div><div class="ttdeci">void disconnect(std::size_t id)</div><div class="ttdoc">Disconnects an already connected slot by id.</div><div class="ttdef"><b>Definition:</b> <a href="action_8h_source.html#l00082">action.h:82</a></div></div>
 <div class="ttc" id="astructdhyara_1_1utils_1_1printer_html"><div class="ttname"><a href="structdhyara_1_1utils_1_1printer.html">dhyara::utils::printer</a></div><div class="ttdoc">print packets</div><div class="ttdef"><b>Definition:</b> <a href="printer_8h_source.html#l00023">printer.h:23</a></div></div>
-<div class="ttc" id="anamespacedhyara_html"><div class="ttname"><a href="namespacedhyara.html">dhyara</a></div><div class="ttdef"><b>Definition:</b> <a href="actions_2acknowledgement_8h_source.html#l00016">acknowledgement.h:16</a></div></div>
-<div class="ttc" id="aframe_8h_html"><div class="ttname"><a href="frame_8h.html">frame.h</a></div></div>
-<div class="ttc" id="apeer_8h_html"><div class="ttname"><a href="peer_8h.html">peer.h</a></div></div>
-<div class="ttc" id="astructdhyara_1_1utils_1_1printer_html_aed22be6807518bf4ee90e7f759435cdc"><div class="ttname"><a href="structdhyara_1_1utils_1_1printer.html#aed22be6807518bf4ee90e7f759435cdc">dhyara::utils::printer::in</a></div><div class="ttdeci">void in(const dhyara::peer_address &amp;source, const dhyara::packets::beacon &amp;beacon)</div></div>
-<div class="ttc" id="astructdhyara_1_1actions_1_1action_html_a6273443e685fadf590c7e06c9981fd0d"><div class="ttname"><a href="structdhyara_1_1actions_1_1action.html#a6273443e685fadf590c7e06c9981fd0d">dhyara::actions::action::operator()</a></div><div class="ttdeci">void operator()(const dhyara::peer_address &amp;address, const dhyara::frame &amp;frame)</div><div class="ttdoc">Creates a packet from the received frame.</div><div class="ttdef"><b>Definition:</b> <a href="action_8h_source.html#l00043">action.h:43</a></div></div>
-<div class="ttc" id="astructdhyara_1_1actions_1_1action_html_a046d7e662195162d4dc5fbc102d69359"><div class="ttname"><a href="structdhyara_1_1actions_1_1action.html#a046d7e662195162d4dc5fbc102d69359">dhyara::actions::action::action</a></div><div class="ttdeci">action()</div><div class="ttdef"><b>Definition:</b> <a href="action_8h_source.html#l00037">action.h:37</a></div></div>
+<div class="ttc" id="astructdhyara_1_1actions_1_1action_html_a6273443e685fadf590c7e06c9981fd0d"><div class="ttname"><a href="structdhyara_1_1actions_1_1action.html#a6273443e685fadf590c7e06c9981fd0d">dhyara::actions::action::operator()</a></div><div class="ttdeci">void operator()(const dhyara::peer_address &amp;address, const dhyara::frame &amp;frame)</div><div class="ttdoc">Creates a packet from the received frame.</div><div class="ttdef"><b>Definition:</b> <a href="action_8h_source.html#l00052">action.h:52</a></div></div>
+<div class="ttc" id="astructdhyara_1_1actions_1_1action_html_a046d7e662195162d4dc5fbc102d69359"><div class="ttname"><a href="structdhyara_1_1actions_1_1action.html#a046d7e662195162d4dc5fbc102d69359">dhyara::actions::action::action</a></div><div class="ttdeci">action()</div><div class="ttdoc">Default action constructor.</div><div class="ttdef"><b>Definition:</b> <a href="action_8h_source.html#l00040">action.h:40</a></div></div>
 <div class="ttc" id="agroup__io_html_ga1b83b801d54296c6cc9fc793b9141594"><div class="ttname"><a href="group__io.html#ga1b83b801d54296c6cc9fc793b9141594">dhyara::read</a></div><div class="ttdeci">InIt read(PacketT &amp;packet, InIt input, std::size_t length=0)</div><div class="ttdoc">read into a packet</div><div class="ttdef"><b>Definition:</b> <a href="io_8h_source.html#l00030">io.h:30</a></div></div>
 <div class="ttc" id="astructdhyara_1_1frame_html"><div class="ttname"><a href="structdhyara_1_1frame.html">dhyara::frame</a></div><div class="ttdoc">A 250 bytes frame is defined by a 2 bytes header and 248 bytes payload.</div><div class="ttdef"><b>Definition:</b> <a href="frame_8h_source.html#l00022">frame.h:22</a></div></div>
 <!-- HTML footer for doxygen 1.9.1-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_09e761304027c904456130627fd4dcf5.html">includes</a></li><li class="navelem"><a class="el" href="dir_f7f3c0f391df97c74fff5c67413f6c88.html">dhyara</a></li><li class="navelem"><a class="el" href="dir_4981cfb6e0625434ea002fdb075fc9ab.html">actions</a></li><li class="navelem"><a class="el" href="action_8h.html">action.h</a></li>
+    <li class="navelem"><a class="el" href="dir_09e761304027c904456130627fd4dcf5.html">includes</a></li><li class="navelem"><a class="el" href="dir_f7f3c0f391df97c74fff5c67413f6c88.html">dhyara</a></li><li class="navelem"><a class="el" href="dir_4981cfb6e0625434ea002fdb075fc9ab.html">actions</a></li><li class="navelem"><b>action.h</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.17 </li>
   </ul>
 </div>

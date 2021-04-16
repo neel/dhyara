@@ -1,8 +1,5 @@
 var structdhyara_1_1packets_1_1data =
 [
-    [ "const_iterator", "structdhyara_1_1packets_1_1data.html#a9470d00822346746b55ed2222dacfe0f", null ],
-    [ "dynamic_buffer_type", "structdhyara_1_1packets_1_1data.html#a0fd43b577390668bb4ad6f87a7d7a221", null ],
-    [ "iterator", "structdhyara_1_1packets_1_1data.html#a9a2ad998451e8d6fc4652b2eacbbfa4c", null ],
     [ "data", "structdhyara_1_1packets_1_1data.html#ab938d03faa747da15d3dddb95af028cb", null ],
     [ "data", "structdhyara_1_1packets_1_1data.html#a3dcf7b242396901e1e041355d23c0f69", null ],
     [ "data", "structdhyara_1_1packets_1_1data.html#abd469f055473383650209a0bb0887df6", null ],
@@ -21,10 +18,5 @@ var structdhyara_1_1packets_1_1data =
     [ "raw", "structdhyara_1_1packets_1_1data.html#ac35b8f7f9e749512ad662182455b2d39", null ],
     [ "reserve", "structdhyara_1_1packets_1_1data.html#acddf864eee239004d78f70873bce815a", null ],
     [ "source", "structdhyara_1_1packets_1_1data.html#a0460b56294a5939c527c791be14b513c", null ],
-    [ "target", "structdhyara_1_1packets_1_1data.html#a1afb45da5d1cdacfaa62cb486c38a17c", null ],
-    [ "_buffer", "structdhyara_1_1packets_1_1data.html#a26ced44358f4b532cd1fca84fd434ae1", null ],
-    [ "_packet", "structdhyara_1_1packets_1_1data.html#ad714cd2d28764c21f4cff55e13738316", null ],
-    [ "_source", "structdhyara_1_1packets_1_1data.html#a63c1aaf81a717c3cc1618ebbf2c90932", null ],
-    [ "_target", "structdhyara_1_1packets_1_1data.html#ac475cf8455e5a4e081189cea021b2290", null ],
-    [ "counter", "structdhyara_1_1packets_1_1data.html#af6f5b763d0a2386359341e5ae5e0f29c", null ]
+    [ "target", "structdhyara_1_1packets_1_1data.html#a1afb45da5d1cdacfaa62cb486c38a17c", null ]
 ];

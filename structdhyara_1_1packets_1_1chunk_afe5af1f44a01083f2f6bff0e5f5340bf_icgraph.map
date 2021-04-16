@@ -1,4 +1,0 @@
-<map id="dhyara::packets::chunk::pending" name="dhyara::packets::chunk::pending">
-<area shape="rect" id="node1" title="number of chunks pending after this" alt="" coords="225,5,397,47"/>
-<area shape="rect" id="node2" href="$structdhyara_1_1packets_1_1chunk.html#aa53aeb8b359fc8bf201e7ed71f84e723" title="checks whether the chunks is the last" alt="" coords="5,5,177,47"/>
-</map>

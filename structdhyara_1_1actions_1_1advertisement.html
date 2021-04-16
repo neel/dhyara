@@ -120,39 +120,55 @@ Collaboration diagram for dhyara::actions::advertisement:</div>
 <div class="dyncontent">
 <div class="center"><img src="structdhyara_1_1actions_1_1advertisement__coll__graph.png" border="0" usemap="#dhyara_1_1actions_1_1advertisement_coll__map" alt="Collaboration graph"/></div>
 <map name="dhyara_1_1actions_1_1advertisement_coll__map" id="dhyara_1_1actions_1_1advertisement_coll__map">
-<area shape="rect" title="action to handle an incoming advertisement packet" alt="" coords="5,109,231,136"/>
-<area shape="rect" href="structdhyara_1_1actions_1_1action.html" title=" " alt="" coords="19,5,217,61"/>
+<area shape="rect" title="action to handle an incoming advertisement packet" alt="" coords="1617,152,1843,179"/>
+<area shape="rect" href="structdhyara_1_1actions_1_1action.html" title=" " alt="" coords="1276,72,1475,128"/>
+<area shape="rect" href="classdhyara_1_1link.html" title="Link is responsible for low level sending/receiving." alt="" coords="1039,188,1138,215"/>
+<area shape="rect" href="structdhyara_1_1synchronizer.html" title="Synchronize routes accross all nodes in the network." alt="" coords="1296,152,1455,179"/>
+<area shape="rect" href="structdhyara_1_1notifier.html" title="notifier" alt="" coords="697,7,819,33"/>
+<area shape="rect" href="structdhyara_1_1watcher.html" title=" " alt="" coords="344,7,529,33"/>
+<area shape="rect" href="classdhyara_1_1xqueue.html" title=" " alt="" coords="5,7,203,33"/>
+<area shape="rect" href="classdhyara_1_1xqueue.html" title=" " alt="" coords="663,57,853,113"/>
+<area shape="rect" href="structdhyara_1_1neighbourhood.html" title="Neighbourhood of a node." alt="" coords="672,137,844,164"/>
+<area shape="rect" href="structdhyara_1_1peer__address.html" title="peer address (mac address)" alt="" coords="23,219,185,245"/>
+<area shape="rect" href="structdhyara_1_1message.html" title="Envelop for both to be sent and has been received messages." alt="" coords="369,239,504,265"/>
+<area shape="rect" href="structdhyara_1_1routing.html" title="routing table" alt="" coords="697,407,819,433"/>
+<area shape="rect" href="structdhyara_1_1frame.html" title="A 250 bytes frame is defined by a 2 bytes header and 248 bytes payload." alt="" coords="47,311,161,337"/>
+<area shape="rect" href="structdhyara_1_1network__fifo.html" title=" " alt="" coords="669,239,847,281"/>
+<area shape="rect" href="classdhyara_1_1xqueue.html" title=" " alt="" coords="336,290,537,331"/>
+<area shape="rect" href="classdhyara_1_1xqueue.html" title=" " alt="" coords="985,107,1192,149"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a1dae905a64795544948d596fc2b4054c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1actions_1_1advertisement.html#a1dae905a64795544948d596fc2b4054c">advertisement</a> (<a class="el" href="classdhyara_1_1link.html">dhyara::link</a> &amp;<a class="el" href="classdhyara_1_1link.html">link</a>, <a class="el" href="structdhyara_1_1synchronizer.html">dhyara::synchronizer</a> &amp;<a class="el" href="structdhyara_1_1synchronizer.html">synchronizer</a>)</td></tr>
+<tr class="memdesc:a1dae905a64795544948d596fc2b4054c"><td class="mdescLeft">&#160;</td><td class="mdescRight">advertisement action constructor requires a link to respond after receiving an advertisement packet.  <a href="structdhyara_1_1actions_1_1advertisement.html#a1dae905a64795544948d596fc2b4054c">More...</a><br /></td></tr>
 <tr class="separator:a1dae905a64795544948d596fc2b4054c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a34407967e0f08c22d39e32fca0cd48aa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1actions_1_1advertisement.html#a34407967e0f08c22d39e32fca0cd48aa">operator()</a> (const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> &amp;addr, const <a class="el" href="structdhyara_1_1packets_1_1advertisement.html">dhyara::packets::advertisement</a> &amp;<a class="el" href="structdhyara_1_1actions_1_1advertisement.html">advertisement</a>)</td></tr>
+<tr class="memdesc:a34407967e0f08c22d39e32fca0cd48aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">The received advertisement is processed in this function.  <a href="structdhyara_1_1actions_1_1advertisement.html#a34407967e0f08c22d39e32fca0cd48aa">More...</a><br /></td></tr>
 <tr class="separator:a34407967e0f08c22d39e32fca0cd48aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_structdhyara_1_1actions_1_1action"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_structdhyara_1_1actions_1_1action')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="structdhyara_1_1actions_1_1action.html">dhyara::actions::action&lt; advertisement, dhyara::packets::advertisement &gt;</a></td></tr>
-<tr class="memitem:a046d7e662195162d4dc5fbc102d69359 inherit pub_methods_structdhyara_1_1actions_1_1action"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1actions_1_1action.html#a046d7e662195162d4dc5fbc102d69359">action</a> ()</td></tr>
+<tr class="memitem:a046d7e662195162d4dc5fbc102d69359 inherit pub_methods_structdhyara_1_1actions_1_1action"><td class="memItemLeft" align="right" valign="top"><a id="a046d7e662195162d4dc5fbc102d69359"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1actions_1_1action.html#a046d7e662195162d4dc5fbc102d69359">action</a> ()</td></tr>
+<tr class="memdesc:a046d7e662195162d4dc5fbc102d69359 inherit pub_methods_structdhyara_1_1actions_1_1action"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default action constructor. <br /></td></tr>
 <tr class="separator:a046d7e662195162d4dc5fbc102d69359 inherit pub_methods_structdhyara_1_1actions_1_1action"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2afbbf0b3228c2eab32335f4e9ce12cf inherit pub_methods_structdhyara_1_1actions_1_1action"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1actions_1_1action.html#a2afbbf0b3228c2eab32335f4e9ce12cf">action</a> (const <a class="el" href="structdhyara_1_1actions_1_1action.html">action</a>&lt; <a class="el" href="structdhyara_1_1actions_1_1advertisement.html">advertisement</a>, <a class="el" href="structdhyara_1_1packets_1_1advertisement.html">dhyara::packets::advertisement</a> &gt; &amp;)=delete</td></tr>
+<tr class="memitem:a2afbbf0b3228c2eab32335f4e9ce12cf inherit pub_methods_structdhyara_1_1actions_1_1action"><td class="memItemLeft" align="right" valign="top"><a id="a2afbbf0b3228c2eab32335f4e9ce12cf"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1actions_1_1action.html#a2afbbf0b3228c2eab32335f4e9ce12cf">action</a> (const <a class="el" href="structdhyara_1_1actions_1_1action.html">action</a>&lt; <a class="el" href="structdhyara_1_1actions_1_1advertisement.html">advertisement</a>, <a class="el" href="structdhyara_1_1packets_1_1advertisement.html">dhyara::packets::advertisement</a> &gt; &amp;)=delete</td></tr>
+<tr class="memdesc:a2afbbf0b3228c2eab32335f4e9ce12cf inherit pub_methods_structdhyara_1_1actions_1_1action"><td class="mdescLeft">&#160;</td><td class="mdescRight">An action cannot be copy-constructed. <br /></td></tr>
 <tr class="separator:a2afbbf0b3228c2eab32335f4e9ce12cf inherit pub_methods_structdhyara_1_1actions_1_1action"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab02e2d337f58ae824c7fe9552e0bf821 inherit pub_methods_structdhyara_1_1actions_1_1action"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdhyara_1_1actions_1_1action.html">action</a>&lt; <a class="el" href="structdhyara_1_1actions_1_1advertisement.html">advertisement</a>, <a class="el" href="structdhyara_1_1packets_1_1advertisement.html">dhyara::packets::advertisement</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1actions_1_1action.html#ab02e2d337f58ae824c7fe9552e0bf821">operator=</a> (const <a class="el" href="structdhyara_1_1actions_1_1action.html">action</a>&lt; <a class="el" href="structdhyara_1_1actions_1_1advertisement.html">advertisement</a>, <a class="el" href="structdhyara_1_1packets_1_1advertisement.html">dhyara::packets::advertisement</a> &gt; &amp;)=delete</td></tr>
+<tr class="memitem:ab02e2d337f58ae824c7fe9552e0bf821 inherit pub_methods_structdhyara_1_1actions_1_1action"><td class="memItemLeft" align="right" valign="top"><a id="ab02e2d337f58ae824c7fe9552e0bf821"></a>
+<a class="el" href="structdhyara_1_1actions_1_1action.html">action</a>&lt; <a class="el" href="structdhyara_1_1actions_1_1advertisement.html">advertisement</a>, <a class="el" href="structdhyara_1_1packets_1_1advertisement.html">dhyara::packets::advertisement</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1actions_1_1action.html#ab02e2d337f58ae824c7fe9552e0bf821">operator=</a> (const <a class="el" href="structdhyara_1_1actions_1_1action.html">action</a>&lt; <a class="el" href="structdhyara_1_1actions_1_1advertisement.html">advertisement</a>, <a class="el" href="structdhyara_1_1packets_1_1advertisement.html">dhyara::packets::advertisement</a> &gt; &amp;)=delete</td></tr>
+<tr class="memdesc:ab02e2d337f58ae824c7fe9552e0bf821 inherit pub_methods_structdhyara_1_1actions_1_1action"><td class="mdescLeft">&#160;</td><td class="mdescRight">An action is not copy-assignable. <br /></td></tr>
 <tr class="separator:ab02e2d337f58ae824c7fe9552e0bf821 inherit pub_methods_structdhyara_1_1actions_1_1action"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6273443e685fadf590c7e06c9981fd0d inherit pub_methods_structdhyara_1_1actions_1_1action"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1actions_1_1action.html#a6273443e685fadf590c7e06c9981fd0d">operator()</a> (const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> &amp;address, const <a class="el" href="structdhyara_1_1frame.html">dhyara::frame</a> &amp;<a class="el" href="structdhyara_1_1frame.html">frame</a>)</td></tr>
 <tr class="memdesc:a6273443e685fadf590c7e06c9981fd0d inherit pub_methods_structdhyara_1_1actions_1_1action"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a packet from the received frame.  <a href="structdhyara_1_1actions_1_1action.html#a6273443e685fadf590c7e06c9981fd0d">More...</a><br /></td></tr>
 <tr class="separator:a6273443e685fadf590c7e06c9981fd0d inherit pub_methods_structdhyara_1_1actions_1_1action"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0deb780f69c1d083514f14b524b6c1af inherit pub_methods_structdhyara_1_1actions_1_1action"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1actions_1_1action.html#a0deb780f69c1d083514f14b524b6c1af">connect</a> (<a class="el" href="structdhyara_1_1actions_1_1action.html#a1cd09164189d292e0f2965670e64e4d5">slot_type</a> slot)</td></tr>
+<tr class="memitem:a0deb780f69c1d083514f14b524b6c1af inherit pub_methods_structdhyara_1_1actions_1_1action"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1actions_1_1action.html#a0deb780f69c1d083514f14b524b6c1af">connect</a> (slot_type slot)</td></tr>
 <tr class="memdesc:a0deb780f69c1d083514f14b524b6c1af inherit pub_methods_structdhyara_1_1actions_1_1action"><td class="mdescLeft">&#160;</td><td class="mdescRight">Connect a slot (callback) which will be called after the action is executed.  <a href="structdhyara_1_1actions_1_1action.html#a0deb780f69c1d083514f14b524b6c1af">More...</a><br /></td></tr>
 <tr class="separator:a0deb780f69c1d083514f14b524b6c1af inherit pub_methods_structdhyara_1_1actions_1_1action"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af2209dc2497199b75cf9cdd4fde02a39 inherit pub_methods_structdhyara_1_1actions_1_1action"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1actions_1_1action.html#af2209dc2497199b75cf9cdd4fde02a39">disconnect</a> (std::size_t id)</td></tr>
 <tr class="memdesc:af2209dc2497199b75cf9cdd4fde02a39 inherit pub_methods_structdhyara_1_1actions_1_1action"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disconnects an already connected slot by id.  <a href="structdhyara_1_1actions_1_1action.html#af2209dc2497199b75cf9cdd4fde02a39">More...</a><br /></td></tr>
 <tr class="separator:af2209dc2497199b75cf9cdd4fde02a39 inherit pub_methods_structdhyara_1_1actions_1_1action"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
-Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pub_types_structdhyara_1_1actions_1_1action"><td colspan="2" onclick="javascript:toggleInherit('pub_types_structdhyara_1_1actions_1_1action')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="structdhyara_1_1actions_1_1action.html">dhyara::actions::action&lt; advertisement, dhyara::packets::advertisement &gt;</a></td></tr>
-<tr class="memitem:a1cd09164189d292e0f2965670e64e4d5 inherit pub_types_structdhyara_1_1actions_1_1action"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; void(const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> &amp;, const <a class="el" href="structdhyara_1_1packets_1_1advertisement.html">dhyara::packets::advertisement</a> &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1actions_1_1action.html#a1cd09164189d292e0f2965670e64e4d5">slot_type</a></td></tr>
-<tr class="separator:a1cd09164189d292e0f2965670e64e4d5 inherit pub_types_structdhyara_1_1actions_1_1action"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>action to handle an incoming advertisement packet </p>
@@ -193,7 +209,17 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="actions_2advertisement_8h_source.html#l00029">29</a> of file <a class="el" href="actions_2advertisement_8h_source.html">advertisement.h</a>.</p>
+<p>advertisement action constructor requires a link to respond after receiving an advertisement packet. </p>
+<p>It needs the synchronizer to synchronize its neighbourhood.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">link</td><td>reference to the link </td></tr>
+    <tr><td class="paramname">synchronizer</td><td>reference to the synchronizer </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="actions_2advertisement_8h_source.html#l00034">34</a> of file <a class="el" href="actions_2advertisement_8h_source.html">advertisement.h</a>.</p>
 
 </div>
 </div>
@@ -224,6 +250,15 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>The received advertisement is processed in this function. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">addr</td><td>source address </td></tr>
+    <tr><td class="paramname">advertisement</td><td>the received advertisement </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
@@ -235,7 +270,7 @@ Additional Inherited Members</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacedhyara.html">dhyara</a></li><li class="navelem"><a class="el" href="namespacedhyara_1_1actions.html">actions</a></li><li class="navelem"><a class="el" href="structdhyara_1_1actions_1_1advertisement.html">advertisement</a></li>
+    <li class="navelem"><b>dhyara</b></li><li class="navelem"><b>actions</b></li><li class="navelem"><a class="el" href="structdhyara_1_1actions_1_1advertisement.html">advertisement</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.17 </li>
   </ul>
 </div>

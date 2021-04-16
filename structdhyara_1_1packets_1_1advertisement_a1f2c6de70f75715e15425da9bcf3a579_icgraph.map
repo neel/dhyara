@@ -1,4 +1,0 @@
-<map id="dhyara::packets::advertisement::advertisement" name="dhyara::packets::advertisement::advertisement">
-<area shape="rect" id="node1" title="Construct an advertisement packet with null destination and no delay." alt="" coords="281,5,509,47"/>
-<area shape="rect" id="node2" href="$structdhyara_1_1packets_1_1advertisement.html#aa493edf76d104f4c28fc855af1072199" title="Size of the packet." alt="" coords="5,5,233,47"/>
-</map>
