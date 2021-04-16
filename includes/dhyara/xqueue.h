@@ -163,13 +163,21 @@ struct watcher{
     
     /**
      * notify the watcher
+     * \param watched the item to notify
      */
     bool notify(const WatchedT& watched){
         return _notification.overwrite(watched);
     }
+    /**
+     * Wait for a notification. Once some notification is sent, it will be received in the reference provided.
+     * \param watched reference to the store the notified item.
+     */
     bool watch(WatchedT& watched){
         return _notification.de(watched, 0xffffffffUL);
     }
+    /**
+     * Checks whether the watcher is in sleeping state or not.
+     */
     bool sleeping(){
         return _notification.size() == 0;
     }
@@ -179,6 +187,9 @@ struct watcher{
  * notifier
  */
 struct notifier: watcher<char>{
+    /**
+     * notify
+     */
     bool notify(){
         return watcher<char>::notify(0);
     }

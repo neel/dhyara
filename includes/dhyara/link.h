@@ -23,6 +23,9 @@ namespace dhyara{
    
 /**
  * Link is responsible for low level sending/receiving. 
+ * 
+ * \attention Usercode may not need to interact with \ref dhyara::link directly unless there is a customization of the underlying communication protocol is required.
+ * 
  * All received data should be forwarded to the link via \ref _esp_sent_cb which wil then be processed through the installed actions (\ref actions).
  * \code
  * dhyara::link medium; // A communication medium 
@@ -31,12 +34,62 @@ namespace dhyara{
  * medium[dhyara::packets::type::acknowledgement] = acknowledgement;
  * // associate other actions ...
  * \endcode
+ * 
+ * ### Internal Send Receive Mechanism ###
+ * 
  * \ref _esp_rcvd_cb has to be registered to the esp_now_register_send_cb() for send queueing.
  * The sending and receiving tasks are never ending infinitie lops that dequeues the send and receive queue respectively. 
  * \ref start_rcv and \ref start_snd are used to create send and receive tasks by \ref dhyara::network::start.
- * \attention Usercode may not need to interact with \ref dhyara::link directly unless there is a customization of the underlying communication protocol is required.
+ * \dot
+ * digraph G{
+ *   graph [label="Receiving a Frame over ESP Now"];
+ *   forcelabels=true;
+ *   rankdir="LR";
+ *   node [shape = box];
+ * 
+ *   subgraph cluster_task_rcv {
+ *       label = <start_rcv<br /><font point-size='10'>(FreeRTOS Task)</font>>;
+ *       v_fifo_rcv -> f_q_receive [label = "Dequeue"];
+ *   }
+ * 
+ *   f_q_receive [label=<q_receive>];
+ *   f_esp_rcvd_cb [label = <_esp_rcvd_cb<br /><font point-size='10'>(ESP Now Callback)</font>>];
+ *   v_fifo_rcv [label= <_fifo_rcv<br /><font point-size='10'>(FreeRTOS Queue)</font>>];
+ *   f_esp_rcvd_cb -> v_fifo_rcv [label = "Enqueue"];
+ * }
+ * \enddot
+ * sending a frame is more complecated that receiving it. All overloads of \ref dhyara::link::send ultimately calls \ref dhyara::link::transmit. 
+ * If Send Queuing is enabled (by default) then transmit queues the frame instead of actually transmitting it. Otherwise it transmit using \ref dhyara::link::_transmit.
+ * \dot
+ * digraph G{
+ *     compound=true;
+ *     edge [lblstyle="above, sloped"];
+ *     ranksep=0.5;
+ *     nodesep=0.5;
+ *     pad=0.1;
+ *     graph [label="Sending a Frame over (with queuing)"];
+ *     forcelabels=true;
+ *     #rankdir="LR";
+ *     node [shape = box];
+ *     subgraph cluster_task_start_snd {
+ *         label = <start_snd<br /><font point-size='10'>(FreeRTOS Task)</font>>;
+ *         v_queue_snd -> f__transmit [label="Dequeue(1)"];
+ *     }
+ *     f_transmit [label=<transmit>];
+ *     f__transmit [label=<_transmit>];
+ *     f_esp_sent_cb [label= <_esp_sent_cb<br /><font point-size='10'>(ESP Now Callback)</font>>]
+ *     v_notifier [label=<notifier>, shape = point, width=0.2];
+ *     v_queue_snd [label= <_queue_snd<br /><font point-size='10'>(FreeRTOS Queue)</font>>];
+ *     f_transmit -> v_queue_snd [label = "Enqueue"];
+ *     f_transmit -> v_notifier [label = "Notify"];
+ *     v_notifier -> v_queue_snd [ltail=v_notifier, lhead=cluster_task_start_snd, label="Wakes Up"];
+ *     f_esp_sent_cb -> v_notifier [label = "Notify"];
+ *     f__transmit -> f_esp_sent_cb [style = dotted, label="After being send"];
+ * }
+ * \enddot
  * \ingroup dhyara
  */
+
 class link{
     typedef std::function<void (const dhyara::peer_address&, const dhyara::frame&)> callback_type;
     typedef std::map<dhyara::packets::type, callback_type> handlers_map_type;
@@ -276,7 +329,7 @@ class link{
         /**
          * Depending of the configuration of transmission queueing, Transmits/Enequeues a frame for sending to the given destination address in <b>one hop</b>.
          * 
-         * \attention If Send Queueing is enabled (default) then, instead of sending the frame directly, it is enqueued to `_queue_snd`, and a notifier if notified about the nending frame.
+         * \attention If Send Queueing is enabled (default) then, instead of sending the frame directly, it is enqueued to `_queue_snd`, and a notifier is notified about the pending frame.
          *            Another task is running `start_snd` which is woken up after receiving the notification. Once woken up, start_snd dequeues one frame from the `_queue_snd` and transmits using `_transmit`.
          *            Once a message is sent, The send callback `_esp_sent_cb` is called, which also notifies the notifier and wakes up `start_snd`. This ensures No two frames are sent in parellal.
          * 
