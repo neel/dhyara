@@ -168,32 +168,32 @@ Enumerations</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Dhyara Packets provide definitions for all packets that are sent/received over the network. </p>
-<h2><a class="anchor" id="autotoc_md5"></a>
+<h2><a class="anchor" id="autotoc_md6"></a>
 Basic</h2>
 <p>The following packets are used for maintaining the basic network.</p>
-<h3><a class="anchor" id="autotoc_md6"></a>
+<h3><a class="anchor" id="autotoc_md7"></a>
 Beacon (BCN)</h3>
 <p>Every node <code>x ∊ X</code> broadcasts a beacon packet at a fixed interval to <code>0xff:0xff:0xff:0xff:0xff:0xff</code>. The packet contains <code>Tx</code> (time at node <code>x</code>).</p>
-<h3><a class="anchor" id="autotoc_md7"></a>
+<h3><a class="anchor" id="autotoc_md8"></a>
 Acknowledgement (ACK)</h3>
 <p>A node <code>y ∊ X</code> when receives the broadcasted beacon, adds <code>x</code> to its peers and sends an acknowledgement packet to <code>x</code> with the same <code>Tx</code> of the beacon packet. The node <code>x</code> on receiving the acknowledgement calculates RTT as <code>(T - Tx)</code> where T is the current time on node <code>x</code>. The delay of one trip is calculated as <code>𝛿 = RTT / 2</code> The node <code>x</code> adds / updates <code>(x, y, 𝛿)</code> in its routing table and follows the <code>sync_neighbors</code> routine.</p>
-<h3><a class="anchor" id="autotoc_md8"></a>
+<h3><a class="anchor" id="autotoc_md9"></a>
 Advertisement (ADV)</h3>
 <p>An Advertisement packet originated from <code>Xᵢ</code> contains a destination mac <code>Xⱼ</code> and delay <code>d</code>. <code>Xₜ</code> updates route <code>(Xⱼ Xᵢ d + 𝛿ⱼᵢ)</code> in its routing table and follows the <code>sync_neighbors</code> routine. The value of is obtained from the existing routes in the routing table.</p>
-<h3><a class="anchor" id="autotoc_md9"></a>
+<h3><a class="anchor" id="autotoc_md10"></a>
 Data</h3>
 <p>ESP Now limits maximum size of payload in each frame to 250 bytes only. So variable length data like <a class="el" href="structdhyara_1_1packets_1_1data.html">dhyara::packets::data</a> is splitted into multiple chunks.</p>
-<h4><a class="anchor" id="autotoc_md10"></a>
-Chunk (CNK)</h4>
 <h4><a class="anchor" id="autotoc_md11"></a>
+Chunk (CNK)</h4>
+<h4><a class="anchor" id="autotoc_md12"></a>
 Delivery Report (DLV)</h4>
-<h2><a class="anchor" id="autotoc_md12"></a>
+<h2><a class="anchor" id="autotoc_md13"></a>
 Auxilary</h2>
-<h3><a class="anchor" id="autotoc_md13"></a>
+<h3><a class="anchor" id="autotoc_md14"></a>
 ICMP over L2</h3>
-<h4><a class="anchor" id="autotoc_md14"></a>
-ICMP Request (ICMPQ)</h4>
 <h4><a class="anchor" id="autotoc_md15"></a>
+ICMP Request (ICMPQ)</h4>
+<h4><a class="anchor" id="autotoc_md16"></a>
 ICMP Reply (ICMPR)</h4>
 </div><!-- contents -->
 </div><!-- doc-content -->

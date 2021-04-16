@@ -125,10 +125,10 @@ Classes</h2></td></tr>
 </div><!-- fragment --><p>Based on this table a <b>best vector</b> is calculated</p>
 <div class="fragment"><div class="line">Xⱼ ← Min(y ∊ Intermediate(Xⱼ)) ∀ j ≠ i</div>
 </div><!-- fragment --><p>While sending data to <code>Xⱼ</code> the best vector is looked for the immediate neighbor</p>
-<h3><a class="anchor" id="autotoc_md3"></a>
+<h3><a class="anchor" id="autotoc_md4"></a>
 Neighbourhood Synchronization</h3>
 <p>If any operation on the routing table of <code>Xᵢ</code> alters the best route or the delay of the best route for destination <code>Xⱼ</code> then an <code>Advertisement</code> packet is sent to <code>∀ Xₖ ∊ X : k ≠ j</code> The Advertisement packet contains the destination node <code>Xⱼ</code> and <code>𝛿ⱼᵢ</code> the minimum delay to reach that node from <code>Xᵢ</code>. Node <code>Xᵢ</code> does not advertise the best intermediate node (which can be 0x0 also). If the best vector is not altered by routing table update then no <code>advertisement</code> packet is sent However if <code>∃ Xₖ ∊ X</code> for which no broadcast packet has been sent for a large amount of time then an advertisement packet is sent even if there is not change in the best vector.</p>
-<h3><a class="anchor" id="autotoc_md4"></a>
+<h3><a class="anchor" id="autotoc_md5"></a>
 Route Depreciation</h3>
 <p>If a node <code>Xᵢ</code> doesn't receive any beacon from node <code>Xⱼ</code> for a threshold, the delay of all routes involved with <code>Xᵢ</code> is doubled. Then thr routing table update follows the <code>sync_neighbors</code> routine. Once the delay reaches the integer boundary then the node is remove from thr routing table after transmiting the advertisement packet in the <code>sync_neighbours</code> routine. </p>
 </div><!-- contents -->

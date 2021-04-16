@@ -118,10 +118,16 @@ Collaboration diagram for dhyara::watcher&lt; WatchedT &gt;:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a6f8479e803b87b271c71e32b9c915706"><td class="memItemLeft" align="right" valign="top"><a id="a6f8479e803b87b271c71e32b9c915706"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1watcher.html#a6f8479e803b87b271c71e32b9c915706">notify</a> (const WatchedT &amp;watched)</td></tr>
-<tr class="memdesc:a6f8479e803b87b271c71e32b9c915706"><td class="mdescLeft">&#160;</td><td class="mdescRight">notify the watcher <br /></td></tr>
+<tr class="memitem:a6f8479e803b87b271c71e32b9c915706"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1watcher.html#a6f8479e803b87b271c71e32b9c915706">notify</a> (const WatchedT &amp;watched)</td></tr>
+<tr class="memdesc:a6f8479e803b87b271c71e32b9c915706"><td class="mdescLeft">&#160;</td><td class="mdescRight">notify the watcher  <a href="structdhyara_1_1watcher.html#a6f8479e803b87b271c71e32b9c915706">More...</a><br /></td></tr>
 <tr class="separator:a6f8479e803b87b271c71e32b9c915706"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84aff4fc13360d24afb31faa593cd462"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1watcher.html#a84aff4fc13360d24afb31faa593cd462">watch</a> (WatchedT &amp;watched)</td></tr>
+<tr class="memdesc:a84aff4fc13360d24afb31faa593cd462"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wait for a notification.  <a href="structdhyara_1_1watcher.html#a84aff4fc13360d24afb31faa593cd462">More...</a><br /></td></tr>
+<tr class="separator:a84aff4fc13360d24afb31faa593cd462"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6282121beeec6c408df3286cd49cd11"><td class="memItemLeft" align="right" valign="top"><a id="ab6282121beeec6c408df3286cd49cd11"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1watcher.html#ab6282121beeec6c408df3286cd49cd11">sleeping</a> ()</td></tr>
+<tr class="memdesc:ab6282121beeec6c408df3286cd49cd11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the watcher is in sleeping state or not. <br /></td></tr>
+<tr class="separator:ab6282121beeec6c408df3286cd49cd11"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename WatchedT&gt;<br />
@@ -130,7 +136,107 @@ struct dhyara::watcher&lt; WatchedT &gt;</h3>
 <p>watcher </p>
 
 <p class="definition">Definition at line <a class="el" href="xqueue_8h_source.html#l00159">159</a> of file <a class="el" href="xqueue_8h_source.html">xqueue.h</a>.</p>
-</div><hr/>The documentation for this struct was generated from the following file:<ul>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a6f8479e803b87b271c71e32b9c915706"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f8479e803b87b271c71e32b9c915706">&#9670;&nbsp;</a></span>notify()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename WatchedT &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="structdhyara_1_1watcher.html">dhyara::watcher</a>&lt; WatchedT &gt;::notify </td>
+          <td>(</td>
+          <td class="paramtype">const WatchedT &amp;&#160;</td>
+          <td class="paramname"><em>watched</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>notify the watcher </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">watched</td><td>the item to notify </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="xqueue_8h_source.html#l00168">168</a> of file <a class="el" href="xqueue_8h_source.html">xqueue.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="xqueue_8h_source.html#l00193">dhyara::notifier::notify()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="structdhyara_1_1watcher_a6f8479e803b87b271c71e32b9c915706_icgraph.png" border="0" usemap="#structdhyara_1_1watcher_a6f8479e803b87b271c71e32b9c915706_icgraph" alt=""/></div>
+<map name="structdhyara_1_1watcher_a6f8479e803b87b271c71e32b9c915706_icgraph" id="structdhyara_1_1watcher_a6f8479e803b87b271c71e32b9c915706_icgraph">
+<area shape="rect" title="notify the watcher" alt="" coords="220,5,392,32"/>
+<area shape="rect" href="structdhyara_1_1notifier.html#a4a0a8c97e37beadbc0cbfea7c73e9f28" title="notify" alt="" coords="5,5,172,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a84aff4fc13360d24afb31faa593cd462"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84aff4fc13360d24afb31faa593cd462">&#9670;&nbsp;</a></span>watch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename WatchedT &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="structdhyara_1_1watcher.html">dhyara::watcher</a>&lt; WatchedT &gt;::watch </td>
+          <td>(</td>
+          <td class="paramtype">WatchedT &amp;&#160;</td>
+          <td class="paramname"><em>watched</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Wait for a notification. </p>
+<p>Once some notification is sent, it will be received in the reference provided. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">watched</td><td>reference to the store the notified item. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="xqueue_8h_source.html#l00175">175</a> of file <a class="el" href="xqueue_8h_source.html">xqueue.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="xqueue_8h_source.html#l00215">dhyara::mutex::lock()</a>, and <a class="el" href="xqueue_8h_source.html#l00199">dhyara::notifier::watch()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="structdhyara_1_1watcher_a84aff4fc13360d24afb31faa593cd462_icgraph.png" border="0" usemap="#structdhyara_1_1watcher_a84aff4fc13360d24afb31faa593cd462_icgraph" alt=""/></div>
+<map name="structdhyara_1_1watcher_a84aff4fc13360d24afb31faa593cd462_icgraph" id="structdhyara_1_1watcher_a84aff4fc13360d24afb31faa593cd462_icgraph">
+<area shape="rect" title="Wait for a notification." alt="" coords="221,31,396,57"/>
+<area shape="rect" href="structdhyara_1_1mutex.html#abcc2f0db06a95b60231ddda2121e44da" title="returns only when it is notified." alt="" coords="13,5,165,32"/>
+<area shape="rect" href="structdhyara_1_1notifier.html#ae519bda2f1f266cc6bc5daee4ef39007" title="returns only when it is notified." alt="" coords="5,56,173,83"/>
+</map>
+</div>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
 <li>includes/dhyara/<a class="el" href="xqueue_8h_source.html">xqueue.h</a></li>
 </ul>
 </div><!-- contents -->

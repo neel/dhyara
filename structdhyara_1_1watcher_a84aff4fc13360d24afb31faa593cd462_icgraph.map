@@ -1,0 +1,5 @@
+<map id="dhyara::watcher::watch" name="dhyara::watcher::watch">
+<area shape="rect" id="node1" title="Wait for a notification." alt="" coords="221,31,396,57"/>
+<area shape="rect" id="node2" href="$structdhyara_1_1mutex.html#abcc2f0db06a95b60231ddda2121e44da" title="returns only when it is notified." alt="" coords="13,5,165,32"/>
+<area shape="rect" id="node3" href="$structdhyara_1_1notifier.html#ae519bda2f1f266cc6bc5daee4ef39007" title="returns only when it is notified." alt="" coords="5,56,173,83"/>
+</map>

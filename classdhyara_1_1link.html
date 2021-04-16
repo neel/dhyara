@@ -257,14 +257,22 @@ Private Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Link is responsible for low level sending/receiving. </p>
+<dl class="section attention"><dt>Attention</dt><dd>Usercode may not need to interact with <a class="el" href="classdhyara_1_1link.html">dhyara::link</a> directly unless there is a customization of the underlying communication protocol is required.</dd></dl>
 <p>All received data should be forwarded to the link via <a class="el" href="classdhyara_1_1link.html#a978706fc680636c3cdaaa9a3781a5754">_esp_sent_cb</a> which wil then be processed through the installed actions (<a class="el" href="group__actions.html">Actions</a>). </p><div class="fragment"><div class="line"><a class="code" href="classdhyara_1_1link.html">dhyara::link</a> medium; <span class="comment">// A communication medium </span></div>
 <div class="line"> </div>
 <div class="line"><a class="code" href="structdhyara_1_1actions_1_1acknowledgement.html">dhyara::actions::acknowledgement</a> acknowledgement(medium.local()); <span class="comment">// Handler for acknowledgement packets</span></div>
 <div class="line">medium[dhyara::packets::type::acknowledgement] = acknowledgement;</div>
 <div class="line"><span class="comment">// associate other actions ...</span></div>
-</div><!-- fragment --><p> <a class="el" href="classdhyara_1_1link.html#ad7b4f39ecaf94c52dc5739898da8a627">_esp_rcvd_cb</a> has to be registered to the esp_now_register_send_cb() for send queueing. The sending and receiving tasks are never ending infinitie lops that dequeues the send and receive queue respectively. <a class="el" href="classdhyara_1_1link.html#a48d84ff3fff1d76658acfa4df424d943">start_rcv</a> and <a class="el" href="classdhyara_1_1link.html#a379534b3f0faa7c9c927d9205ebec850">start_snd</a> are used to create send and receive tasks by <a class="el" href="structdhyara_1_1network.html#aadf3365c6a5506187b2f9c91ef4fdd0a">dhyara::network::start</a>. </p><dl class="section attention"><dt>Attention</dt><dd>Usercode may not need to interact with <a class="el" href="classdhyara_1_1link.html">dhyara::link</a> directly unless there is a customization of the underlying communication protocol is required. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="link_8h_source.html#l00040">40</a> of file <a class="el" href="link_8h_source.html">link.h</a>.</p>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md0"></a>
+Internal Send Receive Mechanism</h3>
+<p><a class="el" href="classdhyara_1_1link.html#ad7b4f39ecaf94c52dc5739898da8a627">_esp_rcvd_cb</a> has to be registered to the esp_now_register_send_cb() for send queueing. The sending and receiving tasks are never ending infinitie lops that dequeues the send and receive queue respectively. <a class="el" href="classdhyara_1_1link.html#a48d84ff3fff1d76658acfa4df424d943">start_rcv</a> and <a class="el" href="classdhyara_1_1link.html#a379534b3f0faa7c9c927d9205ebec850">start_snd</a> are used to create send and receive tasks by <a class="el" href="structdhyara_1_1network.html#aadf3365c6a5506187b2f9c91ef4fdd0a">dhyara::network::start</a>. </p><div class="dotgraph">
+<img src="dot_inline_dotgraph_1.png" alt="dot_inline_dotgraph_1.png" border="0" usemap="#dot_inline_dotgraph_1.map"/>
+</div>
+<p> sending a frame is more complecated that receiving it. All overloads of <a class="el" href="classdhyara_1_1link.html#adc9c6543f44bb258ec27d169dfc2acaf">dhyara::link::send</a> ultimately calls <a class="el" href="classdhyara_1_1link.html#a24055fe76a8ee2619c36650d98c1bae4">dhyara::link::transmit</a>. If Send Queuing is enabled (by default) then transmit queues the frame instead of actually transmitting it. Otherwise it transmit using <a class="el" href="classdhyara_1_1link.html#a5fc3a07a12711ca617ff8ef8296aaba2">dhyara::link::_transmit</a>. </p><div class="dotgraph">
+<img src="dot_inline_dotgraph_2.png" alt="dot_inline_dotgraph_2.png" border="0" usemap="#dot_inline_dotgraph_2.map"/>
+</div>
+ 
+<p class="definition">Definition at line <a class="el" href="link_8h_source.html#l00093">93</a> of file <a class="el" href="link_8h_source.html">link.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a45aedba311a6021cafbdcbb9d2dfa09a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a45aedba311a6021cafbdcbb9d2dfa09a">&#9670;&nbsp;</a></span>_esp_promiscous_rx_cb()</h2>
@@ -520,7 +528,7 @@ This function is supposed by the callback passed to esp_now_register_send_cb().<
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="link_8h_source.html#l00169">169</a> of file <a class="el" href="link_8h_source.html">link.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="link_8h_source.html#l00222">222</a> of file <a class="el" href="link_8h_source.html">link.h</a>.</p>
 
 </div>
 </div>
@@ -649,9 +657,9 @@ template&lt;typename PacketT &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="link_8h_source.html#l00094">94</a> of file <a class="el" href="link_8h_source.html">link.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="link_8h_source.html#l00147">147</a> of file <a class="el" href="link_8h_source.html">link.h</a>.</p>
 
-<p class="reference">References <a class="el" href="peer_8h_source.html#l00131">dhyara::peer_address::is_null()</a>, <a class="el" href="structdhyara_1_1routing.html#aa48f75eeef012f4269d2a803049d542f">dhyara::routing::next()</a>, <a class="el" href="link_8h_source.html#l00078">send_local()</a>, and <a class="el" href="routing_8h_source.html#l00122">dhyara::routing::next_hop::via()</a>.</p>
+<p class="reference">References <a class="el" href="peer_8h_source.html#l00131">dhyara::peer_address::is_null()</a>, <a class="el" href="structdhyara_1_1routing.html#aa48f75eeef012f4269d2a803049d542f">dhyara::routing::next()</a>, <a class="el" href="link_8h_source.html#l00131">send_local()</a>, and <a class="el" href="routing_8h_source.html#l00122">dhyara::routing::next_hop::via()</a>.</p>
 
 </div>
 </div>
@@ -707,11 +715,11 @@ template&lt;typename PacketT &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="link_8h_source.html#l00078">78</a> of file <a class="el" href="link_8h_source.html">link.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="link_8h_source.html#l00131">131</a> of file <a class="el" href="link_8h_source.html">link.h</a>.</p>
 
 <p class="reference">References <a class="el" href="classdhyara_1_1link.html#a24055fe76a8ee2619c36650d98c1bae4">transmit()</a>, and <a class="el" href="io_8h_source.html#l00021">dhyara::write()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="link_8h_source.html#l00094">send()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="link_8h_source.html#l00147">send()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -803,7 +811,7 @@ Usercode may not call this function directly. Supposed to be called by <a class=
 </div><div class="memdoc">
 
 <p>Depending of the configuration of transmission queueing, Transmits/Enequeues a frame for sending to the given destination address in <b>one hop</b>. </p>
-<dl class="section attention"><dt>Attention</dt><dd>If Send Queueing is enabled (default) then, instead of sending the frame directly, it is enqueued to <code>_queue_snd</code>, and a notifier if notified about the nending frame. Another task is running <code>start_snd</code> which is woken up after receiving the notification. Once woken up, start_snd dequeues one frame from the <code>_queue_snd</code> and transmits using <code>_transmit</code>. Once a message is sent, The send callback <code>_esp_sent_cb</code> is called, which also notifies the notifier and wakes up <code>start_snd</code>. This ensures No two frames are sent in parellal.</dd>
+<dl class="section attention"><dt>Attention</dt><dd>If Send Queueing is enabled (default) then, instead of sending the frame directly, it is enqueued to <code>_queue_snd</code>, and a notifier is notified about the pending frame. Another task is running <code>start_snd</code> which is woken up after receiving the notification. Once woken up, start_snd dequeues one frame from the <code>_queue_snd</code> and transmits using <code>_transmit</code>. Once a message is sent, The send callback <code>_esp_sent_cb</code> is called, which also notifies the notifier and wakes up <code>start_snd</code>. This ensures No two frames are sent in parellal.</dd>
 <dd>
 If Send Queueing is disabled then the frame is sent immediately without waiting for the sent callback to be called for the previous transmission operation.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -814,7 +822,7 @@ If Send Queueing is disabled then the frame is sent immediately without waiting 
   </dd>
 </dl>
 
-<p class="reference">Referenced by <a class="el" href="link_8h_source.html#l00078">send_local()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="link_8h_source.html#l00131">send_local()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -859,7 +867,7 @@ Here is the caller graph for this function:</div>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclassdhyara_1_1link_html"><div class="ttname"><a href="classdhyara_1_1link.html">dhyara::link</a></div><div class="ttdoc">Link is responsible for low level sending/receiving.</div><div class="ttdef"><b>Definition:</b> <a href="link_8h_source.html#l00040">link.h:40</a></div></div>
+<div class="ttc" id="aclassdhyara_1_1link_html"><div class="ttname"><a href="classdhyara_1_1link.html">dhyara::link</a></div><div class="ttdoc">Link is responsible for low level sending/receiving.</div><div class="ttdef"><b>Definition:</b> <a href="link_8h_source.html#l00093">link.h:93</a></div></div>
 <div class="ttc" id="astructdhyara_1_1actions_1_1acknowledgement_html"><div class="ttname"><a href="structdhyara_1_1actions_1_1acknowledgement.html">dhyara::actions::acknowledgement</a></div><div class="ttdoc">action to handle an incoming acknowledgement packet</div><div class="ttdef"><b>Definition:</b> <a href="actions_2acknowledgement_8h_source.html#l00027">acknowledgement.h:27</a></div></div>
 <div class="ttc" id="astructdhyara_1_1actions_1_1beacon_html"><div class="ttname"><a href="structdhyara_1_1actions_1_1beacon.html">dhyara::actions::beacon</a></div><div class="ttdoc">action to handle an incoming beacon packet</div><div class="ttdef"><b>Definition:</b> <a href="actions_2beacon_8h_source.html#l00027">beacon.h:27</a></div></div>
 <!-- HTML footer for doxygen 1.9.1-->

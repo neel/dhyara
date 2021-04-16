@@ -1,5 +1,6 @@
 var NAVTREEINDEX2 =
 {
+"structdhyara_1_1tools_1_1traceroute.html#a26d00eede7ea7ada127959a039b62935":[7,3,1,4],
 "structdhyara_1_1tools_1_1traceroute.html#a90556482330d2a2218e464fad02f0992":[7,3,1,2],
 "structdhyara_1_1tools_1_1traceroute.html#aa91b4dec3ee77fbb9479c8c22bc4f69f":[7,3,1,5],
 "structdhyara_1_1tools_1_1traceroute.html#aaa1d3c63c26b59e19c73c30cc16179db":[7,3,1,0],
@@ -7,10 +8,12 @@ var NAVTREEINDEX2 =
 "structdhyara_1_1tools_1_1traceroute.html#ae7aee95d988b347a8782bf04c15e95d7":[7,3,1,1],
 "structdhyara_1_1tools_1_1traceroute.html#afe32ccddc6954f1d6b30b85e0cfb2c7e":[7,3,1,3],
 "structdhyara_1_1utils_1_1http.html":[8,0,0,3,0],
-"structdhyara_1_1utils_1_1printer.html":[7,2,12],
 "structdhyara_1_1utils_1_1printer.html":[7,2,0,1],
+"structdhyara_1_1utils_1_1printer.html":[7,2,12],
 "structdhyara_1_1watcher.html":[8,0,0,19],
 "structdhyara_1_1watcher.html#a6f8479e803b87b271c71e32b9c915706":[8,0,0,19,0],
+"structdhyara_1_1watcher.html#a84aff4fc13360d24afb31faa593cd462":[8,0,0,19,2],
+"structdhyara_1_1watcher.html#ab6282121beeec6c408df3286cd49cd11":[8,0,0,19,1],
 "structstd_1_1hash_3_01dhyara_1_1peer_01_4.html":[8,0,1,0],
 "structstd_1_1hash_3_01dhyara_1_1peer__address_01_4.html":[8,0,1,1],
 "synchronizer_8h_source.html":[9,0,1,0,14],
