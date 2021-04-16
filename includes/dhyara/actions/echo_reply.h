@@ -32,6 +32,9 @@ struct echo_reply: dhyara::actions::action<echo_reply, dhyara::packets::echo_rep
         dhyara::delay_type min = std::numeric_limits<dhyara::delay_type>::max(), max = 0, total = 0;
         double avg = 0;
         
+        /**
+         * reset the stat
+         */
         inline void reset() { min = std::numeric_limits<dhyara::delay_type>::max(); max = 0; avg = 0.0; total = 0; }
     };
     
@@ -43,6 +46,8 @@ struct echo_reply: dhyara::actions::action<echo_reply, dhyara::packets::echo_rep
     using action::operator();
     /**
      * Process an incomming echo_reply packet
+     * \param addr source address 
+     * \param echo_reply the received echo_reply 
      */
     void operator()(const dhyara::peer_address& addr, const dhyara::packets::echo_reply& echo_reply);
     

@@ -34,8 +34,17 @@ template <typename DerivedT, typename PacketT>
 struct action{
     typedef std::function<void (const dhyara::peer_address&, const PacketT&)> slot_type;
     
+    /**
+     * Default action constructor
+     */
     action(): _last(0) {}
+    /**
+     * An action cannot be copy-constructed
+     */
     action(const action<DerivedT, PacketT>&) = delete;
+    /**
+     * An action is not copy-assignable
+     */
     action<DerivedT, PacketT>& operator=(const action<DerivedT, PacketT>&) = delete;
     /**
      * Creates a packet from the received frame. Passes that packet to the Derived action's operator() overload. Calls the slots connected.

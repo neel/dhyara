@@ -28,12 +28,15 @@ struct echo_lost: dhyara::actions::action<echo_lost, dhyara::packets::echo_lost>
     
     /**
      * An echo lost action is constructed using a reference to the link. The link is used for relaying the lost packet to the intended destination through the ad hoc network.
+     * \param link a reference to the link
      */
     inline explicit echo_lost(dhyara::link& link): _link(link){}
     
     using action::operator();
     /**
      * Process an incomming echo_lost packet, relay if necessary.
+     * \param addr source address 
+     * \param echo_lost the received echo_lost 
      */
     void operator()(const dhyara::peer_address& addr, const dhyara::packets::echo_lost& echo_lost);
     

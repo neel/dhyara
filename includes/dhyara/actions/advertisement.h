@@ -25,10 +25,21 @@ namespace actions{
  * \ingroup actions
  */
 struct advertisement: dhyara::actions::action<advertisement, dhyara::packets::advertisement>{
-    
+    /**
+     * advertisement action constructor requires a link to respond after receiving an advertisement packet. It needs the synchronizer to synchronize its neighbourhood.
+     * 
+     * \param link reference to the link
+     * \param synchronizer reference to the synchronizer 
+     */
     inline explicit advertisement(dhyara::link& link, dhyara::synchronizer& synchronizer): _link(link), _synchronizer(synchronizer){}
     
     using action::operator();
+    /**
+     * The received advertisement is processed in this function.
+     * 
+     * \param addr source address 
+     * \param advertisement the received advertisement 
+     */
     void operator()(const dhyara::peer_address& addr, const dhyara::packets::advertisement& advertisement);
     
     private:

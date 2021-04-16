@@ -26,9 +26,19 @@ namespace actions{
  */
 struct beacon: dhyara::actions::action<beacon, dhyara::packets::beacon>{
     
+    /**
+     * A beacon action constructor requires the link in order to respond with an aacknowledgement.
+     * \param link a reference to the link.
+     */
     explicit beacon(dhyara::link& link);
     
     using action::operator();
+    /**
+     * The received beacon is processed in this function.
+     * 
+     * \param addr source address 
+     * \param beacon the received beacon 
+     */
     void operator()(const dhyara::peer_address& addr, const dhyara::packets::beacon& beacon);
     
     /**

@@ -25,9 +25,20 @@ namespace actions{
  */
 struct delivered: dhyara::actions::action<delivered, dhyara::packets::delivered>{
     
+    /**
+     * A delivery action needs to have access to the link in order to relay the delivery report if it is an intermediate node.
+     * 
+     * \param link a reference to the link
+     */
     inline explicit delivered(dhyara::link& link): _link(link){}
     
     using action::operator();
+    /**
+     * The received delivery report is processed in this function.
+     * 
+     * \param addr source address 
+     * \param delivered the received delivery report 
+     */
     void operator()(const dhyara::peer_address& addr, const dhyara::packets::delivered& delivered);
     
     private:

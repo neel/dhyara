@@ -25,9 +25,17 @@ namespace actions{
  */
 struct echo_request: dhyara::actions::action<echo_request, dhyara::packets::echo_request>{
     
+    /**
+     * The echo_request action is constructed using a reference to the link, so that it can respond with an echo_reply using the link if necessary
+     */
     inline explicit echo_request(dhyara::link& link): _link(link){}
     
     using action::operator();
+    /**
+     * Process an incomming echo_request packet
+     * \param addr source address 
+     * \param echo_request the received echo_request 
+     */
     void operator()(const dhyara::peer_address& addr, const dhyara::packets::echo_request& echo_request);
     /**
      * Sends batch ICMP request to target. ICMP requests in the batch are sent without any time gap between two consecutive requests. The duration of sleep between two consecutive batches can be controlled using sleep argument.

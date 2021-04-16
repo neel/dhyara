@@ -1,6 +1,7 @@
 /**
  * \defgroup dhyara Dhyara
  * \brief Dhyara Communication Interface provides a simplified abstraction over the underlying Ad-Hoc Network. 
+ * 
  * Unless there is a need to customize the internal mechanism of maintaining the usercode only needs to interact through this module.
  * Dhyara is written in C++11. Some functionalities are exposed as C functions, so that it can also be incorporated into a C project.
  * 
@@ -50,6 +51,7 @@
 /**
  * \defgroup routing Routing 
  * \brief Dhyara Routing module is responsible for maintaining the distributed routing table across the network.
+ * 
  * Each node `Xᵢ ∊ X` maintains a **routing table** of the following form which is gradually built up by the protocol.  
  * Each row of this table denotes a route to a destination node (first column) via an intermediate nde (second column) and its corresponding delay. 
  * 0x0 is used to depict direct communication (not via any intermediate node).

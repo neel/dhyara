@@ -25,10 +25,22 @@ namespace actions{
  * \ingroup actions
  */
 struct acknowledgement: dhyara::actions::action<acknowledgement, dhyara::packets::acknowledgement>{
-    
+    /**
+     * acknowledgement action constructor requires a link to respond after receiving an acknowledgement packet. It needs the synchronizer to synchronize its neighbourhood.
+     * 
+     * \param link reference to the link
+     * \param synchronizer reference to the synchronizer 
+     */
     inline explicit acknowledgement(dhyara::link& link, dhyara::synchronizer& synchronizer): _link(link), _synchronizer(synchronizer){}
     
     using action::operator();
+    
+    /**
+     * The received acknowledgement is processed in this function.
+     * 
+     * \param addr source address 
+     * \param acknowledgement the received acknowledgement 
+     */
     void operator()(const dhyara::peer_address& addr, const dhyara::packets::acknowledgement& acknowledgement);
     
     private:
