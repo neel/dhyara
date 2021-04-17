@@ -9,8 +9,12 @@
 #include <dhyara/tools/ping.h>
 #include <dhyara/tools/traceroute.h>
 #include <dhyara/packets/data.h>
+#include <dhyara/utils/http.h>
 
 void mainx(){
+//     Connect to ESP and then visit http://192.168.4.1/routes to check the routing table
+    dhyara::utils::http server(dhyara_link());
+    
     dhyara::network network(dhyara_link());
     dhyara_set_default_network(&network);
     

@@ -166,7 +166,7 @@ struct watcher{
      * \param watched the item to notify
      */
     bool notify(const WatchedT& watched){
-        return _notification.overwrite(watched);
+        return _notification.en(watched);
     }
     /**
      * Wait for a notification. Once some notification is sent, it will be received in the reference provided.
