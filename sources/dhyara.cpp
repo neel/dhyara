@@ -168,7 +168,7 @@ bool dhyara_send_internal(const unsigned char* target, const void* data, unsigne
 
 bool dhyara_send_ping(const unsigned char* target, uint8_t count, int8_t batch, uint8_t sleep){
     dhyara::peer_address other(target);
-    return dhyara_ping(other);
+    return dhyara_ping(other, count, batch, sleep);
 }
 
 bool dhyara_ping(const dhyara::peer_address& target, uint8_t count, int8_t batch, uint8_t sleep){

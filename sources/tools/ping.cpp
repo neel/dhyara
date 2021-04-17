@@ -34,7 +34,7 @@ dhyara::tools::ping::ping(dhyara::network& network, std::uint8_t count, std::int
 }
 
 void dhyara::tools::ping::operator()(const dhyara::peer_address& addr){
-    ESP_LOGI("ping", "%s", addr.to_string().c_str());
+    ESP_LOGI("ping", "%s count:%d batch:%d sleep:%d", addr.to_string().c_str(), _count, _batch, _sleep);
     
     reset();
     _first = esp_timer_get_time();
