@@ -18,6 +18,10 @@
 #include "dhyara/synchronizer.h"
 #include "dhyara/xqueue.h"
 
+#if DHYARA_ENABLED_HTTP_MANAGEMENT_SERVER
+#include "dhyara/utils/http.h"
+#endif
+
 namespace dhyara{
 
 /**
@@ -170,6 +174,10 @@ struct network{
         dhyara::actions::echo_lost       _echo_lost;
         dhyara::actions::chunk           _chunk;
         dhyara::actions::delivered       _delivered;
+        
+#if DHYARA_ENABLED_HTTP_MANAGEMENT_SERVER
+        dhyara::utils::http              _server;
+#endif
         
     private:
         /**

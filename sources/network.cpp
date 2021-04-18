@@ -42,6 +42,9 @@ dhyara::network::network(dhyara::link& link):
     _echo_lost(_link),
     _chunk(_link),
     _delivered(_link)
+#if DHYARA_ENABLED_HTTP_MANAGEMENT_SERVER
+    ,_server(_link)
+#endif    
     {}
 
 void dhyara::network::presence(){
