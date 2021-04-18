@@ -84,6 +84,10 @@ void dhyara::network::start(){
 #if DHYARA_ENABLED_SEND_QUEUEING
     xTaskCreate(&dhyara::network::task_start_send,  "start_send",  2028,  &_link, 22, NULL);
 #endif
+    
+#if DHYARA_ENABLED_HTTP_MANAGEMENT_SERVER
+    ESP_ERROR_CHECK(_server.start());
+#endif
 }
 
 bool dhyara::network::send(const dhyara::peer_address& target, const dhyara::packets::data& data){

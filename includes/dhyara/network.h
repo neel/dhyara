@@ -199,6 +199,11 @@ struct network{
          */
         static void task_start_send(void* arg);
 #endif
+        
+#if DHYARA_ENABLED_HTTP_MANAGEMENT_SERVER
+    public:
+        inline dhyara::utils::http& management_server() { return _server; }
+#endif
 };
 
 }

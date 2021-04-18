@@ -32,9 +32,16 @@
 dhyara::utils::http::http(dhyara::link& link): _link(link), _config(HTTPD_DEFAULT_CONFIG()), _server(0x0),
     _routes(httpd_uri_t{"/routes", HTTP_GET, dhyara::utils::http::routes_handler, this}) 
 {
-    if (httpd_start(&_server, &_config) == ESP_OK) {
-        httpd_register_uri_handler(_server, &_routes);
+
+}
+
+
+esp_err_t dhyara::utils::http::start(){
+    esp_err_t res = httpd_start(&_server, &_config);
+    if (res == ESP_OK) {
+        res = httpd_register_uri_handler(_server, &_routes);
     }
+    return res;
 }
 
 

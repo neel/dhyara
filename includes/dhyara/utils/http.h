@@ -22,7 +22,15 @@ namespace utils{
  */
 struct http{
     
+    /**
+     * The HTTP Management console requires a reference to the link in order to access the routes and the neighbourhood.
+     * \param link communication link
+     */
     http(dhyara::link& link);
+    /**
+     * Start the HTTP Server
+     */
+    esp_err_t start();
     
     private:
         dhyara::link&  _link;
