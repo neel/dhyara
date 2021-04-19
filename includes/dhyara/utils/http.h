@@ -36,7 +36,9 @@ struct http{
         dhyara::link&  _link;
         httpd_config_t _config;
         httpd_handle_t _server;
+    private:
         httpd_uri_t    _routes;
+        httpd_uri_t    _info;
     private:
         static esp_err_t routes_handler(httpd_req_t* req);
         static esp_err_t info_handler(httpd_req_t* req);

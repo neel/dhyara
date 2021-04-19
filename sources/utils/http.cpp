@@ -28,20 +28,20 @@
 #include "dhyara/utils/http.h"
 #include <sstream>
 #include "dhyara/assets.h"
-#include <json.hpp>
 #include <cstring>
 #include "esp_wifi.h"
+#include <dhyara/dhyara.h>
 
 dhyara::utils::http::http(dhyara::link& link): _link(link), _config(HTTPD_DEFAULT_CONFIG()), _server(0x0),
-    _routes(httpd_uri_t{"/routes", HTTP_GET, dhyara::utils::http::routes_handler, this}) 
+    _routes(httpd_uri_t{"/routes", HTTP_GET, dhyara::utils::http::routes_handler, this}),
+    _info(httpd_uri_t{"/info.json", HTTP_GET, dhyara::utils::http::info_handler, this}) 
 {}
 
 
 esp_err_t dhyara::utils::http::start(){
     esp_err_t res = httpd_start(&_server, &_config);
-    if (res == ESP_OK) {
-        res = httpd_register_uri_handler(_server, &_routes);
-    }
+    if (res != ESP_OK) return res; else res = httpd_register_uri_handler(_server, &_routes);
+    if (res != ESP_OK) return res; else res = httpd_register_uri_handler(_server, &_info);
     return res;
 }
 
@@ -129,15 +129,124 @@ esp_err_t dhyara::utils::http::routes(httpd_req_t* req){
 }
 
 esp_err_t dhyara::utils::http::info(httpd_req_t* req){
+    std::stringstream response_json;
+    response_json << "{";
+    
     wifi_config_t config;
     std::memset(&config, 0, sizeof(wifi_config_t));
     esp_err_t err = esp_wifi_get_config(WIFI_IF_AP, &config);
     if(err == ESP_OK){
         std::string ssid((const char*)config.ap.ssid, config.ap.ssid_len);
-        bool hidden = config.ap.ssid_hidden;
-        std::uint8_t channel = config.ap.channel;
-        wifi_auth_mode_t authmode = config.ap.authmode;
-        std::uint8_t max_connection = config.ap.max_connection;
+        
+        std::uint8_t protocol;
+        esp_wifi_get_protocol(WIFI_IF_AP, &protocol);
+        wifi_bandwidth_t bandwidth;
+        esp_wifi_get_bandwidth(WIFI_IF_AP, &bandwidth);
+        
+        std::string protocol_str;
+        if(protocol & WIFI_PROTOCOL_11B) protocol_str += "b";
+        if(protocol & WIFI_PROTOCOL_11G) protocol_str += "g";
+        if(protocol & WIFI_PROTOCOL_11N) protocol_str += "n";
+        if(protocol & WIFI_PROTOCOL_LR)  protocol_str += "lr";
+        
+        std::uint32_t channel_freq_begin = 2401 + 5*(config.ap.channel -1), 
+                      channel_freq_end   = channel_freq_begin + ((bandwidth == WIFI_BW_HT20) ? 20 : 40),
+                      channel_freq_mean  = (channel_freq_begin + channel_freq_end) / 2;
+                      
+        std::string auth_str;
+        switch(config.ap.authmode){
+            case WIFI_AUTH_OPEN:
+                auth_str = "WIFI_AUTH_OPEN";
+                break;
+            case WIFI_AUTH_WEP:
+                auth_str = "WIFI_AUTH_WEP";
+                break;
+            case WIFI_AUTH_WPA_PSK:
+                auth_str = "WIFI_AUTH_WPA_PSK";
+                break;
+            case WIFI_AUTH_WPA2_PSK:
+                auth_str = "WIFI_AUTH_WPA2_PSK";
+                break;
+            case WIFI_AUTH_WPA_WPA2_PSK:
+                auth_str = "WIFI_AUTH_WPA_WPA2_PSK";
+                break;
+            case WIFI_AUTH_WPA2_ENTERPRISE:
+                auth_str = "WIFI_AUTH_WPA2_ENTERPRISE";
+                break;
+            case WIFI_AUTH_WPA3_PSK:
+                auth_str = "WIFI_AUTH_WPA3_PSK";
+                break;
+            case WIFI_AUTH_WPA2_WPA3_PSK:
+                auth_str = "WIFI_AUTH_WPA2_WPA3_PSK";
+                break;
+            case WIFI_AUTH_WAPI_PSK:
+                auth_str = "WIFI_AUTH_WAPI_PSK";
+                break;
+            case WIFI_AUTH_MAX:
+                auth_str = "WIFI_AUTH_MAX";
+                break;
+            default:
+                auth_str = "Unknown";
+        }
+        
+        std::stringstream ap_json;
+        ap_json << "{";
+        ap_json << "\"ssid\":" << '"' << ssid << '"' << ",";
+        ap_json << "\"address\":" << '"' << dhyara_local().to_string() << '"' << ",";
+        ap_json << "\"hidden\":" << std::boolalpha << (bool) config.ap.ssid_hidden << ",";
+        ap_json << "\"channel\":" << (int)config.ap.channel << ",";
+        ap_json << "\"frequency\":" << "{";
+        ap_json <<      "\"begin\":" << channel_freq_begin << ",";
+        ap_json <<      "\"end\":" << channel_freq_end << ",";
+        ap_json <<      "\"mean\":" << channel_freq_mean;
+        ap_json << "},";
+        ap_json << "\"protocol\":" << '"' << "802.11" << protocol_str << '"' << ",";
+        ap_json << "\"bandwidth\":" << ((bandwidth == WIFI_BW_HT20) ? 20 : 40) << ",";
+        ap_json << "\"authentication\":" << '"' << auth_str << '"' << ",";
+        ap_json << "\"max_connections\":" << (int)config.ap.max_connection;
+        ap_json << "}";
+        
+        response_json << "\"ap\":" << ap_json.str();
     }
+    
+    response_json << ",";
+    
+    {
+        wifi_ps_type_t type;
+        err = esp_wifi_get_ps(&type);
+        std::string ps_str;
+        switch(type){
+            case WIFI_PS_NONE:
+                ps_str = "None";
+                break;
+            case WIFI_PS_MIN_MODEM:
+                ps_str = "Min";
+                break;
+            case WIFI_PS_MAX_MODEM:
+                ps_str = "Max";
+                break;
+            default:
+                ps_str = "Unknown";
+        }
+        
+        
+        std::int8_t max_power;
+        err = esp_wifi_get_max_tx_power(&max_power);
+        
+        std::stringstream power_json;
+        power_json << "{";
+        power_json << "\"saving\":" << '"' << ps_str << '"' << ",";
+        power_json << "\"max\":" << (int) max_power;
+        power_json << "}";
+        
+        response_json << "\"power\":" << power_json.str();
+    }
+    
+    response_json << "}";
+    
+    std::string response = response_json.str();
+    
+    httpd_resp_set_type(req, "application/json");
+    httpd_resp_send(req, response.c_str(), response.length());
     return ESP_OK;
 }
