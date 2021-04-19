@@ -69,8 +69,6 @@ esp_err_t dhyara_wifi_init(wifi_mode_t mode){
     if(err != ESP_OK) return err;
     
     wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
-//     cfg.ampdu_rx_enable = 0;
-//     cfg.ampdu_tx_enable = 0;
     err = (esp_wifi_init(&cfg));
     if(err != ESP_OK) return err;
     

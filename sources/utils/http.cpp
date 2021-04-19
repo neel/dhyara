@@ -28,12 +28,12 @@
 #include "dhyara/utils/http.h"
 #include <sstream>
 #include "dhyara/assets.h"
+#include <json.hpp>
+#include <cstring>
 
 dhyara::utils::http::http(dhyara::link& link): _link(link), _config(HTTPD_DEFAULT_CONFIG()), _server(0x0),
     _routes(httpd_uri_t{"/routes", HTTP_GET, dhyara::utils::http::routes_handler, this}) 
-{
-
-}
+{}
 
 
 esp_err_t dhyara::utils::http::start(){
@@ -48,6 +48,11 @@ esp_err_t dhyara::utils::http::start(){
 esp_err_t dhyara::utils::http::routes_handler(httpd_req_t* req){
     dhyara::utils::http* self = static_cast<dhyara::utils::http*>(req->user_ctx);
     return self->routes(req);
+}
+
+esp_err_t  dhyara::utils::http::info_handler(httpd_req_t* req){
+    dhyara::utils::http* self = static_cast<dhyara::utils::http*>(req->user_ctx);
+    return self->info(req);
 }
 
 esp_err_t dhyara::utils::http::routes(httpd_req_t* req){
@@ -119,5 +124,15 @@ esp_err_t dhyara::utils::http::routes(httpd_req_t* req){
     std::string html_str = html.str();
     
     httpd_resp_send(req, html_str.c_str(), html_str.length());
+    return ESP_OK;
+}
+
+esp_err_t dhyara::utils::http::info(httpd_req_t* req){
+    wifi_config_t ap_config;
+    std::memset(&ap_config, 0, sizeof(wifi_config_t));
+    esp_err_t err = esp_wifi_get_config(WIFI_IF_AP, &ap_config);
+    if(err == ESP_OK){
+        // TODO get infor of AP and Station interface
+    }
     return ESP_OK;
 }
