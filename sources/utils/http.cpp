@@ -30,6 +30,7 @@
 #include "dhyara/assets.h"
 #include <json.hpp>
 #include <cstring>
+#include "esp_wifi.h"
 
 dhyara::utils::http::http(dhyara::link& link): _link(link), _config(HTTPD_DEFAULT_CONFIG()), _server(0x0),
     _routes(httpd_uri_t{"/routes", HTTP_GET, dhyara::utils::http::routes_handler, this}) 
@@ -128,11 +129,15 @@ esp_err_t dhyara::utils::http::routes(httpd_req_t* req){
 }
 
 esp_err_t dhyara::utils::http::info(httpd_req_t* req){
-    wifi_config_t ap_config;
-    std::memset(&ap_config, 0, sizeof(wifi_config_t));
-    esp_err_t err = esp_wifi_get_config(WIFI_IF_AP, &ap_config);
+    wifi_config_t config;
+    std::memset(&config, 0, sizeof(wifi_config_t));
+    esp_err_t err = esp_wifi_get_config(WIFI_IF_AP, &config);
     if(err == ESP_OK){
-        // TODO get infor of AP and Station interface
+        std::string ssid((const char*)config.ap.ssid, config.ap.ssid_len);
+        bool hidden = config.ap.ssid_hidden;
+        std::uint8_t channel = config.ap.channel;
+        wifi_auth_mode_t authmode = config.ap.authmode;
+        std::uint8_t max_connection = config.ap.max_connection;
     }
     return ESP_OK;
 }
