@@ -33,22 +33,37 @@
 #include <dhyara/dhyara.h>
 
 dhyara::utils::http::http(dhyara::link& link): _link(link), _config(HTTPD_DEFAULT_CONFIG()), _server(0x0),
-    _routes(httpd_uri_t{"/routes", HTTP_GET, dhyara::utils::http::routes_handler, this}),
-    _info(httpd_uri_t{"/info.json", HTTP_GET, dhyara::utils::http::info_handler, this}) 
+    _index(httpd_uri_t{"/index.html", HTTP_GET, dhyara::utils::http::index_handler, this}),
+    _style(httpd_uri_t{"/dhyara.css", HTTP_GET, dhyara::utils::http::style_handler, this}),
+    _icons(httpd_uri_t{"/icons", HTTP_GET, dhyara::utils::http::icons_handler, this}),
+    _info(httpd_uri_t{"/info.json", HTTP_GET, dhyara::utils::http::info_handler, this}),
+    _routes(httpd_uri_t{"/routes", HTTP_GET, dhyara::utils::http::routes_handler, this})
 {}
 
 
 esp_err_t dhyara::utils::http::start(){
     esp_err_t res = httpd_start(&_server, &_config);
-    if (res != ESP_OK) return res; else res = httpd_register_uri_handler(_server, &_routes);
+    if (res != ESP_OK) return res; else res = httpd_register_uri_handler(_server, &_index);
+    if (res != ESP_OK) return res; else res = httpd_register_uri_handler(_server, &_style);
+    if (res != ESP_OK) return res; else res = httpd_register_uri_handler(_server, &_icons);
     if (res != ESP_OK) return res; else res = httpd_register_uri_handler(_server, &_info);
+    if (res != ESP_OK) return res; else res = httpd_register_uri_handler(_server, &_routes);
     return res;
 }
 
-
-esp_err_t dhyara::utils::http::routes_handler(httpd_req_t* req){
+esp_err_t  dhyara::utils::http::index_handler(httpd_req_t* req){
     dhyara::utils::http* self = static_cast<dhyara::utils::http*>(req->user_ctx);
-    return self->routes(req);
+    return self->index(req);
+}
+
+esp_err_t  dhyara::utils::http::style_handler(httpd_req_t* req){
+    dhyara::utils::http* self = static_cast<dhyara::utils::http*>(req->user_ctx);
+    return self->style(req);
+}
+
+esp_err_t  dhyara::utils::http::icons_handler(httpd_req_t* req){
+    dhyara::utils::http* self = static_cast<dhyara::utils::http*>(req->user_ctx);
+    return self->icons(req);
 }
 
 esp_err_t  dhyara::utils::http::info_handler(httpd_req_t* req){
@@ -56,75 +71,52 @@ esp_err_t  dhyara::utils::http::info_handler(httpd_req_t* req){
     return self->info(req);
 }
 
-esp_err_t dhyara::utils::http::routes(httpd_req_t* req){
-    std::stringstream table;
-    table << "<table class='paleBlueRows'>"
-            << "<tr>"
-                << "<th>" << "destination" << "</th>"
-                << "<th>" << "intermediate" << "</th>"
-                << "<th>" << "delay (ms)" << "</th>"
-                << "<th>" << "updated" << "</th>"
-            << "</tr>";
+esp_err_t dhyara::utils::http::routes_handler(httpd_req_t* req){
+    dhyara::utils::http* self = static_cast<dhyara::utils::http*>(req->user_ctx);
+    return self->routes(req);
+}
 
-    for(auto it = _link.routes().route_begin(); it != _link.routes().route_end(); ++it){
-        const auto& dst         = it->first.dst();
-        const auto& via         = it->first.via();
-        const auto& delay       = it->second.delay();
-        const auto& updated     = it->second.updated();
-        
-        table << "<tr>"
-                << "<td>" << dst.to_string() << "</td>"
-                << "<td>" << via.to_string() << "</td>"
-                << "<td>" << (double)delay/1000.0 << "</td>"
-                << "<td>" << updated << "</td>"
-            << "</tr>";
-    }
-    table << "</table>";
+esp_err_t dhyara::utils::http::index(httpd_req_t* req){
+    const auto length = std::distance(dhyara::assets::index_html_start, dhyara::assets::index_html_end);
+    httpd_resp_set_type(req, "text/html");
+    httpd_resp_send(req, (const char*)dhyara::assets::index_html_start, length);
+    return ESP_OK;
+}
+
+esp_err_t dhyara::utils::http::icons(httpd_req_t* req){
+    const auto len = strlen(req->uri);
+    static const std::string neighbourhood = "neighbourhood";
+    static const std::string home = "home";
+    static const std::string routing = "routing";
+    static const std::string universe = "universe";
     
-    table << "<table class='paleBlueRows'>"
-            << "<tr>"
-                << "<th>" << "destination" << "</th>"
-                << "<th>" << "next" << "</th>"
-                << "<th>" << "delay (ms)" << "</th>"
-                << "<th>" << "RSSI" << "</th>"
-                << "<th>" << "Name" << "</th>"
-            << "</tr>";
-    for(auto it = _link.routes().next_begin(); it != _link.routes().next_end(); ++it){
-        const auto& dst         = it->first;
-        const auto& via         = it->second.via();
-        const auto& delay       = it->second.delay();
-        std::int8_t rssi = 0;
-        std::string name;
-        if(_link.neighbours().exists(dst)){
-            const auto& peer = _link.neighbours().get_peer(dst);
-            rssi = peer.rssi();
-            name = peer.name();
+    if(len <= 7){
+        httpd_resp_send_404(req);
+    }else{
+        std::string query(req->uri+7);
+        if(query.compare(0, neighbourhood.size(), neighbourhood) == 0){
+            httpd_resp_set_type(req, "image/gif");
+            httpd_resp_send(req, (const char*)dhyara::assets::neighbourhood_gif_start, std::distance(dhyara::assets::neighbourhood_gif_start, dhyara::assets::neighbourhood_gif_end));
+        }else if(query.compare(0, home.size(), home) == 0){
+            httpd_resp_set_type(req, "image/gif");
+            httpd_resp_send(req, (const char*)dhyara::assets::home_gif_start, std::distance(dhyara::assets::home_gif_start, dhyara::assets::home_gif_end));
+        }else if(query.compare(0, routing.size(), routing) == 0){
+            httpd_resp_set_type(req, "image/gif");
+            httpd_resp_send(req, (const char*)dhyara::assets::routing_gif_start, std::distance(dhyara::assets::routing_gif_start, dhyara::assets::routing_gif_end));
+        }else if(query.compare(0, universe.size(), universe) == 0){
+            httpd_resp_set_type(req, "image/gif");
+            httpd_resp_send(req, (const char*)dhyara::assets::universe_gif_start, std::distance(dhyara::assets::universe_gif_start, dhyara::assets::universe_gif_end));
+        }else{
+            httpd_resp_send_404(req);
         }
-        
-        table << "<tr>"
-                << "<td>" << dst.to_string() << "</td>"
-                << "<td>" << via.to_string() << "</td>"
-                << "<td>" << (double)delay/1000.0 << "</td>"
-                << "<td>" << (int)rssi << " dBm" << "</td>"
-                << "<td>" << name << "</td>"
-            << "</tr>";
     }
-    table << "</table>";
-    
-    std::string style(dhyara::assets::routing_css_start, dhyara::assets::routing_css_end);
-    
-    std::stringstream html;
-    html << "<html>"
-            << "<head>" 
-                << "<title>" << "DHYARA ROUTING TABLE" << "</title>" 
-                << "<style>" << style << "</style>"
-            << "</head>"
-            << "<body>" << table.str() << "</body>"
-        << "</html>";
-    
-    std::string html_str = html.str();
-    
-    httpd_resp_send(req, html_str.c_str(), html_str.length());
+    return ESP_OK;
+}
+
+esp_err_t dhyara::utils::http::style(httpd_req_t* req){
+    const auto length = std::distance(dhyara::assets::dhyara_css_start, dhyara::assets::dhyara_css_end);
+    httpd_resp_set_type(req, "text/css");
+    httpd_resp_send(req, (const char*)dhyara::assets::dhyara_css_start, length);
     return ESP_OK;
 }
 
@@ -247,7 +239,15 @@ esp_err_t dhyara::utils::http::info(httpd_req_t* req){
     {
         std::stringstream dhyara_json;
         dhyara_json << "{";
-        
+        dhyara_json << "\"queue_size\":" << dhyara::queue_size << ",";
+        dhyara_json << "\"sync_queue_size\":" << dhyara::sync_queue_size << ",";
+        dhyara_json << "\"espnow_broadcast_channel\":" << (int) dhyara::espnow_broadcast_channel << ",";
+        dhyara_json << "\"espnow_peer_channel\":" << (int) dhyara::espnow_peer_channel << ",";
+        dhyara_json << "\"beacon_interval\":" << dhyara::beacon_interval << ",";
+        dhyara_json << "\"delay_tolerance\":" << dhyara::delay_tolerance << ",";
+        dhyara_json << "\"depreciation_coefficient\":" << (int) dhyara::depreciation_coefficient << ",";
+        dhyara_json << "\"advertisement_expiry\":" << (dhyara::advertisement_expiry / 1000) << ",";
+        dhyara_json << "\"route_expiry\":" << (dhyara::route_expiry / 1000);
         dhyara_json << "}";
         
         response_json << "\"dhyara\":" << dhyara_json.str();
@@ -259,5 +259,77 @@ esp_err_t dhyara::utils::http::info(httpd_req_t* req){
     
     httpd_resp_set_type(req, "application/json");
     httpd_resp_send(req, response.c_str(), response.length());
+    return ESP_OK;
+}
+
+esp_err_t dhyara::utils::http::routes(httpd_req_t* req){
+    std::stringstream table;
+    table << "<table class='paleBlueRows'>"
+            << "<tr>"
+                << "<th>" << "destination" << "</th>"
+                << "<th>" << "intermediate" << "</th>"
+                << "<th>" << "delay (ms)" << "</th>"
+                << "<th>" << "updated" << "</th>"
+            << "</tr>";
+
+    for(auto it = _link.routes().route_begin(); it != _link.routes().route_end(); ++it){
+        const auto& dst         = it->first.dst();
+        const auto& via         = it->first.via();
+        const auto& delay       = it->second.delay();
+        const auto& updated     = it->second.updated();
+        
+        table << "<tr>"
+                << "<td>" << dst.to_string() << "</td>"
+                << "<td>" << via.to_string() << "</td>"
+                << "<td>" << (double)delay/1000.0 << "</td>"
+                << "<td>" << updated << "</td>"
+            << "</tr>";
+    }
+    table << "</table>";
+    
+    table << "<table class='paleBlueRows'>"
+            << "<tr>"
+                << "<th>" << "destination" << "</th>"
+                << "<th>" << "next" << "</th>"
+                << "<th>" << "delay (ms)" << "</th>"
+                << "<th>" << "RSSI" << "</th>"
+                << "<th>" << "Name" << "</th>"
+            << "</tr>";
+    for(auto it = _link.routes().next_begin(); it != _link.routes().next_end(); ++it){
+        const auto& dst         = it->first;
+        const auto& via         = it->second.via();
+        const auto& delay       = it->second.delay();
+        std::int8_t rssi = 0;
+        std::string name;
+        if(_link.neighbours().exists(dst)){
+            const auto& peer = _link.neighbours().get_peer(dst);
+            rssi = peer.rssi();
+            name = peer.name();
+        }
+        
+        table << "<tr>"
+                << "<td>" << dst.to_string() << "</td>"
+                << "<td>" << via.to_string() << "</td>"
+                << "<td>" << (double)delay/1000.0 << "</td>"
+                << "<td>" << (int)rssi << " dBm" << "</td>"
+                << "<td>" << name << "</td>"
+            << "</tr>";
+    }
+    table << "</table>";
+    
+    std::string style(dhyara::assets::routing_css_start, dhyara::assets::routing_css_end);
+    
+    std::stringstream html;
+    html << "<html>"
+            << "<head>" 
+                << "<title>" << "DHYARA ROUTING TABLE" << "</title>" 
+                << "<style>" << style << "</style>"
+            << "</head>"
+            << "<body>" << table.str() << "</body>"
+        << "</html>";
+    
+    std::string html_str = html.str();
+    
+    httpd_resp_send(req, html_str.c_str(), html_str.length());
     return ESP_OK;
 }

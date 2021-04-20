@@ -43,5 +43,11 @@ else()
             esp_http_server
         EMBED_TXTFILES
             "assets/routing.css"
+            "assets/ui/index.html"
+            "assets/ui/dhyara.css"
+            "assets/ui/icons/neighbourhood.gif"
+            "assets/ui/icons/home.gif"
+            "assets/ui/icons/routing.gif"
+            "assets/ui/icons/universe.gif"
     )
 endif()
