@@ -242,6 +242,12 @@ esp_err_t dhyara::utils::http::info(httpd_req_t* req){
         response_json << "\"power\":" << power_json.str();
     }
     
+    response_json << ",";
+    
+    {
+        
+    }
+    
     response_json << "}";
     
     std::string response = response_json.str();
