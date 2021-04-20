@@ -54,6 +54,7 @@ a {
     margin: 0px auto 0px 0px;
     border-right: 1px solid #ececec;
     background: #f4f4f4;
+    overflow: auto;
 }
 
 @media all and (max-width: 1024px) {
@@ -135,6 +136,17 @@ a {
     box-shadow: 4px 5px #efefef;
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+.cluster-full{
+    background-color: white;
+    color: var(--dark);
+    box-shadow: 4px 5px #efefef;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 50px;
+    margin-right: 50px;
+    width: 100%;
 }
 
 .full-w{
@@ -240,7 +252,13 @@ a {
     }
 }
 
-.board td{
+.board td, th{
     padding: 10px 5px 10px 5px;
     line-height: 1.2rem;
+    text-align: center;
 }
+
+.board td{
+    border-top: 1px solid #ececec;
+}
+

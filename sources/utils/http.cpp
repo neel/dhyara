@@ -245,7 +245,12 @@ esp_err_t dhyara::utils::http::info(httpd_req_t* req){
     response_json << ",";
     
     {
+        std::stringstream dhyara_json;
+        dhyara_json << "{";
         
+        dhyara_json << "}";
+        
+        response_json << "\"dhyara\":" << dhyara_json.str();
     }
     
     response_json << "}";
