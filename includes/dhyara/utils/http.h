@@ -41,18 +41,21 @@ struct http{
         httpd_uri_t    _style;
         httpd_uri_t    _icons;
         httpd_uri_t    _info;
+        httpd_uri_t    _counter;
         httpd_uri_t    _routes;
     private:
         static esp_err_t index_handler(httpd_req_t* req);
         static esp_err_t style_handler(httpd_req_t* req);
         static esp_err_t icons_handler(httpd_req_t* req);
         static esp_err_t info_handler(httpd_req_t* req);
+        static esp_err_t counter_handler(httpd_req_t* req);
         static esp_err_t routes_handler(httpd_req_t* req);
     private:
         esp_err_t index(httpd_req_t* req);
         esp_err_t style(httpd_req_t* req);
         esp_err_t icons(httpd_req_t* req);
         esp_err_t info(httpd_req_t* req);
+        esp_err_t counter(httpd_req_t* req);
         esp_err_t routes(httpd_req_t* req);
 };
 

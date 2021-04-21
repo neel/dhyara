@@ -33,11 +33,12 @@
 #include <dhyara/dhyara.h>
 
 dhyara::utils::http::http(dhyara::link& link): _link(link), _config(HTTPD_DEFAULT_CONFIG()), _server(0x0),
-    _index(httpd_uri_t{"/index.html", HTTP_GET, dhyara::utils::http::index_handler, this}),
-    _style(httpd_uri_t{"/dhyara.css", HTTP_GET, dhyara::utils::http::style_handler, this}),
-    _icons(httpd_uri_t{"/icons", HTTP_GET, dhyara::utils::http::icons_handler, this}),
-    _info(httpd_uri_t{"/info.json", HTTP_GET, dhyara::utils::http::info_handler, this}),
-    _routes(httpd_uri_t{"/routes", HTTP_GET, dhyara::utils::http::routes_handler, this})
+    _index   (httpd_uri_t{"/",             HTTP_GET, dhyara::utils::http::index_handler,   this}),
+    _style   (httpd_uri_t{"/dhyara.css",   HTTP_GET, dhyara::utils::http::style_handler,   this}),
+    _icons   (httpd_uri_t{"/icons",        HTTP_GET, dhyara::utils::http::icons_handler,   this}),
+    _info    (httpd_uri_t{"/info.json",    HTTP_GET, dhyara::utils::http::info_handler,    this}),
+    _counter (httpd_uri_t{"/counter.json", HTTP_GET, dhyara::utils::http::counter_handler, this}),
+    _routes  (httpd_uri_t{"/routes",       HTTP_GET, dhyara::utils::http::routes_handler,  this})
 {}
 
 
@@ -47,28 +48,34 @@ esp_err_t dhyara::utils::http::start(){
     if (res != ESP_OK) return res; else res = httpd_register_uri_handler(_server, &_style);
     if (res != ESP_OK) return res; else res = httpd_register_uri_handler(_server, &_icons);
     if (res != ESP_OK) return res; else res = httpd_register_uri_handler(_server, &_info);
+    if (res != ESP_OK) return res; else res = httpd_register_uri_handler(_server, &_counter);
     if (res != ESP_OK) return res; else res = httpd_register_uri_handler(_server, &_routes);
     return res;
 }
 
-esp_err_t  dhyara::utils::http::index_handler(httpd_req_t* req){
+esp_err_t dhyara::utils::http::index_handler(httpd_req_t* req){
     dhyara::utils::http* self = static_cast<dhyara::utils::http*>(req->user_ctx);
     return self->index(req);
 }
 
-esp_err_t  dhyara::utils::http::style_handler(httpd_req_t* req){
+esp_err_t dhyara::utils::http::style_handler(httpd_req_t* req){
     dhyara::utils::http* self = static_cast<dhyara::utils::http*>(req->user_ctx);
     return self->style(req);
 }
 
-esp_err_t  dhyara::utils::http::icons_handler(httpd_req_t* req){
+esp_err_t dhyara::utils::http::icons_handler(httpd_req_t* req){
     dhyara::utils::http* self = static_cast<dhyara::utils::http*>(req->user_ctx);
     return self->icons(req);
 }
 
-esp_err_t  dhyara::utils::http::info_handler(httpd_req_t* req){
+esp_err_t dhyara::utils::http::info_handler(httpd_req_t* req){
     dhyara::utils::http* self = static_cast<dhyara::utils::http*>(req->user_ctx);
     return self->info(req);
+}
+
+esp_err_t dhyara::utils::http::counter_handler(httpd_req_t* req){
+    dhyara::utils::http* self = static_cast<dhyara::utils::http*>(req->user_ctx);
+    return self->counter(req);
 }
 
 esp_err_t dhyara::utils::http::routes_handler(httpd_req_t* req){
@@ -239,6 +246,7 @@ esp_err_t dhyara::utils::http::info(httpd_req_t* req){
     {
         std::stringstream dhyara_json;
         dhyara_json << "{";
+        dhyara_json << "\"send_queueing\":" << std::boolalpha << (bool)DHYARA_ENABLED_SEND_QUEUEING << ",";
         dhyara_json << "\"queue_size\":" << dhyara::queue_size << ",";
         dhyara_json << "\"sync_queue_size\":" << dhyara::sync_queue_size << ",";
         dhyara_json << "\"espnow_broadcast_channel\":" << (int) dhyara::espnow_broadcast_channel << ",";
@@ -261,6 +269,27 @@ esp_err_t dhyara::utils::http::info(httpd_req_t* req){
     httpd_resp_send(req, response.c_str(), response.length());
     return ESP_OK;
 }
+
+esp_err_t dhyara::utils::http::counter(httpd_req_t* req){
+    std::stringstream response_json;
+    response_json << "{";
+    response_json << "\"beacon\":" << "{" "\"tx\":" << _link.tx(dhyara::packets::type::beacon) << "," "\"rx\":" << _link.rx(dhyara::packets::type::beacon) << "}" ",";
+    response_json << "\"acknowledgement\":" << "{" "\"tx\":" << _link.tx(dhyara::packets::type::acknowledgement) << "," "\"rx\":" << _link.rx(dhyara::packets::type::acknowledgement) << "}" ",";
+    response_json << "\"advertisement\":" << "{" "\"tx\":" << _link.tx(dhyara::packets::type::advertisement) << "," "\"rx\":" << _link.rx(dhyara::packets::type::advertisement) << "}" ",";
+    response_json << "\"chunk\":" << "{" "\"tx\":" << _link.tx(dhyara::packets::type::chunk) << "," "\"rx\":" << _link.rx(dhyara::packets::type::chunk) << "}" ",";
+    response_json << "\"delivered\":" << "{" "\"tx\":" << _link.tx(dhyara::packets::type::delivered) << "," "\"rx\":" << _link.rx(dhyara::packets::type::delivered) << "}" ",";
+    response_json << "\"echo_request\":" << "{" "\"tx\":" << _link.tx(dhyara::packets::type::echo_request) << "," "\"rx\":" << _link.rx(dhyara::packets::type::echo_request) << "}" ",";
+    response_json << "\"echo_reply\":" << "{" "\"tx\":" << _link.tx(dhyara::packets::type::echo_reply) << "," "\"rx\":" << _link.rx(dhyara::packets::type::echo_reply) << "}" ",";
+    response_json << "\"echo_lost\":" << "{" "\"tx\":" << _link.tx(dhyara::packets::type::echo_lost) << "," "\"rx\":" << _link.rx(dhyara::packets::type::echo_lost) << "}";
+    response_json << "}";
+    
+    std::string response = response_json.str();
+    
+    httpd_resp_set_type(req, "application/json");
+    httpd_resp_send(req, response.c_str(), response.length());
+    return ESP_OK;
+}
+
 
 esp_err_t dhyara::utils::http::routes(httpd_req_t* req){
     std::stringstream table;
