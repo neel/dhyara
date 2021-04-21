@@ -44,6 +44,7 @@ else()
         EMBED_TXTFILES
             "assets/routing.css"
             "assets/ui/index.html"
+            "assets/ui/routing.html"
             "assets/ui/dhyara.css"
             "assets/ui/icons/neighbourhood.gif"
             "assets/ui/icons/home.gif"

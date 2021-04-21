@@ -22,6 +22,8 @@ extern const std::uint8_t dhyara_css_start[] asm("_binary_dhyara_css_start");
 extern const std::uint8_t dhyara_css_end[]   asm("_binary_dhyara_css_end");
 extern const std::uint8_t index_html_start[] asm("_binary_index_html_start");
 extern const std::uint8_t index_html_end[]   asm("_binary_index_html_end");
+extern const std::uint8_t routing_html_start[] asm("_binary_routing_html_start");
+extern const std::uint8_t routing_html_end[]   asm("_binary_routing_html_end");
 extern const std::uint8_t neighbourhood_gif_start[] asm("_binary_neighbourhood_gif_start");
 extern const std::uint8_t neighbourhood_gif_end[]   asm("_binary_neighbourhood_gif_end");
 extern const std::uint8_t home_gif_start[] asm("_binary_home_gif_start");

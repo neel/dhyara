@@ -34,17 +34,19 @@
 
 dhyara::utils::http::http(dhyara::link& link): _link(link), _config(HTTPD_DEFAULT_CONFIG()), _server(0x0),
     _index   (httpd_uri_t{"/",             HTTP_GET, dhyara::utils::http::index_handler,   this}),
+    _routing (httpd_uri_t{"/routing",      HTTP_GET, dhyara::utils::http::routing_handler, this}),
     _style   (httpd_uri_t{"/dhyara.css",   HTTP_GET, dhyara::utils::http::style_handler,   this}),
     _icons   (httpd_uri_t{"/icons",        HTTP_GET, dhyara::utils::http::icons_handler,   this}),
     _info    (httpd_uri_t{"/info.json",    HTTP_GET, dhyara::utils::http::info_handler,    this}),
     _counter (httpd_uri_t{"/counter.json", HTTP_GET, dhyara::utils::http::counter_handler, this}),
-    _routes  (httpd_uri_t{"/routes",       HTTP_GET, dhyara::utils::http::routes_handler,  this})
+    _routes  (httpd_uri_t{"/routes.json",  HTTP_GET, dhyara::utils::http::routes_handler,  this})
 {}
 
 
 esp_err_t dhyara::utils::http::start(){
     esp_err_t res = httpd_start(&_server, &_config);
     if (res != ESP_OK) return res; else res = httpd_register_uri_handler(_server, &_index);
+    if (res != ESP_OK) return res; else res = httpd_register_uri_handler(_server, &_routing);
     if (res != ESP_OK) return res; else res = httpd_register_uri_handler(_server, &_style);
     if (res != ESP_OK) return res; else res = httpd_register_uri_handler(_server, &_icons);
     if (res != ESP_OK) return res; else res = httpd_register_uri_handler(_server, &_info);
@@ -76,6 +78,11 @@ esp_err_t dhyara::utils::http::info_handler(httpd_req_t* req){
 esp_err_t dhyara::utils::http::counter_handler(httpd_req_t* req){
     dhyara::utils::http* self = static_cast<dhyara::utils::http*>(req->user_ctx);
     return self->counter(req);
+}
+
+esp_err_t dhyara::utils::http::routing_handler(httpd_req_t* req){
+    dhyara::utils::http* self = static_cast<dhyara::utils::http*>(req->user_ctx);
+    return self->routing(req);
 }
 
 esp_err_t dhyara::utils::http::routes_handler(httpd_req_t* req){
@@ -290,75 +297,54 @@ esp_err_t dhyara::utils::http::counter(httpd_req_t* req){
     return ESP_OK;
 }
 
+esp_err_t dhyara::utils::http::routing(httpd_req_t* req){
+    const auto length = std::distance(dhyara::assets::routing_html_start, dhyara::assets::routing_html_end);
+    httpd_resp_set_type(req, "text/html");
+    httpd_resp_send(req, (const char*)dhyara::assets::routing_html_start, length);
+    return ESP_OK;
+}
 
 esp_err_t dhyara::utils::http::routes(httpd_req_t* req){
-    std::stringstream table;
-    table << "<table class='paleBlueRows'>"
-            << "<tr>"
-                << "<th>" << "destination" << "</th>"
-                << "<th>" << "intermediate" << "</th>"
-                << "<th>" << "delay (ms)" << "</th>"
-                << "<th>" << "updated" << "</th>"
-            << "</tr>";
-
-    for(auto it = _link.routes().route_begin(); it != _link.routes().route_end(); ++it){
-        const auto& dst         = it->first.dst();
-        const auto& via         = it->first.via();
-        const auto& delay       = it->second.delay();
-        const auto& updated     = it->second.updated();
-        
-        table << "<tr>"
-                << "<td>" << dst.to_string() << "</td>"
-                << "<td>" << via.to_string() << "</td>"
-                << "<td>" << (double)delay/1000.0 << "</td>"
-                << "<td>" << updated << "</td>"
-            << "</tr>";
-    }
-    table << "</table>";
+    std::stringstream response_json;
+    response_json << "{";
     
-    table << "<table class='paleBlueRows'>"
-            << "<tr>"
-                << "<th>" << "destination" << "</th>"
-                << "<th>" << "next" << "</th>"
-                << "<th>" << "delay (ms)" << "</th>"
-                << "<th>" << "RSSI" << "</th>"
-                << "<th>" << "Name" << "</th>"
-            << "</tr>";
-    for(auto it = _link.routes().next_begin(); it != _link.routes().next_end(); ++it){
-        const auto& dst         = it->first;
-        const auto& via         = it->second.via();
-        const auto& delay       = it->second.delay();
-        std::int8_t rssi = 0;
-        std::string name;
-        if(_link.neighbours().exists(dst)){
-            const auto& peer = _link.neighbours().get_peer(dst);
-            rssi = peer.rssi();
-            name = peer.name();
+    {
+        std::stringstream routes_json;
+        routes_json << "[";
+        for(auto it = _link.routes().route_begin(); it != _link.routes().route_end(); ++it){
+            if(it != _link.routes().route_begin()){
+                routes_json << ",";
+            }
+            routes_json << "{";
+            routes_json << "\"dst\":" << '"' << it->first.dst().to_string() << '"' << ",";
+            routes_json << "\"via\":" << '"' << it->first.via().to_string() << '"' << ",";
+            routes_json << "\"delay\":" << (double)it->second.delay()/1000.0 << ",";
+            routes_json << "\"updated\":" << it->second.updated();
+            routes_json << "}";
         }
-        
-        table << "<tr>"
-                << "<td>" << dst.to_string() << "</td>"
-                << "<td>" << via.to_string() << "</td>"
-                << "<td>" << (double)delay/1000.0 << "</td>"
-                << "<td>" << (int)rssi << " dBm" << "</td>"
-                << "<td>" << name << "</td>"
-            << "</tr>";
+        routes_json << "]";
+        response_json << "\"routes\":" << routes_json.str();
     }
-    table << "</table>";
-    
-    std::string style(dhyara::assets::routing_css_start, dhyara::assets::routing_css_end);
-    
-    std::stringstream html;
-    html << "<html>"
-            << "<head>" 
-                << "<title>" << "DHYARA ROUTING TABLE" << "</title>" 
-                << "<style>" << style << "</style>"
-            << "</head>"
-            << "<body>" << table.str() << "</body>"
-        << "</html>";
-    
-    std::string html_str = html.str();
-    
-    httpd_resp_send(req, html_str.c_str(), html_str.length());
+    response_json << ",";
+    {
+        std::stringstream next_json;
+        next_json << "[";
+        for(auto it = _link.routes().next_begin(); it != _link.routes().next_end(); ++it){
+            if(it != _link.routes().next_begin()){
+                next_json << ",";
+            }
+            next_json << "{";
+            next_json << "\"dst\":" << '"' << it->first.to_string() << '"' << ",";
+            next_json << "\"via\":" << '"' << it->second.via().to_string() << '"' << ",";
+            next_json << "\"delay\":" << (double)it->second.delay()/1000.0;
+            next_json << "}";
+        }
+        next_json << "]";
+        response_json << "\"next\":" << next_json.str();
+    }
+    response_json << "}";
+    std::string response = response_json.str();
+    httpd_resp_set_type(req, "application/json");
+    httpd_resp_send(req, response.c_str(), response.length());
     return ESP_OK;
 }
