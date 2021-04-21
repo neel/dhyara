@@ -11,138 +11,136 @@
 		let d = document;
 		let q = x => d.querySelectorAll(x);
 		let create = (x, a, c) => {
-            let e = d.createElement(x);
-            if(typeof a == 'object')
-                for (let [k, v] of Object.entries(a)) 
-                    e.setAttribute(k, v);
-            if(typeof c !== 'undefined')
-                e.append(c);
-            return e;
-        };
+			let e = d.createElement(x);
+			if(typeof a == 'object')
+				for (let [k, v] of Object.entries(a)) 
+					e.setAttribute(k, v);
+			if(typeof c !== 'undefined')
+				e.append(c);
+			return e;
+		};
 		d.addEventListener("DOMContentLoaded", function() {
-            q("#menu li").forEach(li => li.append(
-                create("img", {"class": "icon", "src": "/icons?"+li.dataset.icon}),
-                create("div", {"class": "label"}, li.dataset.label)
-            ));
-            q(".cell").forEach(cell => cell.prepend(create("span", {"class": "key"}, cell.dataset.key)));
-            setTimeout(function(){
-                fetch("/info.json").then(r => r.json()).then(function(info){
-                    let tr = (key, body) => q('#info-iface .cell[data-key="'+key+'"]')[0].append(body);
-                    tr('ssid', info.ap.ssid);
-                    tr('mac', info.ap.address);
-                    tr('channel', info.ap.channel + "(" + info.ap.bandwidth + "Mhz)");
-                    tr('frequency', info.ap.frequency.begin + "-" + info.ap.frequency.end + "Mhz)");
-                    tr('power saving', info.power.saving);
-                    tr('max power', info.power.max);
-                    tr('authentication', info.ap.authentication);
-                    tr('max clients', info.ap.max_connections);
-                    
-                    tr = (key, body) => q('#info-dhyara .cell[data-key="'+key+'"]')[0].append(body);
-                    tr('send queueing', info.dhyara.send_queueing);
-                    tr('queue size', info.dhyara.queue_size);
-                    tr('sync queue size', info.dhyara.sync_queue_size);
-                    tr('broadcast channel', info.dhyara.espnow_broadcast_channel);
-                    tr('peer channel', info.dhyara.espnow_peer_channel);
-                    tr('beacon interval', info.dhyara.beacon_interval+"ms");
-                    tr('delay tolerance', info.dhyara.delay_tolerance+"ms");
-                    tr('depreciation coefficient', info.dhyara.depreciation_coefficient);
-                    tr('advertisement expiry', info.dhyara.advertisement_expiry+"ms");
-                    tr('route expiry', info.dhyara.route_expiry+"ms");
-                });
-            }, 500);
-            setInterval(() => {
-                fetch("/counter.json").then(r => r.json()).then(function(counter){
-                    let tr = (key, c) => q('#counter .cell[data-key="'+key+'"] .value')[0].innerHTML = " &#8593; "+ c.tx + " &#8595; " + c.rx;
-                    tr('beacon', counter.beacon);
-                    tr('acknowledgement', counter.acknowledgement);
-                    tr('advertisement', counter.advertisement);
-                    tr('chunk', counter.chunk);
-                    tr('delivered', counter.delivered);
-                    tr('icmp request', counter.echo_request);
-                    tr('icmp reply', counter.echo_reply);
-                    tr('icmp lost', counter.echo_lost);
-                });
-            }, 1000);
-        });
+			q("#menu li").forEach(li => li.append(
+				create("img", {"class": "icon", "src": "/icons?"+li.dataset.icon}),
+				create("div", {"class": "label"}, li.dataset.label)
+			));
+			q(".cell").forEach(cell => cell.prepend(create("span", {"class": "key"}, cell.dataset.key)));
+			setTimeout(function(){
+				fetch("/info.json").then(r => r.json()).then(function(info){
+					let tr = (key, body) => q('#info-iface .cell[data-key="'+key+'"]')[0].append(body);
+					tr('ssid', info.ap.ssid);
+					tr('mac', info.ap.address);
+					tr('channel', info.ap.channel + "(" + info.ap.bandwidth + "Mhz)");
+					tr('frequency', info.ap.frequency.begin + "-" + info.ap.frequency.end + "Mhz)");
+					tr('power saving', info.power.saving);
+					tr('max power', info.power.max);
+					tr('authentication', info.ap.authentication);
+					tr('max clients', info.ap.max_connections);
+					
+					tr = (key, body) => q('#info-dhyara .cell[data-key="'+key+'"]')[0].append(body);
+					tr('send queueing', info.dhyara.send_queueing);
+					tr('queue size', info.dhyara.queue_size);
+					tr('sync queue size', info.dhyara.sync_queue_size);
+					tr('broadcast channel', info.dhyara.espnow_broadcast_channel);
+					tr('peer channel', info.dhyara.espnow_peer_channel);
+					tr('beacon interval', info.dhyara.beacon_interval+"ms");
+					tr('delay tolerance', info.dhyara.delay_tolerance+"ms");
+					tr('depreciation coefficient', info.dhyara.depreciation_coefficient);
+					tr('advertisement expiry', info.dhyara.advertisement_expiry+"ms");
+					tr('route expiry', info.dhyara.route_expiry+"ms");
+				});
+			}, 500);
+			setInterval(() => {
+				fetch("/counter.json").then(r => r.json()).then(function(counter){
+					let tr = (key, c) => q('#counter .cell[data-key="'+key+'"] .value')[0].innerHTML = " &#8593; "+ c.tx + " &#8595; " + c.rx;
+					tr('beacon', counter.beacon);
+					tr('acknowledgement', counter.acknowledgement);
+					tr('advertisement', counter.advertisement);
+					tr('chunk', counter.chunk);
+					tr('delivered', counter.delivered);
+					tr('icmp request', counter.echo_request);
+					tr('icmp reply', counter.echo_reply);
+					tr('icmp lost', counter.echo_lost);
+				});
+			}, 1000);
+		});
 		</script>
 	</head>
 	<body>
-        <div class="wrapper">
-            <div class="sidebar">
-                <div class="logo">
-                    Dhyara
-                </div>
-                <ul id="menu" class="contents">
-                    <li data-label="Home" data-icon="home"></li>
-                    <li data-label="Neighbourhood" data-icon="neighbourhood"></li>
-                    <li data-label="Universe" data-icon="universe"></li>
-                    <li data-label="Routing" data-icon="routing"></li>
-                </ul>
-            </div>
-            <div class="main">
-                <div class="central">
-                    <div class="full-w">
-                        <div class="board banner">
-                            <div id="info-iface" class="groups">
-                                <div class="group">
-                                    <div class="cell" data-key="ssid"></div>
-                                    <div class="cell" data-key="mac"></div>
-                                </div>
-                                <div class="group">
-                                    <div class="cell" data-key="channel"></div>
-                                    <div class="cell" data-key="frequency"></div>
-                                </div>
-                                <div class="group">
-                                    <div class="cell" data-key="power saving"></div>
-                                    <div class="cell" data-key="max power"></div>
-                                </div>
-                                <div class="group">
-                                    <div class="cell" data-key="authentication"></div>
-                                    <div class="cell" data-key="max clients"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="full-flex-hz">
-                        <div class="board cluster">
-                            <div class="heading">Dhyara Configuration</div>
-                            <div class="groups" id="info-dhyara">
-                                <div class="group">
-                                    <div class="cell" data-key="send queueing"></div>
-                                    <div class="cell" data-key="queue size"></div>
-                                    <div class="cell" data-key="sync queue size"></div>
-                                    <div class="cell" data-key="broadcast channel"></div>
-                                    <div class="cell" data-key="peer channel"></div>
-                                </div>
-                                <div class="group">
-                                    <div class="cell" data-key="beacon interval"></div>
-                                    <div class="cell" data-key="delay tolerance"></div>
-                                    <div class="cell" data-key="depreciation coefficient"></div>
-                                    <div class="cell" data-key="advertisement expiry"></div>
-                                    <div class="cell" data-key="route expiry"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="board cluster">
-                            <div class="heading">Counters</div>
-                            <div class="groups" id="counter">
-                                <div class="group">
-                                    <div class="cell" data-key="beacon"><span class="value">&#8593 0 &#8595; 0</span></div>
-                                    <div class="cell" data-key="acknowledgement"><span class="value">&#8593 0 &#8595; 0</span></div>
-                                    <div class="cell" data-key="advertisement"><span class="value">&#8593 0 &#8595; 0</span></div>
-                                    <div class="cell" data-key="chunk"><span class="value">&#8593 0 &#8595; 0</span></div>
-                                    <div class="cell" data-key="delivered"><span class="value">&#8593 0 &#8595; 0</span></div>
-                                </div>
-                                <div class="group">
-                                    <div class="cell" data-key="icmp request"><span class="value">&#8593 0 &#8595; 0</span></div>
-                                    <div class="cell" data-key="icmp reply"><span class="value">&#8593 0 &#8595; 0</span></div>
-                                    <div class="cell" data-key="icmp lost"><span class="value">&#8593 0 &#8595; 0</span></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+		<div class="wrapper">
+			<div class="sidebar">
+				<div class="logo">Dhyara</div>
+				<ul id="menu" class="contents">
+					<li data-label="Home" data-icon="home" />
+					<li data-label="Neighbourhood" data-icon="neighbourhood" />
+					<li data-label="Universe" data-icon="universe" />
+					<li data-label="Routing" data-icon="routing" />
+				</ul>
+			</div>
+			<div class="main">
+				<div class="central">
+					<div class="full-w">
+						<div class="board banner">
+							<div id="info-iface" class="groups">
+								<div class="group">
+									<div class="cell" data-key="ssid" />
+									<div class="cell" data-key="mac" />
+								</div>
+								<div class="group">
+									<div class="cell" data-key="channel" />
+									<div class="cell" data-key="frequency" />
+								</div>
+								<div class="group">
+									<div class="cell" data-key="power saving" />
+									<div class="cell" data-key="max power" />
+								</div>
+								<div class="group">
+									<div class="cell" data-key="authentication" />
+									<div class="cell" data-key="max clients" />
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="full-flex-hz">
+						<div class="board cluster">
+							<div class="heading">Dhyara Configuration</div>
+							<div class="groups" id="info-dhyara">
+								<div class="group">
+									<div class="cell" data-key="send queueing" />
+									<div class="cell" data-key="queue size" />
+									<div class="cell" data-key="sync queue size" />
+									<div class="cell" data-key="broadcast channel" />
+									<div class="cell" data-key="peer channel" />
+								</div>
+								<div class="group">
+									<div class="cell" data-key="beacon interval" />
+									<div class="cell" data-key="delay tolerance" />
+									<div class="cell" data-key="depreciation coefficient" />
+									<div class="cell" data-key="advertisement expiry" />
+									<div class="cell" data-key="route expiry" />
+								</div>
+							</div>
+						</div>
+						<div class="board cluster">
+							<div class="heading">Counters</div>
+							<div class="groups" id="counter">
+								<div class="group">
+									<div class="cell" data-key="beacon"><span class="value" /></div>
+									<div class="cell" data-key="acknowledgement"><span class="value" /></div>
+									<div class="cell" data-key="advertisement"><span class="value" /></div>
+									<div class="cell" data-key="chunk"><span class="value" /></div>
+									<div class="cell" data-key="delivered"><span class="value" /></div>
+								</div>
+								<div class="group">
+									<div class="cell" data-key="icmp request"><span class="value" /></div>
+									<div class="cell" data-key="icmp reply"><span class="value" /></div>
+									<div class="cell" data-key="icmp lost"><span class="value" /></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>
