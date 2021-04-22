@@ -25,10 +25,10 @@ enum class type : std::uint8_t{
     acknowledgement,
     advertisement,
     chunk,
+    delivered,
     echo_request,
     echo_reply,
-    echo_lost,
-    delivered
+    echo_lost
 };
 
 }
