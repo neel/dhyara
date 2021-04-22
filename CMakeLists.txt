@@ -42,9 +42,7 @@ else()
             esp_wifi 
             esp_http_server
         EMBED_TXTFILES
-            "assets/routing.css"
-            "assets/ui/index.html"
-            "assets/ui/routing.html"
+            "assets/fragments/head.html"
             "assets/ui/dhyara.css"
             "assets/ui/icons/neighbourhood.gif"
             "assets/ui/icons/home.gif"

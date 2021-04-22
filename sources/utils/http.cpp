@@ -31,117 +31,118 @@
 #include <cstring>
 #include "esp_wifi.h"
 #include <dhyara/dhyara.h>
+#include <iterator>
 
-// namespace texts{
-// 
-// static const char* banner = 
-//     "<div class='full-w'>"
-//         "<div class='board banner'>"
-//             "<div id='info-iface' class='groups'>"
-//                 "<div class='group'>"
-//                     "<div class='cell' data-key='ssid'></div>"
-//                     "<div class='cell' data-key='mac'></div>"
-//                 "</div>"
-//                 "<div class='group'>"
-//                     "<div class='cell' data-key='channel'></div>"
-//                     "<div class='cell' data-key='frequency'></div>"
-//                 "</div>"
-//                 "<div class='group'>"
-//                     "<div class='cell' data-key='power saving'></div>"
-//                     "<div class='cell' data-key='max power'></div>"
-//                 "</div>"
-//                 "<div class='group'>"
-//                     "<div class='cell' data-key='authentication'></div>"
-//                     "<div class='cell' data-key='max clients'></div>"
-//                 "</div>"
-//             "</div>"
-//         "</div>"
-//     "</div>";
-// 
-// static const char* sidebar = 
-//     "<div class='sidebar'>"
-//         "<div class='logo'>Dhyara</div>"
-//         "<ul id='menu' class='contents'>"
-//             "<li data-label='Home' data-icon='home' data-href='/' />"
-//             "<li data-label='Routing' data-icon='routing' data-href='/routing' />"
-//             "<li data-label='Peers' data-icon='neighbourhood' data-href='#' />"
-//         "</ul>"
-//     "</div>";
-//     
-// static const char* home = 
-//     "<div class='full-flex-hz'>"
-//         "<div class='board cluster'>"
-//             "<div class='heading'>Dhyara Configuration</div>"
-//             "<div class='groups' id='info-dhyara'>"
-//                 "<div class='group'>"
-//                     "<div class='cell' data-key='send queueing'></div>"
-//                     "<div class='cell' data-key='queue size'></div>"
-//                     "<div class='cell' data-key='sync queue size'></div>"
-//                     "<div class='cell' data-key='broadcast channel'></div>"
-//                     "<div class='cell' data-key='peer channel'></div>"
-//                 "</div>"
-//                 "<div class='group'>"
-//                     "<div class='cell' data-key='beacon interval'></div>"
-//                     "<div class='cell' data-key='delay tolerance'></div>"
-//                     "<div class='cell' data-key='depreciation coefficient'></div>"
-//                     "<div class='cell' data-key='advertisement expiry'></div>"
-//                     "<div class='cell' data-key='route expiry'></div>"
-//                 "</div>"
-//             "</div>"
-//         "</div>"
-//         "<div class='board cluster'>"
-//             "<div class='heading'>Counters</div>"
-//             "<div class='groups' id='counter'>"
-//                 "<div class='group'>"
-//                     "<div class='cell' data-key='beacon'><span class='value' /></div>"
-//                     "<div class='cell' data-key='acknowledgement'><span class='value' /></div>"
-//                     "<div class='cell' data-key='advertisement'><span class='value' /></div>"
-//                     "<div class='cell' data-key='chunk'><span class='value' /></div>"
-//                     "<div class='cell' data-key='delivered'><span class='value' /></div>"
-//                 "</div>"
-//                 "<div class='group'>"
-//                     "<div class='cell' data-key='icmp request'><span class='value' /></div>"
-//                     "<div class='cell' data-key='icmp reply'><span class='value' /></div>"
-//                     "<div class='cell' data-key='icmp lost'><span class='value' /></div>"
-//                 "</div>"
-//             "</div>"
-//         "</div>"
-//     "</div>";
-//     
-// static const char* routing = 
-//     "<div class='full-flex-hz'>"
-//         "<div class='board cluster-full'>"
-//             "<div class='heading'>Routing Table</div>"
-//             "<table>"
-//                 "<thead>"
-//                     "<tr>"
-//                         "<th>Destination</th>"
-//                         "<th>Intermediate</th>"
-//                         "<th>Delay</th>"
-//                         "<th>Updated</th>"
-//                     "</tr>"
-//                 "</thead>"
-//                 "<tbody id='routes-body'></tbody>"
-//             "</table>"
-//         "</div>"
-//     "</div>"
-//     "<div class='full-flex-hz'>"
-//         "<div class='board cluster-full'>"
-//             "<div class='heading'>Best Route</div>"
-//             "<table>"
-//                 "<thead>"
-//                     "<tr>"
-//                         "<th>Destination</th>"
-//                         "<th>Intermediate</th>"
-//                         "<th>Delay</th>"
-//                     "</tr>"
-//                 "</thead>"
-//                 "<tbody id='next-body'></tbody>"
-//             "</table>"
-//         "</div>"
-//     "</div>";
-//     
-// }
+namespace fragments{
+
+static const char sidebar[] = 
+    "<div class='sidebar'>"
+        "<div class='logo'>Dhyara</div>"
+        "<ul id='menu' class='contents'>"
+            "<li data-label='Home' data-icon='home' data-href='/' />"
+            "<li data-label='Routing' data-icon='routing' data-href='/routing' />"
+            "<li data-label='Peers' data-icon='neighbourhood' data-href='#' />"
+        "</ul>"
+    "</div>";
+    
+static const char banner[] = 
+    "<div class='full-w'>"
+        "<div class='board banner'>"
+            "<div id='info-iface' class='groups'>"
+                "<div class='group'>"
+                    "<div class='cell' data-key='ssid'></div>"
+                    "<div class='cell' data-key='mac'></div>"
+                "</div>"
+                "<div class='group'>"
+                    "<div class='cell' data-key='channel'></div>"
+                    "<div class='cell' data-key='frequency'></div>"
+                "</div>"
+                "<div class='group'>"
+                    "<div class='cell' data-key='power saving'></div>"
+                    "<div class='cell' data-key='max power'></div>"
+                "</div>"
+                "<div class='group'>"
+                    "<div class='cell' data-key='authentication'></div>"
+                    "<div class='cell' data-key='max clients'></div>"
+                "</div>"
+            "</div>"
+        "</div>"
+    "</div>";
+
+static const char home[] = 
+    "<div class='full-flex-hz'>"
+        "<div class='board cluster'>"
+            "<div class='heading'>Dhyara Configuration</div>"
+            "<div class='groups' id='info-dhyara'>"
+                "<div class='group'>"
+                    "<div class='cell' data-key='send queueing'></div>"
+                    "<div class='cell' data-key='queue size'></div>"
+                    "<div class='cell' data-key='sync queue size'></div>"
+                    "<div class='cell' data-key='broadcast channel'></div>"
+                    "<div class='cell' data-key='peer channel'></div>"
+                "</div>"
+                "<div class='group'>"
+                    "<div class='cell' data-key='beacon interval'></div>"
+                    "<div class='cell' data-key='delay tolerance'></div>"
+                    "<div class='cell' data-key='depreciation coefficient'></div>"
+                    "<div class='cell' data-key='advertisement expiry'></div>"
+                    "<div class='cell' data-key='route expiry'></div>"
+                "</div>"
+            "</div>"
+        "</div>"
+        "<div class='board cluster'>"
+            "<div class='heading'>Counters</div>"
+            "<div class='groups' id='counter'>"
+                "<div class='group'>"
+                    "<div class='cell' data-key='beacon'><span class='value' /></div>"
+                    "<div class='cell' data-key='acknowledgement'><span class='value' /></div>"
+                    "<div class='cell' data-key='advertisement'><span class='value' /></div>"
+                    "<div class='cell' data-key='chunk'><span class='value' /></div>"
+                    "<div class='cell' data-key='delivered'><span class='value' /></div>"
+                "</div>"
+                "<div class='group'>"
+                    "<div class='cell' data-key='icmp request'><span class='value' /></div>"
+                    "<div class='cell' data-key='icmp reply'><span class='value' /></div>"
+                    "<div class='cell' data-key='icmp lost'><span class='value' /></div>"
+                "</div>"
+            "</div>"
+        "</div>"
+    "</div>";
+    
+static const char routing[] = 
+    "<div class='full-flex-hz'>"
+        "<div class='board cluster-full'>"
+            "<div class='heading'>Routing Table</div>"
+            "<table>"
+                "<thead>"
+                    "<tr>"
+                        "<th>Destination</th>"
+                        "<th>Intermediate</th>"
+                        "<th>Delay</th>"
+                        "<th>Updated</th>"
+                    "</tr>"
+                "</thead>"
+                "<tbody id='routes-body'></tbody>"
+            "</table>"
+        "</div>"
+    "</div>"
+    "<div class='full-flex-hz'>"
+        "<div class='board cluster-full'>"
+            "<div class='heading'>Best Route</div>"
+            "<table>"
+                "<thead>"
+                    "<tr>"
+                        "<th>Destination</th>"
+                        "<th>Intermediate</th>"
+                        "<th>Delay</th>"
+                    "</tr>"
+                "</thead>"
+                "<tbody id='next-body'></tbody>"
+            "</table>"
+        "</div>"
+    "</div>";
+    
+}
 
 dhyara::utils::http::http(dhyara::link& link): _link(link), _config(HTTPD_DEFAULT_CONFIG()), _server(0x0),
     _index   (httpd_uri_t{"/",             HTTP_GET, dhyara::utils::http::index_handler,   this}),
@@ -202,9 +203,43 @@ esp_err_t dhyara::utils::http::routes_handler(httpd_req_t* req){
 }
 
 esp_err_t dhyara::utils::http::index(httpd_req_t* req){
-    const auto length = std::distance(dhyara::assets::index_html_start, dhyara::assets::index_html_end);
+    static const char* html_open = 
+        "<!DOCTYPE html>" 
+        "<html>";
+    static const char* wrapper_open = 
+            "<body>" 
+                "<div class='wrapper'>";
+    static const char* central_open = 
+                    "<div class='main'>"
+                        "<div class='central'>";
+    static const char* central_close = 
+                        "</div>" 
+                    "</div>";
+    static const char* wrapper_close = 
+                "</div>" 
+                "<script>"
+                "setTimeout(() => {"
+                    "fetch_banner();"
+                    "fetch_dhyara();"
+                    "poll_counters();"
+                "}, 500);"
+                "</script>"
+            "</body>";
+    static const char* html_close = 
+        "</html>";
+        
     httpd_resp_set_type(req, "text/html");
-    httpd_resp_send(req, (const char*)dhyara::assets::index_html_start, length);
+    httpd_resp_sendstr_chunk(req, html_open);
+    httpd_resp_sendstr_chunk(req, (const char*)dhyara::assets::head_html_start);
+    httpd_resp_sendstr_chunk(req, wrapper_open);
+    httpd_resp_sendstr_chunk(req, fragments::sidebar);
+    httpd_resp_sendstr_chunk(req, central_open);
+    httpd_resp_sendstr_chunk(req, fragments::banner);
+    httpd_resp_sendstr_chunk(req, fragments::home);
+    httpd_resp_sendstr_chunk(req, central_close);
+    httpd_resp_sendstr_chunk(req, wrapper_close);
+    httpd_resp_sendstr_chunk(req, html_close);
+    httpd_resp_sendstr_chunk(req, 0x0);
     return ESP_OK;
 }
 
@@ -409,9 +444,42 @@ esp_err_t dhyara::utils::http::counter(httpd_req_t* req){
 }
 
 esp_err_t dhyara::utils::http::routing(httpd_req_t* req){
-    const auto length = std::distance(dhyara::assets::routing_html_start, dhyara::assets::routing_html_end);
+    static const char* html_open = 
+        "<!DOCTYPE html>" 
+        "<html>";
+    static const char* wrapper_open = 
+            "<body>" 
+                "<div class='wrapper'>";
+    static const char* central_open = 
+                    "<div class='main'>"
+                        "<div class='central'>";
+    static const char* central_close = 
+                        "</div>" 
+                    "</div>";
+    static const char* wrapper_close = 
+                "</div>" 
+                "<script>"
+                "setTimeout(() => {"
+                    "fetch_banner();"
+                    "poll_routing();"
+                "}, 500);"
+                "</script>"
+            "</body>";
+    static const char* html_close = 
+        "</html>";
+        
     httpd_resp_set_type(req, "text/html");
-    httpd_resp_send(req, (const char*)dhyara::assets::routing_html_start, length);
+    httpd_resp_sendstr_chunk(req, html_open);
+    httpd_resp_sendstr_chunk(req, (const char*)dhyara::assets::head_html_start);
+    httpd_resp_sendstr_chunk(req, wrapper_open);
+    httpd_resp_sendstr_chunk(req, fragments::sidebar);
+    httpd_resp_sendstr_chunk(req, central_open);
+    httpd_resp_sendstr_chunk(req, fragments::banner);
+    httpd_resp_sendstr_chunk(req, fragments::routing);
+    httpd_resp_sendstr_chunk(req, central_close);
+    httpd_resp_sendstr_chunk(req, wrapper_close);
+    httpd_resp_sendstr_chunk(req, html_close);
+    httpd_resp_sendstr_chunk(req, 0x0);
     return ESP_OK;
 }
 

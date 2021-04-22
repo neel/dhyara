@@ -127,6 +127,9 @@ a {
 	margin-right: 50px;
 	width: 100%;
 }
+.cluster-full table{
+    width: 100%;
+}
 .full-w{
 	position: relative;
 	display: block;

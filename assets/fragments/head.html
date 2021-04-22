@@ -1,0 +1,71 @@
+<head>
+	<title>Dhyara Ad Hoc Network</title>
+	<link rel="icon" href="data:,">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
+	<link rel="stylesheet" href="/dhyara.css"/>
+	<script>
+	let d = document;
+	let q = x => d.querySelectorAll(x);
+	let create = (x, a, ...cs) => {
+		let e = d.createElement(x);
+		if(typeof a == 'object')
+			for (let [k, v] of Object.entries(a)) 
+				e.setAttribute(k, v);
+		cs.forEach(c => e.append(c));
+		return e;
+	};
+	d.addEventListener("DOMContentLoaded", function() {
+		q("#menu li").forEach(li => li.append(
+			create("img", {"class": "icon", "src": "/icons?"+li.dataset.icon}),
+			create("a", {"class": "label", "href": li.dataset.href}, li.dataset.label)
+		));
+		q(".cell").forEach(cell => cell.prepend(create("span", {"class": "key"}, cell.dataset.key)));
+	});
+	let fetch_banner = () => fetch("/info.json").then(r => r.json()).then(function(info){
+		let tr = (key, body) => q('#info-iface .cell[data-key="'+key+'"]')[0].append(body);
+		tr('ssid', info.ap.ssid);
+		tr('mac', info.ap.address);
+		tr('channel', info.ap.channel + "(" + info.ap.bandwidth + "Mhz)");
+		tr('frequency', info.ap.frequency.begin + "-" + info.ap.frequency.end + "Mhz)");
+		tr('power saving', info.power.saving);
+		tr('max power', info.power.max);
+		tr('authentication', info.ap.authentication);
+		tr('max clients', info.ap.max_connections);
+	}).catch(err => setTimeout(fetch_banner, 500));
+	let fetch_dhyara = () => fetch("/info.json").then(r => r.json()).then(function(info){
+		let tr = (key, body) => q('#info-dhyara .cell[data-key="'+key+'"]')[0].append(body);
+		tr('send queueing', info.dhyara.send_queueing);
+		tr('queue size', info.dhyara.queue_size);
+		tr('sync queue size', info.dhyara.sync_queue_size);
+		tr('broadcast channel', info.dhyara.espnow_broadcast_channel);
+		tr('peer channel', info.dhyara.espnow_peer_channel);
+		tr('beacon interval', info.dhyara.beacon_interval+"ms");
+		tr('delay tolerance', info.dhyara.delay_tolerance+"ms");
+		tr('depreciation coefficient', info.dhyara.depreciation_coefficient);
+		tr('advertisement expiry', info.dhyara.advertisement_expiry+"ms");
+		tr('route expiry', info.dhyara.route_expiry+"ms");
+	}).catch(err => setTimeout(fetch_dhyara, 500));
+	let poll_counters = () => fetch("/counter.json").then(r => r.json()).then(function(counter){
+		let tr = (key, c) => q('#counter .cell[data-key="'+key+'"] .value')[0].innerHTML = " &#8593; "+ c.tx + " &#8595; " + c.rx;
+		tr('beacon', counter.beacon);
+		tr('acknowledgement', counter.acknowledgement);
+		tr('advertisement', counter.advertisement);
+		tr('chunk', counter.chunk);
+		tr('delivered', counter.delivered);
+		tr('icmp request', counter.echo_request);
+		tr('icmp reply', counter.echo_reply);
+		tr('icmp lost', counter.echo_lost);
+		setTimeout(poll_counters, 500);
+	}).catch(err => setTimeout(poll_counters, 200));
+	let poll_routing = () => fetch("/routes.json").then(r => r.json()).then(function(routing){
+		let rbody = q("#routes-body")[0], nbody = q("#next-body")[0];
+		rbody.innerHTML = "";
+		nbody.innerHTML = "";
+		routing.routes.map(r => create('tr', {}, create('td', {}, r.dst), create('td', {}, r.via), create('td', {}, r.delay+"ms"), create('td', {}, r.updated))).forEach(e => rbody.append(e));
+		routing.next.map(r => create('tr', {}, create('td', {}, r.dst), create('td', {}, r.via), create('td', {}, r.delay+"ms"))).forEach(e => nbody.append(e));
+		setTimeout(poll_routing, 2000);
+	}).catch(err => setTimeout(poll_routing, 200));
+	</script>
+</head>
