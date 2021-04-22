@@ -173,8 +173,24 @@ static const char peers[] =
             "</table>"
         "</div>"
     "</div>";
-    
+
 }
+
+static const char* html_open = 
+    "<!DOCTYPE html>" 
+    "<html>";
+static const char* wrapper_open = 
+        "<body>" 
+            "<div class='wrapper'>";
+static const char* central_open = 
+                "<div class='main'>"
+                    "<div class='central'>";
+static const char* central_close = 
+                    "</div>" 
+                "</div>";
+// wrapper close will be different for each html pages, so defined inside respective functions
+static const char* html_close = 
+    "</html>";
 
 dhyara::utils::http::http(dhyara::link& link): _link(link), _config(HTTPD_DEFAULT_CONFIG()), _server(0x0),
     _index_html  (httpd_uri_t{"/",             HTTP_GET, dhyara::utils::http::index_html_handler,  this}),
@@ -251,18 +267,6 @@ esp_err_t dhyara::utils::http::peers_handler(httpd_req_t* req){
 }
 
 esp_err_t dhyara::utils::http::index_html(httpd_req_t* req){
-    static const char* html_open = 
-        "<!DOCTYPE html>" 
-        "<html>";
-    static const char* wrapper_open = 
-            "<body>" 
-                "<div class='wrapper'>";
-    static const char* central_open = 
-                    "<div class='main'>"
-                        "<div class='central'>";
-    static const char* central_close = 
-                        "</div>" 
-                    "</div>";
     static const char* wrapper_close = 
                 "</div>" 
                 "<script>"
@@ -273,8 +277,6 @@ esp_err_t dhyara::utils::http::index_html(httpd_req_t* req){
                 "}, 500);"
                 "</script>"
             "</body>";
-    static const char* html_close = 
-        "</html>";
         
     httpd_resp_set_type(req, "text/html");
     httpd_resp_sendstr_chunk(req, html_open);
@@ -492,18 +494,6 @@ esp_err_t dhyara::utils::http::counter(httpd_req_t* req){
 }
 
 esp_err_t dhyara::utils::http::routes_html(httpd_req_t* req){
-    static const char* html_open = 
-        "<!DOCTYPE html>" 
-        "<html>";
-    static const char* wrapper_open = 
-            "<body>" 
-                "<div class='wrapper'>";
-    static const char* central_open = 
-                    "<div class='main'>"
-                        "<div class='central'>";
-    static const char* central_close = 
-                        "</div>" 
-                    "</div>";
     static const char* wrapper_close = 
                 "</div>" 
                 "<script>"
@@ -513,8 +503,6 @@ esp_err_t dhyara::utils::http::routes_html(httpd_req_t* req){
                 "}, 500);"
                 "</script>"
             "</body>";
-    static const char* html_close = 
-        "</html>";
         
     httpd_resp_set_type(req, "text/html");
     httpd_resp_sendstr_chunk(req, html_open);
@@ -577,18 +565,6 @@ esp_err_t dhyara::utils::http::routes(httpd_req_t* req){
 }
 
 esp_err_t dhyara::utils::http::peers_html(httpd_req_t* req){
-    static const char* html_open = 
-        "<!DOCTYPE html>" 
-        "<html>";
-    static const char* wrapper_open = 
-            "<body>" 
-                "<div class='wrapper'>";
-    static const char* central_open = 
-                    "<div class='main'>"
-                        "<div class='central'>";
-    static const char* central_close = 
-                        "</div>" 
-                    "</div>";
     static const char* wrapper_close = 
                 "</div>" 
                 "<script>"
@@ -598,8 +574,6 @@ esp_err_t dhyara::utils::http::peers_html(httpd_req_t* req){
                 "}, 500);"
                 "</script>"
             "</body>";
-    static const char* html_close = 
-        "</html>";
         
     httpd_resp_set_type(req, "text/html");
     httpd_resp_sendstr_chunk(req, html_open);
