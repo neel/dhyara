@@ -73,6 +73,10 @@ To build and flash the application use `idf.py build` and `idf.py flash` as usua
 
 See [Building the examples](docs/examples.md).
 
+It also provides an web based monitoring/management console accessible through the nodes IP address.
+
+![Management Console](docs/images/management.png)
+
 C Example
 ----------
 
