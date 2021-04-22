@@ -84,6 +84,7 @@ a {
 	padding-bottom: 10px;
 }
 .sidebar .contents li:first-child{
+    margin-top: 5px;
 	border: 0px none;
 }
 .sidebar .contents li{
@@ -91,15 +92,26 @@ a {
 	flex-direction: row;
 	width: 100%;
 	padding: 4px 0px 4px 4px;
-	line-height: 1.5rem;
+	line-height: 15px;
 	cursor: pointer;
+    background: url(/icons) no-repeat;
+    padding-left: 34px;
+    height: 24px;
+    margin-bottom: 5px;
+}
 
+.sidebar .contents li.home{
+    background-position: 0 0;
+    height: 22px !important;
 }
-.sidebar .contents li .icon{
-	width: 20px;
-	margin-right: 10px;
+.sidebar .contents li.routing{
+    background-position: 0 -22px;
 }
-.sidebar .contents li .label{
+.sidebar .contents li.neighbourhood{
+    background-position: 0 -45px;
+}
+
+.sidebar .contents li a{
 	width: 100%;
 }
 .banner{

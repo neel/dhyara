@@ -17,10 +17,7 @@
 		return e;
 	};
 	d.addEventListener("DOMContentLoaded", function() {
-		q("#menu li").forEach(li => li.append(
-			create("img", {"class": "icon", "src": "/icons?"+li.dataset.icon}),
-			create("a", {"class": "label", "href": li.dataset.href}, li.dataset.label)
-		));
+		q("#menu li").forEach(li => li.append(create("a", {"href": li.dataset.href}, li.dataset.label)));
 		q(".cell").forEach(cell => cell.prepend(create("span", {"class": "key"}, cell.dataset.key)));
 	});
 	let fetch_banner = () => fetch("/info.json").then(r => r.json()).then(function(info){

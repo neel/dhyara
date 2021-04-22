@@ -39,9 +39,9 @@ static const char sidebar[] =
     "<div class='sidebar'>"
         "<div class='logo'>Dhyara</div>"
         "<ul id='menu' class='contents'>"
-            "<li data-label='Home' data-icon='home' data-href='/' />"
-            "<li data-label='Routing' data-icon='routing' data-href='/routing' />"
-            "<li data-label='Peers' data-icon='neighbourhood' data-href='/peers' />"
+            "<li data-label='Home' class='home' data-href='/' />"
+            "<li data-label='Routing' class='routing' data-href='/routing' />"
+            "<li data-label='Peers' class='neighbourhood' data-href='/peers' />"
         "</ul>"
     "</div>";
     
@@ -294,32 +294,9 @@ esp_err_t dhyara::utils::http::index_html(httpd_req_t* req){
 }
 
 esp_err_t dhyara::utils::http::icons(httpd_req_t* req){
-    const auto len = strlen(req->uri);
-    static const std::string neighbourhood = "neighbourhood";
-    static const std::string home = "home";
-    static const std::string routing = "routing";
-    static const std::string universe = "universe";
-    
-    if(len <= 7){
-        httpd_resp_send_404(req);
-    }else{
-        std::string query(req->uri+7);
-        if(query.compare(0, neighbourhood.size(), neighbourhood) == 0){
-            httpd_resp_set_type(req, "image/gif");
-            httpd_resp_send(req, (const char*)dhyara::assets::neighbourhood_gif_start, std::distance(dhyara::assets::neighbourhood_gif_start, dhyara::assets::neighbourhood_gif_end));
-        }else if(query.compare(0, home.size(), home) == 0){
-            httpd_resp_set_type(req, "image/gif");
-            httpd_resp_send(req, (const char*)dhyara::assets::home_gif_start, std::distance(dhyara::assets::home_gif_start, dhyara::assets::home_gif_end));
-        }else if(query.compare(0, routing.size(), routing) == 0){
-            httpd_resp_set_type(req, "image/gif");
-            httpd_resp_send(req, (const char*)dhyara::assets::routing_gif_start, std::distance(dhyara::assets::routing_gif_start, dhyara::assets::routing_gif_end));
-        }else if(query.compare(0, universe.size(), universe) == 0){
-            httpd_resp_set_type(req, "image/gif");
-            httpd_resp_send(req, (const char*)dhyara::assets::universe_gif_start, std::distance(dhyara::assets::universe_gif_start, dhyara::assets::universe_gif_end));
-        }else{
-            httpd_resp_send_404(req);
-        }
-    }
+    const auto length = std::distance(dhyara::assets::icons_gif_start, dhyara::assets::icons_gif_end);
+    httpd_resp_set_type(req, "image/gif");
+    httpd_resp_send(req, (const char*)dhyara::assets::icons_gif_start, length);
     return ESP_OK;
 }
 
