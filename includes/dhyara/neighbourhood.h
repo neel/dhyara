@@ -20,7 +20,7 @@ namespace dhyara{
  * Neighbourhood of a node
  */
 struct neighbourhood{
-    typedef std::unordered_map<address, dhyara::neighbour> peer_collection_type;
+    typedef std::unordered_map<address, dhyara::neighbour> neighbour_collection_type;
     
     /**
      * add a peer as neighbour 
@@ -60,19 +60,19 @@ struct neighbourhood{
      * returns a peer by its address (assuming that it exists in the neighbourhood)
      * \note use exists() to check whether the address exists before calling this function
      */
-    dhyara::neighbour& get_peer(const dhyara::address& addr);
+    dhyara::neighbour& neighbour(const dhyara::address& addr);
     
     /**
      * begin iterator
      */
-    inline peer_collection_type::const_iterator begin() const { return _peers.begin(); }
+    inline neighbour_collection_type::const_iterator begin() const { return _neighbours.begin(); }
     /**
      * end iterator
      */
-    inline peer_collection_type::const_iterator end() const { return _peers.end(); }
+    inline neighbour_collection_type::const_iterator end() const { return _neighbours.end(); }
     
     private:
-        peer_collection_type   _peers;
+        neighbour_collection_type   _neighbours;
     
 };
 

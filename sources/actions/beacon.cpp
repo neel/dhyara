@@ -42,7 +42,7 @@ void dhyara::actions::beacon::operator()(const dhyara::address& addr, const dhya
     if(!_link.neighbours().exists(addr.to_string())){
         _link.neighbours().add(addr.to_string(), dhyara::espnow_peer_channel);
     }
-    _link.neighbours().get_peer(addr).name(beacon.name());
+    _link.neighbours().neighbour(addr).name(beacon.name());
     if(!banned(addr)){
         _link.send_local(addr, dhyara::packets::type::acknowledgement, dhyara::packets::acknowledgement(beacon.time()));
     }

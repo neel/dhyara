@@ -106,7 +106,7 @@ void dhyara::link::_esp_promiscous_rx_cb(void* buffer, wifi_promiscuous_pkt_type
     if(p->rx_ctrl.sig_len >= sizeof(ieee_802_11_management_frame)){
         dhyara::address source(ether->source);
         if(_neighbours.exists(source)){
-            _neighbours.get_peer(source).rssi(p->rx_ctrl.rssi);
+            _neighbours.neighbour(source).rssi(p->rx_ctrl.rssi);
             last = now;
         }
     }
@@ -197,7 +197,7 @@ esp_err_t dhyara::link::connect(const dhyara::address& target){
     }
     
     wifi_config_t config;
-    const dhyara::peer& peer = _neighbours.get_peer(target);
+    const dhyara::peer& peer = _neighbours.neighbour(target);
     
     std::memset(&config, 0, sizeof(wifi_config_t));
     target.copy(config.sta.bssid);

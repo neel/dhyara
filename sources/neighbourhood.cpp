@@ -28,7 +28,7 @@
 #include "dhyara/neighbourhood.h"
 
 const dhyara::neighbour& dhyara::neighbourhood::add(const dhyara::neighbour& p){
-    auto inserted = _peers.insert(std::make_pair(p.addr(), p));
+    auto inserted = _neighbours.insert(std::make_pair(p.addr(), p));
     esp_now_add_peer(p.raw());
     return inserted.first->second;
 }
@@ -42,19 +42,19 @@ const dhyara::neighbour& dhyara::neighbourhood::add(const std::string& addr, std
 }
 
 bool dhyara::neighbourhood::exists(const std::string& addr) const {
-    return _peers.find(dhyara::address(addr)) != _peers.end();
+    return _neighbours.find(dhyara::address(addr)) != _neighbours.end();
 }
 
 bool dhyara::neighbourhood::exists(const dhyara::address& addr) const{
-    return _peers.find(addr) != _peers.end();
+    return _neighbours.find(addr) != _neighbours.end();
 }
 
 std::size_t dhyara::neighbourhood::size() const{
-    return _peers.size();
+    return _neighbours.size();
 }
 
 
-dhyara::neighbour& dhyara::neighbourhood::get_peer(const dhyara::address& addr){
-    peer_collection_type::iterator it = _peers.find(addr);
+dhyara::neighbour& dhyara::neighbourhood::neighbour(const dhyara::address& addr){
+    neighbour_collection_type::iterator it = _neighbours.find(addr);
     return it->second;
 }
