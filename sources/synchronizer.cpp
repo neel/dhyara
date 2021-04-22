@@ -33,7 +33,7 @@
 
 dhyara::synchronizer::synchronizer(dhyara::link& local): _link(local){}
 
-void dhyara::synchronizer::queue(const dhyara::peer::address& dest, const dhyara::peer::address& via, dhyara::delay_type delay){
+void dhyara::synchronizer::queue(const dhyara::address& dest, const dhyara::address& via, dhyara::delay_type delay){
     queue(dhyara::candidate(dest, via, delay));
 }
 
@@ -49,7 +49,7 @@ void dhyara::synchronizer::run(){
 }
 
 
-void dhyara::synchronizer::sync(const dhyara::peer::address& dest, const dhyara::peer::address& via, dhyara::delay_type delay){
+void dhyara::synchronizer::sync(const dhyara::address& dest, const dhyara::address& via, dhyara::delay_type delay){
     bool sync_required = _link.routes().update(dhyara::routing::route(dest, via), delay);
     
     dhyara::delay_type now = esp_timer_get_time();
@@ -72,9 +72,9 @@ void dhyara::synchronizer::sync(const dhyara::peer::address& dest, const dhyara:
             it->second = now;
         }
         for(auto it = _link.neighbours().begin(); it != _link.neighbours().end(); ++it){
-            const dhyara::peer& p = it->second;
-            if(!p.addr().is_broadcast() && dest != p.addr()){
-                _link.send_local(p.addr(), dhyara::packets::type::advertisement, advertisement);
+            const dhyara::neighbour& neighbour = it->second;
+            if(!neighbour.addr().is_broadcast() && dest != neighbour.addr()){
+                _link.send_local(neighbour.addr(), dhyara::packets::type::advertisement, advertisement);
             }
         }
     }

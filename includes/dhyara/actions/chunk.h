@@ -26,10 +26,10 @@ namespace actions{
  * \ingroup actions
  */
 struct chunk: dhyara::actions::action<chunk, dhyara::packets::chunk>{
-    typedef std::pair<dhyara::peer_address, std::uint8_t> incoming_data_source;
+    typedef std::pair<dhyara::address, std::uint8_t> incoming_data_source;
     typedef std::map<std::uint8_t, dhyara::packets::chunk, std::greater<std::uint8_t>> chunk_storage_type;
     typedef std::map<incoming_data_source, chunk_storage_type> incomming_data_map;
-    typedef std::function<void (const dhyara::peer::address&, const dhyara::packets::data&)> data_callback_type;
+    typedef std::function<void (const dhyara::address&, const dhyara::packets::data&)> data_callback_type;
     
     /**
      * A chunk action needs to have access to the link in order to relay the chunk if it is an intermediate node.
@@ -45,7 +45,7 @@ struct chunk: dhyara::actions::action<chunk, dhyara::packets::chunk>{
      * \param addr source address 
      * \param chunk the received chunk 
      */
-    void operator()(const dhyara::peer_address& addr, const dhyara::packets::chunk& chunk);
+    void operator()(const dhyara::address& addr, const dhyara::packets::chunk& chunk);
     
     /**
      * set a callback which will be called once a complete data is received

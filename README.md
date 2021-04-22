@@ -141,7 +141,6 @@ void app_main(){
     ESP_ERROR_CHECK(ret);
     
     ESP_ERROR_CHECK(dhyara_init(WIFI_MODE_AP));
-    dhyara_start_default_network();
     
     mainx(); // Enter C++
 }

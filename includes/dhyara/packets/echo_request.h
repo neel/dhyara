@@ -47,7 +47,7 @@ struct echo_request{
      * \param time the time in the ICMP request (defaults to current time)
      * \param ttl TTL value in the ICMP request
      */
-    inline echo_request(const dhyara::peer::address& target, const dhyara::peer::address& source, std::uint32_t seq = 0, std::uint64_t time = 0, std::uint8_t ttl = 255) 
+    inline echo_request(const dhyara::address& target, const dhyara::address& source, std::uint32_t seq = 0, std::uint64_t time = 0, std::uint8_t ttl = 255) 
         : _target{target.b1(), target.b2(), target.b3(), target.b4(), target.b5(), target.b6()}, 
           _source{source.b1(), source.b2(), source.b3(), source.b4(), source.b5(), source.b6()}, 
           _seq(seq), _time(time ? time : esp_timer_get_time()), _ttl(ttl){}
@@ -71,11 +71,11 @@ struct echo_request{
     /**
      * Target address of the ICMP packet
      */
-    inline dhyara::peer::address target() const { return dhyara::peer::address(_target); }
+    inline dhyara::address target() const { return dhyara::address(_target); }
     /**
      * Source address of the ICMP packet
      */
-    inline dhyara::peer::address source() const { return dhyara::peer::address(_source); }
+    inline dhyara::address source() const { return dhyara::address(_source); }
     
 } __attribute__((packed));
     

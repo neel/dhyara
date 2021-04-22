@@ -38,7 +38,7 @@ struct echo_lost: dhyara::actions::action<echo_lost, dhyara::packets::echo_lost>
      * \param addr source address 
      * \param echo_lost the received echo_lost 
      */
-    void operator()(const dhyara::peer_address& addr, const dhyara::packets::echo_lost& echo_lost);
+    void operator()(const dhyara::address& addr, const dhyara::packets::echo_lost& echo_lost);
     
     private:
         dhyara::link& _link;

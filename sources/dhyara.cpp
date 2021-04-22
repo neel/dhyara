@@ -52,7 +52,7 @@ static void _dhyara_promiscuous(void* buffer, wifi_promiscuous_pkt_type_t type){
 }
 
 // static void _dhyara_csi(void* ctx, wifi_csi_info_t* data){
-//     dhyara::peer_address source(data->mac);
+//     dhyara::address source(data->mac);
 //     std::cout << source << " " << data->rx_ctrl.rssi << std::endl;
 // }
 
@@ -118,16 +118,16 @@ bool dhyara_local(unsigned char* address){
     return false;
 }
 
-dhyara::peer_address dhyara_local(){
+dhyara::address dhyara_local(){
     if(dhyara_has_default_network()){
         return dhyara_default_network().link().address();
     }
-    return dhyara::peer_address::null();
+    return dhyara::address::null();
 }
 
 bool dhyara_receivef(dhyara_receivef_callback_t callback){
     if(dhyara_has_default_network()){
-        dhyara_default_network().on_data([callback](const dhyara::peer::address& source, const dhyara::packets::data& data){
+        dhyara_default_network().on_data([callback](const dhyara::address& source, const dhyara::packets::data& data){
             callback(data.source().raw(), data.raw(), data.length());
         });
         return true;
@@ -137,7 +137,7 @@ bool dhyara_receivef(dhyara_receivef_callback_t callback){
 
 bool dhyara_receive(dhyara_receive_callback_type callback){
     if(dhyara_has_default_network()){
-        dhyara_default_network().on_data([callback](const dhyara::peer::address& source, const dhyara::packets::data& data){
+        dhyara_default_network().on_data([callback](const dhyara::address& source, const dhyara::packets::data& data){
             callback(data.source(), data.begin(), data.end());
         });
         return true;
@@ -160,18 +160,18 @@ bool dhyara_send_internal(const unsigned char* target, const void* data, unsigne
         }
         
         const unsigned char* buffer = reinterpret_cast<const unsigned char*>(data);
-        dhyara::peer_address address(target);
+        dhyara::address address(target);
         return dhyara_get_default_network()->send(address, buffer, len);
     }
     return false;
 }
 
 bool dhyara_send_ping(const unsigned char* target, uint8_t count, int8_t batch, uint8_t sleep){
-    dhyara::peer_address other(target);
+    dhyara::address other(target);
     return dhyara_ping(other, count, batch, sleep);
 }
 
-bool dhyara_ping(const dhyara::peer_address& target, uint8_t count, int8_t batch, uint8_t sleep){
+bool dhyara_ping(const dhyara::address& target, uint8_t count, int8_t batch, uint8_t sleep){
     if(dhyara_has_default_network()){
         dhyara::tools::ping ping(dhyara_default_network());
         ping.count(count).batch(batch).sleep(sleep);
@@ -183,12 +183,12 @@ bool dhyara_ping(const dhyara::peer_address& target, uint8_t count, int8_t batch
 }
 
 bool dhyara_traceroute(const unsigned char* target){
-    dhyara::peer_address other(target);
+    dhyara::address other(target);
     return dhyara_traceroute(other);
 }
 
 
-bool dhyara_traceroute(const dhyara::peer_address& target){
+bool dhyara_traceroute(const dhyara::address& target){
     if(dhyara_has_default_network()){
         dhyara::tools::traceroute traceroute(dhyara_default_network(), target);
         traceroute();

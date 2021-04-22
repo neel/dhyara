@@ -28,8 +28,8 @@
 #include "dhyara/actions/chunk.h"
 #include "dhyara/link.h"
 
-void dhyara::actions::chunk::operator()(const dhyara::peer_address& addr, const dhyara::packets::chunk& chunk){
-    dhyara::peer::address target = chunk.target(), source = chunk.source();
+void dhyara::actions::chunk::operator()(const dhyara::address& addr, const dhyara::packets::chunk& chunk){
+    dhyara::address target = chunk.target(), source = chunk.source();
     std::uint8_t packet = chunk.packet(), pending = chunk.pending();
     if(target != _link.address()){
         _link.send(target, dhyara::packets::type::chunk, chunk);

@@ -16,6 +16,7 @@
 #include "dhyara/routing.h"
 #include "dhyara/packets.h"
 #include "dhyara/neighbourhood.h"
+#include "dhyara/universe.h"
 #include "dhyara/xqueue.h"
 #include "dhyara/utils/printer.h"
 
@@ -91,7 +92,7 @@ namespace dhyara{
  */
 
 class link{
-    typedef std::function<void (const dhyara::peer_address&, const dhyara::frame&)> callback_type;
+    typedef std::function<void (const dhyara::address&, const dhyara::frame&)> callback_type;
     typedef std::map<dhyara::packets::type, callback_type> handlers_map_type;
     typedef std::map<dhyara::packets::type, std::pair<std::size_t, std::size_t>> counters_map_type;
     typedef dhyara::network_fifo<dhyara::queue_size> fifo_type;
@@ -111,24 +112,24 @@ class link{
         };
         
         /**
-        * Construct
-        */
+         * Construct
+         */
         link();
         
         /**
-        * Initialize the medium
-        */
+         * Initialize the medium
+         */
         void init();
         
         /**
-        * Sends a packet to an immediate neighbour directly in one hop.
-        * 
-        * \param addr target peer address 
-        * \param type packet type
-        * \param packet packet object
-        */
+         * Sends a packet to an immediate neighbour directly in one hop.
+         * 
+         * \param addr target peer address 
+         * \param type packet type
+         * \param packet packet object
+         */
         template <typename PacketT>
-        bool send_local(const dhyara::peer_address& addr, packets::type type, const PacketT& packet){
+        bool send_local(const dhyara::address& addr, packets::type type, const PacketT& packet){
             dhyara::utils::printer printer;
             printer.out(addr, packet);
             dhyara::frame frame(type, packet.size());
@@ -137,175 +138,180 @@ class link{
         }
         
         /**
-        * Sends a packet via the best intermediate node. If the destination address is immediate neighbour then sends directly.
-        * 
-        * \param addr target peer address 
-        * \param type packet type
-        * \param packet packet object
-        */
+         * Sends a packet via the best intermediate node. If the destination address is immediate neighbour then sends directly.
+         * 
+         * \param addr target peer address 
+         * \param type packet type
+         * \param packet packet object
+         */
         template <typename PacketT>
-        bool send(const dhyara::peer_address& addr, packets::type type, const PacketT& packet){
-            dhyara::peer::address immediate = _routes.next(addr).via();
+        bool send(const dhyara::address& addr, packets::type type, const PacketT& packet){
+            dhyara::address immediate = _routes.next(addr).via();
             return send_local(immediate.is_null() ? addr : immediate, type, packet);
         }
         
         /**
-        * immediate neighbourhood
-        */
+         * immediate neighbourhood
+         */
         inline dhyara::neighbourhood& neighbours() { return _neighbours; }
+        
         /**
-        * routing table
-        */
+         * The known universe
+         */
+        inline dhyara::universe& universe() { return _universe; }
+        /**
+         * routing table
+         */
         inline dhyara::routing& routes(){ return _routes; }
         
         /**
-        * local address
-        */
-        inline const dhyara::peer::address& address() const { return _mac; }
+         * local address
+         */
+        inline const dhyara::address& address() const { return _mac; }
         
         /**
-        * \name Statistical 
-        *\{
-        */
+         * \name Statistical 
+         *\{
+         */
         /**
-        * reset counter
-        */
+         * reset counter
+         */
         void reset(dhyara::packets::type type);
         /**
-        * number of packets received for the given type
-        * 
-        * \param type packet type
-        */
+         * number of packets received for the given type
+         * 
+         * \param type packet type
+         */
         std::size_t tx(dhyara::packets::type type) const;
         /**
-        * number of packets recieved for the given type
-        * 
-        * \param type packet type
-        */
+         * number of packets recieved for the given type
+         * 
+         * \param type packet type
+         */
         std::size_t rx(dhyara::packets::type type) const;
         
         /**
-        * Maximum rssi in the neighbourhood
-        */
+         * Maximum rssi in the neighbourhood
+         */
         std::int8_t max_rssi() const;
         /**
-        * Duration for which the node has not heard anything from its neighbourhood (in us).
-        */
+         * Duration for which the node has not heard anything from its neighbourhood (in us).
+         */
         dhyara::delay_type lost() const;
         /**
-        * \}
-        */
+         * \}
+         */
         
         /**
-        * \name Actions
-        * Associate \ref actions with a packet type and access the associated actions.
-        * \{
-        */
+         * \name Actions
+         * Associate \ref actions with a packet type and access the associated actions.
+         * \{
+         */
         /**
-        * Associate an action with a packet type. The operator()() overload of that action will be called with the received packet.
-        * 
-        * \param type packet type
-        * \param cb The action
-        */
+         * Associate an action with a packet type. The operator()() overload of that action will be called with the received packet.
+         * 
+         * \param type packet type
+         * \param cb The action
+         */
         void install(dhyara::packets::type type, callback_type cb);
         
         /**
-        * Conveniance function to install an action (associate an action with a packet type).
-        * \code
-        * dhyara::link medium;
-        * dhyara::actions::beacon beacon(medium);
-        * medium[dhyara::packets::type::beacon] = beacon;
-        * \endcode
-        * 
-        * \param type packet type
-        */
+         * Conveniance function to install an action (associate an action with a packet type).
+         * \code
+         * dhyara::link medium;
+         * dhyara::actions::beacon beacon(medium);
+         * medium[dhyara::packets::type::beacon] = beacon;
+         * \endcode
+         * 
+         * \param type packet type
+         */
         proxy operator[](dhyara::packets::type type){
             return proxy(*this, type);
         }
         /**
-        * \}
-        */
+         * \}
+         */
         
         /**
-        * Associate with the target AP using the station interface
-        */
-        esp_err_t connect(const dhyara::peer_address& target);
+         * Associate with the target AP using the station interface
+         */
+        esp_err_t connect(const dhyara::address& target);
         
         
         /**
-        * \name ESP Now callbacks
-        * The functions that are supposed to be registered as callbacks to the underlying ESP Now subsystem.
-        * \attention These functions may not be called from the usercode. These are called by \ref dhyara_espnow_init function.
-        * \{
-        */
+         * \name ESP Now callbacks
+         * The functions that are supposed to be registered as callbacks to the underlying ESP Now subsystem.
+         * \attention These functions may not be called from the usercode. These are called by \ref dhyara_espnow_init function.
+         * \{
+         */
         /**
-        * ESP Now Send Callback
-        * 
-        * \attention This function may not be called from the usercode. These are called by \ref dhyara_espnow_init function.
-        * \attention This function is supposed by the callback passed to esp_now_register_send_cb().
-        * 
-        * \param target target address
-        * \param status status
-        */
+         * ESP Now Send Callback
+         * 
+         * \attention This function may not be called from the usercode. These are called by \ref dhyara_espnow_init function.
+         * \attention This function is supposed by the callback passed to esp_now_register_send_cb().
+         * 
+         * \param target target address
+         * \param status status
+         */
         void _esp_sent_cb(const uint8_t* target, esp_now_send_status_t status);
         
         /**
-        * Process raw data received. Create a frame from the received data and passes that to queue for further procesing. Leaves wifi stack
-        * 
-        * \attention This function may not be called from the usercode. These are called by \ref dhyara_espnow_init function.
-        * \attention This function is supposed by the callback passed to esp_now_register_recv_cb().
-        * 
-        * \param source source address
-        * \param data raw data received
-        * \param len length of the raw data
-        */
+         * Process raw data received. Create a frame from the received data and passes that to queue for further procesing. Leaves wifi stack
+         * 
+         * \attention This function may not be called from the usercode. These are called by \ref dhyara_espnow_init function.
+         * \attention This function is supposed by the callback passed to esp_now_register_recv_cb().
+         * 
+         * \param source source address
+         * \param data raw data received
+         * \param len length of the raw data
+         */
         void _esp_rcvd_cb(const uint8_t* source, const uint8_t* data, int len);
         /**
-        * \}
-        */
+         * \}
+         */
         /**
-        * \name Callbacks for RSSI
-        * The functions that are supposed to be registered as callbacks to the underlying ESP Now subsystem.
-        * \attention These functions may not be called from the usercode. These are called by \ref dhyara_espnow_init function.
-        * \{
-        */
+         * \name Callbacks for RSSI
+         * The functions that are supposed to be registered as callbacks to the underlying ESP Now subsystem.
+         * \attention These functions may not be called from the usercode. These are called by \ref dhyara_espnow_init function.
+         * \{
+         */
         /**
-        * Updates RSSI by using the frame headers received in the promiscous mode.
-        * 
-        * \attention This function may not be called from the usercode. These are called by \ref dhyara_espnow_init function.
-        * \attention This function is supposed by the callback passed to esp_wifi_set_promiscuous_rx_cb().
-        * 
-        * \param buffer received data
-        * \param type promiscous packet type
-        */
+         * Updates RSSI by using the frame headers received in the promiscous mode.
+         * 
+         * \attention This function may not be called from the usercode. These are called by \ref dhyara_espnow_init function.
+         * \attention This function is supposed by the callback passed to esp_wifi_set_promiscuous_rx_cb().
+         * 
+         * \param buffer received data
+         * \param type promiscous packet type
+         */
         void _esp_promiscous_rx_cb(void* buffer, wifi_promiscuous_pkt_type_t type);
         /**
-        * \}
-        */
+         * \}
+         */
         
         /**
-        * \name Tasks
-        * The IO tasks are infinite loops that never returns.
-        * \attention This functions may not be called from the usercode. These are called by \ref dhyara::network::start while creating FreeRTOS Tasks.
-        * \{
-        */
+         * \name Tasks
+         * The IO tasks are infinite loops that never returns.
+         * \attention This functions may not be called from the usercode. These are called by \ref dhyara::network::start while creating FreeRTOS Tasks.
+         * \{
+         */
         /**
-        * start receive loop never returns
-        * \attention Usercode may not call this function directly. Supposed to be called by \ref dhyara::network::start while creating FreeRTOS Task.
-        */
+         * start receive loop never returns
+         * \attention Usercode may not call this function directly. Supposed to be called by \ref dhyara::network::start while creating FreeRTOS Task.
+         */
         void start_rcv(std::size_t ticks = 0xffffffffUL);
 
     #if DHYARA_ENABLED_SEND_QUEUEING || defined(__DOXYGEN__)
         /**
-        * start receive loop never returns
-        * \attention Only available is Send Queueing is enabled (enabled by default)
-        * \attention Usercode may not call this function directly. Supposed to be called by \ref dhyara::network::start while creating FreeRTOS Task.
-        */
+         * start receive loop never returns
+         * \attention Only available is Send Queueing is enabled (enabled by default)
+         * \attention Usercode may not call this function directly. Supposed to be called by \ref dhyara::network::start while creating FreeRTOS Task.
+         */
         void start_snd(std::size_t ticks = 0xffffffffUL);
     #endif
         /**
-        * \}
-        */
+         * \}
+         */
     
     private:
         
@@ -317,7 +323,7 @@ class link{
          * \param address immediate source address
          * \param frame frame
          */
-        void q_receive(const dhyara::peer_address& address, const dhyara::frame& frame);
+        void q_receive(const dhyara::address& address, const dhyara::frame& frame);
         /**
          * Send raw data to an immediate destination. Called directly if transmission queueing is disabled. Otherwise called through start_snd
          * 
@@ -338,7 +344,7 @@ class link{
          * \param address destination address
          * \param frame frame
          */
-        bool transmit(const dhyara::peer_address& address, const dhyara::frame& frame);
+        bool transmit(const dhyara::address& address, const dhyara::frame& frame);
     
     private:
         dhyara::frame           _frame_rcv;     ///< Temporary buffer to hold the received frame which is then enqueued to _fifo
@@ -346,9 +352,10 @@ class link{
         xqueue_type             _queue_snd;     ///< Queue to manage the frames to be sent
         dhyara::notifier        _notifier;      ///< A single element queue to wake up sending task
         dhyara::neighbourhood   _neighbours;
+        dhyara::universe        _universe;
         handlers_map_type       _handlers;
         dhyara::routing         _routes;
-        dhyara::peer::address   _mac;
+        dhyara::address         _mac;
         counters_map_type       _counters;
 };
 

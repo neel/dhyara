@@ -28,11 +28,11 @@
 #include "dhyara/actions/acknowledgement.h"
 #include "dhyara/synchronizer.h"
 
-void dhyara::actions::acknowledgement::operator()(const dhyara::peer_address& addr, const dhyara::packets::acknowledgement& acknowledgement){
+void dhyara::actions::acknowledgement::operator()(const dhyara::address& addr, const dhyara::packets::acknowledgement& acknowledgement){
     dhyara::delay_type now = esp_timer_get_time();    
     dhyara::delay_type rtt = (now - acknowledgement.time());
 
     if(!addr.is_broadcast()){
-        _synchronizer.queue(addr, dhyara::peer::address::null(), rtt/2);
+        _synchronizer.queue(addr, dhyara::address::null(), rtt/2);
     }
 }

@@ -42,7 +42,7 @@ struct chunk_header{
      * \param packet packet id of the data packet
      * \param pending number of chunks pending after this 
      */
-    inline chunk_header(const dhyara::peer::address& target, const dhyara::peer::address& source, std::uint8_t length, std::uint8_t packet, std::uint8_t pending = 0): 
+    inline chunk_header(const dhyara::address& target, const dhyara::address& source, std::uint8_t length, std::uint8_t packet, std::uint8_t pending = 0): 
         _target{target.b1(), target.b2(), target.b3(), target.b4(), target.b5(), target.b6()}, 
         _source{source.b1(), source.b2(), source.b3(), source.b4(), source.b5(), source.b6()}, 
         _length(length), _packet(packet), _pending(pending) {}
@@ -58,11 +58,11 @@ struct chunk_header{
     /**
      * target MAC address of the chunk
      */
-    inline dhyara::peer::address target() const { return dhyara::peer::address(_target); }
+    inline dhyara::address target() const { return dhyara::address(_target); }
     /**
      * source MAC address of the chunk
      */
-    inline dhyara::peer::address source() const { return dhyara::peer::address(_source); }
+    inline dhyara::address source() const { return dhyara::address(_source); }
     /**
      * packet id of the data packet that this chunk is part of
      */
@@ -108,7 +108,7 @@ struct chunk{
      * \param pending number of chunks pending after this 
      */
     template <typename InputIt>
-    inline chunk(const dhyara::peer::address& target, const dhyara::peer::address& source, InputIt begin, std::uint8_t length, std::uint8_t packet, std::uint8_t pending = 0): _header(target, source, std::min(static_cast<std::uint8_t>(capacity), length), packet, pending) {
+    inline chunk(const dhyara::address& target, const dhyara::address& source, InputIt begin, std::uint8_t length, std::uint8_t packet, std::uint8_t pending = 0): _header(target, source, std::min(static_cast<std::uint8_t>(capacity), length), packet, pending) {
         InputIt end = begin + _header.length();
         std::copy(begin, end, _buffer.begin());
     }
@@ -146,11 +146,11 @@ struct chunk{
     /**
      * target of the chunk
      */
-    inline dhyara::peer::address target() const { return _header.target(); }
+    inline dhyara::address target() const { return _header.target(); }
     /**
      * source of the chunk
      */
-    inline dhyara::peer::address source() const { return _header.source(); }
+    inline dhyara::address source() const { return _header.source(); }
     /**
      * packet id of the chunk
      */

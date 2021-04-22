@@ -42,6 +42,9 @@ dhyara::network::network(dhyara::link& link):
     _echo_lost(_link),
     _chunk(_link),
     _delivered(_link)
+#if DHYARA_ENABLED_HTTP_MANAGEMENT_SERVER
+    ,_server(_link)
+#endif    
     {}
 
 void dhyara::network::presence(){
@@ -55,7 +58,7 @@ void dhyara::network::presence(){
     }
 }
 
-void dhyara::network::isolate(const dhyara::peer_address& x, const dhyara::peer_address& y){
+void dhyara::network::isolate(const dhyara::address& x, const dhyara::address& y){
     if(_link.address() == x) _beacon.ban(y);
     if(_link.address() == y) _beacon.ban(x);
 }
@@ -81,9 +84,13 @@ void dhyara::network::start(){
 #if DHYARA_ENABLED_SEND_QUEUEING
     xTaskCreate(&dhyara::network::task_start_send,  "start_send",  2028,  &_link, 22, NULL);
 #endif
+    
+#if DHYARA_ENABLED_HTTP_MANAGEMENT_SERVER
+    ESP_ERROR_CHECK(_server.start());
+#endif
 }
 
-bool dhyara::network::send(const dhyara::peer_address& target, const dhyara::packets::data& data){
+bool dhyara::network::send(const dhyara::address& target, const dhyara::packets::data& data){
     std::uint8_t chunks = data.chunks();
     bool success = true;
     dhyara::packets::data data_packet(data);

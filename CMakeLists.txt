@@ -6,9 +6,12 @@ else()
     idf_component_register(
         SRCS 
             "sources/routing.cpp"
+            "sources/address.cpp"
             "sources/peer.cpp"
-            "sources/link.cpp"
+            "sources/neighbour.cpp"
             "sources/neighbourhood.cpp"
+            "sources/universe.cpp"
+            "sources/link.cpp"
             "sources/synchronizer.cpp"
             "sources/network.cpp"
             "sources/packets/beacon.cpp"
@@ -36,11 +39,17 @@ else()
             "sources/dhyara.c"
         INCLUDE_DIRS 
             "includes"
+            "contrib/nlohmann"
         REQUIRES 
             cxx
             esp_wifi 
             esp_http_server
         EMBED_TXTFILES
-            "assets/routing.css"
+            "assets/fragments/head.html"
+            "assets/ui/dhyara.css"
+            "assets/ui/icons/neighbourhood.gif"
+            "assets/ui/icons/home.gif"
+            "assets/ui/icons/routing.gif"
+            "assets/ui/icons/universe.gif"
     )
 endif()

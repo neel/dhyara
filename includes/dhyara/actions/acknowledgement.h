@@ -37,11 +37,14 @@ struct acknowledgement: dhyara::actions::action<acknowledgement, dhyara::packets
     
     /**
      * The received acknowledgement is processed in this function.
+     * Calculates the RTT using the current time and the time in the acknowledgement packet.
+     * Calculates delay d (one trip time) from RTT.
+     * Queues candidate `(addr, 0, d)` for synchronization (the acknowledgement has been received from addr).
      * 
      * \param addr source address 
      * \param acknowledgement the received acknowledgement 
      */
-    void operator()(const dhyara::peer_address& addr, const dhyara::packets::acknowledgement& acknowledgement);
+    void operator()(const dhyara::address& addr, const dhyara::packets::acknowledgement& acknowledgement);
     
     private:
         dhyara::link& _link;

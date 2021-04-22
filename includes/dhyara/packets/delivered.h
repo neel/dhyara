@@ -38,7 +38,7 @@ struct delivered{
      * \param source the source address
      * \param packet the packet id in the data 
      */
-    inline delivered(const dhyara::peer::address& target, const dhyara::peer::address& source, std::uint8_t packet): 
+    inline delivered(const dhyara::address& target, const dhyara::address& source, std::uint8_t packet): 
         _target{target.b1(), target.b2(), target.b3(), target.b4(), target.b5(), target.b6()}, 
         _source{source.b1(), source.b2(), source.b3(), source.b4(), source.b5(), source.b6()}, 
         _packet(packet) {}
@@ -50,11 +50,11 @@ struct delivered{
     /**
      * Target
      */
-    inline dhyara::peer::address target() const { return dhyara::peer::address(_target); }
+    inline dhyara::address target() const { return dhyara::address(_target); }
     /**
      * Source
      */
-    inline dhyara::peer::address source() const { return dhyara::peer::address(_source); }
+    inline dhyara::address source() const { return dhyara::address(_source); }
     /**
      * packet id
      */

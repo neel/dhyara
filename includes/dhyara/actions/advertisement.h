@@ -40,7 +40,7 @@ struct advertisement: dhyara::actions::action<advertisement, dhyara::packets::ad
      * \param addr source address 
      * \param advertisement the received advertisement 
      */
-    void operator()(const dhyara::peer_address& addr, const dhyara::packets::advertisement& advertisement);
+    void operator()(const dhyara::address& addr, const dhyara::packets::advertisement& advertisement);
     
     private:
         dhyara::link& _link;

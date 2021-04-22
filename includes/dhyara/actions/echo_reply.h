@@ -49,7 +49,7 @@ struct echo_reply: dhyara::actions::action<echo_reply, dhyara::packets::echo_rep
      * \param addr source address 
      * \param echo_reply the received echo_reply 
      */
-    void operator()(const dhyara::peer_address& addr, const dhyara::packets::echo_reply& echo_reply);
+    void operator()(const dhyara::address& addr, const dhyara::packets::echo_reply& echo_reply);
     
     /**
      * rtt statistics

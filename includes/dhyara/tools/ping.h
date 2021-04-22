@@ -31,7 +31,7 @@ namespace tools{
  * \endcode
  * Following example demonstarate usage of ping tool.
  * \code
- * dhyara::peer_address target("4c:11:ae:9c:a6:85")
+ * dhyara::address target("4c:11:ae:9c:a6:85")
  * dhyara::tools::ping ping(_network);
  * ping.count(50).batch(20).sleep(1);
  * ping(target);
@@ -83,7 +83,7 @@ struct ping{
      * 
      * \param addr target address to ping
      */
-    void operator()(const dhyara::peer_address& addr);
+    void operator()(const dhyara::address& addr);
     
     /**
      * perform ping operation.
@@ -103,7 +103,7 @@ struct ping{
         /**
          * The callback to capture the reply packet and print the destination till which the previous ICMP request packet has reached. If that destination is the desired destination then stop sending another ICMP request. Otherwise send another with increased ttl value.
          */
-        void reply(const dhyara::peer_address& addr, const dhyara::packets::echo_reply& reply);
+        void reply(const dhyara::address& addr, const dhyara::packets::echo_reply& reply);
     
     private:
         dhyara::network& _network;

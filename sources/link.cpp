@@ -45,7 +45,7 @@ struct ieee_802_11_management_frame{
 
 dhyara::link::link(): 
     _fifo_rcv(std::bind(&dhyara::link::q_receive, this, std::placeholders::_1, std::placeholders::_2)), 
-    _mac(dhyara::peer_address::null())
+    _mac(dhyara::address::null())
 {}
 
 
@@ -53,7 +53,7 @@ void dhyara::link::init(){
     std::uint8_t base_mac[6];
     esp_wifi_get_mac(static_cast<wifi_interface_t>(ESP_IF_WIFI_AP), base_mac);
     _mac.set(base_mac);
-    _neighbours.add(dhyara::peer::address::all(), dhyara::espnow_broadcast_channel);
+    _neighbours.add(dhyara::address::all(), dhyara::espnow_broadcast_channel);
 }
 
 
@@ -67,26 +67,25 @@ bool dhyara::link::_transmit(const std::uint8_t* dest, const std::uint8_t* data,
     return true;
 }
 
-bool dhyara::link::transmit(const dhyara::peer_address& addr, const dhyara::frame& frame){
-    if(_neighbours.exists(addr)){
-        auto it = _counters.find(frame.type());
-        if(it != _counters.end()){
-            it->second.first++;
-        }
-#if DHYARA_DISABLED_SEND_QUEUEING
-        static std::uint8_t buffer[sizeof(dhyara::frame)];
-        dhyara::write(frame, buffer);
-        bool success = _transmit(addr.raw(), buffer, frame.size());
-#else 
-        bool success = _queue_snd.en(dhyara::message(addr, frame));
-        if(success){
-            _notifier.notify();
-        }
-#endif
-        return success;
+bool dhyara::link::transmit(const dhyara::address& addr, const dhyara::frame& frame){
+    if(!addr.is_broadcast() && !_universe.exists(addr)){
+        ESP_LOGW("dhyara", "peer %s not in the known universe", addr.to_string().c_str());
     }
-    ESP_LOGE("dhyara", "peer %s unreachable", addr.to_string().c_str());
-    return false;
+    auto it = _counters.find(frame.type());
+    if(it != _counters.end()){
+        it->second.first++;
+    }
+#if DHYARA_DISABLED_SEND_QUEUEING
+    static std::uint8_t buffer[sizeof(dhyara::frame)];
+    dhyara::write(frame, buffer);
+    bool success = _transmit(addr.raw(), buffer, frame.size());
+#else 
+    bool success = _queue_snd.en(dhyara::message(addr, frame));
+    if(success){
+        _notifier.notify();
+    }
+#endif
+    return success;
 }
 
 void dhyara::link::_esp_sent_cb(const uint8_t*, esp_now_send_status_t status){
@@ -104,9 +103,9 @@ void dhyara::link::_esp_promiscous_rx_cb(void* buffer, wifi_promiscuous_pkt_type
     wifi_promiscuous_pkt_t* p = (wifi_promiscuous_pkt_t*)buffer;
     ieee_802_11_management_frame* ether = (ieee_802_11_management_frame*)p->payload;
     if(p->rx_ctrl.sig_len >= sizeof(ieee_802_11_management_frame)){
-        dhyara::peer_address source(ether->source);
+        dhyara::address source(ether->source);
         if(_neighbours.exists(source)){
-            _neighbours.get_peer(source).rssi(p->rx_ctrl.rssi);
+            _neighbours.neighbour(source).rssi(p->rx_ctrl.rssi);
             last = now;
         }
     }
@@ -115,7 +114,7 @@ void dhyara::link::_esp_promiscous_rx_cb(void* buffer, wifi_promiscuous_pkt_type
 
 void dhyara::link::_esp_rcvd_cb(const uint8_t* source, const uint8_t* data, int len){
     dhyara::read(_frame_rcv, data, len);
-    dhyara::peer_address addr(source);
+    dhyara::address addr(source);
     _fifo_rcv.enqueue(addr, _frame_rcv);
     _frame_rcv.clear();
 }
@@ -125,7 +124,7 @@ void dhyara::link::install(dhyara::packets::type type, dhyara::link::callback_ty
     _counters.insert(std::make_pair(type, std::make_pair(0, 0)));
 }
 
-void dhyara::link::q_receive(const dhyara::peer_address& address, const dhyara::frame& frame){
+void dhyara::link::q_receive(const dhyara::address& address, const dhyara::frame& frame){
     auto cit = _counters.find(frame.type());
     if(cit != _counters.end()){
         cit->second.second++;
@@ -191,13 +190,13 @@ dhyara::delay_type dhyara::link::lost() const{
     return esp_timer_get_time() - _routes.lost_since();
 }
 
-esp_err_t dhyara::link::connect(const dhyara::peer_address& target){
+esp_err_t dhyara::link::connect(const dhyara::address& target){
     if(!_neighbours.exists(target)){
         return ESP_FAIL;
     }
     
     wifi_config_t config;
-    const dhyara::peer& peer = _neighbours.get_peer(target);
+    const dhyara::peer& peer = _neighbours.neighbour(target);
     
     std::memset(&config, 0, sizeof(wifi_config_t));
     target.copy(config.sta.bssid);

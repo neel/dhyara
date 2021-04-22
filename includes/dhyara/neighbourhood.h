@@ -10,6 +10,7 @@
 #define DHYARA_NEIGHBOURHOOD_H
 
 #include "dhyara/peer.h"
+#include "dhyara/neighbour.h"
 #include <unordered_set>
 #include <unordered_map>
 
@@ -17,29 +18,30 @@ namespace dhyara{
 
 /**
  * Neighbourhood of a node
+ * \ingroup dhyara 
  */
 struct neighbourhood{
-    typedef std::unordered_map<peer_address, peer> peer_collection_type;
+    typedef std::unordered_map<address, dhyara::neighbour> neighbour_collection_type;
     
     /**
      * add a peer as neighbour 
      * \param p peer
      */
-    const dhyara::peer& add(const peer& p);
+    const dhyara::neighbour& add(const dhyara::neighbour& p);
     /**
      * conveniance overload to add a peer
      * \param addr peer address as string
      * \param ch WiFi channel
      * \param enc encryption
      */
-    const dhyara::peer& add(const std::string& addr, std::uint8_t ch, bool enc = false);
+    const dhyara::neighbour& add(const std::string& addr, std::uint8_t ch, bool enc = false);
     /**
      * conveniance overload to add a peer
      * \param addr peer address 
      * \param ch WiFi channel
      * \param enc encryption
      */
-    const dhyara::peer& add(const dhyara::peer::address& addr, uint8_t ch, bool enc = false);
+    const dhyara::neighbour& add(const dhyara::address& addr, uint8_t ch, bool enc = false);
     /**
      * check whether a peer is in neighbourhood
      * \param addr peer address
@@ -49,7 +51,7 @@ struct neighbourhood{
      * check whether a peer is in neighbourhood
      * \param addr peer address
      */
-    bool exists(const dhyara::peer::address& addr) const;
+    bool exists(const dhyara::address& addr) const;
     
     /**
      * number of immediate neighbours
@@ -57,21 +59,21 @@ struct neighbourhood{
     std::size_t size() const;
     /**
      * returns a peer by its address (assuming that it exists in the neighbourhood)
-     * \note use exists() to check whether the address exists before calling this function
+     * \attention use exists() to check whether the address exists before calling this function
      */
-    dhyara::peer& get_peer(const dhyara::peer::address& addr);
+    dhyara::neighbour& neighbour(const dhyara::address& addr);
     
     /**
      * begin iterator
      */
-    inline peer_collection_type::const_iterator begin() const { return _peers.begin(); }
+    inline neighbour_collection_type::const_iterator begin() const { return _neighbours.begin(); }
     /**
      * end iterator
      */
-    inline peer_collection_type::const_iterator end() const { return _peers.end(); }
+    inline neighbour_collection_type::const_iterator end() const { return _neighbours.end(); }
     
     private:
-        peer_collection_type   _peers;
+        neighbour_collection_type   _neighbours;
     
 };
 

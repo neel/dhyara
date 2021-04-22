@@ -2,128 +2,157 @@
 <html>
 	<head>
 		<title>Dhyara Ad Hoc Network</title>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
-		<style>
-            @import "dhyara.css"
-		</style>
+		<link rel="icon" href="data:,">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+		<meta content="utf-8" http-equiv="encoding">
+		<link rel="stylesheet" href="/dhyara.css"/>
 		<script>
-            const menuIconEl = $('.menu-icon');
-            const sidenavEl = $('.sidenav');
-            const sidenavCloseEl = $('.sidenav__close-icon');
-
-            // Add and remove provided class names
-            function toggleClassName(el, className) {
-                if (el.hasClass(className)) {
-                    el.removeClass(className);
-                } else {
-                    el.addClass(className);
-                }
-            }
-
-            // Open the side nav on click
-            menuIconEl.on('click', function() {
-                toggleClassName(sidenavEl, 'active');
-            });
-
-            // Close the side nav on click
-            sidenavCloseEl.on('click', function() {
-                toggleClassName(sidenavEl, 'active');
-            });
+		let d = document;
+		let q = x => d.querySelectorAll(x);
+		let create = (x, a, ...cs) => {
+			let e = d.createElement(x);
+			if(typeof a == 'object')
+				for (let [k, v] of Object.entries(a)) 
+					e.setAttribute(k, v);
+            cs.forEach(c => e.append(c));
+			return e;
+		};
+		d.addEventListener("DOMContentLoaded", function() {
+            q("#menu li").forEach(li => li.append(
+                create("img", {"class": "icon", "src": "/icons?"+li.dataset.icon}),
+                create("a", {"class": "label", "href": li.dataset.href}, li.dataset.label)
+            ));
+            q(".cell").forEach(cell => cell.prepend(create("span", {"class": "key"}, cell.dataset.key)));
+        });
+        let fetch_banner = () => fetch("/info.json").then(r => r.json()).then(function(info){
+            let tr = (key, body) => q('#info-iface .cell[data-key="'+key+'"]')[0].append(body);
+            tr('ssid', info.ap.ssid);
+            tr('mac', info.ap.address);
+            tr('channel', info.ap.channel + "(" + info.ap.bandwidth + "Mhz)");
+            tr('frequency', info.ap.frequency.begin + "-" + info.ap.frequency.end + "Mhz)");
+            tr('power saving', info.power.saving);
+            tr('max power', info.power.max);
+            tr('authentication', info.ap.authentication);
+            tr('max clients', info.ap.max_connections);
+        }).catch(err => setTimeout(fetch_banner, 500));
+        let fetch_dhyara = () => fetch("/info.json").then(r => r.json()).then(function(info){
+            let tr = (key, body) => q('#info-dhyara .cell[data-key="'+key+'"]')[0].append(body);
+            tr('send queueing', info.dhyara.send_queueing);
+            tr('queue size', info.dhyara.queue_size);
+            tr('sync queue size', info.dhyara.sync_queue_size);
+            tr('broadcast channel', info.dhyara.espnow_broadcast_channel);
+            tr('peer channel', info.dhyara.espnow_peer_channel);
+            tr('beacon interval', info.dhyara.beacon_interval+"ms");
+            tr('delay tolerance', info.dhyara.delay_tolerance+"ms");
+            tr('depreciation coefficient', info.dhyara.depreciation_coefficient);
+            tr('advertisement expiry', info.dhyara.advertisement_expiry+"ms");
+            tr('route expiry', info.dhyara.route_expiry+"ms");
+        }).catch(err => setTimeout(fetch_dhyara, 500));
+        let poll_counters = () => fetch("/counter.json").then(r => r.json()).then(function(counter){
+            let tr = (key, c) => q('#counter .cell[data-key="'+key+'"] .value')[0].innerHTML = " &#8593; "+ c.tx + " &#8595; " + c.rx;
+            tr('beacon', counter.beacon);
+            tr('acknowledgement', counter.acknowledgement);
+            tr('advertisement', counter.advertisement);
+            tr('chunk', counter.chunk);
+            tr('delivered', counter.delivered);
+            tr('icmp request', counter.echo_request);
+            tr('icmp reply', counter.echo_reply);
+            tr('icmp lost', counter.echo_lost);
+            setTimeout(poll_counters, 500);
+        }).catch(err => setTimeout(poll_counters, 200));
+        let poll_routing = () => fetch("/routes.json").then(r => r.json()).then(function(routing){
+            let rbody = q("#routes-body")[0], nbody = q("#next-body")[0];
+            rbody.innerHTML = "";
+            nbody.innerHTML = "";
+            
+            routing.routes.map(r => create('tr', {}, create('td', {}, r.dst), create('td', {}, r.via), create('td', {}, r.delay+"ms"), create('td', {}, r.updated))).forEach(e => rbody.append(e));
+            routing.next.map(r => create('tr', {}, create('td', {}, r.dst), create('td', {}, r.via), create('td', {}, r.delay+"ms"))).forEach(e => nbody.append(e));
+            setTimeout(poll_routing, 2000);
+        }).catch(err => setTimeout(poll_routing, 200));
 		</script>
 	</head>
-	<body class="full">
-		<div class="grid-container">
-			<div class="menu-icon">
-				<i class="fas fa-bars header__menu"></i>
+	<body>
+		<div class="wrapper">
+			<div class="sidebar">
+				<div class="logo">Dhyara</div>
+				<ul id="menu" class="contents">
+					<li data-label="Home" data-icon="home" data-href="/" />
+					<li data-label="Routing" data-icon="routing" data-href="/routing" />
+					<li data-label="Peers" data-icon="neighbourhood" data-href="#" />
+				</ul>
 			</div>
-			<header class="header">
-			<!--
-				<div class="header__search">Search...</div>
-				<div class="header__avatar">Your face</div>
-            -->
-			</header>
-			<aside class="sidenav">
-				<div class="sidenav__brand">
-                    <i class="fas fa-feather-alt sidenav__brand-icon"></i>
-                    <a class="sidenav__brand-link" href="#">Dhyara<span class="text-light">X</span></a>
-                    <i class="fas fa-times sidenav__brand-close"></i>
-				</div>
-				<div class="row row--align-v-center row--align-h-center">
-                    <ul class="navList">
-                        <li class="navList__heading">Network<i class="far fa-file-alt"></i></li>
-                        <li>
-                            <div class="navList__subheading row row--align-v-center">
-                                <span class="navList__subheading-icon"><i class="fas fa-briefcase-medical"></i></span>
-                                <span class="navList__subheading-title">Wifi</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="navList__subheading row row--align-v-center">
-                                <span class="navList__subheading-icon"><i class="fas fa-plane-departure"></i></span>
-                                <span class="navList__subheading-title">Neighbourhood</span>
-                            </div>  
-                        </li>
-                        <li>
-                            <div class="navList__subheading row row--align-v-center">
-                                <span class="navList__subheading-icon"><i class="fas fa-plane-departure"></i></span>
-                                <span class="navList__subheading-title">Routing</span>
-                            </div>  
-                        </li>
-                        <li>
-                            <div class="navList__subheading row row--align-v-center">
-                                <span class="navList__subheading-icon"><i class="fas fa-plane-departure"></i></span>
-                                <span class="navList__subheading-title">Tools</span>
-                            </div>  
-                        </li>
-                    </ul>
-				</div>
-			</aside>
-			<main class="main">
-                <div class="main-header">
-                    <div class="main-header__heading">ESP_5B7898</div>
-                    <div class="main-header__updates">4c:11:ae:9c:a6:85</div>
-                </div>
-<!--
-				<div class="main-overview">
-					<div class="overviewcard">
-						<div class="overviewcard__icon">Overview</div>
-						<div class="overviewcard__info">Card</div>
+			<div class="main">
+				<div class="central">
+					<div class="full-w">
+						<div class="board banner">
+							<div id="info-iface" class="groups">
+								<div class="group">
+									<div class="cell" data-key="ssid"></div>
+									<div class="cell" data-key="mac"></div>
+								</div>
+								<div class="group">
+									<div class="cell" data-key="channel"></div>
+									<div class="cell" data-key="frequency"></div>
+								</div>
+								<div class="group">
+									<div class="cell" data-key="power saving"></div>
+									<div class="cell" data-key="max power"></div>
+								</div>
+								<div class="group">
+									<div class="cell" data-key="authentication"></div>
+									<div class="cell" data-key="max clients"></div>
+								</div>
+							</div>
+						</div>
 					</div>
-					<div class="overviewcard">
-						<div class="overviewcard__icon">Overview</div>
-						<div class="overviewcard__info">Card</div>
-					</div>
-					<div class="overviewcard">
-						<div class="overviewcard__icon">Overview</div>
-						<div class="overviewcard__info">Card</div>
-					</div>
-					<div class="overviewcard">
-						<div class="overviewcard__icon">Overview</div>
-						<div class="overviewcard__info">Card</div>
+					<div class="full-flex-hz">
+						<div class="board cluster">
+							<div class="heading">Dhyara Configuration</div>
+							<div class="groups" id="info-dhyara">
+								<div class="group">
+									<div class="cell" data-key="send queueing"></div>
+									<div class="cell" data-key="queue size"></div>
+									<div class="cell" data-key="sync queue size"></div>
+									<div class="cell" data-key="broadcast channel"></div>
+									<div class="cell" data-key="peer channel"></div>
+								</div>
+								<div class="group">
+									<div class="cell" data-key="beacon interval"></div>
+									<div class="cell" data-key="delay tolerance"></div>
+									<div class="cell" data-key="depreciation coefficient"></div>
+									<div class="cell" data-key="advertisement expiry"></div>
+									<div class="cell" data-key="route expiry"></div>
+								</div>
+							</div>
+						</div>
+						<div class="board cluster">
+							<div class="heading">Counters</div>
+							<div class="groups" id="counter">
+								<div class="group">
+									<div class="cell" data-key="beacon"><span class="value" /></div>
+									<div class="cell" data-key="acknowledgement"><span class="value" /></div>
+									<div class="cell" data-key="advertisement"><span class="value" /></div>
+									<div class="cell" data-key="chunk"><span class="value" /></div>
+									<div class="cell" data-key="delivered"><span class="value" /></div>
+								</div>
+								<div class="group">
+									<div class="cell" data-key="icmp request"><span class="value" /></div>
+									<div class="cell" data-key="icmp reply"><span class="value" /></div>
+									<div class="cell" data-key="icmp lost"><span class="value" /></div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
--->
-				<div class="main-cards">
-					<div class="card">
-                        <ul class="properties">
-                            <li class="property">
-                                <label class="key"> SSID </label>
-                                <span class="value"> ESP_5B7898 </span>
-                            </li>
-                            <li class="property">
-                                <label class="key"> Phy Rate </label>
-                                <span class="value"> 802.11 b/g/n/lr </span>
-                            </li>
-                        </ul>
-					</div>
-					<div class="card">Card</div>
-					<div class="card">Card</div>
-				</div>
-			</main>
-			<footer class="footer">
-				<div class="footer__copyright">Dhyara</div>
-				<div class="footer__signature">Ad Hoc Network</div>
-			</footer>
+			</div>
 		</div>
+		<script>
+		setTimeout(() => {
+            fetch_banner();
+            fetch_dhyara();
+            poll_counters();
+        }, 500);
+		</script>
 	</body>
 </html>

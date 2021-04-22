@@ -29,8 +29,8 @@ struct data{
     typedef typename dynamic_buffer_type::const_iterator const_iterator;
     typedef typename dynamic_buffer_type::iterator iterator;
     
-    dhyara::peer::address _target;
-    dhyara::peer::address _source;
+    dhyara::address _target;
+    dhyara::address _source;
     std::uint8_t          _packet;
     dynamic_buffer_type   _buffer;
     
@@ -42,26 +42,26 @@ struct data{
      * \param target target address
      * \param source source address
      */
-    inline data(const dhyara::peer::address& target, const dhyara::peer::address& source): _target(target), _source(source), _packet(counter++) {}
+    inline data(const dhyara::address& target, const dhyara::address& source): _target(target), _source(source), _packet(counter++) {}
     /**
      * Construct a data packet
      * \param target target address
      * \param packet packet id
      */
-    inline data(const dhyara::peer::address& target, std::uint8_t packet): _target(target), _source(dhyara::peer::address::null()), _packet(packet) {}
+    inline data(const dhyara::address& target, std::uint8_t packet): _target(target), _source(dhyara::address::null()), _packet(packet) {}
     /**
      * Construct a data packet
      * \note an auto incremented number is used as packet id
      * \param target target address
      */
-    inline data(const dhyara::peer::address& target): _target(target), _source(dhyara::peer::address::null()), _packet(counter++) {}
+    inline data(const dhyara::address& target): _target(target), _source(dhyara::address::null()), _packet(counter++) {}
     /**
      * Construct a data packet
      * \param target target address
      * \param source source address
      * \param packet packet id
      */
-    inline data(const dhyara::peer::address& target, const dhyara::peer::address& source, std::uint8_t packet): _target(target), _source(source), _packet(packet) {}
+    inline data(const dhyara::address& target, const dhyara::address& source, std::uint8_t packet): _target(target), _source(source), _packet(packet) {}
     /**
      * Construct a data packet by iterating over 
      * \note an auto incremented number is used as packet id
@@ -70,17 +70,17 @@ struct data{
      * \param end end iterator
      */
     template <typename InputIt>
-    inline data(const dhyara::peer::address& target, InputIt begin, InputIt end): _target(target), _source(dhyara::peer::address::null()), _packet(counter++) {
+    inline data(const dhyara::address& target, InputIt begin, InputIt end): _target(target), _source(dhyara::address::null()), _packet(counter++) {
         fill(begin, end);
     }
     /**
      * target of the data packet
      */
-    inline dhyara::peer::address target() const { return dhyara::peer::address(_target); }
+    inline dhyara::address target() const { return dhyara::address(_target); }
     /**
      * source of the data packet
      */
-    inline dhyara::peer::address source() const { return dhyara::peer::address(_source); }
+    inline dhyara::address source() const { return dhyara::address(_source); }
     /**
      * packet id of data packet
      */

@@ -69,5 +69,11 @@ menu "Dhyara ad hoc network"
         help
             Dhyara disable queueing of messages that are to be sent
             
+    config ENABLE_HTTP_MANAGEMENT_SERVER
+        bool "If enabled then provides an web based management console over HTTP"
+        default y
+        help
+            Dhyara enable web based management console over HTTP
+            
             
 endmenu

@@ -29,10 +29,13 @@
 #include "dhyara/synchronizer.h"
 #include "dhyara/link.h"
 
-void dhyara::actions::advertisement::operator()(const dhyara::peer_address& addr, const dhyara::packets::advertisement& advertisement){
+void dhyara::actions::advertisement::operator()(const dhyara::address& addr, const dhyara::packets::advertisement& advertisement){
     dhyara::delay_type delay_first = std::numeric_limits<dhyara::delay_type>::max();
     if(_link.routes().exists(addr)){
         delay_first = _link.routes().next(addr).delay();
+    }
+    if(!_link.universe().exists(advertisement.dest())){
+        _link.universe().add(advertisement.dest());
     }
     dhyara::delay_type delay = advertisement.delay() + delay_first;
     _synchronizer.queue(advertisement.dest(), addr, delay);

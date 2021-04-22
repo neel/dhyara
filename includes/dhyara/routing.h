@@ -76,16 +76,16 @@ struct routing {
          * \param dst destination address
          * \param via intermediate node address
          */
-        route(const dhyara::peer::address& dst, const dhyara::peer::address& via);
+        route(const dhyara::address& dst, const dhyara::address& via);
             
         /**
          * destination address of this route
          */
-        inline const dhyara::peer::address& dst() const { return _dst; }
+        inline const dhyara::address& dst() const { return _dst; }
         /**
          * intermediate node address of this route
          */
-        inline const dhyara::peer::address& via() const { return _via; }
+        inline const dhyara::address& via() const { return _via; }
         
         /**
          * routes are sortable
@@ -105,8 +105,8 @@ struct routing {
         std::string to_string() const;
         
         private:
-            dhyara::peer::address _dst;
-            dhyara::peer::address _via;
+            dhyara::address _dst;
+            dhyara::address _via;
     };
 
     typedef std::map<route, route_metric> table_type;
@@ -117,9 +117,9 @@ struct routing {
     struct next_hop{
         /**
          * returns the best next hop address for the given target
-         * \return dhyara::peer::address
+         * \return dhyara::address
          */
-        inline const dhyara::peer::address& via() const { return _via; }
+        inline const dhyara::address& via() const { return _via; }
         /**
          * returns the best next hop delay for the given target
          */
@@ -130,7 +130,7 @@ struct routing {
          * \param via intermediate node address 
          * \param delay delay
          */
-        inline next_hop(dhyara::peer::address via, delay_type delay): _via(via), _delay(delay){}
+        inline next_hop(dhyara::address via, delay_type delay): _via(via), _delay(delay){}
         /**
          * Comparator
          */
@@ -141,11 +141,11 @@ struct routing {
         inline bool operator!=(const next_hop& other) const { return !(*this == other); }
         
         private:
-            dhyara::peer::address _via;
+            dhyara::address _via;
             delay_type _delay;
     };
     
-    typedef std::map<dhyara::peer::address, next_hop> next_vector_type;
+    typedef std::map<dhyara::address, next_hop> next_vector_type;
     
     /**
      * Construct 
@@ -156,7 +156,7 @@ struct routing {
      * checks whether there exists any route for the given destination
      * @param dst the final destination
      */
-    bool exists(const dhyara::peer::address& dst) const;
+    bool exists(const dhyara::address& dst) const;
     /**
      * checks whether an rtt is associated with the given route
      * @param r the route (combination of destination and next hop)
@@ -175,7 +175,7 @@ struct routing {
     /**
      * next node to for the final destination dst
      */
-    dhyara::routing::next_hop next(const dhyara::peer::address& dst) const;
+    dhyara::routing::next_hop next(const dhyara::address& dst) const;
     /**
      * depreciate a route that was not updated within dhyara::route_expiry time
      */
@@ -234,8 +234,8 @@ struct routing {
         std::mutex       _mutex;
         
         delay_type delay(const route& r) const;
-        next_hop calculated_next(dhyara::peer::address dst) const;
-        bool update_next(dhyara::peer::address dst);
+        next_hop calculated_next(dhyara::address dst) const;
+        bool update_next(dhyara::address dst);
 };
 
 std::ostream& operator<<(std::ostream& os, const dhyara::routing::route& route);

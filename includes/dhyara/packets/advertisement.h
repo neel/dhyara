@@ -40,7 +40,7 @@ struct advertisement{
      * \param dest The destination address
      * \param delay The delay encountered in the route
      */
-    inline advertisement(const dhyara::peer::address& dest, delay_type delay): 
+    inline advertisement(const dhyara::address& dest, delay_type delay): 
         _dest{dest.b1(), dest.b2(), dest.b3(), dest.b4(), dest.b5(), dest.b6()},
         _delay(delay){}
     /**
@@ -50,7 +50,7 @@ struct advertisement{
     /**
      * Destination in the advertisement packet
      */
-    inline dhyara::peer::address dest() const { return dhyara::peer::address(_dest); }
+    inline dhyara::address dest() const { return dhyara::address(_dest); }
     /**
      * Delay in teh advertisement packet
      */
