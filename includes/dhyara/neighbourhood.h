@@ -18,6 +18,7 @@ namespace dhyara{
 
 /**
  * Neighbourhood of a node
+ * \ingroup dhyara 
  */
 struct neighbourhood{
     typedef std::unordered_map<address, dhyara::neighbour> neighbour_collection_type;

@@ -24,11 +24,13 @@
 namespace dhyara{
     
 /**
- * 
+ * A peer is identified by a mac address
+ * \ingroup dhyara 
  */
 struct peer{
     /**
-     * 
+     * Construct a peer 
+     * \param addr address
      */
     explicit peer(const address& addr);
     /**

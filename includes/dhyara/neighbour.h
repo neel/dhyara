@@ -25,23 +25,29 @@
 namespace dhyara{
     
 /**
- * A peer communicating in the medium
- * @code
- * dhyara::peer p ("ff:ff:ff:ff:ff:ff");
- * p.encrypt(false).channel(1);
- * 
- * p.addr().to_string(); // returns "ff:ff:ff:ff:ff:ff"
- * p.encrypt(); // returns false
- * p.channel(); // returns 1
- * @endcode
+ * An immediate neighbour of the node
+ * \code
+ * dhyara::neighbour neighbour("ff:ff:ff:ff:ff:ff");
+ * neighbour.encrypt(false).channel(1);
+ * neighbour.addr().to_string(); // returns "ff:ff:ff:ff:ff:ff"
+ * neighbour.encrypt(); // returns false
+ * neighbour.channel(); // returns 1
+ * \endcode
+ * \ingroup dhyara 
  */
 struct neighbour: dhyara::peer{
     /**
-     * 
+     * Construct a neighbour
+     * \param addr address
+     * \param ch WiFi channel
+     * \param enc encryption
      */
     neighbour(const dhyara::address& addr, std::uint8_t ch=1, bool enc = false);
     /**
-     * 
+     * Construct a neighbour
+     * \param addr address
+     * \param ch WiFi channel
+     * \param enc encryption
      */
     neighbour(const std::string& addr, std::uint8_t ch=1, bool enc = false);
     
@@ -70,7 +76,7 @@ struct neighbour: dhyara::peer{
      * Set RSSI value for the peer
      */
     inline void rssi(std::uint8_t v) { _rssi = v; }
-    
+
     inline const esp_now_peer_info_t* raw() const {return &_peer;}
     
     private:
