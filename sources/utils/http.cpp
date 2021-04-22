@@ -151,7 +151,8 @@ dhyara::utils::http::http(dhyara::link& link): _link(link), _config(HTTPD_DEFAUL
     _icons   (httpd_uri_t{"/icons",        HTTP_GET, dhyara::utils::http::icons_handler,   this}),
     _info    (httpd_uri_t{"/info.json",    HTTP_GET, dhyara::utils::http::info_handler,    this}),
     _counter (httpd_uri_t{"/counter.json", HTTP_GET, dhyara::utils::http::counter_handler, this}),
-    _routes  (httpd_uri_t{"/routes.json",  HTTP_GET, dhyara::utils::http::routes_handler,  this})
+    _routes  (httpd_uri_t{"/routes.json",  HTTP_GET, dhyara::utils::http::routes_handler,  this}),
+    _peers   (httpd_uri_t{"/peers.json",   HTTP_GET, dhyara::utils::http::peers_handler,   this})
 {}
 
 
@@ -164,6 +165,7 @@ esp_err_t dhyara::utils::http::start(){
     if (res != ESP_OK) return res; else res = httpd_register_uri_handler(_server, &_info);
     if (res != ESP_OK) return res; else res = httpd_register_uri_handler(_server, &_counter);
     if (res != ESP_OK) return res; else res = httpd_register_uri_handler(_server, &_routes);
+    if (res != ESP_OK) return res; else res = httpd_register_uri_handler(_server, &_peers);
     return res;
 }
 
@@ -200,6 +202,11 @@ esp_err_t dhyara::utils::http::routing_handler(httpd_req_t* req){
 esp_err_t dhyara::utils::http::routes_handler(httpd_req_t* req){
     dhyara::utils::http* self = static_cast<dhyara::utils::http*>(req->user_ctx);
     return self->routes(req);
+}
+
+esp_err_t dhyara::utils::http::peers_handler(httpd_req_t* req){
+    dhyara::utils::http* self = static_cast<dhyara::utils::http*>(req->user_ctx);
+    return self->peers(req);
 }
 
 esp_err_t dhyara::utils::http::index(httpd_req_t* req){
@@ -520,6 +527,35 @@ esp_err_t dhyara::utils::http::routes(httpd_req_t* req){
         }
         next_json << "]";
         response_json << "\"next\":" << next_json.str();
+    }
+    response_json << "}";
+    std::string response = response_json.str();
+    httpd_resp_set_type(req, "application/json");
+    httpd_resp_send(req, response.c_str(), response.length());
+    return ESP_OK;
+}
+
+esp_err_t dhyara::utils::http::peers(httpd_req_t* req){
+    std::stringstream response_json;
+    response_json << "{";
+    {
+        std::stringstream neighbours_json;
+        neighbours_json << "[";
+        for(auto it = _link.neighbours().begin(); it != _link.neighbours().end(); ++it){
+            if(it != _link.neighbours().begin()){
+                neighbours_json << ",";
+            }
+            const dhyara::peer& peer = it->second;
+            neighbours_json << "{";
+            neighbours_json << "\"mac\":" << '"' << peer.addr().to_string() << '"' << ",";
+            neighbours_json << "\"name\":" << '"' << peer.name() << '"' << ",";
+            neighbours_json << "\"channel\":" << (int)peer.channel() << ",";
+            neighbours_json << "\"rssi\":" << (int)peer.rssi() << ",";
+            neighbours_json << "\"encrypt\":" << std::boolalpha << peer.encrypt();
+            neighbours_json << "}";
+        }
+        neighbours_json << "]";
+        response_json << "\"neighbours\":" << neighbours_json.str();
     }
     response_json << "}";
     std::string response = response_json.str();

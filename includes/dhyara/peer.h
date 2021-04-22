@@ -177,7 +177,7 @@ struct peer{
     /**
      * get peer channel
      */
-    inline bool channel() const {return _peer.channel;}
+    inline std::uint8_t channel() const {return _peer.channel;}
     /**
      * Get RSSI value for the peer
      */

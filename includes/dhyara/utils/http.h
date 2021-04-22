@@ -44,6 +44,7 @@ struct http{
         httpd_uri_t    _info;
         httpd_uri_t    _counter;
         httpd_uri_t    _routes;
+        httpd_uri_t    _peers;
     private:
         static esp_err_t index_handler(httpd_req_t* req);
         static esp_err_t routing_handler(httpd_req_t* req);
@@ -52,6 +53,7 @@ struct http{
         static esp_err_t info_handler(httpd_req_t* req);
         static esp_err_t counter_handler(httpd_req_t* req);
         static esp_err_t routes_handler(httpd_req_t* req);
+        static esp_err_t peers_handler(httpd_req_t* req);
     private:
         esp_err_t index(httpd_req_t* req);
         esp_err_t routing(httpd_req_t* req);
@@ -60,6 +62,7 @@ struct http{
         esp_err_t info(httpd_req_t* req);
         esp_err_t counter(httpd_req_t* req);
         esp_err_t routes(httpd_req_t* req);
+        esp_err_t peers(httpd_req_t* req);
 };
 
 }
