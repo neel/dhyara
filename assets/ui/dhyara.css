@@ -54,7 +54,7 @@ a {
 		width: 100%;
 	}
 }
-@media all and (min-width: 480px) {
+@media all and (min-width: 600px) {
 	.wrapper{
 		width: 100%;
 		height: 100%;
@@ -218,6 +218,17 @@ a {
 		border-right: 1px dashed #fefefe;
 	}
 }
+
+.board td:last-child, th:last-child{
+    display: none;
+}
+
+@media all and (min-width: 600px) {
+    .board td:last-child, th:last-child{
+        display: block;
+    }
+}
+
 .board td, th{
 	padding: 10px 5px 10px 5px;
 	line-height: 1.2rem;
