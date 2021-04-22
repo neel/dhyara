@@ -10,6 +10,7 @@ else()
             "sources/peer.cpp"
             "sources/neighbour.cpp"
             "sources/neighbourhood.cpp"
+            "sources/universe.cpp"
             "sources/link.cpp"
             "sources/synchronizer.cpp"
             "sources/network.cpp"

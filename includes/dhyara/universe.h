@@ -6,42 +6,37 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-#ifndef DHYARA_NEIGHBOURHOOD_H
-#define DHYARA_NEIGHBOURHOOD_H
+#ifndef DHYARA_UNIVERSE_H
+#define DHYARA_UNIVERSE_H
 
 #include "dhyara/peer.h"
-#include "dhyara/neighbour.h"
 #include <unordered_set>
 #include <unordered_map>
 
 namespace dhyara{
 
 /**
- * Neighbourhood of a node
+ * Universe of all nodes in the known in the universe
  * \ingroup dhyara 
  */
-struct neighbourhood{
-    typedef std::unordered_map<address, dhyara::neighbour> neighbour_collection_type;
+struct universe{
+    typedef std::unordered_map<address, dhyara::peer> peer_collection_type;
     
     /**
      * add a peer as neighbour 
      * \param p peer
      */
-    const dhyara::neighbour& add(const dhyara::neighbour& p);
+    const dhyara::peer& add(const dhyara::peer& p);
     /**
      * conveniance overload to add a peer
      * \param addr peer address as string
-     * \param ch WiFi channel
-     * \param enc encryption
      */
-    const dhyara::neighbour& add(const std::string& addr, std::uint8_t ch, bool enc = false);
+    const dhyara::peer& add(const std::string& addr);
     /**
      * conveniance overload to add a peer
-     * \param addr peer address 
-     * \param ch WiFi channel
-     * \param enc encryption
+     * \param addr peer address
      */
-    const dhyara::neighbour& add(const dhyara::address& addr, uint8_t ch, bool enc = false);
+    const dhyara::peer& add(const dhyara::address& addr);
     /**
      * check whether a peer is in neighbourhood
      * \param addr peer address
@@ -61,22 +56,22 @@ struct neighbourhood{
      * returns a peer by its address (assuming that it exists in the neighbourhood)
      * \attention use exists() to check whether the address exists before calling this function
      */
-    dhyara::neighbour& neighbour(const dhyara::address& addr);
+    dhyara::peer& peer(const dhyara::address& addr);
     
     /**
      * begin iterator
      */
-    inline neighbour_collection_type::const_iterator begin() const { return _neighbours.begin(); }
+    inline peer_collection_type::const_iterator begin() const { return _peers.begin(); }
     /**
      * end iterator
      */
-    inline neighbour_collection_type::const_iterator end() const { return _neighbours.end(); }
+    inline peer_collection_type::const_iterator end() const { return _peers.end(); }
     
     private:
-        neighbour_collection_type   _neighbours;
+        peer_collection_type   _peers;
     
 };
 
 }
 
-#endif // DHYARA_NEIGHBOURHOOD_H
+#endif // DHYARA_UNIVERSE_H

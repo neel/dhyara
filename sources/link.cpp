@@ -68,25 +68,24 @@ bool dhyara::link::_transmit(const std::uint8_t* dest, const std::uint8_t* data,
 }
 
 bool dhyara::link::transmit(const dhyara::address& addr, const dhyara::frame& frame){
-    if(_neighbours.exists(addr)){
-        auto it = _counters.find(frame.type());
-        if(it != _counters.end()){
-            it->second.first++;
-        }
-#if DHYARA_DISABLED_SEND_QUEUEING
-        static std::uint8_t buffer[sizeof(dhyara::frame)];
-        dhyara::write(frame, buffer);
-        bool success = _transmit(addr.raw(), buffer, frame.size());
-#else 
-        bool success = _queue_snd.en(dhyara::message(addr, frame));
-        if(success){
-            _notifier.notify();
-        }
-#endif
-        return success;
+    if(!addr.is_broadcast() && !_universe.exists(addr)){
+        ESP_LOGW("dhyara", "peer %s not in the known universe", addr.to_string().c_str());
     }
-    ESP_LOGE("dhyara", "peer %s unreachable", addr.to_string().c_str());
-    return false;
+    auto it = _counters.find(frame.type());
+    if(it != _counters.end()){
+        it->second.first++;
+    }
+#if DHYARA_DISABLED_SEND_QUEUEING
+    static std::uint8_t buffer[sizeof(dhyara::frame)];
+    dhyara::write(frame, buffer);
+    bool success = _transmit(addr.raw(), buffer, frame.size());
+#else 
+    bool success = _queue_snd.en(dhyara::message(addr, frame));
+    if(success){
+        _notifier.notify();
+    }
+#endif
+    return success;
 }
 
 void dhyara::link::_esp_sent_cb(const uint8_t*, esp_now_send_status_t status){

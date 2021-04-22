@@ -557,6 +557,24 @@ esp_err_t dhyara::utils::http::peers(httpd_req_t* req){
         neighbours_json << "]";
         response_json << "\"neighbours\":" << neighbours_json.str();
     }
+    response_json << ",";
+    {
+        std::stringstream universe_json;
+        universe_json << "[";
+        for(auto it = _link.universe().begin(); it != _link.universe().end(); ++it){
+            if(it != _link.universe().begin()){
+                universe_json << ",";
+            }
+            const dhyara::peer& peer = it->second;
+            universe_json << "{";
+            universe_json << "\"mac\":" << '"' << peer.addr().to_string() << '"' << ",";
+            universe_json << "\"name\":" << '"' << peer.name() << '"';
+            universe_json << "}";
+        }
+        universe_json << "]";
+        response_json << "\"universe\":" << universe_json.str();
+    }
+    
     response_json << "}";
     std::string response = response_json.str();
     httpd_resp_set_type(req, "application/json");

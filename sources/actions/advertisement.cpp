@@ -34,6 +34,9 @@ void dhyara::actions::advertisement::operator()(const dhyara::address& addr, con
     if(_link.routes().exists(addr)){
         delay_first = _link.routes().next(addr).delay();
     }
+    if(!_link.universe().exists(addr.to_string())){
+        _link.universe().add(addr.to_string());
+    }
     dhyara::delay_type delay = advertisement.delay() + delay_first;
     _synchronizer.queue(advertisement.dest(), addr, delay);
 }
