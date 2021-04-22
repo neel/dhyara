@@ -145,7 +145,7 @@ class link{
         */
         template <typename PacketT>
         bool send(const dhyara::peer_address& addr, packets::type type, const PacketT& packet){
-            dhyara::peer::address immediate = _routes.next(addr).via();
+            dhyara::peer_address immediate = _routes.next(addr).via();
             return send_local(immediate.is_null() ? addr : immediate, type, packet);
         }
         
@@ -161,7 +161,7 @@ class link{
         /**
         * local address
         */
-        inline const dhyara::peer::address& address() const { return _mac; }
+        inline const dhyara::peer_address& address() const { return _mac; }
         
         /**
         * \name Statistical 
@@ -348,7 +348,7 @@ class link{
         dhyara::neighbourhood   _neighbours;
         handlers_map_type       _handlers;
         dhyara::routing         _routes;
-        dhyara::peer::address   _mac;
+        dhyara::peer_address   _mac;
         counters_map_type       _counters;
 };
 

@@ -33,6 +33,6 @@ void dhyara::actions::acknowledgement::operator()(const dhyara::peer_address& ad
     dhyara::delay_type rtt = (now - acknowledgement.time());
 
     if(!addr.is_broadcast()){
-        _synchronizer.queue(addr, dhyara::peer::address::null(), rtt/2);
+        _synchronizer.queue(addr, dhyara::peer_address::null(), rtt/2);
     }
 }

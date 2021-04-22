@@ -45,7 +45,7 @@ struct echo_request: dhyara::actions::action<echo_request, dhyara::packets::echo
      * \param batch number of ICMP requests in the one batch (default 1)
      * \param sleep time (in ms) to sleep after each ICMP batch request (default to 15)
      */
-    void ping(const dhyara::peer::address& target, std::uint8_t count = 254, std::int8_t batch = 1, std::uint8_t sleep = 15);
+    void ping(const dhyara::peer_address& target, std::uint8_t count = 254, std::int8_t batch = 1, std::uint8_t sleep = 15);
     
     private:
         dhyara::link& _link;

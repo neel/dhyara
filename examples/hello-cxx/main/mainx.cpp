@@ -31,7 +31,7 @@ void mainx(){
     dhyara::peer_address other = (local == source) ? sink : ((local == sink) ? source : dhyara::peer_address::null());
     
     // The anonymous function will be called once all chunks of a data packet is received
-    dhyara_receive_data([](const dhyara::peer::address& source, const dhyara::packets::data& data){
+    dhyara_receive_data([](const dhyara::peer_address& source, const dhyara::packets::data& data){
         std::cout << "received data " << " originating from " << data.source() << " via " << source << " of size " << data.length() << std::endl;
     });
     

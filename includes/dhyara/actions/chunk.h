@@ -29,7 +29,7 @@ struct chunk: dhyara::actions::action<chunk, dhyara::packets::chunk>{
     typedef std::pair<dhyara::peer_address, std::uint8_t> incoming_data_source;
     typedef std::map<std::uint8_t, dhyara::packets::chunk, std::greater<std::uint8_t>> chunk_storage_type;
     typedef std::map<incoming_data_source, chunk_storage_type> incomming_data_map;
-    typedef std::function<void (const dhyara::peer::address&, const dhyara::packets::data&)> data_callback_type;
+    typedef std::function<void (const dhyara::peer_address&, const dhyara::packets::data&)> data_callback_type;
     
     /**
      * A chunk action needs to have access to the link in order to relay the chunk if it is an intermediate node.

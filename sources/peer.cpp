@@ -86,14 +86,14 @@ bool dhyara::peer_address::operator==(const std::string& addr) const{
 }
 
 
-dhyara::peer::peer(const dhyara::peer::address& addr): _addr(addr), _rssi(0){
+dhyara::peer::peer(const dhyara::peer_address& addr): _addr(addr), _rssi(0){
     std::fill_n(reinterpret_cast<std::uint8_t*>(&_peer), sizeof(esp_now_peer_info_t), 0);
     const std::uint8_t* data = addr.raw();
     std::copy(data, data+6, _peer.peer_addr);
     _peer.ifidx = static_cast<wifi_interface_t>(ESP_IF_WIFI_AP);
 }
 
-dhyara::peer::peer(const std::string& addr, std::uint8_t ch, bool enc): peer(dhyara::peer::address(addr)){
+dhyara::peer::peer(const std::string& addr, std::uint8_t ch, bool enc): peer(dhyara::peer_address(addr)){
     channel(ch);
     encrypt(enc);
 }
@@ -105,7 +105,7 @@ bool dhyara::peer::operator==(const peer& other) const{
     return addr() == other.addr();
 }
 
-std::ostream& dhyara::operator<<(std::ostream& os, const dhyara::peer::address& address){
+std::ostream& dhyara::operator<<(std::ostream& os, const dhyara::peer_address& address){
     os << "Addr< " << address.to_string() << " >";
     return os;
 }

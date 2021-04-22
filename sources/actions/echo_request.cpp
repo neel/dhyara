@@ -29,7 +29,7 @@
 #include "dhyara/link.h"
 
 void dhyara::actions::echo_request::operator()(const dhyara::peer_address& addr, const dhyara::packets::echo_request& echo_request){
-    dhyara::peer::address target = echo_request.target();
+    dhyara::peer_address target = echo_request.target();
     if(target == _link.address()){
         // respond if self
         dhyara::packets::echo_reply reply(echo_request.source(), _link.address(), echo_request.seq(), echo_request.time(), echo_request.ttl());
@@ -47,7 +47,7 @@ void dhyara::actions::echo_request::operator()(const dhyara::peer_address& addr,
     }
 }
 
-void dhyara::actions::echo_request::ping(const dhyara::peer::address& target, std::uint8_t count, std::int8_t batch, std::uint8_t sleep){
+void dhyara::actions::echo_request::ping(const dhyara::peer_address& target, std::uint8_t count, std::int8_t batch, std::uint8_t sleep){
     std::uint32_t seq = 1;
     std::uint8_t total = count +1;
     std::uint8_t counter = 0;

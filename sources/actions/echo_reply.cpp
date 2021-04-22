@@ -29,7 +29,7 @@
 #include "dhyara/link.h"
 
 void dhyara::actions::echo_reply::operator()(const dhyara::peer_address& addr, const dhyara::packets::echo_reply& echo_reply){
-    dhyara::peer::address target = echo_reply.target();
+    dhyara::peer_address target = echo_reply.target();
     if(target == _link.address()){
         dhyara::delay_type rtt = esp_timer_get_time() - echo_reply.time();
         _stat.total += rtt;

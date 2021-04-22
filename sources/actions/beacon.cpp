@@ -57,7 +57,7 @@ void dhyara::actions::beacon::broadcast(){
         ESP_ERROR_CHECK_WITHOUT_ABORT(esp_wifi_get_config(WIFI_IF_AP, &config));
         std::copy_n(config.ap.ssid, config.ap.ssid_len, std::back_inserter(ssid));
     }
-    _link.send_local(dhyara::peer::address::all(), dhyara::packets::type::beacon, dhyara::packets::beacon(ssid));
+    _link.send_local(dhyara::peer_address::all(), dhyara::packets::type::beacon, dhyara::packets::beacon(ssid));
 }
 
 void dhyara::actions::beacon::ban(const dhyara::peer_address& addr){

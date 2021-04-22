@@ -127,7 +127,7 @@ dhyara::peer_address dhyara_local(){
 
 bool dhyara_receivef(dhyara_receivef_callback_t callback){
     if(dhyara_has_default_network()){
-        dhyara_default_network().on_data([callback](const dhyara::peer::address& source, const dhyara::packets::data& data){
+        dhyara_default_network().on_data([callback](const dhyara::peer_address& source, const dhyara::packets::data& data){
             callback(data.source().raw(), data.raw(), data.length());
         });
         return true;
@@ -137,7 +137,7 @@ bool dhyara_receivef(dhyara_receivef_callback_t callback){
 
 bool dhyara_receive(dhyara_receive_callback_type callback){
     if(dhyara_has_default_network()){
-        dhyara_default_network().on_data([callback](const dhyara::peer::address& source, const dhyara::packets::data& data){
+        dhyara_default_network().on_data([callback](const dhyara::peer_address& source, const dhyara::packets::data& data){
             callback(data.source(), data.begin(), data.end());
         });
         return true;

@@ -151,15 +151,14 @@ struct peer_address{
  */
 struct peer{
     typedef peer self_type;
-    typedef peer_address address;
         
-    explicit peer(const address& addr);
+    explicit peer(const peer_address& addr);
     peer(const std::string& addr, std::uint8_t ch, bool enc = false);
     
     /**
      * get peer address
      */
-    inline const address& addr() const {return _addr;}
+    inline const peer_address& addr() const {return _addr;}
     
     /**
      * set encryption flag
@@ -205,12 +204,12 @@ struct peer{
     
     private:
         esp_now_peer_info_t _peer;
-        address             _addr;
+        peer_address        _addr;
         std::int8_t         _rssi;
         std::string         _name;
 };
 
-std::ostream& operator<<(std::ostream& os, const dhyara::peer::address& address);
+std::ostream& operator<<(std::ostream& os, const dhyara::peer_address& address);
 std::ostream& operator<<(std::ostream& os, const dhyara::peer& peer);
     
 }

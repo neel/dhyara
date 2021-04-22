@@ -46,7 +46,7 @@ struct echo_lost{
      * \param seq the sequence number of this ICMP request
      * \param time the time in the ICMP request (defaults to current time)
      */
-    inline echo_lost(const dhyara::peer::address& target, const dhyara::peer::address& source, std::uint32_t seq = 0, std::uint64_t time = 0) 
+    inline echo_lost(const dhyara::peer_address& target, const dhyara::peer_address& source, std::uint32_t seq = 0, std::uint64_t time = 0) 
         : _target{target.b1(), target.b2(), target.b3(), target.b4(), target.b5(), target.b6()}, 
           _source{source.b1(), source.b2(), source.b3(), source.b4(), source.b5(), source.b6()}, 
           _seq(seq), _time(time ? time : esp_timer_get_time()){}
@@ -66,11 +66,11 @@ struct echo_lost{
     /**
      * Target address
      */
-    inline dhyara::peer::address target() const { return dhyara::peer::address(_target); }
+    inline dhyara::peer_address target() const { return dhyara::peer_address(_target); }
     /**
      * Source address
      */
-    inline dhyara::peer::address source() const { return dhyara::peer::address(_source); }
+    inline dhyara::peer_address source() const { return dhyara::peer_address(_source); }
     
 } __attribute__((packed));
     
