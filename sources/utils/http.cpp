@@ -545,13 +545,13 @@ esp_err_t dhyara::utils::http::peers(httpd_req_t* req){
             if(it != _link.neighbours().begin()){
                 neighbours_json << ",";
             }
-            const dhyara::peer& peer = it->second;
+            const dhyara::neighbour& neighbour = it->second;
             neighbours_json << "{";
-            neighbours_json << "\"mac\":" << '"' << peer.addr().to_string() << '"' << ",";
-            neighbours_json << "\"name\":" << '"' << peer.name() << '"' << ",";
-            neighbours_json << "\"channel\":" << (int)peer.channel() << ",";
-            neighbours_json << "\"rssi\":" << (int)peer.rssi() << ",";
-            neighbours_json << "\"encrypt\":" << std::boolalpha << peer.encrypt();
+            neighbours_json << "\"mac\":" << '"' << neighbour.addr().to_string() << '"' << ",";
+            neighbours_json << "\"name\":" << '"' << neighbour.name() << '"' << ",";
+            neighbours_json << "\"channel\":" << (int)neighbour.channel() << ",";
+            neighbours_json << "\"rssi\":" << (int)neighbour.rssi() << ",";
+            neighbours_json << "\"encrypt\":" << std::boolalpha << neighbour.encrypt();
             neighbours_json << "}";
         }
         neighbours_json << "]";

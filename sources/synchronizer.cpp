@@ -72,9 +72,9 @@ void dhyara::synchronizer::sync(const dhyara::address& dest, const dhyara::addre
             it->second = now;
         }
         for(auto it = _link.neighbours().begin(); it != _link.neighbours().end(); ++it){
-            const dhyara::peer& p = it->second;
-            if(!p.addr().is_broadcast() && dest != p.addr()){
-                _link.send_local(p.addr(), dhyara::packets::type::advertisement, advertisement);
+            const dhyara::neighbour& neighbour = it->second;
+            if(!neighbour.addr().is_broadcast() && dest != neighbour.addr()){
+                _link.send_local(neighbour.addr(), dhyara::packets::type::advertisement, advertisement);
             }
         }
     }

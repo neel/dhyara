@@ -10,6 +10,7 @@
 #define DHYARA_NEIGHBOURHOOD_H
 
 #include "dhyara/peer.h"
+#include "dhyara/neighbour.h"
 #include <unordered_set>
 #include <unordered_map>
 
@@ -19,27 +20,27 @@ namespace dhyara{
  * Neighbourhood of a node
  */
 struct neighbourhood{
-    typedef std::unordered_map<address, peer> peer_collection_type;
+    typedef std::unordered_map<address, dhyara::neighbour> peer_collection_type;
     
     /**
      * add a peer as neighbour 
      * \param p peer
      */
-    const dhyara::peer& add(const peer& p);
+    const dhyara::neighbour& add(const dhyara::neighbour& p);
     /**
      * conveniance overload to add a peer
      * \param addr peer address as string
      * \param ch WiFi channel
      * \param enc encryption
      */
-    const dhyara::peer& add(const std::string& addr, std::uint8_t ch, bool enc = false);
+    const dhyara::neighbour& add(const std::string& addr, std::uint8_t ch, bool enc = false);
     /**
      * conveniance overload to add a peer
      * \param addr peer address 
      * \param ch WiFi channel
      * \param enc encryption
      */
-    const dhyara::peer& add(const dhyara::address& addr, uint8_t ch, bool enc = false);
+    const dhyara::neighbour& add(const dhyara::address& addr, uint8_t ch, bool enc = false);
     /**
      * check whether a peer is in neighbourhood
      * \param addr peer address
@@ -59,7 +60,7 @@ struct neighbourhood{
      * returns a peer by its address (assuming that it exists in the neighbourhood)
      * \note use exists() to check whether the address exists before calling this function
      */
-    dhyara::peer& get_peer(const dhyara::address& addr);
+    dhyara::neighbour& get_peer(const dhyara::address& addr);
     
     /**
      * begin iterator
