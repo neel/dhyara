@@ -44,8 +44,8 @@ else()
             esp_wifi 
             esp_http_server
         EMBED_TXTFILES
-            "assets/fragments/head.html"
-            "assets/dhyara.css"
+            "assets/min/head.html"
+            "assets/min/dhyara.css"
             "assets/icons.gif"
     )
 endif()

@@ -1,11 +1,3 @@
-:root {
-	--darker: #b34766;
-	--dark: #ff6680;
-	--light: #ffb3c8;
-	--lighter: #ffd9e4;
-	--white: #f6f6f6;
-	--transparent-white: rgba(255, 255, 255, 0.2);
-}
 * {
 	margin: 0;
 	padding: 0;
@@ -32,7 +24,7 @@ a {
 .sidebar{
 	width: 100%;
 	background-color: #d4155b;
-	color: var(--lighter);
+	color: #ffd9e4;
 	display: flex;
 	flex-direction: column;
 }
@@ -84,7 +76,7 @@ a {
 	padding-bottom: 10px;
 }
 .sidebar .contents li:first-child{
-    margin-top: 5px;
+	margin-top: 5px;
 	border: 0px none;
 }
 .sidebar .contents li{
@@ -94,21 +86,21 @@ a {
 	padding: 4px 0px 4px 4px;
 	line-height: 15px;
 	cursor: pointer;
-    background: url(/icons) no-repeat;
-    padding-left: 34px;
-    height: 24px;
-    margin-bottom: 5px;
+	background: url(/icons) no-repeat;
+	padding-left: 34px;
+	height: 24px;
+	margin-bottom: 5px;
 }
 
 .sidebar .contents li.home{
-    background-position: 0 0;
-    height: 22px !important;
+	background-position: 0 0;
+	height: 22px !important;
 }
 .sidebar .contents li.routing{
-    background-position: 0 -22px;
+	background-position: 0 -22px;
 }
 .sidebar .contents li.neighbourhood{
-    background-position: 0 -45px;
+	background-position: 0 -45px;
 }
 
 .sidebar .contents li a{
@@ -124,14 +116,14 @@ a {
 }
 .cluster{
 	background-color: white;
-	color: var(--dark);
+	color: #ff6680;
 	box-shadow: 4px 5px #efefef;
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
 .cluster-full{
 	background-color: white;
-	color: var(--dark);
+	color: #ff6680;
 	box-shadow: 4px 5px #efefef;
 	margin-top: 10px;
 	margin-bottom: 10px;
@@ -140,7 +132,7 @@ a {
 	width: 100%;
 }
 .cluster-full table{
-    width: 100%;
+	width: 100%;
 }
 .full-w{
 	position: relative;
@@ -232,15 +224,13 @@ a {
 }
 
 .board td:last-child, th:last-child{
-    display: none;
+	display: none;
 }
-
 @media all and (min-width: 600px) {
-    .board td:last-child, th:last-child{
-        display: block;
-    }
+	.board td:last-child, th:last-child{
+		display: block;
+	}
 }
-
 .board td, th{
 	padding: 10px 5px 10px 5px;
 	line-height: 1.2rem;
@@ -249,4 +239,3 @@ a {
 .board td{
 	border-top: 1px solid #ececec;
 }
-
