@@ -39,7 +39,6 @@ else()
             "sources/dhyara.c"
         INCLUDE_DIRS 
             "includes"
-            "contrib/nlohmann"
         REQUIRES 
             cxx
             esp_wifi 
