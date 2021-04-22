@@ -41,7 +41,7 @@ static const char sidebar[] =
         "<ul id='menu' class='contents'>"
             "<li data-label='Home' data-icon='home' data-href='/' />"
             "<li data-label='Routing' data-icon='routing' data-href='/routing' />"
-            "<li data-label='Peers' data-icon='neighbourhood' data-href='#' />"
+            "<li data-label='Peers' data-icon='neighbourhood' data-href='/peers' />"
         "</ul>"
     "</div>";
     
@@ -142,24 +142,60 @@ static const char routing[] =
         "</div>"
     "</div>";
     
+static const char peers[] = 
+    "<div class='full-flex-hz'>"
+        "<div class='board cluster-full'>"
+            "<div class='heading'>Neighbours</div>"
+            "<table>"
+                "<thead>"
+                    "<tr>"
+                        "<th>Address</th>"
+                        "<th>Name</th>"
+                        "<th>Channel</th>"
+                        "<th>RSSI</th>"
+                    "</tr>"
+                "</thead>"
+                "<tbody id='neighbours-body'></tbody>"
+            "</table>"
+        "</div>"
+    "</div>"
+    "<div class='full-flex-hz'>"
+        "<div class='board cluster-full'>"
+            "<div class='heading'>Universe</div>"
+            "<table>"
+                "<thead>"
+                    "<tr>"
+                        "<th>Address</th>"
+                        "<th>Name</th>"
+                    "</tr>"
+                "</thead>"
+                "<tbody id='universe-body'></tbody>"
+            "</table>"
+        "</div>"
+    "</div>";
+    
 }
 
 dhyara::utils::http::http(dhyara::link& link): _link(link), _config(HTTPD_DEFAULT_CONFIG()), _server(0x0),
-    _index   (httpd_uri_t{"/",             HTTP_GET, dhyara::utils::http::index_handler,   this}),
-    _routing (httpd_uri_t{"/routing",      HTTP_GET, dhyara::utils::http::routing_handler, this}),
-    _style   (httpd_uri_t{"/dhyara.css",   HTTP_GET, dhyara::utils::http::style_handler,   this}),
-    _icons   (httpd_uri_t{"/icons",        HTTP_GET, dhyara::utils::http::icons_handler,   this}),
-    _info    (httpd_uri_t{"/info.json",    HTTP_GET, dhyara::utils::http::info_handler,    this}),
-    _counter (httpd_uri_t{"/counter.json", HTTP_GET, dhyara::utils::http::counter_handler, this}),
-    _routes  (httpd_uri_t{"/routes.json",  HTTP_GET, dhyara::utils::http::routes_handler,  this}),
-    _peers   (httpd_uri_t{"/peers.json",   HTTP_GET, dhyara::utils::http::peers_handler,   this})
-{}
+    _index_html  (httpd_uri_t{"/",             HTTP_GET, dhyara::utils::http::index_html_handler,  this}),
+    _routes_html (httpd_uri_t{"/routing",      HTTP_GET, dhyara::utils::http::routes_html_handler, this}),
+    _peers_html  (httpd_uri_t{"/peers",        HTTP_GET, dhyara::utils::http::peers_html_handler,  this}),
+    _style       (httpd_uri_t{"/dhyara.css",   HTTP_GET, dhyara::utils::http::style_handler,       this}),
+    _icons       (httpd_uri_t{"/icons",        HTTP_GET, dhyara::utils::http::icons_handler,       this}),
+    _info        (httpd_uri_t{"/info.json",    HTTP_GET, dhyara::utils::http::info_handler,        this}),
+    _counter     (httpd_uri_t{"/counter.json", HTTP_GET, dhyara::utils::http::counter_handler,     this}),
+    _routes      (httpd_uri_t{"/routes.json",  HTTP_GET, dhyara::utils::http::routes_handler,      this}),
+    _peers       (httpd_uri_t{"/peers.json",   HTTP_GET, dhyara::utils::http::peers_handler,       this})
+{
+    _config.max_uri_handlers = 10;
+}
 
 
 esp_err_t dhyara::utils::http::start(){
     esp_err_t res = httpd_start(&_server, &_config);
-    if (res != ESP_OK) return res; else res = httpd_register_uri_handler(_server, &_index);
-    if (res != ESP_OK) return res; else res = httpd_register_uri_handler(_server, &_routing);
+    if (res != ESP_OK) return res; else res = httpd_register_uri_handler(_server, &_index_html);
+    if (res != ESP_OK) return res; else res = httpd_register_uri_handler(_server, &_routes_html);
+    if (res != ESP_OK) return res; else res = httpd_register_uri_handler(_server, &_peers_html);
     if (res != ESP_OK) return res; else res = httpd_register_uri_handler(_server, &_style);
     if (res != ESP_OK) return res; else res = httpd_register_uri_handler(_server, &_icons);
     if (res != ESP_OK) return res; else res = httpd_register_uri_handler(_server, &_info);
@@ -169,14 +205,19 @@ esp_err_t dhyara::utils::http::start(){
     return res;
 }
 
-esp_err_t dhyara::utils::http::index_handler(httpd_req_t* req){
+esp_err_t dhyara::utils::http::index_html_handler(httpd_req_t* req){
     dhyara::utils::http* self = static_cast<dhyara::utils::http*>(req->user_ctx);
-    return self->index(req);
+    return self->index_html(req);
 }
 
 esp_err_t dhyara::utils::http::style_handler(httpd_req_t* req){
     dhyara::utils::http* self = static_cast<dhyara::utils::http*>(req->user_ctx);
     return self->style(req);
+}
+
+esp_err_t dhyara::utils::http::peers_html_handler(httpd_req_t* req){
+    dhyara::utils::http* self = static_cast<dhyara::utils::http*>(req->user_ctx);
+    return self->peers_html(req);
 }
 
 esp_err_t dhyara::utils::http::icons_handler(httpd_req_t* req){
@@ -194,9 +235,9 @@ esp_err_t dhyara::utils::http::counter_handler(httpd_req_t* req){
     return self->counter(req);
 }
 
-esp_err_t dhyara::utils::http::routing_handler(httpd_req_t* req){
+esp_err_t dhyara::utils::http::routes_html_handler(httpd_req_t* req){
     dhyara::utils::http* self = static_cast<dhyara::utils::http*>(req->user_ctx);
-    return self->routing(req);
+    return self->routes_html(req);
 }
 
 esp_err_t dhyara::utils::http::routes_handler(httpd_req_t* req){
@@ -209,7 +250,7 @@ esp_err_t dhyara::utils::http::peers_handler(httpd_req_t* req){
     return self->peers(req);
 }
 
-esp_err_t dhyara::utils::http::index(httpd_req_t* req){
+esp_err_t dhyara::utils::http::index_html(httpd_req_t* req){
     static const char* html_open = 
         "<!DOCTYPE html>" 
         "<html>";
@@ -450,7 +491,7 @@ esp_err_t dhyara::utils::http::counter(httpd_req_t* req){
     return ESP_OK;
 }
 
-esp_err_t dhyara::utils::http::routing(httpd_req_t* req){
+esp_err_t dhyara::utils::http::routes_html(httpd_req_t* req){
     static const char* html_open = 
         "<!DOCTYPE html>" 
         "<html>";
@@ -534,6 +575,47 @@ esp_err_t dhyara::utils::http::routes(httpd_req_t* req){
     httpd_resp_send(req, response.c_str(), response.length());
     return ESP_OK;
 }
+
+esp_err_t dhyara::utils::http::peers_html(httpd_req_t* req){
+    static const char* html_open = 
+        "<!DOCTYPE html>" 
+        "<html>";
+    static const char* wrapper_open = 
+            "<body>" 
+                "<div class='wrapper'>";
+    static const char* central_open = 
+                    "<div class='main'>"
+                        "<div class='central'>";
+    static const char* central_close = 
+                        "</div>" 
+                    "</div>";
+    static const char* wrapper_close = 
+                "</div>" 
+                "<script>"
+                "setTimeout(() => {"
+                    "fetch_banner();"
+                    "poll_peers();"
+                "}, 500);"
+                "</script>"
+            "</body>";
+    static const char* html_close = 
+        "</html>";
+        
+    httpd_resp_set_type(req, "text/html");
+    httpd_resp_sendstr_chunk(req, html_open);
+    httpd_resp_sendstr_chunk(req, (const char*)dhyara::assets::head_html_start);
+    httpd_resp_sendstr_chunk(req, wrapper_open);
+    httpd_resp_sendstr_chunk(req, fragments::sidebar);
+    httpd_resp_sendstr_chunk(req, central_open);
+    httpd_resp_sendstr_chunk(req, fragments::banner);
+    httpd_resp_sendstr_chunk(req, fragments::peers);
+    httpd_resp_sendstr_chunk(req, central_close);
+    httpd_resp_sendstr_chunk(req, wrapper_close);
+    httpd_resp_sendstr_chunk(req, html_close);
+    httpd_resp_sendstr_chunk(req, 0x0);
+    return ESP_OK;
+}
+
 
 esp_err_t dhyara::utils::http::peers(httpd_req_t* req){
     std::stringstream response_json;

@@ -37,8 +37,9 @@ struct http{
         httpd_config_t _config;
         httpd_handle_t _server;
     private:
-        httpd_uri_t    _index;
-        httpd_uri_t    _routing;
+        httpd_uri_t    _index_html;
+        httpd_uri_t    _routes_html;
+        httpd_uri_t    _peers_html;
         httpd_uri_t    _style;
         httpd_uri_t    _icons;
         httpd_uri_t    _info;
@@ -46,8 +47,9 @@ struct http{
         httpd_uri_t    _routes;
         httpd_uri_t    _peers;
     private:
-        static esp_err_t index_handler(httpd_req_t* req);
-        static esp_err_t routing_handler(httpd_req_t* req);
+        static esp_err_t index_html_handler(httpd_req_t* req);
+        static esp_err_t routes_html_handler(httpd_req_t* req);
+        static esp_err_t peers_html_handler(httpd_req_t* req);
         static esp_err_t style_handler(httpd_req_t* req);
         static esp_err_t icons_handler(httpd_req_t* req);
         static esp_err_t info_handler(httpd_req_t* req);
@@ -55,8 +57,9 @@ struct http{
         static esp_err_t routes_handler(httpd_req_t* req);
         static esp_err_t peers_handler(httpd_req_t* req);
     private:
-        esp_err_t index(httpd_req_t* req);
-        esp_err_t routing(httpd_req_t* req);
+        esp_err_t index_html(httpd_req_t* req);
+        esp_err_t routes_html(httpd_req_t* req);
+        esp_err_t peers_html(httpd_req_t* req);
         esp_err_t style(httpd_req_t* req);
         esp_err_t icons(httpd_req_t* req);
         esp_err_t info(httpd_req_t* req);

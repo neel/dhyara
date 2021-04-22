@@ -67,5 +67,13 @@
 		routing.next.map(r => create('tr', {}, create('td', {}, r.dst), create('td', {}, r.via), create('td', {}, r.delay+"ms"))).forEach(e => nbody.append(e));
 		setTimeout(poll_routing, 2000);
 	}).catch(err => setTimeout(poll_routing, 200));
+	let poll_peers = () => fetch("/peers.json").then(r => r.json()).then(function(peers){
+		let rbody = q("#neighbours-body")[0], nbody = q("#universe-body")[0];
+		rbody.innerHTML = "";
+		nbody.innerHTML = "";
+		peers.neighbours.map(r => create('tr', {}, create('td', {}, r.mac), create('td', {}, r.name), create('td', {}, r.channel), create('td', {}, r.rssi))).forEach(e => rbody.append(e));
+		peers.universe.map(r => create('tr', {}, create('td', {}, r.mac), create('td', {}, r.name))).forEach(e => nbody.append(e));
+		setTimeout(poll_peers, 2000);
+	}).catch(err => setTimeout(poll_peers, 200));
 	</script>
 </head>
