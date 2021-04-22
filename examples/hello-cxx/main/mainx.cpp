@@ -18,7 +18,7 @@ void mainx(){
     dhyara::network network(dhyara_link());
     dhyara_set_default_network(&network);
     
-    dhyara::peer_address sink("4c:11:ae:9c:a6:85"), source("4c:11:ae:71:0f:4d");
+    dhyara::address sink("4c:11:ae:9c:a6:85"), source("4c:11:ae:71:0f:4d");
     
 //     For experimental purpose 
 //     Optionally ban direct communication between the source and the target
@@ -27,11 +27,11 @@ void mainx(){
     
     dhyara_start_default_network();
     
-    dhyara::peer_address local = dhyara_local();
-    dhyara::peer_address other = (local == source) ? sink : ((local == sink) ? source : dhyara::peer_address::null());
+    dhyara::address local = dhyara_local();
+    dhyara::address other = (local == source) ? sink : ((local == sink) ? source : dhyara::address::null());
     
     // The anonymous function will be called once all chunks of a data packet is received
-    dhyara_receive_data([](const dhyara::peer_address& source, const dhyara::packets::data& data){
+    dhyara_receive_data([](const dhyara::address& source, const dhyara::packets::data& data){
         std::cout << "received data " << " originating from " << data.source() << " via " << source << " of size " << data.length() << std::endl;
     });
     

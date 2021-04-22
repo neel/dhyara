@@ -39,7 +39,7 @@ struct delivered: dhyara::actions::action<delivered, dhyara::packets::delivered>
      * \param addr source address 
      * \param delivered the received delivery report 
      */
-    void operator()(const dhyara::peer_address& addr, const dhyara::packets::delivered& delivered);
+    void operator()(const dhyara::address& addr, const dhyara::packets::delivered& delivered);
     
     private:
         dhyara::link& _link;

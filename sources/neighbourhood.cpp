@@ -33,19 +33,19 @@ const dhyara::peer& dhyara::neighbourhood::add(const dhyara::peer& p){
     return inserted.first->second;
 }
 
-const dhyara::peer& dhyara::neighbourhood::add(const dhyara::peer_address& addr, uint8_t ch, bool enc){
+const dhyara::peer& dhyara::neighbourhood::add(const dhyara::address& addr, uint8_t ch, bool enc){
     return add(dhyara::peer(addr));
 }
 
 const dhyara::peer& dhyara::neighbourhood::add(const std::string& addr, std::uint8_t ch, bool enc){
-    return add(dhyara::peer_address(addr), ch, enc);
+    return add(dhyara::address(addr), ch, enc);
 }
 
 bool dhyara::neighbourhood::exists(const std::string& addr) const {
-    return _peers.find(dhyara::peer_address(addr)) != _peers.end();
+    return _peers.find(dhyara::address(addr)) != _peers.end();
 }
 
-bool dhyara::neighbourhood::exists(const dhyara::peer_address& addr) const{
+bool dhyara::neighbourhood::exists(const dhyara::address& addr) const{
     return _peers.find(addr) != _peers.end();
 }
 
@@ -54,7 +54,7 @@ std::size_t dhyara::neighbourhood::size() const{
 }
 
 
-dhyara::peer& dhyara::neighbourhood::get_peer(const dhyara::peer_address& addr){
+dhyara::peer& dhyara::neighbourhood::get_peer(const dhyara::address& addr){
     peer_collection_type::iterator it = _peers.find(addr);
     return it->second;
 }

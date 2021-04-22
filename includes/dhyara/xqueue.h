@@ -222,18 +222,18 @@ struct mutex: watcher<char>{
  * Envelop for both <tt>to be sent</tt> and <tt>has been received</tt> messages
  */
 struct message{
-    inline message(): address(dhyara::peer_address::null()){}
-    inline message(const dhyara::peer_address& a, const dhyara::frame& f): 
+    inline message(): address(dhyara::address::null()){}
+    inline message(const dhyara::address& a, const dhyara::frame& f): 
         address(a), frame(f) {}
     inline void clear() {
-        address = dhyara::peer_address::null();
+        address = dhyara::address::null();
         frame.clear();
     }
     inline bool valid() const {
         return !address.is_null();
     }
     
-    dhyara::peer_address    address;
+    dhyara::address    address;
     dhyara::frame           frame;
 };
 
@@ -241,7 +241,7 @@ template <std::uint32_t Capacity>
 struct network_fifo{
     typedef network_fifo<Capacity> self_type;
     typedef xqueue<message, Capacity> xqueue_type;
-    typedef std::function<void (const dhyara::peer_address&, const dhyara::frame&)> callback_type;
+    typedef std::function<void (const dhyara::address&, const dhyara::frame&)> callback_type;
     
     /**
      * Construct with the callback
@@ -260,7 +260,7 @@ struct network_fifo{
     /**
      * enqueue a frame that has been received
      */
-    bool enqueue(const dhyara::peer_address& address, const dhyara::frame& frame, std::size_t ticks = 0){
+    bool enqueue(const dhyara::address& address, const dhyara::frame& frame, std::size_t ticks = 0){
         dhyara::message msg(address, frame);
         return _queue.en(msg, ticks);
     }

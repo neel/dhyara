@@ -39,7 +39,7 @@ struct beacon: dhyara::actions::action<beacon, dhyara::packets::beacon>{
      * \param addr source address 
      * \param beacon the received beacon 
      */
-    void operator()(const dhyara::peer_address& addr, const dhyara::packets::beacon& beacon);
+    void operator()(const dhyara::address& addr, const dhyara::packets::beacon& beacon);
     
     /**
      * broadcast a beacon packet to the immediate neighbours.
@@ -51,18 +51,18 @@ struct beacon: dhyara::actions::action<beacon, dhyara::packets::beacon>{
      * 
      * \param addr address of the peer
      */
-    void ban(const dhyara::peer_address& addr);
+    void ban(const dhyara::address& addr);
     /**
      * Check whether a peer is banned or not.
      * 
      * \param addr peer address
      * \return true if that address is banned, false otherwise
      */
-    inline bool banned(const dhyara::peer_address& addr) const { return _banned.count(addr); }
+    inline bool banned(const dhyara::address& addr) const { return _banned.count(addr); }
     
     private:
         dhyara::link& _link;
-        std::set<dhyara::peer_address> _banned;
+        std::set<dhyara::address> _banned;
         wifi_mode_t _mode;
 };
 

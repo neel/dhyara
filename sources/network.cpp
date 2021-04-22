@@ -58,7 +58,7 @@ void dhyara::network::presence(){
     }
 }
 
-void dhyara::network::isolate(const dhyara::peer_address& x, const dhyara::peer_address& y){
+void dhyara::network::isolate(const dhyara::address& x, const dhyara::address& y){
     if(_link.address() == x) _beacon.ban(y);
     if(_link.address() == y) _beacon.ban(x);
 }
@@ -90,7 +90,7 @@ void dhyara::network::start(){
 #endif
 }
 
-bool dhyara::network::send(const dhyara::peer_address& target, const dhyara::packets::data& data){
+bool dhyara::network::send(const dhyara::address& target, const dhyara::packets::data& data){
     std::uint8_t chunks = data.chunks();
     bool success = true;
     dhyara::packets::data data_packet(data);

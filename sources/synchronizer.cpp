@@ -33,7 +33,7 @@
 
 dhyara::synchronizer::synchronizer(dhyara::link& local): _link(local){}
 
-void dhyara::synchronizer::queue(const dhyara::peer_address& dest, const dhyara::peer_address& via, dhyara::delay_type delay){
+void dhyara::synchronizer::queue(const dhyara::address& dest, const dhyara::address& via, dhyara::delay_type delay){
     queue(dhyara::candidate(dest, via, delay));
 }
 
@@ -49,7 +49,7 @@ void dhyara::synchronizer::run(){
 }
 
 
-void dhyara::synchronizer::sync(const dhyara::peer_address& dest, const dhyara::peer_address& via, dhyara::delay_type delay){
+void dhyara::synchronizer::sync(const dhyara::address& dest, const dhyara::address& via, dhyara::delay_type delay){
     bool sync_required = _link.routes().update(dhyara::routing::route(dest, via), delay);
     
     dhyara::delay_type now = esp_timer_get_time();

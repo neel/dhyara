@@ -40,7 +40,7 @@ void dhyara::routing::route_metric::update(dhyara::delay_type delay, bool sync_u
     }
 }
 
-dhyara::routing::route::route(const dhyara::peer_address& dst, const dhyara::peer_address& via): _dst(dst), _via(via){}
+dhyara::routing::route::route(const dhyara::address& dst, const dhyara::address& via): _dst(dst), _via(via){}
 
 bool dhyara::routing::route::operator<(const dhyara::routing::route& other) const{
     return std::tie(_dst, _via) < std::tie(other._dst, other._via);
@@ -98,7 +98,7 @@ bool dhyara::routing::depreciate(const dhyara::routing::route& r){
 }
 
 
-dhyara::routing::next_hop dhyara::routing::next(const dhyara::peer_address& dst) const{
+dhyara::routing::next_hop dhyara::routing::next(const dhyara::address& dst) const{
     auto it = _next.find(dst);
     if(it != _next.end()){
         return it->second;
@@ -132,8 +132,8 @@ std::ostream& dhyara::routing::print(std::ostream& os) const{
 }
 
 
-dhyara::routing::next_hop dhyara::routing::calculated_next(dhyara::peer_address dst) const{
-    dhyara::routing::route begin(dst, dhyara::peer_address::null()), end(dst, dhyara::peer_address::all());
+dhyara::routing::next_hop dhyara::routing::calculated_next(dhyara::address dst) const{
+    dhyara::routing::route begin(dst, dhyara::address::null()), end(dst, dhyara::address::all());
     table_type::const_iterator lower = _table.lower_bound(begin), upper = _table.upper_bound(end);
     if(!std::distance(lower, upper)){
         return dhyara::routing::next_hop(dst, _def);
@@ -145,13 +145,13 @@ dhyara::routing::next_hop dhyara::routing::calculated_next(dhyara::peer_address 
 }
 
 
-bool dhyara::routing::exists(const dhyara::peer_address& dst) const{
-    dhyara::routing::route begin(dst, dhyara::peer_address::null()), end(dst, dhyara::peer_address::all());
+bool dhyara::routing::exists(const dhyara::address& dst) const{
+    dhyara::routing::route begin(dst, dhyara::address::null()), end(dst, dhyara::address::all());
     table_type::const_iterator lower = _table.lower_bound(begin), upper = _table.upper_bound(end);
     return std::distance(lower, upper);
 }
 
-bool dhyara::routing::update_next(dhyara::peer_address dst){
+bool dhyara::routing::update_next(dhyara::address dst){
     dhyara::routing::next_hop next = calculated_next(dst);
     auto it = _next.find(dst);
     if(it != _next.end()){

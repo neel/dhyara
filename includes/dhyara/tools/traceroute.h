@@ -26,7 +26,7 @@ struct traceroute{
      * \param network reference to the network
      * \param target the destination address
      */
-    traceroute(dhyara::network& network, const dhyara::peer_address& target);
+    traceroute(dhyara::network& network, const dhyara::address& target);
     /**
      * release the connection with the echo_lost action
      */
@@ -46,18 +46,18 @@ struct traceroute{
          * \param target the destination mac address
          * \param ttl TTL of the ICMP request which is to be sent
          */
-        void run(const dhyara::peer_address& target, std::uint8_t ttl);
+        void run(const dhyara::address& target, std::uint8_t ttl);
         /**
          * The callback to capture the lost packet and print the destination till which the previous ICMP request packet has reached. If that destination is the desired destination then stop sending another ICMP request. Otherwise send another with increased ttl value.
          */
-        void lost(const dhyara::peer_address&, const dhyara::packets::echo_lost& lost);
+        void lost(const dhyara::address&, const dhyara::packets::echo_lost& lost);
         /**
          * The callback to capture the reply packet and print the destination till which the previous ICMP request packet has reached. If that destination is the desired destination then stop sending another ICMP request. Otherwise send another with increased ttl value.
          */
-        void reply(const dhyara::peer_address&, const dhyara::packets::echo_reply& reply);
+        void reply(const dhyara::address&, const dhyara::packets::echo_reply& reply);
     private:
         dhyara::network& _network;
-        dhyara::peer_address _target;
+        dhyara::address _target;
         std::size_t _conn_lost;
         std::size_t _conn_reply;
         std::size_t _sequence;

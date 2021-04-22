@@ -59,7 +59,7 @@ bool dhyara_send(const unsigned char* target, const void* data, unsigned long le
  * \ingroup dhyara 
  */
 template <typename InputIt>
-bool dhyara_send(const dhyara::peer_address& target, InputIt begin, InputIt end);
+bool dhyara_send(const dhyara::address& target, InputIt begin, InputIt end);
 /**
  * \brief Send a variable length data as data packet to the destination over multi hop network.
  * \param target MAC address of the target
@@ -68,7 +68,7 @@ bool dhyara_send(const dhyara::peer_address& target, InputIt begin, InputIt end)
  * \ingroup dhyara 
  */
 template <typename InputIt>
-bool dhyara_send(const dhyara::peer_address& target, InputIt begin, std::size_t len);
+bool dhyara_send(const dhyara::address& target, InputIt begin, std::size_t len);
 /**
  * \}
  */
@@ -104,11 +104,11 @@ bool dhyara_receivef(dhyara_receivef_callback_t callback);
  * Sets a callback on the default networks on_data. This callback will be called whenever a data packet is received. (accepts C++ anonymous function)
  * The typedef dhyara_receive_callback_t is defined as the following.
  * \code
- * typedef std::function<void (const dhyara::peer_address&, dhyara::packets::data::const_iterator, dhyara::packets::data::const_iterator)> dhyara_receive_callback_type;
+ * typedef std::function<void (const dhyara::address&, dhyara::packets::data::const_iterator, dhyara::packets::data::const_iterator)> dhyara_receive_callback_type;
  * \endcode
  * Following is an example of the callback function.
  * \code
- * void callback (const dhyara::peer_address&, dhyara::packets::data::const_iterator, dhyara::packets::data::const_iterator){
+ * void callback (const dhyara::address&, dhyara::packets::data::const_iterator, dhyara::packets::data::const_iterator){
  * 
  * }
  * \endcode
@@ -120,11 +120,11 @@ bool dhyara_receive(dhyara_receive_callback_type callback);
  * Sets a callback on the default networks on_data. This callback will be called whenever a data packet is received. (accepts C++ anonymous function)
  * The typedef dhyara_receive_data_callback_type is defined as the following.
  * \code
- * typedef std::function<void (const dhyara::peer_address&, const dhyara::packets::data& data)> dhyara_receive_data_callback_type;
+ * typedef std::function<void (const dhyara::address&, const dhyara::packets::data& data)> dhyara_receive_data_callback_type;
  * \endcode
  * Following is an example of the callback function.
  * \code
- * void callback (const dhyara::peer_address&, const dhyara::packets::data& data){
+ * void callback (const dhyara::address&, const dhyara::packets::data& data){
  * 
  * }
  * \endcode
@@ -160,7 +160,7 @@ bool dhyara_ping(const unsigned char* target, count = 254, batch = 1, sleep = 15
 /**
  * pings target with the provided configuration
  * \code
- * dhyara::peer_address sink("4c:11:ae:9c:a6:85");
+ * dhyara::address sink("4c:11:ae:9c:a6:85");
  * dhyara_ping(other, 1, 10);
  * \endcode
  * \param target target MAC address
@@ -171,7 +171,7 @@ bool dhyara_ping(const unsigned char* target, count = 254, batch = 1, sleep = 15
  * \see dhyara::ping 
  * \ingroup tools 
  */
-bool dhyara_ping(const dhyara::peer_address& target, uint8_t count = 254, int8_t batch = 1, uint8_t sleep = 15);
+bool dhyara_ping(const dhyara::address& target, uint8_t count = 254, int8_t batch = 1, uint8_t sleep = 15);
 
 /**
  * \}
@@ -192,7 +192,7 @@ bool dhyara_traceroute(const unsigned char* target);
  * \param target MAC address of the destination
  * \ingroup tools 
  */
-bool dhyara_traceroute(const dhyara::peer_address& target);
+bool dhyara_traceroute(const dhyara::address& target);
 /**
  * \}
  */
@@ -211,7 +211,7 @@ bool dhyara_local(unsigned char* address);
  * gets the mac address of self
  * \ingroup dhyara
  */
-dhyara::peer_address dhyara_local();
+dhyara::address dhyara_local();
 /**
  * \}
  */
@@ -379,24 +379,24 @@ dhyara::network& dhyara_default_network();
 
 #ifndef __DOXYGEN__
 
-dhyara::peer_address dhyara_local();
+dhyara::address dhyara_local();
 
-bool dhyara_ping(const dhyara::peer_address& target, uint8_t count = 254, int8_t batch = 1, uint8_t sleep = 15);
+bool dhyara_ping(const dhyara::address& target, uint8_t count = 254, int8_t batch = 1, uint8_t sleep = 15);
 
-bool dhyara_traceroute(const dhyara::peer_address& target);
+bool dhyara_traceroute(const dhyara::address& target);
 
 template <typename InputIt>
-bool dhyara_send(const dhyara::peer_address& target, InputIt begin, InputIt end){
+bool dhyara_send(const dhyara::address& target, InputIt begin, InputIt end){
     return dhyara_default_network().send(target, begin, end);
 }
 
 template <typename InputIt>
-bool dhyara_send(const dhyara::peer_address& target, InputIt begin, std::size_t len){
+bool dhyara_send(const dhyara::address& target, InputIt begin, std::size_t len){
     return dhyara_default_network().send(target, begin, len);
 }
 
-typedef std::function<void (const dhyara::peer_address&, dhyara::packets::data::const_iterator, dhyara::packets::data::const_iterator)> dhyara_receive_callback_type;
-typedef std::function<void (const dhyara::peer_address&, const dhyara::packets::data& data)> dhyara_receive_data_callback_type;
+typedef std::function<void (const dhyara::address&, dhyara::packets::data::const_iterator, dhyara::packets::data::const_iterator)> dhyara_receive_callback_type;
+typedef std::function<void (const dhyara::address&, const dhyara::packets::data& data)> dhyara_receive_data_callback_type;
 bool dhyara_receive(dhyara_receive_callback_type callback);
 bool dhyara_receive_data(dhyara_receive_data_callback_type callback);
 

@@ -28,8 +28,8 @@
 #include "dhyara/actions/echo_lost.h"
 #include "dhyara/link.h"
 
-void dhyara::actions::echo_lost::operator()(const dhyara::peer_address& addr, const dhyara::packets::echo_lost& echo_lost){
-    dhyara::peer_address target = echo_lost.target();
+void dhyara::actions::echo_lost::operator()(const dhyara::address& addr, const dhyara::packets::echo_lost& echo_lost){
+    dhyara::address target = echo_lost.target();
     if(target == _link.address()){
         if(_slot){
             _slot(echo_lost);

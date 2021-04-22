@@ -60,7 +60,7 @@ struct network{
      * \param end end iterator to the data that that has to be sent
      */
     template <typename InputIt>
-    bool send(const dhyara::peer_address& target, InputIt begin, InputIt end){
+    bool send(const dhyara::address& target, InputIt begin, InputIt end){
         return send(target, dhyara::packets::data(target, begin, end));
     }
     
@@ -72,7 +72,7 @@ struct network{
      * \param count number of elements to send
      */
     template <typename InputIt>
-    bool send(const dhyara::peer_address& target, InputIt begin, std::size_t count){
+    bool send(const dhyara::address& target, InputIt begin, std::size_t count){
         return send(target, begin, begin+count);
     }
     
@@ -80,7 +80,7 @@ struct network{
      * Send a data packet
      * \see dhyara::packets::data
      */
-    bool send(const dhyara::peer_address& target, const dhyara::packets::data& data);
+    bool send(const dhyara::address& target, const dhyara::packets::data& data);
     
     public:
     
@@ -96,7 +96,7 @@ struct network{
          * \param x the first node
          * \param y the second node
          */
-        void isolate(const dhyara::peer_address& x, const dhyara::peer_address& y);
+        void isolate(const dhyara::address& x, const dhyara::address& y);
         
     public:
         /**

@@ -44,7 +44,7 @@ struct acknowledgement: dhyara::actions::action<acknowledgement, dhyara::packets
      * \param addr source address 
      * \param acknowledgement the received acknowledgement 
      */
-    void operator()(const dhyara::peer_address& addr, const dhyara::packets::acknowledgement& acknowledgement);
+    void operator()(const dhyara::address& addr, const dhyara::packets::acknowledgement& acknowledgement);
     
     private:
         dhyara::link& _link;

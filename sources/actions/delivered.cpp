@@ -28,7 +28,7 @@
 #include "dhyara/actions/delivered.h"
 #include "dhyara/link.h"
 
-void dhyara::actions::delivered::operator()(const dhyara::peer_address& addr, const dhyara::packets::delivered& delivered){
+void dhyara::actions::delivered::operator()(const dhyara::address& addr, const dhyara::packets::delivered& delivered){
     if(delivered.target() != _link.address()){
         _link.send(delivered.target(), dhyara::packets::type::delivered, delivered);
         return;

@@ -21,23 +21,23 @@ namespace utils{
  * \ingroup utils
  */
 struct printer{
-    void in(const dhyara::peer_address& source, const dhyara::packets::beacon& beacon);
-    void in(const dhyara::peer_address& source, const dhyara::packets::acknowledgement& acknowledgement);
-    void in(const dhyara::peer_address& source, const dhyara::packets::advertisement& advertisement);
-    void in(const dhyara::peer_address& source, const dhyara::packets::chunk& chunk);
-    void in(const dhyara::peer_address& source, const dhyara::packets::delivered& delivered);
-    void in(const dhyara::peer_address& source, const dhyara::packets::echo_request& echo_request);
-    void in(const dhyara::peer_address& source, const dhyara::packets::echo_reply& echo_reply);
-    void in(const dhyara::peer_address& source, const dhyara::packets::echo_lost& echo_lost);
+    void in(const dhyara::address& source, const dhyara::packets::beacon& beacon);
+    void in(const dhyara::address& source, const dhyara::packets::acknowledgement& acknowledgement);
+    void in(const dhyara::address& source, const dhyara::packets::advertisement& advertisement);
+    void in(const dhyara::address& source, const dhyara::packets::chunk& chunk);
+    void in(const dhyara::address& source, const dhyara::packets::delivered& delivered);
+    void in(const dhyara::address& source, const dhyara::packets::echo_request& echo_request);
+    void in(const dhyara::address& source, const dhyara::packets::echo_reply& echo_reply);
+    void in(const dhyara::address& source, const dhyara::packets::echo_lost& echo_lost);
     
-    void out(const dhyara::peer_address& source, const dhyara::packets::beacon& beacon);
-    void out(const dhyara::peer_address& source, const dhyara::packets::acknowledgement& acknowledgement);
-    void out(const dhyara::peer_address& source, const dhyara::packets::advertisement& advertisement);
-    void out(const dhyara::peer_address& source, const dhyara::packets::chunk& chunk);
-    void out(const dhyara::peer_address& source, const dhyara::packets::delivered& delivered);
-    void out(const dhyara::peer_address& source, const dhyara::packets::echo_request& echo_request);
-    void out(const dhyara::peer_address& source, const dhyara::packets::echo_reply& echo_reply);
-    void out(const dhyara::peer_address& source, const dhyara::packets::echo_lost& echo_lost);
+    void out(const dhyara::address& source, const dhyara::packets::beacon& beacon);
+    void out(const dhyara::address& source, const dhyara::packets::acknowledgement& acknowledgement);
+    void out(const dhyara::address& source, const dhyara::packets::advertisement& advertisement);
+    void out(const dhyara::address& source, const dhyara::packets::chunk& chunk);
+    void out(const dhyara::address& source, const dhyara::packets::delivered& delivered);
+    void out(const dhyara::address& source, const dhyara::packets::echo_request& echo_request);
+    void out(const dhyara::address& source, const dhyara::packets::echo_reply& echo_reply);
+    void out(const dhyara::address& source, const dhyara::packets::echo_lost& echo_lost);
 };
 
 }

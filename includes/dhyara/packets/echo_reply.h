@@ -46,7 +46,7 @@ struct echo_reply{
      * \param time the time in the ICMP request (defaults to current time)
      * \param ttl Time to Live (number of hops to live)
      */
-    inline echo_reply(const dhyara::peer_address& target, const dhyara::peer_address& source, std::uint32_t seq = 0, std::uint64_t time = esp_timer_get_time(), std::uint8_t ttl = 255) 
+    inline echo_reply(const dhyara::address& target, const dhyara::address& source, std::uint32_t seq = 0, std::uint64_t time = esp_timer_get_time(), std::uint8_t ttl = 255) 
         : _target{target.b1(), target.b2(), target.b3(), target.b4(), target.b5(), target.b6()}, 
           _source{source.b1(), source.b2(), source.b3(), source.b4(), source.b5(), source.b6()}, 
           _seq(seq), _time(time), _ttl(ttl){}
@@ -70,11 +70,11 @@ struct echo_reply{
     /**
      * target address
      */
-    inline dhyara::peer_address target() const { return dhyara::peer_address(_target); }
+    inline dhyara::address target() const { return dhyara::address(_target); }
     /**
      * source address
      */
-    inline dhyara::peer_address source() const { return dhyara::peer_address(_source); }
+    inline dhyara::address source() const { return dhyara::address(_source); }
     
 } __attribute__((packed));
     

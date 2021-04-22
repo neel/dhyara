@@ -6,6 +6,7 @@ else()
     idf_component_register(
         SRCS 
             "sources/routing.cpp"
+            "sources/address.cpp"
             "sources/peer.cpp"
             "sources/link.cpp"
             "sources/neighbourhood.cpp"

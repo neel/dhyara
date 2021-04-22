@@ -26,13 +26,13 @@ namespace actions{
  * // Assuming X is a type of packet, identified by type dhyara::packets::type::x and defined in class dhyara::packets::X
  * struct X: dhyara::action<X, dhyara::packets::X>{
  *      using action::operator(); // expose the base class's operator() overload
- *      void operator()(const dhyara::peer_address& addr, const dhyara::packets::X& packet); // provide an operator() overload to consume the received packet 
+ *      void operator()(const dhyara::address& addr, const dhyara::packets::X& packet); // provide an operator() overload to consume the received packet 
  * };
  * \endcode
  */
 template <typename DerivedT, typename PacketT>
 struct action{
-    typedef std::function<void (const dhyara::peer_address&, const PacketT&)> slot_type;
+    typedef std::function<void (const dhyara::address&, const PacketT&)> slot_type;
     
     /**
      * Default action constructor
@@ -49,7 +49,7 @@ struct action{
     /**
      * Creates a packet from the received frame. Passes that packet to the Derived action's operator() overload. Calls the slots connected.
      */
-    void operator()(const dhyara::peer_address& address, const dhyara::frame& frame){
+    void operator()(const dhyara::address& address, const dhyara::frame& frame){
         PacketT packet;
         dhyara::read(packet, frame._buffer, frame.length());
         dhyara::utils::printer printer;

@@ -91,7 +91,7 @@ namespace dhyara{
  */
 
 class link{
-    typedef std::function<void (const dhyara::peer_address&, const dhyara::frame&)> callback_type;
+    typedef std::function<void (const dhyara::address&, const dhyara::frame&)> callback_type;
     typedef std::map<dhyara::packets::type, callback_type> handlers_map_type;
     typedef std::map<dhyara::packets::type, std::pair<std::size_t, std::size_t>> counters_map_type;
     typedef dhyara::network_fifo<dhyara::queue_size> fifo_type;
@@ -128,7 +128,7 @@ class link{
         * \param packet packet object
         */
         template <typename PacketT>
-        bool send_local(const dhyara::peer_address& addr, packets::type type, const PacketT& packet){
+        bool send_local(const dhyara::address& addr, packets::type type, const PacketT& packet){
             dhyara::utils::printer printer;
             printer.out(addr, packet);
             dhyara::frame frame(type, packet.size());
@@ -144,8 +144,8 @@ class link{
         * \param packet packet object
         */
         template <typename PacketT>
-        bool send(const dhyara::peer_address& addr, packets::type type, const PacketT& packet){
-            dhyara::peer_address immediate = _routes.next(addr).via();
+        bool send(const dhyara::address& addr, packets::type type, const PacketT& packet){
+            dhyara::address immediate = _routes.next(addr).via();
             return send_local(immediate.is_null() ? addr : immediate, type, packet);
         }
         
@@ -161,7 +161,7 @@ class link{
         /**
         * local address
         */
-        inline const dhyara::peer_address& address() const { return _mac; }
+        inline const dhyara::address& address() const { return _mac; }
         
         /**
         * \name Statistical 
@@ -229,7 +229,7 @@ class link{
         /**
         * Associate with the target AP using the station interface
         */
-        esp_err_t connect(const dhyara::peer_address& target);
+        esp_err_t connect(const dhyara::address& target);
         
         
         /**
@@ -317,7 +317,7 @@ class link{
          * \param address immediate source address
          * \param frame frame
          */
-        void q_receive(const dhyara::peer_address& address, const dhyara::frame& frame);
+        void q_receive(const dhyara::address& address, const dhyara::frame& frame);
         /**
          * Send raw data to an immediate destination. Called directly if transmission queueing is disabled. Otherwise called through start_snd
          * 
@@ -338,7 +338,7 @@ class link{
          * \param address destination address
          * \param frame frame
          */
-        bool transmit(const dhyara::peer_address& address, const dhyara::frame& frame);
+        bool transmit(const dhyara::address& address, const dhyara::frame& frame);
     
     private:
         dhyara::frame           _frame_rcv;     ///< Temporary buffer to hold the received frame which is then enqueued to _fifo
@@ -348,7 +348,7 @@ class link{
         dhyara::neighbourhood   _neighbours;
         handlers_map_type       _handlers;
         dhyara::routing         _routes;
-        dhyara::peer_address   _mac;
+        dhyara::address   _mac;
         counters_map_type       _counters;
 };
 

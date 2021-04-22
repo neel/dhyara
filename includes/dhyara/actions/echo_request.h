@@ -36,7 +36,7 @@ struct echo_request: dhyara::actions::action<echo_request, dhyara::packets::echo
      * \param addr source address 
      * \param echo_request the received echo_request 
      */
-    void operator()(const dhyara::peer_address& addr, const dhyara::packets::echo_request& echo_request);
+    void operator()(const dhyara::address& addr, const dhyara::packets::echo_request& echo_request);
     /**
      * Sends batch ICMP request to target. ICMP requests in the batch are sent without any time gap between two consecutive requests. The duration of sleep between two consecutive batches can be controlled using sleep argument.
      * 
@@ -45,7 +45,7 @@ struct echo_request: dhyara::actions::action<echo_request, dhyara::packets::echo
      * \param batch number of ICMP requests in the one batch (default 1)
      * \param sleep time (in ms) to sleep after each ICMP batch request (default to 15)
      */
-    void ping(const dhyara::peer_address& target, std::uint8_t count = 254, std::int8_t batch = 1, std::uint8_t sleep = 15);
+    void ping(const dhyara::address& target, std::uint8_t count = 254, std::int8_t batch = 1, std::uint8_t sleep = 15);
     
     private:
         dhyara::link& _link;

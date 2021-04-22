@@ -23,21 +23,21 @@ struct link;
  * \ingroup routing
  */
 struct candidate{
-    dhyara::peer_address _dest;
-    dhyara::peer_address _via;
+    dhyara::address _dest;
+    dhyara::address _via;
     dhyara::delay_type    _delay;
     
-    inline candidate(): _dest(dhyara::peer_address::null()), _via(dhyara::peer_address::null()), _delay(0) {}
-    inline candidate(dhyara::peer_address dest, dhyara::peer_address via, dhyara::delay_type delay): _dest(dest), _via(via), _delay(delay){}
+    inline candidate(): _dest(dhyara::address::null()), _via(dhyara::address::null()), _delay(0) {}
+    inline candidate(dhyara::address dest, dhyara::address via, dhyara::delay_type delay): _dest(dest), _via(via), _delay(delay){}
     
     /**
         * destination address
         */
-    inline dhyara::peer_address dest() const { return _dest; }
+    inline dhyara::address dest() const { return _dest; }
     /**
         * intermediate node address
         */
-    inline dhyara::peer_address via() const { return _via; }
+    inline dhyara::address via() const { return _via; }
     /**
         * one trip delay
         */
@@ -59,7 +59,7 @@ struct candidate{
  */
 struct synchronizer{
     typedef dhyara::xqueue<candidate, dhyara::sync_queue_size> sync_queue_type;
-    typedef std::map<dhyara::peer_address, dhyara::delay_type> last_advertisement_map;
+    typedef std::map<dhyara::address, dhyara::delay_type> last_advertisement_map;
     
     /**
      * Construct using a link
@@ -75,7 +75,7 @@ struct synchronizer{
      * \param via intermediate address
      * \param delay one trip delay in that route 
      */
-    void queue(const dhyara::peer_address& dest, const dhyara::peer_address& via, dhyara::delay_type delay);
+    void queue(const dhyara::address& dest, const dhyara::address& via, dhyara::delay_type delay);
     /**
      * enqueue a candidate 
      * 
@@ -106,7 +106,7 @@ struct synchronizer{
          * \param via The intermediate node address
          * \param delay the one trip delay on this route 
          */
-        void sync(const dhyara::peer_address& dest, const dhyara::peer_address& via, dhyara::delay_type delay);
+        void sync(const dhyara::address& dest, const dhyara::address& via, dhyara::delay_type delay);
     private:
         dhyara::link&           _link;
         sync_queue_type         _fifo;
