@@ -114,18 +114,19 @@ Collaboration diagram for dhyara::link:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdhyara_1_1link__coll__graph.png" border="0" usemap="#dhyara_1_1link_coll__map" alt="Collaboration graph"/></div>
 <map name="dhyara_1_1link_coll__map" id="dhyara_1_1link_coll__map">
-<area shape="rect" title="Link is responsible for low level sending/receiving." alt="" coords="985,188,1084,215"/>
-<area shape="rect" href="structdhyara_1_1notifier.html" title="notifier" alt="" coords="697,7,819,33"/>
-<area shape="rect" href="structdhyara_1_1watcher.html" title=" " alt="" coords="344,7,529,33"/>
-<area shape="rect" href="classdhyara_1_1xqueue.html" title=" " alt="" coords="5,7,203,33"/>
-<area shape="rect" href="classdhyara_1_1xqueue.html" title=" " alt="" coords="663,57,853,113"/>
-<area shape="rect" href="structdhyara_1_1neighbourhood.html" title="Neighbourhood of a node." alt="" coords="672,137,844,164"/>
-<area shape="rect" href="structdhyara_1_1peer__address.html" title="peer address (mac address)" alt="" coords="23,219,185,245"/>
-<area shape="rect" href="structdhyara_1_1message.html" title="Envelop for both to be sent and has been received messages." alt="" coords="369,239,504,265"/>
-<area shape="rect" href="structdhyara_1_1routing.html" title="routing table" alt="" coords="697,407,819,433"/>
-<area shape="rect" href="structdhyara_1_1frame.html" title="A 250 bytes frame is defined by a 2 bytes header and 248 bytes payload." alt="" coords="47,311,161,337"/>
-<area shape="rect" href="structdhyara_1_1network__fifo.html" title=" " alt="" coords="669,239,847,281"/>
-<area shape="rect" href="classdhyara_1_1xqueue.html" title=" " alt="" coords="336,290,537,331"/>
+<area shape="rect" title="Link is responsible for low level sending/receiving." alt="" coords="985,284,1084,311"/>
+<area shape="rect" href="structdhyara_1_1address.html" title="peer address (mac address)" alt="" coords="41,63,167,89"/>
+<area shape="rect" href="structdhyara_1_1message.html" title="Envelop for both to be sent and has been received messages." alt="" coords="369,83,504,109"/>
+<area shape="rect" href="structdhyara_1_1notifier.html" title="notifier" alt="" coords="697,251,819,277"/>
+<area shape="rect" href="structdhyara_1_1watcher.html" title=" " alt="" coords="344,251,529,277"/>
+<area shape="rect" href="classdhyara_1_1xqueue.html" title=" " alt="" coords="5,251,203,277"/>
+<area shape="rect" href="classdhyara_1_1xqueue.html" title=" " alt="" coords="663,301,853,357"/>
+<area shape="rect" href="structdhyara_1_1neighbourhood.html" title="Neighbourhood of a node." alt="" coords="672,381,844,408"/>
+<area shape="rect" href="structdhyara_1_1routing.html" title="routing table" alt="" coords="697,432,819,459"/>
+<area shape="rect" href="structdhyara_1_1universe.html" title="Universe of all nodes in the known in the universe." alt="" coords="693,483,823,509"/>
+<area shape="rect" href="structdhyara_1_1frame.html" title="A 250 bytes frame is defined by a 2 bytes header and 248 bytes payload." alt="" coords="47,147,161,173"/>
+<area shape="rect" href="structdhyara_1_1network__fifo.html" title=" " alt="" coords="669,134,847,175"/>
+<area shape="rect" href="classdhyara_1_1xqueue.html" title=" " alt="" coords="336,134,537,175"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -144,30 +145,34 @@ Public Member Functions</h2></td></tr>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdhyara_1_1link.html#a1c9f0b94a68b78b3ca2b55263642fdd4">init</a> ()</td></tr>
 <tr class="memdesc:a1c9f0b94a68b78b3ca2b55263642fdd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the medium. <br /></td></tr>
 <tr class="separator:a1c9f0b94a68b78b3ca2b55263642fdd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab1b658b908d8ead7315600db746c51f6"><td class="memTemplParams" colspan="2">template&lt;typename PacketT &gt; </td></tr>
-<tr class="memitem:ab1b658b908d8ead7315600db746c51f6"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classdhyara_1_1link.html#ab1b658b908d8ead7315600db746c51f6">send_local</a> (const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> &amp;addr, <a class="el" href="group__packets.html#ga587a117adc54019693a184e4f8b4e0b5">packets::type</a> type, const PacketT &amp;packet)</td></tr>
-<tr class="memdesc:ab1b658b908d8ead7315600db746c51f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a packet to an immediate neighbour directly in one hop.  <a href="classdhyara_1_1link.html#ab1b658b908d8ead7315600db746c51f6">More...</a><br /></td></tr>
-<tr class="separator:ab1b658b908d8ead7315600db746c51f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc9c6543f44bb258ec27d169dfc2acaf"><td class="memTemplParams" colspan="2">template&lt;typename PacketT &gt; </td></tr>
-<tr class="memitem:adc9c6543f44bb258ec27d169dfc2acaf"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classdhyara_1_1link.html#adc9c6543f44bb258ec27d169dfc2acaf">send</a> (const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> &amp;addr, <a class="el" href="group__packets.html#ga587a117adc54019693a184e4f8b4e0b5">packets::type</a> type, const PacketT &amp;packet)</td></tr>
-<tr class="memdesc:adc9c6543f44bb258ec27d169dfc2acaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a packet via the best intermediate node.  <a href="classdhyara_1_1link.html#adc9c6543f44bb258ec27d169dfc2acaf">More...</a><br /></td></tr>
-<tr class="separator:adc9c6543f44bb258ec27d169dfc2acaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f418bc4200bf66c55499acb7076a261"><td class="memTemplParams" colspan="2">template&lt;typename PacketT &gt; </td></tr>
+<tr class="memitem:a8f418bc4200bf66c55499acb7076a261"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classdhyara_1_1link.html#a8f418bc4200bf66c55499acb7076a261">send_local</a> (const <a class="el" href="structdhyara_1_1address.html">dhyara::address</a> &amp;addr, <a class="el" href="group__packets.html#ga587a117adc54019693a184e4f8b4e0b5">packets::type</a> type, const PacketT &amp;packet)</td></tr>
+<tr class="memdesc:a8f418bc4200bf66c55499acb7076a261"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a packet to an immediate neighbour directly in one hop.  <a href="classdhyara_1_1link.html#a8f418bc4200bf66c55499acb7076a261">More...</a><br /></td></tr>
+<tr class="separator:a8f418bc4200bf66c55499acb7076a261"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85776d70bdb109d28f30264cad89a908"><td class="memTemplParams" colspan="2">template&lt;typename PacketT &gt; </td></tr>
+<tr class="memitem:a85776d70bdb109d28f30264cad89a908"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classdhyara_1_1link.html#a85776d70bdb109d28f30264cad89a908">send</a> (const <a class="el" href="structdhyara_1_1address.html">dhyara::address</a> &amp;addr, <a class="el" href="group__packets.html#ga587a117adc54019693a184e4f8b4e0b5">packets::type</a> type, const PacketT &amp;packet)</td></tr>
+<tr class="memdesc:a85776d70bdb109d28f30264cad89a908"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a packet via the best intermediate node.  <a href="classdhyara_1_1link.html#a85776d70bdb109d28f30264cad89a908">More...</a><br /></td></tr>
+<tr class="separator:a85776d70bdb109d28f30264cad89a908"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad52747ce9c6acc559df80526a9286b5a"><td class="memItemLeft" align="right" valign="top"><a id="ad52747ce9c6acc559df80526a9286b5a"></a>
 <a class="el" href="structdhyara_1_1neighbourhood.html">dhyara::neighbourhood</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdhyara_1_1link.html#ad52747ce9c6acc559df80526a9286b5a">neighbours</a> ()</td></tr>
 <tr class="memdesc:ad52747ce9c6acc559df80526a9286b5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">immediate neighbourhood <br /></td></tr>
 <tr class="separator:ad52747ce9c6acc559df80526a9286b5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a776e958f8f942042c562d1dcf496a77f"><td class="memItemLeft" align="right" valign="top"><a id="a776e958f8f942042c562d1dcf496a77f"></a>
+<a class="el" href="structdhyara_1_1universe.html">dhyara::universe</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdhyara_1_1link.html#a776e958f8f942042c562d1dcf496a77f">universe</a> ()</td></tr>
+<tr class="memdesc:a776e958f8f942042c562d1dcf496a77f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The known universe. <br /></td></tr>
+<tr class="separator:a776e958f8f942042c562d1dcf496a77f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb967dd39b9e1982e5411e9d8005fc27"><td class="memItemLeft" align="right" valign="top"><a id="afb967dd39b9e1982e5411e9d8005fc27"></a>
 <a class="el" href="structdhyara_1_1routing.html">dhyara::routing</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdhyara_1_1link.html#afb967dd39b9e1982e5411e9d8005fc27">routes</a> ()</td></tr>
 <tr class="memdesc:afb967dd39b9e1982e5411e9d8005fc27"><td class="mdescLeft">&#160;</td><td class="mdescRight">routing table <br /></td></tr>
 <tr class="separator:afb967dd39b9e1982e5411e9d8005fc27"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a14215f8d36d2ab205737ac3dc9f30d79"><td class="memItemLeft" align="right" valign="top"><a id="a14215f8d36d2ab205737ac3dc9f30d79"></a>
-const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer::address</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdhyara_1_1link.html#a14215f8d36d2ab205737ac3dc9f30d79">address</a> () const</td></tr>
-<tr class="memdesc:a14215f8d36d2ab205737ac3dc9f30d79"><td class="mdescLeft">&#160;</td><td class="mdescRight">local address <br /></td></tr>
-<tr class="separator:a14215f8d36d2ab205737ac3dc9f30d79"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ffc74d64e082b29665d91a217411b4f"><td class="memItemLeft" align="right" valign="top"><a id="a9ffc74d64e082b29665d91a217411b4f"></a>
-esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdhyara_1_1link.html#a9ffc74d64e082b29665d91a217411b4f">connect</a> (const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> &amp;target)</td></tr>
-<tr class="memdesc:a9ffc74d64e082b29665d91a217411b4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Associate with the target AP using the station interface. <br /></td></tr>
-<tr class="separator:a9ffc74d64e082b29665d91a217411b4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e39bb9c87c95760da9b30a0a5084035"><td class="memItemLeft" align="right" valign="top"><a id="a3e39bb9c87c95760da9b30a0a5084035"></a>
+const <a class="el" href="structdhyara_1_1address.html">dhyara::address</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdhyara_1_1link.html#a3e39bb9c87c95760da9b30a0a5084035">address</a> () const</td></tr>
+<tr class="memdesc:a3e39bb9c87c95760da9b30a0a5084035"><td class="mdescLeft">&#160;</td><td class="mdescRight">local address <br /></td></tr>
+<tr class="separator:a3e39bb9c87c95760da9b30a0a5084035"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae81115911578d01e53d75c99b6b9e3cd"><td class="memItemLeft" align="right" valign="top"><a id="ae81115911578d01e53d75c99b6b9e3cd"></a>
+esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdhyara_1_1link.html#ae81115911578d01e53d75c99b6b9e3cd">connect</a> (const <a class="el" href="structdhyara_1_1address.html">dhyara::address</a> &amp;target)</td></tr>
+<tr class="memdesc:ae81115911578d01e53d75c99b6b9e3cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Associate with the target AP using the station interface. <br /></td></tr>
+<tr class="separator:ae81115911578d01e53d75c99b6b9e3cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Statistical</div></td></tr>
 <tr class="memitem:a388cf4322e818fd5d33665c571c3ca37"><td class="memItemLeft" align="right" valign="top"><a id="a388cf4322e818fd5d33665c571c3ca37"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdhyara_1_1link.html#a388cf4322e818fd5d33665c571c3ca37">reset</a> (<a class="el" href="group__packets.html#ga587a117adc54019693a184e4f8b4e0b5">dhyara::packets::type</a> type)</td></tr>
@@ -226,15 +231,15 @@ dhyara::delay_type&#160;</td><td class="memItemRight" valign="bottom"><a class="
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:aa4e985816289a5e054aed2d744aad77e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdhyara_1_1link.html#aa4e985816289a5e054aed2d744aad77e">q_receive</a> (const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> &amp;<a class="el" href="classdhyara_1_1link.html#a14215f8d36d2ab205737ac3dc9f30d79">address</a>, const <a class="el" href="structdhyara_1_1frame.html">dhyara::frame</a> &amp;<a class="el" href="structdhyara_1_1frame.html">frame</a>)</td></tr>
-<tr class="memdesc:aa4e985816289a5e054aed2d744aad77e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Process a received frame.  <a href="classdhyara_1_1link.html#aa4e985816289a5e054aed2d744aad77e">More...</a><br /></td></tr>
-<tr class="separator:aa4e985816289a5e054aed2d744aad77e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b7bd150be98b5313404b47df2acf170"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdhyara_1_1link.html#a2b7bd150be98b5313404b47df2acf170">q_receive</a> (const <a class="el" href="structdhyara_1_1address.html">dhyara::address</a> &amp;<a class="el" href="structdhyara_1_1address.html">address</a>, const <a class="el" href="structdhyara_1_1frame.html">dhyara::frame</a> &amp;<a class="el" href="structdhyara_1_1frame.html">frame</a>)</td></tr>
+<tr class="memdesc:a2b7bd150be98b5313404b47df2acf170"><td class="mdescLeft">&#160;</td><td class="mdescRight">Process a received frame.  <a href="classdhyara_1_1link.html#a2b7bd150be98b5313404b47df2acf170">More...</a><br /></td></tr>
+<tr class="separator:a2b7bd150be98b5313404b47df2acf170"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5fc3a07a12711ca617ff8ef8296aaba2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdhyara_1_1link.html#a5fc3a07a12711ca617ff8ef8296aaba2">_transmit</a> (const std::uint8_t *dest, const std::uint8_t *data, std::size_t len)</td></tr>
 <tr class="memdesc:a5fc3a07a12711ca617ff8ef8296aaba2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send raw data to an immediate destination.  <a href="classdhyara_1_1link.html#a5fc3a07a12711ca617ff8ef8296aaba2">More...</a><br /></td></tr>
 <tr class="separator:a5fc3a07a12711ca617ff8ef8296aaba2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a24055fe76a8ee2619c36650d98c1bae4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdhyara_1_1link.html#a24055fe76a8ee2619c36650d98c1bae4">transmit</a> (const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> &amp;<a class="el" href="classdhyara_1_1link.html#a14215f8d36d2ab205737ac3dc9f30d79">address</a>, const <a class="el" href="structdhyara_1_1frame.html">dhyara::frame</a> &amp;<a class="el" href="structdhyara_1_1frame.html">frame</a>)</td></tr>
-<tr class="memdesc:a24055fe76a8ee2619c36650d98c1bae4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Depending of the configuration of transmission queueing, Transmits/Enequeues a frame for sending to the given destination address in <b>one hop</b>.  <a href="classdhyara_1_1link.html#a24055fe76a8ee2619c36650d98c1bae4">More...</a><br /></td></tr>
-<tr class="separator:a24055fe76a8ee2619c36650d98c1bae4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a706deb932a658c6dc3e638529bce7f5d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdhyara_1_1link.html#a706deb932a658c6dc3e638529bce7f5d">transmit</a> (const <a class="el" href="structdhyara_1_1address.html">dhyara::address</a> &amp;<a class="el" href="structdhyara_1_1address.html">address</a>, const <a class="el" href="structdhyara_1_1frame.html">dhyara::frame</a> &amp;<a class="el" href="structdhyara_1_1frame.html">frame</a>)</td></tr>
+<tr class="memdesc:a706deb932a658c6dc3e638529bce7f5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Depending of the configuration of transmission queueing, Transmits/Enequeues a frame for sending to the given destination address in <b>one hop</b>.  <a href="classdhyara_1_1link.html#a706deb932a658c6dc3e638529bce7f5d">More...</a><br /></td></tr>
+<tr class="separator:a706deb932a658c6dc3e638529bce7f5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -268,11 +273,11 @@ Internal Send Receive Mechanism</h3>
 <p><a class="el" href="classdhyara_1_1link.html#ad7b4f39ecaf94c52dc5739898da8a627">_esp_rcvd_cb</a> has to be registered to the esp_now_register_send_cb() for send queueing. The sending and receiving tasks are never ending infinitie lops that dequeues the send and receive queue respectively. <a class="el" href="classdhyara_1_1link.html#a48d84ff3fff1d76658acfa4df424d943">start_rcv</a> and <a class="el" href="classdhyara_1_1link.html#a379534b3f0faa7c9c927d9205ebec850">start_snd</a> are used to create send and receive tasks by <a class="el" href="structdhyara_1_1network.html#aadf3365c6a5506187b2f9c91ef4fdd0a">dhyara::network::start</a>. </p><div class="dotgraph">
 <img src="dot_inline_dotgraph_1.png" alt="dot_inline_dotgraph_1.png" border="0" usemap="#dot_inline_dotgraph_1.map"/>
 </div>
-<p> sending a frame is more complecated that receiving it. All overloads of <a class="el" href="classdhyara_1_1link.html#adc9c6543f44bb258ec27d169dfc2acaf">dhyara::link::send</a> ultimately calls <a class="el" href="classdhyara_1_1link.html#a24055fe76a8ee2619c36650d98c1bae4">dhyara::link::transmit</a>. If Send Queuing is enabled (by default) then transmit queues the frame instead of actually transmitting it. Otherwise it transmit using <a class="el" href="classdhyara_1_1link.html#a5fc3a07a12711ca617ff8ef8296aaba2">dhyara::link::_transmit</a>. </p><div class="dotgraph">
+<p> sending a frame is more complecated that receiving it. All overloads of <a class="el" href="classdhyara_1_1link.html#a85776d70bdb109d28f30264cad89a908">dhyara::link::send</a> ultimately calls <a class="el" href="classdhyara_1_1link.html#a706deb932a658c6dc3e638529bce7f5d">dhyara::link::transmit</a>. If Send Queuing is enabled (by default) then transmit queues the frame instead of actually transmitting it. Otherwise it transmit using <a class="el" href="classdhyara_1_1link.html#a5fc3a07a12711ca617ff8ef8296aaba2">dhyara::link::_transmit</a>. </p><div class="dotgraph">
 <img src="dot_inline_dotgraph_2.png" alt="dot_inline_dotgraph_2.png" border="0" usemap="#dot_inline_dotgraph_2.map"/>
 </div>
  
-<p class="definition">Definition at line <a class="el" href="link_8h_source.html#l00093">93</a> of file <a class="el" href="link_8h_source.html">link.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="link_8h_source.html#l00094">94</a> of file <a class="el" href="link_8h_source.html">link.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a45aedba311a6021cafbdcbb9d2dfa09a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a45aedba311a6021cafbdcbb9d2dfa09a">&#9670;&nbsp;</a></span>_esp_promiscous_rx_cb()</h2>
@@ -528,12 +533,12 @@ This function is supposed by the callback passed to esp_now_register_send_cb().<
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="link_8h_source.html#l00222">222</a> of file <a class="el" href="link_8h_source.html">link.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="link_8h_source.html#l00228">228</a> of file <a class="el" href="link_8h_source.html">link.h</a>.</p>
 
 </div>
 </div>
-<a id="aa4e985816289a5e054aed2d744aad77e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa4e985816289a5e054aed2d744aad77e">&#9670;&nbsp;</a></span>q_receive()</h2>
+<a id="a2b7bd150be98b5313404b47df2acf170"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b7bd150be98b5313404b47df2acf170">&#9670;&nbsp;</a></span>q_receive()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -544,7 +549,7 @@ This function is supposed by the callback passed to esp_now_register_send_cb().<
         <tr>
           <td class="memname">void dhyara::link::q_receive </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="structdhyara_1_1address.html">dhyara::address</a> &amp;&#160;</td>
           <td class="paramname"><em>address</em>, </td>
         </tr>
         <tr>
@@ -604,8 +609,8 @@ This function is supposed by the callback passed to esp_now_register_send_cb().<
 
 </div>
 </div>
-<a id="adc9c6543f44bb258ec27d169dfc2acaf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adc9c6543f44bb258ec27d169dfc2acaf">&#9670;&nbsp;</a></span>send()</h2>
+<a id="a85776d70bdb109d28f30264cad89a908"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85776d70bdb109d28f30264cad89a908">&#9670;&nbsp;</a></span>send()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -618,7 +623,7 @@ template&lt;typename PacketT &gt; </div>
         <tr>
           <td class="memname">bool dhyara::link::send </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="structdhyara_1_1address.html">dhyara::address</a> &amp;&#160;</td>
           <td class="paramname"><em>addr</em>, </td>
         </tr>
         <tr>
@@ -657,14 +662,14 @@ template&lt;typename PacketT &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="link_8h_source.html#l00147">147</a> of file <a class="el" href="link_8h_source.html">link.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="link_8h_source.html#l00148">148</a> of file <a class="el" href="link_8h_source.html">link.h</a>.</p>
 
-<p class="reference">References <a class="el" href="peer_8h_source.html#l00131">dhyara::peer_address::is_null()</a>, <a class="el" href="structdhyara_1_1routing.html#aa48f75eeef012f4269d2a803049d542f">dhyara::routing::next()</a>, <a class="el" href="link_8h_source.html#l00131">send_local()</a>, and <a class="el" href="routing_8h_source.html#l00122">dhyara::routing::next_hop::via()</a>.</p>
+<p class="reference">References <a class="el" href="address_8h_source.html#l00130">dhyara::address::is_null()</a>, <a class="el" href="structdhyara_1_1routing.html#af8aeea5a288a026d351ccf06e555ec2d">dhyara::routing::next()</a>, <a class="el" href="link_8h_source.html#l00132">send_local()</a>, and <a class="el" href="routing_8h_source.html#l00122">dhyara::routing::next_hop::via()</a>.</p>
 
 </div>
 </div>
-<a id="ab1b658b908d8ead7315600db746c51f6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab1b658b908d8ead7315600db746c51f6">&#9670;&nbsp;</a></span>send_local()</h2>
+<a id="a8f418bc4200bf66c55499acb7076a261"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f418bc4200bf66c55499acb7076a261">&#9670;&nbsp;</a></span>send_local()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -677,7 +682,7 @@ template&lt;typename PacketT &gt; </div>
         <tr>
           <td class="memname">bool dhyara::link::send_local </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="structdhyara_1_1address.html">dhyara::address</a> &amp;&#160;</td>
           <td class="paramname"><em>addr</em>, </td>
         </tr>
         <tr>
@@ -715,18 +720,18 @@ template&lt;typename PacketT &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="link_8h_source.html#l00131">131</a> of file <a class="el" href="link_8h_source.html">link.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="link_8h_source.html#l00132">132</a> of file <a class="el" href="link_8h_source.html">link.h</a>.</p>
 
-<p class="reference">References <a class="el" href="classdhyara_1_1link.html#a24055fe76a8ee2619c36650d98c1bae4">transmit()</a>, and <a class="el" href="io_8h_source.html#l00021">dhyara::write()</a>.</p>
+<p class="reference">References <a class="el" href="classdhyara_1_1link.html#a706deb932a658c6dc3e638529bce7f5d">transmit()</a>, and <a class="el" href="io_8h_source.html#l00021">dhyara::write()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="link_8h_source.html#l00147">send()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="link_8h_source.html#l00148">send()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="classdhyara_1_1link_ab1b658b908d8ead7315600db746c51f6_icgraph.png" border="0" usemap="#classdhyara_1_1link_ab1b658b908d8ead7315600db746c51f6_icgraph" alt=""/></div>
-<map name="classdhyara_1_1link_ab1b658b908d8ead7315600db746c51f6_icgraph" id="classdhyara_1_1link_ab1b658b908d8ead7315600db746c51f6_icgraph">
+<div class="center"><img src="classdhyara_1_1link_a8f418bc4200bf66c55499acb7076a261_icgraph.png" border="0" usemap="#classdhyara_1_1link_a8f418bc4200bf66c55499acb7076a261_icgraph" alt=""/></div>
+<map name="classdhyara_1_1link_a8f418bc4200bf66c55499acb7076a261_icgraph" id="classdhyara_1_1link_a8f418bc4200bf66c55499acb7076a261_icgraph">
 <area shape="rect" title="Sends a packet to an immediate neighbour directly in one hop." alt="" coords="192,5,331,47"/>
-<area shape="rect" href="classdhyara_1_1link.html#adc9c6543f44bb258ec27d169dfc2acaf" title="Sends a packet via the best intermediate node." alt="" coords="5,13,144,39"/>
+<area shape="rect" href="classdhyara_1_1link.html#a85776d70bdb109d28f30264cad89a908" title="Sends a packet via the best intermediate node." alt="" coords="5,13,144,39"/>
 </map>
 </div>
 
@@ -776,8 +781,8 @@ Usercode may not call this function directly. Supposed to be called by <a class=
 
 </div>
 </div>
-<a id="a24055fe76a8ee2619c36650d98c1bae4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a24055fe76a8ee2619c36650d98c1bae4">&#9670;&nbsp;</a></span>transmit()</h2>
+<a id="a706deb932a658c6dc3e638529bce7f5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a706deb932a658c6dc3e638529bce7f5d">&#9670;&nbsp;</a></span>transmit()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -788,7 +793,7 @@ Usercode may not call this function directly. Supposed to be called by <a class=
         <tr>
           <td class="memname">bool dhyara::link::transmit </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="structdhyara_1_1address.html">dhyara::address</a> &amp;&#160;</td>
           <td class="paramname"><em>address</em>, </td>
         </tr>
         <tr>
@@ -822,15 +827,15 @@ If Send Queueing is disabled then the frame is sent immediately without waiting 
   </dd>
 </dl>
 
-<p class="reference">Referenced by <a class="el" href="link_8h_source.html#l00131">send_local()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="link_8h_source.html#l00132">send_local()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="classdhyara_1_1link_a24055fe76a8ee2619c36650d98c1bae4_icgraph.png" border="0" usemap="#classdhyara_1_1link_a24055fe76a8ee2619c36650d98c1bae4_icgraph" alt=""/></div>
-<map name="classdhyara_1_1link_a24055fe76a8ee2619c36650d98c1bae4_icgraph" id="classdhyara_1_1link_a24055fe76a8ee2619c36650d98c1bae4_icgraph">
+<div class="center"><img src="classdhyara_1_1link_a706deb932a658c6dc3e638529bce7f5d_icgraph.png" border="0" usemap="#classdhyara_1_1link_a706deb932a658c6dc3e638529bce7f5d_icgraph" alt=""/></div>
+<map name="classdhyara_1_1link_a706deb932a658c6dc3e638529bce7f5d_icgraph" id="classdhyara_1_1link_a706deb932a658c6dc3e638529bce7f5d_icgraph">
 <area shape="rect" title="Depending of the configuration of transmission queueing, Transmits/Enequeues a frame for sending to t..." alt="" coords="379,13,541,39"/>
-<area shape="rect" href="classdhyara_1_1link.html#ab1b658b908d8ead7315600db746c51f6" title="Sends a packet to an immediate neighbour directly in one hop." alt="" coords="192,5,331,47"/>
-<area shape="rect" href="classdhyara_1_1link.html#adc9c6543f44bb258ec27d169dfc2acaf" title="Sends a packet via the best intermediate node." alt="" coords="5,13,144,39"/>
+<area shape="rect" href="classdhyara_1_1link.html#a8f418bc4200bf66c55499acb7076a261" title="Sends a packet to an immediate neighbour directly in one hop." alt="" coords="192,5,331,47"/>
+<area shape="rect" href="classdhyara_1_1link.html#a85776d70bdb109d28f30264cad89a908" title="Sends a packet via the best intermediate node." alt="" coords="5,13,144,39"/>
 </map>
 </div>
 
@@ -867,7 +872,7 @@ Here is the caller graph for this function:</div>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclassdhyara_1_1link_html"><div class="ttname"><a href="classdhyara_1_1link.html">dhyara::link</a></div><div class="ttdoc">Link is responsible for low level sending/receiving.</div><div class="ttdef"><b>Definition:</b> <a href="link_8h_source.html#l00093">link.h:93</a></div></div>
+<div class="ttc" id="aclassdhyara_1_1link_html"><div class="ttname"><a href="classdhyara_1_1link.html">dhyara::link</a></div><div class="ttdoc">Link is responsible for low level sending/receiving.</div><div class="ttdef"><b>Definition:</b> <a href="link_8h_source.html#l00094">link.h:94</a></div></div>
 <div class="ttc" id="astructdhyara_1_1actions_1_1acknowledgement_html"><div class="ttname"><a href="structdhyara_1_1actions_1_1acknowledgement.html">dhyara::actions::acknowledgement</a></div><div class="ttdoc">action to handle an incoming acknowledgement packet</div><div class="ttdef"><b>Definition:</b> <a href="actions_2acknowledgement_8h_source.html#l00027">acknowledgement.h:27</a></div></div>
 <div class="ttc" id="astructdhyara_1_1actions_1_1beacon_html"><div class="ttname"><a href="structdhyara_1_1actions_1_1beacon.html">dhyara::actions::beacon</a></div><div class="ttdoc">action to handle an incoming beacon packet</div><div class="ttdef"><b>Definition:</b> <a href="actions_2beacon_8h_source.html#l00027">beacon.h:27</a></div></div>
 <!-- HTML footer for doxygen 1.9.1-->

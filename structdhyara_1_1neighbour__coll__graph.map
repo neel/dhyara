@@ -1,0 +1,5 @@
+<map id="dhyara::neighbour" name="dhyara::neighbour">
+<area shape="rect" id="node1" title="An immediate neighbour of the node." alt="" coords="5,171,145,197"/>
+<area shape="rect" id="node2" href="$structdhyara_1_1peer.html" title="A peer is identified by a mac address." alt="" coords="23,95,127,121"/>
+<area shape="rect" id="node3" href="$structdhyara_1_1address.html" title="peer address (mac address)" alt="" coords="12,5,139,32"/>
+</map>

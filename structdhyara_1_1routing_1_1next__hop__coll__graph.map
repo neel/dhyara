@@ -1,4 +1,4 @@
 <map id="dhyara::routing::next_hop" name="dhyara::routing::next_hop">
 <area shape="rect" id="node1" title="The best next hop for the given target." alt="" coords="5,95,195,121"/>
-<area shape="rect" id="node2" href="$structdhyara_1_1peer__address.html" title="peer address (mac address)" alt="" coords="19,5,181,32"/>
+<area shape="rect" id="node2" href="$structdhyara_1_1address.html" title="peer address (mac address)" alt="" coords="37,5,163,32"/>
 </map>

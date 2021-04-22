@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['valid_411',['valid',['../structdhyara_1_1frame.html#a17346bf88c8ae5b1f1748b6ef2acce2d',1,'dhyara::frame']]],
-  ['via_412',['via',['../structdhyara_1_1routing_1_1route.html#ab1e3892629f630f8c9581017c2c0ea65',1,'dhyara::routing::route::via()'],['../structdhyara_1_1routing_1_1next__hop.html#a963ce0dd0b012dc49c00d100b99e82ae',1,'dhyara::routing::next_hop::via()'],['../structdhyara_1_1candidate.html#abc8441578cbee53ab2230720ff5d0490',1,'dhyara::candidate::via()']]]
+  ['watch_419',['watch',['../structdhyara_1_1watcher.html#a84aff4fc13360d24afb31faa593cd462',1,'dhyara::watcher::watch()'],['../structdhyara_1_1notifier.html#ae519bda2f1f266cc6bc5daee4ef39007',1,'dhyara::notifier::watch()']]],
+  ['write_420',['write',['../structdhyara_1_1serialization_3_01packets_1_1beacon_01_4.html#a44a1b75cc57a29c4b8f460838a6421c8',1,'dhyara::serialization&lt; packets::beacon &gt;::write()'],['../structdhyara_1_1serialization.html#a6fffb25d5d0a785cb1335681e74eb024',1,'dhyara::serialization::write()'],['../group__io.html#ga4ad2c87bab350b99de6805a397698bed',1,'dhyara::write()']]]
 ];

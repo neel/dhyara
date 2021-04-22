@@ -107,14 +107,26 @@ $(document).ready(function(){initNavTree('group__dhyara.html',''); initResizable
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1address.html">dhyara::address</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">peer address (mac address)  <a href="structdhyara_1_1address.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdhyara_1_1link.html">dhyara::link</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Link is responsible for low level sending/receiving.  <a href="classdhyara_1_1link.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1neighbour.html">dhyara::neighbour</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An immediate neighbour of the node.  <a href="structdhyara_1_1neighbour.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1neighbourhood.html">dhyara::neighbourhood</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Neighbourhood of a node.  <a href="structdhyara_1_1neighbourhood.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1network.html">dhyara::network</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The dhyara ad-hoc network.  <a href="structdhyara_1_1network.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">peer address (mac address)  <a href="structdhyara_1_1peer__address.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1peer.html">dhyara::peer</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A peer is identified by a mac address.  <a href="structdhyara_1_1peer.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1universe.html">dhyara::universe</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Universe of all nodes in the known in the universe.  <a href="structdhyara_1_1universe.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -141,14 +153,14 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="grou
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
 Send variable length data.</h2></td></tr>
-<tr class="memitem:ga739fc7f4116f7eb70d733faad6a9aac3"><td class="memTemplParams" colspan="2">template&lt;typename InputIt &gt; </td></tr>
-<tr class="memitem:ga739fc7f4116f7eb70d733faad6a9aac3"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__dhyara.html#ga739fc7f4116f7eb70d733faad6a9aac3">dhyara_send</a> (const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> &amp;target, InputIt begin, InputIt end)</td></tr>
-<tr class="memdesc:ga739fc7f4116f7eb70d733faad6a9aac3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a variable length data as data packet to the destination over multi hop network.  <a href="group__dhyara.html#ga739fc7f4116f7eb70d733faad6a9aac3">More...</a><br /></td></tr>
-<tr class="separator:ga739fc7f4116f7eb70d733faad6a9aac3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa1db22c8c7fc5ec7e6ad632a9327e6f5"><td class="memTemplParams" colspan="2">template&lt;typename InputIt &gt; </td></tr>
-<tr class="memitem:gaa1db22c8c7fc5ec7e6ad632a9327e6f5"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__dhyara.html#gaa1db22c8c7fc5ec7e6ad632a9327e6f5">dhyara_send</a> (const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> &amp;target, InputIt begin, std::size_t len)</td></tr>
-<tr class="memdesc:gaa1db22c8c7fc5ec7e6ad632a9327e6f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a variable length data as data packet to the destination over multi hop network.  <a href="group__dhyara.html#gaa1db22c8c7fc5ec7e6ad632a9327e6f5">More...</a><br /></td></tr>
-<tr class="separator:gaa1db22c8c7fc5ec7e6ad632a9327e6f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga87b9c4ca2c3fe113f8d64a58764fa2b3"><td class="memTemplParams" colspan="2">template&lt;typename InputIt &gt; </td></tr>
+<tr class="memitem:ga87b9c4ca2c3fe113f8d64a58764fa2b3"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__dhyara.html#ga87b9c4ca2c3fe113f8d64a58764fa2b3">dhyara_send</a> (const <a class="el" href="structdhyara_1_1address.html">dhyara::address</a> &amp;target, InputIt begin, InputIt end)</td></tr>
+<tr class="memdesc:ga87b9c4ca2c3fe113f8d64a58764fa2b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a variable length data as data packet to the destination over multi hop network.  <a href="group__dhyara.html#ga87b9c4ca2c3fe113f8d64a58764fa2b3">More...</a><br /></td></tr>
+<tr class="separator:ga87b9c4ca2c3fe113f8d64a58764fa2b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2dac8c8098bc0c2e32c15f4c0772dc17"><td class="memTemplParams" colspan="2">template&lt;typename InputIt &gt; </td></tr>
+<tr class="memitem:ga2dac8c8098bc0c2e32c15f4c0772dc17"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__dhyara.html#ga2dac8c8098bc0c2e32c15f4c0772dc17">dhyara_send</a> (const <a class="el" href="structdhyara_1_1address.html">dhyara::address</a> &amp;target, InputIt begin, std::size_t len)</td></tr>
+<tr class="memdesc:ga2dac8c8098bc0c2e32c15f4c0772dc17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a variable length data as data packet to the destination over multi hop network.  <a href="group__dhyara.html#ga2dac8c8098bc0c2e32c15f4c0772dc17">More...</a><br /></td></tr>
+<tr class="separator:ga2dac8c8098bc0c2e32c15f4c0772dc17"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga3d7c1e001cecb51f780b7eb3a7db356c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dhyara.html#ga3d7c1e001cecb51f780b7eb3a7db356c">dhyara_send</a> (const unsigned char *target, const void *data, unsigned long len)</td></tr>
 <tr class="memdesc:ga3d7c1e001cecb51f780b7eb3a7db356c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a variable length data as data packet to the destination over multi hop network.  <a href="group__dhyara.html#ga3d7c1e001cecb51f780b7eb3a7db356c">More...</a><br /></td></tr>
 <tr class="separator:ga3d7c1e001cecb51f780b7eb3a7db356c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -170,10 +182,10 @@ Local</h2></td></tr>
 <tr class="memitem:ga672baef2f77147252c5a13bf40022fd6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dhyara.html#ga672baef2f77147252c5a13bf40022fd6">dhyara_local</a> (unsigned char *address)</td></tr>
 <tr class="memdesc:ga672baef2f77147252c5a13bf40022fd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets the mac address of self  <a href="group__dhyara.html#ga672baef2f77147252c5a13bf40022fd6">More...</a><br /></td></tr>
 <tr class="separator:ga672baef2f77147252c5a13bf40022fd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga36d8ce61d2823d3dfd1b93ecdbc3a8d9"><td class="memItemLeft" align="right" valign="top"><a id="ga36d8ce61d2823d3dfd1b93ecdbc3a8d9"></a>
-<a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dhyara.html#ga36d8ce61d2823d3dfd1b93ecdbc3a8d9">dhyara_local</a> ()</td></tr>
-<tr class="memdesc:ga36d8ce61d2823d3dfd1b93ecdbc3a8d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets the mac address of self <br /></td></tr>
-<tr class="separator:ga36d8ce61d2823d3dfd1b93ecdbc3a8d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1df27fc241938f7cee1b4a3b669daa7e"><td class="memItemLeft" align="right" valign="top"><a id="ga1df27fc241938f7cee1b4a3b669daa7e"></a>
+<a class="el" href="structdhyara_1_1address.html">dhyara::address</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dhyara.html#ga1df27fc241938f7cee1b4a3b669daa7e">dhyara_local</a> ()</td></tr>
+<tr class="memdesc:ga1df27fc241938f7cee1b4a3b669daa7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets the mac address of self <br /></td></tr>
+<tr class="separator:ga1df27fc241938f7cee1b4a3b669daa7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Dhyara Communication Interface provides a simplified abstraction over the underlying Ad-Hoc Network. </p>
@@ -192,7 +204,7 @@ Initialization</h3>
 <li><a class="el" href="group__dhyara.html#ga86084def043742c0f3d7d2a8a2ffe87b">dhyara_espnow_init</a> to initialize espnow and register the <a class="el" href="classdhyara_1_1link.html">dhyara::link</a> functions as espnow callbacks</li>
 </ul>
 <p>The network is an instance of <a class="el" href="structdhyara_1_1network.html">dhyara::network</a> which is maintained as a global pointer (set to null by default). <a class="el" href="group__dhyara.html#gac4a4e3c727ec3d63ba96f3b5ab963b68">dhyara_start_default_network</a> creates a network by using <a class="el" href="group__dhyara.html#gaeb2d5dd4f524d1d165a4f4cf6f837ed8">dhyara_create_default_network</a>, if it is not already set. Usercode may use dhyara_set_default_network to set an user created network as default.</p>
-<dl class="section attention"><dt>Attention</dt><dd>Usercode may completely bypass the creation of a global network and maintain the network in the usercode. A few (non-essential) functions like <a class="el" href="group__tools.html#gaa8cb4f34401109288d804f06b304f1e9">dhyara_ping</a>, <a class="el" href="group__tools.html#ga0266cd5ec2355673a411623395a008a5">dhyara_traceroute</a>, <a class="el" href="group__dhyara.html#gaa1db22c8c7fc5ec7e6ad632a9327e6f5">dhyara_send</a>, <a class="el" href="group__dhyara.html#gab53490ae8317a4dcdb9308543aaa32ff">dhyara_receive</a>, <a class="el" href="group__dhyara.html#gaaf7792aa443e682cf3dc63f0815c4b9e">dhyara_receivef</a> won't work if a global network is not set. These above functions are supposesed to be C compatiable, hence can not take the <a class="el" href="structdhyara_1_1network.html">dhyara::network</a> as an argument. However all these functionalities are doable with equivalent C++ API that do not require a global <a class="el" href="classdhyara_1_1link.html">dhyara::link</a>.</dd></dl>
+<dl class="section attention"><dt>Attention</dt><dd>Usercode may completely bypass the creation of a global network and maintain the network in the usercode. A few (non-essential) functions like <a class="el" href="group__tools.html#ga81eb144007202c7bd976a0dab1a82881">dhyara_ping</a>, <a class="el" href="group__tools.html#gafc40e459ff195b5af74f7c58931a6453">dhyara_traceroute</a>, <a class="el" href="group__dhyara.html#ga2dac8c8098bc0c2e32c15f4c0772dc17">dhyara_send</a>, <a class="el" href="group__dhyara.html#gab53490ae8317a4dcdb9308543aaa32ff">dhyara_receive</a>, <a class="el" href="group__dhyara.html#gaaf7792aa443e682cf3dc63f0815c4b9e">dhyara_receivef</a> won't work if a global network is not set. These above functions are supposesed to be C compatiable, hence can not take the <a class="el" href="structdhyara_1_1network.html">dhyara::network</a> as an argument. However all these functionalities are doable with equivalent C++ API that do not require a global <a class="el" href="classdhyara_1_1link.html">dhyara::link</a>.</dd></dl>
 <p><a class="el" href="group__dhyara.html#gac4a4e3c727ec3d63ba96f3b5ab963b68">dhyara_start_default_network</a> also starts the network using <a class="el" href="structdhyara_1_1network.html#aadf3365c6a5506187b2f9c91ef4fdd0a">dhyara::network::start</a>, which creates the necessary FreeRTOS tasks to maintain the network.</p>
 <h3><a class="anchor" id="autotoc_md3"></a>
 Basic Operations</h3>
@@ -305,8 +317,8 @@ Basic Operations</h3>
 </div><div class="memdoc">
 
 <p>Sets a callback on the default networks on_data. </p>
-<p>This callback will be called whenever a data packet is received. (accepts C++ anonymous function) The typedef dhyara_receive_callback_t is defined as the following. </p><div class="fragment"><div class="line"><span class="keyword">typedef</span> std::function&lt;void (<span class="keyword">const</span> <a class="code" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a>&amp;, dhyara::packets::data::const_iterator, dhyara::packets::data::const_iterator)&gt; dhyara_receive_callback_type;</div>
-</div><!-- fragment --><p> Following is an example of the callback function. </p><div class="fragment"><div class="line"><span class="keywordtype">void</span> callback (<span class="keyword">const</span> <a class="code" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a>&amp;, dhyara::packets::data::const_iterator, dhyara::packets::data::const_iterator){</div>
+<p>This callback will be called whenever a data packet is received. (accepts C++ anonymous function) The typedef dhyara_receive_callback_t is defined as the following. </p><div class="fragment"><div class="line"><span class="keyword">typedef</span> std::function&lt;void (<span class="keyword">const</span> <a class="code" href="structdhyara_1_1address.html">dhyara::address</a>&amp;, dhyara::packets::data::const_iterator, dhyara::packets::data::const_iterator)&gt; dhyara_receive_callback_type;</div>
+</div><!-- fragment --><p> Following is an example of the callback function. </p><div class="fragment"><div class="line"><span class="keywordtype">void</span> callback (<span class="keyword">const</span> <a class="code" href="structdhyara_1_1address.html">dhyara::address</a>&amp;, dhyara::packets::data::const_iterator, dhyara::packets::data::const_iterator){</div>
 <div class="line"> </div>
 <div class="line">}</div>
 </div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
@@ -335,8 +347,8 @@ Basic Operations</h3>
 </div><div class="memdoc">
 
 <p>Sets a callback on the default networks on_data. </p>
-<p>This callback will be called whenever a data packet is received. (accepts C++ anonymous function) The typedef dhyara_receive_data_callback_type is defined as the following. </p><div class="fragment"><div class="line"><span class="keyword">typedef</span> std::function&lt;void (<span class="keyword">const</span> <a class="code" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a>&amp;, <span class="keyword">const</span> <a class="code" href="structdhyara_1_1packets_1_1data.html">dhyara::packets::data</a>&amp; data)&gt; dhyara_receive_data_callback_type;</div>
-</div><!-- fragment --><p> Following is an example of the callback function. </p><div class="fragment"><div class="line"><span class="keywordtype">void</span> callback (<span class="keyword">const</span> <a class="code" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a>&amp;, <span class="keyword">const</span> <a class="code" href="structdhyara_1_1packets_1_1data.html">dhyara::packets::data</a>&amp; data){</div>
+<p>This callback will be called whenever a data packet is received. (accepts C++ anonymous function) The typedef dhyara_receive_data_callback_type is defined as the following. </p><div class="fragment"><div class="line"><span class="keyword">typedef</span> std::function&lt;void (<span class="keyword">const</span> <a class="code" href="structdhyara_1_1address.html">dhyara::address</a>&amp;, <span class="keyword">const</span> <a class="code" href="structdhyara_1_1packets_1_1data.html">dhyara::packets::data</a>&amp; data)&gt; dhyara_receive_data_callback_type;</div>
+</div><!-- fragment --><p> Following is an example of the callback function. </p><div class="fragment"><div class="line"><span class="keywordtype">void</span> callback (<span class="keyword">const</span> <a class="code" href="structdhyara_1_1address.html">dhyara::address</a>&amp;, <span class="keyword">const</span> <a class="code" href="structdhyara_1_1packets_1_1data.html">dhyara::packets::data</a>&amp; data){</div>
 <div class="line"> </div>
 <div class="line">}</div>
 </div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
@@ -378,8 +390,8 @@ Basic Operations</h3>
 
 </div>
 </div>
-<a id="ga739fc7f4116f7eb70d733faad6a9aac3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga739fc7f4116f7eb70d733faad6a9aac3">&#9670;&nbsp;</a></span>dhyara_send() <span class="overload">[1/3]</span></h2>
+<a id="ga87b9c4ca2c3fe113f8d64a58764fa2b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga87b9c4ca2c3fe113f8d64a58764fa2b3">&#9670;&nbsp;</a></span>dhyara_send() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -389,7 +401,7 @@ template&lt;typename InputIt &gt; </div>
         <tr>
           <td class="memname">bool dhyara_send </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="structdhyara_1_1address.html">dhyara::address</a> &amp;&#160;</td>
           <td class="paramname"><em>target</em>, </td>
         </tr>
         <tr>
@@ -424,8 +436,8 @@ template&lt;typename InputIt &gt; </div>
 
 </div>
 </div>
-<a id="gaa1db22c8c7fc5ec7e6ad632a9327e6f5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaa1db22c8c7fc5ec7e6ad632a9327e6f5">&#9670;&nbsp;</a></span>dhyara_send() <span class="overload">[2/3]</span></h2>
+<a id="ga2dac8c8098bc0c2e32c15f4c0772dc17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2dac8c8098bc0c2e32c15f4c0772dc17">&#9670;&nbsp;</a></span>dhyara_send() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -435,7 +447,7 @@ template&lt;typename InputIt &gt; </div>
         <tr>
           <td class="memname">bool dhyara_send </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="structdhyara_1_1address.html">dhyara::address</a> &amp;&#160;</td>
           <td class="paramname"><em>target</em>, </td>
         </tr>
         <tr>
@@ -566,7 +578,7 @@ ESP Now may be initialized (e.g. <a class="el" href="group__dhyara.html#ga86084d
 </div>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="astructdhyara_1_1peer__address_html"><div class="ttname"><a href="structdhyara_1_1peer__address.html">dhyara::peer_address</a></div><div class="ttdoc">peer address (mac address)</div><div class="ttdef"><b>Definition:</b> <a href="peer_8h_source.html#l00029">peer.h:29</a></div></div>
+<div class="ttc" id="astructdhyara_1_1address_html"><div class="ttname"><a href="structdhyara_1_1address.html">dhyara::address</a></div><div class="ttdoc">peer address (mac address)</div><div class="ttdef"><b>Definition:</b> <a href="address_8h_source.html#l00028">address.h:28</a></div></div>
 <div class="ttc" id="astructdhyara_1_1packets_1_1data_html"><div class="ttname"><a href="structdhyara_1_1packets_1_1data.html">dhyara::packets::data</a></div><div class="ttdoc">A virtual packet, that is never sent accros the network.</div><div class="ttdef"><b>Definition:</b> <a href="data_8h_source.html#l00027">data.h:27</a></div></div>
 <div class="ttc" id="agroup__dhyara_html_ga42863788515b1583d0ec0b4fd2b8a0fa"><div class="ttname"><a href="group__dhyara.html#ga42863788515b1583d0ec0b4fd2b8a0fa">dhyara_init</a></div><div class="ttdeci">esp_err_t dhyara_init(wifi_mode_t mode)</div><div class="ttdoc">Initializes wifi, starts wifi, then initializes ESP Now.</div></div>
 <div class="ttc" id="agroup__dhyara_html_gac4a4e3c727ec3d63ba96f3b5ab963b68"><div class="ttname"><a href="group__dhyara.html#gac4a4e3c727ec3d63ba96f3b5ab963b68">dhyara_start_default_network</a></div><div class="ttdeci">void dhyara_start_default_network()</div><div class="ttdoc">Starts the default network.</div></div>

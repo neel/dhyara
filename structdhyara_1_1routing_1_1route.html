@@ -112,7 +112,7 @@ Collaboration diagram for dhyara::routing::route:</div>
 <div class="center"><img src="structdhyara_1_1routing_1_1route__coll__graph.png" border="0" usemap="#dhyara_1_1routing_1_1route_coll__map" alt="Collaboration graph"/></div>
 <map name="dhyara_1_1routing_1_1route_coll__map" id="dhyara_1_1routing_1_1route_coll__map">
 <area shape="rect" title="A route to a destination via a node (A null via should be considered as one hop)" alt="" coords="5,109,168,136"/>
-<area shape="rect" href="structdhyara_1_1peer__address.html" title="peer address (mac address)" alt="" coords="5,5,168,32"/>
+<area shape="rect" href="structdhyara_1_1address.html" title="peer address (mac address)" alt="" coords="23,5,150,32"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -121,17 +121,17 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aa1a311c77e8e1e95b3abd9817d793d6d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1routing_1_1route.html#aa1a311c77e8e1e95b3abd9817d793d6d">route</a> ()=delete</td></tr>
 <tr class="memdesc:aa1a311c77e8e1e95b3abd9817d793d6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">default construction prohibited.  <a href="structdhyara_1_1routing_1_1route.html#aa1a311c77e8e1e95b3abd9817d793d6d">More...</a><br /></td></tr>
 <tr class="separator:aa1a311c77e8e1e95b3abd9817d793d6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe2115e4bd60f02093b1282059029b55"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1routing_1_1route.html#abe2115e4bd60f02093b1282059029b55">route</a> (const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer::address</a> &amp;<a class="el" href="structdhyara_1_1routing_1_1route.html#a818bde333481dbcfb60ad7f53319241c">dst</a>, const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer::address</a> &amp;<a class="el" href="structdhyara_1_1routing_1_1route.html#ab1e3892629f630f8c9581017c2c0ea65">via</a>)</td></tr>
-<tr class="memdesc:abe2115e4bd60f02093b1282059029b55"><td class="mdescLeft">&#160;</td><td class="mdescRight">construct using a destination address and an intermediate node address.  <a href="structdhyara_1_1routing_1_1route.html#abe2115e4bd60f02093b1282059029b55">More...</a><br /></td></tr>
-<tr class="separator:abe2115e4bd60f02093b1282059029b55"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a818bde333481dbcfb60ad7f53319241c"><td class="memItemLeft" align="right" valign="top"><a id="a818bde333481dbcfb60ad7f53319241c"></a>
-const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer::address</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1routing_1_1route.html#a818bde333481dbcfb60ad7f53319241c">dst</a> () const</td></tr>
-<tr class="memdesc:a818bde333481dbcfb60ad7f53319241c"><td class="mdescLeft">&#160;</td><td class="mdescRight">destination address of this route <br /></td></tr>
-<tr class="separator:a818bde333481dbcfb60ad7f53319241c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab1e3892629f630f8c9581017c2c0ea65"><td class="memItemLeft" align="right" valign="top"><a id="ab1e3892629f630f8c9581017c2c0ea65"></a>
-const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer::address</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1routing_1_1route.html#ab1e3892629f630f8c9581017c2c0ea65">via</a> () const</td></tr>
-<tr class="memdesc:ab1e3892629f630f8c9581017c2c0ea65"><td class="mdescLeft">&#160;</td><td class="mdescRight">intermediate node address of this route <br /></td></tr>
-<tr class="separator:ab1e3892629f630f8c9581017c2c0ea65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace39734457a08cf5451b59973279bdf3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1routing_1_1route.html#ace39734457a08cf5451b59973279bdf3">route</a> (const <a class="el" href="structdhyara_1_1address.html">dhyara::address</a> &amp;<a class="el" href="structdhyara_1_1routing_1_1route.html#a58f161fb3b9fbbe135932ac424fe7fba">dst</a>, const <a class="el" href="structdhyara_1_1address.html">dhyara::address</a> &amp;<a class="el" href="structdhyara_1_1routing_1_1route.html#a55225e73f081c1cee727d352e2aa8df6">via</a>)</td></tr>
+<tr class="memdesc:ace39734457a08cf5451b59973279bdf3"><td class="mdescLeft">&#160;</td><td class="mdescRight">construct using a destination address and an intermediate node address.  <a href="structdhyara_1_1routing_1_1route.html#ace39734457a08cf5451b59973279bdf3">More...</a><br /></td></tr>
+<tr class="separator:ace39734457a08cf5451b59973279bdf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58f161fb3b9fbbe135932ac424fe7fba"><td class="memItemLeft" align="right" valign="top"><a id="a58f161fb3b9fbbe135932ac424fe7fba"></a>
+const <a class="el" href="structdhyara_1_1address.html">dhyara::address</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1routing_1_1route.html#a58f161fb3b9fbbe135932ac424fe7fba">dst</a> () const</td></tr>
+<tr class="memdesc:a58f161fb3b9fbbe135932ac424fe7fba"><td class="mdescLeft">&#160;</td><td class="mdescRight">destination address of this route <br /></td></tr>
+<tr class="separator:a58f161fb3b9fbbe135932ac424fe7fba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55225e73f081c1cee727d352e2aa8df6"><td class="memItemLeft" align="right" valign="top"><a id="a55225e73f081c1cee727d352e2aa8df6"></a>
+const <a class="el" href="structdhyara_1_1address.html">dhyara::address</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1routing_1_1route.html#a55225e73f081c1cee727d352e2aa8df6">via</a> () const</td></tr>
+<tr class="memdesc:a55225e73f081c1cee727d352e2aa8df6"><td class="mdescLeft">&#160;</td><td class="mdescRight">intermediate node address of this route <br /></td></tr>
+<tr class="separator:a55225e73f081c1cee727d352e2aa8df6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a760640ea0d2786613d994cb72e3d71ef"><td class="memItemLeft" align="right" valign="top"><a id="a760640ea0d2786613d994cb72e3d71ef"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1routing_1_1route.html#a760640ea0d2786613d994cb72e3d71ef">operator&lt;</a> (const <a class="el" href="structdhyara_1_1routing_1_1route.html">route</a> &amp;other) const</td></tr>
 <tr class="memdesc:a760640ea0d2786613d994cb72e3d71ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">routes are sortable <br /></td></tr>
@@ -182,8 +182,8 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 
 </div>
 </div>
-<a id="abe2115e4bd60f02093b1282059029b55"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abe2115e4bd60f02093b1282059029b55">&#9670;&nbsp;</a></span>route() <span class="overload">[2/2]</span></h2>
+<a id="ace39734457a08cf5451b59973279bdf3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace39734457a08cf5451b59973279bdf3">&#9670;&nbsp;</a></span>route() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -191,13 +191,13 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
         <tr>
           <td class="memname">dhyara::routing::route::route </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer::address</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="structdhyara_1_1address.html">dhyara::address</a> &amp;&#160;</td>
           <td class="paramname"><em>dst</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer::address</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="structdhyara_1_1address.html">dhyara::address</a> &amp;&#160;</td>
           <td class="paramname"><em>via</em>&#160;</td>
         </tr>
         <tr>

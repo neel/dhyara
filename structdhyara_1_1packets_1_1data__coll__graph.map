@@ -1,4 +1,4 @@
 <map id="dhyara::packets::data" name="dhyara::packets::data">
 <area shape="rect" id="node1" title="A virtual packet, that is never sent accros the network." alt="" coords="5,109,168,136"/>
-<area shape="rect" id="node2" href="$structdhyara_1_1peer__address.html" title="peer address (mac address)" alt="" coords="5,5,168,32"/>
+<area shape="rect" id="node2" href="$structdhyara_1_1address.html" title="peer address (mac address)" alt="" coords="23,5,150,32"/>
 </map>

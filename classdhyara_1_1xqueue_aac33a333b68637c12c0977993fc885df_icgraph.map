@@ -1,5 +1,5 @@
 <map id="dhyara::xqueue::en" name="dhyara::xqueue::en">
 <area shape="rect" id="node1" title="enqueue a value to the queue" alt="" coords="224,57,371,84"/>
-<area shape="rect" id="node2" href="$structdhyara_1_1network__fifo.html#ad4517f5f2ff72e877a54f0b509916643" title="enqueue a frame that has been received" alt="" coords="9,5,172,61"/>
+<area shape="rect" id="node2" href="$structdhyara_1_1network__fifo.html#a328a0f2c7f6d4d5a8ba0b02a14f6d662" title="enqueue a frame that has been received" alt="" coords="9,5,172,61"/>
 <area shape="rect" id="node3" href="$structdhyara_1_1watcher.html#a6f8479e803b87b271c71e32b9c915706" title="notify the watcher" alt="" coords="5,86,176,127"/>
 </map>

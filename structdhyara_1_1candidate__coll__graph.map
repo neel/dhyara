@@ -1,4 +1,4 @@
 <map id="dhyara::candidate" name="dhyara::candidate">
-<area shape="rect" id="node1" title="A synchronization candidate is defined by a route (self &#45;&gt; via &#45;&gt; destination) and an integer denotin..." alt="" coords="17,109,156,136"/>
-<area shape="rect" id="node2" href="$structdhyara_1_1peer__address.html" title="peer address (mac address)" alt="" coords="5,5,168,32"/>
+<area shape="rect" id="node1" title="A synchronization candidate is defined by a route (self &#45;&gt; via &#45;&gt; destination) and an integer denotin..." alt="" coords="5,109,144,136"/>
+<area shape="rect" id="node2" href="$structdhyara_1_1address.html" title="peer address (mac address)" alt="" coords="11,5,138,32"/>
 </map>

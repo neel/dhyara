@@ -1,5 +1,0 @@
-<map id="dhyara::link::transmit" name="dhyara::link::transmit">
-<area shape="rect" id="node1" title="Depending of the configuration of transmission queueing, Transmits/Enequeues a frame for sending to t..." alt="" coords="379,13,541,39"/>
-<area shape="rect" id="node2" href="$classdhyara_1_1link.html#ab1b658b908d8ead7315600db746c51f6" title="Sends a packet to an immediate neighbour directly in one hop." alt="" coords="192,5,331,47"/>
-<area shape="rect" id="node3" href="$classdhyara_1_1link.html#adc9c6543f44bb258ec27d169dfc2acaf" title="Sends a packet via the best intermediate node." alt="" coords="5,13,144,39"/>
-</map>

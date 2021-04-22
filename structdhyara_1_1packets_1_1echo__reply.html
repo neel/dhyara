@@ -113,9 +113,9 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1packets_1_1echo__reply.html#a8c4bfd0ba376b06244091a6b4dbae99f">echo_reply</a> ()</td></tr>
 <tr class="memdesc:a8c4bfd0ba376b06244091a6b4dbae99f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct an echo reply to null destination originating from null destination on current time. <br /></td></tr>
 <tr class="separator:a8c4bfd0ba376b06244091a6b4dbae99f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a329940211aa3bd2636372e2cedccda93"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1packets_1_1echo__reply.html#a329940211aa3bd2636372e2cedccda93">echo_reply</a> (const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer::address</a> &amp;<a class="el" href="structdhyara_1_1packets_1_1echo__reply.html#a2f966a5cfebf25c6508bff463a44b7f0">target</a>, const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer::address</a> &amp;<a class="el" href="structdhyara_1_1packets_1_1echo__reply.html#aa8e6d1c3313dd9524b173c09c63748f1">source</a>, std::uint32_t <a class="el" href="structdhyara_1_1packets_1_1echo__reply.html#ae09f0e791dc03342fed480dfdf9225c2">seq</a>=0, std::uint64_t <a class="el" href="structdhyara_1_1packets_1_1echo__reply.html#ae155f8b398cef0e9c46e61668ac4369b">time</a>=esp_timer_get_time(), std::uint8_t <a class="el" href="structdhyara_1_1packets_1_1echo__reply.html#ada3baf3add365dc0d485b8d3f17855b6">ttl</a>=255)</td></tr>
-<tr class="memdesc:a329940211aa3bd2636372e2cedccda93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct an echo reply to the target originating from the source with the provided sequence number and time.  <a href="structdhyara_1_1packets_1_1echo__reply.html#a329940211aa3bd2636372e2cedccda93">More...</a><br /></td></tr>
-<tr class="separator:a329940211aa3bd2636372e2cedccda93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a72260ea9d3d9d165830299133eccca"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1packets_1_1echo__reply.html#a0a72260ea9d3d9d165830299133eccca">echo_reply</a> (const <a class="el" href="structdhyara_1_1address.html">dhyara::address</a> &amp;<a class="el" href="structdhyara_1_1packets_1_1echo__reply.html#a2c8a5482fa08cfd42be4a673532ebcb3">target</a>, const <a class="el" href="structdhyara_1_1address.html">dhyara::address</a> &amp;<a class="el" href="structdhyara_1_1packets_1_1echo__reply.html#a0c21f22dee50fa5e0f4ac71799c8cf8e">source</a>, std::uint32_t <a class="el" href="structdhyara_1_1packets_1_1echo__reply.html#ae09f0e791dc03342fed480dfdf9225c2">seq</a>=0, std::uint64_t <a class="el" href="structdhyara_1_1packets_1_1echo__reply.html#ae155f8b398cef0e9c46e61668ac4369b">time</a>=esp_timer_get_time(), std::uint8_t <a class="el" href="structdhyara_1_1packets_1_1echo__reply.html#ada3baf3add365dc0d485b8d3f17855b6">ttl</a>=255)</td></tr>
+<tr class="memdesc:a0a72260ea9d3d9d165830299133eccca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct an echo reply to the target originating from the source with the provided sequence number and time.  <a href="structdhyara_1_1packets_1_1echo__reply.html#a0a72260ea9d3d9d165830299133eccca">More...</a><br /></td></tr>
+<tr class="separator:a0a72260ea9d3d9d165830299133eccca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad9b68a7769b89a78a8eeb46135cea817"><td class="memItemLeft" align="right" valign="top"><a id="ad9b68a7769b89a78a8eeb46135cea817"></a>
 std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1packets_1_1echo__reply.html#ad9b68a7769b89a78a8eeb46135cea817">size</a> () const</td></tr>
 <tr class="memdesc:ad9b68a7769b89a78a8eeb46135cea817"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of the packet. <br /></td></tr>
@@ -132,22 +132,22 @@ std::uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
 std::uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1packets_1_1echo__reply.html#ada3baf3add365dc0d485b8d3f17855b6">ttl</a> () const</td></tr>
 <tr class="memdesc:ada3baf3add365dc0d485b8d3f17855b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">TTL value. <br /></td></tr>
 <tr class="separator:ada3baf3add365dc0d485b8d3f17855b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f966a5cfebf25c6508bff463a44b7f0"><td class="memItemLeft" align="right" valign="top"><a id="a2f966a5cfebf25c6508bff463a44b7f0"></a>
-<a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer::address</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1packets_1_1echo__reply.html#a2f966a5cfebf25c6508bff463a44b7f0">target</a> () const</td></tr>
-<tr class="memdesc:a2f966a5cfebf25c6508bff463a44b7f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">target address <br /></td></tr>
-<tr class="separator:a2f966a5cfebf25c6508bff463a44b7f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8e6d1c3313dd9524b173c09c63748f1"><td class="memItemLeft" align="right" valign="top"><a id="aa8e6d1c3313dd9524b173c09c63748f1"></a>
-<a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer::address</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1packets_1_1echo__reply.html#aa8e6d1c3313dd9524b173c09c63748f1">source</a> () const</td></tr>
-<tr class="memdesc:aa8e6d1c3313dd9524b173c09c63748f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">source address <br /></td></tr>
-<tr class="separator:aa8e6d1c3313dd9524b173c09c63748f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c8a5482fa08cfd42be4a673532ebcb3"><td class="memItemLeft" align="right" valign="top"><a id="a2c8a5482fa08cfd42be4a673532ebcb3"></a>
+<a class="el" href="structdhyara_1_1address.html">dhyara::address</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1packets_1_1echo__reply.html#a2c8a5482fa08cfd42be4a673532ebcb3">target</a> () const</td></tr>
+<tr class="memdesc:a2c8a5482fa08cfd42be4a673532ebcb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">target address <br /></td></tr>
+<tr class="separator:a2c8a5482fa08cfd42be4a673532ebcb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c21f22dee50fa5e0f4ac71799c8cf8e"><td class="memItemLeft" align="right" valign="top"><a id="a0c21f22dee50fa5e0f4ac71799c8cf8e"></a>
+<a class="el" href="structdhyara_1_1address.html">dhyara::address</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1packets_1_1echo__reply.html#a0c21f22dee50fa5e0f4ac71799c8cf8e">source</a> () const</td></tr>
+<tr class="memdesc:a0c21f22dee50fa5e0f4ac71799c8cf8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">source address <br /></td></tr>
+<tr class="separator:a0c21f22dee50fa5e0f4ac71799c8cf8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>An echo reply. </p>
 
 <p class="definition">Definition at line <a class="el" href="packets_2echo__reply_8h_source.html#l00025">25</a> of file <a class="el" href="packets_2echo__reply_8h_source.html">echo_reply.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a329940211aa3bd2636372e2cedccda93"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a329940211aa3bd2636372e2cedccda93">&#9670;&nbsp;</a></span>echo_reply()</h2>
+<a id="a0a72260ea9d3d9d165830299133eccca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a72260ea9d3d9d165830299133eccca">&#9670;&nbsp;</a></span>echo_reply()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -158,13 +158,13 @@ std::uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
         <tr>
           <td class="memname">dhyara::packets::echo_reply::echo_reply </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer::address</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="structdhyara_1_1address.html">dhyara::address</a> &amp;&#160;</td>
           <td class="paramname"><em>target</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer::address</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="structdhyara_1_1address.html">dhyara::address</a> &amp;&#160;</td>
           <td class="paramname"><em>source</em>, </td>
         </tr>
         <tr>
@@ -212,7 +212,7 @@ std::uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 
 <p class="definition">Definition at line <a class="el" href="packets_2echo__reply_8h_source.html#l00049">49</a> of file <a class="el" href="packets_2echo__reply_8h_source.html">echo_reply.h</a>.</p>
 
-<p class="reference">References <a class="el" href="peer_8h_source.html#l00069">dhyara::peer_address::b1()</a>, <a class="el" href="peer_8h_source.html#l00073">dhyara::peer_address::b2()</a>, <a class="el" href="peer_8h_source.html#l00077">dhyara::peer_address::b3()</a>, <a class="el" href="peer_8h_source.html#l00081">dhyara::peer_address::b4()</a>, <a class="el" href="peer_8h_source.html#l00085">dhyara::peer_address::b5()</a>, <a class="el" href="peer_8h_source.html#l00089">dhyara::peer_address::b6()</a>, and <a class="el" href="packets_2echo__reply_8h_source.html#l00073">target()</a>.</p>
+<p class="reference">References <a class="el" href="address_8h_source.html#l00068">dhyara::address::b1()</a>, <a class="el" href="address_8h_source.html#l00072">dhyara::address::b2()</a>, <a class="el" href="address_8h_source.html#l00076">dhyara::address::b3()</a>, <a class="el" href="address_8h_source.html#l00080">dhyara::address::b4()</a>, <a class="el" href="address_8h_source.html#l00084">dhyara::address::b5()</a>, <a class="el" href="address_8h_source.html#l00088">dhyara::address::b6()</a>, and <a class="el" href="packets_2echo__reply_8h_source.html#l00073">target()</a>.</p>
 
 </div>
 </div>

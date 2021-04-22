@@ -1,4 +1,4 @@
 <map id="dhyara::link::send_local" name="dhyara::link::send_local">
 <area shape="rect" id="node1" title="Sends a packet to an immediate neighbour directly in one hop." alt="" coords="192,5,331,47"/>
-<area shape="rect" id="node2" href="$classdhyara_1_1link.html#adc9c6543f44bb258ec27d169dfc2acaf" title="Sends a packet via the best intermediate node." alt="" coords="5,13,144,39"/>
+<area shape="rect" id="node2" href="$classdhyara_1_1link.html#a85776d70bdb109d28f30264cad89a908" title="Sends a packet via the best intermediate node." alt="" coords="5,13,144,39"/>
 </map>

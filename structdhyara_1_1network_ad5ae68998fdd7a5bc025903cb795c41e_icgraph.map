@@ -1,4 +1,4 @@
 <map id="dhyara::network::send" name="dhyara::network::send">
 <area shape="rect" id="node1" title="Send a variable sized data to the destination." alt="" coords="220,5,387,32"/>
-<area shape="rect" id="node2" href="$structdhyara_1_1network.html#a4bcc4aff7a5bb51182f80088814de099" title="Send a variable sized data to the destination." alt="" coords="5,5,172,32"/>
+<area shape="rect" id="node2" href="$structdhyara_1_1network.html#a4e7b4345b83f06d8182a0738c0a03c66" title="Send a variable sized data to the destination." alt="" coords="5,5,172,32"/>
 </map>

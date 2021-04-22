@@ -29,29 +29,32 @@ var annotated_dup =
         [ "traceroute", "structdhyara_1_1tools_1_1traceroute.html", "structdhyara_1_1tools_1_1traceroute" ]
       ] ],
       [ "utils", null, [
-        [ "http", "structdhyara_1_1utils_1_1http.html", null ],
+        [ "http", "structdhyara_1_1utils_1_1http.html", "structdhyara_1_1utils_1_1http" ],
         [ "printer", "structdhyara_1_1utils_1_1printer.html", null ]
       ] ],
+      [ "address", "structdhyara_1_1address.html", "structdhyara_1_1address" ],
       [ "candidate", "structdhyara_1_1candidate.html", "structdhyara_1_1candidate" ],
       [ "frame", "structdhyara_1_1frame.html", "structdhyara_1_1frame" ],
       [ "link", "classdhyara_1_1link.html", "classdhyara_1_1link" ],
       [ "message", "structdhyara_1_1message.html", null ],
       [ "mutex", "structdhyara_1_1mutex.html", "structdhyara_1_1mutex" ],
+      [ "neighbour", "structdhyara_1_1neighbour.html", "structdhyara_1_1neighbour" ],
       [ "neighbourhood", "structdhyara_1_1neighbourhood.html", "structdhyara_1_1neighbourhood" ],
       [ "network", "structdhyara_1_1network.html", "structdhyara_1_1network" ],
       [ "network_fifo", "structdhyara_1_1network__fifo.html", "structdhyara_1_1network__fifo" ],
       [ "notifier", "structdhyara_1_1notifier.html", "structdhyara_1_1notifier" ],
       [ "peer", "structdhyara_1_1peer.html", "structdhyara_1_1peer" ],
-      [ "peer_address", "structdhyara_1_1peer__address.html", "structdhyara_1_1peer__address" ],
       [ "routing", "structdhyara_1_1routing.html", "structdhyara_1_1routing" ],
       [ "serialization", "structdhyara_1_1serialization.html", "structdhyara_1_1serialization" ],
       [ "serialization< packets::beacon >", "structdhyara_1_1serialization_3_01packets_1_1beacon_01_4.html", "structdhyara_1_1serialization_3_01packets_1_1beacon_01_4" ],
       [ "synchronizer", "structdhyara_1_1synchronizer.html", "structdhyara_1_1synchronizer" ],
+      [ "universe", "structdhyara_1_1universe.html", "structdhyara_1_1universe" ],
       [ "watcher", "structdhyara_1_1watcher.html", "structdhyara_1_1watcher" ],
       [ "xqueue", "classdhyara_1_1xqueue.html", "classdhyara_1_1xqueue" ]
     ] ],
     [ "std", null, [
-      [ "hash< dhyara::peer >", "structstd_1_1hash_3_01dhyara_1_1peer_01_4.html", null ],
-      [ "hash< dhyara::peer_address >", "structstd_1_1hash_3_01dhyara_1_1peer__address_01_4.html", null ]
+      [ "hash< dhyara::address >", "structstd_1_1hash_3_01dhyara_1_1address_01_4.html", null ],
+      [ "hash< dhyara::neighbour >", "structstd_1_1hash_3_01dhyara_1_1neighbour_01_4.html", null ],
+      [ "hash< dhyara::peer >", "structstd_1_1hash_3_01dhyara_1_1peer_01_4.html", null ]
     ] ]
 ];

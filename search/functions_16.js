@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['xqueue_415',['xqueue',['../classdhyara_1_1xqueue.html#a12795098db602f3fd6cb890620230910',1,'dhyara::xqueue']]]
+  ['_7etraceroute_422',['~traceroute',['../structdhyara_1_1tools_1_1traceroute.html#ae7aee95d988b347a8782bf04c15e95d7',1,'dhyara::tools::traceroute']]]
 ];

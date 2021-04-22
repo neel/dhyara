@@ -1,4 +1,4 @@
 <map id="dhyara::peer" name="dhyara::peer">
-<area shape="rect" id="node1" title="A peer communicating in the medium." alt="" coords="35,95,139,121"/>
-<area shape="rect" id="node2" href="$structdhyara_1_1peer__address.html" title="peer address (mac address)" alt="" coords="5,5,168,32"/>
+<area shape="rect" id="node1" title="A peer is identified by a mac address." alt="" coords="17,95,121,121"/>
+<area shape="rect" id="node2" href="$structdhyara_1_1address.html" title="peer address (mac address)" alt="" coords="5,5,132,32"/>
 </map>

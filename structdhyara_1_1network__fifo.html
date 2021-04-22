@@ -106,11 +106,11 @@ Collaboration diagram for dhyara::network_fifo&lt; Capacity &gt;:</div>
 <div class="dyncontent">
 <div class="center"><img src="structdhyara_1_1network__fifo__coll__graph.png" border="0" usemap="#dhyara_1_1network__fifo_3_01_capacity_01_4_coll__map" alt="Collaboration graph"/></div>
 <map name="dhyara_1_1network__fifo_3_01_capacity_01_4_coll__map" id="dhyara_1_1network__fifo_3_01_capacity_01_4_coll__map">
-<area shape="rect" title=" " alt="" coords="234,199,390,240"/>
-<area shape="rect" href="structdhyara_1_1message.html" title="Envelop for both to be sent and has been received messages." alt="" coords="101,102,235,129"/>
-<area shape="rect" href="structdhyara_1_1peer__address.html" title="peer address (mac address)" alt="" coords="5,5,168,32"/>
-<area shape="rect" href="structdhyara_1_1frame.html" title="A 250 bytes frame is defined by a 2 bytes header and 248 bytes payload." alt="" coords="192,5,307,32"/>
-<area shape="rect" href="classdhyara_1_1xqueue.html" title=" " alt="" coords="259,95,461,136"/>
+<area shape="rect" title=" " alt="" coords="159,199,315,240"/>
+<area shape="rect" href="structdhyara_1_1message.html" title="Envelop for both to be sent and has been received messages." alt="" coords="73,102,208,129"/>
+<area shape="rect" href="structdhyara_1_1address.html" title="peer address (mac address)" alt="" coords="5,5,132,32"/>
+<area shape="rect" href="structdhyara_1_1frame.html" title="A 250 bytes frame is defined by a 2 bytes header and 248 bytes payload." alt="" coords="157,5,271,32"/>
+<area shape="rect" href="classdhyara_1_1xqueue.html" title=" " alt="" coords="232,95,433,136"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -124,10 +124,10 @@ Public Member Functions</h2></td></tr>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1network__fifo.html#a39097c116723e96957ec82edae13c326">loop</a> (std::size_t ticks=0xffffffffUL)</td></tr>
 <tr class="memdesc:a39097c116723e96957ec82edae13c326"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start the receive loop that never returns. <br /></td></tr>
 <tr class="separator:a39097c116723e96957ec82edae13c326"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad4517f5f2ff72e877a54f0b509916643"><td class="memItemLeft" align="right" valign="top"><a id="ad4517f5f2ff72e877a54f0b509916643"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1network__fifo.html#ad4517f5f2ff72e877a54f0b509916643">enqueue</a> (const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> &amp;address, const <a class="el" href="structdhyara_1_1frame.html">dhyara::frame</a> &amp;<a class="el" href="structdhyara_1_1frame.html">frame</a>, std::size_t ticks=0)</td></tr>
-<tr class="memdesc:ad4517f5f2ff72e877a54f0b509916643"><td class="mdescLeft">&#160;</td><td class="mdescRight">enqueue a frame that has been received <br /></td></tr>
-<tr class="separator:ad4517f5f2ff72e877a54f0b509916643"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a328a0f2c7f6d4d5a8ba0b02a14f6d662"><td class="memItemLeft" align="right" valign="top"><a id="a328a0f2c7f6d4d5a8ba0b02a14f6d662"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1network__fifo.html#a328a0f2c7f6d4d5a8ba0b02a14f6d662">enqueue</a> (const <a class="el" href="structdhyara_1_1address.html">dhyara::address</a> &amp;<a class="el" href="structdhyara_1_1address.html">address</a>, const <a class="el" href="structdhyara_1_1frame.html">dhyara::frame</a> &amp;<a class="el" href="structdhyara_1_1frame.html">frame</a>, std::size_t ticks=0)</td></tr>
+<tr class="memdesc:a328a0f2c7f6d4d5a8ba0b02a14f6d662"><td class="mdescLeft">&#160;</td><td class="mdescRight">enqueue a frame that has been received <br /></td></tr>
+<tr class="separator:a328a0f2c7f6d4d5a8ba0b02a14f6d662"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a55eda47c85b77ade22804dfce0aee131"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1network__fifo.html#a55eda47c85b77ade22804dfce0aee131">dequeue</a> (callback_type cb, std::size_t ticks=0xffffffffUL)</td></tr>
 <tr class="memdesc:a55eda47c85b77ade22804dfce0aee131"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives a frame into the refered value from the queue.  <a href="structdhyara_1_1network__fifo.html#a55eda47c85b77ade22804dfce0aee131">More...</a><br /></td></tr>
 <tr class="separator:a55eda47c85b77ade22804dfce0aee131"><td class="memSeparator" colspan="2">&#160;</td></tr>

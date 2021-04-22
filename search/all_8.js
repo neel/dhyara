@@ -1,9 +1,11 @@
 var searchData=
 [
-  ['hash_85',['hash',['../structdhyara_1_1peer__address.html#a7f8f04b2ab1fb6667b6c317093e1fa5f',1,'dhyara::peer_address']]],
-  ['hash_3c_20dhyara_3a_3apeer_20_3e_86',['hash&lt; dhyara::peer &gt;',['../structstd_1_1hash_3_01dhyara_1_1peer_01_4.html',1,'std']]],
-  ['hash_3c_20dhyara_3a_3apeer_5faddress_20_3e_87',['hash&lt; dhyara::peer_address &gt;',['../structstd_1_1hash_3_01dhyara_1_1peer__address_01_4.html',1,'std']]],
-  ['header_88',['header',['../structdhyara_1_1packets_1_1chunk.html#a9efb17de917103bacb7f7dec7e90db8c',1,'dhyara::packets::chunk']]],
-  ['header_5fsize_89',['header_size',['../structdhyara_1_1frame.html#acbad15c3e9986647993d943d7a74fbd3',1,'dhyara::frame']]],
-  ['http_90',['http',['../structdhyara_1_1utils_1_1http.html',1,'dhyara::utils']]]
+  ['id_91',['id',['../structdhyara_1_1packets_1_1data.html#a32e8c87868db6670ee2b69fa5967c1fa',1,'dhyara::packets::data']]],
+  ['init_92',['init',['../classdhyara_1_1link.html#a1c9f0b94a68b78b3ca2b55263642fdd4',1,'dhyara::link']]],
+  ['install_93',['install',['../classdhyara_1_1link.html#a3f5a1a89dbd273867300879c778a2421',1,'dhyara::link']]],
+  ['io_94',['IO',['../group__io.html',1,'']]],
+  ['is_5fbroadcast_95',['is_broadcast',['../structdhyara_1_1address.html#a894e2fd97297bccb227e3e711073d75a',1,'dhyara::address']]],
+  ['is_5flast_96',['is_last',['../structdhyara_1_1packets_1_1chunk__header.html#af7cbea62fc3e14316358142de51c0b30',1,'dhyara::packets::chunk_header::is_last()'],['../structdhyara_1_1packets_1_1chunk.html#aa53aeb8b359fc8bf201e7ed71f84e723',1,'dhyara::packets::chunk::is_last()']]],
+  ['is_5fnull_97',['is_null',['../structdhyara_1_1address.html#a858061096a64c66e112b4c75ffd4c2c2',1,'dhyara::address']]],
+  ['isolate_98',['isolate',['../structdhyara_1_1network.html#a08a3867a2aa6586b74a4a041efa3d43b',1,'dhyara::network']]]
 ];

@@ -26,6 +26,7 @@ var hierarchy =
     [ "dhyara::actions::action< echo_request, dhyara::packets::echo_request >", "structdhyara_1_1actions_1_1action.html", [
       [ "dhyara::actions::echo_request", "structdhyara_1_1actions_1_1echo__request.html", null ]
     ] ],
+    [ "dhyara::address", "structdhyara_1_1address.html", null ],
     [ "dhyara::packets::advertisement", "structdhyara_1_1packets_1_1advertisement.html", null ],
     [ "dhyara::packets::beacon", "structdhyara_1_1packets_1_1beacon.html", null ],
     [ "dhyara::candidate", "structdhyara_1_1candidate.html", null ],
@@ -37,8 +38,9 @@ var hierarchy =
     [ "dhyara::packets::echo_reply", "structdhyara_1_1packets_1_1echo__reply.html", null ],
     [ "dhyara::packets::echo_request", "structdhyara_1_1packets_1_1echo__request.html", null ],
     [ "dhyara::frame", "structdhyara_1_1frame.html", null ],
+    [ "std::hash< dhyara::address >", "structstd_1_1hash_3_01dhyara_1_1address_01_4.html", null ],
+    [ "std::hash< dhyara::neighbour >", "structstd_1_1hash_3_01dhyara_1_1neighbour_01_4.html", null ],
     [ "std::hash< dhyara::peer >", "structstd_1_1hash_3_01dhyara_1_1peer_01_4.html", null ],
-    [ "std::hash< dhyara::peer_address >", "structstd_1_1hash_3_01dhyara_1_1peer__address_01_4.html", null ],
     [ "dhyara::utils::http", "structdhyara_1_1utils_1_1http.html", null ],
     [ "dhyara::link", "classdhyara_1_1link.html", null ],
     [ "dhyara::message", "structdhyara_1_1message.html", null ],
@@ -47,8 +49,9 @@ var hierarchy =
     [ "dhyara::network_fifo< Capacity >", "structdhyara_1_1network__fifo.html", null ],
     [ "dhyara::network_fifo< dhyara::queue_size >", "structdhyara_1_1network__fifo.html", null ],
     [ "dhyara::routing::next_hop", "structdhyara_1_1routing_1_1next__hop.html", null ],
-    [ "dhyara::peer", "structdhyara_1_1peer.html", null ],
-    [ "dhyara::peer_address", "structdhyara_1_1peer__address.html", null ],
+    [ "dhyara::peer", "structdhyara_1_1peer.html", [
+      [ "dhyara::neighbour", "structdhyara_1_1neighbour.html", null ]
+    ] ],
     [ "dhyara::tools::ping", "structdhyara_1_1tools_1_1ping.html", null ],
     [ "dhyara::utils::printer", "structdhyara_1_1utils_1_1printer.html", null ],
     [ "dhyara::link::proxy", "structdhyara_1_1link_1_1proxy.html", null ],
@@ -60,6 +63,7 @@ var hierarchy =
     [ "dhyara::serialization< packets::beacon >", "structdhyara_1_1serialization_3_01packets_1_1beacon_01_4.html", null ],
     [ "dhyara::synchronizer", "structdhyara_1_1synchronizer.html", null ],
     [ "dhyara::tools::traceroute", "structdhyara_1_1tools_1_1traceroute.html", null ],
+    [ "dhyara::universe", "structdhyara_1_1universe.html", null ],
     [ "dhyara::watcher< WatchedT >", "structdhyara_1_1watcher.html", null ],
     [ "dhyara::watcher< char >", "structdhyara_1_1watcher.html", [
       [ "dhyara::mutex", "structdhyara_1_1mutex.html", null ],

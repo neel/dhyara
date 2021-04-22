@@ -120,20 +120,21 @@ Collaboration diagram for dhyara::actions::chunk:</div>
 <div class="dyncontent">
 <div class="center"><img src="structdhyara_1_1actions_1_1chunk__coll__graph.png" border="0" usemap="#dhyara_1_1actions_1_1chunk_coll__map" alt="Collaboration graph"/></div>
 <map name="dhyara_1_1actions_1_1chunk_coll__map" id="dhyara_1_1actions_1_1chunk_coll__map">
-<area shape="rect" title="action to handle an incoming chunk packet" alt="" coords="1256,155,1425,181"/>
-<area shape="rect" href="structdhyara_1_1actions_1_1action.html" title=" " alt="" coords="985,108,1172,164"/>
-<area shape="rect" href="classdhyara_1_1link.html" title="Link is responsible for low level sending/receiving." alt="" coords="1029,188,1128,215"/>
-<area shape="rect" href="structdhyara_1_1notifier.html" title="notifier" alt="" coords="697,7,819,33"/>
-<area shape="rect" href="structdhyara_1_1watcher.html" title=" " alt="" coords="344,7,529,33"/>
-<area shape="rect" href="classdhyara_1_1xqueue.html" title=" " alt="" coords="5,7,203,33"/>
-<area shape="rect" href="classdhyara_1_1xqueue.html" title=" " alt="" coords="663,57,853,113"/>
-<area shape="rect" href="structdhyara_1_1neighbourhood.html" title="Neighbourhood of a node." alt="" coords="672,137,844,164"/>
-<area shape="rect" href="structdhyara_1_1peer__address.html" title="peer address (mac address)" alt="" coords="23,219,185,245"/>
-<area shape="rect" href="structdhyara_1_1message.html" title="Envelop for both to be sent and has been received messages." alt="" coords="369,239,504,265"/>
-<area shape="rect" href="structdhyara_1_1routing.html" title="routing table" alt="" coords="697,407,819,433"/>
-<area shape="rect" href="structdhyara_1_1frame.html" title="A 250 bytes frame is defined by a 2 bytes header and 248 bytes payload." alt="" coords="47,311,161,337"/>
-<area shape="rect" href="structdhyara_1_1network__fifo.html" title=" " alt="" coords="669,239,847,281"/>
-<area shape="rect" href="classdhyara_1_1xqueue.html" title=" " alt="" coords="336,290,537,331"/>
+<area shape="rect" title="action to handle an incoming chunk packet" alt="" coords="1256,268,1425,295"/>
+<area shape="rect" href="structdhyara_1_1actions_1_1action.html" title=" " alt="" coords="985,221,1172,277"/>
+<area shape="rect" href="classdhyara_1_1link.html" title="Link is responsible for low level sending/receiving." alt="" coords="1029,301,1128,328"/>
+<area shape="rect" href="structdhyara_1_1address.html" title="peer address (mac address)" alt="" coords="41,80,167,107"/>
+<area shape="rect" href="structdhyara_1_1message.html" title="Envelop for both to be sent and has been received messages." alt="" coords="369,100,504,127"/>
+<area shape="rect" href="structdhyara_1_1notifier.html" title="notifier" alt="" coords="697,268,819,295"/>
+<area shape="rect" href="structdhyara_1_1watcher.html" title=" " alt="" coords="344,268,529,295"/>
+<area shape="rect" href="classdhyara_1_1xqueue.html" title=" " alt="" coords="5,268,203,295"/>
+<area shape="rect" href="classdhyara_1_1xqueue.html" title=" " alt="" coords="663,319,853,375"/>
+<area shape="rect" href="structdhyara_1_1neighbourhood.html" title="Neighbourhood of a node." alt="" coords="672,399,844,425"/>
+<area shape="rect" href="structdhyara_1_1routing.html" title="routing table" alt="" coords="697,449,819,476"/>
+<area shape="rect" href="structdhyara_1_1universe.html" title="Universe of all nodes in the known in the universe." alt="" coords="693,500,823,527"/>
+<area shape="rect" href="structdhyara_1_1frame.html" title="A 250 bytes frame is defined by a 2 bytes header and 248 bytes payload." alt="" coords="47,164,161,191"/>
+<area shape="rect" href="structdhyara_1_1network__fifo.html" title=" " alt="" coords="669,151,847,193"/>
+<area shape="rect" href="classdhyara_1_1xqueue.html" title=" " alt="" coords="336,151,537,193"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -142,9 +143,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2f9fba221fd59e75c5acfd61b9a30ffc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1actions_1_1chunk.html#a2f9fba221fd59e75c5acfd61b9a30ffc">chunk</a> (<a class="el" href="classdhyara_1_1link.html">dhyara::link</a> &amp;<a class="el" href="classdhyara_1_1link.html">link</a>)</td></tr>
 <tr class="memdesc:a2f9fba221fd59e75c5acfd61b9a30ffc"><td class="mdescLeft">&#160;</td><td class="mdescRight">A chunk action needs to have access to the link in order to relay the chunk if it is an intermediate node.  <a href="structdhyara_1_1actions_1_1chunk.html#a2f9fba221fd59e75c5acfd61b9a30ffc">More...</a><br /></td></tr>
 <tr class="separator:a2f9fba221fd59e75c5acfd61b9a30ffc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c829b761e46dea12d3d4996c0b4ba71"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1actions_1_1chunk.html#a4c829b761e46dea12d3d4996c0b4ba71">operator()</a> (const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> &amp;addr, const <a class="el" href="structdhyara_1_1packets_1_1chunk.html">dhyara::packets::chunk</a> &amp;<a class="el" href="structdhyara_1_1actions_1_1chunk.html">chunk</a>)</td></tr>
-<tr class="memdesc:a4c829b761e46dea12d3d4996c0b4ba71"><td class="mdescLeft">&#160;</td><td class="mdescRight">The received chunk is processed in this function.  <a href="structdhyara_1_1actions_1_1chunk.html#a4c829b761e46dea12d3d4996c0b4ba71">More...</a><br /></td></tr>
-<tr class="separator:a4c829b761e46dea12d3d4996c0b4ba71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3bbcec53f1f69d3ae6e81bdbc7ada0c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1actions_1_1chunk.html#ad3bbcec53f1f69d3ae6e81bdbc7ada0c">operator()</a> (const <a class="el" href="structdhyara_1_1address.html">dhyara::address</a> &amp;addr, const <a class="el" href="structdhyara_1_1packets_1_1chunk.html">dhyara::packets::chunk</a> &amp;<a class="el" href="structdhyara_1_1actions_1_1chunk.html">chunk</a>)</td></tr>
+<tr class="memdesc:ad3bbcec53f1f69d3ae6e81bdbc7ada0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The received chunk is processed in this function.  <a href="structdhyara_1_1actions_1_1chunk.html#ad3bbcec53f1f69d3ae6e81bdbc7ada0c">More...</a><br /></td></tr>
+<tr class="separator:ad3bbcec53f1f69d3ae6e81bdbc7ada0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc52a2317555b4401ca9d87bd3f17ef3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1actions_1_1chunk.html#adc52a2317555b4401ca9d87bd3f17ef3">on_data</a> (data_callback_type slot)</td></tr>
 <tr class="memdesc:adc52a2317555b4401ca9d87bd3f17ef3"><td class="mdescLeft">&#160;</td><td class="mdescRight">set a callback which will be called once a complete data is received  <a href="structdhyara_1_1actions_1_1chunk.html#adc52a2317555b4401ca9d87bd3f17ef3">More...</a><br /></td></tr>
 <tr class="separator:adc52a2317555b4401ca9d87bd3f17ef3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -161,9 +162,9 @@ Public Member Functions</h2></td></tr>
 <a class="el" href="structdhyara_1_1actions_1_1action.html">action</a>&lt; <a class="el" href="structdhyara_1_1actions_1_1chunk.html">chunk</a>, <a class="el" href="structdhyara_1_1packets_1_1chunk.html">dhyara::packets::chunk</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1actions_1_1action.html#ab02e2d337f58ae824c7fe9552e0bf821">operator=</a> (const <a class="el" href="structdhyara_1_1actions_1_1action.html">action</a>&lt; <a class="el" href="structdhyara_1_1actions_1_1chunk.html">chunk</a>, <a class="el" href="structdhyara_1_1packets_1_1chunk.html">dhyara::packets::chunk</a> &gt; &amp;)=delete</td></tr>
 <tr class="memdesc:ab02e2d337f58ae824c7fe9552e0bf821 inherit pub_methods_structdhyara_1_1actions_1_1action"><td class="mdescLeft">&#160;</td><td class="mdescRight">An action is not copy-assignable. <br /></td></tr>
 <tr class="separator:ab02e2d337f58ae824c7fe9552e0bf821 inherit pub_methods_structdhyara_1_1actions_1_1action"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6273443e685fadf590c7e06c9981fd0d inherit pub_methods_structdhyara_1_1actions_1_1action"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1actions_1_1action.html#a6273443e685fadf590c7e06c9981fd0d">operator()</a> (const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> &amp;address, const <a class="el" href="structdhyara_1_1frame.html">dhyara::frame</a> &amp;<a class="el" href="structdhyara_1_1frame.html">frame</a>)</td></tr>
-<tr class="memdesc:a6273443e685fadf590c7e06c9981fd0d inherit pub_methods_structdhyara_1_1actions_1_1action"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a packet from the received frame.  <a href="structdhyara_1_1actions_1_1action.html#a6273443e685fadf590c7e06c9981fd0d">More...</a><br /></td></tr>
-<tr class="separator:a6273443e685fadf590c7e06c9981fd0d inherit pub_methods_structdhyara_1_1actions_1_1action"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c848d46f22c7eb3c5ac0e420c333164 inherit pub_methods_structdhyara_1_1actions_1_1action"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1actions_1_1action.html#a8c848d46f22c7eb3c5ac0e420c333164">operator()</a> (const <a class="el" href="structdhyara_1_1address.html">dhyara::address</a> &amp;<a class="el" href="structdhyara_1_1address.html">address</a>, const <a class="el" href="structdhyara_1_1frame.html">dhyara::frame</a> &amp;<a class="el" href="structdhyara_1_1frame.html">frame</a>)</td></tr>
+<tr class="memdesc:a8c848d46f22c7eb3c5ac0e420c333164 inherit pub_methods_structdhyara_1_1actions_1_1action"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a packet from the received frame.  <a href="structdhyara_1_1actions_1_1action.html#a8c848d46f22c7eb3c5ac0e420c333164">More...</a><br /></td></tr>
+<tr class="separator:a8c848d46f22c7eb3c5ac0e420c333164 inherit pub_methods_structdhyara_1_1actions_1_1action"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0deb780f69c1d083514f14b524b6c1af inherit pub_methods_structdhyara_1_1actions_1_1action"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1actions_1_1action.html#a0deb780f69c1d083514f14b524b6c1af">connect</a> (slot_type slot)</td></tr>
 <tr class="memdesc:a0deb780f69c1d083514f14b524b6c1af inherit pub_methods_structdhyara_1_1actions_1_1action"><td class="mdescLeft">&#160;</td><td class="mdescRight">Connect a slot (callback) which will be called after the action is executed.  <a href="structdhyara_1_1actions_1_1action.html#a0deb780f69c1d083514f14b524b6c1af">More...</a><br /></td></tr>
 <tr class="separator:a0deb780f69c1d083514f14b524b6c1af inherit pub_methods_structdhyara_1_1actions_1_1action"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -249,8 +250,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a4c829b761e46dea12d3d4996c0b4ba71"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4c829b761e46dea12d3d4996c0b4ba71">&#9670;&nbsp;</a></span>operator()()</h2>
+<a id="ad3bbcec53f1f69d3ae6e81bdbc7ada0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3bbcec53f1f69d3ae6e81bdbc7ada0c">&#9670;&nbsp;</a></span>operator()()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -258,7 +259,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void dhyara::actions::chunk::operator() </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structdhyara_1_1peer__address.html">dhyara::peer_address</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="structdhyara_1_1address.html">dhyara::address</a> &amp;&#160;</td>
           <td class="paramname"><em>addr</em>, </td>
         </tr>
         <tr>
