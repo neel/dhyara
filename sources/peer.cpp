@@ -48,15 +48,7 @@ bool dhyara::peer::operator==(const peer& other) const{
     return addr() == other.addr();
 }
 
-std::ostream& dhyara::operator<<(std::ostream& os, const dhyara::address& address){
-    os << "Addr< " << address.to_string() << " >";
-    return os;
-}
 std::ostream& dhyara::operator<<(std::ostream& os, const dhyara::peer& peer){
     os << "Peer< " << peer.addr() << ", Ch #" << peer.channel() << " >";
     return os;
-}
-
-void dhyara::address::set(const std::uint8_t* bytes){
-    std::copy(bytes, bytes + 6, _bytes.begin());
 }

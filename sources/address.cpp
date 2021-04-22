@@ -84,3 +84,11 @@ bool dhyara::address::operator==(const std::string& addr) const{
     return operator==(dhyara::address(addr));
 }
 
+void dhyara::address::set(const std::uint8_t* bytes){
+    std::copy(bytes, bytes + 6, _bytes.begin());
+}
+
+std::ostream& dhyara::operator<<(std::ostream& os, const dhyara::address& address){
+    os << "Addr< " << address.to_string() << " >";
+    return os;
+}

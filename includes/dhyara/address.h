@@ -137,6 +137,19 @@ struct address{
         container_type _bytes;
 };
 
+std::ostream& operator<<(std::ostream& os, const dhyara::address& address);
+
+}
+
+namespace std {
+
+template <>
+struct hash<dhyara::address>{
+    std::uint64_t operator()(const dhyara::address& addr) const{
+        return std::hash<std::uint64_t>()(addr.hash());
+    }
+};
+
 }
 
 #endif // DHYARA_ADDRESS_H

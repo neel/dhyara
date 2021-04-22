@@ -89,24 +89,16 @@ struct peer{
     
     private:
         esp_now_peer_info_t _peer;
-        address        _addr;
+        address             _addr;
         std::int8_t         _rssi;
         std::string         _name;
 };
 
-std::ostream& operator<<(std::ostream& os, const dhyara::address& address);
 std::ostream& operator<<(std::ostream& os, const dhyara::peer& peer);
     
 }
 
 namespace std {
-
-template <>
-struct hash<dhyara::address>{
-    std::uint64_t operator()(const dhyara::address& addr) const{
-        return std::hash<std::uint64_t>()(addr.hash());
-    }
-};
 
 template <>
 struct hash<dhyara::peer>{
