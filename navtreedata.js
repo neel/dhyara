@@ -71,8 +71,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 ".html",
-"structdhyara_1_1address.html#a894e2fd97297bccb227e3e711073d75a",
-"structdhyara_1_1tools_1_1ping.html#a1ebd240a8893b75b9dc20aab35e46919"
+"structdhyara_1_1address.html",
+"structdhyara_1_1routing_1_1route__metric.html#a73ff210abbd40be164e931f1a7728c46"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

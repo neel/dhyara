@@ -17,6 +17,7 @@ var structdhyara_1_1packets_1_1data =
     [ "prepare", "structdhyara_1_1packets_1_1data.html#aaf53c1f0615c8a28188991792da83688", null ],
     [ "raw", "structdhyara_1_1packets_1_1data.html#ac35b8f7f9e749512ad662182455b2d39", null ],
     [ "reserve", "structdhyara_1_1packets_1_1data.html#acddf864eee239004d78f70873bce815a", null ],
-    [ "source", "structdhyara_1_1packets_1_1data.html#a89e2ae8182ed94467b4f06b6b4fc69c6", null ],
-    [ "target", "structdhyara_1_1packets_1_1data.html#a52004fe5b1cdf5bc52fb0bdcac207ccf", null ]
+    [ "source", "structdhyara_1_1packets_1_1data.html#a34ee194a57abc3335030055ca03d577b", null ],
+    [ "source", "structdhyara_1_1packets_1_1data.html#a5ef62f9515c7ac58a689a6d1ab9c4ce2", null ],
+    [ "target", "structdhyara_1_1packets_1_1data.html#ab8a84ed0e91b19250a627f121cfdcda0", null ]
 ];

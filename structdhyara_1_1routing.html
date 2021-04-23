@@ -97,6 +97,7 @@ $(document).ready(function(){initNavTree('structdhyara_1_1routing.html',''); ini
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="structdhyara_1_1routing-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">dhyara::routing Struct Reference<div class="ingroups"><a class="el" href="group__routing.html">Routing</a></div></div>  </div>
@@ -147,10 +148,10 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stru
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1routing.html#aab678bd2a9abf93093ef1ee114a529fe">depreciate</a> ()</td></tr>
 <tr class="memdesc:aab678bd2a9abf93093ef1ee114a529fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">depreciate a route that was not updated within dhyara::route_expiry time <br /></td></tr>
 <tr class="separator:aab678bd2a9abf93093ef1ee114a529fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a318264149dc6457b2a67bef55d5cd607"><td class="memItemLeft" align="right" valign="top"><a id="a318264149dc6457b2a67bef55d5cd607"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1routing.html#a318264149dc6457b2a67bef55d5cd607">depreciate</a> (std::function&lt; void(const <a class="el" href="structdhyara_1_1routing_1_1route.html">dhyara::routing::route</a> &amp;, delay_type)&gt; notify)</td></tr>
-<tr class="memdesc:a318264149dc6457b2a67bef55d5cd607"><td class="mdescLeft">&#160;</td><td class="mdescRight">depreciate a route that was not updated within dhyara::route_expiry time <br /></td></tr>
-<tr class="separator:a318264149dc6457b2a67bef55d5cd607"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5dd10667f0e2f0ff0a43262bc9a2e2b4"><td class="memItemLeft" align="right" valign="top"><a id="a5dd10667f0e2f0ff0a43262bc9a2e2b4"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1routing.html#a5dd10667f0e2f0ff0a43262bc9a2e2b4">depreciate</a> (std::function&lt; void(const <a class="el" href="structdhyara_1_1routing_1_1route.html">dhyara::routing::route</a> &amp;, dhyara::delay_type)&gt; notify)</td></tr>
+<tr class="memdesc:a5dd10667f0e2f0ff0a43262bc9a2e2b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">depreciate a route that was not updated within dhyara::route_expiry time <br /></td></tr>
+<tr class="separator:a5dd10667f0e2f0ff0a43262bc9a2e2b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08a7cb4555f4d99b759e1406399ed0e8"><td class="memItemLeft" align="right" valign="top"><a id="a08a7cb4555f4d99b759e1406399ed0e8"></a>
 std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1routing.html#a08a7cb4555f4d99b759e1406399ed0e8">print</a> (std::ostream &amp;os) const</td></tr>
 <tr class="memdesc:a08a7cb4555f4d99b759e1406399ed0e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">print the routing table and current next hop vector <br /></td></tr>
@@ -175,12 +176,94 @@ next_vector_type::const_iterator&#160;</td><td class="memItemRight" valign="bott
 dhyara::delay_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1routing.html#a8b78f3c105a12f87530e4f40ad5ade2b">lost_since</a> () const</td></tr>
 <tr class="memdesc:a8b78f3c105a12f87530e4f40ad5ade2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Last time the routing table was updated. <br /></td></tr>
 <tr class="separator:a8b78f3c105a12f87530e4f40ad5ade2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a01ef80baece03507b2b32168b828d908"><td class="memItemLeft" align="right" valign="top">delay_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1routing.html#a01ef80baece03507b2b32168b828d908">delay</a> (const <a class="el" href="structdhyara_1_1routing_1_1route.html">route</a> &amp;r) const</td></tr>
+<tr class="memdesc:a01ef80baece03507b2b32168b828d908"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the given route in the routing table and returns its delay.  <a href="structdhyara_1_1routing.html#a01ef80baece03507b2b32168b828d908">More...</a><br /></td></tr>
+<tr class="separator:a01ef80baece03507b2b32168b828d908"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4847a2c77a0426f29289ee09588f07bc"><td class="memItemLeft" align="right" valign="top">std::pair&lt; <a class="el" href="structdhyara_1_1address.html">dhyara::address</a>, dhyara::delay_type &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1routing.html#a4847a2c77a0426f29289ee09588f07bc">calculated_next</a> (<a class="el" href="structdhyara_1_1address.html">dhyara::address</a> dst) const</td></tr>
+<tr class="memdesc:a4847a2c77a0426f29289ee09588f07bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the best next hop from all existing routes in the routing table, that lead to the given destination.  <a href="structdhyara_1_1routing.html#a4847a2c77a0426f29289ee09588f07bc">More...</a><br /></td></tr>
+<tr class="separator:a4847a2c77a0426f29289ee09588f07bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2168eb1509c3e3db315a6b2abcff1fa"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1routing.html#ab2168eb1509c3e3db315a6b2abcff1fa">update_next</a> (<a class="el" href="structdhyara_1_1address.html">dhyara::address</a> dst)</td></tr>
+<tr class="memdesc:ab2168eb1509c3e3db315a6b2abcff1fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the next hop of the given destination using the best route from the existing routing table.  <a href="structdhyara_1_1routing.html#ab2168eb1509c3e3db315a6b2abcff1fa">More...</a><br /></td></tr>
+<tr class="separator:ab2168eb1509c3e3db315a6b2abcff1fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>routing table </p>
 
 <p class="definition">Definition at line <a class="el" href="routing_8h_source.html#l00028">28</a> of file <a class="el" href="routing_8h_source.html">routing.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a4847a2c77a0426f29289ee09588f07bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4847a2c77a0426f29289ee09588f07bc">&#9670;&nbsp;</a></span>calculated_next()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::pair&lt;<a class="el" href="structdhyara_1_1address.html">dhyara::address</a>, dhyara::delay_type&gt; dhyara::routing::calculated_next </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structdhyara_1_1address.html">dhyara::address</a>&#160;</td>
+          <td class="paramname"><em>dst</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calculates the best next hop from all existing routes in the routing table, that lead to the given destination. </p>
+<dl class="section note"><dt>Note</dt><dd>The function only returns a calculated next hop. But it does not alter the previously calculated next hop. </dd></dl>
+<dl class="section attention"><dt>Attention</dt><dd>If there is no route in the routing table, that lead to the given destination, then returns a next hop with default delay. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dst</td><td>The destination node address </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a01ef80baece03507b2b32168b828d908"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01ef80baece03507b2b32168b828d908">&#9670;&nbsp;</a></span>delay()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">delay_type dhyara::routing::delay </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structdhyara_1_1routing_1_1route.html">route</a> &amp;&#160;</td>
+          <td class="paramname"><em>r</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Finds the given route in the routing table and returns its delay. </p>
+<p>If there is no such route then returns the default delay. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">r</td><td>the route </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="afc2b63b9cca76751d43361a8f486fc42"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afc2b63b9cca76751d43361a8f486fc42">&#9670;&nbsp;</a></span>exists() <span class="overload">[1/2]</span></h2>
 
@@ -261,6 +344,41 @@ dhyara::delay_type&#160;</td><td class="memItemRight" valign="bottom"><a class="
 
 <p>updates routing table with rtt of a route. </p>
 <p>returning true signifies that min values for the destination has been altered due to this route. returnign false signifies that the min values are still the same </p>
+
+</div>
+</div>
+<a id="ab2168eb1509c3e3db315a6b2abcff1fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2168eb1509c3e3db315a6b2abcff1fa">&#9670;&nbsp;</a></span>update_next()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool dhyara::routing::update_next </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structdhyara_1_1address.html">dhyara::address</a>&#160;</td>
+          <td class="paramname"><em>dst</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Updates the next hop of the given destination using the best route from the existing routing table. </p>
+<p>returns true if either the best intermediate node has changed or the change in delay is beyond tolerated delay. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dst</td><td>The destination node address </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structdhyara_1_1routing.html#a4847a2c77a0426f29289ee09588f07bc" title="Calculates the best next hop from all existing routes in the routing table, that lead to the given de...">calculated_next</a> </dd></dl>
 
 </div>
 </div>

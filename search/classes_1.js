@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['beacon_216',['beacon',['../structdhyara_1_1actions_1_1beacon.html',1,'dhyara::actions::beacon'],['../structdhyara_1_1packets_1_1beacon.html',1,'dhyara::packets::beacon']]]
+  ['beacon_221',['beacon',['../structdhyara_1_1actions_1_1beacon.html',1,'dhyara::actions::beacon'],['../structdhyara_1_1packets_1_1beacon.html',1,'dhyara::packets::beacon']]]
 ];

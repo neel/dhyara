@@ -265,8 +265,8 @@ Private Attributes</h2></td></tr>
 <dl class="section attention"><dt>Attention</dt><dd>Usercode may not need to interact with <a class="el" href="classdhyara_1_1link.html">dhyara::link</a> directly unless there is a customization of the underlying communication protocol is required.</dd></dl>
 <p>All received data should be forwarded to the link via <a class="el" href="classdhyara_1_1link.html#a978706fc680636c3cdaaa9a3781a5754">_esp_sent_cb</a> which wil then be processed through the installed actions (<a class="el" href="group__actions.html">Actions</a>). </p><div class="fragment"><div class="line"><a class="code" href="classdhyara_1_1link.html">dhyara::link</a> medium; <span class="comment">// A communication medium </span></div>
 <div class="line"> </div>
-<div class="line"><a class="code" href="structdhyara_1_1actions_1_1acknowledgement.html">dhyara::actions::acknowledgement</a> acknowledgement(medium.local()); <span class="comment">// Handler for acknowledgement packets</span></div>
-<div class="line">medium[dhyara::packets::type::acknowledgement] = acknowledgement;</div>
+<div class="line"><a class="code" href="structdhyara_1_1actions_1_1acknowledgement.html">dhyara::actions::acknowledgement</a> <a class="code" href="group__packets.html#gga587a117adc54019693a184e4f8b4e0b5a0421784420643cbd77fd5fed9006293f">acknowledgement</a>(medium.local()); <span class="comment">// Handler for acknowledgement packets</span></div>
+<div class="line">medium[<a class="code" href="group__packets.html#gga587a117adc54019693a184e4f8b4e0b5a0421784420643cbd77fd5fed9006293f">dhyara::packets::type::acknowledgement</a>] = <a class="code" href="group__packets.html#gga587a117adc54019693a184e4f8b4e0b5a0421784420643cbd77fd5fed9006293f">acknowledgement</a>;</div>
 <div class="line"><span class="comment">// associate other actions ...</span></div>
 </div><!-- fragment --><h3><a class="anchor" id="autotoc_md0"></a>
 Internal Send Receive Mechanism</h3>
@@ -524,8 +524,8 @@ This function is supposed by the callback passed to esp_now_register_send_cb().<
 
 <p>Conveniance function to install an action (associate an action with a packet type). </p>
 <div class="fragment"><div class="line"><a class="code" href="classdhyara_1_1link.html">dhyara::link</a> medium;</div>
-<div class="line"><a class="code" href="structdhyara_1_1actions_1_1beacon.html">dhyara::actions::beacon</a> beacon(medium);</div>
-<div class="line">medium[dhyara::packets::type::beacon] = beacon;</div>
+<div class="line"><a class="code" href="structdhyara_1_1actions_1_1beacon.html">dhyara::actions::beacon</a> <a class="code" href="group__packets.html#gga587a117adc54019693a184e4f8b4e0b5a41b89d10619cdd3e30fb6c401c17c7d9">beacon</a>(medium);</div>
+<div class="line">medium[<a class="code" href="group__packets.html#gga587a117adc54019693a184e4f8b4e0b5a41b89d10619cdd3e30fb6c401c17c7d9">dhyara::packets::type::beacon</a>] = <a class="code" href="group__packets.html#gga587a117adc54019693a184e4f8b4e0b5a41b89d10619cdd3e30fb6c401c17c7d9">beacon</a>;</div>
 </div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">type</td><td>packet type </td></tr>
@@ -664,7 +664,7 @@ template&lt;typename PacketT &gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="link_8h_source.html#l00148">148</a> of file <a class="el" href="link_8h_source.html">link.h</a>.</p>
 
-<p class="reference">References <a class="el" href="address_8h_source.html#l00130">dhyara::address::is_null()</a>, <a class="el" href="structdhyara_1_1routing.html#af8aeea5a288a026d351ccf06e555ec2d">dhyara::routing::next()</a>, <a class="el" href="link_8h_source.html#l00132">send_local()</a>, and <a class="el" href="routing_8h_source.html#l00122">dhyara::routing::next_hop::via()</a>.</p>
+<p class="reference">References <a class="el" href="address_8h_source.html#l00130">dhyara::address::is_null()</a>, <a class="el" href="structdhyara_1_1routing.html#af8aeea5a288a026d351ccf06e555ec2d">dhyara::routing::next()</a>, <a class="el" href="link_8h_source.html#l00132">send_local()</a>, and <a class="el" href="routing_8h_source.html#l00141">dhyara::routing::next_hop::via()</a>.</p>
 
 </div>
 </div>
@@ -874,7 +874,9 @@ Here is the caller graph for this function:</div>
 </div><!-- doc-content -->
 <div class="ttc" id="aclassdhyara_1_1link_html"><div class="ttname"><a href="classdhyara_1_1link.html">dhyara::link</a></div><div class="ttdoc">Link is responsible for low level sending/receiving.</div><div class="ttdef"><b>Definition:</b> <a href="link_8h_source.html#l00094">link.h:94</a></div></div>
 <div class="ttc" id="astructdhyara_1_1actions_1_1acknowledgement_html"><div class="ttname"><a href="structdhyara_1_1actions_1_1acknowledgement.html">dhyara::actions::acknowledgement</a></div><div class="ttdoc">action to handle an incoming acknowledgement packet</div><div class="ttdef"><b>Definition:</b> <a href="actions_2acknowledgement_8h_source.html#l00027">acknowledgement.h:27</a></div></div>
+<div class="ttc" id="agroup__packets_html_gga587a117adc54019693a184e4f8b4e0b5a0421784420643cbd77fd5fed9006293f"><div class="ttname"><a href="group__packets.html#gga587a117adc54019693a184e4f8b4e0b5a0421784420643cbd77fd5fed9006293f">dhyara::packets::type::acknowledgement</a></div><div class="ttdeci">@ acknowledgement</div><div class="ttdoc">acknowledgement packet</div></div>
 <div class="ttc" id="astructdhyara_1_1actions_1_1beacon_html"><div class="ttname"><a href="structdhyara_1_1actions_1_1beacon.html">dhyara::actions::beacon</a></div><div class="ttdoc">action to handle an incoming beacon packet</div><div class="ttdef"><b>Definition:</b> <a href="actions_2beacon_8h_source.html#l00027">beacon.h:27</a></div></div>
+<div class="ttc" id="agroup__packets_html_gga587a117adc54019693a184e4f8b4e0b5a41b89d10619cdd3e30fb6c401c17c7d9"><div class="ttname"><a href="group__packets.html#gga587a117adc54019693a184e4f8b4e0b5a41b89d10619cdd3e30fb6c401c17c7d9">dhyara::packets::type::beacon</a></div><div class="ttdeci">@ beacon</div><div class="ttdoc">beacon packet</div></div>
 <!-- HTML footer for doxygen 1.9.1-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

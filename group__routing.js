@@ -3,9 +3,13 @@ var group__routing =
     [ "routing", "structdhyara_1_1routing.html", [
       [ "next_hop", "structdhyara_1_1routing_1_1next__hop.html", [
         [ "next_hop", "structdhyara_1_1routing_1_1next__hop.html#ad3ebe41f85e19006e5b856f91eb9f8c1", null ],
+        [ "next_hop", "structdhyara_1_1routing_1_1next__hop.html#adec50f22b795d53fef3a2a9eb4f0832d", null ],
         [ "delay", "structdhyara_1_1routing_1_1next__hop.html#a5ac456e9b6534e035a6e8902e56a4583", null ],
         [ "operator!=", "structdhyara_1_1routing_1_1next__hop.html#a63a0be8e8b1a3387092d7b9a53658a82", null ],
+        [ "operator=", "structdhyara_1_1routing_1_1next__hop.html#a67b39410a3f76b0de6c6fc9a700eff49", null ],
         [ "operator==", "structdhyara_1_1routing_1_1next__hop.html#a72e7065b0cfaec258ce92f91139bb344", null ],
+        [ "publish", "structdhyara_1_1routing_1_1next__hop.html#a70a8c8a835a15eb3e7e1ac722a99bdf7", null ],
+        [ "published", "structdhyara_1_1routing_1_1next__hop.html#aaab66f69e2a593b02738256284e4f958", null ],
         [ "via", "structdhyara_1_1routing_1_1next__hop.html#a4eef7aaa1e7595978e88d2e312283f53", null ]
       ] ],
       [ "route", "structdhyara_1_1routing_1_1route.html", [
@@ -27,9 +31,11 @@ var group__routing =
         [ "updated", "structdhyara_1_1routing_1_1route__metric.html#a73ff210abbd40be164e931f1a7728c46", null ]
       ] ],
       [ "routing", "structdhyara_1_1routing.html#a3200fe79309ef0e386d098e67073e261", null ],
+      [ "calculated_next", "structdhyara_1_1routing.html#a4847a2c77a0426f29289ee09588f07bc", null ],
+      [ "delay", "structdhyara_1_1routing.html#a01ef80baece03507b2b32168b828d908", null ],
       [ "depreciate", "structdhyara_1_1routing.html#aab678bd2a9abf93093ef1ee114a529fe", null ],
       [ "depreciate", "structdhyara_1_1routing.html#aa964c17c9c12e1e62b188654a8449e4a", null ],
-      [ "depreciate", "structdhyara_1_1routing.html#a318264149dc6457b2a67bef55d5cd607", null ],
+      [ "depreciate", "structdhyara_1_1routing.html#a5dd10667f0e2f0ff0a43262bc9a2e2b4", null ],
       [ "exists", "structdhyara_1_1routing.html#afc2b63b9cca76751d43361a8f486fc42", null ],
       [ "exists", "structdhyara_1_1routing.html#ae47eecb1cd3668c30f83f3b2b178ee71", null ],
       [ "lost_since", "structdhyara_1_1routing.html#a8b78f3c105a12f87530e4f40ad5ade2b", null ],
@@ -39,7 +45,8 @@ var group__routing =
       [ "print", "structdhyara_1_1routing.html#a08a7cb4555f4d99b759e1406399ed0e8", null ],
       [ "route_begin", "structdhyara_1_1routing.html#a199d78a23bd3e0c81f75b8c3003592a2", null ],
       [ "route_end", "structdhyara_1_1routing.html#ac237f180dab957ed083b75bca4824dca", null ],
-      [ "update", "structdhyara_1_1routing.html#a4c5b595aba206265805f31070da27ed1", null ]
+      [ "update", "structdhyara_1_1routing.html#a4c5b595aba206265805f31070da27ed1", null ],
+      [ "update_next", "structdhyara_1_1routing.html#ab2168eb1509c3e3db315a6b2abcff1fa", null ]
     ] ],
     [ "candidate", "structdhyara_1_1candidate.html", [
       [ "delay", "structdhyara_1_1candidate.html#a8ab3dfbe0ac359520a15a94422810ed0", null ],

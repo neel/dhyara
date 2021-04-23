@@ -154,20 +154,14 @@ Private Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Synchronize routes accross all nodes in the network. </p>
-<p>Non copyable. A synchronization candidate is enqueued. The run function (never returns) should be called from a task to dequeue the enqueued candidates and sync accross all nodes. A synchronization candidate is defined by a route (self -&gt; via -&gt; destination) and an integer denoting one trip delay. The via is set to null to denote direct connectivity between self and destination.</p>
-<p>The update operation in the routing table returns a boolean value depicting whether synchronization is required or not. If synchronization is required then finds the current next (best immediate hop) for the dest (which has been changed due to previous update). Constructs an advertisement packet with the delay associated with the current next. Sends that advertisement packet to all neighbours except the dest node.</p>
+<p>A synchronization candidate is enqueued. <br  />
+ Synchronization candidate is defined by a route (self -&gt; via -&gt; destination) and an integer denoting one trip delay. The via is set to null to denote direct connectivity between self and destination. The run function (never returns) should be called from a task to dequeue the enqueued candidates and sync accross all nodes. Once dequeued, the routing table is updated using the candidate's delay.</p>
+<p>The delay associated with the existing route (dest, via) is updated to the new delay (from the dequeued candidate) through the routing table (The route will be created if it does not exist already). The update operation in the routing table returns a boolean value depicting whether synchronization is required or not (best next hop for the destination is altered). If synchronization is required then finds the current next (best immediate hop) for the dest (which has been changed due to previous update). Constructs an advertisement packet with the delay associated with the current next. Sends that advertisement packet to all neighbours except the dest node.</p>
 <p>Additionally it also maintains a map to maintain last advertisement time. If the update on the routing table responds true, denoting synchronization is required then the last advertisement time assocated with the dest is also updated. If the update returns false then this last advertisement time assocated with the dest is checked. If it is found out that no advertisement has been sent for this dest for too long (advertisement_expiry) then another advertisement is sent.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">dest</td><td>The destination address </td></tr>
-    <tr><td class="paramname">via</td><td>The intermediate node address </td></tr>
-    <tr><td class="paramname">delay</td><td>the one trip delay on this route</td></tr>
-  </table>
-  </dd>
-</dl>
+<dl class="section note"><dt>Note</dt><dd>Not Default Constructible, Not Copyable, Not Copy Assignable. </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="structdhyara_1_1candidate.html" title="A synchronization candidate is defined by a route (self -&gt; via -&gt; destination) and an integer denotin...">dhyara::candidate</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="synchronizer_8h_source.html#l00060">60</a> of file <a class="el" href="synchronizer_8h_source.html">synchronizer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="synchronizer_8h_source.html#l00070">70</a> of file <a class="el" href="synchronizer_8h_source.html">synchronizer.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a66377aef4f9a77687b5ffa4c147ce2e7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a66377aef4f9a77687b5ffa4c147ce2e7">&#9670;&nbsp;</a></span>queue() <span class="overload">[1/2]</span></h2>
