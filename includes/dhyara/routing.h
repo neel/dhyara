@@ -6,9 +6,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-#ifndef DHYARA_ACTIONS_H
-#define DHYARA_ACTIONS_H
+#ifndef DHYARA_ROUTING_H
+#define DHYARA_ROUTING_H
 
-#include "dhyara/actions/all.h"
+#include "dhyara/routing/metric.h"
+#include "dhyara/routing/next_hop.h"
+#include "dhyara/routing/route.h"
+#include "dhyara/routing/table.h"
 
-#endif // DHYARA_ACTIONS_H
+#endif // DHYARA_ROUTING_H

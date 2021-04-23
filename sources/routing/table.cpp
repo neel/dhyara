@@ -43,7 +43,7 @@ bool dhyara::routing::table::update(const dhyara::routing::route& r, const dhyar
         it->second.update(d ? d : 1);
         _mutex.unlock();
     }else{
-        _table.insert(std::make_pair(r, route_metric(d, esp_timer_get_time())));
+        _table.insert(std::make_pair(r, metric(d, esp_timer_get_time())));
     }
     return update_next(r.dst());
 }

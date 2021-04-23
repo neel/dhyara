@@ -15,7 +15,7 @@ else()
             "sources/network.cpp"
             "sources/routing/next_hop.cpp"
             "sources/routing/route.cpp"
-            "sources/routing/route_mertic.cpp"
+            "sources/routing/mertic.cpp"
             "sources/routing/table.cpp"
             "sources/packets/beacon.cpp"
             "sources/packets/acknowledgement.cpp"

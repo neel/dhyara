@@ -25,9 +25,9 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "dhyara/routing/route_metric.h"
+#include "dhyara/routing/metric.h"
 
-void dhyara::routing::route_metric::update(dhyara::delay_type delay, bool sync_updated){
+void dhyara::routing::metric::update(dhyara::delay_type delay, bool sync_updated){
     _delay = delay;
     if(sync_updated){
         update();
