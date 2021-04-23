@@ -22,10 +22,7 @@ namespace packets{
  * beacon packet
  * \ingroup packets
  */
-struct beacon{
-    std::uint64_t _time;
-    std::string   _name;
-    
+struct beacon{    
     /**
      * Construct a beacon packet with the current time
      */
@@ -47,13 +44,25 @@ struct beacon{
      */
     inline const std::uint64_t& time() const {return _time;}
     /**
+     * Time in the beacon packet
+     */
+    inline std::uint64_t& time() {return _time;}
+    /**
      * name in the beacon packet
      */
     inline const std::string& name() const{ return _name; }
     /**
+     * name in the beacon packet
+     */
+    inline std::string& name() { return _name; }
+    /**
      * set name
      */
     inline void name(const std::string& n) { _name = n; }
+    
+    private:
+        std::uint64_t _time;
+        std::string   _name;
 };
 
 }
@@ -68,12 +77,12 @@ struct serialization<packets::beacon>{
      */
     template <typename OutIt>
     static OutIt write(const packets::beacon& packet, OutIt output){
-        std::uint8_t len = packet._name.size();
-        const std::uint8_t* ptime = reinterpret_cast<const std::uint8_t*>(&packet._time);
+        std::uint8_t len = packet.name().size();
+        const std::uint8_t* ptime = reinterpret_cast<const std::uint8_t*>(&packet.time());
         const std::uint8_t* plen  = reinterpret_cast<const std::uint8_t*>(&len);
-        output = std::copy_n(ptime, sizeof(packet._time), output);
+        output = std::copy_n(ptime, sizeof(packet.time()), output);
         output = std::copy_n(plen, sizeof(len), output);
-        output = std::copy_n(packet._name.begin(), len, output);
+        output = std::copy_n(packet.name().begin(), len, output);
         return output;
     }
     
@@ -87,10 +96,10 @@ struct serialization<packets::beacon>{
     template <typename InIt>
     static InIt read(packets::beacon& packet, InIt input, std::size_t length){
         std::uint8_t len = 0;
-        if(length >= sizeof(packet._time)){
-            std::copy_n(input, sizeof(packet._time), reinterpret_cast<std::uint8_t*>(&packet._time));
-            input  += sizeof(packet._time);
-            length -= sizeof(packet._time);
+        if(length >= sizeof(packet.time())){
+            std::copy_n(input, sizeof(packet.time()), reinterpret_cast<std::uint8_t*>(&packet.time()));
+            input  += sizeof(packet.time());
+            length -= sizeof(packet.time());
         }
         if(length >= sizeof(len)){
             std::copy_n(input, sizeof(len), reinterpret_cast<std::uint8_t*>(&len));
@@ -98,7 +107,7 @@ struct serialization<packets::beacon>{
             length -= sizeof(len);
         }
         if(length >= len){
-            std::copy_n(input, len, std::back_inserter(packet._name));
+            std::copy_n(input, len, std::back_inserter(packet.name()));
             input  += len;
             length -= len;
         }

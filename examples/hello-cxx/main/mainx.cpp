@@ -12,7 +12,6 @@
 #include <dhyara/utils/http.h>
 
 void mainx(){
-//     Connect to ESP and then visit http://192.168.4.1/routes to check the routing table
     dhyara::utils::http server(dhyara_link());
     
     dhyara::network network(dhyara_link());
@@ -20,12 +19,12 @@ void mainx(){
     
     dhyara::address sink("4c:11:ae:9c:a6:85"), source("4c:11:ae:71:0f:4d");
     
+    dhyara_start_default_network();
+    
 //     For experimental purpose 
 //     Optionally ban direct communication between the source and the target
 //     Force the source and target to communicate via one or more intermediate nodes
-//     network.isolate(source, sink);
-    
-    dhyara_start_default_network();
+    network.isolate(source, sink);
     
     dhyara::address local = dhyara_local();
     dhyara::address other = (local == source) ? sink : ((local == sink) ? source : dhyara::address::null());

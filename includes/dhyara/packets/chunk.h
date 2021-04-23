@@ -23,13 +23,6 @@ namespace packets{
  */
 struct chunk_header{
     typedef std::array<std::uint8_t, 6> raw_address_type;
-    
-    raw_address_type _target;
-    raw_address_type _source;
-    std::uint8_t     _length;
-    std::uint8_t     _packet;
-    std::uint8_t     _pending;
-    
     /**
      * Construct a chunk header with null target and source. length, packet id, pending is set to 0
      */
@@ -75,6 +68,13 @@ struct chunk_header{
      * Whether this is the last chunk
      */
     inline bool is_last() const { return !pending(); }
+    
+    private:
+        raw_address_type _target;
+        raw_address_type _source;
+        std::uint8_t     _length;
+        std::uint8_t     _packet;
+        std::uint8_t     _pending;
 } __attribute__((packed));
     
 /**
@@ -87,9 +87,6 @@ struct chunk{
     enum{capacity = 250 - (sizeof(chunk_header) +2)};
     typedef std::array<std::uint8_t, capacity> buffer_type;
     typedef buffer_type::const_iterator const_iterator_type;
-    
-    chunk_header     _header;
-    buffer_type      _buffer;
     
     /**
      * Construct an empty chunk
@@ -142,7 +139,7 @@ struct chunk{
     /**
      * length of the chunk
      */
-    inline std::uint8_t length() const { return _header._length; }
+    inline std::uint8_t length() const { return _header.length(); }
     /**
      * target of the chunk
      */
@@ -163,6 +160,10 @@ struct chunk{
      * checks whether the chunks is the last
      */
     inline bool is_last() const { return !pending(); }
+    
+    private:
+        chunk_header     _header;
+        buffer_type      _buffer;
 } __attribute__((packed));
     
 }

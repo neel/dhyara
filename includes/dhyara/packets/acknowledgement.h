@@ -22,8 +22,6 @@ namespace packets{
  * \ingroup packets
  */
 struct acknowledgement{
-    std::uint64_t _time;
-    
     /**
      * Construct an acknowledgement packet with current time
      */
@@ -41,6 +39,9 @@ struct acknowledgement{
      * Time in the acknowledgement packet
      */
     inline std::uint64_t time() const { return _time; }
+    
+    private:
+        std::uint64_t _time;
 } __attribute__((packed));
 
 }

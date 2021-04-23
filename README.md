@@ -53,6 +53,10 @@ dhyara_receive_data([](const dhyara::peer::address& source, const dhyara::packet
 
 In the above mentioned C++ example, source represents the immediate neighbour of the desination, and `data.source()` is the originator of the message.
 
+It also provides an web based monitoring/management console accessible through the nodes IP address.
+
+![Management Console](docs/images/management.png)
+
 [Read More](\ref dhyara)
 
 Compilation & Integration
@@ -72,10 +76,6 @@ To build and flash the application use `idf.py build` and `idf.py flash` as usua
 ![menuconfig](docs/images/menuconfig.png "idf.py menuconfig")
 
 See [Building the examples](docs/examples.md).
-
-It also provides an web based monitoring/management console accessible through the nodes IP address.
-
-![Management Console](docs/images/management.png)
 
 C Example
 ----------

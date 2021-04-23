@@ -26,11 +26,6 @@ namespace packets{
 struct echo_lost{
     typedef std::array<std::uint8_t, 6> raw_address_type;
     
-    raw_address_type _target;
-    raw_address_type _source;
-    std::uint32_t    _seq;
-    std::uint64_t    _time;
-    
     /**
      * Construct an echo lost to null destination originating from null destination on current time
      */
@@ -72,6 +67,12 @@ struct echo_lost{
      */
     inline dhyara::address source() const { return dhyara::address(_source); }
     
+    private:
+        raw_address_type _target;
+        raw_address_type _source;
+        std::uint32_t    _seq;
+        std::uint64_t    _time;
+        
 } __attribute__((packed));
     
 }

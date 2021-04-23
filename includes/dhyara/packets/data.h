@@ -28,14 +28,7 @@ struct data{
     typedef std::basic_string<std::uint8_t> dynamic_buffer_type;
     typedef typename dynamic_buffer_type::const_iterator const_iterator;
     typedef typename dynamic_buffer_type::iterator iterator;
-    
-    dhyara::address _target;
-    dhyara::address _source;
-    std::uint8_t          _packet;
-    dynamic_buffer_type   _buffer;
-    
-    static std::uint8_t counter;
-    
+       
     /**
      * Construct a data packet
      * \note an auto incremented number is used as packet id
@@ -76,11 +69,15 @@ struct data{
     /**
      * target of the data packet
      */
-    inline dhyara::address target() const { return dhyara::address(_target); }
+    inline const dhyara::address& target() const { return _target; }
     /**
      * source of the data packet
      */
-    inline dhyara::address source() const { return dhyara::address(_source); }
+    inline const dhyara::address& source() const { return _source; }
+    /**
+     * set source of the data packet
+     */
+    inline void source(const dhyara::address& addr) { _source = addr; }
     /**
      * packet id of data packet
      */
@@ -139,6 +136,13 @@ struct data{
      * Returns an immutable iterator to the data. The iterator dereferences to std::uint8_t
      */
     inline const_iterator end() const { return _buffer.end(); }
+    
+    private:
+        dhyara::address       _target;
+        dhyara::address       _source;
+        std::uint8_t          _packet;
+        dynamic_buffer_type   _buffer;
+        static std::uint8_t   counter;
 };
     
 }

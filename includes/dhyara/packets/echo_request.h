@@ -25,12 +25,6 @@ namespace packets{
 struct echo_request{
     typedef std::array<std::uint8_t, 6> raw_address_type;
     
-    raw_address_type _target;
-    raw_address_type _source;
-    std::uint32_t    _seq;
-    std::uint64_t    _time;
-    std::uint8_t     _ttl;
-    
     /**
      * Construct an echo request to null destination originating from null destination on current time with default ttl value
      */
@@ -77,6 +71,12 @@ struct echo_request{
      */
     inline dhyara::address source() const { return dhyara::address(_source); }
     
+    private:
+        raw_address_type _target;
+        raw_address_type _source;
+        std::uint32_t    _seq;
+        std::uint64_t    _time;
+        std::uint8_t     _ttl;
 } __attribute__((packed));
     
 }

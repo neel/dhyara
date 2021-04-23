@@ -20,15 +20,12 @@ namespace packets{
     
 /**
  * advertisement packet sent after an acknowledgement packet is received.
- * The advertisement packet contains route information about a neighbour.
+ * The advertisement packet contains route information about a node (dest).
  * The route information includes one trip delay.
  * \ingroup packets
  */
 struct advertisement{
     typedef std::array<std::uint8_t, 6> raw_address_type;
-    
-    raw_address_type _dest;
-    delay_type       _delay;
     
     /**
      * Construct an advertisement packet with null destination and no delay
@@ -52,9 +49,13 @@ struct advertisement{
      */
     inline dhyara::address dest() const { return dhyara::address(_dest); }
     /**
-     * Delay in teh advertisement packet
+     * Delay in the advertisement packet
      */
     inline delay_type delay() const { return _delay; }
+    
+    private:
+        raw_address_type _dest;
+        delay_type       _delay;
 } __attribute__((packed));
 
 }

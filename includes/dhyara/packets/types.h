@@ -20,14 +20,49 @@ namespace packets{
  * \ingroup packets
  */
 enum class type : std::uint8_t{
+    /**
+     * Unspecified packet type
+     */
     unknown,
+    /**
+     * beacon packet 
+     * \see dhyara::packets::beacon
+     */
     beacon,
+    /**
+     * acknowledgement packet
+     * \see dhyara::packets::acknowledgement
+     */
     acknowledgement,
+    /**
+     * advertisement packet
+     * \see dhyara::packets::advertisement
+     */
     advertisement,
+    /**
+     * chunk packet
+     * \see dhyara::packets::chunk
+     */
     chunk,
+    /**
+     * delivered packet
+     * \see dhyara::packets::delivered
+     */
     delivered,
+    /**
+     * echo_request packet
+     * \see dhyara::packets::echo_request
+     */
     echo_request,
+    /**
+     * echo_reply packet
+     * \see dhyara::packets::echo_reply
+     */
     echo_reply,
+    /**
+     * echo_lost packet
+     * \see dhyara::packets::echo_lost
+     */
     echo_lost
 };
 

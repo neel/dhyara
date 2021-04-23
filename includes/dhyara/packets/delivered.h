@@ -24,10 +24,6 @@ namespace packets{
 struct delivered{
     typedef std::array<std::uint8_t, 6> raw_address_type;
     
-    raw_address_type _target;
-    raw_address_type _source;
-    std::uint8_t     _packet;
-    
     /**
      * Construct a delivery report with source and target set to null address and packet id is set to 0
      */
@@ -59,6 +55,11 @@ struct delivered{
      * packet id
      */
     inline std::uint8_t packet() const { return _packet; }
+    
+    private:
+        raw_address_type _target;
+        raw_address_type _source;
+        std::uint8_t     _packet;
 } __attribute__((packed));
     
 }
