@@ -108,8 +108,6 @@ struct routing {
             dhyara::address _dst;
             dhyara::address _via;
     };
-
-    typedef std::map<route, route_metric> table_type;
     
     /**
      * The best next hop for the given target
@@ -145,6 +143,7 @@ struct routing {
             delay_type _delay;
     };
     
+    typedef std::map<route, route_metric> table_type;
     typedef std::map<dhyara::address, next_hop> next_vector_type;
     
     /**
@@ -233,8 +232,24 @@ struct routing {
         next_vector_type _next;
         std::mutex       _mutex;
         
+        /**
+         * Finds the given route in the routing table and returns its delay. If there is no such route then returns the default delay.
+         * \param r the route
+         */
         delay_type delay(const route& r) const;
+        /**
+         * Calculates the best next hop from all existing routes in the routing table, that lead to the given destination.
+         * \note The function only returns a calculated next hop. But it does not alter the previously calculated next hop.
+         * \attention If there is no route in the routing table, that lead to the given destination, then returns a next hop with default delay.
+         * \param dst The destination node address
+         */
         next_hop calculated_next(dhyara::address dst) const;
+        /**
+         * Updates the next hop of the given destination using the best route from the existing routing table.
+         * returns boolean result denoting whether the change in the next hop is beyond tolerated delay.
+         * \param dst The destination node address
+         * \see calculated_next
+         */
         bool update_next(dhyara::address dst);
 };
 

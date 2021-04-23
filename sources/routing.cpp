@@ -106,14 +106,6 @@ dhyara::routing::next_hop dhyara::routing::next(const dhyara::address& dst) cons
     }
 }
 
-dhyara::delay_type dhyara::routing::delay(const route& r) const{
-    auto it = _table.find(r);
-    if(it != _table.end()){
-        return it->second.delay();
-    }
-    return _def;
-}
-
 std::ostream& dhyara::routing::print(std::ostream& os) const{
     os << "Routing< " << std::endl;
     os << "\tTable< " << std::endl;
@@ -130,6 +122,13 @@ std::ostream& dhyara::routing::print(std::ostream& os) const{
     return os;
 }
 
+dhyara::delay_type dhyara::routing::delay(const route& r) const{
+    auto it = _table.find(r);
+    if(it != _table.end()){
+        return it->second.delay();
+    }
+    return _def;
+}
 
 dhyara::routing::next_hop dhyara::routing::calculated_next(dhyara::address dst) const{
     dhyara::routing::route begin(dst, dhyara::address::null()), end(dst, dhyara::address::all());
