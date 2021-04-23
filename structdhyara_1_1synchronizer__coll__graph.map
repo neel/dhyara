@@ -8,7 +8,7 @@
 <area shape="rect" id="node6" href="$classdhyara_1_1xqueue.html" title=" " alt="" coords="5,197,203,224"/>
 <area shape="rect" id="node7" href="$classdhyara_1_1xqueue.html" title=" " alt="" coords="663,248,853,304"/>
 <area shape="rect" id="node8" href="$structdhyara_1_1neighbourhood.html" title="Neighbourhood of a node." alt="" coords="672,328,844,355"/>
-<area shape="rect" id="node9" href="$structdhyara_1_1routing.html" title="routing table" alt="" coords="697,379,819,405"/>
+<area shape="rect" id="node9" href="$structdhyara_1_1routing_1_1table.html" title="routing table" alt="" coords="677,379,839,405"/>
 <area shape="rect" id="node10" href="$structdhyara_1_1universe.html" title="Universe of all nodes in the known in the universe." alt="" coords="693,429,823,456"/>
 <area shape="rect" id="node11" href="$structdhyara_1_1frame.html" title="A 250 bytes frame is defined by a 2 bytes header and 248 bytes payload." alt="" coords="47,93,161,120"/>
 <area shape="rect" id="node12" href="$structdhyara_1_1network__fifo.html" title=" " alt="" coords="669,81,847,122"/>

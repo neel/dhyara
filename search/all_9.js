@@ -6,5 +6,5 @@ var searchData=
   ['lock_103',['lock',['../structdhyara_1_1mutex.html#abcc2f0db06a95b60231ddda2121e44da',1,'dhyara::mutex']]],
   ['loop_104',['loop',['../structdhyara_1_1network__fifo.html#a39097c116723e96957ec82edae13c326',1,'dhyara::network_fifo']]],
   ['lost_105',['lost',['../classdhyara_1_1link.html#ac77bab79987666f6f1cd57862ee0dce9',1,'dhyara::link::lost()'],['../structdhyara_1_1tools_1_1traceroute.html#a1544998957fd4cde1a07a7b24899e111',1,'dhyara::tools::traceroute::lost()']]],
-  ['lost_5fsince_106',['lost_since',['../structdhyara_1_1routing.html#a8b78f3c105a12f87530e4f40ad5ade2b',1,'dhyara::routing']]]
+  ['lost_5fsince_106',['lost_since',['../structdhyara_1_1routing_1_1table.html#a7020d8fbf5446164a1663495ec3b5853',1,'dhyara::routing::table']]]
 ];

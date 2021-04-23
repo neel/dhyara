@@ -24,6 +24,12 @@ var annotated_dup =
         [ "echo_reply", "structdhyara_1_1packets_1_1echo__reply.html", "structdhyara_1_1packets_1_1echo__reply" ],
         [ "echo_request", "structdhyara_1_1packets_1_1echo__request.html", "structdhyara_1_1packets_1_1echo__request" ]
       ] ],
+      [ "routing", null, [
+        [ "metric", "structdhyara_1_1routing_1_1metric.html", "structdhyara_1_1routing_1_1metric" ],
+        [ "next_hop", "structdhyara_1_1routing_1_1next__hop.html", "structdhyara_1_1routing_1_1next__hop" ],
+        [ "route", "structdhyara_1_1routing_1_1route.html", "structdhyara_1_1routing_1_1route" ],
+        [ "table", "structdhyara_1_1routing_1_1table.html", "structdhyara_1_1routing_1_1table" ]
+      ] ],
       [ "tools", null, [
         [ "ping", "structdhyara_1_1tools_1_1ping.html", "structdhyara_1_1tools_1_1ping" ],
         [ "traceroute", "structdhyara_1_1tools_1_1traceroute.html", "structdhyara_1_1tools_1_1traceroute" ]
@@ -44,7 +50,6 @@ var annotated_dup =
       [ "network_fifo", "structdhyara_1_1network__fifo.html", "structdhyara_1_1network__fifo" ],
       [ "notifier", "structdhyara_1_1notifier.html", "structdhyara_1_1notifier" ],
       [ "peer", "structdhyara_1_1peer.html", "structdhyara_1_1peer" ],
-      [ "routing", "structdhyara_1_1routing.html", "structdhyara_1_1routing" ],
       [ "serialization", "structdhyara_1_1serialization.html", "structdhyara_1_1serialization" ],
       [ "serialization< packets::beacon >", "structdhyara_1_1serialization_3_01packets_1_1beacon_01_4.html", "structdhyara_1_1serialization_3_01packets_1_1beacon_01_4" ],
       [ "synchronizer", "structdhyara_1_1synchronizer.html", "structdhyara_1_1synchronizer" ],

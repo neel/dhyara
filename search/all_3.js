@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['calculated_5fnext_37',['calculated_next',['../structdhyara_1_1routing.html#a4847a2c77a0426f29289ee09588f07bc',1,'dhyara::routing']]],
+  ['calculated_5fnext_37',['calculated_next',['../structdhyara_1_1routing_1_1table.html#aab12cf4867828d27d5015dd49bb0c1c0',1,'dhyara::routing::table']]],
   ['candidate_38',['candidate',['../structdhyara_1_1candidate.html',1,'dhyara']]],
   ['channel_39',['channel',['../structdhyara_1_1neighbour.html#afac6ac32bc21c0be3846ba33c161f1f3',1,'dhyara::neighbour::channel(std::uint8_t c)'],['../structdhyara_1_1neighbour.html#a5e0d09f1b50037ca416aa79f858fa2dd',1,'dhyara::neighbour::channel() const']]],
   ['chunk_40',['chunk',['../structdhyara_1_1actions_1_1chunk.html',1,'dhyara::actions::chunk'],['../structdhyara_1_1packets_1_1chunk.html',1,'dhyara::packets::chunk'],['../structdhyara_1_1actions_1_1chunk.html#a2f9fba221fd59e75c5acfd61b9a30ffc',1,'dhyara::actions::chunk::chunk()'],['../structdhyara_1_1network.html#acee9c708958eac3acf40a6b8d5d82493',1,'dhyara::network::chunk()'],['../structdhyara_1_1packets_1_1chunk.html#a58c5c7fcd001bcbeb79f6cd1c163d275',1,'dhyara::packets::chunk::chunk()'],['../structdhyara_1_1packets_1_1chunk.html#a4c40dc1aa8fe624934432250cf77d6f9',1,'dhyara::packets::chunk::chunk(const dhyara::address &amp;target, const dhyara::address &amp;source, InputIt begin, std::uint8_t length, std::uint8_t packet, std::uint8_t pending=0)'],['../group__packets.html#gga587a117adc54019693a184e4f8b4e0b5a5a8f4fa2aeab5431888ee8a18ce3bcea',1,'dhyara::packets::chunk()']]],
