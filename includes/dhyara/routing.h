@@ -140,7 +140,7 @@ struct routing {
         
         private:
             dhyara::address _via;
-            delay_type _delay;
+            delay_type      _delay;
     };
     
     typedef std::map<route, route_metric> table_type;
@@ -246,7 +246,7 @@ struct routing {
         next_hop calculated_next(dhyara::address dst) const;
         /**
          * Updates the next hop of the given destination using the best route from the existing routing table.
-         * returns boolean result denoting whether the change in the next hop is beyond tolerated delay.
+         * returns true if either the best intermediate node has changed or the change in delay is beyond tolerated delay.
          * \param dst The destination node address
          * \see calculated_next
          */
