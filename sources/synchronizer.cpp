@@ -28,7 +28,7 @@
 #include "dhyara/synchronizer.h"
 #include "dhyara/link.h"
 #include "dhyara/packets.h"
-#include "dhyara/routing.h"
+#include "dhyara/routing/table.h"
 #include "esp_log.h"
 
 dhyara::synchronizer::synchronizer(dhyara::link& local): _link(local){}

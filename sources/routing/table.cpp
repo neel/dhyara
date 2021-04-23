@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020, <copyright holder> <email>
+ * Copyright (c) 2021, <copyright holder> <email>
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without
@@ -25,48 +25,17 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "dhyara/routing.h"
-#include <cstdlib>
-#include <algorithm>
-#include <utility>
-#include <sstream>
-#include <inttypes.h>
+#include "dhyara/routing/table.h"
 #include "esp_log.h"
+#include <inttypes.h>
+#include "dhyara/routing/next_hop.h"
 
-void dhyara::routing::route_metric::update(dhyara::delay_type delay, bool sync_updated){
-    _delay = delay;
-    if(sync_updated){
-        update();
-    }
-}
-
-dhyara::routing::route::route(const dhyara::address& dst, const dhyara::address& via): _dst(dst), _via(via){}
-
-bool dhyara::routing::route::operator<(const dhyara::routing::route& other) const{
-    return std::tie(_dst, _via) < std::tie(other._dst, other._via);
-}
-
-bool dhyara::routing::route::operator==(const dhyara::routing::route& other) const{
-    return _dst == other._dst && _via == other._via;
-}
-
-std::string dhyara::routing::route::to_string() const{
-    std::stringstream stream;
-    stream << *this;
-    return stream.str();
-}
-
-bool dhyara::routing::next_hop::operator==(const dhyara::routing::next_hop& other) const{
-    return _via == other._via && _delay == other._delay;
-}
-
-
-bool dhyara::routing::exists(const dhyara::routing::route& r) const{
+bool dhyara::routing::table::exists(const dhyara::routing::route& r) const{
     return _table.find(r) != _table.end();
 }
 
 
-bool dhyara::routing::update(const dhyara::routing::route& r, const dhyara::delay_type& d){
+bool dhyara::routing::table::update(const dhyara::routing::route& r, const dhyara::delay_type& d){
     auto it = _table.find(r);
     if(it != _table.end()){
         // if d is 0 then put 1 instead
@@ -79,7 +48,7 @@ bool dhyara::routing::update(const dhyara::routing::route& r, const dhyara::dela
     return update_next(r.dst());
 }
 
-bool dhyara::routing::depreciate(const dhyara::routing::route& r){
+bool dhyara::routing::table::depreciate(const dhyara::routing::route& r){
     constexpr static const dhyara::delay_type max = std::numeric_limits<dhyara::delay_type>::max();
     constexpr static const dhyara::delay_type max_upgradable = max / dhyara::depreciation_coefficient;
     auto it = _table.find(r);
@@ -97,7 +66,7 @@ bool dhyara::routing::depreciate(const dhyara::routing::route& r){
 }
 
 
-dhyara::routing::next_hop dhyara::routing::next(const dhyara::address& dst) const{
+dhyara::routing::next_hop dhyara::routing::table::next(const dhyara::address& dst) const{
     auto it = _next.find(dst);
     if(it != _next.end()){
         return it->second;
@@ -106,7 +75,7 @@ dhyara::routing::next_hop dhyara::routing::next(const dhyara::address& dst) cons
     }
 }
 
-std::ostream& dhyara::routing::print(std::ostream& os) const{
+std::ostream& dhyara::routing::table::print(std::ostream& os) const{
     os << "Routing< " << std::endl;
     os << "\tTable< " << std::endl;
     for(auto kv: _table){
@@ -122,7 +91,7 @@ std::ostream& dhyara::routing::print(std::ostream& os) const{
     return os;
 }
 
-dhyara::delay_type dhyara::routing::delay(const route& r) const{
+dhyara::delay_type dhyara::routing::table::delay(const route& r) const{
     auto it = _table.find(r);
     if(it != _table.end()){
         return it->second.delay();
@@ -130,7 +99,7 @@ dhyara::delay_type dhyara::routing::delay(const route& r) const{
     return _def;
 }
 
-std::pair<dhyara::address, dhyara::delay_type> dhyara::routing::calculated_next(dhyara::address dst) const{
+std::pair<dhyara::address, dhyara::delay_type> dhyara::routing::table::calculated_next(dhyara::address dst) const{
     dhyara::routing::route begin(dst, dhyara::address::null()), end(dst, dhyara::address::all());
     table_type::const_iterator lower = _table.lower_bound(begin), upper = _table.upper_bound(end);
     if(!std::distance(lower, upper)){
@@ -143,13 +112,13 @@ std::pair<dhyara::address, dhyara::delay_type> dhyara::routing::calculated_next(
 }
 
 
-bool dhyara::routing::exists(const dhyara::address& dst) const{
+bool dhyara::routing::table::exists(const dhyara::address& dst) const{
     dhyara::routing::route begin(dst, dhyara::address::null()), end(dst, dhyara::address::all());
     table_type::const_iterator lower = _table.lower_bound(begin), upper = _table.upper_bound(end);
     return std::distance(lower, upper);
 }
 
-bool dhyara::routing::update_next(dhyara::address dst){
+bool dhyara::routing::table::update_next(dhyara::address dst){
     std::pair<dhyara::address, dhyara::delay_type> next = calculated_next(dst);
     auto it = _next.find(dst);
     if(it != _next.end()){
@@ -166,7 +135,7 @@ bool dhyara::routing::update_next(dhyara::address dst){
     }
 }
 
-void dhyara::routing::depreciate(){
+void dhyara::routing::table::depreciate(){
     dhyara::delay_type now = esp_timer_get_time();
     for(auto& kv: _table){
         auto route = kv.first;
@@ -177,7 +146,7 @@ void dhyara::routing::depreciate(){
     }
 }
 
-void dhyara::routing::depreciate(std::function<void (const dhyara::routing::route&, dhyara::delay_type)> notify){
+void dhyara::routing::table::depreciate(std::function<void (const dhyara::routing::route&, dhyara::delay_type)> notify){
     dhyara::delay_type now = esp_timer_get_time();
     std::vector<std::pair<dhyara::routing::route, delay_type>> inactives;
     for(auto& kv: _table){
@@ -194,24 +163,14 @@ void dhyara::routing::depreciate(std::function<void (const dhyara::routing::rout
     }
 }
 
-dhyara::delay_type dhyara::routing::lost_since() const{
+dhyara::delay_type dhyara::routing::table::lost_since() const{
     if(_table.empty()) return 0;
     return std::max_element(_table.begin(), _table.end(), [](const table_type::value_type& left, const table_type::value_type& right){
         return left.second.updated() < right.second.updated();
     })->second.updated();
 }
 
-std::ostream& dhyara::operator<<(std::ostream& os, const dhyara::routing::route& route){
-    os << "Route< "<< route.dst() << " via " << route.via() << " >";
-    return os;
-}
-
-std::ostream& dhyara::operator<<(std::ostream& os, const dhyara::routing::next_hop& hop){
-    os << "Hop< " << " via " << hop.via() << ", DELAY " << hop.delay() << " >";
-    return os;
-}
-
-std::ostream & dhyara::operator<<(std::ostream& os, const dhyara::routing& routing){
+std::ostream & dhyara::routing::operator<<(std::ostream& os, const dhyara::routing::table& routing){
     routing.print(os);
     return os;
 }
