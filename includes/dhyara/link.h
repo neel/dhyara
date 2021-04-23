@@ -13,7 +13,7 @@
 #include <functional>
 #include "dhyara/peer.h"
 #include "dhyara/frame.h"
-#include "dhyara/routing.h"
+#include "dhyara/routing/table.h"
 #include "dhyara/packets.h"
 #include "dhyara/neighbourhood.h"
 #include "dhyara/universe.h"
@@ -162,7 +162,7 @@ class link{
         /**
          * routing table
          */
-        inline dhyara::routing& routes(){ return _routes; }
+        inline dhyara::routing::table& routes(){ return _routes; }
         
         /**
          * local address
@@ -354,7 +354,7 @@ class link{
         dhyara::neighbourhood   _neighbours;
         dhyara::universe        _universe;
         handlers_map_type       _handlers;
-        dhyara::routing         _routes;
+        dhyara::routing::table  _routes;
         dhyara::address         _mac;
         counters_map_type       _counters;
 };

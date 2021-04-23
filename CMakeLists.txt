@@ -5,7 +5,6 @@ if(NOT DEFINED ESP_PLATFORM)
 else()
     idf_component_register(
         SRCS 
-            "sources/routing.cpp"
             "sources/address.cpp"
             "sources/peer.cpp"
             "sources/neighbour.cpp"
@@ -14,6 +13,10 @@ else()
             "sources/link.cpp"
             "sources/synchronizer.cpp"
             "sources/network.cpp"
+            "sources/routing/next_hop.cpp"
+            "sources/routing/route.cpp"
+            "sources/routing/mertic.cpp"
+            "sources/routing/table.cpp"
             "sources/packets/beacon.cpp"
             "sources/packets/acknowledgement.cpp"
             "sources/packets/advertisement.cpp"

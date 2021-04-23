@@ -6,12 +6,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-#ifndef DHYARA_ROUTING_H
-#define DHYARA_ROUTING_H
-
-#include "dhyara/routing/metric.h"
 #include "dhyara/routing/next_hop.h"
-#include "dhyara/routing/route.h"
-#include "dhyara/routing/table.h"
 
-#endif // DHYARA_ROUTING_H
+std::ostream& dhyara::routing::operator<<(std::ostream& os, const dhyara::routing::next_hop& hop){
+    os << "Hop< " << " via " << hop.via() << ", DELAY " << hop.delay() << " >";
+    return os;
+}

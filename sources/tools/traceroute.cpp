@@ -1,3 +1,11 @@
+/*
+ * Copyright (c) 2020, Sunanda Bose (a.k.a. Neel Basu)
+ * All rights reserved.
+ * 
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 #include "dhyara/tools/traceroute.h"
 
 dhyara::tools::traceroute::traceroute(dhyara::network& network, const dhyara::address& target): _network(network), _target(target), _conn_lost(0), _conn_reply(0), _sequence(1){
