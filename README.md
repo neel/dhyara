@@ -3,10 +3,12 @@ DHYARA
 
 [GitHub Repository](https://github.com/neel/dhyara) | [Doxygen Documentation](http://neel.github.io/dhyara)
 
-Dhyara is a ESP-IDF component for Mobile Ad-Hoc Networks on the top of ESP NOW (Layer 2). Dhyara is Open Source under BSD 2 Clause License. See [LICENSE](docs/LICENSE.md)
+Dhyara is a ESP-IDF component for Mobile Ad-Hoc Networks on the top of ESP NOW (Layer 2). 
+Dhyara is Open Source under BSD 2 Clause License. See [LICENSE](docs/LICENSE.md)
 
 [TOC]
 
+![Management Console](docs/images/management.png)
 
 Basic Usage
 -------------
@@ -53,9 +55,7 @@ dhyara_receive_data([](const dhyara::peer::address& source, const dhyara::packet
 
 In the above mentioned C++ example, source represents the immediate neighbour of the desination, and `data.source()` is the originator of the message.
 
-It also provides an web based monitoring/management console accessible through the nodes IP address.
 
-![Management Console](docs/images/management.png)
 
 [Read More](\ref dhyara)
 
