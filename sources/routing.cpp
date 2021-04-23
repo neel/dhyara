@@ -130,16 +130,16 @@ dhyara::delay_type dhyara::routing::delay(const route& r) const{
     return _def;
 }
 
-dhyara::routing::next_hop dhyara::routing::calculated_next(dhyara::address dst) const{
+std::pair<dhyara::address, dhyara::delay_type> dhyara::routing::calculated_next(dhyara::address dst) const{
     dhyara::routing::route begin(dst, dhyara::address::null()), end(dst, dhyara::address::all());
     table_type::const_iterator lower = _table.lower_bound(begin), upper = _table.upper_bound(end);
     if(!std::distance(lower, upper)){
-        return dhyara::routing::next_hop(dst, _def);
+        return std::pair<dhyara::address, dhyara::delay_type>(dst, _def);
     }
     table_type::const_iterator it = std::min_element(lower, upper, [](const table_type::value_type& a, const table_type::value_type& b){
         return a.second.delay() < b.second.delay();
     });
-    return dhyara::routing::next_hop(it->first.via(), it->second.delay());
+    return std::pair<dhyara::address, dhyara::delay_type>(it->first.via(), it->second.delay());
 }
 
 
@@ -150,13 +150,16 @@ bool dhyara::routing::exists(const dhyara::address& dst) const{
 }
 
 bool dhyara::routing::update_next(dhyara::address dst){
-    dhyara::routing::next_hop next = calculated_next(dst);
+    std::pair<dhyara::address, dhyara::delay_type> next = calculated_next(dst);
     auto it = _next.find(dst);
     if(it != _next.end()){
-        delay_type delta = (it->second.delay() > next.delay()) ? (it->second.delay() - next.delay()) : (next.delay() - it->second.delay());
-        bool altered = (it->second.via() != next.via() || delta > dhyara::delay_tolerance);
+        delay_type delta = (it->second.published() > next.second) ? (it->second.published() - next.second) : (next.second - it->second.published());
         it->second = next;
-        return altered;
+        if(it->second.via() != next.first || delta > dhyara::delay_tolerance){
+            it->second.publish();
+            return true;
+        }
+        return false;
     }else{
         _next.insert(std::make_pair(dst, next));
         return true;
@@ -171,6 +174,23 @@ void dhyara::routing::depreciate(){
         if(delta > dhyara::route_expiry){
             depreciate(route);
         }   
+    }
+}
+
+void dhyara::routing::depreciate(std::function<void (const dhyara::routing::route&, dhyara::delay_type)> notify){
+    dhyara::delay_type now = esp_timer_get_time();
+    std::vector<std::pair<dhyara::routing::route, delay_type>> inactives;
+    for(auto& kv: _table){
+        auto route = kv.first;
+        dhyara::delay_type delta = now - kv.second.updated();
+        if(delta > dhyara::route_expiry){
+            if(depreciate(route)){
+                inactives.push_back(std::make_pair(route, delay(route)));
+            }
+        }   
+    }
+    for(const auto& node: inactives){
+        notify(node.first, node.second);
     }
 }
 

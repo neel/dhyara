@@ -112,7 +112,28 @@ struct routing {
     /**
      * The best next hop for the given target
      */
-    struct next_hop{
+    struct next_hop{       
+        /**
+         * construct using an intermediate node address and delay
+         * \param via intermediate node address 
+         * \param delay delay
+         */
+        inline next_hop(dhyara::address via, delay_type delay): _via(via), _delay(delay), _published(delay){}
+        
+        /**
+         * Construct from a pair
+         */
+        inline next_hop(const std::pair<dhyara::address, dhyara::delay_type>& pair): next_hop(pair.first, pair.second){}
+        
+        /**
+         * assign by a pair
+         */
+        inline next_hop& operator=(const std::pair<dhyara::address, dhyara::delay_type>& pair){
+            _via = pair.first;
+            _delay = pair.second;
+            return *this;
+        }
+        
         /**
          * returns the best next hop address for the given target
          * \return dhyara::address
@@ -122,13 +143,14 @@ struct routing {
          * returns the best next hop delay for the given target
          */
         inline const delay_type& delay() const { return _delay; }
-        
         /**
-         * construct using an intermediate node address and delay
-         * \param via intermediate node address 
-         * \param delay delay
+         * returns the last published delay for the given target
          */
-        inline next_hop(dhyara::address via, delay_type delay): _via(via), _delay(delay){}
+        inline const delay_type& published() const { return _published; }
+        /**
+         * Set the current delay as published
+         */
+        inline void publish() { _published = _delay; }
         /**
          * Comparator
          */
@@ -141,6 +163,7 @@ struct routing {
         private:
             dhyara::address _via;
             delay_type      _delay;
+            delay_type      _published;
     };
     
     typedef std::map<route, route_metric> table_type;
@@ -182,22 +205,7 @@ struct routing {
     /**
      * depreciate a route that was not updated within dhyara::route_expiry time
      */
-    void depreciate(std::function<void (const dhyara::routing::route&, delay_type)> notify){
-        dhyara::delay_type now = esp_timer_get_time();
-        std::vector<std::pair<dhyara::routing::route, delay_type>> inactives;
-        for(auto& kv: _table){
-            auto route = kv.first;
-            dhyara::delay_type delta = now - kv.second.updated();
-            if(delta > dhyara::route_expiry){
-                if(depreciate(route)){
-                    inactives.push_back(std::make_pair(route, delay(route)));
-                }
-            }   
-        }
-        for(const auto& node: inactives){
-            notify(node.first, node.second);
-        }
-    }
+    void depreciate(std::function<void (const dhyara::routing::route&, dhyara::delay_type)> notify);
     
     /**
      * print the routing table and current next hop vector
@@ -243,7 +251,7 @@ struct routing {
          * \attention If there is no route in the routing table, that lead to the given destination, then returns a next hop with default delay.
          * \param dst The destination node address
          */
-        next_hop calculated_next(dhyara::address dst) const;
+        std::pair<dhyara::address, dhyara::delay_type> calculated_next(dhyara::address dst) const;
         /**
          * Updates the next hop of the given destination using the best route from the existing routing table.
          * returns true if either the best intermediate node has changed or the change in delay is beyond tolerated delay.
