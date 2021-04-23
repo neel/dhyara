@@ -84,7 +84,6 @@ bool dhyara::routing::depreciate(const dhyara::routing::route& r){
     constexpr static const dhyara::delay_type max_upgradable = max / dhyara::depreciation_coefficient;
     auto it = _table.find(r);
     if(it != _table.end()){
-        // if d is 0 then put 1 instead
         _mutex.lock();
         dhyara::delay_type now = esp_timer_get_time();
         dhyara::delay_type delta = now - it->second.updated();
