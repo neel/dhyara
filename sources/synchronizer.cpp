@@ -52,6 +52,9 @@ void dhyara::synchronizer::sync(const dhyara::address& dest, const dhyara::addre
         } else {
             it->second = now;
         }
+        if(_link.universe().exists(dest)){
+            advertisement.name(_link.universe().peer(dest).name());
+        }
         for(auto it = _link.neighbours().begin(); it != _link.neighbours().end(); ++it){
             const dhyara::neighbour& neighbour = it->second;
             if(!neighbour.addr().is_broadcast() && dest != neighbour.addr()){

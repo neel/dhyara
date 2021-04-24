@@ -18,6 +18,7 @@ void dhyara::actions::advertisement::operator()(const dhyara::address& addr, con
     if(!_link.universe().exists(advertisement.dest())){
         _link.universe().add(advertisement.dest());
     }
+    _link.universe().peer(advertisement.dest()).name(advertisement.name());
     dhyara::delay_type delay = advertisement.delay() + delay_first;
     _synchronizer.queue(advertisement.dest(), addr, delay);
 }
