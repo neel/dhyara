@@ -51,9 +51,9 @@
 		tr('advertisement', counter.advertisement);
 		tr('chunk', counter.chunk);
 		tr('delivered', counter.delivered);
-		tr('icmp request', counter.echo_request);
-		tr('icmp reply', counter.echo_reply);
-		tr('icmp lost', counter.echo_lost);
+		tr('echo request', counter.echo_request);
+		tr('echo reply', counter.echo_reply);
+		tr('echo lost', counter.echo_lost);
 		setTimeout(poll_counters, 500);
 	}).catch(err => setTimeout(poll_counters, 200));
 	let poll_routing = () => fetch("/routes.json").then(r => r.json()).then(function(routing){
