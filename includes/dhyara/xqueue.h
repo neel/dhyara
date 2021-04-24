@@ -222,21 +222,37 @@ struct mutex: watcher<char>{
  * Envelop for both <tt>to be sent</tt> and <tt>has been received</tt> messages
  */
 struct message{
+    /**
+     * Construct an empty message
+     */
     inline message(): address(dhyara::address::null()){}
-    inline message(const dhyara::address& a, const dhyara::frame& f): 
-        address(a), frame(f) {}
+    /**
+     * Construct a message using an adddress and a frame
+     */
+    inline message(const dhyara::address& addr, const dhyara::frame& f): 
+        address(addr), frame(f) {}
+    /**
+     * Clears the mesage
+     */
     inline void clear() {
         address = dhyara::address::null();
         frame.clear();
     }
+    /**
+     * returns thrue if the message is valid (checks whether the address is not null)
+     */
     inline bool valid() const {
         return !address.is_null();
     }
     
     dhyara::address    address;
-    dhyara::frame           frame;
+    dhyara::frame      frame;
 };
 
+/**
+ * Queueto handle network messages
+ * \see message 
+ */
 template <std::uint32_t Capacity>
 struct network_fifo{
     typedef network_fifo<Capacity> self_type;

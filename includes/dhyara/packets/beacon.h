@@ -67,6 +67,9 @@ struct beacon{
 
 }
 
+/**
+ * Specialization for beacon packets
+ */
 template <>
 struct serialization<packets::beacon>{
     /**

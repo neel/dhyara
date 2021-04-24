@@ -122,6 +122,7 @@ struct network{
         inline dhyara::link& link() { return _link; }
         /**
          * \name Actions
+         * \{
          */
         /**
          * synchronizer

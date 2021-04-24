@@ -15,7 +15,7 @@
  * 
  * ### Initialization ###
  * Dhyara runs on the top of ESP Now. So it requires wifi and espnow to be initialized and started in order to work.
- * A \ref dhyara::link is constructed, which can be accessed by \ref dhyara_link.
+ * A \ref dhyara::link is constructed, which can be accessed by `dhyara_link`.
  * The functions \ref dhyara_init and \ref dhyara_start_default_network is used to initialize and start the network.
  * \code
  * ESP_ERROR_CHECK(dhyara_init(WIFI_MODE_AP));
@@ -26,7 +26,7 @@
  * \ref dhyara_init performs three operations. 
  * 
  * * \ref dhyara_wifi_init to initialize wifi (e.g. Initializing and creating default network interfaces for AP and STA and registering event handlers etc.)
- * * \ref esp_wifi_start to start the wifi
+ * * `esp_wifi_start()` to start the wifi
  * * \ref dhyara_espnow_init to initialize espnow and register the \ref dhyara::link functions as espnow callbacks 
  * 
  * The network is an instance of \ref dhyara::network which is maintained as a global pointer (set to null by default).

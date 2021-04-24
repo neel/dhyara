@@ -99,6 +99,9 @@ class link{
     typedef dhyara::xqueue<dhyara::message, dhyara::queue_size> xqueue_type;
     
     public:
+        /**
+         * Proxy for operator[] overload
+         */
         struct proxy{
             link& _link;
             dhyara::packets::type _type;
