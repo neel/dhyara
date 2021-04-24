@@ -38,8 +38,8 @@ struct echo_lost{
      * Construct an echo lost to the target originating from the source with the provided sequence number and time.
      * \param target the target mac address
      * \param source the originating mac address
-     * \param seq the sequence number of this ICMP request
-     * \param time the time in the ICMP request (defaults to current time)
+     * \param seq the sequence number of this Echo request
+     * \param time the time in the Echo request (defaults to current time)
      */
     inline echo_lost(const dhyara::address& target, const dhyara::address& source, std::uint32_t seq = 0, std::uint64_t time = 0) 
         : _target{target.b1(), target.b2(), target.b3(), target.b4(), target.b5(), target.b6()}, 

@@ -62,7 +62,7 @@ void dhyara::utils::printer::out(const dhyara::address& target, const dhyara::pa
 
 void dhyara::utils::printer::in(const dhyara::address& source, const dhyara::packets::echo_request& echo_request){
     ESP_LOGV(
-        "dhyara", "<< ICMPQ from %s dst %s src %s seq %d ttl %d", 
+        "dhyara", "<< ECHOQ from %s dst %s src %s seq %d ttl %d", 
         source.to_string().c_str(), 
         echo_request.target().to_string().c_str(), 
         echo_request.source().to_string().c_str(), 
@@ -73,7 +73,7 @@ void dhyara::utils::printer::in(const dhyara::address& source, const dhyara::pac
 
 void dhyara::utils::printer::out(const dhyara::address& target, const dhyara::packets::echo_request& echo_request){
     ESP_LOGV(
-        "dhyara", ">> ICMPQ to %s dst %s src %s seq %d ttl %d", 
+        "dhyara", ">> ECHOQ to %s dst %s src %s seq %d ttl %d", 
         target.to_string().c_str(), 
         echo_request.target().to_string().c_str(), 
         echo_request.source().to_string().c_str(), 
@@ -84,7 +84,7 @@ void dhyara::utils::printer::out(const dhyara::address& target, const dhyara::pa
 
 void dhyara::utils::printer::in(const dhyara::address& source, const dhyara::packets::echo_reply& echo_reply){
     ESP_LOGV(
-        "dhyara", "<< ICMPR from %s dst %s src %s seq %d ttl %d delay %" PRId64, 
+        "dhyara", "<< ECHOR from %s dst %s src %s seq %d ttl %d delay %" PRId64, 
         source.to_string().c_str(), 
         echo_reply.target().to_string().c_str(), 
         echo_reply.source().to_string().c_str(), 
@@ -96,7 +96,7 @@ void dhyara::utils::printer::in(const dhyara::address& source, const dhyara::pac
 
 void dhyara::utils::printer::out(const dhyara::address& source, const dhyara::packets::echo_reply& echo_reply){
     ESP_LOGV(
-        "dhyara", ">> ICMPR to %s dst %s src %s seq %d ttl %d", 
+        "dhyara", ">> ECHOR to %s dst %s src %s seq %d ttl %d", 
         source.to_string().c_str(), 
         echo_reply.target().to_string().c_str(), 
         echo_reply.source().to_string().c_str(), 
@@ -107,7 +107,7 @@ void dhyara::utils::printer::out(const dhyara::address& source, const dhyara::pa
 
 void dhyara::utils::printer::in(const dhyara::address& source, const dhyara::packets::echo_lost& echo_lost){
     ESP_LOGV(
-        "dhyara", "<< ICMPL from %s dst %s src %s seq %d delay %" PRId64, 
+        "dhyara", "<< ECHOL from %s dst %s src %s seq %d delay %" PRId64, 
         source.to_string().c_str(), 
         echo_lost.target().to_string().c_str(), 
         echo_lost.source().to_string().c_str(), 
@@ -118,7 +118,7 @@ void dhyara::utils::printer::in(const dhyara::address& source, const dhyara::pac
 
 void dhyara::utils::printer::out(const dhyara::address& source, const dhyara::packets::echo_lost& echo_lost){
     ESP_LOGV(
-        "dhyara", ">> ICMPL to %s dst %s src %s seq %d", 
+        "dhyara", ">> ECHOL to %s dst %s src %s seq %d", 
         source.to_string().c_str(), 
         echo_lost.target().to_string().c_str(), 
         echo_lost.source().to_string().c_str(), 

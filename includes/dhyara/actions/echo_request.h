@@ -38,12 +38,12 @@ struct echo_request: dhyara::actions::action<echo_request, dhyara::packets::echo
      */
     void operator()(const dhyara::address& addr, const dhyara::packets::echo_request& echo_request);
     /**
-     * Sends batch ICMP request to target. ICMP requests in the batch are sent without any time gap between two consecutive requests. The duration of sleep between two consecutive batches can be controlled using sleep argument.
+     * Sends batch echo request to target. Echo requests in the batch are sent without any time gap between two consecutive requests. The duration of sleep between two consecutive batches can be controlled using sleep argument.
      * 
      * \param target the target mac address
-     * \param count number of ICMP batches to be sent (default 254)
-     * \param batch number of ICMP requests in the one batch (default 1)
-     * \param sleep time (in ms) to sleep after each ICMP batch request (default to 15)
+     * \param count number of Echo Request batches to be sent (default 254)
+     * \param batch number of Echo Requests in the one batch (default 1)
+     * \param sleep time (in ms) to sleep after each Echo batch request (default to 15)
      */
     void ping(const dhyara::address& target, std::uint8_t count = 254, std::int8_t batch = 1, std::uint8_t sleep = 15);
     

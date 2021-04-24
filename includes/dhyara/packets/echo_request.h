@@ -37,9 +37,9 @@ struct echo_request{
      * Construct an echo request to the target originating from the source with the provided sequence number, time and ttl 
      * \param target the target mac address
      * \param source the originating mac address
-     * \param seq the sequence number of this ICMP request
-     * \param time the time in the ICMP request (defaults to current time)
-     * \param ttl TTL value in the ICMP request
+     * \param seq the sequence number of this Echo request
+     * \param time the time in the Echo request (defaults to current time)
+     * \param ttl TTL value in the Echo request
      */
     inline echo_request(const dhyara::address& target, const dhyara::address& source, std::uint32_t seq = 0, std::uint64_t time = 0, std::uint8_t ttl = 255) 
         : _target{target.b1(), target.b2(), target.b3(), target.b4(), target.b5(), target.b6()}, 
@@ -55,19 +55,19 @@ struct echo_request{
      */
     inline std::uint64_t time() const {return _time;}
     /**
-     * Sequence number of the ICMP packet
+     * Sequence number 
      */
     inline std::uint32_t seq() const {return _seq;}
     /**
-     * TTL of the ICMP request
+     * TTL  
      */
     inline std::uint8_t ttl() const {return _ttl;}
     /**
-     * Target address of the ICMP packet
+     * Target address 
      */
     inline dhyara::address target() const { return dhyara::address(_target); }
     /**
-     * Source address of the ICMP packet
+     * Source address
      */
     inline dhyara::address source() const { return dhyara::address(_source); }
     

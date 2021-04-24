@@ -42,17 +42,17 @@ struct traceroute{
     void reset();
     private:
         /**
-         * Send an ICMP request with the ttl specified
+         * Send an Echo request with the ttl specified
          * \param target the destination mac address
-         * \param ttl TTL of the ICMP request which is to be sent
+         * \param ttl TTL of the Echo request which is to be sent
          */
         void run(const dhyara::address& target, std::uint8_t ttl);
         /**
-         * The callback to capture the lost packet and print the destination till which the previous ICMP request packet has reached. If that destination is the desired destination then stop sending another ICMP request. Otherwise send another with increased ttl value.
+         * The callback to capture the lost packet and print the destination till which the previous Echo request packet has reached. If that destination is the desired destination then stop sending another Echo request. Otherwise send another with increased ttl value.
          */
         void lost(const dhyara::address&, const dhyara::packets::echo_lost& lost);
         /**
-         * The callback to capture the reply packet and print the destination till which the previous ICMP request packet has reached. If that destination is the desired destination then stop sending another ICMP request. Otherwise send another with increased ttl value.
+         * The callback to capture the reply packet and print the destination till which the previous Echo request packet has reached. If that destination is the desired destination then stop sending another Echo request. Otherwise send another with increased ttl value.
          */
         void reply(const dhyara::address&, const dhyara::packets::echo_reply& reply);
     private:

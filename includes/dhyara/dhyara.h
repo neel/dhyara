@@ -148,8 +148,8 @@ bool dhyara_receive_data(dhyara_receive_data_callback_type callback);
  * dhyara_ping(sink, .count = 1, .batch = 10);
  * \endcode
  * \param target target MAC address
- * \param count number of ICMPQ batches
- * \param batch number of ICMPQ Packets in one batch
+ * \param count number of ECHOQ batches
+ * \param batch number of ECHOQ Packets in one batch
  * \param sleep amount of sleep (in ms) between two consecutive batches
  * \attention Only available in C
  * \return boolean success value
@@ -164,8 +164,8 @@ bool dhyara_ping(const unsigned char* target, count = 254, batch = 1, sleep = 15
  * dhyara_ping(other, 1, 10);
  * \endcode
  * \param target target MAC address
- * \param count number of ICMPQ batches
- * \param batch number of ICMPQ Packets in one batch
+ * \param count number of ECHOQ batches
+ * \param batch number of ECHOQ Packets in one batch
  * \param sleep amount of sleep (in ms) between two consecutive batches
  * \return boolean success value
  * \see dhyara::ping 

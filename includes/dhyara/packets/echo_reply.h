@@ -36,8 +36,8 @@ struct echo_reply{
      * Construct an echo reply to the target originating from the source with the provided sequence number and time.
      * \param target the target mac address
      * \param source the originating mac address
-     * \param seq the sequence number of this ICMP request
-     * \param time the time in the ICMP request (defaults to current time)
+     * \param seq the sequence number of this Echo request
+     * \param time the time in the Echo request (defaults to current time)
      * \param ttl Time to Live (number of hops to live)
      */
     inline echo_reply(const dhyara::address& target, const dhyara::address& source, std::uint32_t seq = 0, std::uint64_t time = esp_timer_get_time(), std::uint8_t ttl = 255) 

@@ -113,9 +113,9 @@
  * #### Delivery Report (DLV) ####
  * 
  * ## Auxilary ##
- * ### ICMP over L2 ###
- * #### ICMP Request (ICMPQ) ####
- * #### ICMP Reply (ICMPR) ####
+ * ### ECHO over L2 ###
+ * #### ECHO Request (ECHOQ) ####
+ * #### ECHO Reply (ECHOR) ####
  * 
  * \{
  */

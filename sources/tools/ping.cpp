@@ -23,17 +23,17 @@ void dhyara::tools::ping::operator()(const dhyara::address& addr){
     ESP_LOGI("ping", "waiting 1s for all replies");
     vTaskDelay(pdMS_TO_TICKS(1000));
     
-    std::size_t icmp_sent  = _network.link().tx(dhyara::packets::type::echo_request);
-    std::size_t icmp_rcvd  = _network.link().rx(dhyara::packets::type::echo_reply);
-    double icmp_loss  = (double)(icmp_sent - std::min(icmp_rcvd, icmp_sent)) / (double)icmp_sent;
+    std::size_t echo_sent  = _network.link().tx(dhyara::packets::type::echo_request);
+    std::size_t echo_rcvd  = _network.link().rx(dhyara::packets::type::echo_reply);
+    double echo_loss  = (double)(echo_sent - std::min(echo_rcvd, echo_sent)) / (double)echo_sent;
     dhyara::delay_type wastage = ((_count-1)*_sleep);
     
     ESP_LOGI(
         "ping", 
         "%zu/%zu received, %.2lf%% lost, rtt min/avg/max/total = %.2lf/%.2lf/%.2lf/%.2lf ms", 
-        icmp_rcvd,
-        icmp_sent,
-        icmp_loss*100.0,
+        echo_rcvd,
+        echo_sent,
+        echo_loss*100.0,
         (double)_network.echo_reply().rtt().min/1000.0,
         (double)_network.echo_reply().rtt().avg/1000.0,
         (double)_network.echo_reply().rtt().max/1000.0,
@@ -43,10 +43,10 @@ void dhyara::tools::ping::operator()(const dhyara::address& addr){
     ESP_LOGI(
         "ping", 
         "%zu/%zu bytes in %.2lf ms (%.2lf kB/s)", 
-        icmp_rcvd*250,
-        icmp_sent*250,
+        echo_rcvd*250,
+        echo_sent*250,
         duration,
-        ((double)((icmp_sent+icmp_rcvd)*250*1000) / duration)/1000.0
+        ((double)((echo_sent+echo_rcvd)*250*1000) / duration)/1000.0
     );
 }
 
