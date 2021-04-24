@@ -20,6 +20,11 @@ namespace packets{
     
 /**
  * beacon packet
+ * \code 
+ * +---- 8 bytes -----+---- 1 byte -----+---- N bytes ---+
+ * |  Time at Source  | ssid length (N) |      Name      |
+ * +------------------+-----------------+----------------+
+ * \endcode
  * \ingroup packets
  */
 struct beacon{    

@@ -22,7 +22,12 @@ namespace packets{
 /**
  * advertisement packet sent after an acknowledgement packet is received.
  * The advertisement packet contains route information about a node (dest).
- * The route information includes one trip delay.
+ * The route information includes one trip delay from the source node.
+ * \code 
+ * +--- 6 bytes ---+---- 8 bytes -----+---- 1 byte -----+---- N bytes ---+
+ * |  destination  |  one trip delay  | name length (N) |      Name      |
+ * +---------------+------------------+-----------------+----------------+
+ * \endcode
  * \ingroup packets
  */
 struct advertisement{

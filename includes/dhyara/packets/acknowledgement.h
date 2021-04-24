@@ -19,6 +19,11 @@ namespace packets{
 /**
  * acknowledgement packet sent when a beacon packet is received.
  * The acknowledgement packet contains the same time that the beacon packet had.
+  * \code 
+ * +---- 8 bytes -----+
+ * |  Time at Source  |
+ * +------------------+
+ * \endcode
  * \ingroup packets
  */
 struct acknowledgement{
