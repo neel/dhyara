@@ -1,5 +1,5 @@
 <map id="dhyara::network_fifo&lt; Capacity &gt;" name="dhyara::network_fifo&lt; Capacity &gt;">
-<area shape="rect" id="node1" title=" " alt="" coords="159,199,315,240"/>
+<area shape="rect" id="node1" title="Queueto handle network messages." alt="" coords="159,199,315,240"/>
 <area shape="rect" id="node2" href="$structdhyara_1_1message.html" title="Envelop for both to be sent and has been received messages." alt="" coords="73,102,208,129"/>
 <area shape="rect" id="node3" href="$structdhyara_1_1address.html" title="peer address (mac address)" alt="" coords="5,5,132,32"/>
 <area shape="rect" id="node4" href="$structdhyara_1_1frame.html" title="A 250 bytes frame is defined by a 2 bytes header and 248 bytes payload." alt="" coords="157,5,271,32"/>

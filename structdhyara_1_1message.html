@@ -95,6 +95,7 @@ $(document).ready(function(){initNavTree('structdhyara_1_1message.html',''); ini
 
 <div class="header">
   <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="structdhyara_1_1message-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">dhyara::message Struct Reference</div>  </div>
@@ -115,6 +116,26 @@ Collaboration diagram for dhyara::message:</div>
 <area shape="rect" href="structdhyara_1_1frame.html" title="A 250 bytes frame is defined by a 2 bytes header and 248 bytes payload." alt="" coords="157,5,271,32"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a4bb998067790cd821ed739de236c6e63"><td class="memItemLeft" align="right" valign="top"><a id="a4bb998067790cd821ed739de236c6e63"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1message.html#a4bb998067790cd821ed739de236c6e63">message</a> ()</td></tr>
+<tr class="memdesc:a4bb998067790cd821ed739de236c6e63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct an empty message. <br /></td></tr>
+<tr class="separator:a4bb998067790cd821ed739de236c6e63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabb46eea8cdb1e5adada62f4c61c91aa"><td class="memItemLeft" align="right" valign="top"><a id="aabb46eea8cdb1e5adada62f4c61c91aa"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1message.html#aabb46eea8cdb1e5adada62f4c61c91aa">message</a> (const <a class="el" href="structdhyara_1_1address.html">dhyara::address</a> &amp;addr, const <a class="el" href="structdhyara_1_1frame.html">dhyara::frame</a> &amp;f)</td></tr>
+<tr class="memdesc:aabb46eea8cdb1e5adada62f4c61c91aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a message using an adddress and a frame. <br /></td></tr>
+<tr class="separator:aabb46eea8cdb1e5adada62f4c61c91aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2230c1c0b76ceea2041128a8368bda69"><td class="memItemLeft" align="right" valign="top"><a id="a2230c1c0b76ceea2041128a8368bda69"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1message.html#a2230c1c0b76ceea2041128a8368bda69">clear</a> ()</td></tr>
+<tr class="memdesc:a2230c1c0b76ceea2041128a8368bda69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the mesage. <br /></td></tr>
+<tr class="separator:a2230c1c0b76ceea2041128a8368bda69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8f8893caa40f4ecffc4b0644d86a40d"><td class="memItemLeft" align="right" valign="top"><a id="ab8f8893caa40f4ecffc4b0644d86a40d"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1message.html#ab8f8893caa40f4ecffc4b0644d86a40d">valid</a> () const</td></tr>
+<tr class="memdesc:ab8f8893caa40f4ecffc4b0644d86a40d"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns thrue if the message is valid (checks whether the address is not null) <br /></td></tr>
+<tr class="separator:ab8f8893caa40f4ecffc4b0644d86a40d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Envelop for both <code>to be sent</code> and <code>has been received</code> messages. </p>
 
