@@ -1,5 +1,5 @@
 <map id="dhyara::tools::ping" name="dhyara::tools::ping">
-<area shape="rect" id="node1" title="ping tool sends ICMP requests in batches." alt="" coords="2319,368,2461,395"/>
+<area shape="rect" id="node1" title="ping tool sends Echo requests in batches." alt="" coords="2319,368,2461,395"/>
 <area shape="rect" id="node2" href="$structdhyara_1_1network.html" title="The dhyara ad&#45;hoc network." alt="" coords="2077,368,2205,395"/>
 <area shape="rect" id="node3" href="$structdhyara_1_1actions_1_1beacon.html" title="action to handle an incoming beacon packet" alt="" coords="1304,52,1481,79"/>
 <area shape="rect" id="node4" href="$structdhyara_1_1actions_1_1action.html" title=" " alt="" coords="993,5,1188,61"/>

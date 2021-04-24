@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('structdhyara_1_1tools_1_1ping.html',''
 </div><!--header-->
 <div class="contents">
 
-<p>ping tool sends ICMP requests in batches.  
+<p>ping tool sends Echo requests in batches.  
  <a href="structdhyara_1_1tools_1_1ping.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="ping_8h_source.html">ping.h</a>&gt;</code></p>
@@ -112,7 +112,7 @@ Collaboration diagram for dhyara::tools::ping:</div>
 <div class="dyncontent">
 <div class="center"><img src="structdhyara_1_1tools_1_1ping__coll__graph.png" border="0" usemap="#dhyara_1_1tools_1_1ping_coll__map" alt="Collaboration graph"/></div>
 <map name="dhyara_1_1tools_1_1ping_coll__map" id="dhyara_1_1tools_1_1ping_coll__map">
-<area shape="rect" title="ping tool sends ICMP requests in batches." alt="" coords="2319,368,2461,395"/>
+<area shape="rect" title="ping tool sends Echo requests in batches." alt="" coords="2319,368,2461,395"/>
 <area shape="rect" href="structdhyara_1_1network.html" title="The dhyara ad&#45;hoc network." alt="" coords="2077,368,2205,395"/>
 <area shape="rect" href="structdhyara_1_1actions_1_1beacon.html" title="action to handle an incoming beacon packet" alt="" coords="1304,52,1481,79"/>
 <area shape="rect" href="structdhyara_1_1actions_1_1action.html" title=" " alt="" coords="993,5,1188,61"/>
@@ -189,12 +189,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stru
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a30216b7ae52f5f2bfc8066abfe050c76"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1tools_1_1ping.html#a30216b7ae52f5f2bfc8066abfe050c76">reply</a> (const <a class="el" href="structdhyara_1_1address.html">dhyara::address</a> &amp;addr, const <a class="el" href="structdhyara_1_1packets_1_1echo__reply.html">dhyara::packets::echo_reply</a> &amp;reply)</td></tr>
-<tr class="memdesc:a30216b7ae52f5f2bfc8066abfe050c76"><td class="mdescLeft">&#160;</td><td class="mdescRight">The callback to capture the reply packet and print the destination till which the previous ICMP request packet has reached.  <a href="structdhyara_1_1tools_1_1ping.html#a30216b7ae52f5f2bfc8066abfe050c76">More...</a><br /></td></tr>
+<tr class="memdesc:a30216b7ae52f5f2bfc8066abfe050c76"><td class="mdescLeft">&#160;</td><td class="mdescRight">The callback to capture the reply packet and print the destination till which the previous Echo request packet has reached.  <a href="structdhyara_1_1tools_1_1ping.html#a30216b7ae52f5f2bfc8066abfe050c76">More...</a><br /></td></tr>
 <tr class="separator:a30216b7ae52f5f2bfc8066abfe050c76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>ping tool sends ICMP requests in batches. </p>
-<p>Each batch contains <code>batch</code> number of requests. Number of batches is <code>count</code>. No explicit delay between two requests in the same batch. Sleep between two consecutive batches in <code>sleep</code> ms. It reports the min, max, avg and total RTT (Round Trip Time) between the source and the target. It also reports the total duration as half of the difference between the first sent time and last received time. Following is an example of ping output. The target node's mac address is 4c:11:ae:9c:a6:85. tx/rx are the packets or bytes transmitted vs received. In this example it took ms 12.7 for the last ICMPR to be received since the first ICMPQ was sent. According to this report 6.35 ms is the expected time, it may take for the target node to receive a 5000 byte long payload transmitted by the source node, in the current condition of wireless medium. </p><div class="fragment"><div class="line">I (41130) <a class="code" href="structdhyara_1_1tools_1_1ping.html#a1ebd240a8893b75b9dc20aab35e46919">ping</a>: 4c:11:ae:9c:a6:85</div>
+<div class="textblock"><p>ping tool sends Echo requests in batches. </p>
+<p>Each batch contains <code>batch</code> number of requests. Number of batches is <code>count</code>. No explicit delay between two requests in the same batch. Sleep between two consecutive batches in <code>sleep</code> ms. It reports the min, max, avg and total RTT (Round Trip Time) between the source and the target. It also reports the total duration as half of the difference between the first sent time and last received time. Following is an example of ping output. The target node's mac address is 4c:11:ae:9c:a6:85. tx/rx are the packets or bytes transmitted vs received. In this example it took ms 12.7 for the last ECHOR to be received since the first ECHOQ was sent. According to this report 6.35 ms is the expected time, it may take for the target node to receive a 5000 byte long payload transmitted by the source node, in the current condition of wireless medium. </p><div class="fragment"><div class="line">I (41130) <a class="code" href="structdhyara_1_1tools_1_1ping.html#a1ebd240a8893b75b9dc20aab35e46919">ping</a>: 4c:11:ae:9c:a6:85</div>
 <div class="line">I (41140) <a class="code" href="structdhyara_1_1tools_1_1ping.html#a1ebd240a8893b75b9dc20aab35e46919">ping</a>: waiting 1s for all replies</div>
 <div class="line">I (42140) <a class="code" href="structdhyara_1_1tools_1_1ping.html#a1ebd240a8893b75b9dc20aab35e46919">ping</a>: 20/20 received, 0.00% lost, rtt min/avg/max/total = 1.07/1.24/1.78/24.85 ms</div>
 <div class="line">I (42140) <a class="code" href="structdhyara_1_1tools_1_1ping.html#a1ebd240a8893b75b9dc20aab35e46919">ping</a>: 5000/5000 bytes in 12.7 ms</div>
@@ -415,8 +415,8 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>The callback to capture the reply packet and print the destination till which the previous ICMP request packet has reached. </p>
-<p>If that destination is the desired destination then stop sending another ICMP request. Otherwise send another with increased ttl value. </p>
+<p>The callback to capture the reply packet and print the destination till which the previous Echo request packet has reached. </p>
+<p>If that destination is the desired destination then stop sending another Echo request. Otherwise send another with increased ttl value. </p>
 
 </div>
 </div>

@@ -169,13 +169,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stru
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a6e0fc6c5455275610d2a0c69bdfa602a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1tools_1_1traceroute.html#a6e0fc6c5455275610d2a0c69bdfa602a">run</a> (const <a class="el" href="structdhyara_1_1address.html">dhyara::address</a> &amp;target, std::uint8_t ttl)</td></tr>
-<tr class="memdesc:a6e0fc6c5455275610d2a0c69bdfa602a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send an ICMP request with the ttl specified.  <a href="structdhyara_1_1tools_1_1traceroute.html#a6e0fc6c5455275610d2a0c69bdfa602a">More...</a><br /></td></tr>
+<tr class="memdesc:a6e0fc6c5455275610d2a0c69bdfa602a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send an Echo request with the ttl specified.  <a href="structdhyara_1_1tools_1_1traceroute.html#a6e0fc6c5455275610d2a0c69bdfa602a">More...</a><br /></td></tr>
 <tr class="separator:a6e0fc6c5455275610d2a0c69bdfa602a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1544998957fd4cde1a07a7b24899e111"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1tools_1_1traceroute.html#a1544998957fd4cde1a07a7b24899e111">lost</a> (const <a class="el" href="structdhyara_1_1address.html">dhyara::address</a> &amp;, const <a class="el" href="structdhyara_1_1packets_1_1echo__lost.html">dhyara::packets::echo_lost</a> &amp;lost)</td></tr>
-<tr class="memdesc:a1544998957fd4cde1a07a7b24899e111"><td class="mdescLeft">&#160;</td><td class="mdescRight">The callback to capture the lost packet and print the destination till which the previous ICMP request packet has reached.  <a href="structdhyara_1_1tools_1_1traceroute.html#a1544998957fd4cde1a07a7b24899e111">More...</a><br /></td></tr>
+<tr class="memdesc:a1544998957fd4cde1a07a7b24899e111"><td class="mdescLeft">&#160;</td><td class="mdescRight">The callback to capture the lost packet and print the destination till which the previous Echo request packet has reached.  <a href="structdhyara_1_1tools_1_1traceroute.html#a1544998957fd4cde1a07a7b24899e111">More...</a><br /></td></tr>
 <tr class="separator:a1544998957fd4cde1a07a7b24899e111"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a229130fcf1de68051fb4ed949f64c39a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1tools_1_1traceroute.html#a229130fcf1de68051fb4ed949f64c39a">reply</a> (const <a class="el" href="structdhyara_1_1address.html">dhyara::address</a> &amp;, const <a class="el" href="structdhyara_1_1packets_1_1echo__reply.html">dhyara::packets::echo_reply</a> &amp;reply)</td></tr>
-<tr class="memdesc:a229130fcf1de68051fb4ed949f64c39a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The callback to capture the reply packet and print the destination till which the previous ICMP request packet has reached.  <a href="structdhyara_1_1tools_1_1traceroute.html#a229130fcf1de68051fb4ed949f64c39a">More...</a><br /></td></tr>
+<tr class="memdesc:a229130fcf1de68051fb4ed949f64c39a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The callback to capture the reply packet and print the destination till which the previous Echo request packet has reached.  <a href="structdhyara_1_1tools_1_1traceroute.html#a229130fcf1de68051fb4ed949f64c39a">More...</a><br /></td></tr>
 <tr class="separator:a229130fcf1de68051fb4ed949f64c39a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -255,8 +255,8 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>The callback to capture the lost packet and print the destination till which the previous ICMP request packet has reached. </p>
-<p>If that destination is the desired destination then stop sending another ICMP request. Otherwise send another with increased ttl value. </p>
+<p>The callback to capture the lost packet and print the destination till which the previous Echo request packet has reached. </p>
+<p>If that destination is the desired destination then stop sending another Echo request. Otherwise send another with increased ttl value. </p>
 
 </div>
 </div>
@@ -314,8 +314,8 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>The callback to capture the reply packet and print the destination till which the previous ICMP request packet has reached. </p>
-<p>If that destination is the desired destination then stop sending another ICMP request. Otherwise send another with increased ttl value. </p>
+<p>The callback to capture the reply packet and print the destination till which the previous Echo request packet has reached. </p>
+<p>If that destination is the desired destination then stop sending another Echo request. Otherwise send another with increased ttl value. </p>
 
 </div>
 </div>
@@ -353,11 +353,11 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Send an ICMP request with the ttl specified. </p>
+<p>Send an Echo request with the ttl specified. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">target</td><td>the destination mac address </td></tr>
-    <tr><td class="paramname">ttl</td><td>TTL of the ICMP request which is to be sent </td></tr>
+    <tr><td class="paramname">ttl</td><td>TTL of the Echo request which is to be sent </td></tr>
   </table>
   </dd>
 </dl>

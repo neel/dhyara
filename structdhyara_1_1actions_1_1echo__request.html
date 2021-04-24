@@ -148,7 +148,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a60bff6e57d1eb46c3b82dabc9a77e698"><td class="mdescLeft">&#160;</td><td class="mdescRight">Process an incomming <a class="el" href="structdhyara_1_1actions_1_1echo__request.html" title="action to handle an incoming echo request packet">echo_request</a> packet.  <a href="structdhyara_1_1actions_1_1echo__request.html#a60bff6e57d1eb46c3b82dabc9a77e698">More...</a><br /></td></tr>
 <tr class="separator:a60bff6e57d1eb46c3b82dabc9a77e698"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5d19f9eef6d62d3925b04a65370b4e33"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1actions_1_1echo__request.html#a5d19f9eef6d62d3925b04a65370b4e33">ping</a> (const <a class="el" href="structdhyara_1_1address.html">dhyara::address</a> &amp;target, std::uint8_t count=254, std::int8_t batch=1, std::uint8_t sleep=15)</td></tr>
-<tr class="memdesc:a5d19f9eef6d62d3925b04a65370b4e33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends batch ICMP request to target.  <a href="structdhyara_1_1actions_1_1echo__request.html#a5d19f9eef6d62d3925b04a65370b4e33">More...</a><br /></td></tr>
+<tr class="memdesc:a5d19f9eef6d62d3925b04a65370b4e33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends batch echo request to target.  <a href="structdhyara_1_1actions_1_1echo__request.html#a5d19f9eef6d62d3925b04a65370b4e33">More...</a><br /></td></tr>
 <tr class="separator:a5d19f9eef6d62d3925b04a65370b4e33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_structdhyara_1_1actions_1_1action"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_structdhyara_1_1actions_1_1action')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="structdhyara_1_1actions_1_1action.html">dhyara::actions::action&lt; echo_request, dhyara::packets::echo_request &gt;</a></td></tr>
 <tr class="memitem:a046d7e662195162d4dc5fbc102d69359 inherit pub_methods_structdhyara_1_1actions_1_1action"><td class="memItemLeft" align="right" valign="top"><a id="a046d7e662195162d4dc5fbc102d69359"></a>
@@ -253,14 +253,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sends batch ICMP request to target. </p>
-<p>ICMP requests in the batch are sent without any time gap between two consecutive requests. The duration of sleep between two consecutive batches can be controlled using sleep argument.</p>
+<p>Sends batch echo request to target. </p>
+<p>Echo requests in the batch are sent without any time gap between two consecutive requests. The duration of sleep between two consecutive batches can be controlled using sleep argument.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">target</td><td>the target mac address </td></tr>
-    <tr><td class="paramname">count</td><td>number of ICMP batches to be sent (default 254) </td></tr>
-    <tr><td class="paramname">batch</td><td>number of ICMP requests in the one batch (default 1) </td></tr>
-    <tr><td class="paramname">sleep</td><td>time (in ms) to sleep after each ICMP batch request (default to 15) </td></tr>
+    <tr><td class="paramname">count</td><td>number of Echo Request batches to be sent (default 254) </td></tr>
+    <tr><td class="paramname">batch</td><td>number of Echo Requests in the one batch (default 1) </td></tr>
+    <tr><td class="paramname">sleep</td><td>time (in ms) to sleep after each Echo batch request (default to 15) </td></tr>
   </table>
   </dd>
 </dl>
