@@ -24,6 +24,13 @@ function togglemenu(){
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="style.css" rel="stylesheet" type="text/css" />
 <link href="qtify.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -127,13 +134,13 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A 250 bytes frame is defined by a 2 bytes header and 248 bytes payload.  <a href="structdhyara_1_1frame.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1packets_1_1acknowledgement.html">dhyara::packets::acknowledgement</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">acknowledgement packet sent when a beacon packet is received.  <a href="structdhyara_1_1packets_1_1acknowledgement.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Each node \(X_{i}\) broadcasts a <a class="el" href="structdhyara_1_1packets_1_1beacon.html">Beacon</a> at a fixed interval.  <a href="structdhyara_1_1packets_1_1acknowledgement.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1packets_1_1advertisement.html">dhyara::packets::advertisement</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">advertisement packet sent after an acknowledgement packet is received.  <a href="structdhyara_1_1packets_1_1advertisement.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">If any operation on the routing table \(R_{i}\) alters/creates a best route or the delay of a best route for a destination \(X_{t}\) then an <a class="el" href="structdhyara_1_1packets_1_1advertisement.html">Advertisement</a> is sent to \(X_{j}\,\forall X_{j} \in Neibourhood(X_{i})\) from \(X_{i}\).  <a href="structdhyara_1_1packets_1_1advertisement.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1packets_1_1beacon.html">dhyara::packets::beacon</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">beacon packet  <a href="structdhyara_1_1packets_1_1beacon.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Each node \(X_{i}\) broadcasts a <a class="el" href="structdhyara_1_1packets_1_1beacon.html">Beacon</a> at a fixed interval.  <a href="structdhyara_1_1packets_1_1beacon.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1packets_1_1chunk__header.html">dhyara::packets::chunk_header</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Header in the chunk.  <a href="structdhyara_1_1packets_1_1chunk__header.html#details">More...</a><br /></td></tr>
@@ -181,32 +188,32 @@ Enumerations</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Dhyara Packets provide definitions for all packets that are sent/received over the network. </p>
-<h2><a class="anchor" id="autotoc_md6"></a>
+<h2><a class="anchor" id="autotoc_md7"></a>
 Basic</h2>
 <p>The following packets are used for maintaining the basic network.</p>
-<h3><a class="anchor" id="autotoc_md7"></a>
+<h3><a class="anchor" id="autotoc_md8"></a>
 Beacon (BCN)</h3>
 <p>Every node <code>x ∊ X</code> broadcasts a beacon packet at a fixed interval to <code>0xff:0xff:0xff:0xff:0xff:0xff</code>. The packet contains <code>Tx</code> (time at node <code>x</code>).</p>
-<h3><a class="anchor" id="autotoc_md8"></a>
+<h3><a class="anchor" id="autotoc_md9"></a>
 Acknowledgement (ACK)</h3>
 <p>A node <code>y ∊ X</code> when receives the broadcasted beacon, adds <code>x</code> to its peers and sends an acknowledgement packet to <code>x</code> with the same <code>Tx</code> of the beacon packet. The node <code>x</code> on receiving the acknowledgement calculates RTT as <code>(T - Tx)</code> where T is the current time on node <code>x</code>. The delay of one trip is calculated as <code>𝛿 = RTT / 2</code> The node <code>x</code> adds / updates <code>(x, y, 𝛿)</code> in its routing table and follows the <code>sync_neighbors</code> routine.</p>
-<h3><a class="anchor" id="autotoc_md9"></a>
+<h3><a class="anchor" id="autotoc_md10"></a>
 Advertisement (ADV)</h3>
 <p>An Advertisement packet originated from <code>Xᵢ</code> contains a destination mac <code>Xⱼ</code> and delay <code>d</code>. <code>Xₜ</code> updates route <code>(Xⱼ Xᵢ d + 𝛿ⱼᵢ)</code> in its routing table and follows the <code>sync_neighbors</code> routine. The value of is obtained from the existing routes in the routing table.</p>
-<h3><a class="anchor" id="autotoc_md10"></a>
+<h3><a class="anchor" id="autotoc_md11"></a>
 Data</h3>
 <p>ESP Now limits maximum size of payload in each frame to 250 bytes only. So variable length data like <a class="el" href="structdhyara_1_1packets_1_1data.html">dhyara::packets::data</a> is splitted into multiple chunks.</p>
-<h4><a class="anchor" id="autotoc_md11"></a>
-Chunk (CNK)</h4>
 <h4><a class="anchor" id="autotoc_md12"></a>
+Chunk (CNK)</h4>
+<h4><a class="anchor" id="autotoc_md13"></a>
 Delivery Report (DLV)</h4>
-<h2><a class="anchor" id="autotoc_md13"></a>
+<h2><a class="anchor" id="autotoc_md14"></a>
 Auxilary</h2>
-<h3><a class="anchor" id="autotoc_md14"></a>
+<h3><a class="anchor" id="autotoc_md15"></a>
 ECHO over L2</h3>
-<h4><a class="anchor" id="autotoc_md15"></a>
-ECHO Request (ECHOQ)</h4>
 <h4><a class="anchor" id="autotoc_md16"></a>
+ECHO Request (ECHOQ)</h4>
+<h4><a class="anchor" id="autotoc_md17"></a>
 ECHO Reply (ECHOR)</h4>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
 <a id="ga587a117adc54019693a184e4f8b4e0b5"></a>
@@ -234,13 +241,13 @@ ECHO Reply (ECHOR)</h4>
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga587a117adc54019693a184e4f8b4e0b5aad921d60486366258809553a3db49a4a"></a>unknown&#160;</td><td class="fielddoc"><p>Unspecified packet type. </p>
 </td></tr>
 <tr><td class="fieldname"><a id="gga587a117adc54019693a184e4f8b4e0b5a41b89d10619cdd3e30fb6c401c17c7d9"></a>beacon&#160;</td><td class="fielddoc"><p>beacon packet </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="structdhyara_1_1packets_1_1beacon.html" title="beacon packet">dhyara::packets::beacon</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structdhyara_1_1packets_1_1beacon.html" title="Each node  broadcasts a Beacon at a fixed interval.">dhyara::packets::beacon</a> </dd></dl>
 </td></tr>
 <tr><td class="fieldname"><a id="gga587a117adc54019693a184e4f8b4e0b5a0421784420643cbd77fd5fed9006293f"></a>acknowledgement&#160;</td><td class="fielddoc"><p>acknowledgement packet </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="structdhyara_1_1packets_1_1acknowledgement.html" title="acknowledgement packet sent when a beacon packet is received.">dhyara::packets::acknowledgement</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structdhyara_1_1packets_1_1acknowledgement.html" title="Each node  broadcasts a Beacon at a fixed interval.">dhyara::packets::acknowledgement</a> </dd></dl>
 </td></tr>
 <tr><td class="fieldname"><a id="gga587a117adc54019693a184e4f8b4e0b5af3334ac9ef26166dedebd319a18f9cc7"></a>advertisement&#160;</td><td class="fielddoc"><p>advertisement packet </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="structdhyara_1_1packets_1_1advertisement.html" title="advertisement packet sent after an acknowledgement packet is received.">dhyara::packets::advertisement</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structdhyara_1_1packets_1_1advertisement.html" title="If any operation on the routing table  alters/creates a best route or the delay of a best route for a...">dhyara::packets::advertisement</a> </dd></dl>
 </td></tr>
 <tr><td class="fieldname"><a id="gga587a117adc54019693a184e4f8b4e0b5a5a8f4fa2aeab5431888ee8a18ce3bcea"></a>chunk&#160;</td><td class="fielddoc"><p>chunk packet </p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="structdhyara_1_1packets_1_1chunk.html" title="Chunk of a variable sized data.">dhyara::packets::chunk</a> </dd></dl>

@@ -24,6 +24,13 @@ function togglemenu(){
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="style.css" rel="stylesheet" type="text/css" />
 <link href="qtify.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -99,22 +106,22 @@ $(document).ready(function(){initNavTree('protocol.html',''); initResizable(); }
 </div><!--header-->
 <div class="contents">
 <div class="toc"><h3>Table of Contents</h3>
-<ul><li class="level1"><a href="#autotoc_md17">Routing Table</a><ul><li class="level2"><a href="#autotoc_md18">Neighbourhood Synchronization</a></li>
-<li class="level2"><a href="#autotoc_md19">Route Depreciation</a></li>
+<ul><li class="level1"><a href="#autotoc_md18">Routing Table</a><ul><li class="level2"><a href="#autotoc_md19">Neighbourhood Synchronization</a></li>
+<li class="level2"><a href="#autotoc_md20">Route Depreciation</a></li>
 </ul>
 </li>
-<li class="level1"><a href="#autotoc_md20">Packets</a></li>
-<li class="level1"><a href="#autotoc_md21">Basic</a><ul><li class="level2"><a href="#autotoc_md22">Beacon (BCN)</a></li>
-<li class="level2"><a href="#autotoc_md23">Acknowledgement (ACK)</a></li>
-<li class="level2"><a href="#autotoc_md24">Advertisement (ADV)</a></li>
-<li class="level2"><a href="#autotoc_md25">Data</a><ul><li class="level3"><a href="#autotoc_md26">Chunk (CNK)</a></li>
-<li class="level3"><a href="#autotoc_md27">Delivery Report (DLV)</a></li>
+<li class="level1"><a href="#autotoc_md21">Packets</a></li>
+<li class="level1"><a href="#autotoc_md22">Basic</a><ul><li class="level2"><a href="#autotoc_md23">Beacon (BCN)</a></li>
+<li class="level2"><a href="#autotoc_md24">Acknowledgement (ACK)</a></li>
+<li class="level2"><a href="#autotoc_md25">Advertisement (ADV)</a></li>
+<li class="level2"><a href="#autotoc_md26">Data</a><ul><li class="level3"><a href="#autotoc_md27">Chunk (CNK)</a></li>
+<li class="level3"><a href="#autotoc_md28">Delivery Report (DLV)</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="level1"><a href="#autotoc_md28">Auxilary</a><ul><li class="level2"><a href="#autotoc_md29">ICMP over L2</a><ul><li class="level3"><a href="#autotoc_md30">ICMP Request (ICMPQ)</a></li>
-<li class="level3"><a href="#autotoc_md31">ICMP Reply (ICMPR)</a></li>
+<li class="level1"><a href="#autotoc_md29">Auxilary</a><ul><li class="level2"><a href="#autotoc_md30">ICMP over L2</a><ul><li class="level3"><a href="#autotoc_md31">ICMP Request (ICMPQ)</a></li>
+<li class="level3"><a href="#autotoc_md32">ICMP Reply (ICMPR)</a></li>
 </ul>
 </li>
 </ul>
@@ -122,7 +129,7 @@ $(document).ready(function(){initNavTree('protocol.html',''); initResizable(); }
 </ul>
 </div>
 <div class="textblock"><p>Dhyara Commnunication Protocol</p>
-<h1><a class="anchor" id="autotoc_md17"></a>
+<h1><a class="anchor" id="autotoc_md18"></a>
 Routing Table</h1>
 <p>Each node <code>Xᵢ ∊ X</code> maintains a <b>routing table</b> of the following form which is gradually built up by the protocol. Each row of this table denotes a route to a destination node (first column) via an intermediate nde (second column) and its corresponding delay. 0x0 is used to depict direct communication (not via any intermediate node)</p>
 <div class="fragment"><div class="line">Xⱼ 0x0 𝛿ⱼ₀ ∀ j ≠ i</div>
@@ -130,45 +137,45 @@ Routing Table</h1>
 </div><!-- fragment --><p>Based on this table a <b>best vector</b> is calculated</p>
 <div class="fragment"><div class="line">Xⱼ ← Min(y ∊ Intermediate(Xⱼ)) ∀ j ≠ i</div>
 </div><!-- fragment --><p>While sending data to <code>Xⱼ</code> the best vector is looked for the immediate neighbor</p>
-<h2><a class="anchor" id="autotoc_md18"></a>
+<h2><a class="anchor" id="autotoc_md19"></a>
 Neighbourhood Synchronization</h2>
 <p>If any operation on the routing table of <code>Xᵢ</code> alters the best route or the delay of the best route for destination <code>Xⱼ</code> then an <code>Advertisement</code> packet is sent to <code>∀ Xₖ ∊ X : k ≠ j</code></p>
 <p>The Advertisement packet contains the destination node <code>Xⱼ</code> and <code>𝛿ⱼᵢ</code> the minimum delay to reach that node from <code>Xᵢ</code>. Node <code>Xᵢ</code> does not advertise the best intermediate node (which can be 0x0 also).</p>
 <p>If the best vector is not altered by routing table update then no <code>advertisement</code> packet is sent</p>
 <p>However if <code>∃ Xₖ ∊ X</code> for which no broadcast packet has been sent for a large amount of time then an advertisement packet is sent even if there is not change in the best vector.</p>
-<h2><a class="anchor" id="autotoc_md19"></a>
+<h2><a class="anchor" id="autotoc_md20"></a>
 Route Depreciation</h2>
 <p>If a node <code>Xᵢ</code> doesn't receive any beacon from node <code>Xⱼ</code> for a threshold, the delay of all routes involved with <code>Xᵢ</code> is doubled. Then thr routing table update follows the <code>sync_neighbors</code> routine.</p>
 <p>Once the delay reaches the integer boundary then the node is remove from thr routing table after transmiting the advertisement packet in the <code>sync_neighbours</code> routine.</p>
-<h1><a class="anchor" id="autotoc_md20"></a>
-Packets</h1>
 <h1><a class="anchor" id="autotoc_md21"></a>
+Packets</h1>
+<h1><a class="anchor" id="autotoc_md22"></a>
 Basic</h1>
-<h2><a class="anchor" id="autotoc_md22"></a>
+<h2><a class="anchor" id="autotoc_md23"></a>
 Beacon (BCN)</h2>
 <p>Every node <code>x ∊ X</code> broadcasts a beacon packet at a fixed interval to <code>0xff:0xff:0xff:0xff:0xff:0xff</code>. The packet contains <code>Tx</code> (time at node <code>x</code>).</p>
-<h2><a class="anchor" id="autotoc_md23"></a>
+<h2><a class="anchor" id="autotoc_md24"></a>
 Acknowledgement (ACK)</h2>
 <p>A node <code>y ∊ X</code> when receives the broadcasted beacon, adds <code>x</code> to its peers and sends an acknowledgement packet to <code>x</code> with the same <code>Tx</code> of the beacon packet.</p>
 <p>The node <code>x</code> on receiving the acknowledgement calculates RTT as <code>(T - Tx)</code> where T is the current time on node <code>x</code>. The delay of one trip is calculated as <code>𝛿 = RTT / 2</code></p>
 <p>The node <code>x</code> adds / updates <code>(x, y, 𝛿)</code> in its routing table and follows the <code>sync_neighbors</code> routine.</p>
-<h2><a class="anchor" id="autotoc_md24"></a>
+<h2><a class="anchor" id="autotoc_md25"></a>
 Advertisement (ADV)</h2>
 <p>An Advertisement packet originated from <code>Xᵢ</code> contains a destination mac <code>Xⱼ</code> and delay <code>d</code>.</p>
 <p><code>Xₜ</code> updates route <code>(Xⱼ Xᵢ d + 𝛿ⱼᵢ)</code> in its routing table and follows the <code>sync_neighbors</code> routine. The value of is obtained from the existing routes in the routing table.</p>
-<h2><a class="anchor" id="autotoc_md25"></a>
+<h2><a class="anchor" id="autotoc_md26"></a>
 Data</h2>
-<h3><a class="anchor" id="autotoc_md26"></a>
-Chunk (CNK)</h3>
 <h3><a class="anchor" id="autotoc_md27"></a>
+Chunk (CNK)</h3>
+<h3><a class="anchor" id="autotoc_md28"></a>
 Delivery Report (DLV)</h3>
-<h1><a class="anchor" id="autotoc_md28"></a>
+<h1><a class="anchor" id="autotoc_md29"></a>
 Auxilary</h1>
-<h2><a class="anchor" id="autotoc_md29"></a>
+<h2><a class="anchor" id="autotoc_md30"></a>
 ICMP over L2</h2>
-<h3><a class="anchor" id="autotoc_md30"></a>
-ICMP Request (ICMPQ)</h3>
 <h3><a class="anchor" id="autotoc_md31"></a>
+ICMP Request (ICMPQ)</h3>
+<h3><a class="anchor" id="autotoc_md32"></a>
 ICMP Reply (ICMPR)</h3>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->

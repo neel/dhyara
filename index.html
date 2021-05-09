@@ -24,6 +24,13 @@ function togglemenu(){
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="style.css" rel="stylesheet" type="text/css" />
 <link href="qtify.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -99,10 +106,10 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 </div><!--header-->
 <div class="contents">
 <div class="toc"><h3>Table of Contents</h3>
-<ul><li class="level1"><a href="#autotoc_md32">Basic Usage</a></li>
-<li class="level1"><a href="#autotoc_md33">Compilation &amp; Integration</a></li>
-<li class="level1"><a href="#autotoc_md34">C Example</a></li>
-<li class="level1"><a href="#autotoc_md35">C++ Example</a></li>
+<ul><li class="level1"><a href="#autotoc_md33">Basic Usage</a></li>
+<li class="level1"><a href="#autotoc_md34">Compilation &amp; Integration</a></li>
+<li class="level1"><a href="#autotoc_md35">C Example</a></li>
+<li class="level1"><a href="#autotoc_md36">C++ Example</a></li>
 </ul>
 </div>
 <div class="textblock"><p><a href="https://github.com/neel/dhyara">GitHub Repository</a> | <a href="http://neel.github.io/dhyara">Doxygen Documentation</a></p>
@@ -111,7 +118,7 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <img src="management.png" alt=""/>
 <div class="caption">
 Management Console</div></div>
-   <h1><a class="anchor" id="autotoc_md32"></a>
+   <h1><a class="anchor" id="autotoc_md33"></a>
 Basic Usage</h1>
 <p>The dhyara nodes identify each other via MAC address. Once deployed the nodes communicate with each other and each node builds a routing table based on its local view. On the top of that, dhyara provides C and C++ APIs for send/receice/ping/traceroute functionalities.</p>
 <p>In the following example, the string "Hello World" is a variable length data which is sent to the destination identified with the mac address <code>4c:11:ae:9c:a6:85</code> over the multihop network. If the destination is a direct neighbour of the source then the message will be delivered in one hop. Otherwise the message sent will find its path to the destination <code>4c:11:ae:9c:a6:85</code> on its own by following the routing decisions of each intermediate nodes.</p>
@@ -132,7 +139,7 @@ Basic Usage</h1>
 <div class="line">});</div>
 </div><!-- fragment --><p>In the above mentioned C++ example, source represents the immediate neighbour of the desination, and <code>data.source()</code> is the originator of the message.</p>
 <p><a class="el" href="group__dhyara.html">Read More</a></p>
-<h1><a class="anchor" id="autotoc_md33"></a>
+<h1><a class="anchor" id="autotoc_md34"></a>
 Compilation &amp; Integration</h1>
 <p>Dhyara is a C++11 library that has to be used as an ESP-IDF component. It can be cloned to the <code>components</code> directory or can be used as a <code>git submodule</code> inside your projects <code>components</code> directory. If the application project is using an extra components directory then path to that directory has to be added in the root directory's CMakeLists.txt file as shown in the following example.</p>
 <div class="fragment"><div class="line">set(EXTRA_COMPONENT_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/components)</div>
@@ -142,7 +149,7 @@ Compilation &amp; Integration</h1>
 <div class="caption">
 menuconfig</div></div>
    <p>See Building the examples.</p>
-<h1><a class="anchor" id="autotoc_md34"></a>
+<h1><a class="anchor" id="autotoc_md35"></a>
 C Example</h1>
 <p>The examples are provided in the examples directory. See Building the examples for instructions on building the examples.</p>
 <p>Following is a C example demonstrating basic usage of dhyara </p><div class="fragment"><div class="line"><span class="keywordtype">void</span> data_received(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* source, <span class="keyword">const</span> <span class="keywordtype">void</span>* data, <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> len){</div>
@@ -185,7 +192,7 @@ C Example</h1>
 <div class="line">        vTaskDelay(pdMS_TO_TICKS(2000));</div>
 <div class="line">    }</div>
 <div class="line">}</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md35"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md36"></a>
 C++ Example</h1>
 <p>Dhyara is primarily intended to be used for C++ application. To build a C++ application with ESP-IDF we first start from a <code>main.c</code> which calls a C++ function <code>mainx()</code>. Following is the <code>main.c</code> from the example <code>hello-cxx</code></p>
 <div class="fragment"><div class="line"><span class="keywordtype">void</span> app_main(){</div>

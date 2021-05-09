@@ -24,6 +24,13 @@ function togglemenu(){
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="style.css" rel="stylesheet" type="text/css" />
 <link href="qtify.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -141,7 +148,7 @@ $(document).ready(function(){initNavTree('actions_2advertisement_8h_source.html'
 <div class="ttc" id="astructdhyara_1_1address_html"><div class="ttname"><a href="structdhyara_1_1address.html">dhyara::address</a></div><div class="ttdoc">peer address (mac address)</div><div class="ttdef"><b>Definition:</b> <a href="address_8h_source.html#l00028">address.h:28</a></div></div>
 <div class="ttc" id="aclassdhyara_1_1link_html"><div class="ttname"><a href="classdhyara_1_1link.html">dhyara::link</a></div><div class="ttdoc">Link is responsible for low level sending/receiving.</div><div class="ttdef"><b>Definition:</b> <a href="link_8h_source.html#l00094">link.h:94</a></div></div>
 <div class="ttc" id="astructdhyara_1_1actions_1_1action_html"><div class="ttname"><a href="structdhyara_1_1actions_1_1action.html">dhyara::actions::action</a></div><div class="ttdoc">All actions must subclass from this template.</div><div class="ttdef"><b>Definition:</b> <a href="action_8h_source.html#l00034">action.h:34</a></div></div>
-<div class="ttc" id="astructdhyara_1_1packets_1_1advertisement_html"><div class="ttname"><a href="structdhyara_1_1packets_1_1advertisement.html">dhyara::packets::advertisement</a></div><div class="ttdoc">advertisement packet sent after an acknowledgement packet is received.</div><div class="ttdef"><b>Definition:</b> <a href="packets_2advertisement_8h_source.html#l00033">advertisement.h:33</a></div></div>
+<div class="ttc" id="astructdhyara_1_1packets_1_1advertisement_html"><div class="ttname"><a href="structdhyara_1_1packets_1_1advertisement.html">dhyara::packets::advertisement</a></div><div class="ttdoc">If any operation on the routing table  alters/creates a best route or the delay of a best route for a...</div><div class="ttdef"><b>Definition:</b> <a href="packets_2advertisement_8h_source.html#l00037">advertisement.h:37</a></div></div>
 <div class="ttc" id="astructdhyara_1_1actions_1_1advertisement_html"><div class="ttname"><a href="structdhyara_1_1actions_1_1advertisement.html">dhyara::actions::advertisement</a></div><div class="ttdoc">action to handle an incoming advertisement packet</div><div class="ttdef"><b>Definition:</b> <a href="actions_2advertisement_8h_source.html#l00027">advertisement.h:27</a></div></div>
 <div class="ttc" id="astructdhyara_1_1actions_1_1advertisement_html_ac32090c90930e555f9fbc70b80737acf"><div class="ttname"><a href="structdhyara_1_1actions_1_1advertisement.html#ac32090c90930e555f9fbc70b80737acf">dhyara::actions::advertisement::operator()</a></div><div class="ttdeci">void operator()(const dhyara::address &amp;addr, const dhyara::packets::advertisement &amp;advertisement)</div><div class="ttdoc">The received advertisement is processed in this function.</div></div>
 <div class="ttc" id="astructdhyara_1_1actions_1_1advertisement_html_a1dae905a64795544948d596fc2b4054c"><div class="ttname"><a href="structdhyara_1_1actions_1_1advertisement.html#a1dae905a64795544948d596fc2b4054c">dhyara::actions::advertisement::advertisement</a></div><div class="ttdeci">advertisement(dhyara::link &amp;link, dhyara::synchronizer &amp;synchronizer)</div><div class="ttdoc">advertisement action constructor requires a link to respond after receiving an advertisement packet.</div><div class="ttdef"><b>Definition:</b> <a href="actions_2advertisement_8h_source.html#l00034">advertisement.h:34</a></div></div>

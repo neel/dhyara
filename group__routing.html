@@ -24,6 +24,13 @@ function togglemenu(){
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="style.css" rel="stylesheet" type="text/css" />
 <link href="qtify.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -127,19 +134,29 @@ Classes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Dhyara Routing module is responsible for maintaining the distributed routing table across the network. </p>
-<p>Each node <code>Xᵢ ∊ X</code> maintains a <b>routing table</b> of the following form which is gradually built up by the protocol. <br  />
- Each row of this table denotes a route to a destination node (first column) via an intermediate nde (second column) and its corresponding delay. 0x0 is used to depict direct communication (not via any intermediate node).</p>
-<div class="fragment"><div class="line">Xⱼ 0x0 𝛿ⱼ₀ ∀ j ≠ i</div>
-<div class="line">Xⱼ Xₖ  𝛿ⱼₖ ∀ j,k ≠ i and ∀ j ≠ k</div>
-</div><!-- fragment --><p>Based on this table a <b>best vector</b> is calculated</p>
-<div class="fragment"><div class="line">Xⱼ ← Min(y ∊ Intermediate(Xⱼ)) ∀ j ≠ i</div>
-</div><!-- fragment --><p>While sending data to <code>Xⱼ</code> the best vector is looked for the immediate neighbor</p>
 <h3><a class="anchor" id="autotoc_md4"></a>
-Neighbourhood Synchronization</h3>
-<p>If any operation on the routing table of <code>Xᵢ</code> alters the best route or the delay of the best route for destination <code>Xⱼ</code> then an <code>Advertisement</code> packet is sent to <code>∀ Xₖ ∊ X : k ≠ j</code> The Advertisement packet contains the destination node <code>Xⱼ</code> and <code>𝛿ⱼᵢ</code> the minimum delay to reach that node from <code>Xᵢ</code>. Node <code>Xᵢ</code> does not advertise the best intermediate node (which can be 0x0 also). If the best vector is not altered by routing table update then no <code>advertisement</code> packet is sent However if <code>∃ Xₖ ∊ X</code> for which no broadcast packet has been sent for a large amount of time then an advertisement packet is sent even if there is not change in the best vector.</p>
+Routing Table</h3>
+<p>Each node \(X_{i} \in X\) maintains a Routing table ( \( R_{i} \)) of the following form which is gradually built up by the protocol. <br  />
+ Each row of this table denotes a route to a destination node (first column) via an intermediate nde (second column) and its corresponding delay. The protocol ensures that \(\forall X_{i}\in X\) is aware about existance of all other nodes in \(X \setminus X_{i}\). For all neighbours \(X_{j} \in Neibourhood(X_{i})\) \(\exists u \in R_{i}\;s.t.Intermediate(u) = 0\) For all non-neighbours \(X_{k} \not\in Neibourhood(X_{i})\) \(\exists u \in R_{i}\;s.t.Intermediate(u) \in Neibourhood(X_{i})\) The routing table may contain multiple routes for the same distination (with different intermediate nodes)</p>
+<p class="formulaDsp">
+\[ R_{i} = \begin{cases} (X_{j}, 0, \delta_{j,0}) &amp; \forall X_{j} \in Neibourhood(X_{i}) \\ (X_{k}, X_{j}, \delta_{j,0}) &amp; \forall X_{k} \not\in Neibourhood(X_{i}) \;s.t.\; X_{j} \in Neibourhood(X_{i}) \end{cases} \]
+</p>
+<ul>
+<li>0 is used as an intermediate node to depict direct communication (not via any intermediate node).</li>
+<li>Delay \(\delta_{x,y}\) is the expected delay of sending to \(X_x\) via \(X_y\) from \(X_{i}\)</li>
+</ul>
+<p>Based on the above mentioned table a best route \(Best(X_{t}, i) \in R_{i}\) is calculated in \(X_{i}\) for each destination \(t\) (w.r.t. source \(X_{i}\))</p>
+<p class="formulaDsp">
+\[ Best(X_{t}, i) = u \;s.t.\; Delay(u) \leq Delay(v)\; \forall\,v\,\in\,R_{i} \]
+</p>
+<p>While sending data to \(X_{t}\) the best route is looked for the intermediate node.</p>
 <h3><a class="anchor" id="autotoc_md5"></a>
+Neighbourhood Synchronization</h3>
+<p>Each node \(X_{i}\) broadcasts a <a class="el" href="structdhyara_1_1packets_1_1beacon.html">Beacon</a> at a fixed interval. The <a class="el" href="structdhyara_1_1packets_1_1beacon.html">Beacon</a> contains Time at \(X_{i}\) ( \(T_{i}\)) at the time of sending. The <a class="el" href="structdhyara_1_1packets_1_1beacon.html">Beacon</a> is received by all \(X_{j}\) in the neighbourhood. The neighbours \(\forall X_{j} \in Neibourhood(X_{i})\) respond with an <a class="el" href="structdhyara_1_1packets_1_1acknowledgement.html">Acknowledgement</a>, which contains the same \(T_{i}\) which was received in the <a class="el" href="structdhyara_1_1packets_1_1beacon.html">Beacon</a>. \(X_{i}\) after receiving the <a class="el" href="structdhyara_1_1packets_1_1acknowledgement.html">Acknowledgement</a> from \(X_{j}\) calculates \(\delta_{j,0}\) as \(T_{i}/2\) and adds that as a route in \(R_{i}\).</p>
+<p>If any operation on the routing table \(R_{i}\) alters/creates a best route or the delay of a best route for a destination \(X_{t}\) then an <a class="el" href="structdhyara_1_1packets_1_1advertisement.html">Advertisement</a> is sent to \(X_{j}\,\forall X_{j} \in Neibourhood(X_{i})\) from \(X_{i}\). The <a class="el" href="structdhyara_1_1packets_1_1advertisement.html">Advertisement</a> contains the destination node \(X_{t}\) and \(\delta_{t,i}\) the minimum delay to reach \(X_{t}\) from \(X_{i}\). The best intermediate node (which may be 0 also) is not advertised. If the best vector is not altered by the updatation of routing table then no Advertisement packet is sent. However if \(\exists X_{k} ∊ X\) for which no broadcast packet has been sent for a large amount of time then an <a class="el" href="structdhyara_1_1packets_1_1advertisement.html">Advertisement</a> regarding \(X_{k}\) is sent even if there is not change in the best vector.</p>
+<h3><a class="anchor" id="autotoc_md6"></a>
 Route Depreciation</h3>
-<p>If a node <code>Xᵢ</code> doesn't receive any beacon from node <code>Xⱼ</code> for a threshold, the delay of all routes involved with <code>Xᵢ</code> is doubled. Then thr routing table update follows the <code>sync_neighbors</code> routine. Once the delay reaches the integer boundary then the node is remove from thr routing table after transmiting the advertisement packet in the <code>sync_neighbours</code> routine. </p>
+<p>If a node \(X_{i}\) doesn't receive any beacon from node \(X_{j}\) for a fixed amount of time, the delay of all routes involved with \(X_{j}\) is multiplied with a factor. Then the routing table update follows the above mentioned Neighbourhood Synchronization. </p>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.9.1-->

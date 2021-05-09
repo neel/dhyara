@@ -1,4 +1,4 @@
 <map id="dhyara::packets::advertisement" name="dhyara::packets::advertisement">
-<area shape="rect" id="node1" title="advertisement packet sent after an acknowledgement packet is received." alt="" coords="5,95,233,121"/>
+<area shape="rect" id="node1" title="If any operation on the routing table &#160;alters/creates a best route or the delay of a best route for a..." alt="" coords="5,95,233,121"/>
 <area shape="rect" id="node2" href="$structdhyara_1_1address.html" title="peer address (mac address)" alt="" coords="56,5,183,32"/>
 </map>
