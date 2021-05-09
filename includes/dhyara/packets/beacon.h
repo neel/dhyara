@@ -19,7 +19,10 @@ namespace dhyara{
 namespace packets{
     
 /**
- * beacon packet
+ * Each node \f$X_{i}\f$ broadcasts a \ref dhyara::packets::beacon "Beacon" at a fixed interval.
+ * The \ref dhyara::packets::beacon "Beacon" contains Time at \f$X_{i}\f$ (\f$T_{i}\f$) at the time of sending.
+ * The \ref dhyara::packets::beacon "Beacon" is received by all \f$X_{j}\f$ in the neighbourhood.
+ * The neighbours \f$\forall X_{j} \in Neibourhood(X_{i})\f$ respond with an \ref dhyara::packets::acknowledgement "Acknowledgement", which contains the same \f$T_{i}\f$ which was received in the \ref dhyara::packets::beacon "Beacon".
  * \code 
  * +---- 8 bytes -----+---- 1 byte -----+---- N bytes ---+
  * |  Time at Source  | ssid length (N) |      Name      |
@@ -27,7 +30,7 @@ namespace packets{
  * \endcode
  * \ingroup packets
  */
-struct beacon{    
+struct beacon{
     /**
      * Construct a beacon packet with the current time
      */

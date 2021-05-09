@@ -20,7 +20,11 @@ namespace dhyara{
 namespace packets{
     
 /**
- * advertisement packet sent after an acknowledgement packet is received.
+ * If any operation on the routing table \f$R_{i}\f$ alters/creates a best route or the delay of a best route for a destination \f$X_{t}\f$ then an \ref dhyara::packets::advertisement "Advertisement" is sent to \f$X_{j}\,\forall X_{j} \in Neibourhood(X_{i})\f$ from \f$X_{i}\f$.
+ * The \ref dhyara::packets::advertisement "Advertisement" contains the destination node \f$X_{t}\f$ and \f$\delta_{t,i}\f$ the minimum delay to reach \f$X_{t}\f$ from \f$X_{i}\f$. 
+ * The best intermediate node (which may be 0 also) is not advertised.
+ * If the best vector is not altered by the updatation of routing table then no Advertisement packet is sent.
+ * However if \f$\exists X_{k} ∊ X\f$ for which no broadcast packet has been sent for a large amount of time then an \ref dhyara::packets::advertisement "Advertisement" regarding \f$X_{k}\f$ is sent even if there is not change in the best vector.
  * The advertisement packet contains route information about a node (dest).
  * The route information includes one trip delay from the source node.
  * \code 

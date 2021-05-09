@@ -52,34 +52,51 @@
  * \defgroup routing Routing 
  * \brief Dhyara Routing module is responsible for maintaining the distributed routing table across the network.
  * 
- * Each node `Xᵢ ∊ X` maintains a **routing table** of the following form which is gradually built up by the protocol.  
+ * ### Routing Table ###
+ * 
+ * Each node \f$X_{i} \in X\f$ maintains a Routing table (\f$ R_{i} \f$) of the following form which is gradually built up by the protocol.  
  * Each row of this table denotes a route to a destination node (first column) via an intermediate nde (second column) and its corresponding delay. 
- * 0x0 is used to depict direct communication (not via any intermediate node).
+ * The protocol ensures that \f$\forall X_{i}\in X\f$ is aware about existance of all other nodes in \f$X \setminus X_{i}\f$. 
+ * For all neighbours \f$X_{j} \in Neibourhood(X_{i})\f$ \f$\exists u \in R_{i}\;s.t.Intermediate(u) = 0\f$
+ * For all non-neighbours \f$X_{k} \not\in Neibourhood(X_{i})\f$ \f$\exists u \in R_{i}\;s.t.Intermediate(u) \in Neibourhood(X_{i})\f$
+ * The routing table may contain multiple routes for the same distination (with different intermediate nodes)
  * 
- * ```
- * Xⱼ 0x0 𝛿ⱼ₀ ∀ j ≠ i
- * Xⱼ Xₖ  𝛿ⱼₖ ∀ j,k ≠ i and ∀ j ≠ k
- * ```
+ * \f[
+ *      R_{i} = \begin{cases}
+ *          (X_{j}, 0, \delta_{j,0}) & \forall X_{j} \in Neibourhood(X_{i}) \\
+ *          (X_{k}, X_{j}, \delta_{j,0}) & \forall X_{k} \not\in Neibourhood(X_{i}) \;s.t.\; X_{j} \in Neibourhood(X_{i})
+ *      \end{cases}
+ * \f]
  * 
- * Based on this table a **best vector** is calculated 
+ * - 0 is used as an intermediate node to depict direct communication (not via any intermediate node).
+ * - Delay \f$\delta_{x,y}\f$ is the expected delay of sending to \f$X_x\f$ via \f$X_y\f$ from \f$X_{i}\f$
  * 
- * ```
- * Xⱼ ← Min(y ∊ Intermediate(Xⱼ)) ∀ j ≠ i
- * ```
+ * Based on the above mentioned table a best route \f$Best(X_{t}, i) \in R_{i}\f$ is calculated in \f$X_{i}\f$ for each destination \f$t\f$ (w.r.t. source \f$X_{i}\f$)
  * 
- * While sending data to `Xⱼ` the best vector is looked for the immediate neighbor 
+ * \f[
+ *     Best(X_{t}, i) = u \;s.t.\; Delay(u) \leq Delay(v)\; \forall\,v\,\in\,R_{i}
+ * \f]
+ * 
+ * While sending data to \f$X_{t}\f$ the best route is looked for the intermediate node.
  * 
  * ### Neighbourhood Synchronization ###
  * 
- * If any operation on the routing table of `Xᵢ` alters the best route or the delay of the best route for destination `Xⱼ` then an `Advertisement` packet is sent to `∀ Xₖ ∊ X : k ≠ j`
- * The Advertisement packet contains the destination node `Xⱼ` and `𝛿ⱼᵢ` the minimum delay to reach that node from `Xᵢ`. Node `Xᵢ` does not advertise the best intermediate node (which can be 0x0 also).
- * If the best vector is not altered by routing table update then no `advertisement` packet is sent
- * However if `∃ Xₖ ∊ X` for which no broadcast packet has been sent for a large amount of time then an advertisement packet is sent even if there is not change in the best vector.
+ * Each node \f$X_{i}\f$ broadcasts a \ref dhyara::packets::beacon "Beacon" at a fixed interval.
+ * The \ref dhyara::packets::beacon "Beacon" contains Time at \f$X_{i}\f$ (\f$T_{i}\f$) at the time of sending.
+ * The \ref dhyara::packets::beacon "Beacon" is received by all \f$X_{j}\f$ in the neighbourhood.
+ * The neighbours \f$\forall X_{j} \in Neibourhood(X_{i})\f$ respond with an \ref dhyara::packets::acknowledgement "Acknowledgement", which contains the same \f$T_{i}\f$ which was received in the \ref dhyara::packets::beacon "Beacon".
+ * \f$X_{i}\f$ after receiving the \ref dhyara::packets::acknowledgement "Acknowledgement" from \f$X_{j}\f$ calculates \f$\delta_{j,0}\f$ as \f$T_{i}/2\f$ and adds that as a route in \f$R_{i}\f$.
+ * 
+ * If any operation on the routing table \f$R_{i}\f$ alters/creates a best route or the delay of a best route for a destination \f$X_{t}\f$ then an \ref dhyara::packets::advertisement "Advertisement" is sent to \f$X_{j}\,\forall X_{j} \in Neibourhood(X_{i})\f$ from \f$X_{i}\f$.
+ * The \ref dhyara::packets::advertisement "Advertisement" contains the destination node \f$X_{t}\f$ and \f$\delta_{t,i}\f$ the minimum delay to reach \f$X_{t}\f$ from \f$X_{i}\f$. 
+ * The best intermediate node (which may be 0 also) is not advertised.
+ * If the best vector is not altered by the updatation of routing table then no Advertisement packet is sent.
+ * However if \f$\exists X_{k} ∊ X\f$ for which no broadcast packet has been sent for a large amount of time then an \ref dhyara::packets::advertisement "Advertisement" regarding \f$X_{k}\f$ is sent even if there is not change in the best vector.
  * 
  * ### Route Depreciation ###
  * 
- * If a node `Xᵢ` doesn't receive any beacon from node `Xⱼ` for a threshold, the delay of all routes involved with `Xᵢ` is doubled. Then thr routing table update follows  the `sync_neighbors` routine.
- * Once the delay reaches the integer boundary then the node is remove from thr routing table after transmiting the advertisement packet in the `sync_neighbours` routine.
+ * If a node \f$X_{i}\f$ doesn't receive any beacon from node \f$X_{j}\f$ for a fixed amount of time, the delay of all routes involved with \f$X_{j}\f$ is multiplied with a factor. 
+ * Then the routing table update follows the above mentioned Neighbourhood Synchronization.
  */
 
 /**

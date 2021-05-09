@@ -17,9 +17,12 @@ namespace dhyara{
 namespace packets{
     
 /**
- * acknowledgement packet sent when a beacon packet is received.
- * The acknowledgement packet contains the same time that the beacon packet had.
-  * \code 
+ * Each node \f$X_{i}\f$ broadcasts a \ref dhyara::packets::beacon "Beacon" at a fixed interval.
+ * The \ref dhyara::packets::beacon "Beacon" contains Time at \f$X_{i}\f$ (\f$T_{i}\f$) at the time of sending.
+ * The \ref dhyara::packets::beacon "Beacon" is received by all \f$X_{j}\f$ in the neighbourhood.
+ * The neighbours \f$\forall X_{j} \in Neibourhood(X_{i})\f$ respond with an \ref dhyara::packets::acknowledgement "Acknowledgement", which contains the same \f$T_{i}\f$ which was received in the \ref dhyara::packets::beacon "Beacon".
+ * \f$X_{i}\f$ after receiving the \ref dhyara::packets::acknowledgement "Acknowledgement" from \f$X_{j}\f$ calculates \f$\delta_{j,0}\f$ as \f$T_{i}/2\f$ and adds that as a route in \f$R_{i}\f$.
+ * \code 
  * +---- 8 bytes -----+
  * |  Time at Source  |
  * +------------------+
