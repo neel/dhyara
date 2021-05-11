@@ -51,6 +51,12 @@
 /**
  * \defgroup routing Routing 
  * \brief Dhyara Routing module is responsible for maintaining the distributed routing table across the network.
+ * Objective of the routing module is to route a packet from the source to destination via the best intermediate nodes.
+ * Each node \f$X_{i} \in X\f$ maintains a local view of the entire network via its routing table \f$R_{i}\f$.
+ * Every node is aware of all other nodes in the networks, but not all routes in the network.
+ * The local view keeps track of the best neighbouring node to navigate a packet to a non-neighbouring destination.
+ * The intermediate nodes after the first hop is not visible in that local view.
+ * However that is visible to the best intermediate node's local view.
  * 
  * ### Routing Table ###
  * 
@@ -89,7 +95,8 @@
  * 
  * If any operation on the routing table \f$R_{i}\f$ alters/creates a best route or the delay of a best route for a destination \f$X_{t}\f$ then an \ref dhyara::packets::advertisement "Advertisement" is sent to \f$X_{j}\,\forall X_{j} \in Neibourhood(X_{i})\f$ from \f$X_{i}\f$.
  * The \ref dhyara::packets::advertisement "Advertisement" contains the destination node \f$X_{t}\f$ and \f$\delta_{t,i}\f$ the minimum delay to reach \f$X_{t}\f$ from \f$X_{i}\f$. 
- * The best intermediate node (which may be 0 also) is not advertised.
+ * However no \ref dhyara::packets::advertisement "Advertisement" is sent to \f$X_{j}\,\in Neibourhood(X_{i})\f$ if \f$X_{j} = X_{t}\f$.
+ * The best intermediate node w.r.t. \f$X_{i}\f$ (which may be 0 also) is not advertised.
  * If the best vector is not altered by the updatation of routing table then no Advertisement packet is sent.
  * However if \f$\exists X_{k} ∊ X\f$ for which no broadcast packet has been sent for a large amount of time then an \ref dhyara::packets::advertisement "Advertisement" regarding \f$X_{k}\f$ is sent even if there is not change in the best vector.
  * 
