@@ -51,6 +51,7 @@
 /**
  * \defgroup routing Routing 
  * \brief Dhyara Routing module is responsible for maintaining the distributed routing table across the network.
+ * 
  * Objective of the routing module is to route a packet from the source to destination via the best intermediate nodes.
  * Each node \f$X_{i} \in X\f$ maintains a local view of the entire network via its routing table \f$R_{i}\f$.
  * Every node is aware of all other nodes in the networks, but not all routes in the network.
