@@ -16,15 +16,15 @@ bool dhyara::routing::table::exists(const dhyara::routing::route& r) const{
 }
 
 
-bool dhyara::routing::table::update(const dhyara::routing::route& r, const dhyara::delay_type& d){
+bool dhyara::routing::table::update(const dhyara::routing::route& r, const dhyara::delay_type& d, std::uint8_t hops){
     auto it = _table.find(r);
     if(it != _table.end()){
         // if d is 0 then put 1 instead
         _mutex.lock();
-        it->second.update(d ? d : 1);
+        it->second.update(d ? d : 1, hops);
         _mutex.unlock();
     }else{
-        _table.insert(std::make_pair(r, metric(d, esp_timer_get_time())));
+        _table.insert(std::make_pair(r, metric(d, hops, esp_timer_get_time())));
     }
     return update_next(r.dst());
 }
@@ -52,7 +52,7 @@ dhyara::routing::next_hop dhyara::routing::table::next(const dhyara::address& ds
     if(it != _next.end()){
         return it->second;
     }else{
-        return dhyara::routing::next_hop(dst, _def);
+        return dhyara::routing::next_hop(dst, _def, 0);
     }
 }
 
@@ -80,16 +80,24 @@ dhyara::delay_type dhyara::routing::table::delay(const route& r) const{
     return _def;
 }
 
-std::pair<dhyara::address, dhyara::delay_type> dhyara::routing::table::calculated_next(dhyara::address dst) const{
+std::uint8_t dhyara::routing::table::hops(const route& r) const{
+    auto it = _table.find(r);
+    if(it != _table.end()){
+        return it->second.hops();
+    }
+    return 0;
+}
+
+dhyara::routing::next_hop dhyara::routing::table::calculated_next(dhyara::address dst) const{
     dhyara::routing::route begin(dst, dhyara::address::null()), end(dst, dhyara::address::all());
     table_type::const_iterator lower = _table.lower_bound(begin), upper = _table.upper_bound(end);
     if(!std::distance(lower, upper)){
-        return std::pair<dhyara::address, dhyara::delay_type>(dst, _def);
+        return dhyara::routing::next_hop(dst, _def, 0);
     }
     table_type::const_iterator it = std::min_element(lower, upper, [](const table_type::value_type& a, const table_type::value_type& b){
         return a.second.delay() < b.second.delay();
     });
-    return std::pair<dhyara::address, dhyara::delay_type>(it->first.via(), it->second.delay());
+    return dhyara::routing::next_hop(it->first.via(), it->second.delay(), it->second.hops());
 }
 
 
@@ -100,12 +108,12 @@ bool dhyara::routing::table::exists(const dhyara::address& dst) const{
 }
 
 bool dhyara::routing::table::update_next(dhyara::address dst){
-    std::pair<dhyara::address, dhyara::delay_type> next = calculated_next(dst);
+    dhyara::routing::next_hop next = calculated_next(dst);
     auto it = _next.find(dst);
     if(it != _next.end()){
-        delay_type delta = (it->second.published() > next.second) ? (it->second.published() - next.second) : (next.second - it->second.published());
+        delay_type delta = (it->second.published() > next.delay()) ? (it->second.published() - next.delay()) : (next.delay() - it->second.published());
         it->second = next;
-        if(it->second.via() != next.first || delta > dhyara::delay_tolerance){
+        if(it->second.via() != next.via() || delta > dhyara::delay_tolerance){
             it->second.publish();
             return true;
         }
@@ -127,20 +135,20 @@ void dhyara::routing::table::depreciate(){
     }
 }
 
-void dhyara::routing::table::depreciate(std::function<void (const dhyara::routing::route&, dhyara::delay_type)> notify){
+void dhyara::routing::table::depreciate(std::function<void (const dhyara::routing::route&, dhyara::delay_type, std::uint8_t)> notify){
     dhyara::delay_type now = esp_timer_get_time();
-    std::vector<std::pair<dhyara::routing::route, delay_type>> inactives;
+    std::vector<std::tuple<dhyara::routing::route, delay_type, std::uint8_t>> inactives;
     for(auto& kv: _table){
         auto route = kv.first;
         dhyara::delay_type delta = now - kv.second.updated();
         if(delta > dhyara::route_expiry){
             if(depreciate(route)){
-                inactives.push_back(std::make_pair(route, delay(route)));
+                inactives.push_back(std::make_tuple(route, delay(route), hops(route)));
             }
         }   
     }
     for(const auto& node: inactives){
-        notify(node.first, node.second);
+        notify(std::get<0>(node), std::get<1>(node), std::get<2>(node));
     }
 }
 

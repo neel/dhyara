@@ -31,8 +31,8 @@ dhyara::network::network(dhyara::link& link):
 void dhyara::network::presence(){
     while(1){
         _beacon.broadcast();
-        _link.routes().depreciate([this](const dhyara::routing::route& route, dhyara::delay_type delay) mutable{
-            _synchronizer.queue(route.dst(), route.via(), delay);
+        _link.routes().depreciate([this](const dhyara::routing::route& route, dhyara::delay_type delay, std::uint8_t hops) mutable{
+            _synchronizer.queue(route.dst(), route.via(), delay, hops);
             vTaskDelay(pdMS_TO_TICKS(1));
         });
         vTaskDelay(pdMS_TO_TICKS(dhyara::beacon_interval));

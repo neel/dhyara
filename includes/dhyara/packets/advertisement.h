@@ -35,18 +35,21 @@ namespace packets{
  * \ingroup packets
  */
 struct advertisement{
+    typedef std::array<std::uint8_t, 6> raw_address_type;
+    
     /**
      * Construct an advertisement packet with null destination and no delay
      */
-    inline advertisement(): _dest(dhyara::address::null()), _delay(0) {}
+    inline advertisement(): _dest{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}, _delay(0), _hops(0) {}
     /**
      * Construct an advertisement packet with the given destination and the delay specified.
      * 
      * \param dest The destination address
      * \param delay The delay encountered in the route
+     * \param hops Number of hops in this route
      */
-    inline advertisement(const dhyara::address& dest, delay_type delay, const std::string name = ""): 
-        _dest(dest), _delay(delay), _name(name){}
+    inline advertisement(const dhyara::address& dest, delay_type delay, std::uint8_t hops, const std::string name = ""): 
+        _dest(dest), _delay(delay), _hops(hops), _name(name){}
     /**
      * Size of the packet
      */
@@ -72,6 +75,7 @@ struct advertisement{
      * Delay in the advertisement packet
      */
     inline void delay(const delay_type& d) { _delay = d; }
+    inline delay_type hops() const { return _hops; }
     /**
      * name in the advertisement packet
      */
@@ -84,6 +88,7 @@ struct advertisement{
     private:
         dhyara::address    _dest;
         dhyara::delay_type _delay;
+        std::uint8_t       _hops;
         std::string        _name;
 };
 

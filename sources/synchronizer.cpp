@@ -14,8 +14,8 @@
 
 dhyara::synchronizer::synchronizer(dhyara::link& local): _link(local){}
 
-void dhyara::synchronizer::queue(const dhyara::address& dest, const dhyara::address& via, dhyara::delay_type delay){
-    queue(dhyara::candidate(dest, via, delay));
+void dhyara::synchronizer::queue(const dhyara::address& dest, const dhyara::address& via, dhyara::delay_type delay, std::uint8_t hops){
+    queue(dhyara::candidate(dest, via, delay, hops));
 }
 
 
@@ -25,13 +25,13 @@ void dhyara::synchronizer::queue(const dhyara::candidate& c){
 
 void dhyara::synchronizer::run(){
     _fifo.de([this](const dhyara::candidate& c) mutable{
-        sync(c.dest(), c.via(), c.delay());
+        sync(c.dest(), c.via(), c.delay(), c.hops());
     });
 }
 
 
-void dhyara::synchronizer::sync(const dhyara::address& dest, const dhyara::address& via, dhyara::delay_type delay){
-    bool sync_required = _link.routes().update(dhyara::routing::route(dest, via), delay);
+void dhyara::synchronizer::sync(const dhyara::address& dest, const dhyara::address& via, dhyara::delay_type delay, std::uint8_t hops){
+    bool sync_required = _link.routes().update(dhyara::routing::route(dest, via), delay, hops);
     
     dhyara::delay_type now = esp_timer_get_time();
     last_advertisement_map::iterator it = _last.find(dest);
@@ -46,7 +46,7 @@ void dhyara::synchronizer::sync(const dhyara::address& dest, const dhyara::addre
     }
     if(sync_required){
         dhyara::routing::next_hop next = _link.routes().next(dest);
-        dhyara::packets::advertisement advertisement(dest, next.delay());
+        dhyara::packets::advertisement advertisement(dest, next.delay(), next.hops());
         if(it == _last.end()){
             _last.insert(std::make_pair(dest, now));
         } else {

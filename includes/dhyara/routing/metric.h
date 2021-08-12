@@ -24,11 +24,15 @@ struct metric{
     /**
      * construct a route metric with delay and last updated time
      */
-    inline explicit metric(const dhyara::delay_type& delay, const dhyara::delay_type& updated): _delay(delay), _updated(updated){}
+    inline explicit metric(const dhyara::delay_type& delay, std::uint8_t hops, const dhyara::delay_type& updated): _delay(delay), _hops(hops), _updated(updated){}
     /**
      * one trip delay encountered in this route
      */
     inline const dhyara::delay_type& delay() const { return _delay; }
+    /**
+     * one trip hops encountered in this route
+     */
+    inline std::uint8_t hops() const { return _hops; }
     /**
      * last updated time
      */
@@ -42,14 +46,15 @@ struct metric{
      * \param delay new delay
      * \param sync_updated if set to false then do not update the last updated time
      */
-    void update(dhyara::delay_type delay, bool sync_updated = true);
+    void update(dhyara::delay_type delay, std::uint8_t hops = 0, bool sync_updated = true);
     /**
      * sortable by delay
      */
-    inline bool operator<(const metric& other) const { return _delay < other._delay; }
+    inline bool operator<(const metric& other) const { return _hops < other.hops() || (_hops == other.hops() && _delay <= other._delay); }
     
     private:
         dhyara::delay_type _delay;
+        std::uint8_t       _hops;
         dhyara::delay_type _updated;
 };
     

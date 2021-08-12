@@ -14,6 +14,6 @@ void dhyara::actions::acknowledgement::operator()(const dhyara::address& addr, c
     dhyara::delay_type rtt = (now - acknowledgement.time());
 
     if(!addr.is_broadcast()){
-        _synchronizer.queue(addr, dhyara::address::null(), rtt/2);
+        _synchronizer.queue(addr, dhyara::address::null(), rtt/2, 1);
     }
 }

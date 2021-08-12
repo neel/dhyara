@@ -23,25 +23,30 @@ struct link;
  * \ingroup routing
  */
 struct candidate{
-    dhyara::address _dest;
-    dhyara::address _via;
+    dhyara::address       _dest;
+    dhyara::address       _via;
     dhyara::delay_type    _delay;
+    std::uint8_t          _hops;
     
-    inline candidate(): _dest(dhyara::address::null()), _via(dhyara::address::null()), _delay(0) {}
-    inline candidate(dhyara::address dest, dhyara::address via, dhyara::delay_type delay): _dest(dest), _via(via), _delay(delay){}
+    inline candidate(): _dest(dhyara::address::null()), _via(dhyara::address::null()), _delay(0), _hops(0) {}
+    inline candidate(dhyara::address dest, dhyara::address via, dhyara::delay_type delay, std::uint8_t hops): _dest(dest), _via(via), _delay(delay), _hops(hops){}
     
     /**
-        * destination address
-        */
+     * destination address
+     */
     inline dhyara::address dest() const { return _dest; }
     /**
-        * intermediate node address
-        */
+     * intermediate node address
+     */
     inline dhyara::address via() const { return _via; }
     /**
-        * one trip delay
-        */
+     * one trip delay
+     */
     inline dhyara::delay_type delay() const { return _delay; }
+    /**
+     * number of hops encountered between via and dest
+     */
+    inline std::uint8_t hops() const { return _hops; }
 };
 
 /**
@@ -84,8 +89,9 @@ struct synchronizer{
      * \param dest destination address
      * \param via intermediate address
      * \param delay one trip delay in that route 
+     * \param hops number of hops
      */
-    void queue(const dhyara::address& dest, const dhyara::address& via, dhyara::delay_type delay);
+    void queue(const dhyara::address& dest, const dhyara::address& via, dhyara::delay_type delay, std::uint8_t hops);
     /**
      * enqueue a candidate 
      * 
@@ -115,8 +121,9 @@ struct synchronizer{
          * \param dest The destination address
          * \param via The intermediate node address
          * \param delay the one trip delay on this route 
+         * \param hops hops
          */
-        void sync(const dhyara::address& dest, const dhyara::address& via, dhyara::delay_type delay);
+        void sync(const dhyara::address& dest, const dhyara::address& via, dhyara::delay_type delay, std::uint8_t hops);
     private:
         dhyara::link&           _link;
         sync_queue_type         _fifo;
