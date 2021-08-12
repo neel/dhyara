@@ -95,7 +95,7 @@ dhyara::routing::next_hop dhyara::routing::table::calculated_next(dhyara::addres
         return dhyara::routing::next_hop(dst, _def, 0);
     }
     table_type::const_iterator it = std::min_element(lower, upper, [](const table_type::value_type& a, const table_type::value_type& b){
-        return a.second.delay() < b.second.delay();
+        return a.second.hops() < b.second.hops() || (a.second.hops() == b.second.hops() && a.second.delay() < b.second.delay());
     });
     return dhyara::routing::next_hop(it->first.via(), it->second.delay(), it->second.hops());
 }
