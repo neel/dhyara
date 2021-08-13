@@ -28,9 +28,9 @@ namespace packets{
  * The advertisement packet contains route information about a node (dest).
  * The route information includes one trip delay from the source node.
  * \code 
- * +--- 6 bytes ---+---- 8 bytes -----+---- 1 byte -----+---- N bytes ---+
- * |  destination  |  one trip delay  | name length (N) |      Name      |
- * +---------------+------------------+-----------------+----------------+
+ * +--- 6 bytes ---+---- 8 bytes -----+----- 1 byte -----+---- 1 byte -----+---- N bytes ---+
+ * |  destination  |  one trip delay  | hops in one trip | name length (N) |      Name      |
+ * +---------------+------------------+------------------+-----------------+----------------+
  * \endcode
  * \ingroup packets
  */
@@ -78,6 +78,10 @@ struct advertisement{
      */
     inline void delay(const delay_type& d) { _delay = d; }
     /**
+     * Hops in the advertisement packet
+     */
+    inline void hops(std::uint8_t h) { _hops = h; }
+    /**
      * name in the advertisement packet
      */
     inline const std::string& name() const{ return _name; }
@@ -109,9 +113,11 @@ struct serialization<packets::advertisement>{
      */
     template <typename OutIt>
     static OutIt write(const packets::advertisement& packet, OutIt output){
-        std::uint8_t len = packet.name().size();
+        std::uint8_t len  = packet.name().size();
+        std::uint8_t hops = packet.hops();
         output = std::copy_n(packet.dest().raw(), 6, output);
         output = std::copy_n(reinterpret_cast<const char*>(&packet.delay()), sizeof(dhyara::delay_type), output);
+        output = std::copy_n(reinterpret_cast<const std::uint8_t*>(&hops), 1, output);
         output = std::copy_n(reinterpret_cast<const std::uint8_t*>(&len), 1, output);
         output = std::copy_n(packet.name().begin(), len, output);
         return output;
@@ -128,6 +134,7 @@ struct serialization<packets::advertisement>{
     static InIt read(packets::advertisement& packet, InIt input, std::size_t length){
         std::uint8_t raw_address[6];
         dhyara::delay_type delay;
+        std::uint8_t hops;
         std::uint8_t len = 0;
         std::string name;
         
@@ -142,6 +149,12 @@ struct serialization<packets::advertisement>{
             input  += sizeof(dhyara::delay_type);
             length -= sizeof(dhyara::delay_type);
             packet.delay(delay);
+        }
+        if(length >= sizeof(std::uint8_t)){
+            std::copy_n(input, sizeof(std::uint8_t), reinterpret_cast<std::uint8_t*>(&hops));
+            input  += sizeof(std::uint8_t);
+            length -= sizeof(std::uint8_t);
+            packet.hops(hops);
         }
         if(length >= sizeof(std::uint8_t)){
             std::copy_n(input, sizeof(std::uint8_t), reinterpret_cast<std::uint8_t*>(&len));
