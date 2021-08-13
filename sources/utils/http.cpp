@@ -494,7 +494,7 @@ esp_err_t dhyara::utils::http::routes(httpd_req_t* req){
             routes_json << "\"dst\":" << '"' << it->first.dst().to_string() << '"' << ",";
             routes_json << "\"via\":" << '"' << it->first.via().to_string() << '"' << ",";
             routes_json << "\"delay\":" << (double)it->second.delay()/1000.0 << ",";
-            routes_json << "\"hops\":" << it->second.hops() << ",";
+            routes_json << "\"hops\":" << (int)it->second.hops() << ",";
             routes_json << "\"updated\":" << it->second.updated();
             routes_json << "}";
         }
@@ -513,7 +513,7 @@ esp_err_t dhyara::utils::http::routes(httpd_req_t* req){
             next_json << "\"dst\":" << '"' << it->first.to_string() << '"' << ",";
             next_json << "\"via\":" << '"' << it->second.via().to_string() << '"' << ",";
             next_json << "\"delay\":" << (double)it->second.delay()/1000.0 << ",";
-            next_json << "\"hops\":" << it->second.hops();
+            next_json << "\"hops\":" << (int)it->second.hops();
             next_json << "}";
         }
         next_json << "]";

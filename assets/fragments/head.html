@@ -60,8 +60,8 @@
 		let rbody = q("#routes-body")[0], nbody = q("#next-body")[0];
 		rbody.innerHTML = "";
 		nbody.innerHTML = "";
-		routing.routes.map(r => create('tr', {}, create('td', {}, r.dst), create('td', {}, r.via), create('td', {}, r.delay+"ms"), create('td', {}, r.updated))).forEach(e => rbody.append(e));
-		routing.next.map(r => create('tr', {}, create('td', {}, r.dst), create('td', {}, r.via), create('td', {}, r.delay+"ms"))).forEach(e => nbody.append(e));
+		routing.routes.map(r => create('tr', {}, create('td', {}, r.dst), create('td', {}, r.via), create('td', {}, r.delay+"ms"), create('td', {}, r.hops), create('td', {}, r.updated))).forEach(e => rbody.append(e));
+		routing.next.map(r => create('tr', {}, create('td', {}, r.dst), create('td', {}, r.via), create('td', {}, r.delay+"ms"), create('td', {}, r.hops))).forEach(e => nbody.append(e));
 		setTimeout(poll_routing, 2000);
 	}).catch(err => setTimeout(poll_routing, 200));
 	let poll_peers = () => fetch("/peers.json").then(r => r.json()).then(function(peers){
