@@ -21,6 +21,8 @@
 
 namespace dhyara{
     
+struct synchronizer;
+    
 namespace routing{
     
 /**
@@ -47,25 +49,36 @@ struct table {
      */
     bool exists(const dhyara::routing::route& r) const;
     /**
+     * next node to for the final destination dst
+     * \param dst destinatin node
+     */
+    dhyara::routing::next_hop next(const dhyara::address& dst) const;
+    /**
      * updates routing table with rtt of a route. 
      * returning true signifies that min values for the destination has been altered due to this route.
      * returnign false signifies that the min values are still the same
      */
     bool update(const dhyara::routing::route& r, const delay_type& d, std::uint8_t hops);
     /**
-     * depritiate a route
+     * depritiate a route by multiplying its delay with depreciation_coefficient
+     * \see dhyara::depreciation_coefficient 
      */
     bool depreciate(const dhyara::routing::route& r);
     /**
-     * next node to for the final destination dst
+     * Removes routes that has not been updated within dhyara::route_expiry time.
+     * \warning This depreciate function removes an existing route. Use \ref depreciate(std::function<void (const dhyara::routing::route&, dhyara::delay_type, std::uint8_t)> notify) if you don't want to remove.
      */
-    dhyara::routing::next_hop next(const dhyara::address& dst) const;
+    void depreciate(dhyara::synchronizer& synchronizer);
     /**
-     * depreciate a route that was not updated within dhyara::route_expiry time
-     */
-    void depreciate();
-    /**
-     * depreciate a route that was not updated within dhyara::route_expiry time
+     * Depreciates a route that was not updated within dhyara::route_expiry time.
+     * Makes a list of depreciated routes and calls the provided notify function with that route.
+     * 
+     * \warning This depreciate function does not remove an existing route. Use \ref depreciate(dhyara::synchronizer& synchronizer) if you want to remove.
+     * 
+     * \param notify callback that is called with the depreciated routes
+     * 
+     * \see dhyara::route_expiry
+     * \see depreciate(const dhyara::routing::route& r)
      */
     void depreciate(std::function<void (const dhyara::routing::route&, dhyara::delay_type, std::uint8_t)> notify);
     

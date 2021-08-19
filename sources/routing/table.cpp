@@ -10,6 +10,7 @@
 #include "esp_log.h"
 #include <inttypes.h>
 #include "dhyara/routing/next_hop.h"
+#include "dhyara/synchronizer.h"
 
 bool dhyara::routing::table::exists(const dhyara::routing::route& r) const{
     return _table.find(r) != _table.end();
@@ -17,35 +18,16 @@ bool dhyara::routing::table::exists(const dhyara::routing::route& r) const{
 
 
 bool dhyara::routing::table::update(const dhyara::routing::route& r, const dhyara::delay_type& d, std::uint8_t hops){
+    _mutex.lock();
     auto it = _table.find(r);
     if(it != _table.end()){
-        // if d is 0 then put 1 instead
-        _mutex.lock();
-        it->second.update(d ? d : 1, hops);
-        _mutex.unlock();
+        it->second.update(d, hops);
     }else{
         _table.insert(std::make_pair(r, metric(d, hops, esp_timer_get_time())));
     }
+    _mutex.unlock();
     return update_next(r.dst());
 }
-
-bool dhyara::routing::table::depreciate(const dhyara::routing::route& r){
-    constexpr static const dhyara::delay_type max = std::numeric_limits<dhyara::delay_type>::max();
-    constexpr static const dhyara::delay_type max_upgradable = max / dhyara::depreciation_coefficient;
-    auto it = _table.find(r);
-    if(it != _table.end()){
-        _mutex.lock();
-        dhyara::delay_type now = esp_timer_get_time();
-        dhyara::delay_type delta = now - it->second.updated();
-        dhyara::delay_type current = it->second.delay();
-        dhyara::delay_type delay = (current < max_upgradable) ? (dhyara::depreciation_coefficient * current) : max;
-        ESP_LOGW("dhyara", "route %s last updated %" PRIu64 "us ago doubling delay %" PRIu64 " to %" PRIu64, it->first.to_string().c_str(), delta, current, delay);
-        it->second.update(delay);
-        _mutex.unlock();
-    }
-    return update_next(r.dst());
-}
-
 
 dhyara::routing::next_hop dhyara::routing::table::next(const dhyara::address& dst) const{
     auto it = _next.find(dst);
@@ -124,15 +106,42 @@ bool dhyara::routing::table::update_next(dhyara::address dst){
     }
 }
 
-void dhyara::routing::table::depreciate(){
+void dhyara::routing::table::depreciate(dhyara::synchronizer& synchronizer){
     dhyara::delay_type now = esp_timer_get_time();
-    for(auto& kv: _table){
-        auto route = kv.first;
-        dhyara::delay_type delta = now - kv.second.updated();
+    std::set<dhyara::routing::route> inactives;
+    _mutex.lock();
+    for(auto it = _table.begin(); it != _table.end(); ++it){
+        auto route = it->first;
+        dhyara::delay_type delta = now - it->second.updated();
         if(delta > dhyara::route_expiry){
-            depreciate(route);
-        }   
+            inactives.insert(route);
+        }
     }
+    
+    for(const dhyara::routing::route& r: inactives){
+        _table.erase(r);
+        bool suggested = update_next(r.dst());
+        synchronizer.sync(r.dst(), suggested);
+        vTaskDelay(pdMS_TO_TICKS(1));
+    }
+    _mutex.unlock();
+}
+
+bool dhyara::routing::table::depreciate(const dhyara::routing::route& r){
+    constexpr static const dhyara::delay_type max = std::numeric_limits<dhyara::delay_type>::max();
+    constexpr static const dhyara::delay_type max_upgradable = max / dhyara::depreciation_coefficient;
+    _mutex.lock();
+    auto it = _table.find(r);
+    if(it != _table.end()){
+        dhyara::delay_type now = esp_timer_get_time();
+        dhyara::delay_type delta = now - it->second.updated();
+        dhyara::delay_type current = it->second.delay();
+        dhyara::delay_type delay = (current < max_upgradable) ? (dhyara::depreciation_coefficient * current) : max;
+        ESP_LOGW("dhyara", "route %s last updated %" PRIu64 "us ago doubling delay %" PRIu64 " to %" PRIu64, it->first.to_string().c_str(), delta, current, delay);
+        it->second.update(delay);
+    }
+    _mutex.unlock();
+    return update_next(r.dst());
 }
 
 void dhyara::routing::table::depreciate(std::function<void (const dhyara::routing::route&, dhyara::delay_type, std::uint8_t)> notify){
@@ -143,7 +152,7 @@ void dhyara::routing::table::depreciate(std::function<void (const dhyara::routin
         dhyara::delay_type delta = now - kv.second.updated();
         if(delta > dhyara::route_expiry){
             if(depreciate(route)){
-                inactives.push_back(std::make_tuple(route, delay(route), hops(route)));
+                inactives.push_back(std::make_tuple(route, kv.second.delay(), kv.second.hops()));
             }
         }   
     }
