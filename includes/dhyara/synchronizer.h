@@ -23,24 +23,30 @@ struct link;
  * \ingroup routing
  */
 struct candidate{
-    dhyara::address _dest;
-    dhyara::address _via;
+    dhyara::address       _dest;
+    dhyara::address       _via;
+    std::uint8_t          _hops;
     dhyara::delay_type    _delay;
     
-    inline candidate(): _dest(dhyara::address::null()), _via(dhyara::address::null()), _delay(0) {}
-    inline candidate(dhyara::address dest, dhyara::address via, dhyara::delay_type delay): _dest(dest), _via(via), _delay(delay){}
+    inline candidate(): _dest(dhyara::address::null()), _via(dhyara::address::null()), _hops(0), _delay(0) {}
+    inline candidate(dhyara::address dest, dhyara::address via, dhyara::delay_type delay): _dest(dest), _via(via), _hops(0), _delay(delay){}
     
+    inline candidate(dhyara::address dest, dhyara::address via, std::uint8_t hops, dhyara::delay_type delay): _dest(dest), _via(via), _hops(hops), _delay(delay){}
     /**
-        * destination address
-        */
+     * destination address
+     */
     inline dhyara::address dest() const { return _dest; }
     /**
-        * intermediate node address
-        */
+     * intermediate node address
+     */
     inline dhyara::address via() const { return _via; }
     /**
-        * one trip delay
-        */
+     * number of hops required to reach dest via the intermediate node
+     */
+    inline std::uint8_t hops() const { return _hops; }
+    /**
+     * one trip delay
+     */
     inline dhyara::delay_type delay() const { return _delay; }
 };
 
