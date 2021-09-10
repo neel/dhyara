@@ -64,10 +64,30 @@ menu "Dhyara ad hoc network"
             Dhyara route expiry coefficient
             
     config DISABLE_SEND_QUEUEING
-        bool "disable queueing of messages that are to be sent"
+        bool "Disable queueing of messages that are to be sent"
         default n
         help
             Dhyara disable queueing of messages that are to be sent
+            
+    config ENABLE_MANDATORY_SLEEP_AFTER_TRANSMISSION
+        bool "Enable Mandatory Sleep after consecutive transmitions"
+        default y
+        help
+            Mandatory Sleep after N consecutive transmitions
+            
+    config ENABLE_MANDATORY_SLEEP_AFTER_TRANSMISSION_N
+        int "Mandatory Sleep after N consecutive transmitions"
+        range 1 100
+        default 1
+        help
+            After the specified transmissions there will be a mandatory sleep
+            
+    config ENABLE_MANDATORY_SLEEP_AFTER_TRANSMISSION_TIME
+        int "Amount of sleep (in ms) after consecutive transmitions"
+        range 1 100
+        default 1
+        help
+            Amount of sleep (ms) after consecutive transmitions
             
     config ENABLE_HTTP_MANAGEMENT_SERVER
         bool "If enabled then provides an web based management console over HTTP"

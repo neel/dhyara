@@ -36,6 +36,7 @@ else()
             "sources/actions/delivered.cpp"
             "sources/utils/printer.cpp"
             "sources/utils/http.cpp"
+            "sources/utils/udp_relay.cpp"
             "sources/tools/ping.cpp"
             "sources/tools/traceroute.cpp"
             "sources/dhyara.cpp"
@@ -44,6 +45,7 @@ else()
             "includes"
         REQUIRES 
             cxx
+            asio
             esp_wifi 
             esp_http_server
         EMBED_TXTFILES
