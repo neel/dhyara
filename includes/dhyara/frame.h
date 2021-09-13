@@ -12,6 +12,7 @@
 #include <iostream>
 #include "dhyara/packets/types.h"
 #include "dhyara/packets/io.h"
+#include "dhyara/packets/serialization.h"
 #include "dhyara/packets/chunk.h"
 #include <dhyara/address.h>
 
@@ -47,6 +48,8 @@ struct frame{
     template <typename IteratorT>
     inline frame(const dhyara::address& target, const dhyara::address& source, IteratorT begin, std::uint8_t length, std::uint8_t packet, std::uint8_t pending){
         dhyara::packets::chunk_header header(target, source, length, packet, pending);
+        auto body = dhyara::serialization<dhyara::packets::chunk_header>::write(header, _buffer);
+        std::copy_n(begin, length, body);
         // TODO
     }
     /**
