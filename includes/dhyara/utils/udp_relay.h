@@ -28,11 +28,14 @@
 #ifndef DHYARA_UDP_RELAY_H
 #define DHYARA_UDP_RELAY_H
 
-#include "asio.hpp"
 #include <cstdint>
 #include <dhyara/peer.h>
 #include <dhyara/packets/data.h>
 #include <dhyara/network.h>
+#include "lwip/err.h"
+#include "lwip/sockets.h"
+#include "lwip/sys.h"
+#include <lwip/netdb.h>
 
 namespace dhyara{
 
@@ -46,10 +49,11 @@ namespace utils{
  */
 class udp_relay{    
     dhyara::network&        _network;
-    asio::io_service        _io;
     dhyara::address         _sink;
     std::uint16_t           _port;
-    asio::ip::udp::socket   _socket;
+    struct sockaddr_in      _local;
+    struct sockaddr_in      _remote;
+    int                     _socket;
     
     public:
         /**
@@ -71,7 +75,7 @@ class udp_relay{
         /**
          * Run the relay and never return.
          */
-        std::size_t run();
+        void run();
         
         /**
          * send a packet to the UDP clients
@@ -88,9 +92,13 @@ class udp_relay{
         inline void sink(const dhyara::address& s) { _sink = s; }
     private:
         /**
+         * Initializes the relay. Initializes the local and remote endpoints and bind the local endpoint for receiving UDP packets.
+         */
+        int init();
+        /**
          * Handle the data received from UDP 
          */
-        void receive();
+        ssize_t receive_one();
 };
 
 }

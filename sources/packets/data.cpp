@@ -19,6 +19,16 @@ dhyara::packets::chunk dhyara::packets::data::prepare(std::uint8_t n) const{
     return dhyara::packets::chunk(_target, _source, begin, length, _packet, (chunks() - n - 1));
 }
 
+void dhyara::packets::data::prepare(std::uint8_t n, dhyara::packets::chunk& c) const{
+    auto shift  = std::min(static_cast<std::size_t>(n * packets::chunk::capacity), _buffer.length());
+    auto begin  = _buffer.begin() + shift;
+    auto length = std::min(static_cast<std::size_t>(packets::chunk::capacity), (_buffer.length() - shift));
+    auto it     = std::copy_n(begin, length, c.begin());
+    std::fill(it, c.end(), 0x0);
+    c.length(length);
+    c.pending(chunks() - n - 1);
+}
+
 void dhyara::packets::data::add(const dhyara::packets::chunk& chunk){
     fill(chunk.begin(), chunk.end());
 }

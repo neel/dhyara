@@ -69,6 +69,9 @@ struct chunk_header{
      */
     inline bool is_last() const { return !pending(); }
     
+    void length(std::uint8_t len) { _length = len; }
+    void pending(std::uint8_t p) { _pending = p; }
+    
     private:
         raw_address_type _target;
         raw_address_type _source;
@@ -87,14 +90,24 @@ struct chunk{
     enum{capacity = 250 - (sizeof(chunk_header) +2)};
     typedef std::array<std::uint8_t, capacity> buffer_type;
     typedef buffer_type::const_iterator const_iterator_type;
+    typedef buffer_type::iterator iterator_type;
     
     /**
      * Construct an empty chunk
      */
     inline chunk(): _header() {
+        clear();
+    }
+    inline void clear(){
         std::fill(_buffer.begin(), _buffer.end(), 0x0);
     }
-    
+    /**
+     * Construct a chunk by reading length bytes from begin iterator.
+     * \param target the target MAC address
+     * \param source the source MAC address
+     * \param packet packet id of the data packet of which this chunk is part of
+     */
+    inline chunk(const dhyara::address& target, const dhyara::address& source, std::uint8_t packet): _header(target, source, 0, packet, 0) {}
     /**
      * Construct a chunk by reading length bytes from begin iterator.
      * \param target the target MAC address
@@ -122,11 +135,20 @@ struct chunk{
      * \param it output iterator
      */
     template <typename OutIt>
-    OutIt copy(OutIt it){
+    OutIt copy_to(OutIt it) const{
         auto b = _buffer.begin();
         auto e = b + _header.length();
         return std::copy(b, e, it);
     }
+    
+    /**
+     * begin of the chunk payload
+     */
+    inline iterator_type begin() { return _buffer.begin(); }
+    /**
+     * end of the chunk payload
+     */
+    inline iterator_type end() { return _buffer.end(); }
     /**
      * begin of the chunk payload
      */
@@ -160,6 +182,9 @@ struct chunk{
      * checks whether the chunks is the last
      */
     inline bool is_last() const { return !pending(); }
+    
+    void length(std::uint8_t len) { _header.length(len); }
+    void pending(std::uint8_t p) { _header.pending(p); }
     
     private:
         chunk_header     _header;

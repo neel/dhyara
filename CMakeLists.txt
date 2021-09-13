@@ -45,7 +45,6 @@ else()
             "includes"
         REQUIRES 
             cxx
-            asio
             esp_wifi 
             esp_http_server
         EMBED_TXTFILES

@@ -72,7 +72,7 @@ struct network{
      * \param count number of elements to send
      */
     template <typename InputIt>
-    bool send(const dhyara::address& target, InputIt begin, std::size_t count){
+    inline bool send(const dhyara::address& target, InputIt begin, std::size_t count){
         return send(target, begin, begin+count);
     }
     

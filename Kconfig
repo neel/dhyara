@@ -95,5 +95,10 @@ menu "Dhyara ad hoc network"
         help
             Dhyara enable web based management console over HTTP
             
-            
+    config DHYARA_UTIL_UDP_RELAY_BUFFER_SIZE
+        int "UDP Relay Buffer Size"
+        range 1024 8192
+        default 4096
+        help
+            Buffer size to hold incoming UDP packets while using udp relay
 endmenu

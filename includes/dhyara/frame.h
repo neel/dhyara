@@ -12,6 +12,8 @@
 #include <iostream>
 #include "dhyara/packets/types.h"
 #include "dhyara/packets/io.h"
+#include "dhyara/packets/chunk.h"
+#include <dhyara/address.h>
 
 namespace dhyara{
 
@@ -38,6 +40,14 @@ struct frame{
      */
     inline frame(packets::type type): _type(type){
         std::fill(_buffer, _buffer + sizeof(_buffer), 0);
+    }
+    /**
+     * Construct a chunk frame directly from data
+     */
+    template <typename IteratorT>
+    inline frame(const dhyara::address& target, const dhyara::address& source, IteratorT begin, std::uint8_t length, std::uint8_t packet, std::uint8_t pending){
+        dhyara::packets::chunk_header header(target, source, length, packet, pending);
+        // TODO
     }
     /**
      * Construct a frame of provided payload payload that is supposed to contain a packet of the given type 

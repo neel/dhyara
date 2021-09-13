@@ -83,6 +83,8 @@ namespace dhyara {
      * policy to apply on inactive routes
      */
     constexpr const depreciation_policies depreciation_policy = depreciation_policies::remove_route;
+    
+    constexpr const std::size_t udp_relay_rcv_buffer_size = CONFIG_DHYARA_UTIL_UDP_RELAY_BUFFER_SIZE;
 }
 
 #endif // DHYARA_DEFS_H

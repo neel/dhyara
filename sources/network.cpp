@@ -82,8 +82,9 @@ bool dhyara::network::send(const dhyara::address& target, const dhyara::packets:
     if(data_packet.source().is_null()){
         data_packet.source(_link.address());
     }
+    dhyara::packets::chunk chunk(data.target(), data.source(), data.id());
     for(std::uint8_t c = 0; c != chunks; ++c){
-        dhyara::packets::chunk chunk = data_packet.prepare(c);
+        data.prepare(c, chunk);
         bool res = _link.send(target, dhyara::packets::type::chunk, chunk);
         success = success && res;
     }

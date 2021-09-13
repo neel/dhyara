@@ -99,6 +99,10 @@ struct data{
      */
     chunk prepare(std::uint8_t n) const;
     /**
+     * 
+     */
+    void prepare(std::uint8_t n, chunk& c) const;
+    /**
      * Fill the data packet by copying elements within [begin, end) range
      * \param begin begin iterator
      * \param end end iterator
@@ -112,7 +116,7 @@ struct data{
      * \param it output iterator
      */
     template <typename OutputIt>
-    void copy(OutputIt it) const{
+    void copy_to(OutputIt it) const{
         std::copy(_buffer.begin(), _buffer.end(), it);
     }
     /**
@@ -129,11 +133,30 @@ struct data{
     inline const std::uint8_t* raw() const { return _buffer.data(); }
     
     /**
-     * Returns an immutable iterator to the data. The iterator dereferences to std::uint8_t
+     * length of the data packet
+     */
+    inline std::size_t length(std::uint8_t n) const {
+        auto shift = std::min(static_cast<std::size_t>(n * packets::chunk::capacity), _buffer.length());
+        return std::min(static_cast<std::size_t>(packets::chunk::capacity), (_buffer.length() - shift)); 
+    }
+    /**
+     * Returns an const iterator to the data that starts from the position of n'th chunk
+     */
+    inline const_iterator begin(std::uint8_t n) const { 
+        return _buffer.begin() + std::min(static_cast<std::size_t>(n * packets::chunk::capacity), _buffer.length()); 
+    }
+    /**
+     * Returns an const iterator to the data that points to the ending position of n'th chunk
+     */
+    inline const_iterator end(std::uint8_t n) const { 
+        return begin(n) + length(n); 
+    }
+    /**
+     * Returns an const iterator to the data. The iterator dereferences to std::uint8_t
      */
     inline const_iterator begin() const { return _buffer.begin(); }
     /**
-     * Returns an immutable iterator to the data. The iterator dereferences to std::uint8_t
+     * Returns an const iterator to the data. The iterator dereferences to std::uint8_t
      */
     inline const_iterator end() const { return _buffer.end(); }
     
