@@ -152,6 +152,13 @@ class link{
             dhyara::address immediate = _routes.next(addr).via();
             return send_local(immediate.is_null() ? addr : immediate, type, packet);
         }
+        /**
+         * Send a frame
+         */
+        bool send(const dhyara::address& addr, const dhyara::frame& frame){
+            dhyara::address immediate = _routes.next(addr).via();
+            return transmit(immediate.is_null() ? addr : immediate, frame);
+        }
         
         /**
          * immediate neighbourhood

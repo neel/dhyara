@@ -36,7 +36,7 @@ menu "Dhyara ad hoc network"
             Dhyara beacon interval
             
     config DHYARA_DELAY_TOLERANCE
-        int "beacon interval (us)"
+        int "delay tolerance (us)"
         range 0 5000
         default 0
         help

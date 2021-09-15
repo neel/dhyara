@@ -82,10 +82,10 @@ bool dhyara::network::send(const dhyara::address& target, const dhyara::packets:
     if(data_packet.source().is_null()){
         data_packet.source(_link.address());
     }
-    dhyara::packets::chunk chunk(data.target(), data.source(), data.id());
+    dhyara::frame frame(packets::type::chunk);
     for(std::uint8_t c = 0; c != chunks; ++c){
-        data.prepare(c, chunk);
-        bool res = _link.send(target, dhyara::packets::type::chunk, chunk);
+        frame.copy_from(data, c);
+        bool res = _link.send(target, frame);
         success = success && res;
     }
     return success;
