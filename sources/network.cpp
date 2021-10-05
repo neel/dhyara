@@ -11,6 +11,7 @@
 #include "freertos/task.h"
 #include "esp_system.h"
 #include "esp_log.h"
+#include <cassert>
 
 dhyara::network::network(dhyara::link& link): 
     _link(link),
@@ -78,10 +79,7 @@ void dhyara::network::start(){
 bool dhyara::network::send(const dhyara::address& target, const dhyara::packets::data& data){
     std::uint8_t chunks = data.chunks();
     bool success = true;
-    dhyara::packets::data data_packet(data);
-    if(data_packet.source().is_null()){
-        data_packet.source(_link.address());
-    }
+    assert(!data.source().is_null());
     dhyara::frame frame(packets::type::chunk);
     for(std::uint8_t c = 0; c != chunks; ++c){
         frame.copy_from(data, c);

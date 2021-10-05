@@ -111,8 +111,7 @@ struct ping{
         std::int8_t      _batch;
         std::uint8_t     _sleep;
         std::size_t      _conn_reply;
-        delay_type       _first;
-        delay_type       _last;
+        delay_type       _duration;
 };
     
 }

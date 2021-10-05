@@ -12,7 +12,7 @@
 void dhyara::actions::echo_reply::operator()(const dhyara::address& addr, const dhyara::packets::echo_reply& echo_reply){
     dhyara::address target = echo_reply.target();
     if(target == _link.address()){
-        dhyara::delay_type rtt = esp_timer_get_time() - echo_reply.time();
+        dhyara::delay_type rtt = echo_reply.latency();
         _stat.total += rtt;
         _stat.avg    = (double)_stat.total / (double)_link.rx(dhyara::packets::type::echo_reply);
         _stat.min    = std::min(_stat.min, rtt);

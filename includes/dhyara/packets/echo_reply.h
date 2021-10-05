@@ -69,6 +69,10 @@ struct echo_reply{
      * source address
      */
     inline dhyara::address source() const { return dhyara::address(_source); }
+    /**
+     * latency expecting _time is set to the echo request time
+     */
+    inline std::uint64_t latency() const { return esp_timer_get_time() - _time; }
     
     private:
         raw_address_type _target;
