@@ -133,9 +133,11 @@ class link{
          */
         template <typename PacketT>
         bool send_local(const dhyara::address& addr, packets::type type, const PacketT& packet){
-            dhyara::utils::printer printer;
-            printer.out(addr, packet);
-            dhyara::frame frame(type, packet.size());
+            static dhyara::frame frame;
+//             dhyara::utils::printer printer;
+//             printer.out(addr, packet);
+            frame.type(type);
+            frame.length(packet.size());
             dhyara::write(packet, frame._buffer);
             return transmit(addr, frame);
         }

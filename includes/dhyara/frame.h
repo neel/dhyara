@@ -82,9 +82,17 @@ struct frame{
      */
     inline packets::type type() const {return _type;}
     /**
+     * Packet type in the frame
+     */
+    inline void type(packets::type t) { _type = t;}
+    /**
      * Length of the frame
      */
     inline std::size_t length() const {return _length;}
+    /**
+     * Length of the frame
+     */
+    inline void length(std::size_t l) { _length = l;}
     /**
      * Size of the frame
      */

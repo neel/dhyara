@@ -50,10 +50,10 @@ struct action{
      * Creates a packet from the received frame. Passes that packet to the Derived action's operator() overload. Calls the slots connected.
      */
     void operator()(const dhyara::address& address, const dhyara::frame& frame){
-        PacketT packet;
+        static PacketT packet;
         dhyara::read(packet, frame._buffer, frame.length());
-        dhyara::utils::printer printer;
-        printer.in(address, packet);
+//         dhyara::utils::printer printer;
+//         printer.in(address, packet);
         static_cast<DerivedT*>(this)->operator()(address, packet);
         for(auto& pair: _slots){
             if(pair.second){
