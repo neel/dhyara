@@ -69,13 +69,13 @@ void dhyara::tools::ping::operator()(const dhyara::address& addr){
         duration,
         ((double)((echo_sent+echo_rcvd)*250*1000) / duration)/1000.0
     );
-    std::cout << "N | Origin             | Hit                | Return             | RTT          " << std::endl;
+    std::cout << "N | Origin              | Hit                 | Return              | RTT          " << std::endl;
     for(std::uint8_t i = 0; i < _stats.size(); ++i){
         const auto& stat = _stats.at(i);
         const auto& stat_last = (i == 0) ? stat : _stats.at(i-1);
-        std::cout   << (int)i << " |" << std::setfill(' ') << std::setw(11) << std::get<0>(stat) << "(" << std::setfill(' ') << std::setw(4) << (std::get<0>(stat) - std::get<0>(stat_last)) << "us)"
-                              << " |" << std::setfill(' ') << std::setw(11) << std::get<1>(stat) << "(" << std::setfill(' ') << std::setw(4) << (std::get<1>(stat) - std::get<1>(stat_last)) << "us)"
-                              << " |" << std::setfill(' ') << std::setw(11) << std::get<2>(stat) << "(" << std::setfill(' ') << std::setw(4) << (std::get<2>(stat) - std::get<2>(stat_last)) << "us)"
+        std::cout   << (int)i << " |" << std::setfill(' ') << std::setw(11) << std::get<0>(stat) << "(" << std::setfill(' ') << std::setw(5) << (std::get<0>(stat) - std::get<0>(stat_last)) << "us)"
+                              << " |" << std::setfill(' ') << std::setw(11) << std::get<1>(stat) << "(" << std::setfill(' ') << std::setw(5) << (std::get<1>(stat) - std::get<1>(stat_last)) << "us)"
+                              << " |" << std::setfill(' ') << std::setw(11) << std::get<2>(stat) << "(" << std::setfill(' ') << std::setw(5) << (std::get<2>(stat) - std::get<2>(stat_last)) << "us)"
                               << " |" << std::get<3>(stat) << "us" 
                     << std::endl;
     }

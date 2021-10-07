@@ -30,7 +30,7 @@ menu "Dhyara ad hoc network"
             
     config DHYARA_BEACON_INTERVAL
         int "beacon interval (ms)"
-        range 10 5000
+        range 10 60000
         default 1000
         help
             Dhyara beacon interval
