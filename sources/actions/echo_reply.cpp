@@ -10,14 +10,7 @@
 #include "dhyara/link.h"
 
 void dhyara::actions::echo_reply::operator()(const dhyara::address& addr, const dhyara::packets::echo_reply& echo_reply){
-    dhyara::address target = echo_reply.target();
-    if(target == _link.address()){
-        dhyara::delay_type rtt = echo_reply.latency();
-        _stat.total += rtt;
-        _stat.avg    = (double)_stat.total / (double)_link.rx(dhyara::packets::type::echo_reply);
-        _stat.min    = std::min(_stat.min, rtt);
-        _stat.max    = std::max(_stat.max, rtt);
-    }else{
-        _link.send(target, dhyara::packets::type::echo_reply, echo_reply);
+    if(echo_reply.target() != _link.address()){
+        _link.send(echo_reply.target(), dhyara::packets::type::echo_reply, echo_reply);
     }
 }

@@ -106,6 +106,8 @@ struct ping{
         void reply(const dhyara::address& addr, const dhyara::packets::echo_reply& reply);
     
     private:
+        using stat_tuple = std::tuple<delay_type, delay_type, delay_type, delay_type>;
+        
         dhyara::network& _network;
         std::uint8_t     _count;
         std::int8_t      _batch;
@@ -113,6 +115,8 @@ struct ping{
         std::size_t      _conn_reply;
         delay_type       _first;
         delay_type       _last;
+        
+        std::vector<stat_tuple> _stats;
 };
     
 }
