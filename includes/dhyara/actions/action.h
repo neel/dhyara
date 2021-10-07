@@ -52,8 +52,8 @@ struct action{
     void operator()(const dhyara::address& address, const dhyara::frame& frame){
         static PacketT packet;
         dhyara::read(packet, frame._buffer, frame.length());
-//         dhyara::utils::printer printer;
-//         printer.in(address, packet);
+        dhyara::utils::printer printer;
+        printer.in(address, packet);
         static_cast<DerivedT*>(this)->operator()(address, packet);
         for(auto& pair: _slots){
             if(pair.second){
