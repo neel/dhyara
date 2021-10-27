@@ -44,12 +44,12 @@ esp_err_t dhyara_espnow_init(){
     err = esp_now_register_send_cb(_dhyara_sent);
     if(err != ESP_OK) return err;
     err = esp_now_register_recv_cb(_dhyara_rcvd);
-    if(err != ESP_OK) return err;
-    err = esp_wifi_set_promiscuous_filter(&g_dhyara_promiscous_filter);
-    if(err != ESP_OK) return err;
-    err = esp_wifi_set_promiscuous_rx_cb(&_dhyara_promiscuous);
-    if(err != ESP_OK) return err;
-    err = esp_wifi_set_promiscuous(true);
+//     if(err != ESP_OK) return err;
+//     err = esp_wifi_set_promiscuous_filter(&g_dhyara_promiscous_filter);
+//     if(err != ESP_OK) return err;
+//     err = esp_wifi_set_promiscuous_rx_cb(&_dhyara_promiscuous);
+//     if(err != ESP_OK) return err;
+//     err = esp_wifi_set_promiscuous(true);
     return err;
     // ESP_ERROR_CHECK(esp_wifi_set_csi_rx_cb(&_csi, 0x0));
     // ESP_ERROR_CHECK(esp_wifi_set_csi(true));

@@ -12,6 +12,10 @@
 #include <iostream>
 #include "dhyara/packets/types.h"
 #include "dhyara/packets/io.h"
+#include "dhyara/packets/serialization.h"
+#include "dhyara/packets/chunk.h"
+#include "dhyara/packets/data.h"
+#include <dhyara/address.h>
 
 namespace dhyara{
 
@@ -40,6 +44,19 @@ struct frame{
         std::fill(_buffer, _buffer + sizeof(_buffer), 0);
     }
     /**
+     * Construct a chunk frame directly from data
+     */
+    inline void copy_from(const dhyara::packets::data& data, std::uint8_t n){
+        std::size_t  before  = n * dhyara::packets::chunk::capacity;
+        std::uint8_t pending = data.chunks() - n - 1;
+        std::uint8_t length  = std::min(std::size_t(dhyara::packets::chunk::capacity),  data.length() - before);
+        dhyara::packets::chunk_header header(data.target(), data.source(), length, data.id(), pending);
+        auto body = dhyara::serialization<dhyara::packets::chunk_header>::write(header, _buffer);
+        std::copy_n(data.begin() + before, length, body);
+        _length = sizeof(dhyara::packets::chunk_header) + length;
+        _type   = packets::type::chunk;
+    }
+    /**
      * Construct a frame of provided payload payload that is supposed to contain a packet of the given type 
      * \param type packet type
      * \param len length of the frame
@@ -65,9 +82,17 @@ struct frame{
      */
     inline packets::type type() const {return _type;}
     /**
+     * Packet type in the frame
+     */
+    inline void type(packets::type t) { _type = t;}
+    /**
      * Length of the frame
      */
     inline std::size_t length() const {return _length;}
+    /**
+     * Length of the frame
+     */
+    inline void length(std::size_t l) { _length = l;}
     /**
      * Size of the frame
      */

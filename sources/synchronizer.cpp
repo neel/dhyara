@@ -14,8 +14,8 @@
 
 dhyara::synchronizer::synchronizer(dhyara::link& local): _link(local){}
 
-void dhyara::synchronizer::queue(const dhyara::address& dest, const dhyara::address& via, dhyara::delay_type delay){
-    queue(dhyara::candidate(dest, via, delay));
+void dhyara::synchronizer::queue(const dhyara::address& dest, const dhyara::address& via, dhyara::delay_type delay, std::uint8_t hops){
+    queue(dhyara::candidate(dest, via, delay, hops));
 }
 
 
@@ -25,28 +25,31 @@ void dhyara::synchronizer::queue(const dhyara::candidate& c){
 
 void dhyara::synchronizer::run(){
     _fifo.de([this](const dhyara::candidate& c) mutable{
-        sync(c.dest(), c.via(), c.delay());
+        update(c.dest(), c.via(), c.delay(), c.hops());
     });
 }
 
 
-void dhyara::synchronizer::sync(const dhyara::address& dest, const dhyara::address& via, dhyara::delay_type delay){
-    bool sync_required = _link.routes().update(dhyara::routing::route(dest, via), delay);
-    
+void dhyara::synchronizer::update(const dhyara::address& dest, const dhyara::address& via, dhyara::delay_type delay, std::uint8_t hops){
+    bool suggestion = _link.routes().update(dhyara::routing::route(dest, via), delay, hops);
+    sync(dest, suggestion);
+}
+
+void dhyara::synchronizer::sync(const dhyara::address& dest, bool suggested){
     dhyara::delay_type now = esp_timer_get_time();
     last_advertisement_map::iterator it = _last.find(dest);
-    if(!sync_required){
+    if(!suggested){
         if(it != _last.end()){
             dhyara::delay_type last_advertised  = it->second;
             dhyara::delay_type advertised_since = now - last_advertised;
-            sync_required = (advertised_since >= dhyara::advertisement_expiry);
+            suggested = (advertised_since >= dhyara::advertisement_expiry);
         }else{
-            sync_required = true;
+            suggested = true;
         }
     }
-    if(sync_required){
+    if(suggested){
         dhyara::routing::next_hop next = _link.routes().next(dest);
-        dhyara::packets::advertisement advertisement(dest, next.delay());
+        dhyara::packets::advertisement advertisement(dest, next.delay(), next.hops());
         if(it == _last.end()){
             _last.insert(std::make_pair(dest, now));
         } else {
@@ -57,7 +60,7 @@ void dhyara::synchronizer::sync(const dhyara::address& dest, const dhyara::addre
         }
         for(auto it = _link.neighbours().begin(); it != _link.neighbours().end(); ++it){
             const dhyara::neighbour& neighbour = it->second;
-            if(!neighbour.addr().is_broadcast() && dest != neighbour.addr()){
+            if(!neighbour.addr().is_broadcast() && dest != neighbour.addr() && next.via() != neighbour.addr()){
                 _link.send_local(neighbour.addr(), dhyara::packets::type::advertisement, advertisement);
             }
         }

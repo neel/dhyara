@@ -28,9 +28,9 @@ namespace packets{
  * The advertisement packet contains route information about a node (dest).
  * The route information includes one trip delay from the source node.
  * \code 
- * +--- 6 bytes ---+---- 8 bytes -----+---- 1 byte -----+---- N bytes ---+
- * |  destination  |  one trip delay  | name length (N) |      Name      |
- * +---------------+------------------+-----------------+----------------+
+ * +--- 6 bytes ---+---- 8 bytes -----+----- 1 byte -----+---- 1 byte -----+---- N bytes ---+
+ * |  destination  |  one trip delay  | hops in one trip | name length (N) |      Name      |
+ * +---------------+------------------+------------------+-----------------+----------------+
  * \endcode
  * \ingroup packets
  */
@@ -38,15 +38,16 @@ struct advertisement{
     /**
      * Construct an advertisement packet with null destination and no delay
      */
-    inline advertisement(): _dest(dhyara::address::null()), _delay(0) {}
+    inline advertisement(): _dest(dhyara::address::null()), _delay(0), _hops(0) {}
     /**
      * Construct an advertisement packet with the given destination and the delay specified.
      * 
      * \param dest The destination address
      * \param delay The delay encountered in the route
+     * \param hops Number of hops in this route
      */
-    inline advertisement(const dhyara::address& dest, delay_type delay, const std::string name = ""): 
-        _dest(dest), _delay(delay), _name(name){}
+    inline advertisement(const dhyara::address& dest, delay_type delay, std::uint8_t hops, const std::string name = ""): 
+        _dest(dest), _delay(delay), _hops(hops), _name(name){}
     /**
      * Size of the packet
      */
@@ -69,9 +70,17 @@ struct advertisement{
      */
     inline const delay_type& delay() const { return _delay; }
     /**
+     * Hops in the advertisement packet
+     */
+    inline std::uint8_t hops() const { return _hops; }
+    /**
      * Delay in the advertisement packet
      */
     inline void delay(const delay_type& d) { _delay = d; }
+    /**
+     * Hops in the advertisement packet
+     */
+    inline void hops(std::uint8_t h) { _hops = h; }
     /**
      * name in the advertisement packet
      */
@@ -84,6 +93,7 @@ struct advertisement{
     private:
         dhyara::address    _dest;
         dhyara::delay_type _delay;
+        std::uint8_t       _hops;
         std::string        _name;
 };
 
@@ -103,9 +113,11 @@ struct serialization<packets::advertisement>{
      */
     template <typename OutIt>
     static OutIt write(const packets::advertisement& packet, OutIt output){
-        std::uint8_t len = packet.name().size();
+        std::uint8_t len  = packet.name().size();
+        std::uint8_t hops = packet.hops();
         output = std::copy_n(packet.dest().raw(), 6, output);
         output = std::copy_n(reinterpret_cast<const char*>(&packet.delay()), sizeof(dhyara::delay_type), output);
+        output = std::copy_n(reinterpret_cast<const std::uint8_t*>(&hops), 1, output);
         output = std::copy_n(reinterpret_cast<const std::uint8_t*>(&len), 1, output);
         output = std::copy_n(packet.name().begin(), len, output);
         return output;
@@ -122,6 +134,7 @@ struct serialization<packets::advertisement>{
     static InIt read(packets::advertisement& packet, InIt input, std::size_t length){
         std::uint8_t raw_address[6];
         dhyara::delay_type delay;
+        std::uint8_t hops;
         std::uint8_t len = 0;
         std::string name;
         
@@ -136,6 +149,12 @@ struct serialization<packets::advertisement>{
             input  += sizeof(dhyara::delay_type);
             length -= sizeof(dhyara::delay_type);
             packet.delay(delay);
+        }
+        if(length >= sizeof(std::uint8_t)){
+            std::copy_n(input, sizeof(std::uint8_t), reinterpret_cast<std::uint8_t*>(&hops));
+            input  += sizeof(std::uint8_t);
+            length -= sizeof(std::uint8_t);
+            packet.hops(hops);
         }
         if(length >= sizeof(std::uint8_t)){
             std::copy_n(input, sizeof(std::uint8_t), reinterpret_cast<std::uint8_t*>(&len));

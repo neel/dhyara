@@ -31,7 +31,7 @@ struct echo_reply{
     inline echo_reply(): 
         _target{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}, 
         _source{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}, 
-        _seq(0), _time(esp_timer_get_time()), _ttl(255){}
+        _seq(0), _time(esp_timer_get_time()), _rtime(esp_timer_get_time()), _ttl(255){}
     /**
      * Construct an echo reply to the target originating from the source with the provided sequence number and time.
      * \param target the target mac address
@@ -43,7 +43,7 @@ struct echo_reply{
     inline echo_reply(const dhyara::address& target, const dhyara::address& source, std::uint32_t seq = 0, std::uint64_t time = esp_timer_get_time(), std::uint8_t ttl = 255) 
         : _target{target.b1(), target.b2(), target.b3(), target.b4(), target.b5(), target.b6()}, 
           _source{source.b1(), source.b2(), source.b3(), source.b4(), source.b5(), source.b6()}, 
-          _seq(seq), _time(time), _ttl(ttl){}
+          _seq(seq), _time(time), _rtime(esp_timer_get_time()), _ttl(ttl){}
    
     /**
      * Size of the packet
@@ -53,6 +53,10 @@ struct echo_reply{
      * Time in the packet
      */
     inline std::uint64_t time() const {return _time;}
+    /**
+     * Received Time in the packet
+     */
+    inline std::uint64_t rtime() const {return _rtime;}
     /**
      * Sequence number in teh packet
      */
@@ -69,12 +73,17 @@ struct echo_reply{
      * source address
      */
     inline dhyara::address source() const { return dhyara::address(_source); }
+    /**
+     * latency expecting _time is set to the echo request time
+     */
+    inline std::uint64_t latency() const { return esp_timer_get_time() - _time; }
     
     private:
         raw_address_type _target;
         raw_address_type _source;
         std::uint32_t    _seq;
         std::uint64_t    _time;
+        std::uint64_t    _rtime;
         std::uint8_t     _ttl;
 } __attribute__((packed));
     

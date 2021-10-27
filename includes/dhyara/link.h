@@ -133,9 +133,11 @@ class link{
          */
         template <typename PacketT>
         bool send_local(const dhyara::address& addr, packets::type type, const PacketT& packet){
+            static dhyara::frame frame;
             dhyara::utils::printer printer;
             printer.out(addr, packet);
-            dhyara::frame frame(type, packet.size());
+            frame.type(type);
+            frame.length(packet.size());
             dhyara::write(packet, frame._buffer);
             return transmit(addr, frame);
         }
@@ -151,6 +153,13 @@ class link{
         bool send(const dhyara::address& addr, packets::type type, const PacketT& packet){
             dhyara::address immediate = _routes.next(addr).via();
             return send_local(immediate.is_null() ? addr : immediate, type, packet);
+        }
+        /**
+         * Send a frame
+         */
+        bool send(const dhyara::address& addr, const dhyara::frame& frame){
+            dhyara::address immediate = _routes.next(addr).via();
+            return transmit(immediate.is_null() ? addr : immediate, frame);
         }
         
         /**

@@ -28,7 +28,7 @@
 #include "dhyara/utils/udp_relay.h"
 #include "esp_log.h"
 
-static constexpr const std::size_t max_length = 4096;
+static constexpr const std::size_t max_length = dhyara::udp_relay_rcv_buffer_size;
 static std::uint8_t _buffer[max_length];
 
 dhyara::utils::udp_relay::udp_relay(dhyara::network& network, std::uint16_t port): _network(network), _sink(dhyara::address::null()), _port(port) {
@@ -93,7 +93,7 @@ void dhyara::utils::udp_relay::send(const dhyara::packets::data& data){
     static int64_t last = esp_timer_get_time();
     static std::size_t count = 0, bytes = 0;
     
-    data.copy(_buffer);
+    data.copy_to(_buffer);
     ssize_t bytes_sent = sendto(_socket, _buffer, data.length(), 0, (struct sockaddr *)&_remote, sizeof(_remote));
     if(bytes_sent < data.length()){
         ESP_LOGE("udp-relay", "Failed to broadcast the received data over UDP");
@@ -112,3 +112,4 @@ void dhyara::utils::udp_relay::send(const dhyara::packets::data& data){
         bytes = 0;
     }
 }
+

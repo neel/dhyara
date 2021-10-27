@@ -59,6 +59,10 @@ struct echo_request{
      */
     inline std::uint32_t seq() const {return _seq;}
     /**
+     * Sequence number 
+     */
+    inline void seq(std::uint32_t s) { _seq = s;}
+    /**
      * TTL  
      */
     inline std::uint8_t ttl() const {return _ttl;}

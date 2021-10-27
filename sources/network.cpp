@@ -11,6 +11,7 @@
 #include "freertos/task.h"
 #include "esp_system.h"
 #include "esp_log.h"
+#include <cassert>
 
 dhyara::network::network(dhyara::link& link): 
     _link(link),
@@ -31,11 +32,15 @@ dhyara::network::network(dhyara::link& link):
 void dhyara::network::presence(){
     while(1){
         _beacon.broadcast();
-        _link.routes().depreciate([this](const dhyara::routing::route& route, dhyara::delay_type delay) mutable{
-            _synchronizer.queue(route.dst(), route.via(), delay);
-            vTaskDelay(pdMS_TO_TICKS(1));
-        });
-        vTaskDelay(pdMS_TO_TICKS(dhyara::beacon_interval));
+        if(dhyara::depreciation_policy == dhyara::depreciation_policies::amplify_delay){
+            _link.routes().depreciate([this](const dhyara::routing::route& route, dhyara::delay_type delay, std::uint8_t hops) mutable{
+                _synchronizer.queue(route.dst(), route.via(), delay, hops);
+                vTaskDelay(pdMS_TO_TICKS(1));
+            });
+        }else if(dhyara::depreciation_policy == dhyara::depreciation_policies::remove_route){
+            _link.routes().depreciate(_synchronizer);
+            vTaskDelay(pdMS_TO_TICKS(dhyara::beacon_interval));
+        }
     }
 }
 
@@ -61,7 +66,7 @@ void dhyara::network::start(){
     
     xTaskCreate(&dhyara::network::task_presence,    "presence",    3072,  this,   0,  NULL);
     xTaskCreate(&dhyara::network::task_synchronize, "synchronize", 8192,  this,   8,  NULL);
-    xTaskCreate(&dhyara::network::task_start_rcvd,  "start_rcvd",  8192,  &_link, 22, NULL);
+    xTaskCreate(&dhyara::network::task_start_rcvd,  "start_rcvd",  8192,  &_link, 19, NULL);
 #if DHYARA_ENABLED_SEND_QUEUEING
     xTaskCreate(&dhyara::network::task_start_send,  "start_send",  2028,  &_link, 22, NULL);
 #endif
@@ -74,13 +79,11 @@ void dhyara::network::start(){
 bool dhyara::network::send(const dhyara::address& target, const dhyara::packets::data& data){
     std::uint8_t chunks = data.chunks();
     bool success = true;
-    dhyara::packets::data data_packet(data);
-    if(data_packet.source().is_null()){
-        data_packet.source(_link.address());
-    }
+    assert(!data.source().is_null());
+    dhyara::frame frame(packets::type::chunk);
     for(std::uint8_t c = 0; c != chunks; ++c){
-        dhyara::packets::chunk chunk = data_packet.prepare(c);
-        bool res = _link.send(target, dhyara::packets::type::chunk, chunk);
+        frame.copy_from(data, c);
+        bool res = _link.send(target, frame);
         success = success && res;
     }
     return success;

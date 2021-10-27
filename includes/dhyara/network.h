@@ -61,7 +61,9 @@ struct network{
      */
     template <typename InputIt>
     bool send(const dhyara::address& target, InputIt begin, InputIt end){
-        return send(target, dhyara::packets::data(target, begin, end));
+        dhyara::packets::data data(target, begin, end);
+        data.source(_link.address());
+        return send(target, data);
     }
     
     /**
@@ -72,7 +74,7 @@ struct network{
      * \param count number of elements to send
      */
     template <typename InputIt>
-    bool send(const dhyara::address& target, InputIt begin, std::size_t count){
+    inline bool send(const dhyara::address& target, InputIt begin, std::size_t count){
         return send(target, begin, begin+count);
     }
     

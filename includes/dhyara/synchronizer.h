@@ -25,13 +25,12 @@ struct link;
 struct candidate{
     dhyara::address       _dest;
     dhyara::address       _via;
-    std::uint8_t          _hops;
     dhyara::delay_type    _delay;
+    std::uint8_t          _hops;
     
-    inline candidate(): _dest(dhyara::address::null()), _via(dhyara::address::null()), _hops(0), _delay(0) {}
-    inline candidate(dhyara::address dest, dhyara::address via, dhyara::delay_type delay): _dest(dest), _via(via), _hops(0), _delay(delay){}
+    inline candidate(): _dest(dhyara::address::null()), _via(dhyara::address::null()), _delay(0), _hops(0) {}
+    inline candidate(dhyara::address dest, dhyara::address via, dhyara::delay_type delay, std::uint8_t hops): _dest(dest), _via(via), _delay(delay), _hops(hops){}
     
-    inline candidate(dhyara::address dest, dhyara::address via, std::uint8_t hops, dhyara::delay_type delay): _dest(dest), _via(via), _hops(hops), _delay(delay){}
     /**
      * destination address
      */
@@ -41,13 +40,13 @@ struct candidate{
      */
     inline dhyara::address via() const { return _via; }
     /**
-     * number of hops required to reach dest via the intermediate node
-     */
-    inline std::uint8_t hops() const { return _hops; }
-    /**
      * one trip delay
      */
     inline dhyara::delay_type delay() const { return _delay; }
+    /**
+     * number of hops encountered between via and dest
+     */
+    inline std::uint8_t hops() const { return _hops; }
 };
 
 /**
@@ -81,7 +80,13 @@ struct synchronizer{
      * Construct using a link
      */
     synchronizer(dhyara::link& link);
+    /**
+     * Not copyable
+     */
     synchronizer(const synchronizer&) = delete;
+    /**
+     * Not copyable
+     */
     synchronizer& operator=(const synchronizer&) = delete;
     
     /**
@@ -90,8 +95,9 @@ struct synchronizer{
      * \param dest destination address
      * \param via intermediate address
      * \param delay one trip delay in that route 
+     * \param hops number of hops
      */
-    void queue(const dhyara::address& dest, const dhyara::address& via, dhyara::delay_type delay);
+    void queue(const dhyara::address& dest, const dhyara::address& via, dhyara::delay_type delay, std::uint8_t hops);
     /**
      * enqueue a candidate 
      * 
@@ -101,28 +107,38 @@ struct synchronizer{
     /**
      * Dequeue the candidates and sync. Never returns. 
      * \attention Should be called from a FreeRTOS Task.
-     * Calls \ref sync on each dequeued candidate.
+     * Calls \ref update on each dequeued candidate.
      */
     void run();
+    /**
+     * Updates delay associated with the existing route (dest, via) to delay through the routing table (The route will be created if it does not exist already).
+     * The update operation in the routing table returns a boolean value depicting whether synchronization is suggested or not.
+     * Calls \ref sync with that suggestion to synchronizes the changes due to this update.
+     * 
+     * \see sync
+     * 
+     * \param dest The destination address
+     * \param via The intermediate node address
+     * \param delay the one trip delay on this route 
+     * \param hops hops
+     */
+    void update(const dhyara::address& dest, const dhyara::address& via, dhyara::delay_type delay, std::uint8_t hops);
+    /**
+     * Synchronizes reachability to a destination node to the neighbours.
+     * If synchronization is suggested then finds the current next (best immediate hop) for the dest (which has been changed due to previous update).
+     * Constructs an advertisement packet with the delay associated with the current next.
+     * Sends that advertisement packet to all neighbours except the dest node.
+     * 
+     * Additionally it also maintains a map to maintain last advertisement time. 
+     * If the update on the routing table returns true, denoting synchronization is suggested then the last advertisement time assocated with the dest is also updated.
+     * If the update returns false then this last advertisement time assocated with the dest is checked.
+     * If it is found out that no advertisement has been sent for this dest for too long (advertisement_expiry) then another advertisement is sent.
+     * 
+     * \param dest The destination address
+     * \param suggested 
+     */
+    void sync(const dhyara::address& dest, bool suggested);
     
-    private:
-        /**
-         * Updates delay associated with the existing route (dest, via) to delay through the routing table (The route will be created if it does not exist already).
-         * The update operation in the routing table returns a boolean value depicting whether synchronization is required or not.
-         * If synchronization is required then finds the current next (best immediate hop) for the dest (which has been changed due to previous update).
-         * Constructs an advertisement packet with the delay associated with the current next.
-         * Sends that advertisement packet to all neighbours except the dest node.
-         * 
-         * Additionally it also maintains a map to maintain last advertisement time. 
-         * If the update on the routing table responds true, denoting synchronization is required then the last advertisement time assocated with the dest is also updated.
-         * If the update returns false then this last advertisement time assocated with the dest is checked.
-         * If it is found out that no advertisement has been sent for this dest for too long (advertisement_expiry) then another advertisement is sent.
-         *
-         * \param dest The destination address
-         * \param via The intermediate node address
-         * \param delay the one trip delay on this route 
-         */
-        void sync(const dhyara::address& dest, const dhyara::address& via, dhyara::delay_type delay);
     private:
         dhyara::link&           _link;
         sync_queue_type         _fifo;

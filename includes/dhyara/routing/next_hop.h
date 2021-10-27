@@ -26,12 +26,12 @@ struct next_hop{
      * \param via intermediate node address 
      * \param delay delay
      */
-    inline next_hop(dhyara::address via, delay_type delay): _via(via), _delay(delay), _published(delay){}
+    inline next_hop(dhyara::address via, delay_type delay, std::uint8_t hops): _via(via), _delay(delay), _hops(hops), _published(delay){}
     
     /**
      * Construct from a pair
      */
-    inline next_hop(const std::pair<dhyara::address, dhyara::delay_type>& pair): next_hop(pair.first, pair.second){}
+//     inline next_hop(const std::pair<dhyara::address, dhyara::delay_type>& pair): next_hop(pair.first, pair.second){}
     
     /**
      * assign by a pair
@@ -52,6 +52,10 @@ struct next_hop{
      */
     inline const delay_type& delay() const { return _delay; }
     /**
+     * returns the best next hop for the given target
+     */
+    inline std::uint8_t hops() const { return _hops; }
+    /**
      * returns the last published delay for the given target
      */
     inline const delay_type& published() const { return _published; }
@@ -62,7 +66,7 @@ struct next_hop{
     /**
      * Comparator
      */
-    inline bool operator==(const next_hop& other) const { return _via == other._via && _delay == other._delay; }
+    inline bool operator==(const next_hop& other) const { return _via == other._via && _hops == other._hops && _delay == other._delay; }
     /**
      * Comparator
      */
@@ -71,6 +75,7 @@ struct next_hop{
     private:
         dhyara::address _via;
         delay_type      _delay;
+        std::uint8_t    _hops;
         delay_type      _published;
 };
     

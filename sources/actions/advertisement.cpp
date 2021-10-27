@@ -20,5 +20,5 @@ void dhyara::actions::advertisement::operator()(const dhyara::address& addr, con
     }
     _link.universe().peer(advertisement.dest()).name(advertisement.name());
     dhyara::delay_type delay = advertisement.delay() + delay_first;
-    _synchronizer.queue(advertisement.dest(), addr, delay);
+    _synchronizer.queue(advertisement.dest(), addr, delay, advertisement.hops()+1);
 }

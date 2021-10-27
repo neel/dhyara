@@ -8,8 +8,11 @@
 
 #include "dhyara/routing/metric.h"
 
-void dhyara::routing::metric::update(dhyara::delay_type delay, bool sync_updated){
+void dhyara::routing::metric::update(dhyara::delay_type delay, std::uint8_t hops, bool sync_updated){
     _delay = delay;
+    if(hops){ 
+        _hops  = hops;
+    }
     if(sync_updated){
         update();
     }

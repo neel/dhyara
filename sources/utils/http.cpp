@@ -13,6 +13,7 @@
 #include "esp_wifi.h"
 #include <dhyara/dhyara.h>
 #include <iterator>
+#include "esp_idf_version.h"
 
 namespace fragments{
 
@@ -100,6 +101,7 @@ static const char routing[] =
                         "<th>Destination</th>"
                         "<th>Intermediate</th>"
                         "<th>Delay</th>"
+                        "<th>Hops</th>"
                         "<th>Updated</th>"
                     "</tr>"
                 "</thead>"
@@ -116,6 +118,7 @@ static const char routing[] =
                         "<th>Destination</th>"
                         "<th>Intermediate</th>"
                         "<th>Delay</th>"
+                        "<th>Hops</th>"
                     "</tr>"
                 "</thead>"
                 "<tbody id='next-body'></tbody>"
@@ -339,9 +342,11 @@ esp_err_t dhyara::utils::http::info(httpd_req_t* req){
             case WIFI_AUTH_WPA2_WPA3_PSK:
                 auth_str = "WIFI_AUTH_WPA2_WPA3_PSK";
                 break;
+#if ESP_IDF_VERSION >= ESP_IDF_VERSION_VAL(4, 3, 1)
             case WIFI_AUTH_WAPI_PSK:
                 auth_str = "WIFI_AUTH_WAPI_PSK";
                 break;
+#endif
             case WIFI_AUTH_MAX:
                 auth_str = "WIFI_AUTH_MAX";
                 break;
@@ -492,6 +497,7 @@ esp_err_t dhyara::utils::http::routes(httpd_req_t* req){
             routes_json << "\"dst\":" << '"' << it->first.dst().to_string() << '"' << ",";
             routes_json << "\"via\":" << '"' << it->first.via().to_string() << '"' << ",";
             routes_json << "\"delay\":" << (double)it->second.delay()/1000.0 << ",";
+            routes_json << "\"hops\":" << (int)it->second.hops() << ",";
             routes_json << "\"updated\":" << it->second.updated();
             routes_json << "}";
         }
@@ -509,7 +515,8 @@ esp_err_t dhyara::utils::http::routes(httpd_req_t* req){
             next_json << "{";
             next_json << "\"dst\":" << '"' << it->first.to_string() << '"' << ",";
             next_json << "\"via\":" << '"' << it->second.via().to_string() << '"' << ",";
-            next_json << "\"delay\":" << (double)it->second.delay()/1000.0;
+            next_json << "\"delay\":" << (double)it->second.delay()/1000.0 << ",";
+            next_json << "\"hops\":" << (int)it->second.hops();
             next_json << "}";
         }
         next_json << "]";

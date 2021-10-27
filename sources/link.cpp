@@ -39,8 +39,17 @@ void dhyara::link::init(){
 
 
 bool dhyara::link::_transmit(const std::uint8_t* dest, const std::uint8_t* data, std::size_t len){
+#if CONFIG_ENABLE_MANDATORY_SLEEP_AFTER_TRANSMISSION
+    static std::uint8_t counter = 0;
+    counter = (counter +1) % CONFIG_ENABLE_MANDATORY_SLEEP_AFTER_TRANSMISSION_N;
+#endif 
     static std::uint8_t broadcast_addr[] = { 0xff, 0xff, 0xff, 0xff, 0xff, 0xff };
     esp_err_t error = esp_now_send(dest ? dest : broadcast_addr, data, len);
+#if CONFIG_ENABLE_MANDATORY_SLEEP_AFTER_TRANSMISSION
+    if(counter == 0){
+        vTaskDelay(pdMS_TO_TICKS(CONFIG_ENABLE_MANDATORY_SLEEP_AFTER_TRANSMISSION_TIME));
+    }
+#endif
     if(error != ESP_OK){
         ESP_LOGE("dhyara", "send failed %s", esp_err_to_name(error));
         return false;
@@ -96,7 +105,8 @@ void dhyara::link::_esp_promiscous_rx_cb(void* buffer, wifi_promiscuous_pkt_type
 void dhyara::link::_esp_rcvd_cb(const uint8_t* source, const uint8_t* data, int len){
     dhyara::read(_frame_rcv, data, len);
     dhyara::address addr(source);
-    _fifo_rcv.enqueue(addr, _frame_rcv);
+    _fifo_rcv.enqueue(addr, _frame_rcv);    // Enqueue the received frame which is dequeued and processed by another FReeRTOS Task
+    // q_receive(addr, _frame_rcv);         // Process the frame directly without queueing 
     _frame_rcv.clear();
 }
 
