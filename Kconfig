@@ -1,99 +1,115 @@
 menu "Dhyara ad hoc network"
 
     config DHYARA_RECEIVE_QUEUE_SIZE
-        int "receive queue capacity"
+        int "Receive queue capacity"
         range 20 500
-        default 256
-        help
-            Capacity of the queue for the received packets
-            
-    config DHYARA_SYNC_QUEUE_SIZE
-        int "synchronization queue capacity"
-        range 20 256
         default 64
         help
-            Capacity of the synchronization queue
+            All received packets are initially enqueued in a FreeRTOS queue which is dequeued by another
+            FreeRTOS task. This parameter specifies the capacity of that queue.
+            
+    config DHYARA_SYNC_QUEUE_SIZE
+        int "Synchronization queue capacity"
+        range 20 256
+        default 32
+        help
+            The neighbourhood synchronization messages are enqueued in a FreeRTOS queue which is dequeued
+            by another FreeRTOS task. This parameter specifies the capacity of the synchronization queue
             
     config DHYARA_PEER_CHANNEL
-        int "peer channel"
+        int "Peer channel"
         range 1 12
         default 1
         help
-            Dhyara peer channel
+            The 2.4Ghz WiFi channel which will be used by the nodes participating in the ad-hoc network.
             
     config DHYARA_BROADCAST_CHANNEL
-        int "broadcast channel"
+        int "Broadcast channel"
         range 1 12
         default 1
         help
-            Dhyara broadcast channel
+            The 2.4Ghz WiFi channel that is used by the dhyara node to broadcast the beacon at a fixed
+            time interval. Note: the other nodes must be able to get the broadcasted beacon.
             
     config DHYARA_BEACON_INTERVAL
-        int "beacon interval (ms)"
+        int "Beacon interval (ms)"
         range 10 60000
         default 1000
         help
-            Dhyara beacon interval
+            Dhyara broadcasts a beacon at a fixed interval to its neighbourhood. This parameter specifies
+            the time interval (in micro seconds) of each beacons. 
             
     config DHYARA_DELAY_TOLERANCE
-        int "delay tolerance (us)"
+        int "Delay tolerance (us)"
         range 0 5000
         default 0
         help
-            Dhyara delay tolerance
+            Once link quality of a route is changed then the old and the new delays are compared. If the 
+            difference between the old and the new delay is higher that the value specified in this parameter  
+            then it is considered that the link status has been changed. It is set to 0 by default. However  
+            for a large network a too low value like 0 may result into to many unnecessary synchronizations. 
             
     config DHYARA_DEPRECIATION_COEFFICIENT
-        int "depreciation coefficient"
+        int "Depreciation coefficient"
         range 2 20
         default 2
         help
-            while depretiating a route the current delay will be multiplied with this coefficient
+            Once the delay of a while depretiating a route the current delay will be multiplied with this coefficient
             
     config DHYARA_ADVERTISEMENT_EXPIRY
-        int "advertisement expiry (ms)"
+        int "Advertisement expiry (ms)"
         range 10 5000
         default 2000
         help
-            Dhyara advertisement expiry
+            Advertisement expiry
             
     config ROUTE_EXPIRY_COEFFICIENT
         int "route expiry coefficient"
         range 10 5000
         default 1000
         help
-            Dhyara route expiry coefficient
+            Route expiry coefficient
             
     config DISABLE_SEND_QUEUEING
         bool "Disable queueing of messages that are to be sent"
         default n
         help
-            Dhyara disable queueing of messages that are to be sent
+            When send queuing is enabled then messages are first queued and the dequeued 
+            by a seperate task which actually sends the message. Disabling send queuing
+            may improve network throughput while it may lead to frequent ESP_ERR_ESPNOW_NO_MEM
+            errors. 
             
     config ENABLE_MANDATORY_SLEEP_AFTER_TRANSMISSION
         bool "Enable Mandatory Sleep after consecutive transmitions"
         default y
         help
-            Mandatory Sleep after N consecutive transmitions
+            After N consecutive transmitions there would be a mandatory sleep for specified
+            number of microseconds. This sleep is to prevent frequent ESP_ERR_ESPNOW_NO_MEM
+            errors when sending too fast. At the same time this mandatory sleep prevents too
+            fast communication in the network. So for high speed setup it may be disabled.
             
     config ENABLE_MANDATORY_SLEEP_AFTER_TRANSMISSION_N
         int "Mandatory Sleep after N consecutive transmitions"
         range 1 100
         default 1
         help
-            After the specified transmissions there will be a mandatory sleep
+            Applicable only when mandatory sleep is enabled. Number of send instructions after
+            which the mandatoru sleep will be performed.
             
     config ENABLE_MANDATORY_SLEEP_AFTER_TRANSMISSION_TIME
         int "Amount of sleep (in ms) after consecutive transmitions"
         range 1 100
         default 1
         help
-            Amount of sleep (ms) after consecutive transmitions
+            Applicable only when mandatory sleep is enabled. Amount of time in number of micro
+            seconds, during which there will be no transmission (e.g. sleep).
             
     config ENABLE_HTTP_MANAGEMENT_SERVER
         bool "If enabled then provides an web based management console over HTTP"
         default y
         help
-            Dhyara enable web based management console over HTTP
+            Enable web based management console over HTTP that can be accessed by http://192.168.4.1 
+            after connecting to ESP32 node via wifi. 
             
     config DHYARA_UTIL_UDP_RELAY_BUFFER_SIZE
         int "UDP Relay Buffer Size"

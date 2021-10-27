@@ -3,3 +3,4 @@ build
 *.kdev4
 sdkconfig
 docs/source/api
+.cache
