@@ -18,6 +18,7 @@ var classdhyara_1_1link =
     [ "reset", "classdhyara_1_1link.html#a388cf4322e818fd5d33665c571c3ca37", null ],
     [ "routes", "classdhyara_1_1link.html#a7ddd5a31166f5f574a6c5f2cf463e655", null ],
     [ "rx", "classdhyara_1_1link.html#ae84e6d577ba8d0e9c3c575f735f55eb3", null ],
+    [ "send", "classdhyara_1_1link.html#a5dda111d17203e66cb9eff7467f83bd7", null ],
     [ "send", "classdhyara_1_1link.html#a85776d70bdb109d28f30264cad89a908", null ],
     [ "send_local", "classdhyara_1_1link.html#a8f418bc4200bf66c55499acb7076a261", null ],
     [ "start_rcv", "classdhyara_1_1link.html#a48d84ff3fff1d76658acfa4df424d943", null ],

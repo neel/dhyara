@@ -161,6 +161,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a85776d70bdb109d28f30264cad89a908"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classdhyara_1_1link.html#a85776d70bdb109d28f30264cad89a908">send</a> (const <a class="el" href="structdhyara_1_1address.html">dhyara::address</a> &amp;addr, <a class="el" href="group__packets.html#ga587a117adc54019693a184e4f8b4e0b5">packets::type</a> type, const PacketT &amp;packet)</td></tr>
 <tr class="memdesc:a85776d70bdb109d28f30264cad89a908"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a packet via the best intermediate node.  <a href="classdhyara_1_1link.html#a85776d70bdb109d28f30264cad89a908">More...</a><br /></td></tr>
 <tr class="separator:a85776d70bdb109d28f30264cad89a908"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5dda111d17203e66cb9eff7467f83bd7"><td class="memItemLeft" align="right" valign="top"><a id="a5dda111d17203e66cb9eff7467f83bd7"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdhyara_1_1link.html#a5dda111d17203e66cb9eff7467f83bd7">send</a> (const <a class="el" href="structdhyara_1_1address.html">dhyara::address</a> &amp;addr, const <a class="el" href="structdhyara_1_1frame.html">dhyara::frame</a> &amp;<a class="el" href="structdhyara_1_1frame.html">frame</a>)</td></tr>
+<tr class="memdesc:a5dda111d17203e66cb9eff7467f83bd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a frame. <br /></td></tr>
+<tr class="separator:a5dda111d17203e66cb9eff7467f83bd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad52747ce9c6acc559df80526a9286b5a"><td class="memItemLeft" align="right" valign="top"><a id="ad52747ce9c6acc559df80526a9286b5a"></a>
 <a class="el" href="structdhyara_1_1neighbourhood.html">dhyara::neighbourhood</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdhyara_1_1link.html#ad52747ce9c6acc559df80526a9286b5a">neighbours</a> ()</td></tr>
 <tr class="memdesc:ad52747ce9c6acc559df80526a9286b5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">immediate neighbourhood <br /></td></tr>
@@ -541,7 +545,7 @@ This function is supposed by the callback passed to esp_now_register_send_cb().<
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="link_8h_source.html#l00231">231</a> of file <a class="el" href="link_8h_source.html">link.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="link_8h_source.html#l00240">240</a> of file <a class="el" href="link_8h_source.html">link.h</a>.</p>
 
 </div>
 </div>
@@ -670,7 +674,7 @@ template&lt;typename PacketT &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="link_8h_source.html#l00151">151</a> of file <a class="el" href="link_8h_source.html">link.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="link_8h_source.html#l00153">153</a> of file <a class="el" href="link_8h_source.html">link.h</a>.</p>
 
 <p class="reference">References <a class="el" href="address_8h_source.html#l00130">dhyara::address::is_null()</a>, <a class="el" href="structdhyara_1_1routing_1_1table.html#a08ee3d6a319dfba2f15065e23a04b4be">dhyara::routing::table::next()</a>, <a class="el" href="link_8h_source.html#l00135">send_local()</a>, and <a class="el" href="next__hop_8h_source.html#l00049">dhyara::routing::next_hop::via()</a>.</p>
 
@@ -730,9 +734,9 @@ template&lt;typename PacketT &gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="link_8h_source.html#l00135">135</a> of file <a class="el" href="link_8h_source.html">link.h</a>.</p>
 
-<p class="reference">References <a class="el" href="classdhyara_1_1link.html#a706deb932a658c6dc3e638529bce7f5d">transmit()</a>, and <a class="el" href="io_8h_source.html#l00021">dhyara::write()</a>.</p>
+<p class="reference">References <a class="el" href="frame_8h_source.html#l00091">dhyara::frame::length()</a>, <a class="el" href="classdhyara_1_1link.html#a706deb932a658c6dc3e638529bce7f5d">transmit()</a>, <a class="el" href="frame_8h_source.html#l00083">dhyara::frame::type()</a>, and <a class="el" href="io_8h_source.html#l00021">dhyara::write()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="link_8h_source.html#l00151">send()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="link_8h_source.html#l00153">send()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -835,15 +839,16 @@ If Send Queueing is disabled then the frame is sent immediately without waiting 
   </dd>
 </dl>
 
-<p class="reference">Referenced by <a class="el" href="link_8h_source.html#l00135">send_local()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="link_8h_source.html#l00160">send()</a>, and <a class="el" href="link_8h_source.html#l00135">send_local()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdhyara_1_1link_a706deb932a658c6dc3e638529bce7f5d_icgraph.png" border="0" usemap="#classdhyara_1_1link_a706deb932a658c6dc3e638529bce7f5d_icgraph" alt=""/></div>
 <map name="classdhyara_1_1link_a706deb932a658c6dc3e638529bce7f5d_icgraph" id="classdhyara_1_1link_a706deb932a658c6dc3e638529bce7f5d_icgraph">
-<area shape="rect" title="Depending of the configuration of transmission queueing, Transmits/Enequeues a frame for sending to t..." alt="" coords="379,13,541,39"/>
-<area shape="rect" href="classdhyara_1_1link.html#a8f418bc4200bf66c55499acb7076a261" title="Sends a packet to an immediate neighbour directly in one hop." alt="" coords="192,5,331,47"/>
-<area shape="rect" href="classdhyara_1_1link.html#a85776d70bdb109d28f30264cad89a908" title="Sends a packet via the best intermediate node." alt="" coords="5,13,144,39"/>
+<area shape="rect" title="Depending of the configuration of transmission queueing, Transmits/Enequeues a frame for sending to t..." alt="" coords="379,35,541,61"/>
+<area shape="rect" href="classdhyara_1_1link.html#a5dda111d17203e66cb9eff7467f83bd7" title="Send a frame." alt="" coords="192,5,331,32"/>
+<area shape="rect" href="classdhyara_1_1link.html#a8f418bc4200bf66c55499acb7076a261" title="Sends a packet to an immediate neighbour directly in one hop." alt="" coords="192,57,331,98"/>
+<area shape="rect" href="classdhyara_1_1link.html#a85776d70bdb109d28f30264cad89a908" title="Sends a packet via the best intermediate node." alt="" coords="5,64,144,91"/>
 </map>
 </div>
 

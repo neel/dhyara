@@ -1,5 +1,6 @@
 <map id="dhyara::packets::data::begin" name="dhyara::packets::data::begin">
-<area shape="rect" id="node1" title="Returns an immutable iterator to the data." alt="" coords="427,5,589,47"/>
-<area shape="rect" id="node2" href="$structdhyara_1_1packets_1_1data.html#aa54624599278f9283fe9e1e871af024e" title="Construct a data packet by iterating over." alt="" coords="5,5,168,47"/>
-<area shape="rect" id="node3" href="$structdhyara_1_1packets_1_1data.html#a89b90f1ec3c8890222b8380f3dc1e26d" title="Fill the data packet by copying elements within [begin, end) range." alt="" coords="216,35,379,76"/>
+<area shape="rect" id="node1" title="Returns an const iterator to the data." alt="" coords="459,17,621,58"/>
+<area shape="rect" id="node2" href="$structdhyara_1_1packets_1_1data.html#aa54624599278f9283fe9e1e871af024e" title="Construct a data packet by iterating over." alt="" coords="5,21,168,62"/>
+<area shape="rect" id="node3" href="$structdhyara_1_1packets_1_1data.html#a2d769a6efdf09763b6151dd5cacd50d7" title="Returns an const iterator to the data that points to the ending position of n&#39;th chunk." alt="" coords="216,24,411,51"/>
+<area shape="rect" id="node4" href="$structdhyara_1_1packets_1_1data.html#a89b90f1ec3c8890222b8380f3dc1e26d" title="Fill the data packet by copying elements within [begin, end) range." alt="" coords="232,76,395,117"/>
 </map>

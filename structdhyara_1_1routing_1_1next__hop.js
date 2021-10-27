@@ -1,8 +1,8 @@
 var structdhyara_1_1routing_1_1next__hop =
 [
-    [ "next_hop", "structdhyara_1_1routing_1_1next__hop.html#ad3ebe41f85e19006e5b856f91eb9f8c1", null ],
-    [ "next_hop", "structdhyara_1_1routing_1_1next__hop.html#adec50f22b795d53fef3a2a9eb4f0832d", null ],
+    [ "next_hop", "structdhyara_1_1routing_1_1next__hop.html#a5ce224674c309e519d884fd7751e550d", null ],
     [ "delay", "structdhyara_1_1routing_1_1next__hop.html#a5ac456e9b6534e035a6e8902e56a4583", null ],
+    [ "hops", "structdhyara_1_1routing_1_1next__hop.html#a15d4e1d789c59b43b9ac5720cc7c9a4c", null ],
     [ "operator!=", "structdhyara_1_1routing_1_1next__hop.html#a63a0be8e8b1a3387092d7b9a53658a82", null ],
     [ "operator=", "structdhyara_1_1routing_1_1next__hop.html#a67b39410a3f76b0de6c6fc9a700eff49", null ],
     [ "operator==", "structdhyara_1_1routing_1_1next__hop.html#a72e7065b0cfaec258ce92f91139bb344", null ],

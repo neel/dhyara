@@ -129,8 +129,11 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1packets_1_1chunk.html#a58c5c7fcd001bcbeb79f6cd1c163d275">chunk</a> ()</td></tr>
 <tr class="memdesc:a58c5c7fcd001bcbeb79f6cd1c163d275"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct an empty chunk. <br /></td></tr>
 <tr class="separator:a58c5c7fcd001bcbeb79f6cd1c163d275"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f6127f46a58b0e9353ecee45c66461e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1packets_1_1chunk.html#a9f6127f46a58b0e9353ecee45c66461e">chunk</a> (const <a class="el" href="structdhyara_1_1address.html">dhyara::address</a> &amp;<a class="el" href="structdhyara_1_1packets_1_1chunk.html#a34c080d99b92cd736353fdb047388215">target</a>, const <a class="el" href="structdhyara_1_1address.html">dhyara::address</a> &amp;<a class="el" href="structdhyara_1_1packets_1_1chunk.html#a777da9a419c6cd260fdcc5cf0e8b06fe">source</a>, std::uint8_t <a class="el" href="structdhyara_1_1packets_1_1chunk.html#a592368097ba3968c0a393a873b8e38e0">packet</a>)</td></tr>
+<tr class="memdesc:a9f6127f46a58b0e9353ecee45c66461e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a chunk by reading length bytes from begin iterator.  <a href="structdhyara_1_1packets_1_1chunk.html#a9f6127f46a58b0e9353ecee45c66461e">More...</a><br /></td></tr>
+<tr class="separator:a9f6127f46a58b0e9353ecee45c66461e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4c40dc1aa8fe624934432250cf77d6f9"><td class="memTemplParams" colspan="2">template&lt;typename InputIt &gt; </td></tr>
-<tr class="memitem:a4c40dc1aa8fe624934432250cf77d6f9"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structdhyara_1_1packets_1_1chunk.html#a4c40dc1aa8fe624934432250cf77d6f9">chunk</a> (const <a class="el" href="structdhyara_1_1address.html">dhyara::address</a> &amp;<a class="el" href="structdhyara_1_1packets_1_1chunk.html#a34c080d99b92cd736353fdb047388215">target</a>, const <a class="el" href="structdhyara_1_1address.html">dhyara::address</a> &amp;<a class="el" href="structdhyara_1_1packets_1_1chunk.html#a777da9a419c6cd260fdcc5cf0e8b06fe">source</a>, InputIt <a class="el" href="structdhyara_1_1packets_1_1chunk.html#afc95a131bccd685672ed680aa5e5a457">begin</a>, std::uint8_t <a class="el" href="structdhyara_1_1packets_1_1chunk.html#af2f27ce4398a7c955a884f96999e74ae">length</a>, std::uint8_t <a class="el" href="structdhyara_1_1packets_1_1chunk.html#a592368097ba3968c0a393a873b8e38e0">packet</a>, std::uint8_t <a class="el" href="structdhyara_1_1packets_1_1chunk.html#afe5af1f44a01083f2f6bff0e5f5340bf">pending</a>=0)</td></tr>
+<tr class="memitem:a4c40dc1aa8fe624934432250cf77d6f9"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structdhyara_1_1packets_1_1chunk.html#a4c40dc1aa8fe624934432250cf77d6f9">chunk</a> (const <a class="el" href="structdhyara_1_1address.html">dhyara::address</a> &amp;<a class="el" href="structdhyara_1_1packets_1_1chunk.html#a34c080d99b92cd736353fdb047388215">target</a>, const <a class="el" href="structdhyara_1_1address.html">dhyara::address</a> &amp;<a class="el" href="structdhyara_1_1packets_1_1chunk.html#a777da9a419c6cd260fdcc5cf0e8b06fe">source</a>, InputIt <a class="el" href="structdhyara_1_1packets_1_1chunk.html#a727a054127f379ec058c0ba9a6c684f3">begin</a>, std::uint8_t <a class="el" href="structdhyara_1_1packets_1_1chunk.html#af2f27ce4398a7c955a884f96999e74ae">length</a>, std::uint8_t <a class="el" href="structdhyara_1_1packets_1_1chunk.html#a592368097ba3968c0a393a873b8e38e0">packet</a>, std::uint8_t <a class="el" href="structdhyara_1_1packets_1_1chunk.html#afe5af1f44a01083f2f6bff0e5f5340bf">pending</a>=0)</td></tr>
 <tr class="memdesc:a4c40dc1aa8fe624934432250cf77d6f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a chunk by reading length bytes from begin iterator.  <a href="structdhyara_1_1packets_1_1chunk.html#a4c40dc1aa8fe624934432250cf77d6f9">More...</a><br /></td></tr>
 <tr class="separator:a4c40dc1aa8fe624934432250cf77d6f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9efb17de917103bacb7f7dec7e90db8c"><td class="memItemLeft" align="right" valign="top"><a id="a9efb17de917103bacb7f7dec7e90db8c"></a>
@@ -141,10 +144,18 @@ const <a class="el" href="structdhyara_1_1packets_1_1chunk__header.html">chunk_h
 std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1packets_1_1chunk.html#a05ba2e4dec4caa99e783c1d21611075d">size</a> () const</td></tr>
 <tr class="memdesc:a05ba2e4dec4caa99e783c1d21611075d"><td class="mdescLeft">&#160;</td><td class="mdescRight">byte size of the chunk <br /></td></tr>
 <tr class="separator:a05ba2e4dec4caa99e783c1d21611075d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac1ca288a7fff3f359639c112418f313f"><td class="memTemplParams" colspan="2">template&lt;typename OutIt &gt; </td></tr>
-<tr class="memitem:ac1ca288a7fff3f359639c112418f313f"><td class="memTemplItemLeft" align="right" valign="top">OutIt&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structdhyara_1_1packets_1_1chunk.html#ac1ca288a7fff3f359639c112418f313f">copy</a> (OutIt it)</td></tr>
-<tr class="memdesc:ac1ca288a7fff3f359639c112418f313f"><td class="mdescLeft">&#160;</td><td class="mdescRight">copy the contents of the chunk to the output iterator provided  <a href="structdhyara_1_1packets_1_1chunk.html#ac1ca288a7fff3f359639c112418f313f">More...</a><br /></td></tr>
-<tr class="separator:ac1ca288a7fff3f359639c112418f313f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbded7d85f3063426bb5d03e76575445"><td class="memTemplParams" colspan="2">template&lt;typename OutIt &gt; </td></tr>
+<tr class="memitem:afbded7d85f3063426bb5d03e76575445"><td class="memTemplItemLeft" align="right" valign="top">OutIt&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structdhyara_1_1packets_1_1chunk.html#afbded7d85f3063426bb5d03e76575445">copy_to</a> (OutIt it) const</td></tr>
+<tr class="memdesc:afbded7d85f3063426bb5d03e76575445"><td class="mdescLeft">&#160;</td><td class="mdescRight">copy the contents of the chunk to the output iterator provided  <a href="structdhyara_1_1packets_1_1chunk.html#afbded7d85f3063426bb5d03e76575445">More...</a><br /></td></tr>
+<tr class="separator:afbded7d85f3063426bb5d03e76575445"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a727a054127f379ec058c0ba9a6c684f3"><td class="memItemLeft" align="right" valign="top"><a id="a727a054127f379ec058c0ba9a6c684f3"></a>
+iterator_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1packets_1_1chunk.html#a727a054127f379ec058c0ba9a6c684f3">begin</a> ()</td></tr>
+<tr class="memdesc:a727a054127f379ec058c0ba9a6c684f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">begin of the chunk payload <br /></td></tr>
+<tr class="separator:a727a054127f379ec058c0ba9a6c684f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf8bafa08ac2afc084c09bab06bfbbe0"><td class="memItemLeft" align="right" valign="top"><a id="acf8bafa08ac2afc084c09bab06bfbbe0"></a>
+iterator_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1packets_1_1chunk.html#acf8bafa08ac2afc084c09bab06bfbbe0">end</a> ()</td></tr>
+<tr class="memdesc:acf8bafa08ac2afc084c09bab06bfbbe0"><td class="mdescLeft">&#160;</td><td class="mdescRight">end of the chunk payload <br /></td></tr>
+<tr class="separator:acf8bafa08ac2afc084c09bab06bfbbe0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc95a131bccd685672ed680aa5e5a457"><td class="memItemLeft" align="right" valign="top"><a id="afc95a131bccd685672ed680aa5e5a457"></a>
 const_iterator_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1packets_1_1chunk.html#afc95a131bccd685672ed680aa5e5a457">begin</a> () const</td></tr>
 <tr class="memdesc:afc95a131bccd685672ed680aa5e5a457"><td class="mdescLeft">&#160;</td><td class="mdescRight">begin of the chunk payload <br /></td></tr>
@@ -181,10 +192,64 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stru
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Chunk of a variable sized data. </p>
 
-<p class="definition">Definition at line <a class="el" href="packets_2chunk_8h_source.html#l00084">84</a> of file <a class="el" href="packets_2chunk_8h_source.html">chunk.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="packets_2chunk_8h_source.html#l00087">87</a> of file <a class="el" href="packets_2chunk_8h_source.html">chunk.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a9f6127f46a58b0e9353ecee45c66461e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f6127f46a58b0e9353ecee45c66461e">&#9670;&nbsp;</a></span>chunk() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">dhyara::packets::chunk::chunk </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structdhyara_1_1address.html">dhyara::address</a> &amp;&#160;</td>
+          <td class="paramname"><em>target</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structdhyara_1_1address.html">dhyara::address</a> &amp;&#160;</td>
+          <td class="paramname"><em>source</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::uint8_t&#160;</td>
+          <td class="paramname"><em>packet</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Construct a chunk by reading length bytes from begin iterator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target</td><td>the target MAC address </td></tr>
+    <tr><td class="paramname">source</td><td>the source MAC address </td></tr>
+    <tr><td class="paramname">packet</td><td>packet id of the data packet of which this chunk is part of </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="packets_2chunk_8h_source.html#l00110">110</a> of file <a class="el" href="packets_2chunk_8h_source.html">chunk.h</a>.</p>
+
+</div>
+</div>
 <a id="a4c40dc1aa8fe624934432250cf77d6f9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4c40dc1aa8fe624934432250cf77d6f9">&#9670;&nbsp;</a></span>chunk()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c40dc1aa8fe624934432250cf77d6f9">&#9670;&nbsp;</a></span>chunk() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -256,15 +321,15 @@ template&lt;typename InputIt &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="packets_2chunk_8h_source.html#l00108">108</a> of file <a class="el" href="packets_2chunk_8h_source.html">chunk.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="packets_2chunk_8h_source.html#l00121">121</a> of file <a class="el" href="packets_2chunk_8h_source.html">chunk.h</a>.</p>
 
-<p class="reference">References <a class="el" href="packets_2chunk_8h_source.html#l00133">begin()</a>, <a class="el" href="packets_2chunk_8h_source.html#l00137">end()</a>, and <a class="el" href="packets_2chunk_8h_source.html#l00046">dhyara::packets::chunk_header::length()</a>.</p>
+<p class="reference">References <a class="el" href="packets_2chunk_8h_source.html#l00147">begin()</a>, <a class="el" href="packets_2chunk_8h_source.html#l00151">end()</a>, and <a class="el" href="packets_2chunk_8h_source.html#l00046">dhyara::packets::chunk_header::length()</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ac1ca288a7fff3f359639c112418f313f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac1ca288a7fff3f359639c112418f313f">&#9670;&nbsp;</a></span>copy()</h2>
+<a id="afbded7d85f3063426bb5d03e76575445"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afbded7d85f3063426bb5d03e76575445">&#9670;&nbsp;</a></span>copy_to()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -275,11 +340,11 @@ template&lt;typename OutIt &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">OutIt dhyara::packets::chunk::copy </td>
+          <td class="memname">OutIt dhyara::packets::chunk::copy_to </td>
           <td>(</td>
           <td class="paramtype">OutIt&#160;</td>
           <td class="paramname"><em>it</em></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -297,7 +362,7 @@ template&lt;typename OutIt &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="packets_2chunk_8h_source.html#l00125">125</a> of file <a class="el" href="packets_2chunk_8h_source.html">chunk.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="packets_2chunk_8h_source.html#l00138">138</a> of file <a class="el" href="packets_2chunk_8h_source.html">chunk.h</a>.</p>
 
 <p class="reference">References <a class="el" href="packets_2chunk_8h_source.html#l00046">dhyara::packets::chunk_header::length()</a>.</p>
 

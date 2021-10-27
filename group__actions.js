@@ -37,13 +37,8 @@ var group__actions =
       [ "operator()", "structdhyara_1_1actions_1_1echo__lost.html#a1f526cd85b91ab6088042da50e68933d", null ]
     ] ],
     [ "echo_reply", "structdhyara_1_1actions_1_1echo__reply.html", [
-      [ "rtt_stat", "structdhyara_1_1actions_1_1echo__reply_1_1rtt__stat.html", [
-        [ "reset", "structdhyara_1_1actions_1_1echo__reply_1_1rtt__stat.html#ade48bd2a92dab448780d2afa610c391c", null ]
-      ] ],
       [ "echo_reply", "structdhyara_1_1actions_1_1echo__reply.html#abd80db0094c73dcf5e9802ddef9038ed", null ],
-      [ "operator()", "structdhyara_1_1actions_1_1echo__reply.html#af59db10fce0acdcf5357ffa0e463c4b8", null ],
-      [ "reset", "structdhyara_1_1actions_1_1echo__reply.html#aa798786adbc8e219f764ff6376d7e64a", null ],
-      [ "rtt", "structdhyara_1_1actions_1_1echo__reply.html#a708c7b9c8f5b0abf9d4f1e127e630cf5", null ]
+      [ "operator()", "structdhyara_1_1actions_1_1echo__reply.html#af59db10fce0acdcf5357ffa0e463c4b8", null ]
     ] ],
     [ "echo_request", "structdhyara_1_1actions_1_1echo__request.html", [
       [ "echo_request", "structdhyara_1_1actions_1_1echo__request.html#aa32a0f211226e22acf66d320da7f85aa", null ],

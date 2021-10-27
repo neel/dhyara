@@ -2,6 +2,8 @@ var structdhyara_1_1packets_1_1echo__reply =
 [
     [ "echo_reply", "structdhyara_1_1packets_1_1echo__reply.html#a8c4bfd0ba376b06244091a6b4dbae99f", null ],
     [ "echo_reply", "structdhyara_1_1packets_1_1echo__reply.html#a0a72260ea9d3d9d165830299133eccca", null ],
+    [ "latency", "structdhyara_1_1packets_1_1echo__reply.html#a028233db6579bc03e3057b184645e659", null ],
+    [ "rtime", "structdhyara_1_1packets_1_1echo__reply.html#a4b76dcac7f870045118c3b4bb9880fa5", null ],
     [ "seq", "structdhyara_1_1packets_1_1echo__reply.html#ae09f0e791dc03342fed480dfdf9225c2", null ],
     [ "size", "structdhyara_1_1packets_1_1echo__reply.html#ad9b68a7769b89a78a8eeb46135cea817", null ],
     [ "source", "structdhyara_1_1packets_1_1echo__reply.html#a0c21f22dee50fa5e0f4ac71799c8cf8e", null ],

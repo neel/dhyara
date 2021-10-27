@@ -36,7 +36,8 @@ var annotated_dup =
       ] ],
       [ "utils", null, [
         [ "http", "structdhyara_1_1utils_1_1http.html", "structdhyara_1_1utils_1_1http" ],
-        [ "printer", "structdhyara_1_1utils_1_1printer.html", null ]
+        [ "printer", "structdhyara_1_1utils_1_1printer.html", null ],
+        [ "udp_relay", "classdhyara_1_1utils_1_1udp__relay.html", "classdhyara_1_1utils_1_1udp__relay" ]
       ] ],
       [ "address", "structdhyara_1_1address.html", "structdhyara_1_1address" ],
       [ "candidate", "structdhyara_1_1candidate.html", "structdhyara_1_1candidate" ],

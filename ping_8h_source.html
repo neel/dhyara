@@ -145,19 +145,23 @@ $(document).ready(function(){initNavTree('ping_8h_source.html',''); initResizabl
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="structdhyara_1_1tools_1_1ping.html#a30216b7ae52f5f2bfc8066abfe050c76">reply</a>(<span class="keyword">const</span> <a class="code" href="structdhyara_1_1address.html">dhyara::address</a>&amp; addr, <span class="keyword">const</span> <a class="code" href="structdhyara_1_1packets_1_1echo__reply.html">dhyara::packets::echo_reply</a>&amp; <a class="code" href="structdhyara_1_1tools_1_1ping.html#a30216b7ae52f5f2bfc8066abfe050c76">reply</a>);</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    </div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <a class="code" href="structdhyara_1_1network.html">dhyara::network</a>&amp; _network;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        std::uint8_t     _count;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        std::int8_t      _batch;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        std::uint8_t     _sleep;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        std::size_t      _conn_reply;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        delay_type       _first;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        delay_type       _last;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;};</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    </div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;}</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;}</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="preprocessor">#endif // DHYARA_TOOLS_PING_H</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keyword">using</span> stat_tuple = std::tuple&lt;delay_type, delay_type, delay_type, delay_type&gt;;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <a class="code" href="structdhyara_1_1network.html">dhyara::network</a>&amp; _network;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        std::uint8_t     _count;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        std::int8_t      _batch;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        std::uint8_t     _sleep;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        std::size_t      _conn_reply;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        delay_type       _first;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        delay_type       _last;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        std::vector&lt;stat_tuple&gt; _stats;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;};</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    </div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;}</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;}</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="preprocessor">#endif // DHYARA_TOOLS_PING_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="astructdhyara_1_1address_html"><div class="ttname"><a href="structdhyara_1_1address.html">dhyara::address</a></div><div class="ttdoc">peer address (mac address)</div><div class="ttdef"><b>Definition:</b> <a href="address_8h_source.html#l00028">address.h:28</a></div></div>

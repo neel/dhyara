@@ -1,9 +1,12 @@
 var structdhyara_1_1packets_1_1chunk =
 [
     [ "chunk", "structdhyara_1_1packets_1_1chunk.html#a58c5c7fcd001bcbeb79f6cd1c163d275", null ],
+    [ "chunk", "structdhyara_1_1packets_1_1chunk.html#a9f6127f46a58b0e9353ecee45c66461e", null ],
     [ "chunk", "structdhyara_1_1packets_1_1chunk.html#a4c40dc1aa8fe624934432250cf77d6f9", null ],
+    [ "begin", "structdhyara_1_1packets_1_1chunk.html#a727a054127f379ec058c0ba9a6c684f3", null ],
     [ "begin", "structdhyara_1_1packets_1_1chunk.html#afc95a131bccd685672ed680aa5e5a457", null ],
-    [ "copy", "structdhyara_1_1packets_1_1chunk.html#ac1ca288a7fff3f359639c112418f313f", null ],
+    [ "copy_to", "structdhyara_1_1packets_1_1chunk.html#afbded7d85f3063426bb5d03e76575445", null ],
+    [ "end", "structdhyara_1_1packets_1_1chunk.html#acf8bafa08ac2afc084c09bab06bfbbe0", null ],
     [ "end", "structdhyara_1_1packets_1_1chunk.html#ac7a7865cb9d3ddf2eebfa73bac58d34f", null ],
     [ "header", "structdhyara_1_1packets_1_1chunk.html#a9efb17de917103bacb7f7dec7e90db8c", null ],
     [ "is_last", "structdhyara_1_1packets_1_1chunk.html#aa53aeb8b359fc8bf201e7ed71f84e723", null ],

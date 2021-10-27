@@ -116,14 +116,18 @@ $(document).ready(function(){initNavTree('structdhyara_1_1routing_1_1metric.html
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae8bbb2b97fc400aa97264de94a166b2d"><td class="memItemLeft" align="right" valign="top"><a id="ae8bbb2b97fc400aa97264de94a166b2d"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1routing_1_1metric.html#ae8bbb2b97fc400aa97264de94a166b2d">metric</a> (const dhyara::delay_type &amp;<a class="el" href="structdhyara_1_1routing_1_1metric.html#a578076815c18cb5aa36e4c8eb61f6e50">delay</a>, const dhyara::delay_type &amp;<a class="el" href="structdhyara_1_1routing_1_1metric.html#a4bafe181da3640e815ca8816294965fc">updated</a>)</td></tr>
-<tr class="memdesc:ae8bbb2b97fc400aa97264de94a166b2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">construct a route metric with delay and last updated time <br /></td></tr>
-<tr class="separator:ae8bbb2b97fc400aa97264de94a166b2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7453fa6a47629903ec22ab89c23ebfb"><td class="memItemLeft" align="right" valign="top"><a id="ab7453fa6a47629903ec22ab89c23ebfb"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1routing_1_1metric.html#ab7453fa6a47629903ec22ab89c23ebfb">metric</a> (const dhyara::delay_type &amp;<a class="el" href="structdhyara_1_1routing_1_1metric.html#a578076815c18cb5aa36e4c8eb61f6e50">delay</a>, std::uint8_t <a class="el" href="structdhyara_1_1routing_1_1metric.html#a302cd8c03d990ea5fecc7fa839677843">hops</a>, const dhyara::delay_type &amp;<a class="el" href="structdhyara_1_1routing_1_1metric.html#a4bafe181da3640e815ca8816294965fc">updated</a>)</td></tr>
+<tr class="memdesc:ab7453fa6a47629903ec22ab89c23ebfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">construct a route metric with delay and last updated time <br /></td></tr>
+<tr class="separator:ab7453fa6a47629903ec22ab89c23ebfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a578076815c18cb5aa36e4c8eb61f6e50"><td class="memItemLeft" align="right" valign="top"><a id="a578076815c18cb5aa36e4c8eb61f6e50"></a>
 const dhyara::delay_type &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1routing_1_1metric.html#a578076815c18cb5aa36e4c8eb61f6e50">delay</a> () const</td></tr>
 <tr class="memdesc:a578076815c18cb5aa36e4c8eb61f6e50"><td class="mdescLeft">&#160;</td><td class="mdescRight">one trip delay encountered in this route <br /></td></tr>
 <tr class="separator:a578076815c18cb5aa36e4c8eb61f6e50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a302cd8c03d990ea5fecc7fa839677843"><td class="memItemLeft" align="right" valign="top"><a id="a302cd8c03d990ea5fecc7fa839677843"></a>
+std::uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1routing_1_1metric.html#a302cd8c03d990ea5fecc7fa839677843">hops</a> () const</td></tr>
+<tr class="memdesc:a302cd8c03d990ea5fecc7fa839677843"><td class="mdescLeft">&#160;</td><td class="mdescRight">one trip hops encountered in this route <br /></td></tr>
+<tr class="separator:a302cd8c03d990ea5fecc7fa839677843"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4bafe181da3640e815ca8816294965fc"><td class="memItemLeft" align="right" valign="top"><a id="a4bafe181da3640e815ca8816294965fc"></a>
 const dhyara::delay_type &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1routing_1_1metric.html#a4bafe181da3640e815ca8816294965fc">updated</a> () const</td></tr>
 <tr class="memdesc:a4bafe181da3640e815ca8816294965fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">last updated time <br /></td></tr>
@@ -132,9 +136,9 @@ const dhyara::delay_type &amp;&#160;</td><td class="memItemRight" valign="bottom
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1routing_1_1metric.html#a39146f7fb0c620da49d7d5dc44bc0fd0">update</a> ()</td></tr>
 <tr class="memdesc:a39146f7fb0c620da49d7d5dc44bc0fd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">update the last updated time <br /></td></tr>
 <tr class="separator:a39146f7fb0c620da49d7d5dc44bc0fd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac05899f3c0f43a834d08277fd49d8a60"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1routing_1_1metric.html#ac05899f3c0f43a834d08277fd49d8a60">update</a> (dhyara::delay_type <a class="el" href="structdhyara_1_1routing_1_1metric.html#a578076815c18cb5aa36e4c8eb61f6e50">delay</a>, bool sync_updated=true)</td></tr>
-<tr class="memdesc:ac05899f3c0f43a834d08277fd49d8a60"><td class="mdescLeft">&#160;</td><td class="mdescRight">update the route with a delay.  <a href="structdhyara_1_1routing_1_1metric.html#ac05899f3c0f43a834d08277fd49d8a60">More...</a><br /></td></tr>
-<tr class="separator:ac05899f3c0f43a834d08277fd49d8a60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a527942b85960e3230fe94c3c6b3d49da"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1routing_1_1metric.html#a527942b85960e3230fe94c3c6b3d49da">update</a> (dhyara::delay_type <a class="el" href="structdhyara_1_1routing_1_1metric.html#a578076815c18cb5aa36e4c8eb61f6e50">delay</a>, std::uint8_t <a class="el" href="structdhyara_1_1routing_1_1metric.html#a302cd8c03d990ea5fecc7fa839677843">hops</a>=0, bool sync_updated=true)</td></tr>
+<tr class="memdesc:a527942b85960e3230fe94c3c6b3d49da"><td class="mdescLeft">&#160;</td><td class="mdescRight">update the route with a delay.  <a href="structdhyara_1_1routing_1_1metric.html#a527942b85960e3230fe94c3c6b3d49da">More...</a><br /></td></tr>
+<tr class="separator:a527942b85960e3230fe94c3c6b3d49da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a00ddc086f95939ffdb65fd146484c4de"><td class="memItemLeft" align="right" valign="top"><a id="a00ddc086f95939ffdb65fd146484c4de"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1routing_1_1metric.html#a00ddc086f95939ffdb65fd146484c4de">operator&lt;</a> (const <a class="el" href="structdhyara_1_1routing_1_1metric.html">metric</a> &amp;other) const</td></tr>
 <tr class="memdesc:a00ddc086f95939ffdb65fd146484c4de"><td class="mdescLeft">&#160;</td><td class="mdescRight">sortable by delay <br /></td></tr>
@@ -145,8 +149,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stru
 
 <p class="definition">Definition at line <a class="el" href="metric_8h_source.html#l00023">23</a> of file <a class="el" href="metric_8h_source.html">metric.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="ac05899f3c0f43a834d08277fd49d8a60"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac05899f3c0f43a834d08277fd49d8a60">&#9670;&nbsp;</a></span>update()</h2>
+<a id="a527942b85960e3230fe94c3c6b3d49da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a527942b85960e3230fe94c3c6b3d49da">&#9670;&nbsp;</a></span>update()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -156,6 +160,12 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stru
           <td>(</td>
           <td class="paramtype">dhyara::delay_type&#160;</td>
           <td class="paramname"><em>delay</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::uint8_t&#160;</td>
+          <td class="paramname"><em>hops</em> = <code>0</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>

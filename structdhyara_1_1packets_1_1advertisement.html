@@ -129,9 +129,9 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1packets_1_1advertisement.html#a1f2c6de70f75715e15425da9bcf3a579">advertisement</a> ()</td></tr>
 <tr class="memdesc:a1f2c6de70f75715e15425da9bcf3a579"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct an advertisement packet with null destination and no delay. <br /></td></tr>
 <tr class="separator:a1f2c6de70f75715e15425da9bcf3a579"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2397eaa6eea21100f81e7eb4519f6785"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1packets_1_1advertisement.html#a2397eaa6eea21100f81e7eb4519f6785">advertisement</a> (const <a class="el" href="structdhyara_1_1address.html">dhyara::address</a> &amp;<a class="el" href="structdhyara_1_1packets_1_1advertisement.html#a565139dcfdb91e0d5fe422ad506b3fee">dest</a>, delay_type <a class="el" href="structdhyara_1_1packets_1_1advertisement.html#a085151f09c20667f192f60cea3dc0c1e">delay</a>, const std::string <a class="el" href="structdhyara_1_1packets_1_1advertisement.html#a341925012055896f0906a034100ff51c">name</a>=&quot;&quot;)</td></tr>
-<tr class="memdesc:a2397eaa6eea21100f81e7eb4519f6785"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct an advertisement packet with the given destination and the delay specified.  <a href="structdhyara_1_1packets_1_1advertisement.html#a2397eaa6eea21100f81e7eb4519f6785">More...</a><br /></td></tr>
-<tr class="separator:a2397eaa6eea21100f81e7eb4519f6785"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96cce4043a625ef807ed90bae34c0213"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1packets_1_1advertisement.html#a96cce4043a625ef807ed90bae34c0213">advertisement</a> (const <a class="el" href="structdhyara_1_1address.html">dhyara::address</a> &amp;<a class="el" href="structdhyara_1_1packets_1_1advertisement.html#a565139dcfdb91e0d5fe422ad506b3fee">dest</a>, delay_type <a class="el" href="structdhyara_1_1packets_1_1advertisement.html#a085151f09c20667f192f60cea3dc0c1e">delay</a>, std::uint8_t <a class="el" href="structdhyara_1_1packets_1_1advertisement.html#aa615abfb23bb682f183d46da405dc712">hops</a>, const std::string <a class="el" href="structdhyara_1_1packets_1_1advertisement.html#a341925012055896f0906a034100ff51c">name</a>=&quot;&quot;)</td></tr>
+<tr class="memdesc:a96cce4043a625ef807ed90bae34c0213"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct an advertisement packet with the given destination and the delay specified.  <a href="structdhyara_1_1packets_1_1advertisement.html#a96cce4043a625ef807ed90bae34c0213">More...</a><br /></td></tr>
+<tr class="separator:a96cce4043a625ef807ed90bae34c0213"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa493edf76d104f4c28fc855af1072199"><td class="memItemLeft" align="right" valign="top"><a id="aa493edf76d104f4c28fc855af1072199"></a>
 std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1packets_1_1advertisement.html#aa493edf76d104f4c28fc855af1072199">size</a> () const</td></tr>
 <tr class="memdesc:aa493edf76d104f4c28fc855af1072199"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of the packet. <br /></td></tr>
@@ -148,10 +148,18 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stru
 const delay_type &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1packets_1_1advertisement.html#a085151f09c20667f192f60cea3dc0c1e">delay</a> () const</td></tr>
 <tr class="memdesc:a085151f09c20667f192f60cea3dc0c1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delay in the advertisement packet. <br /></td></tr>
 <tr class="separator:a085151f09c20667f192f60cea3dc0c1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa615abfb23bb682f183d46da405dc712"><td class="memItemLeft" align="right" valign="top"><a id="aa615abfb23bb682f183d46da405dc712"></a>
+std::uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1packets_1_1advertisement.html#aa615abfb23bb682f183d46da405dc712">hops</a> () const</td></tr>
+<tr class="memdesc:aa615abfb23bb682f183d46da405dc712"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hops in the advertisement packet. <br /></td></tr>
+<tr class="separator:aa615abfb23bb682f183d46da405dc712"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60d98b7147072fc8aed471cd18ed1037"><td class="memItemLeft" align="right" valign="top"><a id="a60d98b7147072fc8aed471cd18ed1037"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1packets_1_1advertisement.html#a60d98b7147072fc8aed471cd18ed1037">delay</a> (const delay_type &amp;d)</td></tr>
 <tr class="memdesc:a60d98b7147072fc8aed471cd18ed1037"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delay in the advertisement packet. <br /></td></tr>
 <tr class="separator:a60d98b7147072fc8aed471cd18ed1037"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38a056fc3ef1b6f1ea9f9b5f65b45045"><td class="memItemLeft" align="right" valign="top"><a id="a38a056fc3ef1b6f1ea9f9b5f65b45045"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1packets_1_1advertisement.html#a38a056fc3ef1b6f1ea9f9b5f65b45045">hops</a> (std::uint8_t h)</td></tr>
+<tr class="memdesc:a38a056fc3ef1b6f1ea9f9b5f65b45045"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hops in the advertisement packet. <br /></td></tr>
+<tr class="separator:a38a056fc3ef1b6f1ea9f9b5f65b45045"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a341925012055896f0906a034100ff51c"><td class="memItemLeft" align="right" valign="top"><a id="a341925012055896f0906a034100ff51c"></a>
 const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1packets_1_1advertisement.html#a341925012055896f0906a034100ff51c">name</a> () const</td></tr>
 <tr class="memdesc:a341925012055896f0906a034100ff51c"><td class="mdescLeft">&#160;</td><td class="mdescRight">name in the advertisement packet <br /></td></tr>
@@ -163,14 +171,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stru
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>If any operation on the routing table \(R_{i}\) alters/creates a best route or the delay of a best route for a destination \(X_{t}\) then an <a class="el" href="structdhyara_1_1packets_1_1advertisement.html">Advertisement</a> is sent to \(X_{j}\,\forall X_{j} \in Neibourhood(X_{i})\) from \(X_{i}\). </p>
-<p>The <a class="el" href="structdhyara_1_1packets_1_1advertisement.html">Advertisement</a> contains the destination node \(X_{t}\) and \(\delta_{t,i}\) the minimum delay to reach \(X_{t}\) from \(X_{i}\). The best intermediate node (which may be 0 also) is not advertised. If the best vector is not altered by the updatation of routing table then no Advertisement packet is sent. However if \(\exists X_{k} ∊ X\) for which no broadcast packet has been sent for a large amount of time then an <a class="el" href="structdhyara_1_1packets_1_1advertisement.html">Advertisement</a> regarding \(X_{k}\) is sent even if there is not change in the best vector. The advertisement packet contains route information about a node (dest). The route information includes one trip delay from the source node. </p><div class="fragment"><div class="line">+--- 6 bytes ---+---- 8 bytes -----+---- 1 <span class="keywordtype">byte</span> -----+---- N bytes ---+</div>
-<div class="line">|  destination  |  one trip <a class="code" href="structdhyara_1_1packets_1_1advertisement.html#a085151f09c20667f192f60cea3dc0c1e">delay</a>  | <a class="code" href="structdhyara_1_1packets_1_1advertisement.html#a341925012055896f0906a034100ff51c">name</a> length (N) |      Name      |</div>
-<div class="line">+---------------+------------------+-----------------+----------------+</div>
+<p>The <a class="el" href="structdhyara_1_1packets_1_1advertisement.html">Advertisement</a> contains the destination node \(X_{t}\) and \(\delta_{t,i}\) the minimum delay to reach \(X_{t}\) from \(X_{i}\). The best intermediate node (which may be 0 also) is not advertised. If the best vector is not altered by the updatation of routing table then no Advertisement packet is sent. However if \(\exists X_{k} ∊ X\) for which no broadcast packet has been sent for a large amount of time then an <a class="el" href="structdhyara_1_1packets_1_1advertisement.html">Advertisement</a> regarding \(X_{k}\) is sent even if there is not change in the best vector. The advertisement packet contains route information about a node (dest). The route information includes one trip delay from the source node. </p><div class="fragment"><div class="line">+--- 6 bytes ---+---- 8 bytes -----+----- 1 <span class="keywordtype">byte</span> -----+---- 1 <span class="keywordtype">byte</span> -----+---- N bytes ---+</div>
+<div class="line">|  destination  |  one trip <a class="code" href="structdhyara_1_1packets_1_1advertisement.html#a085151f09c20667f192f60cea3dc0c1e">delay</a>  | <a class="code" href="structdhyara_1_1packets_1_1advertisement.html#aa615abfb23bb682f183d46da405dc712">hops</a> in one trip | <a class="code" href="structdhyara_1_1packets_1_1advertisement.html#a341925012055896f0906a034100ff51c">name</a> length (N) |      Name      |</div>
+<div class="line">+---------------+------------------+------------------+-----------------+----------------+</div>
 </div><!-- fragment --> 
 <p class="definition">Definition at line <a class="el" href="packets_2advertisement_8h_source.html#l00037">37</a> of file <a class="el" href="packets_2advertisement_8h_source.html">advertisement.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a2397eaa6eea21100f81e7eb4519f6785"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2397eaa6eea21100f81e7eb4519f6785">&#9670;&nbsp;</a></span>advertisement()</h2>
+<a id="a96cce4043a625ef807ed90bae34c0213"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96cce4043a625ef807ed90bae34c0213">&#9670;&nbsp;</a></span>advertisement()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -189,6 +197,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stru
           <td></td>
           <td class="paramtype">delay_type&#160;</td>
           <td class="paramname"><em>delay</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::uint8_t&#160;</td>
+          <td class="paramname"><em>hops</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -214,11 +228,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stru
   <table class="params">
     <tr><td class="paramname">dest</td><td>The destination address </td></tr>
     <tr><td class="paramname">delay</td><td>The delay encountered in the route </td></tr>
+    <tr><td class="paramname">hops</td><td>Number of hops in this route </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="packets_2advertisement_8h_source.html#l00048">48</a> of file <a class="el" href="packets_2advertisement_8h_source.html">advertisement.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="packets_2advertisement_8h_source.html#l00049">49</a> of file <a class="el" href="packets_2advertisement_8h_source.html">advertisement.h</a>.</p>
 
 </div>
 </div>
@@ -227,8 +242,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stru
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="astructdhyara_1_1packets_1_1advertisement_html_a341925012055896f0906a034100ff51c"><div class="ttname"><a href="structdhyara_1_1packets_1_1advertisement.html#a341925012055896f0906a034100ff51c">dhyara::packets::advertisement::name</a></div><div class="ttdeci">const std::string &amp; name() const</div><div class="ttdoc">name in the advertisement packet</div><div class="ttdef"><b>Definition:</b> <a href="packets_2advertisement_8h_source.html#l00078">advertisement.h:78</a></div></div>
-<div class="ttc" id="astructdhyara_1_1packets_1_1advertisement_html_a085151f09c20667f192f60cea3dc0c1e"><div class="ttname"><a href="structdhyara_1_1packets_1_1advertisement.html#a085151f09c20667f192f60cea3dc0c1e">dhyara::packets::advertisement::delay</a></div><div class="ttdeci">const delay_type &amp; delay() const</div><div class="ttdoc">Delay in the advertisement packet.</div><div class="ttdef"><b>Definition:</b> <a href="packets_2advertisement_8h_source.html#l00070">advertisement.h:70</a></div></div>
+<div class="ttc" id="astructdhyara_1_1packets_1_1advertisement_html_a341925012055896f0906a034100ff51c"><div class="ttname"><a href="structdhyara_1_1packets_1_1advertisement.html#a341925012055896f0906a034100ff51c">dhyara::packets::advertisement::name</a></div><div class="ttdeci">const std::string &amp; name() const</div><div class="ttdoc">name in the advertisement packet</div><div class="ttdef"><b>Definition:</b> <a href="packets_2advertisement_8h_source.html#l00087">advertisement.h:87</a></div></div>
+<div class="ttc" id="astructdhyara_1_1packets_1_1advertisement_html_a085151f09c20667f192f60cea3dc0c1e"><div class="ttname"><a href="structdhyara_1_1packets_1_1advertisement.html#a085151f09c20667f192f60cea3dc0c1e">dhyara::packets::advertisement::delay</a></div><div class="ttdeci">const delay_type &amp; delay() const</div><div class="ttdoc">Delay in the advertisement packet.</div><div class="ttdef"><b>Definition:</b> <a href="packets_2advertisement_8h_source.html#l00071">advertisement.h:71</a></div></div>
+<div class="ttc" id="astructdhyara_1_1packets_1_1advertisement_html_aa615abfb23bb682f183d46da405dc712"><div class="ttname"><a href="structdhyara_1_1packets_1_1advertisement.html#aa615abfb23bb682f183d46da405dc712">dhyara::packets::advertisement::hops</a></div><div class="ttdeci">std::uint8_t hops() const</div><div class="ttdoc">Hops in the advertisement packet.</div><div class="ttdef"><b>Definition:</b> <a href="packets_2advertisement_8h_source.html#l00075">advertisement.h:75</a></div></div>
 <!-- HTML footer for doxygen 1.9.1-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
