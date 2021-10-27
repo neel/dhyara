@@ -13,6 +13,7 @@
 #include "esp_wifi.h"
 #include <dhyara/dhyara.h>
 #include <iterator>
+#include "esp_idf_version.h"
 
 namespace fragments{
 
@@ -341,9 +342,11 @@ esp_err_t dhyara::utils::http::info(httpd_req_t* req){
             case WIFI_AUTH_WPA2_WPA3_PSK:
                 auth_str = "WIFI_AUTH_WPA2_WPA3_PSK";
                 break;
+#if ESP_IDF_VERSION >= ESP_IDF_VERSION_VAL(4, 3, 1)
             case WIFI_AUTH_WAPI_PSK:
                 auth_str = "WIFI_AUTH_WAPI_PSK";
                 break;
+#endif
             case WIFI_AUTH_MAX:
                 auth_str = "WIFI_AUTH_MAX";
                 break;
