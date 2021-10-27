@@ -43,6 +43,7 @@ else()
             "sources/dhyara.c"
         INCLUDE_DIRS 
             "includes"
+            "vendor/clipp/includes"
         REQUIRES 
             cxx
             esp_wifi 
