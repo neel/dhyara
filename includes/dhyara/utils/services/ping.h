@@ -30,8 +30,10 @@ struct ping{
             clipp::option("-w", "--wait").set(_wait).doc("number of seconds to wait for receiving all responses")
         );
     }
-    inline const char* run(){
+    template <typename StreamT>
+    inline const char* run(StreamT& stream){
         // expected that the args has already been parsed
+        stream << "Hello";
         return HTTPD_200;
     }
     private:

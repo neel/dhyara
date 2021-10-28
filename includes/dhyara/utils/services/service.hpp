@@ -11,6 +11,7 @@
 
 #include <clipp/clipp.h>
 #include <esp_http_server.h>
+#include "esp_log.h"
 
 namespace dhyara{
 namespace utils{
@@ -24,11 +25,13 @@ struct service: private ServiceT{
     const char* operator()(InputIterator first, InputIterator last){
         auto options = ServiceT::options();
         if(!clipp::parse(first, last, options)){
+            ESP_LOGI("dhyara-services", "Error parsing arguments for service `%s`", ServiceT::name());
             clipp::man_page man = clipp::make_man_page(options, ServiceT::name());
             _stream << man; 
             return HTTPD_400;
         }else{
-            return ServiceT::run();
+            ESP_LOGI("dhyara-services", "Running service `%s`", ServiceT::name());
+            return ServiceT::run(_stream);
         }
     }
 

@@ -190,6 +190,7 @@ dhyara::utils::http::http(dhyara::link& link): _link(link), _config(HTTPD_DEFAUL
     _command     (httpd_uri_t{"/command",      HTTP_POST, dhyara::utils::http::command_handler,     this})
 {
     _config.max_uri_handlers = 11;
+    _config.stack_size = 2*4096;
 }
 
 
@@ -612,7 +613,7 @@ esp_err_t dhyara::utils::http::peers(httpd_req_t* req){
 }
 
 esp_err_t dhyara::utils::http::command(httpd_req_t* req){
-    char content[256];
+    char content[128];
     size_t recv_size = std::min(req->content_len, sizeof(content));
     if(recv_size > sizeof(content)){
         httpd_resp_send_err(req, HTTPD_414_URI_TOO_LONG, "Command larger than 256 characters not allowed.");
@@ -622,6 +623,7 @@ esp_err_t dhyara::utils::http::command(httpd_req_t* req){
         return ESP_FAIL;
     }
 
+    std::fill(content, content +sizeof(content), 0);
     int ret = httpd_req_recv(req, content, recv_size);
     if (ret <= 0) {
         if (ret == HTTPD_SOCK_ERR_TIMEOUT) {
@@ -635,6 +637,7 @@ esp_err_t dhyara::utils::http::command(httpd_req_t* req){
     bool is_buffered = true;
     std::vector<std::string> argv = detail::read_args(content, is_buffered);
 
+    ESP_LOGI("dhyara-services", "Service `%s` requested", argv[0].c_str());
     if(!_registry.exists(argv[0])){ // if no such service is found
         std::string error("No such service ");
         error += argv[0];
@@ -643,12 +646,14 @@ esp_err_t dhyara::utils::http::command(httpd_req_t* req){
         return ESP_FAIL;
     }
 
-    httpd_resp_set_type(req, HTTPD_TYPE_TEXT);
+    httpd_resp_set_type(req, "text/plain");
     std::stringstream stream;
     const char * err = _registry.run(argv.cbegin(), argv.cend(), stream);
     std::string str = stream.str();
+    ESP_LOGI("dhyara-services", "Service `%s` responded %d bytes with status %s", argv[0].c_str(), str.size(), err);
+    std::cout << str << std::endl;
     httpd_resp_set_status(req, err);
-    httpd_send(req, str.c_str(), str.size());
+    httpd_resp_send(req, str.c_str(), str.size());
 
     return ESP_OK;
 }

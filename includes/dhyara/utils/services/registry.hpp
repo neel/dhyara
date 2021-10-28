@@ -12,6 +12,7 @@
 #include <string>
 #include <type_traits>
 #include <dhyara/utils/services/service.hpp>
+#include "esp_log.h"
 
 namespace dhyara{
 namespace utils{
@@ -40,6 +41,7 @@ namespace detail{
             template <typename InputIterator, typename StreamT>
             const char* run(const std::string& name, InputIterator begin, InputIterator end, StreamT& stream) const{
                 if(name == Head::name()){
+                    ESP_LOGI("dhyara-services", "service `%s` found", name.c_str());
                     service<Head, StreamT> service(stream);
                     return service(begin, end);
                 }else{
@@ -69,9 +71,11 @@ namespace detail{
             template <typename InputIterator, typename StreamT>
             const char* run(const std::string& name, InputIterator begin, InputIterator end, StreamT& stream) const{
                 if(name == Head::name()){
+                    ESP_LOGI("dhyara-services", "service `%s` found", name.c_str());
                     service<Head, StreamT> service(stream);
                     return service(begin, end);
                 }
+                ESP_LOGE("dhyara-services", "service `%s` not found", name.c_str());
                 return HTTPD_404;
             }
     };
