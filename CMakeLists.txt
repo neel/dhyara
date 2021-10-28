@@ -47,7 +47,7 @@ else()
         REQUIRES 
             cxx
             esp_wifi 
-            esp_http_server
+            esp_http_server 
         EMBED_TXTFILES
             "assets/min/head.html"
             "assets/min/dhyara.css"

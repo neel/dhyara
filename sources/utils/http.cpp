@@ -14,6 +14,7 @@
 #include <dhyara/dhyara.h>
 #include <iterator>
 #include "esp_idf_version.h"
+#include "dhyara/detail/args_helper.hpp"
 
 namespace fragments{
 
@@ -630,22 +631,23 @@ esp_err_t dhyara::utils::http::command(httpd_req_t* req){
         return ESP_FAIL;
     }
 
-    std::string cmdline(content), exec, args;
-    std::string::size_type pos = cmdline.find(' ');
-    exec = (pos == std::string::npos) ? cmdline : cmdline.substr(0, pos+1);
-    args = (pos == std::string::npos) ? std::string() : cmdline.substr(pos);
+    bool is_buffered = true;
+    std::vector<std::string> argv = detail::read_args(content, is_buffered);
 
-    // Find a service for exec
-    // Prepare the service instance with args 
-    // Run that service and return the result.
-
-    if(true){ // if no such service is found
+    if(!_registry.exists(argv[0])){ // if no such service is found
         std::string error("No such service ");
-        error += service;
+        error += argv[0];
 
         httpd_resp_send_err(req, HTTPD_405_METHOD_NOT_ALLOWED, error.c_str());
         return ESP_FAIL;
     }
+
+    httpd_resp_set_type(req, HTTPD_TYPE_TEXT);
+    std::stringstream stream;
+    const char * err = _registry.run(argv.cbegin(), argv.cend(), stream);
+    std::string str = stream.str();
+    httpd_resp_set_status(req, err);
+    httpd_send(req, str.c_str(), str.size());
 
     return ESP_OK;
 }
