@@ -189,7 +189,7 @@ dhyara::utils::http::http(dhyara::link& link): _link(link), _config(HTTPD_DEFAUL
     _peers       (httpd_uri_t{"/peers.json",   HTTP_GET , dhyara::utils::http::peers_handler,       this}),
     _command     (httpd_uri_t{"/command",      HTTP_POST, dhyara::utils::http::command_handler,     this})
 {
-    _config.max_uri_handlers = 10;
+    _config.max_uri_handlers = 11;
 }
 
 
