@@ -204,6 +204,7 @@ esp_err_t dhyara::utils::http::start(){
     if (res != ESP_OK) return res; else res = httpd_register_uri_handler(_server, &_counter);
     if (res != ESP_OK) return res; else res = httpd_register_uri_handler(_server, &_routes);
     if (res != ESP_OK) return res; else res = httpd_register_uri_handler(_server, &_peers);
+    if (res != ESP_OK) return res; else res = httpd_register_uri_handler(_server, &_command);
     return res;
 }
 
