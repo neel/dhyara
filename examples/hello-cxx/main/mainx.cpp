@@ -15,7 +15,7 @@ void mainx(){
     dhyara::network network(dhyara_link());
     dhyara_set_default_network(&network);
     
-    dhyara::address sink("ac:67:b2:25:8e:a5"), source("4c:11:ae:9c:1a:c9");
+    // dhyara::address sink("ac:67:b2:25:8e:a5"), source("4c:11:ae:9c:1a:c9");
     
     network.start();
     
@@ -26,8 +26,8 @@ void mainx(){
      */
     // network.isolate(source, sink);
     
-    dhyara::address local = dhyara_local();
-    dhyara::address other = (local == source) ? sink : ((local == sink) ? source : dhyara::address::null());
+    // dhyara::address local = dhyara_local();
+    // dhyara::address other = (local == source) ? sink : ((local == sink) ? source : dhyara::address::null());
     
     /**
      * The anonymous function will be called once all chunks of a data packet is received

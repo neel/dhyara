@@ -19,24 +19,26 @@ namespace services{
 
 template <typename ServiceT, typename StreamT>
 struct service: private ServiceT{
-    explicit service(StreamT& stream): _stream(stream){}
+    explicit service(StreamT& stream): _stream(stream), _help(false){}
 
     template<class InputIterator>
     const char* operator()(InputIterator first, InputIterator last){
-        auto options = ServiceT::options();
-        if(!clipp::parse(first, last, options)){
-            ESP_LOGI("dhyara-services", "Error parsing arguments for service `%s`", ServiceT::name());
-            clipp::man_page man = clipp::make_man_page(options, ServiceT::name());
-            _stream << man; 
-            return HTTPD_400;
-        }else{
-            ESP_LOGI("dhyara-services", "Running service `%s`", ServiceT::name());
-            return ServiceT::run(_stream);
-        }
+        // auto options = ServiceT::options();
+        // if(!clipp::parse(first, last, options)){
+        //     ESP_LOGI("dhyara-services", "Error parsing arguments for service `%s`", ServiceT::name());
+        //     clipp::man_page man = clipp::make_man_page(options, ServiceT::name());
+        //     _stream << man; 
+        //     return HTTPD_400;
+        // }else{
+        //     ESP_LOGI("dhyara-services", "Running service `%s`", ServiceT::name());
+        //     return ServiceT::run(_stream);
+        // }
+        return ServiceT::run(first, last, _stream);
     }
 
     private:
         StreamT& _stream;
+        bool     _help;
 };
 
 }

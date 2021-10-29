@@ -190,7 +190,7 @@ dhyara::utils::http::http(dhyara::link& link): _link(link), _config(HTTPD_DEFAUL
     _command     (httpd_uri_t{"/command",      HTTP_POST, dhyara::utils::http::command_handler,     this})
 {
     _config.max_uri_handlers = 11;
-    _config.stack_size = 2*4096;
+    _config.stack_size = 3*4096;
 }
 
 
