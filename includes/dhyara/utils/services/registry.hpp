@@ -12,6 +12,8 @@
 #include <string>
 #include <type_traits>
 #include <dhyara/utils/services/service.hpp>
+#include <dhyara/utils/services/stream.h>
+#include "esp_err.h"
 #include "esp_log.h"
 
 namespace dhyara{
@@ -32,17 +34,17 @@ namespace detail{
             return (name == Head::name()) || tail::exists(name);
         }
         
-        template <typename InputIterator, typename StreamT>
-        const char* run(InputIterator begin, InputIterator end, StreamT& stream) const{
-            return run(*begin, begin+1, end, stream);
+        template <typename InputIterator>
+        esp_err_t run(httpd_req_t* req, InputIterator begin, InputIterator end) const{
+            return run(req, *begin, begin+1, end);
         }
 
         private:
-            template <typename InputIterator, typename StreamT>
-            const char* run(const std::string& name, InputIterator begin, InputIterator end, StreamT& stream) const{
+            template <typename InputIterator>
+            esp_err_t run(httpd_req_t* req, const std::string& name, InputIterator begin, InputIterator end) const{
                 if(name == Head::name()){
                     ESP_LOGI("dhyara-services", "service `%s` found", name.c_str());
-                    service<Head, StreamT> service(stream);
+                    service<Head> service(req);
                     return service(begin, end);
                 }else{
                     return tail::run(name, begin, end);
@@ -62,21 +64,21 @@ namespace detail{
             return name == Head::name();
         }
 
-        template <typename InputIterator, typename StreamT>
-        const char* run(InputIterator begin, InputIterator end, StreamT& stream) const{
-            return run(*begin, begin+1, end, stream);
+        template <typename InputIterator>
+        esp_err_t run(httpd_req_t* req, InputIterator begin, InputIterator end) const{
+            return run(req, *begin, begin+1, end);
         }
 
         private:
-            template <typename InputIterator, typename StreamT>
-            const char* run(const std::string& name, InputIterator begin, InputIterator end, StreamT& stream) const{
+            template <typename InputIterator>
+            esp_err_t run(httpd_req_t* req, const std::string& name, InputIterator begin, InputIterator end) const{
                 if(name == Head::name()){
                     ESP_LOGI("dhyara-services", "service `%s` found", name.c_str());
-                    service<Head, StreamT> service(stream);
+                    service<Head> service(req);
                     return service(begin, end);
                 }
-                ESP_LOGE("dhyara-services", "service `%s` not found", name.c_str());
-                return HTTPD_404;
+                httpd_resp_send_err(req, HTTPD_500_INTERNAL_SERVER_ERROR, "No such service");
+                return ESP_OK;
             }
     };
 }

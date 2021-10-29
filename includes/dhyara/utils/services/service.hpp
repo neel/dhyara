@@ -11,26 +11,30 @@
 
 #include <clipp/clipp.h>
 #include <esp_http_server.h>
+#include "esp_err.h"
 #include "esp_log.h"
+#include <dhyara/utils/services/stream.h>
 
 namespace dhyara{
 namespace utils{
 namespace services{
 
-template <typename ServiceT, typename StreamT>
+template <typename ServiceT>
 struct service: private ServiceT{
-    explicit service(StreamT& stream): _stream(stream), _help(false){}
+    explicit service(httpd_req_t* req): _stream(req), _help(false){}
 
     template<class InputIterator>
-    const char* operator()(InputIterator first, InputIterator last){
+    esp_err_t operator()(InputIterator first, InputIterator last){
         auto options = ServiceT::options() | clipp::option("-h", "--help").set(_help) % "show this help message";
         if(!clipp::parse(first, last, options)){
             ESP_LOGI("dhyara-services", "Error parsing arguments for service `%s`", ServiceT::name());
             _stream << clipp::make_man_page(options, ServiceT::name());
-            return HTTPD_400;
+            _stream.finish(HTTPD_400);
+            return ESP_OK;
         }else if(_help){
             _stream << clipp::make_man_page(options, ServiceT::name());
-            return HTTPD_200;
+            _stream.finish(HTTPD_200);
+            return ESP_OK;
         }else{
             ESP_LOGI("dhyara-services", "Running service `%s`", ServiceT::name());
             return ServiceT::run(_stream);
@@ -38,8 +42,8 @@ struct service: private ServiceT{
     }
 
     private:
-        StreamT& _stream;
-        bool     _help;
+        services::stream _stream;
+        bool             _help;
 };
 
 }

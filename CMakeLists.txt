@@ -42,6 +42,8 @@ else()
             "sources/dhyara.cpp"
             "sources/dhyara.c"
             "sources/utils/services/ping.cpp"
+            "sources/utils/services/ping_impl.cpp"
+            "sources/utils/services/stream.cpp"
         INCLUDE_DIRS 
             "includes"
             "vendor/clipp/includes"

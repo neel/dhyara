@@ -646,14 +646,5 @@ esp_err_t dhyara::utils::http::command(httpd_req_t* req){
         return ESP_FAIL;
     }
 
-    httpd_resp_set_type(req, "text/plain");
-    std::stringstream stream;
-    const char * err = _registry.run(argv.cbegin(), argv.cend(), stream);
-    std::string str = stream.str();
-    ESP_LOGI("dhyara-services", "Service `%s` responded %d bytes with status %s", argv[0].c_str(), str.size(), err);
-    std::cout << str << std::endl;
-    httpd_resp_set_status(req, err);
-    httpd_resp_send(req, str.c_str(), str.size());
-
-    return ESP_OK;
+    return _registry.run(req, argv.cbegin(), argv.cend());
 }

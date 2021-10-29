@@ -6867,9 +6867,9 @@ make_man_page(const group& cli,
  * @brief   generates man page based on command line parameters
  *
  *****************************************************************************/
-template<class OStream>
-OStream&
-operator << (OStream& os, const man_page& man)
+
+inline std::ostream&
+operator << (std::ostream& os, const man_page& man)
 {
     bool first = true;
     const auto secSpc = doc_string(man.section_row_spacing() + 1, '\n');
