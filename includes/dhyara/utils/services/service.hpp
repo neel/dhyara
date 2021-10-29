@@ -26,10 +26,10 @@ struct service: private ServiceT{
         auto options = ServiceT::options() | clipp::option("-h", "--help").set(_help) % "show this help message";
         if(!clipp::parse(first, last, options)){
             ESP_LOGI("dhyara-services", "Error parsing arguments for service `%s`", ServiceT::name());
-            _stream << clipp::make_man_page(options, ServiceT::name());; 
+            _stream << clipp::make_man_page(options, ServiceT::name());
             return HTTPD_400;
         }else if(_help){
-            _stream << clipp::make_man_page(options, ServiceT::name());; 
+            _stream << clipp::make_man_page(options, ServiceT::name());
             return HTTPD_200;
         }else{
             ESP_LOGI("dhyara-services", "Running service `%s`", ServiceT::name());

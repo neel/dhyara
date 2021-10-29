@@ -100,6 +100,7 @@ struct ping{
     ~ping();
     
     private:
+        void batch(const dhyara::address& addr);
         /**
          * The callback to capture the reply packet and print the destination till which the previous Echo request packet has reached. If that destination is the desired destination then stop sending another Echo request. Otherwise send another with increased ttl value.
          */
@@ -115,6 +116,7 @@ struct ping{
         std::size_t      _conn_reply;
         delay_type       _first;
         delay_type       _last;
+        delay_type       _wastage;
         
         std::vector<stat_tuple> _stats;
 };
