@@ -23,17 +23,18 @@ struct service: private ServiceT{
 
     template<class InputIterator>
     const char* operator()(InputIterator first, InputIterator last){
-        // auto options = ServiceT::options();
-        // if(!clipp::parse(first, last, options)){
-        //     ESP_LOGI("dhyara-services", "Error parsing arguments for service `%s`", ServiceT::name());
-        //     clipp::man_page man = clipp::make_man_page(options, ServiceT::name());
-        //     _stream << man; 
-        //     return HTTPD_400;
-        // }else{
-        //     ESP_LOGI("dhyara-services", "Running service `%s`", ServiceT::name());
-        //     return ServiceT::run(_stream);
-        // }
-        return ServiceT::run(first, last, _stream);
+        auto options = ServiceT::options() | clipp::option("-h", "--help").set(_help) % "show this help message";
+        if(!clipp::parse(first, last, options)){
+            ESP_LOGI("dhyara-services", "Error parsing arguments for service `%s`", ServiceT::name());
+            _stream << clipp::make_man_page(options, ServiceT::name());; 
+            return HTTPD_400;
+        }else if(_help){
+            _stream << clipp::make_man_page(options, ServiceT::name());; 
+            return HTTPD_200;
+        }else{
+            ESP_LOGI("dhyara-services", "Running service `%s`", ServiceT::name());
+            return ServiceT::run(_stream);
+        }
     }
 
     private:
