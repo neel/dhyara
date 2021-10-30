@@ -57,11 +57,11 @@ void dhyara::utils::services::ping_impl::operator()(const dhyara::address& addr)
     double echo_loss = (double)(echo_sent - std::min(echo_rcvd, echo_sent)) / (double)echo_sent;
     double duration = (double)(_last - _first - _wastage)/1000.0;
     
-    _stream << "=====================================" << "\n";
+    _stream << "\n";
 
-    _stream << "ping"
+    _stream << "ping "
             << echo_rcvd << "/" << echo_sent << " received, " 
-            << std::setprecision(2) << std::fixed << (echo_loss*100.0) << "lost, "
+            << std::setprecision(2) << std::fixed << (echo_loss*100.0) << " lost, "
             << "rtt min/avg/max/total/sd = "
                 << std::setprecision(2) << std::fixed << ((double)latency_min  /1000.0) << "/"
                 << std::setprecision(2) << std::fixed << ((double)latency_avg  /1000.0) << "/"
@@ -70,7 +70,7 @@ void dhyara::utils::services::ping_impl::operator()(const dhyara::address& addr)
                 << std::setprecision(2) << std::fixed << latency_sd
             << "\n";
 
-    _stream << "ping"
+    _stream << "ping "
             << echo_rcvd*250 << "/" << echo_sent*250 << " bytes " 
             << "in " << std::setprecision(2) << std::fixed << duration << "ms "
             << "(" 
@@ -79,7 +79,7 @@ void dhyara::utils::services::ping_impl::operator()(const dhyara::address& addr)
                     << " kB/s" 
             << ")"
             << "\n";
-    _stream << "-------------------------------------" << "\n";
+    _stream << "------------------------------------------------------------------------------" << "\n";
     _stream << " N | Origin              | Hit                 | Return              | RTT          " << "\n";
     for(std::uint8_t i = 0; i < _stats.size(); ++i){
         const auto& stat = _stats.at(i);
@@ -91,7 +91,7 @@ void dhyara::utils::services::ping_impl::operator()(const dhyara::address& addr)
                               << " |" << std::get<3>(stat) << "us" 
                     << "\n";
     }
-    _stream << "=====================================" << "\n";
+
 }
 
 void dhyara::utils::services::ping_impl::operator()(const std::string& addr){
@@ -102,7 +102,7 @@ void dhyara::utils::services::ping_impl::reply(const dhyara::address&, const dhy
     _last = esp_timer_get_time();
     _stats.push_back(std::make_tuple(reply.time(), reply.rtime(), _last, reply.latency()));
 
-    _stream << reply << "\n";
+    // _stream << reply << "\n";
 }
 
 void dhyara::utils::services::ping_impl::reset(){
