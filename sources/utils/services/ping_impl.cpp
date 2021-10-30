@@ -59,21 +59,22 @@ void dhyara::utils::services::ping_impl::operator()(const dhyara::address& addr)
     
     _stream << "=====================================" << "\n";
 
-    _stream << "ping "
+    _stream << "ping"
             << echo_rcvd << "/" << echo_sent << " received, " 
-            << (echo_loss*100.0) << " lost, "
+            << std::setprecision(2) << std::fixed << (echo_loss*100.0) << "lost, "
             << "rtt min/avg/max/total/sd = "
-                << ((double)latency_min  /1000.0) << "/"
-                << ((double)latency_avg  /1000.0) << "/"
-                << ((double)latency_max  /1000.0) << "/"
-                << ((double)latency_total/1000.0) << " ms/"
-                << latency_sd
+                << std::setprecision(2) << std::fixed << ((double)latency_min  /1000.0) << "/"
+                << std::setprecision(2) << std::fixed << ((double)latency_avg  /1000.0) << "/"
+                << std::setprecision(2) << std::fixed << ((double)latency_max  /1000.0) << "/"
+                << std::setprecision(2) << std::fixed << ((double)latency_total/1000.0) << " ms/"
+                << std::setprecision(2) << std::fixed << latency_sd
             << "\n";
 
-    _stream << "ping "
+    _stream << "ping"
             << echo_rcvd*250 << "/" << echo_sent*250 << " bytes " 
-            << "in " << duration << "ms "
+            << "in " << std::setprecision(2) << std::fixed << duration << "ms "
             << "(" 
+                    << std::setprecision(2) << std::fixed 
                     << (((double)((echo_sent+echo_rcvd)*250*1000) / duration)/1000.0) 
                     << " kB/s" 
             << ")"
@@ -83,10 +84,10 @@ void dhyara::utils::services::ping_impl::operator()(const dhyara::address& addr)
     for(std::uint8_t i = 0; i < _stats.size(); ++i){
         const auto& stat = _stats.at(i);
         const auto& stat_last = (i == 0) ? stat : _stats.at(i-1);
-        _stream     <<  (int)i 
-                              << " |" << std::get<0>(stat) << "(" << (std::get<0>(stat) - std::get<0>(stat_last)) << "us)"
-                              << " |" << std::get<1>(stat) << "(" << (std::get<1>(stat) - std::get<1>(stat_last)) << "us)"
-                              << " |" << std::get<2>(stat) << "(" << (std::get<2>(stat) - std::get<2>(stat_last)) << "us)"
+        _stream     << std::setfill(' ') << std::setw(2) << (int)i 
+                              << " |" << std::setfill(' ') << std::setw(11) << std::get<0>(stat) << "(" << std::setfill(' ') << std::setw(5) << (std::get<0>(stat) - std::get<0>(stat_last)) << "us)"
+                              << " |" << std::setfill(' ') << std::setw(11) << std::get<1>(stat) << "(" << std::setfill(' ') << std::setw(5) << (std::get<1>(stat) - std::get<1>(stat_last)) << "us)"
+                              << " |" << std::setfill(' ') << std::setw(11) << std::get<2>(stat) << "(" << std::setfill(' ') << std::setw(5) << (std::get<2>(stat) - std::get<2>(stat_last)) << "us)"
                               << " |" << std::get<3>(stat) << "us" 
                     << "\n";
     }

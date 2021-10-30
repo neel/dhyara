@@ -23,18 +23,18 @@ struct stream{
 
     template <typename X>
     stream& write(const X& x){
-        std::stringstream ss;
-        ss << x;
-        write(ss);
+        _sstream << x;
+        write();
         return *this;
     }
     esp_err_t finish(const char* err);
     inline std::uint64_t bytes() const { return _bytes; }
     private:
-        void write(std::stringstream& ss);
+        void write();
     private:
-        httpd_req_t*  _req;
-        std::uint64_t _bytes;
+        httpd_req_t*      _req;
+        std::uint64_t     _bytes;
+        std::stringstream _sstream;
 };
 
 
