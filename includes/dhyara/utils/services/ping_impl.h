@@ -37,7 +37,7 @@ struct ping_impl{
      * \param batch batch size
      * \param sleep sleep time (in ms)
      */
-    ping_impl(services::stream& stream, std::uint8_t count = 254, std::int8_t batch = 1, std::uint8_t sleep = 15);
+    ping_impl(services::stream& stream, std::uint8_t count = 1, std::int8_t batch = 1, std::uint8_t sleep = 1);
     
     /**
      * set number of batches

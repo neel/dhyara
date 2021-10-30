@@ -26,6 +26,7 @@ else()
             "sources/packets/chunk.cpp"
             "sources/packets/data.cpp"
             "sources/packets/delivered.cpp"
+            "sources/packets/io.cpp"
             "sources/actions/beacon.cpp"
             "sources/actions/acknowledgement.cpp"
             "sources/actions/advertisement.cpp"

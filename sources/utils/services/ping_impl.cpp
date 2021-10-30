@@ -22,7 +22,7 @@ void dhyara::utils::services::ping_impl::batch(const dhyara::address& addr){
     _first = esp_timer_get_time();
     _wastage += (_first - _last);
     dhyara_default_network().echo_request().ping(addr, _batch);
-    vTaskDelay(pdMS_TO_TICKS(_sleep));
+    vTaskDelay(pdMS_TO_TICKS(_sleep*1000));
 }
 
 void dhyara::utils::services::ping_impl::operator()(const dhyara::address& addr){
@@ -55,41 +55,42 @@ void dhyara::utils::services::ping_impl::operator()(const dhyara::address& addr)
     latency_sd = std::sqrt( latency_deviation / _stats.size());
     
     double echo_loss = (double)(echo_sent - std::min(echo_rcvd, echo_sent)) / (double)echo_sent;
+    double duration = (double)(_last - _first - _wastage)/1000.0;
     
-    // write results to stream
+    _stream << "=====================================" << "\n";
 
-    // ESP_LOGI(
-    //     "ping", 
-    //     "%zu/%zu received, %.2lf%% lost, rtt min/avg/max/total/sd = %.2lf/%.2lf/%.2lf/%.2lf ms/%.2lf", 
-    //     echo_rcvd,
-    //     echo_sent,
-    //     echo_loss*100.0,
-    //     (double)latency_min/1000.0,
-    //     (double)latency_avg/1000.0,
-    //     (double)latency_max/1000.0,
-    //     (double)latency_total/1000.0,
-    //     (double)latency_sd
-    // );
-    // double duration = (double)(_last - _first - _wastage)/1000.0;
-    // ESP_LOGI(
-    //     "ping", 
-    //     "%zu/%zu bytes in %.2lf ms (%.2lf kB/s)", 
-    //     echo_rcvd*250,
-    //     echo_sent*250,
-    //     duration,
-    //     ((double)((echo_sent+echo_rcvd)*250*1000) / duration)/1000.0
-    // );
-    // std::cout << " N | Origin              | Hit                 | Return              | RTT          " << std::endl;
-    // for(std::uint8_t i = 0; i < _stats.size(); ++i){
-    //     const auto& stat = _stats.at(i);
-    //     const auto& stat_last = (i == 0) ? stat : _stats.at(i-1);
-    //     std::cout   << std::setfill(' ') << std::setw(2) << (int)i 
-    //                           << " |" << std::setfill(' ') << std::setw(11) << std::get<0>(stat) << "(" << std::setfill(' ') << std::setw(5) << (std::get<0>(stat) - std::get<0>(stat_last)) << "us)"
-    //                           << " |" << std::setfill(' ') << std::setw(11) << std::get<1>(stat) << "(" << std::setfill(' ') << std::setw(5) << (std::get<1>(stat) - std::get<1>(stat_last)) << "us)"
-    //                           << " |" << std::setfill(' ') << std::setw(11) << std::get<2>(stat) << "(" << std::setfill(' ') << std::setw(5) << (std::get<2>(stat) - std::get<2>(stat_last)) << "us)"
-    //                           << " |" << std::get<3>(stat) << "us" 
-    //                 << std::endl;
-    // }
+    _stream << "ping "
+            << echo_rcvd << "/" << echo_sent << " received, " 
+            << (echo_loss*100.0) << " lost, "
+            << "rtt min/avg/max/total/sd = "
+                << ((double)latency_min  /1000.0) << "/"
+                << ((double)latency_avg  /1000.0) << "/"
+                << ((double)latency_max  /1000.0) << "/"
+                << ((double)latency_total/1000.0) << " ms/"
+                << latency_sd
+            << "\n";
+
+    _stream << "ping "
+            << echo_rcvd*250 << "/" << echo_sent*250 << " bytes " 
+            << "in " << duration << "ms "
+            << "(" 
+                    << (((double)((echo_sent+echo_rcvd)*250*1000) / duration)/1000.0) 
+                    << " kB/s" 
+            << ")"
+            << "\n";
+    _stream << "-------------------------------------" << "\n";
+    _stream << " N | Origin              | Hit                 | Return              | RTT          " << "\n";
+    for(std::uint8_t i = 0; i < _stats.size(); ++i){
+        const auto& stat = _stats.at(i);
+        const auto& stat_last = (i == 0) ? stat : _stats.at(i-1);
+        _stream     <<  (int)i 
+                              << " |" << std::get<0>(stat) << "(" << (std::get<0>(stat) - std::get<0>(stat_last)) << "us)"
+                              << " |" << std::get<1>(stat) << "(" << (std::get<1>(stat) - std::get<1>(stat_last)) << "us)"
+                              << " |" << std::get<2>(stat) << "(" << (std::get<2>(stat) - std::get<2>(stat_last)) << "us)"
+                              << " |" << std::get<3>(stat) << "us" 
+                    << "\n";
+    }
+    _stream << "=====================================" << "\n";
 }
 
 void dhyara::utils::services::ping_impl::operator()(const std::string& addr){
@@ -100,7 +101,7 @@ void dhyara::utils::services::ping_impl::reply(const dhyara::address&, const dhy
     _last = esp_timer_get_time();
     _stats.push_back(std::make_tuple(reply.time(), reply.rtime(), _last, reply.latency()));
 
-    // write reply to stream
+    _stream << reply << "\n";
 }
 
 void dhyara::utils::services::ping_impl::reset(){

@@ -10,6 +10,7 @@
 #define DHYARA_PACKETS_IO_H
 
 #include "dhyara/packets/serialization.h"
+#include <ostream>
 
 namespace dhyara{
     
@@ -31,6 +32,28 @@ InIt read(PacketT& packet, InIt input, std::size_t length = 0){
     return serialization<PacketT>::read(packet, input, length);
 }
     
+namespace packets{
+
+    struct beacon;
+    struct acknowledgement;
+    struct advertisement;
+    struct chunk;
+    struct delivered;
+    struct echo_request;
+    struct echo_reply;
+    struct echo_lost;
+
+    std::ostream& operator<<(std::ostream& stream, const dhyara::packets::beacon& beacon);
+    std::ostream& operator<<(std::ostream& stream, const dhyara::packets::acknowledgement& acknowledgement);
+    std::ostream& operator<<(std::ostream& stream, const dhyara::packets::advertisement& advertisement);
+    std::ostream& operator<<(std::ostream& stream, const dhyara::packets::chunk& chunk);
+    std::ostream& operator<<(std::ostream& stream, const dhyara::packets::delivered& delivered);
+    std::ostream& operator<<(std::ostream& stream, const dhyara::packets::echo_request& echo_request);
+    std::ostream& operator<<(std::ostream& stream, const dhyara::packets::echo_reply& echo_reply);
+    std::ostream& operator<<(std::ostream& stream, const dhyara::packets::echo_lost& echo_lost);
+
+}
+
 }
 
 #endif // DHYARA_PACKETS_IO_H
