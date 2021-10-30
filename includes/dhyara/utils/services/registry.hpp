@@ -75,9 +75,9 @@ namespace detail{
             esp_err_t run(httpd_req_t* req, const std::string& name, InputIterator begin, InputIterator end) const{
                 if(name == Head::name()){
                     ESP_LOGI("dhyara-services", "service `%s` found", name.c_str());
-                    service<Head> service(req);
-                    return service(begin, end);
-                    // return service<Head>::spawn(req, begin, end);
+                    // service<Head> service(req);
+                    // return service(begin, end);
+                    return service<Head>::spawn(req, begin, end);
                 }
                 httpd_resp_send_err(req, HTTPD_500_INTERNAL_SERVER_ERROR, "No such service");
                 return ESP_OK;

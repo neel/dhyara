@@ -21,7 +21,7 @@ namespace services{
 
 template <typename ServiceT>
 struct service: private ServiceT{
-    explicit service(httpd_req_t* req): _stream(req), _help(false){}
+    explicit service(httpd_req_t* req): _req(req), _stream(req), _help(false){}
 
     template<class InputIterator>
     esp_err_t operator()(InputIterator first, InputIterator last){
@@ -38,13 +38,16 @@ struct service: private ServiceT{
         bool responded = false;
         esp_err_t err = svc->exec(first, last, responded);
         if(!responded){
-            xTaskCreate(&service<ServiceT>::runner,    "run",    2*4096,  svc,   19,  NULL);
+            httpd_queue_work(req->handle, runner, svc);
             return ESP_OK;
         }else{
             delete svc;
             svc = 0x0;
+            return err;
         }
-        return err;
+    }
+    static void work_fn(void* arg){
+        xTaskCreate(&service<ServiceT>::runner,    "run",    3*4096,  arg,   19,  NULL);
     }
     static void runner(void* arg){
         service<ServiceT>* svc = reinterpret_cast<service<ServiceT>*>(arg);
@@ -75,6 +78,7 @@ struct service: private ServiceT{
             }
         }
     private:
+        httpd_req_t* _req;
         services::stream _stream;
         bool             _help;
 };
