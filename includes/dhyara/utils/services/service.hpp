@@ -25,20 +25,55 @@ struct service: private ServiceT{
 
     template<class InputIterator>
     esp_err_t operator()(InputIterator first, InputIterator last){
-        auto options = ServiceT::options() | clipp::option("-h", "--help").set(_help) % "show this help message";
-        if(!clipp::parse(first, last, options)){
-            ESP_LOGI("dhyara-services", "Error parsing arguments for service `%s`", ServiceT::name());
-            _stream << clipp::make_man_page(options, ServiceT::name());
-            return _stream.finish(HTTPD_400);
-        }else if(_help){
-            _stream << clipp::make_man_page(options, ServiceT::name());
-            return _stream.finish(HTTPD_200);
+        bool responded = false;
+        esp_err_t err = exec(first, last, responded);
+        if(!responded){
+            _run();
+        }
+        return err;
+    }
+    template<class InputIterator>
+    static esp_err_t spawn(httpd_req_t* req, InputIterator first, InputIterator last){
+        service<ServiceT>* svc = new service<ServiceT>(req);
+        bool responded = false;
+        esp_err_t err = svc->exec(first, last, responded);
+        if(!responded){
+            xTaskCreate(&service<ServiceT>::runner,    "run",    2*4096,  svc,   19,  NULL);
+            return ESP_OK;
         }else{
+            delete svc;
+            svc = 0x0;
+        }
+        return err;
+    }
+    static void runner(void* arg){
+        service<ServiceT>* svc = reinterpret_cast<service<ServiceT>*>(arg);
+        svc->_run();
+        delete svc;
+        svc = 0x0;
+        vTaskDelete(NULL);
+    }
+    private:
+        esp_err_t _run(){
             ESP_LOGI("dhyara-services", "Running service `%s`", ServiceT::name());
             return ServiceT::run(_stream);
         }
-    }
-
+        template<class InputIterator>
+        esp_err_t exec(InputIterator first, InputIterator last, bool& responded){
+            responded = true;
+            auto options = ServiceT::options() | clipp::option("-h", "--help").set(_help) % "show this help message";
+            if(!clipp::parse(first, last, options)){
+                ESP_LOGI("dhyara-services", "Error parsing arguments for service `%s`", ServiceT::name());
+                _stream << clipp::make_man_page(options, ServiceT::name());
+                return _stream.finish(HTTPD_400);
+            }else if(_help){
+                _stream << clipp::make_man_page(options, ServiceT::name());
+                return _stream.finish(HTTPD_200);
+            }else{
+                responded = false;
+                return ESP_OK;
+            }
+        }
     private:
         services::stream _stream;
         bool             _help;

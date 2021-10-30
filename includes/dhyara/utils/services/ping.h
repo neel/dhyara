@@ -40,8 +40,6 @@ struct ping{
         );
     }
     esp_err_t run(services::stream& stream){
-        // std::cout << "_target: " << _target << " _batch: " << _batch << " _wait: " << _wait << std::endl;
-        // stream << "Hello";
         services::ping_impl impl(stream, 1, _batch, _wait);
         impl(_target);
         return stream.finish(HTTPD_200);
