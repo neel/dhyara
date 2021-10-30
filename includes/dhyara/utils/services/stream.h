@@ -28,7 +28,7 @@ struct stream{
         write(ss);
         return *this;
     }
-    void finish(const char* err);
+    esp_err_t finish(const char* err);
     inline std::uint64_t bytes() const { return _bytes; }
     private:
         void write(std::stringstream& ss);

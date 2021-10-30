@@ -29,12 +29,10 @@ struct service: private ServiceT{
         if(!clipp::parse(first, last, options)){
             ESP_LOGI("dhyara-services", "Error parsing arguments for service `%s`", ServiceT::name());
             _stream << clipp::make_man_page(options, ServiceT::name());
-            _stream.finish(HTTPD_400);
-            return ESP_OK;
+            return _stream.finish(HTTPD_400);
         }else if(_help){
             _stream << clipp::make_man_page(options, ServiceT::name());
-            _stream.finish(HTTPD_200);
-            return ESP_OK;
+            return _stream.finish(HTTPD_200);
         }else{
             ESP_LOGI("dhyara-services", "Running service `%s`", ServiceT::name());
             return ServiceT::run(_stream);
