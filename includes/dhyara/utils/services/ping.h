@@ -42,7 +42,8 @@ struct ping{
     esp_err_t run(services::stream& stream){
         services::ping_impl impl(stream, 1, _batch, _wait);
         impl(_target);
-        return stream.finish(HTTPD_200);
+        stream.finish();
+        return ESP_OK;
     }
     private:
         std::string  _target;

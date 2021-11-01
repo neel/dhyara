@@ -10,6 +10,7 @@
 #include <sstream>
 #include "dhyara/assets.h"
 #include <cstring>
+#include "esp_err.h"
 #include "esp_wifi.h"
 #include <dhyara/dhyara.h>
 #include <iterator>
@@ -646,5 +647,6 @@ esp_err_t dhyara::utils::http::command(httpd_req_t* req){
         return ESP_FAIL;
     }
 
-    return _registry.run(req, argv.cbegin(), argv.cend());
+    _registry.run(req, argv.cbegin(), argv.cend());
+    return ESP_OK;
 }

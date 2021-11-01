@@ -38,7 +38,8 @@ struct service: private ServiceT{
         bool responded = false;
         esp_err_t err = svc->exec(first, last, responded);
         if(!responded){
-            httpd_queue_work(req->handle, runner, svc);
+            // httpd_queue_work(req->handle, runner, svc);
+            xTaskCreate(&service<ServiceT>::runner,    "run",    3*4096,  svc,   19,  NULL);
             return ESP_OK;
         }else{
             delete svc;
@@ -68,10 +69,12 @@ struct service: private ServiceT{
             if(!clipp::parse(first, last, options)){
                 ESP_LOGI("dhyara-services", "Error parsing arguments for service `%s`", ServiceT::name());
                 _stream << clipp::make_man_page(options, ServiceT::name());
-                return _stream.finish(HTTPD_400);
+                _stream.finish();
+                return ESP_OK;
             }else if(_help){
                 _stream << clipp::make_man_page(options, ServiceT::name());
-                return _stream.finish(HTTPD_200);
+                _stream.finish();
+                return ESP_OK;
             }else{
                 responded = false;
                 return ESP_OK;

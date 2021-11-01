@@ -1,12 +1,25 @@
+#include "esp_err.h"
 #include <ios>
 #include <sstream>
 #include <string>
 #include <dhyara/utils/services/stream.h>
+#include <sys/socket.h>
+#include <sys/param.h>
+#include <netinet/in.h>
+#include <unistd.h>
 
-#include <iostream>
+static const char* crlf    = "\r\n";
 
-dhyara::utils::services::stream::stream(httpd_req_t* req): _req(req), _bytes(0) {
-    httpd_resp_set_type(_req, "text/plain");
+dhyara::utils::services::stream::stream(httpd_req_t* req): _bytes(0) {
+    _socket = httpd_req_to_sockfd(req);
+    _handle = req->handle;
+
+    static const char* headers = "HTTP/1.1 200 OK\r\n"
+                                 "Content-Type: text/plain\r\n"
+                                 "Transfer-Encoding: chunked\r\n";
+
+    send(_socket, headers, strlen(headers), 0);
+    send(_socket, crlf,    strlen(crlf),    0);
 }
 
 void dhyara::utils::services::stream::write(){
@@ -19,14 +32,25 @@ void dhyara::utils::services::stream::write(){
 
         _bytes += size;
 
-        httpd_resp_send_chunk(_req, str.c_str(), str.size());
+        std::stringstream hexstream;
+        hexstream << std::hex << str.size();
+
+        std::string length = hexstream.str();
+
+
+        send(_socket, length.c_str(), length.size(), 0);
+        send(_socket, crlf,           strlen(crlf),  0);
+        send(_socket, str.c_str(),    str.size(),    0);
+        send(_socket, crlf,           strlen(crlf),  0);
     }
 }
 
 
-esp_err_t dhyara::utils::services::stream::finish(const char* err) {
-    esp_err_t error = httpd_resp_set_status(_req, err);
-    if(error != ESP_OK) 
-        return error;
-    return httpd_resp_sendstr_chunk(_req, 0x0);
+esp_err_t dhyara::utils::services::stream::finish() {
+    const char* zero = "0";
+    send(_socket, zero, strlen(zero),  0);
+    send(_socket, crlf, strlen(crlf),  0);
+    send(_socket, crlf, strlen(crlf),  0);
+    // return httpd_sess_trigger_close(_handle, _socket);
+    return ESP_OK;
 }

@@ -44,9 +44,9 @@ namespace detail{
             esp_err_t run(httpd_req_t* req, const std::string& name, InputIterator begin, InputIterator end) const{
                 if(name == Head::name()){
                     ESP_LOGI("dhyara-services", "service `%s` found", name.c_str());
-                    service<Head> service(req);
-                    return service(begin, end);
-                    // return service<Head>::spawn(req, begin, end);
+                    // service<Head> service(req);
+                    // return service(begin, end);
+                    return service<Head>::spawn(req, begin, end);
                 }else{
                     return tail::run(name, begin, end);
                 }
