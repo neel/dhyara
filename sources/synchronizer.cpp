@@ -56,7 +56,9 @@ void dhyara::synchronizer::sync(const dhyara::address& dest, bool suggested){
             it->second = now;
         }
         if(_link.universe().exists(dest)){
-            advertisement.name(_link.universe().peer(dest).name());
+            std::string peer_name = _link.universe().peer(dest).name();
+            ESP_LOGI("dhyara", "synchronizer resolved %s with name %s", dest.to_string().c_str(), peer_name.c_str());
+            advertisement.name(peer_name);
         }
         for(auto it = _link.neighbours().begin(); it != _link.neighbours().end(); ++it){
             const dhyara::neighbour& neighbour = it->second;

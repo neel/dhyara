@@ -52,6 +52,7 @@ bool dhyara::link::_transmit(const std::uint8_t* dest, const std::uint8_t* data,
 #endif
     if(error != ESP_OK){
         ESP_LOGE("dhyara", "send failed %s", esp_err_to_name(error));
+        ESP_LOG_BUFFER_HEXDUMP("dhyara", data, len, ESP_LOG_ERROR);
         return false;
     }
     return true;

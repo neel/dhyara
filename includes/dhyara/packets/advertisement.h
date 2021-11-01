@@ -14,6 +14,7 @@
 #include "dhyara/peer.h"
 #include "dhyara/defs.h"
 #include "dhyara/packets/serialization.h"
+#include "esp_log.h"
 
 namespace dhyara{
 
@@ -143,29 +144,39 @@ struct serialization<packets::advertisement>{
             input  += 6;
             length -= 6;
             packet.dest(dhyara::address(raw_address));
+        }else{
+            ESP_LOGE("dhyara", "failed to parse destination address from advertisement packet");
         }
         if(length >= sizeof(dhyara::delay_type)){
             std::copy_n(input, sizeof(dhyara::delay_type), reinterpret_cast<std::uint8_t*>(&delay));
             input  += sizeof(dhyara::delay_type);
             length -= sizeof(dhyara::delay_type);
             packet.delay(delay);
+        }else{
+            ESP_LOGE("dhyara", "failed to parse delay from advertisement packet");
         }
         if(length >= sizeof(std::uint8_t)){
             std::copy_n(input, sizeof(std::uint8_t), reinterpret_cast<std::uint8_t*>(&hops));
             input  += sizeof(std::uint8_t);
             length -= sizeof(std::uint8_t);
             packet.hops(hops);
+        }else{
+            ESP_LOGE("dhyara", "failed to parse number of hops from advertisement packet");
         }
         if(length >= sizeof(std::uint8_t)){
             std::copy_n(input, sizeof(std::uint8_t), reinterpret_cast<std::uint8_t*>(&len));
             input  += sizeof(std::uint8_t);
             length -= sizeof(std::uint8_t);
+        }else{
+            ESP_LOGE("dhyara", "failed to parse name length from advertisement packet");
         }
         if(length >= len){
             std::copy_n(input, len, std::back_inserter(name));
             input  += len;
             length -= len;
             packet.name(name);
+        }else{
+            ESP_LOGE("dhyara", "failed to parse name from advertisement packet");
         }
         return input;
     }
