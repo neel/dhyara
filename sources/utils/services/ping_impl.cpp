@@ -12,6 +12,7 @@
 #include <iomanip>
 #include "dhyara/network.h"
 #include "dhyara/dhyara.h"
+#include "dhyara/utils/services/stream.h"
 
 dhyara::utils::services::ping_impl::ping_impl(services::stream& stream, std::uint8_t count, std::int8_t batch, std::uint8_t sleep): _stream(stream), _count(count), _batch(batch), _sleep(sleep), _first(0), _last(0), _wastage(0){
     using namespace std::placeholders;
