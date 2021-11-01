@@ -48,7 +48,7 @@ struct service: private ServiceT{
         }
     }
     static void work_fn(void* arg){
-        xTaskCreate(&service<ServiceT>::runner,    "run",    3*4096,  arg,   19,  NULL);
+        xTaskCreate(&service<ServiceT>::runner,    "run",    3*4096,  arg,   22,  NULL);
     }
     static void runner(void* arg){
         service<ServiceT>* svc = reinterpret_cast<service<ServiceT>*>(arg);
