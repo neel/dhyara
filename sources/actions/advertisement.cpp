@@ -21,7 +21,6 @@ void dhyara::actions::advertisement::operator()(const dhyara::address& addr, con
     }
     if(!advertisement.name().empty()){
         _link.universe().peer(advertisement.dest()).name(advertisement.name());
-        ESP_LOGI("dhyara", "setting name of peer %s as %s", advertisement.dest().to_string().c_str(), advertisement.name().c_str());
     }
     dhyara::delay_type delay = advertisement.delay() + delay_first;
     _synchronizer.queue(advertisement.dest(), addr, delay, advertisement.hops()+1);
