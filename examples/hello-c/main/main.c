@@ -36,13 +36,14 @@ void app_main(){
     if(memcmp(self, source, 6) == 0) other = sink;
     if(memcmp(self, sink,   6) == 0) other = source;
     
-    while(1){
-        if(other){
+    
+    if(other){
+        while(1){
             dhyara_ping(other, .count = 1, .batch = 10);
             dhyara_traceroute(other);
             dhyara_send(other, "Hello World");
             dhyara_send(other, "Hello World", 5);
         }
-        vTaskDelay(pdMS_TO_TICKS(2000));
     }
+    vTaskDelete(0x0);
 }
