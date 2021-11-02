@@ -15,6 +15,7 @@
 #include "dhyara/services/service.hpp"
 #include "dhyara/services/ping.h"
 #include "dhyara/services/routes.h"
+#include "dhyara/services/universe.h"
 
 namespace dhyara{
 
@@ -74,7 +75,7 @@ struct http{
         esp_err_t peers(httpd_req_t* req);
         esp_err_t command(httpd_req_t* req);
     private:
-        using registry_type =  services::registry<services::ping, services::routes>;
+        using registry_type =  services::registry<services::ping, services::routes, services::universe>;
 
         registry_type       _registry;
 };
