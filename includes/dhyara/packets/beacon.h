@@ -9,6 +9,7 @@
 #ifndef DHYARA_PACKETS_BEACON_H
 #define DHYARA_PACKETS_BEACON_H
 
+#include <string>
 #include <cstdint>
 #include <string>
 #include <algorithm>
