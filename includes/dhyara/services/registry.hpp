@@ -38,14 +38,14 @@ namespace detail{
             return run(req, *begin, begin+1, end, low_io);
         }
 
-        private:
+        protected:
             template <typename InputIterator>
             esp_err_t run(httpd_req_t* req, const std::string& name, InputIterator begin, InputIterator end, bool low_io) const{
                 if(name == Head::name){
                     ESP_LOGI("dhyara-services", "service `%s` found", name.c_str());
                     return service<Head>::spawn(req, begin, end, low_io);
                 }else{
-                    return tail::run(name, begin, end, low_io);
+                    return tail::run(req, name, begin, end, low_io);
                 }
             }
 
@@ -67,7 +67,7 @@ namespace detail{
             return run(req, *begin, begin+1, end, low_io);
         }
 
-        private:
+        protected:
             template <typename InputIterator>
             esp_err_t run(httpd_req_t* req, const std::string& name, InputIterator begin, InputIterator end, bool low_io) const{
                 if(name == Head::name){

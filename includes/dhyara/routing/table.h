@@ -96,6 +96,10 @@ struct table {
      */
     inline table_type::const_iterator route_end() const { return _table.end(); }
     /**
+     * number of routes in the routing table
+     */
+    inline table_type::size_type routes_size() const { return _table.size(); }
+    /**
      * begin of the next best vector
      */
     inline next_vector_type::const_iterator next_begin() const { return _next.begin(); }
@@ -103,7 +107,10 @@ struct table {
      * end of the next best vector
      */
     inline next_vector_type::const_iterator next_end() const { return _next.end(); }
-
+    /**
+     * number of best routes in the routing table
+     */
+    inline table_type::size_type next_size() const { return _next.size(); }
     /**
      * Last time the routing table was updated
      */

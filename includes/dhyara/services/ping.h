@@ -12,14 +12,9 @@
 #include <string>
 #include <tuple>
 #include <cstdlib>
-#include <esp_http_server.h>
 #include <dhyara/address.h>
 #include <clipp/clipp.h>
 #include "esp_err.h"
-#include "esp_log.h"
-#include <vector>
-#include <dhyara/defs.h>
-#include "dhyara/packets/echo_reply.h"
 #include <dhyara/services/stream.h>
 #include <dhyara/services/ping_impl.h>
 
@@ -31,7 +26,7 @@ struct ping{
     constexpr static std::uint32_t  stack_size   = 3072;
     constexpr static std::uint8_t   priority     = 19;
     
-    inline ping(bool low_io): _low_io(low_io), _batch(20), _count(1), _wait(2) {}
+    explicit inline ping(bool low_io): _low_io(low_io), _batch(20), _count(1), _wait(2) {}
     inline clipp::group options() {
         return (
             clipp::value("address", _target) % "target address",
