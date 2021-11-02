@@ -54,6 +54,7 @@ struct advertisement{
     inline std::size_t size() const {
         return    6                             // mac address
                 + sizeof(dhyara::delay_type)    // delay 
+                + 1                             // hops
                 + 1                             // name length
                 + _name.size();                 // name
     }

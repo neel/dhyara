@@ -9,6 +9,7 @@
 #ifndef DHYARA_PACKETS_BEACON_H
 #define DHYARA_PACKETS_BEACON_H
 
+#include <string>
 #include <cstdint>
 #include <algorithm>
 #include "esp_timer.h"
@@ -118,9 +119,11 @@ struct serialization<packets::beacon>{
             length -= sizeof(len);
         }
         if(length >= len){
-            std::copy_n(input, len, std::back_inserter(packet.name()));
+            std::string name;
+            std::copy_n(input, len, std::back_inserter(name));
             input  += len;
             length -= len;
+            packet.name(name);
         }
         return input;
     }
