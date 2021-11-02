@@ -43,13 +43,13 @@ InputIt split_space(InputIt begin, InputIt end, ContainerT& container){
 }
 
 template <typename InputIt, typename ContainerT>
-InputIt read_args(InputIt begin, InputIt end, ContainerT& container, bool& is_buffered){
+InputIt read_args(InputIt begin, InputIt end, ContainerT& container, bool& dot){
     using value_type = typename ContainerT::value_type;
     
     InputIt it = split_space(begin, end, container);
     value_type& program_name = *std::begin(container);
-    is_buffered = (*std::begin(program_name) == '.');
-    if(is_buffered){
+    dot = (*std::begin(program_name) == '.');
+    if(dot){
         auto obegin = std::begin(program_name);
         std::advance(obegin, 1);
         value_type sanitized_program_name;
@@ -60,23 +60,23 @@ InputIt read_args(InputIt begin, InputIt end, ContainerT& container, bool& is_bu
 }
 
 template <typename InputIt>
-std::vector<std::basic_string<typename std::iterator_traits<InputIt>::value_type>> read_args(InputIt begin, InputIt end, bool& is_buffered){
+std::vector<std::basic_string<typename std::iterator_traits<InputIt>::value_type>> read_args(InputIt begin, InputIt end, bool& dot){
     std::vector<std::basic_string<typename std::iterator_traits<InputIt>::value_type>> container;
-    read_args(begin, end, container, is_buffered);
+    read_args(begin, end, container, dot);
     return container;
 }
 
 template <typename CharT>
-std::vector<std::basic_string<CharT>> read_args(const std::basic_string<CharT>& str, bool& is_buffered){
+std::vector<std::basic_string<CharT>> read_args(const std::basic_string<CharT>& str, bool& dot){
     std::vector<std::basic_string<CharT>> container;
-    read_args(str.begin(), str.end(), container, is_buffered);
+    read_args(str.begin(), str.end(), container, dot);
     return container;
 }
 
 template <typename CharT>
-std::vector<std::basic_string<CharT>> read_args(const CharT* str, bool& is_buffered){
+std::vector<std::basic_string<CharT>> read_args(const CharT* str, bool& dot){
     std::vector<std::basic_string<CharT>> container;
-    read_args(str, str + std::strlen(str), container, is_buffered);
+    read_args(str, str + std::strlen(str), container, dot);
     return container;
 }
 

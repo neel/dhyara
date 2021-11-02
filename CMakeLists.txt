@@ -42,9 +42,9 @@ else()
             "sources/tools/traceroute.cpp"
             "sources/dhyara.cpp"
             "sources/dhyara.c"
-            "sources/utils/services/ping.cpp"
-            "sources/utils/services/ping_impl.cpp"
-            "sources/utils/services/stream.cpp"
+            "sources/services/ping.cpp"
+            "sources/services/ping_impl.cpp"
+            "sources/services/stream.cpp"
         INCLUDE_DIRS 
             "includes"
             "vendor/clipp/includes"

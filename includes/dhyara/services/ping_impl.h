@@ -23,7 +23,6 @@ namespace dhyara{
 
 class network;
 
-namespace utils{
 namespace services{
 
 class stream;
@@ -38,7 +37,7 @@ struct ping_impl{
      * \param sleep sleep time (in ms)
      */
     ping_impl(services::stream& stream, std::uint8_t count = 1, std::int8_t batch = 1, std::uint8_t sleep = 1);
-    
+    inline void low_io(bool flag) { _low_io = flag; }
     /**
      * set number of batches
      * \param c number of batches
@@ -74,13 +73,6 @@ struct ping_impl{
      * \param addr target address to ping
      */
     void operator()(const dhyara::address& addr);
-    
-    /**
-     * perform ping operation.
-     * 
-     * \param addr target address to ping
-     */
-    void operator()(const std::string& addr);
 
     /**
      * Reset before starting another traceroute
@@ -106,13 +98,13 @@ struct ping_impl{
         std::size_t      _conn_reply;
         delay_type       _first;
         delay_type       _last;
-        delay_type       _wastage;
+        delay_type       _consumed;
+        bool             _low_io;
         
         std::vector<stat_tuple> _stats;
 };
 
 
-}
 }
 }
 

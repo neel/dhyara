@@ -6,34 +6,33 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-#include "dhyara/utils/services/ping_impl.h"
+#include "dhyara/services/ping_impl.h"
 #include <inttypes.h>
 #include <iostream>
 #include <iomanip>
 #include "dhyara/network.h"
 #include "dhyara/dhyara.h"
-#include "dhyara/utils/services/stream.h"
+#include "dhyara/services/stream.h"
 
-dhyara::utils::services::ping_impl::ping_impl(services::stream& stream, std::uint8_t count, std::int8_t batch, std::uint8_t sleep): _stream(stream), _count(count), _batch(batch), _sleep(sleep), _first(0), _last(0), _wastage(0){
+dhyara::services::ping_impl::ping_impl(services::stream& stream, std::uint8_t count, std::int8_t batch, std::uint8_t sleep): _stream(stream), _count(count), _batch(batch), _sleep(sleep), _first(0), _last(0), _consumed(0), _low_io(false){
     using namespace std::placeholders;
-    _conn_reply = dhyara_default_network().echo_reply().connect(std::bind(&dhyara::utils::services::ping_impl::reply, this, _1, _2));
+    _conn_reply = dhyara_default_network().echo_reply().connect(std::bind(&dhyara::services::ping_impl::reply, this, _1, _2));
 }
 
-void dhyara::utils::services::ping_impl::batch(const dhyara::address& addr){
-    _first = esp_timer_get_time();
-    _wastage += (_first - _last);
+void dhyara::services::ping_impl::batch(const dhyara::address& addr){
     dhyara_default_network().echo_request().ping(addr, _batch);
     vTaskDelay(pdMS_TO_TICKS(_sleep*1000));
 }
 
-void dhyara::utils::services::ping_impl::operator()(const dhyara::address& addr){
+void dhyara::services::ping_impl::operator()(const dhyara::address& addr){
     ESP_LOGI("ping", "%s count:%d batch:%d sleep:%d", addr.to_string().c_str(), _count, _batch, _sleep);
     
     reset();
     _stats.reserve(_count*_batch);
-    _last = esp_timer_get_time();
     for(std::uint8_t i = 0; i < _count; ++i){
+        _first = esp_timer_get_time();
         batch(addr);
+        _consumed += (_last - _first);
     }
     
     std::size_t echo_sent  = dhyara_default_network().link().tx(dhyara::packets::type::echo_request);
@@ -56,7 +55,7 @@ void dhyara::utils::services::ping_impl::operator()(const dhyara::address& addr)
     latency_sd = std::sqrt( latency_deviation / _stats.size());
     
     double echo_loss = (double)(echo_sent - std::min(echo_rcvd, echo_sent)) / (double)echo_sent;
-    double duration = (double)(_last - _first - _wastage)/1000.0;
+    double duration = (double)_consumed/1000.0;
     
     _stream << "\n";
 
@@ -84,7 +83,7 @@ void dhyara::utils::services::ping_impl::operator()(const dhyara::address& addr)
     _stream << " N | Origin              | Hit                 | Return              | RTT          " << "\n";
     for(std::uint8_t i = 0; i < _stats.size(); ++i){
         const auto& stat = _stats.at(i);
-        const auto& stat_last = (i == 0) ? stat : _stats.at(i-1);
+        const auto& stat_last = (i % _batch == 0) ? stat : _stats.at(i-1);
         _stream     << std::setfill(' ') << std::setw(2) << (int)i 
                               << " |" << std::setfill(' ') << std::setw(11) << std::get<0>(stat) << "(" << std::setfill(' ') << std::setw(5) << (std::get<0>(stat) - std::get<0>(stat_last)) << "us)"
                               << " |" << std::setfill(' ') << std::setw(11) << std::get<1>(stat) << "(" << std::setfill(' ') << std::setw(5) << (std::get<1>(stat) - std::get<1>(stat_last)) << "us)"
@@ -95,18 +94,15 @@ void dhyara::utils::services::ping_impl::operator()(const dhyara::address& addr)
 
 }
 
-void dhyara::utils::services::ping_impl::operator()(const std::string& addr){
-    operator()(dhyara::address(addr));
-}
-
-void dhyara::utils::services::ping_impl::reply(const dhyara::address&, const dhyara::packets::echo_reply& reply){
+void dhyara::services::ping_impl::reply(const dhyara::address&, const dhyara::packets::echo_reply& reply){
     _last = esp_timer_get_time();
     _stats.push_back(std::make_tuple(reply.time(), reply.rtime(), _last, reply.latency()));
-
-    // _stream << reply << "\n";
+    if(!_low_io){
+        _stream << reply << "\n";
+    }
 }
 
-void dhyara::utils::services::ping_impl::reset(){
+void dhyara::services::ping_impl::reset(){
     dhyara_default_network().link().reset(dhyara::packets::type::echo_request);
     dhyara_default_network().link().reset(dhyara::packets::type::echo_reply);
     
@@ -115,7 +111,7 @@ void dhyara::utils::services::ping_impl::reset(){
     _stats.clear();
 }
 
-dhyara::utils::services::ping_impl::~ping_impl(){
+dhyara::services::ping_impl::~ping_impl(){
     dhyara_default_network().echo_reply().disconnect(_conn_reply);
     reset();
 }

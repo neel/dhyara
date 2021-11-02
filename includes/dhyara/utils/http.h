@@ -11,9 +11,9 @@
 
 #include <esp_http_server.h>
 #include "dhyara/link.h"
-#include "dhyara/utils/services/registry.hpp"
-#include "dhyara/utils/services/service.hpp"
-#include "dhyara/utils/services/ping.h"
+#include "dhyara/services/registry.hpp"
+#include "dhyara/services/service.hpp"
+#include "dhyara/services/ping.h"
 
 namespace dhyara{
 
@@ -73,7 +73,7 @@ struct http{
         esp_err_t peers(httpd_req_t* req);
         esp_err_t command(httpd_req_t* req);
     private:
-        using registry_type =  utils::services::registry<utils::services::ping>;
+        using registry_type =  services::registry<services::ping>;
 
         registry_type       _registry;
 };

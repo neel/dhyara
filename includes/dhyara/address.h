@@ -132,9 +132,13 @@ struct address{
      * check whether the mac address is broadcast
      */
     inline bool is_broadcast() const { return std::all_of(_bytes.begin(), _bytes.end(), std::bind(std::equal_to<std::uint8_t>(), std::placeholders::_1, 0xff)); }
-    
+    /**
+     * whether the mac address is valid
+     */
+    inline bool valid() const { return _valid; }
     private:
         container_type _bytes;
+        bool           _valid;
 };
 
 std::ostream& operator<<(std::ostream& os, const dhyara::address& address);

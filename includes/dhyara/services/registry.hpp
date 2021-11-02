@@ -11,13 +11,12 @@
 
 #include <string>
 #include <type_traits>
-#include <dhyara/utils/services/service.hpp>
-#include <dhyara/utils/services/stream.h>
+#include <dhyara/services/service.hpp>
+#include <dhyara/services/stream.h>
 #include "esp_err.h"
 #include "esp_log.h"
 
 namespace dhyara{
-namespace utils{
 namespace services{
 
 namespace detail{
@@ -31,24 +30,22 @@ namespace detail{
         }
         
         bool exists(const std::string& name) const {
-            return (name == Head::name()) || tail::exists(name);
+            return (name == Head::name) || tail::exists(name);
         }
         
         template <typename InputIterator>
-        esp_err_t run(httpd_req_t* req, InputIterator begin, InputIterator end) const{
-            return run(req, *begin, begin+1, end);
+        esp_err_t run(httpd_req_t* req, InputIterator begin, InputIterator end, bool low_io) const{
+            return run(req, *begin, begin+1, end, low_io);
         }
 
         private:
             template <typename InputIterator>
-            esp_err_t run(httpd_req_t* req, const std::string& name, InputIterator begin, InputIterator end) const{
-                if(name == Head::name()){
+            esp_err_t run(httpd_req_t* req, const std::string& name, InputIterator begin, InputIterator end, bool low_io) const{
+                if(name == Head::name){
                     ESP_LOGI("dhyara-services", "service `%s` found", name.c_str());
-                    // service<Head> service(req);
-                    // return service(begin, end);
-                    return service<Head>::spawn(req, begin, end);
+                    return service<Head>::spawn(req, begin, end, low_io);
                 }else{
-                    return tail::run(name, begin, end);
+                    return tail::run(name, begin, end, low_io);
                 }
             }
 
@@ -62,22 +59,20 @@ namespace detail{
         }
         
         bool exists(const std::string& name) const {
-            return name == Head::name();
+            return name == Head::name;
         }
 
         template <typename InputIterator>
-        esp_err_t run(httpd_req_t* req, InputIterator begin, InputIterator end) const{
-            return run(req, *begin, begin+1, end);
+        esp_err_t run(httpd_req_t* req, InputIterator begin, InputIterator end, bool low_io) const{
+            return run(req, *begin, begin+1, end, low_io);
         }
 
         private:
             template <typename InputIterator>
-            esp_err_t run(httpd_req_t* req, const std::string& name, InputIterator begin, InputIterator end) const{
-                if(name == Head::name()){
+            esp_err_t run(httpd_req_t* req, const std::string& name, InputIterator begin, InputIterator end, bool low_io) const{
+                if(name == Head::name){
                     ESP_LOGI("dhyara-services", "service `%s` found", name.c_str());
-                    // service<Head> service(req);
-                    // return service(begin, end);
-                    return service<Head>::spawn(req, begin, end);
+                    return service<Head>::spawn(req, begin, end, low_io);
                 }
                 httpd_resp_send_err(req, HTTPD_500_INTERNAL_SERVER_ERROR, "No such service");
                 return ESP_OK;
@@ -88,7 +83,6 @@ namespace detail{
 template <typename... X>
 using registry = detail::basic_registry<X...>;
 
-}
 }
 }
 

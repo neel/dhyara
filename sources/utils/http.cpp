@@ -191,7 +191,7 @@ dhyara::utils::http::http(dhyara::link& link): _link(link), _config(HTTPD_DEFAUL
     _command     (httpd_uri_t{"/command",      HTTP_POST, dhyara::utils::http::command_handler,     this})
 {
     _config.max_uri_handlers = 11;
-    _config.stack_size = 3*4096;
+    _config.stack_size = 8192;
 }
 
 
@@ -635,8 +635,8 @@ esp_err_t dhyara::utils::http::command(httpd_req_t* req){
         return ESP_FAIL;
     }
 
-    bool is_buffered = true;
-    std::vector<std::string> argv = detail::read_args(content, is_buffered);
+    bool low_io = true;
+    std::vector<std::string> argv = detail::read_args(content, low_io);
 
     ESP_LOGI("dhyara-services", "Service `%s` requested", argv[0].c_str());
     if(!_registry.exists(argv[0])){ // if no such service is found
@@ -647,6 +647,6 @@ esp_err_t dhyara::utils::http::command(httpd_req_t* req){
         return ESP_FAIL;
     }
 
-    _registry.run(req, argv.cbegin(), argv.cend());
+    _registry.run(req, argv.cbegin(), argv.cend(), low_io);
     return ESP_OK;
 }

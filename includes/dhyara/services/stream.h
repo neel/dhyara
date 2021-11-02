@@ -15,9 +15,16 @@
 #include <string>
 
 namespace dhyara{
-namespace utils{
 namespace services{
 
+/**
+ * @brief Chunked Transfer encoded stream over raw TCP socket
+ * A stream wraps a raw socket behind the HTTP request context and provides a chunked tranfer encoded stream.
+ * It takes an HTTP request context as the argument to the constructor, and then extracts the raw socket from 
+ * that. So the lifetime of the request context may not be extended for the stream to write to the socket.
+ * However the socket behind the HTTP context must not be closed while the stream is alive. It is not an issue
+ * since ESP IDF's HTTPD library supports persistent connections.
+ */
 struct stream{
     explicit stream(httpd_req_t* req);
 
@@ -45,7 +52,6 @@ inline stream& operator<<(stream& s, const X& x){
     return s.write(x);
 }
 
-}
 }
 }
 
