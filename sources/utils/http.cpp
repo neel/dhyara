@@ -11,6 +11,7 @@
 #include "dhyara/assets.h"
 #include <cstring>
 #include "esp_err.h"
+#include "esp_http_server.h"
 #include "esp_wifi.h"
 #include <dhyara/dhyara.h>
 #include <iterator>
@@ -618,10 +619,10 @@ esp_err_t dhyara::utils::http::command(httpd_req_t* req){
     size_t recv_size = std::min(req->content_len, sizeof(content));
     if(recv_size > sizeof(content)){
         httpd_resp_send_err(req, HTTPD_414_URI_TOO_LONG, "Command larger than 256 characters not allowed.");
-        return ESP_FAIL;
+        return ESP_OK;
     }else if(recv_size == 0){
         httpd_resp_send_err(req, HTTPD_400_BAD_REQUEST, "Empty command.");
-        return ESP_FAIL;
+        return ESP_OK;
     }
 
     std::fill(content, content +sizeof(content), 0);
@@ -632,7 +633,7 @@ esp_err_t dhyara::utils::http::command(httpd_req_t* req){
         }else{
             httpd_resp_send_500(req);
         }
-        return ESP_FAIL;
+        return ESP_OK;
     }
 
     bool low_io = true;
@@ -640,11 +641,16 @@ esp_err_t dhyara::utils::http::command(httpd_req_t* req){
 
     ESP_LOGI("dhyara-services", "Service `%s` requested", argv[0].c_str());
     if(!_registry.exists(argv[0])){ // if no such service is found
-        std::string error("No such service ");
-        error += argv[0];
-
-        httpd_resp_send_err(req, HTTPD_405_METHOD_NOT_ALLOWED, error.c_str());
-        return ESP_FAIL;
+        httpd_resp_set_status(req, HTTPD_404);
+        httpd_resp_set_type(req, "text/plain");
+        httpd_resp_sendstr_chunk(req, "No such service ");
+        httpd_resp_sendstr_chunk(req, argv[0].c_str());
+        httpd_resp_sendstr_chunk(req, "\n");
+        httpd_resp_sendstr_chunk(req, "Following are the list of services registered");
+        httpd_resp_sendstr_chunk(req, "\n");
+        _registry.print(req);
+        httpd_resp_sendstr_chunk(req, NULL);
+        return ESP_OK;
     }
 
     _registry.run(req, argv.cbegin(), argv.cend(), low_io);

@@ -37,7 +37,11 @@ namespace detail{
         esp_err_t run(httpd_req_t* req, InputIterator begin, InputIterator end, bool low_io) const{
             return run(req, *begin, begin+1, end, low_io);
         }
-
+        void print(httpd_req_t* req){
+            httpd_resp_sendstr_chunk(req, Head::name);
+            httpd_resp_sendstr_chunk(req, "\n");
+            tail::print(req);
+        }
         protected:
             template <typename InputIterator>
             esp_err_t run(httpd_req_t* req, const std::string& name, InputIterator begin, InputIterator end, bool low_io) const{
@@ -66,7 +70,10 @@ namespace detail{
         esp_err_t run(httpd_req_t* req, InputIterator begin, InputIterator end, bool low_io) const{
             return run(req, *begin, begin+1, end, low_io);
         }
-
+        void print(httpd_req_t* req){
+            httpd_resp_sendstr_chunk(req, Head::name);
+            httpd_resp_sendstr_chunk(req, "\n");
+        }
         protected:
             template <typename InputIterator>
             esp_err_t run(httpd_req_t* req, const std::string& name, InputIterator begin, InputIterator end, bool low_io) const{
