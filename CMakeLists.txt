@@ -46,6 +46,7 @@ else()
             "sources/services/ping_impl.cpp"
             "sources/services/routes.cpp"
             "sources/services/universe.cpp"
+            "sources/services/identify.cpp"
             "sources/services/stream.cpp"
         INCLUDE_DIRS 
             "includes"
