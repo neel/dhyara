@@ -14,6 +14,7 @@
 #include <cstdlib>
 #include <dhyara/address.h>
 #include <clipp/clipp.h>
+#include <dhyara/cmd/cmd.hpp>
 #include "esp_err.h"
 #include <dhyara/services/stream.h>
 #include <dhyara/services/ping_impl.h>
@@ -28,6 +29,14 @@ struct ping{
     
     explicit inline ping(bool low_io): _low_io(low_io), _batch(20), _count(1), _wait(2) {}
     clipp::group options();
+    void options2() {
+        auto chain = (
+            cmd::pos("address", _target) % "target address",
+            cmd::arg("-b", "--batch") & cmd::value(_batch, "size")     % "number of ICMPQ requests in one batch",
+            cmd::arg("-c", "--count") & cmd::value(_count, "count")    % "number of batches to send",
+            cmd::arg("-w", "--wait")  & cmd::value(_wait,  "seconds")  % "number of seconds to wait after each batch of requests, for receiving all responses"
+        );
+    }
     esp_err_t run(services::stream& stream);
     
     private:
