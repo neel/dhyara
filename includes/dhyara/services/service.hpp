@@ -23,7 +23,7 @@ struct service: private ServiceT{
     explicit service(httpd_req_t* req, bool low_io): ServiceT(low_io), _stream(req), _help(false){}
 
     /**
-     * @brief Rub the service from the HTTPD stack
+     * @brief Run the service from the HTTPD stack
      * 
      * @tparam InputIterator 
      * @param first 
