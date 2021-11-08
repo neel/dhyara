@@ -27,24 +27,9 @@ struct ping{
     constexpr static std::uint8_t   priority     = 19;
     
     explicit inline ping(bool low_io): _low_io(low_io), _batch(20), _count(1), _wait(2) {}
-    inline clipp::group options() {
-        return (
-            clipp::value("address", _target) % "target address",
-            clipp::option("-b", "--batch") & clipp::value("size",    _batch) % "number of ICMPQ requests in one batch",
-            clipp::option("-c", "--count") & clipp::value("count",   _count) % "number of batches to send",
-            clipp::option("-w", "--wait")  & clipp::value("seconds", _wait)  % "number of seconds to wait after each batch of requests, for receiving all responses"
-        );
-    }
-    esp_err_t run(services::stream& stream){
-        dhyara::address target(_target);
-        if(target.valid()){
-            services::ping_impl impl(stream, _count, _batch, _wait);
-            impl.low_io(_low_io);
-            impl(target);
-            stream.finish();
-        }
-        return ESP_OK;
-    }
+    clipp::group options();
+    esp_err_t run(services::stream& stream);
+    
     private:
         bool         _low_io;
         std::string  _target;

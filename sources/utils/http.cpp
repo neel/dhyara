@@ -14,7 +14,6 @@
 #include "esp_http_server.h"
 #include "esp_wifi.h"
 #include <dhyara/dhyara.h>
-#include <iterator>
 #include "esp_idf_version.h"
 #include "dhyara/detail/args_helper.hpp"
 
@@ -289,14 +288,14 @@ esp_err_t dhyara::utils::http::index_html(httpd_req_t* req){
 }
 
 esp_err_t dhyara::utils::http::icons(httpd_req_t* req){
-    const auto length = std::distance(dhyara::assets::icons_gif_start, dhyara::assets::icons_gif_end);
+    const auto length = (dhyara::assets::icons_gif_end - dhyara::assets::icons_gif_start);
     httpd_resp_set_type(req, "image/gif");
     httpd_resp_send(req, (const char*)dhyara::assets::icons_gif_start, length);
     return ESP_OK;
 }
 
 esp_err_t dhyara::utils::http::style(httpd_req_t* req){
-    const auto length = std::distance(dhyara::assets::dhyara_css_start, dhyara::assets::dhyara_css_end);
+    const auto length = (dhyara::assets::dhyara_css_end - dhyara::assets::dhyara_css_start);
     httpd_resp_set_type(req, "text/css");
     httpd_resp_send(req, (const char*)dhyara::assets::dhyara_css_start, length);
     return ESP_OK;
