@@ -10,7 +10,7 @@
 #define DHYARA_SERVICES_IDENTIFY_H
 
 #include <cstdint>
-#include <clipp/clipp.h>
+#include <dhyara/cmd/cmd.hpp>
 #include "esp_err.h"
 #include <dhyara/services/stream.h>
 
@@ -23,9 +23,7 @@ struct identify{
     constexpr static std::uint8_t   priority     = 10;
     
     explicit inline identify(bool) {}
-    inline clipp::group options() {
-        return clipp::group();
-    }
+    inline cmd::none options() { return cmd::none{}; }
     esp_err_t run(services::stream& stream);
 };
 

@@ -13,7 +13,6 @@
 #include <tuple>
 #include <cstdlib>
 #include <dhyara/address.h>
-// #include <clipp/clipp.h>
 #include <dhyara/cmd/cmd.hpp>
 #include "esp_err.h"
 #include <dhyara/services/stream.h>

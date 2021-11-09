@@ -115,8 +115,8 @@ struct param{
             stream << "<" << _placeholder << ">";
             chars_written += _placeholder.size() + 2;
         }
-        if(chars_written < 25){
-            std::string space(25-chars_written, ' ');
+        if(chars_written < 35){
+            std::string space(35-chars_written, ' ');
             stream << space;
         }
         stream << " " << _description;
@@ -214,8 +214,8 @@ struct param<bool>{
                 chars_written += 2*_prefix.size() + _name.size();
             }
         }
-        if(chars_written < 25){
-            std::string space(25-chars_written, ' ');
+        if(chars_written < 35){
+            std::string space(35-chars_written, ' ');
             stream << space;
         }
         stream << " " << _description;

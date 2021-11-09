@@ -10,7 +10,7 @@
 #define DHYARA_SERVICES_UNIVERSE_H
 
 #include <cstdint>
-#include <clipp/clipp.h>
+#include <dhyara/cmd/cmd.hpp>
 #include "esp_err.h"
 #include <dhyara/services/stream.h>
 
@@ -23,12 +23,7 @@ struct universe{
     constexpr static std::uint8_t   priority     = 10;
     
     explicit inline universe(bool): _only_neighbours(false), _only_peers(false) {}
-    inline clipp::group options() {
-        return clipp::joinable(
-            clipp::option("-n").set(_only_neighbours, true) % "show neighbours",
-            clipp::option("-u").set(_only_peers, true) % "show peers"
-        );
-    }
+    cmd::args<bool, bool> options();
     esp_err_t run(services::stream& stream);
     private:
         bool _only_neighbours, _only_peers;

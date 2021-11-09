@@ -13,15 +13,13 @@
 #include "dhyara/link.h"
 #include "dhyara/services/registry.hpp"
 #include "dhyara/services/service.hpp"
-// #include "dhyara/services/ping.h"
-// #include "dhyara/services/routes.h"
-// #include "dhyara/services/universe.h"
-// #include "dhyara/services/identify.h"
-
 namespace dhyara{
 
 namespace services{
     struct ping;
+    struct identify;
+    struct routes;
+    struct universe;
 }
 
 namespace utils{
@@ -80,8 +78,7 @@ struct http{
         esp_err_t peers(httpd_req_t* req);
         esp_err_t command(httpd_req_t* req);
     private:
-        using registry_type =  services::registry<services::ping>;
-        // using registry_type =  services::registry<services::ping, services::routes, services::universe, services::identify>;
+        using registry_type =  services::registry<services::ping, services::routes, services::universe, services::identify>;
 
         registry_type       _registry;
 };

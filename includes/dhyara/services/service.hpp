@@ -9,7 +9,6 @@
 #ifndef DHYARA_SERVICES_SERVICE_H
 #define DHYARA_SERVICES_SERVICE_H
 
-// #include <clipp/clipp.h>
 #include <dhyara/cmd/cmd.hpp>
 #include <esp_http_server.h>
 #include "esp_err.h"
@@ -80,7 +79,7 @@ struct service: private ServiceT{
             using namespace dhyara;
 
             responded = true;
-            auto options = (ServiceT::options(), cmd::arg("-h", "--help") & cmd::value(_help) % "show this help message");
+            auto options = (ServiceT::options(), cmd::arg("h", "help") & cmd::value(_help) % "show this help message");
             cmd::parse(options, first, last);
             if(!options.valid()){
                 ESP_LOGI("dhyara-services", "Error parsing arguments for service `%s`", ServiceT::name);

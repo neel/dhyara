@@ -10,7 +10,7 @@
 #define DHYARA_SERVICES_ROUTES_H
 
 #include <cstdint>
-#include <clipp/clipp.h>
+#include <dhyara/cmd/cmd.hpp>
 #include "esp_err.h"
 #include <dhyara/services/stream.h>
 
@@ -23,11 +23,7 @@ struct routes{
     constexpr static std::uint8_t   priority     = 10;
     
     explicit inline routes(bool): _hops(0) {}
-    inline clipp::group options() {
-        return (
-            clipp::option("-n", "--hops") & clipp::value("N", _hops) % "Only show the routes that are N or more hops away"
-        );
-    }
+    cmd::args<std::uint8_t> options();
     esp_err_t run(services::stream& stream);
     private:
         std::uint8_t _hops;

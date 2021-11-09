@@ -11,6 +11,12 @@
 #include "esp_err.h"
 #include <iomanip>
 
+dhyara::cmd::args<std::uint8_t> dhyara::services::routes::options() {
+    return (
+        cmd::arg("n", "hops") & cmd::value(_hops, "N") % "Only show the routes that are N or more hops away"
+    );
+}
+
 esp_err_t dhyara::services::routes::run(dhyara::services::stream &stream){
     dhyara::link& link = dhyara_link();
     stream << link.routes().routes_size() << " routes to " << link.routes().next_size() << " destinations" << "\n";

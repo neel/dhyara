@@ -12,6 +12,13 @@
 #include "esp_err.h"
 #include <iomanip>
 
+dhyara::cmd::args<bool, bool> dhyara::services::universe::options() {
+    return (
+        cmd::arg("-n") & cmd::value(_only_neighbours) % "show neighbours",
+        cmd::arg("-u") & cmd::value(_only_peers) % "show peers"
+    );
+}
+
 esp_err_t dhyara::services::universe::run(dhyara::services::stream &stream){
     dhyara::link& link = dhyara_link();
     bool none_set = (!_only_neighbours && !_only_peers);

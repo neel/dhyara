@@ -15,7 +15,7 @@ esp_err_t dhyara::services::identify::run(dhyara::services::stream &stream){
     dhyara::link& link = dhyara_link();
 
     wifi_config_t config;
-    std::memset(&config, 0, sizeof(wifi_config_t));
+    memset(&config, 0, sizeof(wifi_config_t));
     esp_err_t err = esp_wifi_get_config(WIFI_IF_AP, &config);
     std::string ssid;
     if(err == ESP_OK){
