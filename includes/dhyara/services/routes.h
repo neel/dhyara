@@ -22,7 +22,7 @@ struct routes{
     constexpr static std::uint32_t  stack_size   = 4096;
     constexpr static std::uint8_t   priority     = 10;
     
-    explicit inline routes(bool): _hops(0) {}
+    explicit inline routes(): _hops(0) {}
     cmd::args<std::uint8_t> options();
     esp_err_t run(services::stream& stream);
     private:

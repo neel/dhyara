@@ -22,7 +22,6 @@ struct identify{
     constexpr static std::uint32_t  stack_size   = 4096;
     constexpr static std::uint8_t   priority     = 10;
     
-    explicit inline identify(bool) {}
     inline cmd::none options() { return cmd::none{}; }
     esp_err_t run(services::stream& stream);
 };

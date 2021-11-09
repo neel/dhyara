@@ -639,8 +639,7 @@ esp_err_t dhyara::utils::http::command(httpd_req_t* req){
         return ESP_OK;
     }
 
-    bool low_io = true;
-    std::vector<std::string> argv = detail::read_args(content, low_io);
+    std::vector<std::string> argv = detail::read_args(content);
 
     ESP_LOGI("dhyara-services", "Service `%s` requested", argv[0].c_str());
     if(!_registry.exists(argv[0])){ // if no such service is found
@@ -656,6 +655,6 @@ esp_err_t dhyara::utils::http::command(httpd_req_t* req){
         return ESP_OK;
     }
 
-    _registry.run(req, argv.cbegin(), argv.cend(), low_io);
+    _registry.run(req, argv.cbegin(), argv.cend());
     return ESP_OK;
 }

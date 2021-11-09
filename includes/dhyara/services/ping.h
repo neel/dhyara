@@ -26,13 +26,13 @@ struct ping{
     constexpr static std::uint32_t  stack_size   = 3072;
     constexpr static std::uint8_t   priority     = 19;
     
-    explicit inline ping(bool low_io): _low_io(low_io), _batch(20), _count(1), _wait(2) {}
-    dhyara::cmd::args<std::uint32_t, std::uint32_t, std::uint32_t, std::string> options();
+    explicit inline ping(): _quiet(false), _batch(20), _count(1), _wait(2) {}
+    dhyara::cmd::args<bool, std::uint32_t, std::uint32_t, std::uint32_t, std::string> options();
     esp_err_t run(services::stream& stream);
     
     private:
-        bool         _low_io;
-        std::string  _target;
+        bool          _quiet;
+        std::string   _target;
         std::uint32_t _batch;
         std::uint32_t _count;
         std::uint32_t _wait;

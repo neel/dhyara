@@ -10,7 +10,7 @@
 #define DHYARA_DETAIL_ARGS_HELPER_H
 
 #include <set>
-#include <list>
+#include <vector>
 #include <string>
 #include <cstring>
 #include <algorithm>
@@ -43,40 +43,28 @@ InputIt split_space(InputIt begin, InputIt end, ContainerT& container){
 }
 
 template <typename InputIt, typename ContainerT>
-InputIt read_args(InputIt begin, InputIt end, ContainerT& container, bool& dot){
-    using value_type = typename ContainerT::value_type;
-    
-    InputIt it = split_space(begin, end, container);
-    value_type& program_name = *std::begin(container);
-    dot = (*std::begin(program_name) == '.');
-    if(dot){
-        auto obegin = std::begin(program_name);
-        std::advance(obegin, 1);
-        value_type sanitized_program_name;
-        std::copy(obegin, std::end(program_name), std::back_inserter(sanitized_program_name));
-        program_name = sanitized_program_name;
-    }
-    return it;
+InputIt read_args(InputIt begin, InputIt end, ContainerT& container){
+    return split_space(begin, end, container);
 }
 
 template <typename InputIt>
-std::vector<std::basic_string<typename std::iterator_traits<InputIt>::value_type>> read_args(InputIt begin, InputIt end, bool& dot){
+std::vector<std::basic_string<typename std::iterator_traits<InputIt>::value_type>> read_args(InputIt begin, InputIt end){
     std::vector<std::basic_string<typename std::iterator_traits<InputIt>::value_type>> container;
-    read_args(begin, end, container, dot);
+    read_args(begin, end, container);
     return container;
 }
 
 template <typename CharT>
-std::vector<std::basic_string<CharT>> read_args(const std::basic_string<CharT>& str, bool& dot){
+std::vector<std::basic_string<CharT>> read_args(const std::basic_string<CharT>& str){
     std::vector<std::basic_string<CharT>> container;
-    read_args(str.begin(), str.end(), container, dot);
+    read_args(str.begin(), str.end(), container);
     return container;
 }
 
 template <typename CharT>
-std::vector<std::basic_string<CharT>> read_args(const CharT* str, bool& dot){
+std::vector<std::basic_string<CharT>> read_args(const CharT* str){
     std::vector<std::basic_string<CharT>> container;
-    read_args(str, str + std::strlen(str), container, dot);
+    read_args(str, str + std::strlen(str), container);
     return container;
 }
 

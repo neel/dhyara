@@ -37,7 +37,7 @@ struct ping_impl{
      * \param sleep sleep time (in ms)
      */
     ping_impl(services::stream& stream, std::uint8_t count = 1, std::int8_t batch = 1, std::uint8_t sleep = 1);
-    inline void low_io(bool flag) { _low_io = flag; }
+    inline void quiet(bool flag) { _quiet = flag; }
     /**
      * set number of batches
      * \param c number of batches
@@ -99,7 +99,7 @@ struct ping_impl{
         delay_type       _first;
         delay_type       _last;
         delay_type       _consumed;
-        bool             _low_io;
+        bool             _quiet;
         
         std::vector<stat_tuple> _stats;
 };

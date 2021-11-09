@@ -22,7 +22,7 @@ struct universe{
     constexpr static std::uint32_t  stack_size   = 4096;
     constexpr static std::uint8_t   priority     = 10;
     
-    explicit inline universe(bool): _only_neighbours(false), _only_peers(false) {}
+    explicit inline universe(): _only_neighbours(false), _only_peers(false) {}
     cmd::args<bool, bool> options();
     esp_err_t run(services::stream& stream);
     private:

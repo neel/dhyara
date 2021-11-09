@@ -20,7 +20,7 @@ namespace services{
 
 template <typename ServiceT>
 struct service: private ServiceT{
-    explicit service(httpd_req_t* req, bool low_io): ServiceT(low_io), _stream(req), _help(false){}
+    explicit service(httpd_req_t* req): _stream(req), _help(false){}
 
     /**
      * @brief Run the service from the HTTPD stack
@@ -49,8 +49,8 @@ struct service: private ServiceT{
      * @return esp_err_t 
      */
     template<class InputIterator>
-    static esp_err_t spawn(httpd_req_t* req, InputIterator first, InputIterator last, bool low_io){
-        service<ServiceT>* svc = new service<ServiceT>(req, low_io);
+    static esp_err_t spawn(httpd_req_t* req, InputIterator first, InputIterator last){
+        service<ServiceT>* svc = new service<ServiceT>(req);
         bool responded = false;
         esp_err_t err = svc->exec(first, last, responded);
         if(!responded){

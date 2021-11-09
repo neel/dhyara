@@ -14,7 +14,7 @@
 #include "dhyara/dhyara.h"
 #include "dhyara/services/stream.h"
 
-dhyara::services::ping_impl::ping_impl(services::stream& stream, std::uint8_t count, std::int8_t batch, std::uint8_t sleep): _stream(stream), _count(count), _batch(batch), _sleep(sleep), _first(0), _last(0), _consumed(0), _low_io(false){
+dhyara::services::ping_impl::ping_impl(services::stream& stream, std::uint8_t count, std::int8_t batch, std::uint8_t sleep): _stream(stream), _count(count), _batch(batch), _sleep(sleep), _first(0), _last(0), _consumed(0), _quiet(false){
     using namespace std::placeholders;
     _conn_reply = dhyara_default_network().echo_reply().connect(std::bind(&dhyara::services::ping_impl::reply, this, _1, _2));
 }
@@ -97,7 +97,7 @@ void dhyara::services::ping_impl::operator()(const dhyara::address& addr){
 void dhyara::services::ping_impl::reply(const dhyara::address&, const dhyara::packets::echo_reply& reply){
     _last = esp_timer_get_time();
     _stats.push_back(std::make_tuple(reply.time(), reply.rtime(), _last, reply.latency()));
-    if(!_low_io){
+    if(!_quiet){
         _stream << reply << "\n";
     }
 }
