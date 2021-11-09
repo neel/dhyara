@@ -42,12 +42,12 @@ else()
             "sources/tools/traceroute.cpp"
             "sources/dhyara.cpp"
             "sources/dhyara.c"
+            "sources/services/stream.cpp"
             "sources/services/ping.cpp"
             "sources/services/ping_impl.cpp"
-            "sources/services/routes.cpp"
-            "sources/services/universe.cpp"
-            "sources/services/identify.cpp"
-            "sources/services/stream.cpp"
+            # "sources/services/routes.cpp"
+            # "sources/services/universe.cpp"
+            # "sources/services/identify.cpp"
         INCLUDE_DIRS 
             "includes"
             "vendor/clipp/includes"
@@ -60,4 +60,6 @@ else()
             "assets/min/dhyara.css"
             "assets/icons.gif"
     )
+    set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE "time")
+    set_property(GLOBAL PROPERTY RULE_LAUNCH_LINK "time")
 endif()

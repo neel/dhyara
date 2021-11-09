@@ -21,18 +21,20 @@ namespace detail{
         man(const chain<Head, Tail>& chain): _chain(chain) {}
         template <typename StreamT>
         StreamT& usage(StreamT& stream) const {
-            _chain.head().usage(stream);
-            stream << " ";
             detail::man<Tail> tail_man(_chain.tail());
-            return tail_man.usage(stream);
+            tail_man.usage(stream);
+            stream << " ";
+            _chain.head().usage(stream);
+            return stream;
         }
         template <typename StreamT>
         StreamT& desc(StreamT& stream) const {
+            detail::man<Tail> tail_man(_chain.tail());
+            tail_man.desc(stream);
+            stream << "\n";
             stream << "\t";
             _chain.head().desc(stream);
-            stream << "\n";
-            detail::man<Tail> tail_man(_chain.tail());
-            return tail_man.desc(stream);
+            return stream;
         }
         private:
             const chain<Head, Tail>& _chain;

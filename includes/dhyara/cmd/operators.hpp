@@ -15,18 +15,6 @@
 namespace dhyara{
 namespace cmd{
 
-template <typename V>
-param<V>& operator%(param<V>& p, const std::string& desc){
-    p.description(desc);
-    return p;
-}
-template <typename V>
-param<V> operator%(param<V>&& p, const std::string& desc){
-    param<V> pn(std::move(p));
-    pn.description(desc);
-    return pn;
-}
-
 namespace detail{
     template <typename V>
     param<V> operator&(const detail::param_name& pn, const detail::param_value<V>& pv){
@@ -52,19 +40,31 @@ namespace detail{
 
 }
 
+template <typename V>
+param<V>& operator%(param<V>& p, const std::string& desc){
+    p.description(desc);
+    return p;
+}
+template <typename V>
+param<V> operator%(param<V>&& p, const std::string& desc){
+    param<V> pn(std::move(p));
+    pn.description(desc);
+    return pn;
+}
+
 template <typename X, typename Y>
-chain<param<X>, chain<param<Y>>> operator,(const param<X>& x, const param<Y>& y){
-    return chain<param<X>, chain<param<Y>>>(x, chain<param<Y>>(y));
+chain<param<Y>, chain<param<X>>> operator,(param<X>&& x, param<Y>&& y){
+    return chain<param<Y>, chain<param<X>>>(std::move(y), chain<param<X>>(std::move(x)));
 }
 
 template <typename X>
-chain<param<X>, void> operator,(const chain<void, void>&, const param<X>& x){
-    return chain<param<X>, void>(x);
+chain<param<X>, void> operator,(chain<void, void>&&, param<X>&& x){
+    return chain<param<X>, void>(std::move(x));
 }
 
-template <typename T, typename Head, typename Tail, typename std::enable_if<!std::is_void<Tail>::value, bool>::type = true >
-typename chain<Head, Tail>::template extend<T> operator,(const chain<Head, Tail>& c, const param<T>& p){
-    return c.upgrade(p);
+template <typename T, typename Head, typename Tail>
+chain<param<T>, chain<Head, Tail>> operator,(chain<Head, Tail>&& c, param<T>&& p){
+    return chain<param<T>, chain<Head, Tail>>(std::move(p), std::move(c));
 }
 
 }

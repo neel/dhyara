@@ -32,12 +32,13 @@ struct chain<param<T>, chain<Head, Tail>>{
     template <typename>
     friend struct detail::chain_parser;
 
-    chain(const head_type& head, const tail_type& tail): _head(head), _tail(tail) {}
+    chain(head_type&& head, tail_type&& tail): _head(std::move(head)), _tail(std::move(tail)) {}
     const head_type& head() const { return _head; }
     const tail_type& tail() const { return _tail; }
     
     template <typename StreamT>
     StreamT& errors(StreamT& stream) const {
+        _tail.errors(stream);
         if(_head.required() && !_head.is_set()){
             stream << "no value set for parameter ";
             if(!_head.option().empty()){
@@ -55,7 +56,7 @@ struct chain<param<T>, chain<Head, Tail>>{
             }
             stream << "\n";
         }
-        return _tail.errors(stream);
+        return stream;
     }
     /**
      * @brief Whether the entire chain is okay or not
@@ -63,7 +64,7 @@ struct chain<param<T>, chain<Head, Tail>>{
      * @return true 
      * @return false 
      */
-    bool okay() const { return (_head.valid() || _head.optional()) && _tail.okay(); }
+    bool okay() const { return _tail.okay() && (_head.valid() || _head.optional()); }
     /**
      * @brief Checks whether the chain is valid or not including the optional parameters
      * @note an optional parameter with no valud set is valid
@@ -71,27 +72,31 @@ struct chain<param<T>, chain<Head, Tail>>{
      * @return false 
      */
     bool valid() const {
-        return (
+        return _tail.valid() && (
             (_head.is_set()   && _head.valid())   || 
             (_head.optional() && !_head.is_set())
-        ) && _tail.valid(); 
+        ); 
     }
-    template <typename X>
-    inline extend<X> upgrade(const param<X>& px) const{
-        using extended_chain_type = extend<X>;
-        return extended_chain_type(_head, _tail.template upgrade<X>(px));
-    }
+    // template <typename X>
+    // inline extend<X> upgrade(const param<X>& px) const{
+    //     using extended_chain_type = extend<X>;
+    //     return extended_chain_type(_head, _tail.template upgrade<X>(px));
+    // }
     private:
         template <typename InputIt>
         InputIt _positional(InputIt i){
             if(!_head.prefix().empty() || _head.is_set()){
                 return _tail._positional(i);
             }else{
-                const auto& arg = *i;
-                std::stringstream stream;
-                std::copy(std::begin(arg), std::end(arg), std::ostream_iterator<char>(stream));
-                _head.read(stream);
-                return i+1;
+                InputIt next = _tail._positional(i);    // first look for a fit in tail
+                if(next == i){                          // not captured in tail, hence capture in head
+                    const auto& arg = *i;
+                    std::stringstream stream;
+                    std::copy(std::begin(arg), std::end(arg), std::ostream_iterator<char>(stream));
+                    _head.read(stream);
+                    return i+1;
+                }
+                return next;
             }
         }
         /**
@@ -136,7 +141,7 @@ struct chain<param<T>, void>{
     template <typename>
     friend struct detail::chain_parser;
 
-    chain(const head_type& head): _head(head) {}
+    chain(head_type&& head): _head(std::move(head)) {}
     const head_type& head() const { return _head; }
 
     bool okay() const { return _head.valid() || _head.optional(); }
@@ -166,17 +171,17 @@ struct chain<param<T>, void>{
         }
         return stream;
     }
-    template <typename X>
-    inline extend<X> upgrade(const param<X>& px) const{
-        using extended_chain_type = extend<X>;
-        return extended_chain_type(_head, typename extended_chain_type::tail_type(px));
-    }
+    // template <typename X>
+    // inline extend<X> upgrade(const param<X>& px) const{
+    //     using extended_chain_type = extend<X>;
+    //     return extended_chain_type(_head, typename extended_chain_type::tail_type(px));
+    // }
     
     private:
         template <typename InputIt>
         InputIt _positional(InputIt i){
             if(!_head.prefix().empty() || _head.is_set()){
-                return i; // Not matched
+                return i; // Not matched or already matched
             }else{
                 const auto& arg = *i;
                 std::stringstream stream;
@@ -223,9 +228,9 @@ struct chain<void, void>{
     template <typename X>
     using extend = chain<param<X>, void>;
     template <typename X>
-    inline extend<X> upgrade(const param<X>& px) const{
-        return extend<X>(px);
-    }
+    // inline extend<X> upgrade(const param<X>& px) const{
+    //     return extend<X>(px);
+    // }
 
     bool okay() const { return true; }
     bool valid() const { return true; }
@@ -237,6 +242,20 @@ struct chain<void, void>{
 };
 
 using none = chain<void, void>;
+
+namespace detail{
+    template <typename Head, typename... Rest>
+    struct args{
+        using type = chain<param<Head>, typename detail::args<Rest...>::type>;
+    };
+    template <typename Head>
+    struct args<Head>{
+        using type = chain<param<Head>>;
+    };
+}
+
+template <typename... X>
+using args = typename detail::args<X...>::type;
 
 }
 }

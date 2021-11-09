@@ -16,6 +16,7 @@
 #include <dhyara/dhyara.h>
 #include "esp_idf_version.h"
 #include "dhyara/detail/args_helper.hpp"
+#include "dhyara/services/ping.h"
 
 namespace fragments{
 

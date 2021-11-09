@@ -9,7 +9,8 @@
 #ifndef DHYARA_SERVICES_SERVICE_H
 #define DHYARA_SERVICES_SERVICE_H
 
-#include <clipp/clipp.h>
+// #include <clipp/clipp.h>
+#include <dhyara/cmd/cmd.hpp>
 #include <esp_http_server.h>
 #include "esp_err.h"
 #include "esp_log.h"
@@ -76,15 +77,18 @@ struct service: private ServiceT{
         }
         template<class InputIterator>
         esp_err_t exec(InputIterator first, InputIterator last, bool& responded){
+            using namespace dhyara;
+
             responded = true;
-            auto options = ServiceT::options() | clipp::option("-h", "--help").set(_help) % "show this help message";
-            if(!clipp::parse(first, last, options)){
+            auto options = (ServiceT::options(), cmd::arg("-h", "--help") & cmd::value(_help) % "show this help message");
+            cmd::parse(options, first, last);
+            if(!options.valid()){
                 ESP_LOGI("dhyara-services", "Error parsing arguments for service `%s`", ServiceT::name);
-                _stream << clipp::make_man_page(options, ServiceT::name);
+                cmd::man(options, ServiceT::name, _stream);
                 _stream.finish();
                 return ESP_OK;
             }else if(_help){
-                _stream << clipp::make_man_page(options, ServiceT::name);
+                cmd::man(options, ServiceT::name, _stream);
                 _stream.finish();
                 return ESP_OK;
             }else{
@@ -99,5 +103,6 @@ struct service: private ServiceT{
 
 }
 }
+
 
 #endif // DHYARA_SERVICES_SERVICE_H

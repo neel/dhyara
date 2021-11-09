@@ -8,12 +8,13 @@
 
 #include "dhyara/services/ping.h"
 
-clipp::group dhyara::services::ping::options(){
+dhyara::cmd::args<std::uint32_t, std::uint32_t, std::uint32_t, std::string> dhyara::services::ping::options() {
+    using namespace dhyara;
     return (
-        clipp::value("address", _target) % "target address",
-        clipp::option("-b", "--batch") & clipp::value("size",    _batch) % "number of ICMPQ requests in one batch",
-        clipp::option("-c", "--count") & clipp::value("count",   _count) % "number of batches to send",
-        clipp::option("-w", "--wait")  & clipp::value("seconds", _wait)  % "number of seconds to wait after each batch of requests, for receiving all responses"
+        cmd::pos("address", _target) % "target address",
+        cmd::arg("-b", "--batch") & cmd::value(_batch, "size")     % "number of ICMPQ requests in one batch",
+        cmd::arg("-c", "--count") & cmd::value(_count, "count")    % "number of batches to send",
+        cmd::arg("-w", "--wait")  & cmd::value(_wait,  "seconds")  % "number of seconds to wait after each batch of requests, for receiving all responses"
     );
 }
 

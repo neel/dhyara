@@ -233,6 +233,26 @@ struct param<bool>{
         std::string _description;
 };
 
+template <typename T, typename std::enable_if<!std::is_same<T, bool>::value, bool>::type = true>
+param<T> p(const std::string& option, const std::string& name, T& value, const std::string& placeholder){
+    return param<T>(option, name, value, placeholder);
+}
+
+template <typename T, typename std::enable_if<!std::is_same<T, bool>::value, bool>::type = true>
+param<T> p(const std::string& option, T& value, const std::string& placeholder){
+    return param<T>(option, value, placeholder);
+}
+
+template <typename T, typename std::enable_if<std::is_same<T, bool>::value, bool>::type = true>
+param<T> p(const std::string& option, const std::string& name, T& value, const std::string& placeholder){
+    return param<T>(option, name, value, placeholder);
+}
+
+template <typename T, typename std::enable_if<std::is_same<T, bool>::value, bool>::type = true>
+param<T> p(const std::string& option, T& value, const std::string& placeholder){
+    return param<T>(option, value, placeholder);
+}
+
 }
 }
 
