@@ -11,8 +11,16 @@
 
 #include <esp_http_server.h>
 #include "dhyara/link.h"
-
+#include "dhyara/services/registry.hpp"
+#include "dhyara/services/service.hpp"
 namespace dhyara{
+
+namespace services{
+    struct ping;
+    struct identify;
+    struct routes;
+    struct universe;
+}
 
 namespace utils{
     
@@ -46,6 +54,7 @@ struct http{
         httpd_uri_t    _counter;
         httpd_uri_t    _routes;
         httpd_uri_t    _peers;
+        httpd_uri_t    _command;
     private:
         static esp_err_t index_html_handler(httpd_req_t* req);
         static esp_err_t routes_html_handler(httpd_req_t* req);
@@ -56,6 +65,7 @@ struct http{
         static esp_err_t counter_handler(httpd_req_t* req);
         static esp_err_t routes_handler(httpd_req_t* req);
         static esp_err_t peers_handler(httpd_req_t* req);
+        static esp_err_t command_handler(httpd_req_t* req);
     private:
         esp_err_t index_html(httpd_req_t* req);
         esp_err_t routes_html(httpd_req_t* req);
@@ -66,6 +76,11 @@ struct http{
         esp_err_t counter(httpd_req_t* req);
         esp_err_t routes(httpd_req_t* req);
         esp_err_t peers(httpd_req_t* req);
+        esp_err_t command(httpd_req_t* req);
+    private:
+        using registry_type =  services::registry<services::ping, services::routes, services::universe, services::identify>;
+
+        registry_type       _registry;
 };
 
 }

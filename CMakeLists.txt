@@ -26,6 +26,7 @@ else()
             "sources/packets/chunk.cpp"
             "sources/packets/data.cpp"
             "sources/packets/delivered.cpp"
+            "sources/packets/io.cpp"
             "sources/actions/beacon.cpp"
             "sources/actions/acknowledgement.cpp"
             "sources/actions/advertisement.cpp"
@@ -41,15 +42,23 @@ else()
             "sources/tools/traceroute.cpp"
             "sources/dhyara.cpp"
             "sources/dhyara.c"
+            "sources/services/stream.cpp"
+            "sources/services/ping.cpp"
+            "sources/services/ping_impl.cpp"
+            "sources/services/routes.cpp"
+            "sources/services/universe.cpp"
+            "sources/services/identify.cpp"
         INCLUDE_DIRS 
             "includes"
         REQUIRES 
             cxx
             esp_wifi 
-            esp_http_server
+            esp_http_server 
         EMBED_TXTFILES
             "assets/min/head.html"
             "assets/min/dhyara.css"
             "assets/icons.gif"
     )
+    # set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE "time")
+    # set_property(GLOBAL PROPERTY RULE_LAUNCH_LINK "time")
 endif()

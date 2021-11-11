@@ -11,9 +11,17 @@
 #include <iostream>
 #include <iomanip>
 
-dhyara::tools::ping::ping(dhyara::network& network, std::uint8_t count, std::int8_t batch, std::uint8_t sleep): _network(network), _count(count), _batch(batch), _sleep(sleep), _first(0), _last(0){
+dhyara::tools::ping::ping(dhyara::network& network, std::uint8_t count, std::int8_t batch, std::uint8_t sleep): _network(network), _count(count), _batch(batch), _sleep(sleep), _first(0), _last(0), _wastage(0){
     using namespace std::placeholders;
     _conn_reply = _network.echo_reply().connect(std::bind(&dhyara::tools::ping::reply, this, _1, _2));
+}
+
+void dhyara::tools::ping::batch(const dhyara::address& addr){
+    _first = esp_timer_get_time();
+    _wastage += (_first - _last);
+    _network.echo_request().ping(addr, _batch);
+    ESP_LOGI("ping", "waiting 1s for all replies");
+    vTaskDelay(pdMS_TO_TICKS(_sleep));
 }
 
 void dhyara::tools::ping::operator()(const dhyara::address& addr){
@@ -21,10 +29,10 @@ void dhyara::tools::ping::operator()(const dhyara::address& addr){
     
     reset();
     _stats.reserve(_count*_batch);
-    _first = esp_timer_get_time();
-    _network.echo_request().ping(addr, _count, _batch, _sleep);
-    ESP_LOGI("ping", "waiting 1s for all replies");
-    vTaskDelay(pdMS_TO_TICKS(1000));
+    _last = esp_timer_get_time();
+    for(std::uint8_t i = 0; i < _count; ++i){
+        batch(addr);
+    }
     
     std::size_t echo_sent  = _network.link().tx(dhyara::packets::type::echo_request);
     std::size_t echo_rcvd  = _network.link().rx(dhyara::packets::type::echo_reply);
@@ -46,7 +54,6 @@ void dhyara::tools::ping::operator()(const dhyara::address& addr){
     latency_sd = std::sqrt( latency_deviation / _stats.size());
     
     double echo_loss  = (double)(echo_sent - std::min(echo_rcvd, echo_sent)) / (double)echo_sent;
-    dhyara::delay_type wastage = ((_count-1)*_sleep);
     
     ESP_LOGI(
         "ping", 
@@ -60,7 +67,7 @@ void dhyara::tools::ping::operator()(const dhyara::address& addr){
         (double)latency_total/1000.0,
         (double)latency_sd
     );
-    double duration = (double)(_last - _first - wastage)/1000.0;
+    double duration = (double)(_last - _first - _wastage)/1000.0;
     ESP_LOGI(
         "ping", 
         "%zu/%zu bytes in %.2lf ms (%.2lf kB/s)", 

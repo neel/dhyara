@@ -64,11 +64,11 @@ menu "Dhyara ad hoc network"
             Advertisement expiry
             
     config ROUTE_EXPIRY_COEFFICIENT
-        int "route expiry coefficient"
+        int "route expiry time (us)"
         range 10 5000
         default 1000
         help
-            Route expiry coefficient
+            If the route is not updated for teh given time period then the route is depreciated.
             
     config DISABLE_SEND_QUEUEING
         bool "Disable queueing of messages that are to be sent"

@@ -28,21 +28,22 @@ void app_main(){
     
     ESP_LOGI("hello-c", "Local MAC address %x:%x:%x:%x:%x:%x", self[0], self[1], self[2], self[3], self[4], self[5]);
     
-    uint8_t source[] = {0x4c, 0x11, 0xae, 0x71, 0x0f, 0x4d};
-    uint8_t sink[]   = {0x4c, 0x11, 0xae, 0x9c, 0xa6, 0x85};
+    uint8_t source[] = {0xac, 0x67, 0xb2, 0x25, 0x8e, 0xa5};
+    uint8_t sink[]   = {0x4c, 0x11, 0xae, 0x9c, 0x1a, 0xc9};
     
     const uint8_t* other = 0x0;
     
     if(memcmp(self, source, 6) == 0) other = sink;
     if(memcmp(self, sink,   6) == 0) other = source;
     
-    while(1){
-        if(other){
+    
+    if(other){
+        while(1){
             dhyara_ping(other, .count = 1, .batch = 10);
             dhyara_traceroute(other);
             dhyara_send(other, "Hello World");
             dhyara_send(other, "Hello World", 5);
         }
-        vTaskDelay(pdMS_TO_TICKS(2000));
     }
+    vTaskDelete(0x0);
 }

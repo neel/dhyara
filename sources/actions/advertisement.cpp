@@ -9,6 +9,7 @@
 #include "dhyara/actions/advertisement.h"
 #include "dhyara/synchronizer.h"
 #include "dhyara/link.h"
+#include "esp_log.h"
 
 void dhyara::actions::advertisement::operator()(const dhyara::address& addr, const dhyara::packets::advertisement& advertisement){
     dhyara::delay_type delay_first = std::numeric_limits<dhyara::delay_type>::max();
@@ -18,7 +19,9 @@ void dhyara::actions::advertisement::operator()(const dhyara::address& addr, con
     if(!_link.universe().exists(advertisement.dest())){
         _link.universe().add(advertisement.dest());
     }
-    _link.universe().peer(advertisement.dest()).name(advertisement.name());
+    if(!advertisement.name().empty()){
+        _link.universe().peer(advertisement.dest()).name(advertisement.name());
+    }
     dhyara::delay_type delay = advertisement.delay() + delay_first;
     _synchronizer.queue(advertisement.dest(), addr, delay, advertisement.hops()+1);
 }

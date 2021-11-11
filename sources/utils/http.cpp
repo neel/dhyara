@@ -10,10 +10,16 @@
 #include <sstream>
 #include "dhyara/assets.h"
 #include <cstring>
+#include "esp_err.h"
+#include "esp_http_server.h"
 #include "esp_wifi.h"
 #include <dhyara/dhyara.h>
-#include <iterator>
 #include "esp_idf_version.h"
+#include "dhyara/detail/args_helper.hpp"
+#include "dhyara/services/ping.h"
+#include "dhyara/services/identify.h"
+#include "dhyara/services/routes.h"
+#include "dhyara/services/universe.h"
 
 namespace fragments{
 
@@ -177,17 +183,19 @@ static const char* html_close =
     "</html>";
 
 dhyara::utils::http::http(dhyara::link& link): _link(link), _config(HTTPD_DEFAULT_CONFIG()), _server(0x0),
-    _index_html  (httpd_uri_t{"/",             HTTP_GET, dhyara::utils::http::index_html_handler,  this}),
-    _routes_html (httpd_uri_t{"/routing",      HTTP_GET, dhyara::utils::http::routes_html_handler, this}),
-    _peers_html  (httpd_uri_t{"/peers",        HTTP_GET, dhyara::utils::http::peers_html_handler,  this}),
-    _style       (httpd_uri_t{"/dhyara.css",   HTTP_GET, dhyara::utils::http::style_handler,       this}),
-    _icons       (httpd_uri_t{"/icons",        HTTP_GET, dhyara::utils::http::icons_handler,       this}),
-    _info        (httpd_uri_t{"/info.json",    HTTP_GET, dhyara::utils::http::info_handler,        this}),
-    _counter     (httpd_uri_t{"/counter.json", HTTP_GET, dhyara::utils::http::counter_handler,     this}),
-    _routes      (httpd_uri_t{"/routes.json",  HTTP_GET, dhyara::utils::http::routes_handler,      this}),
-    _peers       (httpd_uri_t{"/peers.json",   HTTP_GET, dhyara::utils::http::peers_handler,       this})
+    _index_html  (httpd_uri_t{"/",             HTTP_GET , dhyara::utils::http::index_html_handler,  this}),
+    _routes_html (httpd_uri_t{"/routing",      HTTP_GET , dhyara::utils::http::routes_html_handler, this}),
+    _peers_html  (httpd_uri_t{"/peers",        HTTP_GET , dhyara::utils::http::peers_html_handler,  this}),
+    _style       (httpd_uri_t{"/dhyara.css",   HTTP_GET , dhyara::utils::http::style_handler,       this}),
+    _icons       (httpd_uri_t{"/icons",        HTTP_GET , dhyara::utils::http::icons_handler,       this}),
+    _info        (httpd_uri_t{"/info.json",    HTTP_GET , dhyara::utils::http::info_handler,        this}),
+    _counter     (httpd_uri_t{"/counter.json", HTTP_GET , dhyara::utils::http::counter_handler,     this}),
+    _routes      (httpd_uri_t{"/routes.json",  HTTP_GET , dhyara::utils::http::routes_handler,      this}),
+    _peers       (httpd_uri_t{"/peers.json",   HTTP_GET , dhyara::utils::http::peers_handler,       this}),
+    _command     (httpd_uri_t{"/command",      HTTP_POST, dhyara::utils::http::command_handler,     this})
 {
-    _config.max_uri_handlers = 10;
+    _config.max_uri_handlers = 11;
+    _config.stack_size = 8192;
 }
 
 
@@ -202,6 +210,7 @@ esp_err_t dhyara::utils::http::start(){
     if (res != ESP_OK) return res; else res = httpd_register_uri_handler(_server, &_counter);
     if (res != ESP_OK) return res; else res = httpd_register_uri_handler(_server, &_routes);
     if (res != ESP_OK) return res; else res = httpd_register_uri_handler(_server, &_peers);
+    if (res != ESP_OK) return res; else res = httpd_register_uri_handler(_server, &_command);
     return res;
 }
 
@@ -250,6 +259,11 @@ esp_err_t dhyara::utils::http::peers_handler(httpd_req_t* req){
     return self->peers(req);
 }
 
+esp_err_t dhyara::utils::http::command_handler(httpd_req_t* req){
+    dhyara::utils::http* self = static_cast<dhyara::utils::http*>(req->user_ctx);
+    return self->command(req);
+}
+
 esp_err_t dhyara::utils::http::index_html(httpd_req_t* req){
     static const char* wrapper_close = 
                 "</div>" 
@@ -278,14 +292,14 @@ esp_err_t dhyara::utils::http::index_html(httpd_req_t* req){
 }
 
 esp_err_t dhyara::utils::http::icons(httpd_req_t* req){
-    const auto length = std::distance(dhyara::assets::icons_gif_start, dhyara::assets::icons_gif_end);
+    const auto length = (dhyara::assets::icons_gif_end - dhyara::assets::icons_gif_start);
     httpd_resp_set_type(req, "image/gif");
     httpd_resp_send(req, (const char*)dhyara::assets::icons_gif_start, length);
     return ESP_OK;
 }
 
 esp_err_t dhyara::utils::http::style(httpd_req_t* req){
-    const auto length = std::distance(dhyara::assets::dhyara_css_start, dhyara::assets::dhyara_css_end);
+    const auto length = (dhyara::assets::dhyara_css_end - dhyara::assets::dhyara_css_start);
     httpd_resp_set_type(req, "text/css");
     httpd_resp_send(req, (const char*)dhyara::assets::dhyara_css_start, length);
     return ESP_OK;
@@ -600,5 +614,47 @@ esp_err_t dhyara::utils::http::peers(httpd_req_t* req){
     std::string response = response_json.str();
     httpd_resp_set_type(req, "application/json");
     httpd_resp_send(req, response.c_str(), response.length());
+    return ESP_OK;
+}
+
+esp_err_t dhyara::utils::http::command(httpd_req_t* req){
+    char content[128];
+    size_t recv_size = std::min(req->content_len, sizeof(content));
+    if(recv_size > sizeof(content)){
+        httpd_resp_send_err(req, HTTPD_414_URI_TOO_LONG, "Command larger than 256 characters not allowed.");
+        return ESP_OK;
+    }else if(recv_size == 0){
+        httpd_resp_send_err(req, HTTPD_400_BAD_REQUEST, "Empty command.");
+        return ESP_OK;
+    }
+
+    std::fill(content, content +sizeof(content), 0);
+    int ret = httpd_req_recv(req, content, recv_size);
+    if (ret <= 0) {
+        if (ret == HTTPD_SOCK_ERR_TIMEOUT) {
+            httpd_resp_send_408(req);
+        }else{
+            httpd_resp_send_500(req);
+        }
+        return ESP_OK;
+    }
+
+    std::vector<std::string> argv = detail::read_args(content);
+
+    ESP_LOGI("dhyara-services", "Service `%s` requested", argv[0].c_str());
+    if(!_registry.exists(argv[0])){ // if no such service is found
+        httpd_resp_set_status(req, HTTPD_404);
+        httpd_resp_set_type(req, "text/plain");
+        httpd_resp_sendstr_chunk(req, "No such service ");
+        httpd_resp_sendstr_chunk(req, argv[0].c_str());
+        httpd_resp_sendstr_chunk(req, "\n");
+        httpd_resp_sendstr_chunk(req, "Following are the list of services registered");
+        httpd_resp_sendstr_chunk(req, "\n");
+        _registry.print(req);
+        httpd_resp_sendstr_chunk(req, NULL);
+        return ESP_OK;
+    }
+
+    _registry.run(req, argv.cbegin(), argv.cend());
     return ESP_OK;
 }

@@ -9,8 +9,8 @@
 #include "dhyara/address.h"
 #include <cstring>
 
-dhyara::address::address(const dhyara::address::container_type& addr): _bytes(addr){}
-dhyara::address::address(std::uint8_t b1, std::uint8_t b2, std::uint8_t b3, std::uint8_t b4, std::uint8_t b5, std::uint8_t b6){
+dhyara::address::address(const dhyara::address::container_type& addr): _bytes(addr), _valid(true){}
+dhyara::address::address(std::uint8_t b1, std::uint8_t b2, std::uint8_t b3, std::uint8_t b4, std::uint8_t b5, std::uint8_t b6): _valid(true){
     _bytes[0] = b1;
     _bytes[1] = b2;
     _bytes[2] = b3;
@@ -18,16 +18,20 @@ dhyara::address::address(std::uint8_t b1, std::uint8_t b2, std::uint8_t b3, std:
     _bytes[4] = b5;
     _bytes[5] = b6;
 }
-dhyara::address::address(const std::uint8_t* bytes){
+dhyara::address::address(const std::uint8_t* bytes): _valid(true){
     std::copy(bytes, bytes + 6, _bytes.begin());
 }
 
 dhyara::address::address(const std::string& addr){
-    std::uint32_t b[6];
+    std::uint32_t b[6] = {0x0, 0x0, 0x0, 0x0, 0x0, 0x0};
     if (std::sscanf(addr.c_str(), "%02x:%02x:%02x:%02x:%02x:%02x", &b[0], &b[1], &b[2], &b[3], &b[4], &b[5]) != 6){
         std::cerr << "Invalid Address" << std::endl;
+        _valid = false;
+    }else{
+        std::copy(b, b+6, _bytes.begin());
+        _valid = true;
     }
-    std::copy(b, b+6, _bytes.begin());
+    
 }
 
 std::string dhyara::address::to_string() const{
@@ -52,7 +56,6 @@ bool dhyara::address::operator<(const dhyara::address& other) const{
     return hash() < other.hash();
 }
 bool dhyara::address::operator==(const dhyara::address& other) const{
-    // return hash() == other.hash();
     return (b1() == other.b1())
         && (b2() == other.b2())
         && (b3() == other.b3())

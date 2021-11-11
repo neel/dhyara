@@ -58,7 +58,7 @@ struct echo_reply{
      */
     inline std::uint64_t rtime() const {return _rtime;}
     /**
-     * Sequence number in teh packet
+     * Sequence number in the packet
      */
     inline std::uint32_t seq() const {return _seq;}
     /**

@@ -14,6 +14,7 @@
 #include "dhyara/peer.h"
 #include "dhyara/defs.h"
 #include "dhyara/packets/serialization.h"
+#include "esp_log.h"
 
 namespace dhyara{
 
@@ -145,29 +146,34 @@ struct serialization<packets::advertisement>{
             length -= 6;
             packet.dest(dhyara::address(raw_address));
         }
+
         if(length >= sizeof(dhyara::delay_type)){
             std::copy_n(input, sizeof(dhyara::delay_type), reinterpret_cast<std::uint8_t*>(&delay));
             input  += sizeof(dhyara::delay_type);
             length -= sizeof(dhyara::delay_type);
             packet.delay(delay);
         }
+
         if(length >= sizeof(std::uint8_t)){
             std::copy_n(input, sizeof(std::uint8_t), reinterpret_cast<std::uint8_t*>(&hops));
             input  += sizeof(std::uint8_t);
             length -= sizeof(std::uint8_t);
             packet.hops(hops);
         }
+
         if(length >= sizeof(std::uint8_t)){
             std::copy_n(input, sizeof(std::uint8_t), reinterpret_cast<std::uint8_t*>(&len));
             input  += sizeof(std::uint8_t);
             length -= sizeof(std::uint8_t);
         }
+
         if(length >= len){
             std::copy_n(input, len, std::back_inserter(name));
             input  += len;
             length -= len;
             packet.name(name);
         }
+        
         return input;
     }
 };

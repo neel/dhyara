@@ -43,17 +43,27 @@ bool dhyara::link::_transmit(const std::uint8_t* dest, const std::uint8_t* data,
     static std::uint8_t counter = 0;
     counter = (counter +1) % CONFIG_ENABLE_MANDATORY_SLEEP_AFTER_TRANSMISSION_N;
 #endif 
-    static std::uint8_t broadcast_addr[] = { 0xff, 0xff, 0xff, 0xff, 0xff, 0xff };
-    esp_err_t error = esp_now_send(dest ? dest : broadcast_addr, data, len);
+    esp_err_t error = ESP_OK;
+    std::uint64_t wait = 200;
+    do{
+        static std::uint8_t broadcast_addr[] = { 0xff, 0xff, 0xff, 0xff, 0xff, 0xff };
+        error = esp_now_send(dest ? dest : broadcast_addr, data, len);
 #if CONFIG_ENABLE_MANDATORY_SLEEP_AFTER_TRANSMISSION
-    if(counter == 0){
-        vTaskDelay(pdMS_TO_TICKS(CONFIG_ENABLE_MANDATORY_SLEEP_AFTER_TRANSMISSION_TIME));
-    }
+        if(counter == 0){
+            vTaskDelay(pdMS_TO_TICKS(CONFIG_ENABLE_MANDATORY_SLEEP_AFTER_TRANSMISSION_TIME));
+        }
+#else 
+        vTaskDelay(wait);
+        wait *= 2;
 #endif
+    } while (error == ESP_ERR_ESPNOW_NO_MEM || wait < pdMS_TO_TICKS(2000));
+
     if(error != ESP_OK){
-        ESP_LOGE("dhyara", "send failed %s", esp_err_to_name(error));
+        ESP_LOGE("dhyara", "send failed %s, gave up after %" PRId64 " tries", esp_err_to_name(error), wait);
+        ESP_LOG_BUFFER_HEXDUMP("dhyara", data, len, ESP_LOG_ERROR);
         return false;
     }
+
     return true;
 }
 

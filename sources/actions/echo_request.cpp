@@ -28,16 +28,10 @@ void dhyara::actions::echo_request::operator()(const dhyara::address& addr, cons
     }
 }
 
-void dhyara::actions::echo_request::ping(const dhyara::address& target, std::uint8_t count, std::int8_t batch, std::uint8_t sleep){
+void dhyara::actions::echo_request::ping(const dhyara::address& target, std::int8_t batch){
     std::uint32_t seq = 1;
-    std::uint8_t total = count +1;
-    std::uint8_t counter = 0;
-    while (++counter % total){
-        std::int8_t b = batch;
-        while(b-- > 0){
-            dhyara::packets::echo_request request(target, _link.address(), seq++);
-            _link.send(target, dhyara::packets::type::echo_request, request);
-        }
-        vTaskDelay(pdMS_TO_TICKS(sleep));
+    while(batch-- > 0){
+        dhyara::packets::echo_request request(target, _link.address(), seq++);
+        _link.send(target, dhyara::packets::type::echo_request, request);
     }
 }

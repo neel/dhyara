@@ -33,7 +33,6 @@ std::size_t dhyara::universe::size() const{
     return _peers.size();
 }
 
-
 dhyara::peer& dhyara::universe::peer(const dhyara::address& addr){
     peer_collection_type::iterator it = _peers.find(addr);
     return it->second;
