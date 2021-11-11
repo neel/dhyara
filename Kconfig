@@ -72,7 +72,7 @@ menu "Dhyara ad hoc network"
             
     config DISABLE_SEND_QUEUEING
         bool "Disable queueing of messages that are to be sent"
-        default n
+        default y
         help
             When send queuing is enabled then messages are first queued and the dequeued 
             by a seperate task which actually sends the message. Disabling send queuing
@@ -81,7 +81,7 @@ menu "Dhyara ad hoc network"
             
     config ENABLE_MANDATORY_SLEEP_AFTER_TRANSMISSION
         bool "Enable Mandatory Sleep after consecutive transmitions"
-        default y
+        default n
         help
             After N consecutive transmitions there would be a mandatory sleep for specified
             number of microseconds. This sleep is to prevent frequent ESP_ERR_ESPNOW_NO_MEM
@@ -92,6 +92,7 @@ menu "Dhyara ad hoc network"
         int "Mandatory Sleep after N consecutive transmitions"
         range 1 100
         default 1
+        depends on ENABLE_MANDATORY_SLEEP_AFTER_TRANSMISSION
         help
             Applicable only when mandatory sleep is enabled. Number of send instructions after
             which the mandatoru sleep will be performed.
@@ -100,16 +101,10 @@ menu "Dhyara ad hoc network"
         int "Amount of sleep (in ms) after consecutive transmitions"
         range 1 100
         default 1
+        depends on ENABLE_MANDATORY_SLEEP_AFTER_TRANSMISSION
         help
             Applicable only when mandatory sleep is enabled. Amount of time in number of micro
             seconds, during which there will be no transmission (e.g. sleep).
-            
-    config ENABLE_HTTP_MANAGEMENT_SERVER
-        bool "If enabled then provides an web based management console over HTTP"
-        default y
-        help
-            Enable web based management console over HTTP that can be accessed by http://192.168.4.1 
-            after connecting to ESP32 node via wifi. 
             
     config DHYARA_UTIL_UDP_RELAY_BUFFER_SIZE
         int "UDP Relay Buffer Size"
@@ -117,4 +112,19 @@ menu "Dhyara ad hoc network"
         default 4096
         help
             Buffer size to hold incoming UDP packets while using udp relay
+ 
+    config ENABLE_HTTP_MANAGEMENT_SERVER
+        bool "web based management console over HTTP"
+        default y
+        help
+            Enable web based management console over HTTP that can be accessed by http://192.168.4.1 
+            after connecting to ESP32 node via wifi. 
+
+    config ENABLE_SERVICES_OVER_HTTP
+        bool "HTTP based invocation of services (e.g. ping, routes etc..)"
+        default y
+        depends on ENABLE_HTTP_MANAGEMENT_SERVER
+        help
+            Enable HTTP based command invocation
+            
 endmenu
