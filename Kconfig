@@ -78,6 +78,13 @@ menu "Dhyara ad hoc network"
             by a seperate task which actually sends the message. Disabling send queuing
             may improve network throughput while it may lead to frequent ESP_ERR_ESPNOW_NO_MEM
             errors. 
+
+    config MAX_RETRANSMITION_IF_ESPNOW_NO_MEM
+        int "maximum number of retries if transmission fails with ESPNOW_NO_MEM"
+        default 0
+        range 0 10
+            help
+                Number of retries if transmission fails with ESPNOW_NO_MEM
             
     config ENABLE_MANDATORY_SLEEP_AFTER_TRANSMISSION
         bool "Enable Mandatory Sleep after consecutive transmitions"
