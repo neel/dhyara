@@ -39,24 +39,44 @@ void dhyara::link::init(){
 
 
 bool dhyara::link::_transmit(const std::uint8_t* dest, const std::uint8_t* data, std::size_t len){
+    static std::uint8_t broadcast_addr[] = { 0xff, 0xff, 0xff, 0xff, 0xff, 0xff };
+
 #if CONFIG_ENABLE_MANDATORY_SLEEP_AFTER_TRANSMISSION
     static std::uint8_t counter = 0;
     counter = (counter +1) % CONFIG_ENABLE_MANDATORY_SLEEP_AFTER_TRANSMISSION_N;
 #endif 
-    static std::uint8_t broadcast_addr[] = { 0xff, 0xff, 0xff, 0xff, 0xff, 0xff };
-    esp_err_t error = esp_now_send(dest ? dest : broadcast_addr, data, len);
+
+    esp_err_t error = ESP_OK;
+    std::uint64_t wait = 200;
+    std::int32_t retries = 0;
+
+    while (true) {
+        error = esp_now_send(dest ? dest : broadcast_addr, data, len);
+
 #if CONFIG_ENABLE_MANDATORY_SLEEP_AFTER_TRANSMISSION
-    if(counter == 0){
-        vTaskDelay(pdMS_TO_TICKS(CONFIG_ENABLE_MANDATORY_SLEEP_AFTER_TRANSMISSION_TIME));
-    }
+        if(counter == 0){
+            vTaskDelay(pdMS_TO_TICKS(CONFIG_ENABLE_MANDATORY_SLEEP_AFTER_TRANSMISSION_TIME));
+        }
 #endif
+
+        // If the error is ESP_ERR_ESPNOW_NO_MEM then wait for a few micro seconds and then retry
+        if(error == ESP_ERR_ESPNOW_NO_MEM && retries++ < CONFIG_MAX_RETRANSMITION_IF_ESPNOW_NO_MEM){
+            vTaskDelay(wait);   // sleep 
+            wait *= 2;          // double the amount of delay after each failed retries
+        }else{
+            break;
+        }
+        
+    };
+
     if(error != ESP_OK){
-        ESP_LOGE("dhyara", "send failed %s", esp_err_to_name(error));
+        ESP_LOGE("dhyara", "send failed (%s), gave up after %d retries, in %" PRId64 " us", esp_err_to_name(error), retries, wait/2);
         ESP_LOG_BUFFER_HEXDUMP("dhyara", data, len, ESP_LOG_ERROR);
         return false;
     }
     return true;
 }
+
 
 bool dhyara::link::transmit(const dhyara::address& addr, const dhyara::frame& frame){
     if(!addr.is_broadcast() && !_universe.exists(addr)){
