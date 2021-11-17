@@ -20,6 +20,7 @@
 #include "dhyara/services/identify.h"
 #include "dhyara/services/routes.h"
 #include "dhyara/services/universe.h"
+#include "dhyara/services/phy_rate.h"
 
 namespace fragments{
 

@@ -47,9 +47,9 @@ bool dhyara::link::_transmit(const std::uint8_t* dest, const std::uint8_t* data,
 #endif 
 
     esp_err_t error = ESP_OK;
-    std::uint64_t wait = 200;
     std::int32_t retries = 0;
 
+    TickType_t xLastWakeTime = xTaskGetTickCount();
     while (true) {
         error = esp_now_send(dest ? dest : broadcast_addr, data, len);
 
@@ -60,9 +60,10 @@ bool dhyara::link::_transmit(const std::uint8_t* dest, const std::uint8_t* data,
 #endif
 
         // If the error is ESP_ERR_ESPNOW_NO_MEM then wait for a few micro seconds and then retry
-        if(error == ESP_ERR_ESPNOW_NO_MEM && retries++ < CONFIG_MAX_RETRANSMITION_IF_ESPNOW_NO_MEM){
-            vTaskDelay(wait);   // sleep 
-            wait *= 2;          // double the amount of delay after each failed retries
+        if(error == ESP_ERR_ESPNOW_NO_MEM && retries < CONFIG_MAX_RETRANSMITION_IF_ESPNOW_NO_MEM){
+            vTaskDelayUntil(&xLastWakeTime, 1); // wake up after one tick
+            retries++;
+            // ESP_LOGW("dhyara", "retransmitting after %d " us", wait);
         }else{
             break;
         }
@@ -70,8 +71,10 @@ bool dhyara::link::_transmit(const std::uint8_t* dest, const std::uint8_t* data,
     };
 
     if(error != ESP_OK){
-        ESP_LOGE("dhyara", "send failed (%s), gave up after %d retries, in %" PRId64 " us", esp_err_to_name(error), retries, wait/2);
-        ESP_LOG_BUFFER_HEXDUMP("dhyara", data, len, ESP_LOG_ERROR);
+        ESP_LOGE("dhyara", "send failed (%s), gave up after %d retries", esp_err_to_name(error), retries);
+        if(error != ESP_ERR_ESPNOW_NO_MEM){
+            ESP_LOG_BUFFER_HEXDUMP("dhyara", data, len, ESP_LOG_ERROR);
+        }
         return false;
     }
     return true;

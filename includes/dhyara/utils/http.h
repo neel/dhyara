@@ -20,6 +20,7 @@ namespace services{
     struct identify;
     struct routes;
     struct universe;
+    struct phy_rate;
 }
 
 namespace utils{
@@ -78,7 +79,13 @@ struct http{
         esp_err_t peers(httpd_req_t* req);
         esp_err_t command(httpd_req_t* req);
     private:
-        using registry_type =  services::registry<services::ping, services::routes, services::universe, services::identify>;
+        using registry_type =  services::registry<
+            services::ping, 
+            services::routes, 
+            services::universe, 
+            services::identify,
+            services::phy_rate
+        >;
 
         registry_type       _registry;
 };

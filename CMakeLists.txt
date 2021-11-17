@@ -48,6 +48,7 @@ else()
             "sources/services/routes.cpp"
             "sources/services/universe.cpp"
             "sources/services/identify.cpp"
+            "sources/services/phy_rate.cpp"
         INCLUDE_DIRS 
             "includes"
         REQUIRES 

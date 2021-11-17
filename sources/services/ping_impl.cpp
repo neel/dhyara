@@ -61,7 +61,7 @@ void dhyara::services::ping_impl::operator()(const dhyara::address& addr){
 
     _stream << "ping "
             << echo_rcvd << "/" << echo_sent << " received, " 
-            << std::setprecision(2) << std::fixed << (echo_loss*100.0) << " lost, "
+            << std::setprecision(2) << std::fixed << (echo_loss*100.0) << "% lost, "
             << "rtt min/avg/max/total/sd = "
                 << std::setprecision(2) << std::fixed << ((double)latency_min  /1000.0) << "/"
                 << std::setprecision(2) << std::fixed << ((double)latency_avg  /1000.0) << "/"
