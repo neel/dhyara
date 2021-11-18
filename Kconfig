@@ -133,5 +133,46 @@ menu "Dhyara ad hoc network"
         depends on ENABLE_HTTP_MANAGEMENT_SERVER
         help
             Enable HTTP based command invocation
+
+    menu "Selected Services"
+        visible if ENABLE_SERVICES_OVER_HTTP
+
+        config ENABLE_SERVICE_IDENTIFY
+            bool "Enable Identify Service"
+            depends on ENABLE_SERVICES_OVER_HTTP
+            default y
+            help 
+                Provides command identify that responds with the MAC address and SSID of the node
+                that the machine is currently connected with via WiFi
+
+        config ENABLE_SERVICE_ROUTES
+            bool "Enable Routes Service"
+            depends on ENABLE_SERVICES_OVER_HTTP
+            default y
+            help 
+                Respond with all routes and the best neighbours to reach any node in the known universe
+
+        config ENABLE_SERVICE_UNIVERSE
+            bool "Enable Universe Service"
+            depends on ENABLE_SERVICES_OVER_HTTP
+            default y
+            help 
+                Respond with all nodes in the known universe
+
+        config ENABLE_SERVICE_PING
+            bool "Enable Ping Service"
+            depends on ENABLE_SERVICES_OVER_HTTP
+            default y
+            help 
+                Sends ICMP request to an other node via one or more hops
+
+        config ENABLE_SERVICE_PHY_RATE
+            bool "Enable Fix Phy Rate Service"
+            depends on ENABLE_SERVICES_OVER_HTTP
+            default n
+            help 
+                Set the PHY Rate of a node 
+
+    endmenu 
             
 endmenu
