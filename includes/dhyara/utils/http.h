@@ -19,11 +19,19 @@
 
 namespace dhyara{
     namespace services{
-        struct ping;
         struct identify;
-        struct routes;
-        struct universe;
-        struct phy_rate;
+        #if ENABLE_SERVICE_ROUTES
+            struct routes;
+        #endif 
+        #if ENABLE_SERVICE_UNIVERSE
+            struct universe;
+        #endif 
+        #if ENABLE_SERVICE_PING
+            struct ping;
+        #endif 
+        #if ENABLE_SERVICE_PHY_RATE
+            struct phy_rate;
+        #endif 
     }
 }
 
@@ -95,11 +103,19 @@ struct http{
 #if CONFIG_ENABLE_SERVICES_OVER_HTTP
     private:
         using registry_type =  services::registry<
-            services::ping, 
-            services::routes, 
-            services::universe, 
-            services::identify,
-            services::phy_rate
+            services::identify
+            #if ENABLE_SERVICE_ROUTES
+                ,services::routes
+            #endif 
+            #if ENABLE_SERVICE_UNIVERSE
+                ,services::universe
+            #endif 
+            #if ENABLE_SERVICE_PING
+                ,services::ping
+            #endif 
+            #if ENABLE_SERVICE_PHY_RATE
+                ,services::phy_rate
+            #endif 
         >;
 
         registry_type       _registry;

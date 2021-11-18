@@ -137,14 +137,6 @@ menu "Dhyara ad hoc network"
     menu "Selected Services"
         visible if ENABLE_SERVICES_OVER_HTTP
 
-        config ENABLE_SERVICE_IDENTIFY
-            bool "Enable Identify Service"
-            depends on ENABLE_SERVICES_OVER_HTTP
-            default y
-            help 
-                Provides command identify that responds with the MAC address and SSID of the node
-                that the machine is currently connected with via WiFi
-
         config ENABLE_SERVICE_ROUTES
             bool "Enable Routes Service"
             depends on ENABLE_SERVICES_OVER_HTTP
