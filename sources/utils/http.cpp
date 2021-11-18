@@ -15,12 +15,17 @@
 #include "esp_wifi.h"
 #include <dhyara/dhyara.h>
 #include "esp_idf_version.h"
+
+#if CONFIG_ENABLE_SERVICES_OVER_HTTP
+
 #include "dhyara/detail/args_helper.hpp"
 #include "dhyara/services/ping.h"
 #include "dhyara/services/identify.h"
 #include "dhyara/services/routes.h"
 #include "dhyara/services/universe.h"
 #include "dhyara/services/phy_rate.h"
+
+# endif
 
 namespace fragments{
 
@@ -183,20 +188,26 @@ static const char* central_close =
 static const char* html_close = 
     "</html>";
 
-dhyara::utils::http::http(dhyara::link& link): _link(link), _config(HTTPD_DEFAULT_CONFIG()), _server(0x0),
-    _index_html  (httpd_uri_t{"/",             HTTP_GET , dhyara::utils::http::index_html_handler,  this}),
-    _routes_html (httpd_uri_t{"/routing",      HTTP_GET , dhyara::utils::http::routes_html_handler, this}),
-    _peers_html  (httpd_uri_t{"/peers",        HTTP_GET , dhyara::utils::http::peers_html_handler,  this}),
-    _style       (httpd_uri_t{"/dhyara.css",   HTTP_GET , dhyara::utils::http::style_handler,       this}),
-    _icons       (httpd_uri_t{"/icons",        HTTP_GET , dhyara::utils::http::icons_handler,       this}),
-    _info        (httpd_uri_t{"/info.json",    HTTP_GET , dhyara::utils::http::info_handler,        this}),
-    _counter     (httpd_uri_t{"/counter.json", HTTP_GET , dhyara::utils::http::counter_handler,     this}),
-    _routes      (httpd_uri_t{"/routes.json",  HTTP_GET , dhyara::utils::http::routes_handler,      this}),
-    _peers       (httpd_uri_t{"/peers.json",   HTTP_GET , dhyara::utils::http::peers_handler,       this}),
-    _command     (httpd_uri_t{"/command",      HTTP_POST, dhyara::utils::http::command_handler,     this})
+dhyara::utils::http::http(dhyara::link& link): _link(link), _config(HTTPD_DEFAULT_CONFIG()), _server(0x0)
+    ,_index_html  (httpd_uri_t{"/",             HTTP_GET , dhyara::utils::http::index_html_handler,  this})
+    ,_routes_html (httpd_uri_t{"/routing",      HTTP_GET , dhyara::utils::http::routes_html_handler, this})
+    ,_peers_html  (httpd_uri_t{"/peers",        HTTP_GET , dhyara::utils::http::peers_html_handler,  this})
+    ,_style       (httpd_uri_t{"/dhyara.css",   HTTP_GET , dhyara::utils::http::style_handler,       this})
+    ,_icons       (httpd_uri_t{"/icons",        HTTP_GET , dhyara::utils::http::icons_handler,       this})
+    ,_info        (httpd_uri_t{"/info.json",    HTTP_GET , dhyara::utils::http::info_handler,        this})
+    ,_counter     (httpd_uri_t{"/counter.json", HTTP_GET , dhyara::utils::http::counter_handler,     this})
+    ,_routes      (httpd_uri_t{"/routes.json",  HTTP_GET , dhyara::utils::http::routes_handler,      this})
+    ,_peers       (httpd_uri_t{"/peers.json",   HTTP_GET , dhyara::utils::http::peers_handler,       this})
+#if CONFIG_ENABLE_SERVICES_OVER_HTTP
+    ,_command     (httpd_uri_t{"/command",      HTTP_POST, dhyara::utils::http::command_handler,     this})
+#endif 
 {
+#if CONFIG_ENABLE_SERVICES_OVER_HTTP
     _config.max_uri_handlers = 11;
     _config.stack_size = 8192;
+#else 
+    _config.max_uri_handlers = 10;
+#endif 
 }
 
 
@@ -211,7 +222,9 @@ esp_err_t dhyara::utils::http::start(){
     if (res != ESP_OK) return res; else res = httpd_register_uri_handler(_server, &_counter);
     if (res != ESP_OK) return res; else res = httpd_register_uri_handler(_server, &_routes);
     if (res != ESP_OK) return res; else res = httpd_register_uri_handler(_server, &_peers);
+#if CONFIG_ENABLE_SERVICES_OVER_HTTP
     if (res != ESP_OK) return res; else res = httpd_register_uri_handler(_server, &_command);
+#endif 
     return res;
 }
 
@@ -260,10 +273,14 @@ esp_err_t dhyara::utils::http::peers_handler(httpd_req_t* req){
     return self->peers(req);
 }
 
+#if CONFIG_ENABLE_SERVICES_OVER_HTTP
+
 esp_err_t dhyara::utils::http::command_handler(httpd_req_t* req){
     dhyara::utils::http* self = static_cast<dhyara::utils::http*>(req->user_ctx);
     return self->command(req);
 }
+
+#endif 
 
 esp_err_t dhyara::utils::http::index_html(httpd_req_t* req){
     static const char* wrapper_close = 
@@ -618,6 +635,8 @@ esp_err_t dhyara::utils::http::peers(httpd_req_t* req){
     return ESP_OK;
 }
 
+#if CONFIG_ENABLE_SERVICES_OVER_HTTP
+
 esp_err_t dhyara::utils::http::command(httpd_req_t* req){
     char content[128];
     size_t recv_size = std::min(req->content_len, sizeof(content));
@@ -659,3 +678,5 @@ esp_err_t dhyara::utils::http::command(httpd_req_t* req){
     _registry.run(req, argv.cbegin(), argv.cend());
     return ESP_OK;
 }
+
+#endif

@@ -9,7 +9,6 @@
 #include <dhyara/tools/ping.h>
 #include <dhyara/tools/traceroute.h>
 #include <dhyara/packets/data.h>
-#include <dhyara/utils/http.h>
 
 void mainx(){
     dhyara::network network(dhyara_link());

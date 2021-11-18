@@ -11,18 +11,25 @@
 
 #include <esp_http_server.h>
 #include "dhyara/link.h"
+
+#if CONFIG_ENABLE_SERVICES_OVER_HTTP
+
 #include "dhyara/services/registry.hpp"
 #include "dhyara/services/service.hpp"
-namespace dhyara{
 
-namespace services{
-    struct ping;
-    struct identify;
-    struct routes;
-    struct universe;
-    struct phy_rate;
+namespace dhyara{
+    namespace services{
+        struct ping;
+        struct identify;
+        struct routes;
+        struct universe;
+        struct phy_rate;
+    }
 }
 
+#endif
+
+namespace dhyara{
 namespace utils{
     
 /**
@@ -55,7 +62,9 @@ struct http{
         httpd_uri_t    _counter;
         httpd_uri_t    _routes;
         httpd_uri_t    _peers;
+#if CONFIG_ENABLE_SERVICES_OVER_HTTP
         httpd_uri_t    _command;
+#endif
     private:
         static esp_err_t index_html_handler(httpd_req_t* req);
         static esp_err_t routes_html_handler(httpd_req_t* req);
@@ -66,7 +75,9 @@ struct http{
         static esp_err_t counter_handler(httpd_req_t* req);
         static esp_err_t routes_handler(httpd_req_t* req);
         static esp_err_t peers_handler(httpd_req_t* req);
+#if CONFIG_ENABLE_SERVICES_OVER_HTTP
         static esp_err_t command_handler(httpd_req_t* req);
+#endif
     private:
         esp_err_t index_html(httpd_req_t* req);
         esp_err_t routes_html(httpd_req_t* req);
@@ -77,7 +88,11 @@ struct http{
         esp_err_t counter(httpd_req_t* req);
         esp_err_t routes(httpd_req_t* req);
         esp_err_t peers(httpd_req_t* req);
+#if CONFIG_ENABLE_SERVICES_OVER_HTTP
         esp_err_t command(httpd_req_t* req);
+#endif 
+
+#if CONFIG_ENABLE_SERVICES_OVER_HTTP
     private:
         using registry_type =  services::registry<
             services::ping, 
@@ -88,6 +103,8 @@ struct http{
         >;
 
         registry_type       _registry;
+#endif 
+
 };
 
 }
