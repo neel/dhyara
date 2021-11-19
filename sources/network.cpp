@@ -33,10 +33,10 @@ void dhyara::network::presence(){
     while(1){
         _beacon.broadcast();
         _link.routes().depreciate(_synchronizer);
-        // std::size_t removed = _link.neighbours().remove_unreachables(_link.routes());
-        // if(removed > 0){
-        //     ESP_LOGI("dhyara", "Removing %d nodes from neighbourhood", removed);
-        // }
+        std::size_t removed = _link.neighbours().remove_unreachables(_link.routes());
+        if(removed > 0){
+            ESP_LOGI("dhyara", "Removing %d nodes from neighbourhood", removed);
+        }
         vTaskDelay(pdMS_TO_TICKS(dhyara::beacon_interval));
     }
 }
