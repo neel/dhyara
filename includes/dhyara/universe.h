@@ -15,6 +15,10 @@
 
 namespace dhyara{
 
+namespace routing{
+    struct table;
+}
+
 /**
  * Universe of all nodes in the known in the universe
  * \ingroup dhyara 
@@ -37,6 +41,11 @@ struct universe{
      * \param addr peer address
      */
     const dhyara::peer& add(const dhyara::address& addr);
+    /**
+     * remove a node from universe
+     * \param addr peer address
+     */
+    bool remove(const dhyara::address& addr);
     /**
      * check whether a peer is in neighbourhood
      * \param addr peer address
@@ -66,7 +75,13 @@ struct universe{
      * end iterator
      */
     inline peer_collection_type::const_iterator end() const { return _peers.end(); }
-    
+    /**
+     * @brief remove the nodes from universe that are not present in the routing table
+     * 
+     * @param table 
+     * @return std::size_t 
+     */
+    std::size_t remove_unreachables(const dhyara::routing::table& routes);
     private:
         peer_collection_type   _peers;
     

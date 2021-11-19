@@ -29,11 +29,6 @@ struct next_hop{
     inline next_hop(dhyara::address via, delay_type delay, std::uint8_t hops): _via(via), _delay(delay), _hops(hops), _published(delay){}
     
     /**
-     * Construct from a pair
-     */
-//     inline next_hop(const std::pair<dhyara::address, dhyara::delay_type>& pair): next_hop(pair.first, pair.second){}
-    
-    /**
      * assign by a pair
      */
     inline next_hop& operator=(const std::pair<dhyara::address, dhyara::delay_type>& pair){

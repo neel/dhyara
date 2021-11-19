@@ -132,7 +132,7 @@ struct table {
          * \param dst The destination node address
          * \warning the function is NOT gaurded by mutex.
          */
-        dhyara::routing::next_hop calculated_next(dhyara::address dst) const;
+        dhyara::routing::next_hop calculated_next(const dhyara::address& dst) const;
         /**
          * Updates the next hop of the given destination using the best route from the existing routing table.
          * returns true if either the best intermediate node has changed or the change in delay is beyond tolerated delay.
@@ -140,7 +140,7 @@ struct table {
          * \see calculated_next
          * \warning the function is NOT gaurded by mutex.
          */
-        bool update_next(dhyara::address dst);
+        bool update_next(const dhyara::address& dst);
 };
     
 std::ostream& operator<<(std::ostream& os, const dhyara::routing::table& routing);

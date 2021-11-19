@@ -76,7 +76,7 @@ std::ostream& dhyara::routing::table::print(std::ostream& os) const{
 //     return 0;
 // }
 
-dhyara::routing::next_hop dhyara::routing::table::calculated_next(dhyara::address dst) const{
+dhyara::routing::next_hop dhyara::routing::table::calculated_next(const dhyara::address& dst) const{
     dhyara::routing::route begin(dst, dhyara::address::null()), end(dst, dhyara::address::all());
     table_type::const_iterator lower = _table.lower_bound(begin), upper = _table.upper_bound(end);
     if(!std::distance(lower, upper)){
@@ -95,8 +95,12 @@ bool dhyara::routing::table::exists(const dhyara::address& dst) const{
     return std::distance(lower, upper);
 }
 
-bool dhyara::routing::table::update_next(dhyara::address dst){
+bool dhyara::routing::table::update_next(const dhyara::address& dst){
     dhyara::routing::next_hop next = calculated_next(dst);
+    if(next.via() == dst){
+        // No need to sync
+        return false; 
+    }
     auto it = _next.find(dst);
     if(it != _next.end()){
         delay_type delta = (it->second.published() > next.delay()) ? (it->second.published() - next.delay()) : (next.delay() - it->second.published());
@@ -133,6 +137,15 @@ void dhyara::routing::table::depreciate(dhyara::synchronizer& synchronizer){
         bool suggested = update_next(r.dst());
         synchronizer.sync(r.dst(), suggested);
         vTaskDelay(pdMS_TO_TICKS(1));
+    }
+
+    // If there is a next hop to node x but there exists no routes to reach x then silently remove that next hop too.
+    for(auto nit = _next.begin(); nit != _next.end();){
+        if(!exists(nit->first)){
+            nit = _next.erase(nit);
+        }else{
+            ++nit;
+        }
     }
     _mutex.unlock();
 }

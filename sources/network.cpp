@@ -37,6 +37,10 @@ void dhyara::network::presence(){
         if(removed > 0){
             ESP_LOGI("dhyara", "Removing %d nodes from neighbourhood", removed);
         }
+        removed = _link.universe().remove_unreachables(_link.routes());
+        if(removed > 0){
+            ESP_LOGI("dhyara", "Removing %d nodes from universe", removed);
+        }
         vTaskDelay(pdMS_TO_TICKS(dhyara::beacon_interval));
     }
 }
