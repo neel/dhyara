@@ -49,7 +49,17 @@ struct table {
      */
     bool exists(const dhyara::routing::route& r) const;
     /**
-     * next node to for the final destination dst
+     * @brief Whether there exists any route to dst via the given intermediate node
+     * 
+     * @param dst 
+     * @param via 
+     * @return true 
+     * @return false 
+     */
+    bool reachable(const dhyara::address& dst, const dhyara::address& via = dhyara::address::null()) const;
+    /**
+     * Best next node to for the final destination dst
+     * \note If the node is not found in the best intermediate table then returns an invalid next_hop `(dst, _def, 0)` where dst itself is used as the intermediate node, _def is the default delay, and 0 is the number of hops
      * \param dst destinatin node
      */
     dhyara::routing::next_hop next(const dhyara::address& dst) const;
@@ -60,27 +70,10 @@ struct table {
      */
     bool update(const dhyara::routing::route& r, const delay_type& d, std::uint8_t hops);
     /**
-     * depritiate a route by multiplying its delay with depreciation_coefficient
-     * \see dhyara::depreciation_coefficient 
-     */
-    bool depreciate(const dhyara::routing::route& r);
-    /**
      * Removes routes that has not been updated within dhyara::route_expiry time.
      * \warning This depreciate function removes an existing route. Use \ref depreciate(std::function<void (const dhyara::routing::route&, dhyara::delay_type, std::uint8_t)> notify) if you don't want to remove.
      */
     void depreciate(dhyara::synchronizer& synchronizer);
-    /**
-     * Depreciates a route that was not updated within dhyara::route_expiry time.
-     * Makes a list of depreciated routes and calls the provided notify function with that route.
-     * 
-     * \warning This depreciate function does not remove an existing route. Use \ref depreciate(dhyara::synchronizer& synchronizer) if you want to remove.
-     * 
-     * \param notify callback that is called with the depreciated routes
-     * 
-     * \see dhyara::route_expiry
-     * \see depreciate(const dhyara::routing::route& r)
-     */
-    void depreciate(std::function<void (const dhyara::routing::route&, dhyara::delay_type, std::uint8_t)> notify);
     
     /**
      * print the routing table and current next hop vector
@@ -117,10 +110,10 @@ struct table {
     dhyara::delay_type lost_since() const;
     
     private:
-        delay_type       _def;
-        table_type       _table;
-        next_vector_type _next;
-        std::mutex       _mutex;
+        delay_type         _def;
+        table_type         _table;
+        next_vector_type   _next;
+        mutable std::mutex _mutex;
         
         /**
          * Finds the given route in the routing table and returns its delay. If there is no such route then returns the default delay.
@@ -137,6 +130,7 @@ struct table {
          * \note The function only returns a calculated next hop. But it does not alter the previously calculated next hop.
          * \attention If there is no route in the routing table, that lead to the given destination, then returns a next hop with default delay.
          * \param dst The destination node address
+         * \warning the function is NOT gaurded by mutex.
          */
         dhyara::routing::next_hop calculated_next(dhyara::address dst) const;
         /**
@@ -144,6 +138,7 @@ struct table {
          * returns true if either the best intermediate node has changed or the change in delay is beyond tolerated delay.
          * \param dst The destination node address
          * \see calculated_next
+         * \warning the function is NOT gaurded by mutex.
          */
         bool update_next(dhyara::address dst);
 };
