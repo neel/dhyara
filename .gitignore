@@ -1,6 +1,9 @@
 build
+.vscode
 .kdev4
 *.kdev4
 sdkconfig
 docs/source/api
 .cache
+sdkconfig.old
+partition_table
