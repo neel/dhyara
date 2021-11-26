@@ -50,9 +50,12 @@ esp_err_t dhyara_wifi_init(wifi_mode_t mode){
     if(err != ESP_OK) return err;
     
     wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
-    err = (esp_wifi_init(&cfg));
+    err = esp_wifi_init(&cfg);
     if(err != ESP_OK) return err;
-    
+    return esp_wifi_set_mode(mode);
+}
+
+esp_err_t dhyara_wifi_start(wifi_mode_t mode){
     if(mode == WIFI_MODE_AP){
         dhyara_ap_init();
     }else if(mode == WIFI_MODE_STA){
@@ -60,14 +63,14 @@ esp_err_t dhyara_wifi_init(wifi_mode_t mode){
     }else if(mode == WIFI_MODE_APSTA){
         dhyara_apsta_init();
     }
-    return esp_wifi_set_mode(mode);
+    return esp_wifi_start();
 }
 
 esp_err_t dhyara_init(wifi_mode_t mode){
     esp_err_t err;
     err = dhyara_wifi_init(mode);
     if(err != ESP_OK) return err;
-    err = esp_wifi_start();
+    err = dhyara_wifi_start(mode);
     if(err != ESP_OK) return err;
     err = dhyara_espnow_init();
     return err;

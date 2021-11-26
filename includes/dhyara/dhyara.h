@@ -237,6 +237,16 @@ extern wifi_promiscuous_filter_t g_dhyara_promiscous_filter;
 esp_err_t dhyara_wifi_init(wifi_mode_t mode);
 
 /**
+ * Conveniance function to start wifi.
+ * \attention esp_wifi_start() is called in this function
+ * \attention \ref dhyara_wifi_init should be called before calling this function
+ * \attention ESP Now may be initialized (e.g. \ref dhyara_espnow_init) after initializing and starting the wifi 
+ * \ingroup dhyara 
+ * \param mode wifi mode (AP, STA or APSTA)
+ */
+esp_err_t dhyara_wifi_start(wifi_mode_t mode);
+
+/**
  * Initialize ESP-Now. Registers the necessary ESP Now send/receive callbacks.
  * \attention should be called after initializing wifi (e.g. \ref dhyara_wifi_init)
  * \ingroup dhyara 
@@ -246,6 +256,7 @@ esp_err_t dhyara_espnow_init();
 /**
  * Initializes wifi, starts wifi, then initializes ESP Now 
  * \see dhyara_wifi_init 
+ * \see dhyara_wifi_start
  * \see dhyara_espnow_init
  * \ingroup dhyara
  */

@@ -20,16 +20,16 @@
 namespace dhyara{
     namespace services{
         struct identify;
-        #if ENABLE_SERVICE_ROUTES
+        #if CONFIG_ENABLE_SERVICE_ROUTES
             struct routes;
         #endif 
-        #if ENABLE_SERVICE_UNIVERSE
+        #if CONFIG_ENABLE_SERVICE_UNIVERSE
             struct universe;
         #endif 
-        #if ENABLE_SERVICE_PING
+        #if CONFIG_ENABLE_SERVICE_PING
             struct ping;
         #endif 
-        #if ENABLE_SERVICE_PHY_RATE
+        #if CONFIG_ENABLE_SERVICE_PHY_RATE
             struct phy_rate;
         #endif 
     }
@@ -104,16 +104,16 @@ struct http{
     private:
         using registry_type =  services::registry<
             services::identify
-            #if ENABLE_SERVICE_ROUTES
+            #if CONFIG_ENABLE_SERVICE_ROUTES
                 ,services::routes
             #endif 
-            #if ENABLE_SERVICE_UNIVERSE
+            #if CONFIG_ENABLE_SERVICE_UNIVERSE
                 ,services::universe
             #endif 
-            #if ENABLE_SERVICE_PING
+            #if CONFIG_ENABLE_SERVICE_PING
                 ,services::ping
             #endif 
-            #if ENABLE_SERVICE_PHY_RATE
+            #if CONFIG_ENABLE_SERVICE_PHY_RATE
                 ,services::phy_rate
             #endif 
         >;

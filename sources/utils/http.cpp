@@ -21,16 +21,16 @@
 #include "dhyara/detail/args_helper.hpp"
 #include "dhyara/services/identify.h"
 
-#if ENABLE_SERVICE_ROUTES
+#if CONFIG_ENABLE_SERVICE_ROUTES
     #include "dhyara/services/routes.h"
 #endif 
-#if ENABLE_SERVICE_UNIVERSE
+#if CONFIG_ENABLE_SERVICE_UNIVERSE
     #include "dhyara/services/universe.h"
 #endif 
-#if ENABLE_SERVICE_PING
+#if CONFIG_ENABLE_SERVICE_PING
     #include "dhyara/services/ping.h"
 #endif 
-#if ENABLE_SERVICE_PHY_RATE
+#if CONFIG_ENABLE_SERVICE_PHY_RATE
     #include "dhyara/services/phy_rate.h"
 #endif 
 

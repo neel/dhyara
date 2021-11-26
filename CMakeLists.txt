@@ -49,13 +49,33 @@ else()
     )
     set(DHYARA_WWW_SERVICES_SOURCES
         "sources/services/stream.cpp"
-        "sources/services/ping.cpp"
-        "sources/services/ping_impl.cpp"
-        "sources/services/routes.cpp"
-        "sources/services/universe.cpp"
         "sources/services/identify.cpp"
-        "sources/services/phy_rate.cpp"
     )
+
+    if(CONFIG_ENABLE_SERVICE_ROUTES)
+        set(DHYARA_WWW_SERVICES_SOURCES ${DHYARA_WWW_SERVICES_SOURCES} 
+            "sources/services/routes.cpp"
+        )
+    endif()
+
+    if(CONFIG_ENABLE_SERVICE_UNIVERSE)
+        set(DHYARA_WWW_SERVICES_SOURCES ${DHYARA_WWW_SERVICES_SOURCES} 
+            "sources/services/universe.cpp"
+        )
+    endif()
+
+    if(CONFIG_ENABLE_SERVICE_PING)
+        set(DHYARA_WWW_SERVICES_SOURCES ${DHYARA_WWW_SERVICES_SOURCES} 
+            "sources/services/ping.cpp" 
+            "sources/services/ping_impl.cpp"
+        )
+    endif()
+
+    if(CONFIG_ENABLE_SERVICE_PHY_RATE)
+        set(DHYARA_WWW_SERVICES_SOURCES ${DHYARA_WWW_SERVICES_SOURCES} 
+            "sources/services/phy_rate.cpp"
+        )
+    endif()
 
     set(DHYARA_SOURCES ${DHYARA_ESSENTIAL_SOURCES})
     set(DHYARA_ASSETS )
