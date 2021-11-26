@@ -13,8 +13,13 @@
 #include "dhyara/neighbour.h"
 #include <unordered_set>
 #include <unordered_map>
+#include <mutex>
 
 namespace dhyara{
+
+namespace routing{
+    struct table;
+}
 
 /**
  * Neighbourhood of a node
@@ -27,21 +32,21 @@ struct neighbourhood{
      * add a peer as neighbour 
      * \param p peer
      */
-    const dhyara::neighbour& add(const dhyara::neighbour& p);
+    const dhyara::neighbour& add1(const dhyara::neighbour& p);
     /**
      * conveniance overload to add a peer
      * \param addr peer address as string
      * \param ch WiFi channel
      * \param enc encryption
      */
-    const dhyara::neighbour& add(const std::string& addr, std::uint8_t ch, bool enc = false);
+    const dhyara::neighbour& add1(const std::string& addr, std::uint8_t ch, bool enc = false);
     /**
      * conveniance overload to add a peer
      * \param addr peer address 
      * \param ch WiFi channel
      * \param enc encryption
      */
-    const dhyara::neighbour& add(const dhyara::address& addr, uint8_t ch, bool enc = false);
+    const dhyara::neighbour& add1(const dhyara::address& addr, uint8_t ch, bool enc = false);
     /**
      * check whether a peer is in neighbourhood
      * \param addr peer address
@@ -64,6 +69,14 @@ struct neighbourhood{
     dhyara::neighbour& neighbour(const dhyara::address& addr);
     
     /**
+     * @brief remove the nodes from neighbourhood that are not reachable directly
+     * 
+     * @param table 
+     * @return std::size_t 
+     */
+    std::size_t remove_unreachables(const dhyara::routing::table& routes);
+
+    /**
      * begin iterator
      */
     inline neighbour_collection_type::const_iterator begin() const { return _neighbours.begin(); }
@@ -73,7 +86,8 @@ struct neighbourhood{
     inline neighbour_collection_type::const_iterator end() const { return _neighbours.end(); }
     
     private:
-        neighbour_collection_type   _neighbours;
+        mutable std::mutex        _mutex;
+        neighbour_collection_type _neighbours;
     
 };
 

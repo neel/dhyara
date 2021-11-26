@@ -7,6 +7,7 @@
  */
 
 #include "dhyara/universe.h"
+#include "dhyara/routing/table.h"
 
 const dhyara::peer& dhyara::universe::add(const dhyara::peer& p){
     auto inserted = _peers.insert(std::make_pair(p.addr(), p));
@@ -19,6 +20,15 @@ const dhyara::peer& dhyara::universe::add(const dhyara::address& addr){
 
 const dhyara::peer& dhyara::universe::add(const std::string& addr){
     return add(dhyara::address(addr));
+}
+
+bool dhyara::universe::remove(const dhyara::address& addr){
+    auto it = _peers.find(addr);
+    if(it != _peers.end()){
+        _peers.erase(it);
+        return true;
+    }
+    return false;
 }
 
 bool dhyara::universe::exists(const std::string& addr) const {
@@ -36,4 +46,18 @@ std::size_t dhyara::universe::size() const{
 dhyara::peer& dhyara::universe::peer(const dhyara::address& addr){
     peer_collection_type::iterator it = _peers.find(addr);
     return it->second;
+}
+
+std::size_t dhyara::universe::remove_unreachables(const dhyara::routing::table& routes){
+    std::size_t removed = 0;
+    for(peer_collection_type::iterator it = _peers.begin(); it != _peers.end(); ){
+        if (!it->first.is_broadcast() && !routes.exists(it->first)) { // Not reachable at all
+            // remove from universe
+            it = _peers.erase(it);
+            ++removed;
+        }else{
+            ++it;
+        }
+    }
+    return removed;
 }

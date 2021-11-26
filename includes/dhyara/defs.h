@@ -65,25 +65,6 @@ namespace dhyara {
      */
     constexpr const delay_type route_expiry = advertisement_expiry + (CONFIG_ROUTE_EXPIRY_COEFFICIENT * beacon_interval); // us
     
-    /**
-     * Different policies to apply on inactive routes
-     */
-    enum class depreciation_policies{
-        /**
-         * double the delay if a route is inactive for \ref route_expiry period of time
-         */
-        amplify_delay,
-        /**
-         * remove a route that is inactive for \ref route_expiry period of time
-         */
-        remove_route
-    };
-    
-    /**
-     * policy to apply on inactive routes
-     */
-    constexpr const depreciation_policies depreciation_policy = depreciation_policies::remove_route;
-    
     constexpr const std::size_t udp_relay_rcv_buffer_size = CONFIG_DHYARA_UTIL_UDP_RELAY_BUFFER_SIZE;
 }
 

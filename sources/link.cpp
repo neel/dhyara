@@ -34,7 +34,7 @@ void dhyara::link::init(){
     std::uint8_t base_mac[6];
     esp_wifi_get_mac(static_cast<wifi_interface_t>(ESP_IF_WIFI_AP), base_mac);
     _mac.set(base_mac);
-    _neighbours.add(dhyara::address::all(), dhyara::espnow_broadcast_channel);
+    _neighbours.add1(dhyara::address::all(), dhyara::espnow_broadcast_channel);
 }
 
 

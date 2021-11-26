@@ -32,15 +32,16 @@ dhyara::network::network(dhyara::link& link):
 void dhyara::network::presence(){
     while(1){
         _beacon.broadcast();
-        if(dhyara::depreciation_policy == dhyara::depreciation_policies::amplify_delay){
-            _link.routes().depreciate([this](const dhyara::routing::route& route, dhyara::delay_type delay, std::uint8_t hops) mutable{
-                _synchronizer.queue(route.dst(), route.via(), delay, hops);
-                vTaskDelay(pdMS_TO_TICKS(1));
-            });
-        }else if(dhyara::depreciation_policy == dhyara::depreciation_policies::remove_route){
-            _link.routes().depreciate(_synchronizer);
-            vTaskDelay(pdMS_TO_TICKS(dhyara::beacon_interval));
+        _link.routes().depreciate(_synchronizer);
+        std::size_t removed = _link.neighbours().remove_unreachables(_link.routes());
+        if(removed > 0){
+            ESP_LOGI("dhyara", "Removing %d nodes from neighbourhood", removed);
         }
+        removed = _link.universe().remove_unreachables(_link.routes());
+        if(removed > 0){
+            ESP_LOGI("dhyara", "Removing %d nodes from universe", removed);
+        }
+        vTaskDelay(pdMS_TO_TICKS(dhyara::beacon_interval));
     }
 }
 
