@@ -106,6 +106,16 @@ dhyara::address dhyara_local(){
     return dhyara::address::null();
 }
 
+bool dhyara_isolate(const unsigned char* x, const unsigned char* y) {
+    if(dhyara_has_default_network()){
+        dhyara::network& network = dhyara_default_network();
+        network.isolate(dhyara::address(x), dhyara::address(y));
+        return true;
+    }
+    return false;
+}
+
+
 bool dhyara_receivef(dhyara_receivef_callback_t callback){
     if(dhyara_has_default_network()){
         dhyara_default_network().on_data([callback](const dhyara::address& source, const dhyara::packets::data& data){

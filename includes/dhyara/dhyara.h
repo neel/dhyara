@@ -285,6 +285,17 @@ void dhyara_start_default_network();
  */
 bool dhyara_has_default_network();
 
+/**
+ * @brief C conveniance function to isolate two nodes x and y using the default network
+ * \note calls network::isolate C++ function.
+ * \attention requires the default network to be set.
+ * @param x MAC address of node x
+ * @param y MAC address of node y
+ * @return returns success value. returns false if it does not already have a default network set.
+ * \ingroup dhyara 
+ */
+bool dhyara_isolate(const unsigned char* x, const unsigned char* y);
+
 #ifndef __DOXYGEN__
 
 typedef void (*dhyara_receivef_callback_t) (const unsigned char*, const void*, unsigned long);
