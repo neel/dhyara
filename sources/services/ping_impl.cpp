@@ -96,7 +96,7 @@ void dhyara::services::ping_impl::operator()(const dhyara::address& addr){
 
 void dhyara::services::ping_impl::reply(const dhyara::address&, const dhyara::packets::echo_reply& reply){
     _last = esp_timer_get_time();
-    _stats.push_back(std::make_tuple(reply.time(), reply.rtime(), _last, reply.latency()));
+    _stats.push_back(std::make_tuple(reply.time(), reply.rtime(), _last, _last - reply.time()));
     if(!_quiet){
         _stream << reply << "\n";
     }
