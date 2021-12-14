@@ -24,7 +24,7 @@ esp_err_t dhyara::services::universe::run(dhyara::services::stream &stream){
     bool none_set = (!_only_neighbours && !_only_peers);
     if(none_set || _only_neighbours){
         for(auto it = link.neighbours().begin(); it != link.neighbours().end(); ++it){
-            const dhyara::neighbour& neighbour = it->second;
+            const dhyara::neighbour& neighbour = *(it->second);
             if(neighbour.addr().is_broadcast()) continue;
             stream  << neighbour.addr().to_string()
                     << " (" << neighbour.name() << ")"

@@ -22,12 +22,12 @@ dhyara::actions::beacon::beacon(dhyara::link& link): _link(link){
 void dhyara::actions::beacon::operator()(const dhyara::address& addr, const dhyara::packets::beacon& beacon){
     if(!banned(addr)){
         if(!_link.neighbours().exists(addr.to_string())){
-            _link.neighbours().add1(addr.to_string(), dhyara::espnow_peer_channel);
+            _link.neighbours().add(addr.to_string(), dhyara::espnow_peer_channel);
         }
         if(!_link.universe().exists(addr.to_string())){
             _link.universe().add(addr.to_string());
         }
-        _link.neighbours().neighbour(addr).name(beacon.name());
+        _link.neighbours().neighbour(addr).update(beacon.name());
         _link.universe().peer(addr).name(beacon.name());
         _link.send_local(addr, dhyara::packets::type::acknowledgement, dhyara::packets::acknowledgement(beacon.time()));
     }

@@ -26,27 +26,27 @@ namespace routing{
  * \ingroup dhyara 
  */
 struct neighbourhood{
-    typedef std::unordered_map<address, dhyara::neighbour> neighbour_collection_type;
+    typedef std::unordered_map<address, dhyara::neighbour*> neighbour_collection_type;
     
     /**
      * add a peer as neighbour 
      * \param p peer
      */
-    const dhyara::neighbour& add1(const dhyara::neighbour& p);
+    const dhyara::neighbour& add(dhyara::neighbour* p);
     /**
      * conveniance overload to add a peer
      * \param addr peer address as string
      * \param ch WiFi channel
      * \param enc encryption
      */
-    const dhyara::neighbour& add1(const std::string& addr, std::uint8_t ch, bool enc = false);
+    const dhyara::neighbour& add(const std::string& addr, std::uint8_t ch, bool enc = false);
     /**
      * conveniance overload to add a peer
      * \param addr peer address 
      * \param ch WiFi channel
      * \param enc encryption
      */
-    const dhyara::neighbour& add1(const dhyara::address& addr, uint8_t ch, bool enc = false);
+    const dhyara::neighbour& add(const dhyara::address& addr, uint8_t ch, bool enc = false);
     /**
      * check whether a peer is in neighbourhood
      * \param addr peer address

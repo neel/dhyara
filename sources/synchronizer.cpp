@@ -60,9 +60,9 @@ void dhyara::synchronizer::sync(const dhyara::address& dest, bool suggested){
             advertisement.name(peer_name);
         }
         for(auto it = _link.neighbours().begin(); it != _link.neighbours().end(); ++it){
-            const dhyara::neighbour& neighbour = it->second;
-            if(!neighbour.addr().is_broadcast() && dest != neighbour.addr() && next.via() != neighbour.addr()){
-                _link.send_local(neighbour.addr(), dhyara::packets::type::advertisement, advertisement);
+            dhyara::neighbour* neighbour = it->second;
+            if(!neighbour->addr().is_broadcast() && dest != neighbour->addr() && next.via() != neighbour->addr()){
+                _link.send_local(neighbour->addr(), dhyara::packets::type::advertisement, advertisement);
             }
         }
     }

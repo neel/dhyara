@@ -4,6 +4,7 @@
 #include "esp_wifi.h"
 #include "esp_log.h"
 #include "esp_event.h"
+#include "esp_wifi_types.h"
 #include "nvs_flash.h"
 #include "lwip/err.h"
 #include "lwip/sys.h"
@@ -41,7 +42,7 @@ void app_main(){
     ESP_ERROR_CHECK(dhyara_espnow_init());
     dhyara_start_default_network();
 
-    for(int i = 0; i < 6; ++i){
+    /*for(int i = 0; i < 6; ++i){
         for(int j = 0; j < 6; ++j){
             int d = j - i;
             if(d < -1 || d > 1){
@@ -49,7 +50,7 @@ void app_main(){
                 dhyara_isolate(nodes[i], nodes[j]);
             }
         }
-    }
+    }*/
 
     ESP_ERROR_CHECK(esp_wifi_set_storage(WIFI_STORAGE_RAM));
     // For high speed communication uncomment the following (Additionally disable AMPDU)

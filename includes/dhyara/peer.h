@@ -20,6 +20,8 @@
 #include <functional>
 #include <dhyara/address.h>
 #include "esp_now.h"
+#include "esp_timer.h"
+#include <dhyara/defs.h>
 
 namespace dhyara{
     
@@ -29,39 +31,38 @@ namespace dhyara{
  */
 struct peer{
     /**
-     * Construct a peer 
+     * @brief Construct a peer 
      * \param addr address
      */
     explicit peer(const address& addr);
     /**
-     * get peer address
+     * @brief get peer address
      */
     inline const address& addr() const {return _addr;}
     /**
-     * Set Name
+     * @brief Set Name
      */
     inline void name(const std::string& n) { _name = n; }
     /**
-     * Get Name
+     * @brief Get Name
      */
     inline const std::string& name() const { return _name; }
-    
     /**
-     * Less than comparator
+     * @brief Less than comparator
      */
     bool operator<(const peer& other) const;
     /**
-     * Comparator
+     * @brief Comparator
      */
     bool operator==(const peer& other) const;
     /**
-     * Comparator
+     * @brief Comparator
      */
     inline bool operator!=(const peer& other) const { return !(*this == other); }
     
     private:
-        address     _addr;
-        std::string _name;
+        address             _addr;
+        std::string         _name;
 };
     
 }

@@ -34,7 +34,7 @@ void dhyara::link::init(){
     std::uint8_t base_mac[6];
     esp_wifi_get_mac(static_cast<wifi_interface_t>(ESP_IF_WIFI_AP), base_mac);
     _mac.set(base_mac);
-    _neighbours.add1(dhyara::address::all(), dhyara::espnow_broadcast_channel);
+    _neighbours.add(dhyara::address::all(), dhyara::espnow_broadcast_channel);
 }
 
 
@@ -196,7 +196,7 @@ std::size_t dhyara::link::rx(dhyara::packets::type type) const{
 std::int8_t dhyara::link::max_rssi() const{
     std::int8_t max = -127;
     for(auto it = _neighbours.begin(); it != _neighbours.end(); ++it){
-        max = std::max(max, it->second.rssi());
+        max = std::max(max, it->second->rssi());
     }
     return max;
 }

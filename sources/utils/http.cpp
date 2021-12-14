@@ -158,6 +158,8 @@ static const char peers[] =
                         "<th>Name</th>"
                         "<th>Channel</th>"
                         "<th>RSSI</th>"
+                        "<th>Since</th>"
+                        "<th>Beacons</th>"
                     "</tr>"
                 "</thead>"
                 "<tbody id='neighbours-body'></tbody>"
@@ -607,13 +609,15 @@ esp_err_t dhyara::utils::http::peers(httpd_req_t* req){
             if(it != _link.neighbours().begin()){
                 neighbours_json << ",";
             }
-            const dhyara::neighbour& neighbour = it->second;
+            const dhyara::neighbour& neighbour = *(it->second);
             neighbours_json << "{";
             neighbours_json << "\"mac\":" << '"' << neighbour.addr().to_string() << '"' << ",";
             neighbours_json << "\"name\":" << '"' << neighbour.name() << '"' << ",";
             neighbours_json << "\"channel\":" << (int)neighbour.channel() << ",";
             neighbours_json << "\"rssi\":" << (int)neighbour.rssi() << ",";
-            neighbours_json << "\"encrypt\":" << std::boolalpha << neighbour.encrypt();
+            neighbours_json << "\"encrypt\":" << std::boolalpha << neighbour.encrypt() << ",";
+            neighbours_json << "\"since\":" << (double(esp_timer_get_time() - neighbour.born())/1000.0/1000.0) << ',';
+            neighbours_json << "\"beacons\":" << neighbour.beacons();
             neighbours_json << "}";
         }
         neighbours_json << "]";

@@ -77,11 +77,41 @@ struct neighbour: dhyara::peer{
      */
     inline void rssi(std::uint8_t v) { _rssi = v; }
 
+    /**
+     * @brief Update a peer, update last seen time and increment beacon counter of the peer.
+     * If a name is provided then the name of the peer is updated too.
+     * @param name 
+     */
+    inline void update(const std::string& n) {
+        peer::name(n);
+        _seen = esp_timer_get_time();
+        ++_beacons;
+    }
+    /**
+     * @brief number of beacons received since birth
+     * 
+     * @return std::uint64_t 
+     */
+    inline std::uint64_t beacons() const { return _beacons; }
+    /**
+     * @brief Last seen time (in microseconds since boot)
+     * 
+     * @return dhyara::delay_type 
+     */
+    inline dhyara::delay_type born() const { return _born; };
+    /**
+     * @brief Get raw peer
+     * 
+     * @return const esp_now_peer_info_t* 
+     */
     inline const esp_now_peer_info_t* raw() const {return &_peer;}
     
     private:
         esp_now_peer_info_t _peer;
         std::int8_t         _rssi;
+        dhyara::delay_type  _born;
+        dhyara::delay_type  _seen;
+        std::uint64_t       _beacons;
 };
 
 std::ostream& operator<<(std::ostream& os, const dhyara::neighbour& peer);
