@@ -26,13 +26,13 @@ namespace routing{
  * \ingroup dhyara 
  */
 struct neighbourhood{
-    typedef std::unordered_map<address, dhyara::neighbour*> neighbour_collection_type;
+    typedef std::unordered_map<address, dhyara::neighbour> neighbour_collection_type;
     
     /**
      * add a peer as neighbour 
      * \param p peer
      */
-    const dhyara::neighbour& add(dhyara::neighbour* p);
+    const dhyara::neighbour& add(const dhyara::neighbour& p);
     /**
      * conveniance overload to add a peer
      * \param addr peer address as string

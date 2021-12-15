@@ -7,11 +7,13 @@
  */
 
 #include "dhyara/utils/http.h"
+#include <cstdint>
 #include <sstream>
 #include "dhyara/assets.h"
 #include <cstring>
 #include "esp_err.h"
 #include "esp_http_server.h"
+#include "esp_timer.h"
 #include "esp_wifi.h"
 #include <dhyara/dhyara.h>
 #include "esp_idf_version.h"
@@ -66,7 +68,7 @@ static const char banner[] =
                 "</div>"
                 "<div class='group'>"
                     "<div class='cell' data-key='authentication'></div>"
-                    "<div class='cell' data-key='max clients'></div>"
+                    "<div class='cell' data-key='uptime'></div>"
                 "</div>"
             "</div>"
         "</div>"
@@ -159,7 +161,9 @@ static const char peers[] =
                         "<th>Channel</th>"
                         "<th>RSSI</th>"
                         "<th>Since</th>"
-                        "<th>Beacons</th>"
+                        "<th>BeaconsR</th>"
+                        "<th>BPM</th>"
+                        "<th>AckR</th>"
                     "</tr>"
                 "</thead>"
                 "<tbody id='neighbours-body'></tbody>"
@@ -411,7 +415,7 @@ esp_err_t dhyara::utils::http::info(httpd_req_t* req){
         ap_json << "\"protocol\":" << '"' << "802.11" << protocol_str << '"' << ",";
         ap_json << "\"bandwidth\":" << ((bandwidth == WIFI_BW_HT20) ? 20 : 40) << ",";
         ap_json << "\"authentication\":" << '"' << auth_str << '"' << ",";
-        ap_json << "\"max_connections\":" << (int)config.ap.max_connection;
+        ap_json << "\"uptime\":" << (double)esp_timer_get_time() / 1000.0 / 1000.0;
         ap_json << "}";
         
         response_json << "\"ap\":" << ap_json.str();
@@ -609,15 +613,21 @@ esp_err_t dhyara::utils::http::peers(httpd_req_t* req){
             if(it != _link.neighbours().begin()){
                 neighbours_json << ",";
             }
-            const dhyara::neighbour& neighbour = *(it->second);
+            const dhyara::neighbour& neighbour = it->second;
+            dhyara::delay_type now = esp_timer_get_time();
+            double since_seconds = double(now - neighbour.born())/1000.0/1000.0;
+            std::uint64_t nbeacons = neighbour.beacons();
+            double bpm = double(nbeacons * 60) / since_seconds;
             neighbours_json << "{";
             neighbours_json << "\"mac\":" << '"' << neighbour.addr().to_string() << '"' << ",";
             neighbours_json << "\"name\":" << '"' << neighbour.name() << '"' << ",";
             neighbours_json << "\"channel\":" << (int)neighbour.channel() << ",";
             neighbours_json << "\"rssi\":" << (int)neighbour.rssi() << ",";
             neighbours_json << "\"encrypt\":" << std::boolalpha << neighbour.encrypt() << ",";
-            neighbours_json << "\"since\":" << (double(esp_timer_get_time() - neighbour.born())/1000.0/1000.0) << ',';
-            neighbours_json << "\"beacons\":" << neighbour.beacons();
+            neighbours_json << "\"since\":" << since_seconds << ',';
+            neighbours_json << "\"beacons\":" << nbeacons << ',';
+            neighbours_json << "\"bpm\":" << bpm << ',';
+            neighbours_json << "\"acknowledgements\":" << neighbour.acknowledgements();
             neighbours_json << "}";
         }
         neighbours_json << "]";

@@ -8,6 +8,7 @@
 
 #include "dhyara/actions/acknowledgement.h"
 #include "dhyara/synchronizer.h"
+#include "dhyara/link.h"
 
 void dhyara::actions::acknowledgement::operator()(const dhyara::address& addr, const dhyara::packets::acknowledgement& acknowledgement){
     dhyara::delay_type now = esp_timer_get_time();    
@@ -15,5 +16,9 @@ void dhyara::actions::acknowledgement::operator()(const dhyara::address& addr, c
 
     if(!addr.is_broadcast()){
         _synchronizer.queue(addr, dhyara::address::null(), rtt/2, 1);
+        dhyara::neighbourhood& neighbourhood = _link.neighbours();
+        if(neighbourhood.exists(addr)){
+            neighbourhood.neighbour(addr).update_acknowledged();
+        }
     }
 }

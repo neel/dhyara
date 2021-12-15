@@ -196,7 +196,7 @@ std::size_t dhyara::link::rx(dhyara::packets::type type) const{
 std::int8_t dhyara::link::max_rssi() const{
     std::int8_t max = -127;
     for(auto it = _neighbours.begin(); it != _neighbours.end(); ++it){
-        max = std::max(max, it->second->rssi());
+        max = std::max(max, it->second.rssi());
     }
     return max;
 }

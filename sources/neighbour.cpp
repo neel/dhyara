@@ -10,7 +10,18 @@
 
 dhyara::neighbour::neighbour(const std::string& addr, std::uint8_t ch, bool enc): dhyara::neighbour::neighbour(dhyara::address(addr), ch, enc){}
 
-dhyara::neighbour::neighbour(const dhyara::address& addr, std::uint8_t ch, bool enc): peer(addr), _rssi(0), _born(esp_timer_get_time()), _seen(_born), _beacons(0){
+void dhyara::neighbour::update(const std::string& n) {
+    dhyara::peer::name(n);
+    _last_beacon = esp_timer_get_time();
+    ++_beacons;
+}
+
+void dhyara::neighbour::update_acknowledged() {
+    _last_ack = esp_timer_get_time();
+    ++_acknowledgements;
+}
+
+dhyara::neighbour::neighbour(const dhyara::address& addr, std::uint8_t ch, bool enc): peer(addr), _rssi(0), _born(esp_timer_get_time()), _last_beacon(_born), _last_ack(_born), _beacons(0), _acknowledgements(0){
     std::fill_n(reinterpret_cast<std::uint8_t*>(&_peer), sizeof(esp_now_peer_info_t), 0);
     const std::uint8_t* data = addr.raw();
     std::copy(data, data+6, _peer.peer_addr);
