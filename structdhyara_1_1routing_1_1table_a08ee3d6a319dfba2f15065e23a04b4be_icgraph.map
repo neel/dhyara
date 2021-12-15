@@ -1,4 +1,4 @@
 <map id="dhyara::routing::table::next" name="dhyara::routing::table::next">
-<area shape="rect" id="node1" title="next node to for the final destination dst" alt="" coords="192,5,355,47"/>
+<area shape="rect" id="node1" title="Best next node to for the final destination dst." alt="" coords="192,5,355,47"/>
 <area shape="rect" id="node2" href="$classdhyara_1_1link.html#a85776d70bdb109d28f30264cad89a908" title="Sends a packet via the best intermediate node." alt="" coords="5,13,144,39"/>
 </map>

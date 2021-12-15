@@ -1,4 +1,3 @@
-<!-- HTML header for doxygen 1.9.1-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -7,13 +6,6 @@
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Dhyara: includes/dhyara/network.h Source File</title>
-<script>
-function togglemenu(){
-    let nav = document.getElementById("main-nav");
-    const style = nav.style.display;
-    nav.style.display = (style == 'none') ? 'block' : 'none';
-}
-</script>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -31,15 +23,13 @@ function togglemenu(){
 });
 </script>
 <script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
-<link href="style.css" rel="stylesheet" type="text/css" />
-<link href="qtify.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
 <div id="titlearea">
-<div id="togglenav" onclick="togglemenu()">
-&#9776;
-</div>
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
@@ -242,7 +232,7 @@ $(document).ready(function(){initNavTree('network_8h_source.html',''); initResiz
 <div class="ttc" id="astructdhyara_1_1network_html"><div class="ttname"><a href="structdhyara_1_1network.html">dhyara::network</a></div><div class="ttdoc">The dhyara ad-hoc network.</div><div class="ttdef"><b>Definition:</b> <a href="network_8h_source.html#l00031">network.h:31</a></div></div>
 <div class="ttc" id="astructdhyara_1_1network_html_a3c467f761557bec1fcb0f2e979235b17"><div class="ttname"><a href="structdhyara_1_1network.html#a3c467f761557bec1fcb0f2e979235b17">dhyara::network::advertisement</a></div><div class="ttdeci">dhyara::actions::advertisement &amp; advertisement()</div><div class="ttdoc">advertisement action</div><div class="ttdef"><b>Definition:</b> <a href="network_8h_source.html#l00144">network.h:144</a></div></div>
 <div class="ttc" id="astructdhyara_1_1network_html_a24fee5e5bfed0900b7a634b0ee9aba21"><div class="ttname"><a href="structdhyara_1_1network.html#a24fee5e5bfed0900b7a634b0ee9aba21">dhyara::network::task_presence</a></div><div class="ttdeci">static void task_presence(void *arg)</div><div class="ttdoc">Presence Task.</div></div>
-<div class="ttc" id="astructdhyara_1_1utils_1_1http_html"><div class="ttname"><a href="structdhyara_1_1utils_1_1http.html">dhyara::utils::http</a></div><div class="ttdoc">HTTP utility to monitor the routing table.</div><div class="ttdef"><b>Definition:</b> <a href="http_8h_source.html#l00023">http.h:23</a></div></div>
+<div class="ttc" id="astructdhyara_1_1utils_1_1http_html"><div class="ttname"><a href="structdhyara_1_1utils_1_1http.html">dhyara::utils::http</a></div><div class="ttdoc">HTTP utility to monitor the routing table.</div><div class="ttdef"><b>Definition:</b> <a href="http_8h_source.html#l00047">http.h:47</a></div></div>
 <div class="ttc" id="astructdhyara_1_1network_html_a4e7b4345b83f06d8182a0738c0a03c66"><div class="ttname"><a href="structdhyara_1_1network.html#a4e7b4345b83f06d8182a0738c0a03c66">dhyara::network::send</a></div><div class="ttdeci">bool send(const dhyara::address &amp;target, InputIt begin, std::size_t count)</div><div class="ttdoc">Send a variable sized data to the destination.</div><div class="ttdef"><b>Definition:</b> <a href="network_8h_source.html#l00077">network.h:77</a></div></div>
 <div class="ttc" id="astructdhyara_1_1network_html_ad5ae68998fdd7a5bc025903cb795c41e"><div class="ttname"><a href="structdhyara_1_1network.html#ad5ae68998fdd7a5bc025903cb795c41e">dhyara::network::send</a></div><div class="ttdeci">bool send(const dhyara::address &amp;target, InputIt begin, InputIt end)</div><div class="ttdoc">Send a variable sized data to the destination.</div><div class="ttdef"><b>Definition:</b> <a href="network_8h_source.html#l00063">network.h:63</a></div></div>
 <div class="ttc" id="astructdhyara_1_1network_html_a432dd82d92d6dde8a4f3927d0f61e429"><div class="ttname"><a href="structdhyara_1_1network.html#a432dd82d92d6dde8a4f3927d0f61e429">dhyara::network::echo_request</a></div><div class="ttdeci">dhyara::actions::echo_request &amp; echo_request()</div><div class="ttdoc">echo_request action</div><div class="ttdef"><b>Definition:</b> <a href="network_8h_source.html#l00148">network.h:148</a></div></div>
@@ -252,12 +242,13 @@ $(document).ready(function(){initNavTree('network_8h_source.html',''); initResiz
 <div class="ttc" id="astructdhyara_1_1network_html_a9da513dd22984f40c778be8a0f4ee80b"><div class="ttname"><a href="structdhyara_1_1network.html#a9da513dd22984f40c778be8a0f4ee80b">dhyara::network::task_synchronize</a></div><div class="ttdeci">static void task_synchronize(void *arg)</div><div class="ttdoc">Neighbourhood synchronization task.</div></div>
 <div class="ttc" id="astructdhyara_1_1network_html_a907cd74e15dc712a43453198c67a44d5"><div class="ttname"><a href="structdhyara_1_1network.html#a907cd74e15dc712a43453198c67a44d5">dhyara::network::delivered</a></div><div class="ttdeci">dhyara::actions::delivered &amp; delivered()</div><div class="ttdoc">delivered action</div><div class="ttdef"><b>Definition:</b> <a href="network_8h_source.html#l00164">network.h:164</a></div></div>
 <div class="ttc" id="astructdhyara_1_1network_html_ae289d391b359a937d34f906a132b2696"><div class="ttname"><a href="structdhyara_1_1network.html#ae289d391b359a937d34f906a132b2696">dhyara::network::synchronizer</a></div><div class="ttdeci">dhyara::synchronizer &amp; synchronizer()</div><div class="ttdoc">synchronizer</div><div class="ttdef"><b>Definition:</b> <a href="network_8h_source.html#l00132">network.h:132</a></div></div>
-<!-- HTML footer for doxygen 1.9.1-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_09e761304027c904456130627fd4dcf5.html">includes</a></li><li class="navelem"><a class="el" href="dir_f7f3c0f391df97c74fff5c67413f6c88.html">dhyara</a></li><li class="navelem"><b>network.h</b></li>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.17 </li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>
 </div>
 </body>

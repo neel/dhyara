@@ -8,5 +8,6 @@ var structdhyara_1_1neighbourhood =
     [ "exists", "structdhyara_1_1neighbourhood.html#aa731c5e3673ba1beab362f31fdc4b5bf", null ],
     [ "exists", "structdhyara_1_1neighbourhood.html#ab7677c4a20660f553dd78ef0b3b861d8", null ],
     [ "neighbour", "structdhyara_1_1neighbourhood.html#a6a00f129fc598d37c8002b12a728feab", null ],
+    [ "remove_unreachables", "structdhyara_1_1neighbourhood.html#a2388ceff831af824273979a829e74b41", null ],
     [ "size", "structdhyara_1_1neighbourhood.html#a0437b7df2df4169de3ff9f638750a578", null ]
 ];

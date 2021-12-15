@@ -1,4 +1,3 @@
-<!-- HTML header for doxygen 1.9.1-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -7,13 +6,6 @@
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Dhyara: Class Members</title>
-<script>
-function togglemenu(){
-    let nav = document.getElementById("main-nav");
-    const style = nav.style.display;
-    nav.style.display = (style == 'none') ? 'block' : 'none';
-}
-</script>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -31,15 +23,13 @@ function togglemenu(){
 });
 </script>
 <script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
-<link href="style.css" rel="stylesheet" type="text/css" />
-<link href="qtify.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
 <div id="titlearea">
-<div id="togglenav" onclick="togglemenu()">
-&#9776;
-</div>
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
@@ -104,9 +94,12 @@ $(document).ready(function(){initNavTree('functions_s.html',''); initResizable()
 <div class="textblock">Here is a list of all documented class members with links to the class documentation for each member:</div>
 
 <h3><a id="index_s"></a>- s -</h3><ul>
+<li>seen()
+: <a class="el" href="structdhyara_1_1neighbour.html#aba3a09a76c18855eac9b984accf2bd67">dhyara::neighbour</a>
+</li>
 <li>send()
 : <a class="el" href="classdhyara_1_1link.html#a85776d70bdb109d28f30264cad89a908">dhyara::link</a>
-, <a class="el" href="structdhyara_1_1network.html#a4e7b4345b83f06d8182a0738c0a03c66">dhyara::network</a>
+, <a class="el" href="structdhyara_1_1network.html#ad5ae68998fdd7a5bc025903cb795c41e">dhyara::network</a>
 , <a class="el" href="classdhyara_1_1utils_1_1udp__relay.html#aa8b8830a90e91a4bf79f2843a9833fd2">dhyara::utils::udp_relay</a>
 </li>
 <li>send_local()
@@ -140,7 +133,8 @@ $(document).ready(function(){initNavTree('functions_s.html',''); initResizable()
 , <a class="el" href="classdhyara_1_1xqueue.html#afd277f59550b0ba8485d99edab60f39b">dhyara::xqueue&lt; MessageT, Capacity &gt;</a>
 </li>
 <li>sleep()
-: <a class="el" href="structdhyara_1_1tools_1_1ping.html#a51d116887dc938d5ba6462f57d8565ba">dhyara::tools::ping</a>
+: <a class="el" href="structdhyara_1_1services_1_1ping__impl.html#a8b0bb53ab007c39720e0112534b187cd">dhyara::services::ping_impl</a>
+, <a class="el" href="structdhyara_1_1tools_1_1ping.html#a51d116887dc938d5ba6462f57d8565ba">dhyara::tools::ping</a>
 </li>
 <li>sleeping()
 : <a class="el" href="structdhyara_1_1watcher.html#ab6282121beeec6c408df3286cd49cd11">dhyara::watcher&lt; WatchedT &gt;</a>
@@ -148,11 +142,14 @@ $(document).ready(function(){initNavTree('functions_s.html',''); initResizable()
 <li>source()
 : <a class="el" href="structdhyara_1_1packets_1_1chunk.html#a777da9a419c6cd260fdcc5cf0e8b06fe">dhyara::packets::chunk</a>
 , <a class="el" href="structdhyara_1_1packets_1_1chunk__header.html#a64ad14960cbc13682a6c00601247471d">dhyara::packets::chunk_header</a>
-, <a class="el" href="structdhyara_1_1packets_1_1data.html#a34ee194a57abc3335030055ca03d577b">dhyara::packets::data</a>
+, <a class="el" href="structdhyara_1_1packets_1_1data.html#a5ef62f9515c7ac58a689a6d1ab9c4ce2">dhyara::packets::data</a>
 , <a class="el" href="structdhyara_1_1packets_1_1delivered.html#a20e4748e8f15634848138b3dbed65918">dhyara::packets::delivered</a>
 , <a class="el" href="structdhyara_1_1packets_1_1echo__lost.html#a3675a1a2bdde36b6266eb565faf369a3">dhyara::packets::echo_lost</a>
 , <a class="el" href="structdhyara_1_1packets_1_1echo__reply.html#a0c21f22dee50fa5e0f4ac71799c8cf8e">dhyara::packets::echo_reply</a>
 , <a class="el" href="structdhyara_1_1packets_1_1echo__request.html#a0cca9926ce421ce524ea722a82b03854">dhyara::packets::echo_request</a>
+</li>
+<li>spawn()
+: <a class="el" href="structdhyara_1_1services_1_1service.html#a6476dc1857162678f734de826cc8f8da">dhyara::services::service&lt; ServiceT &gt;</a>
 </li>
 <li>start()
 : <a class="el" href="structdhyara_1_1network.html#aadf3365c6a5506187b2f9c91ef4fdd0a">dhyara::network</a>
@@ -175,11 +172,12 @@ $(document).ready(function(){initNavTree('functions_s.html',''); initResizable()
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<!-- HTML footer for doxygen 1.9.1-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.17 </li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>
 </div>
 </body>

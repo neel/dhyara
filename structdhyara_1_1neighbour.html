@@ -1,4 +1,3 @@
-<!-- HTML header for doxygen 1.9.1-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -7,13 +6,6 @@
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Dhyara: dhyara::neighbour Struct Reference</title>
-<script>
-function togglemenu(){
-    let nav = document.getElementById("main-nav");
-    const style = nav.style.display;
-    nav.style.display = (style == 'none') ? 'block' : 'none';
-}
-</script>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -31,15 +23,13 @@ function togglemenu(){
 });
 </script>
 <script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
-<link href="style.css" rel="stylesheet" type="text/css" />
-<link href="qtify.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
 <div id="titlearea">
-<div id="togglenav" onclick="togglemenu()">
-&#9776;
-</div>
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
@@ -165,6 +155,28 @@ std::int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1neighbour.html#a45ebe63da1c4e1bb54a872ad90064fca">rssi</a> (std::uint8_t v)</td></tr>
 <tr class="memdesc:a45ebe63da1c4e1bb54a872ad90064fca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set RSSI value for the peer. <br /></td></tr>
 <tr class="separator:a45ebe63da1c4e1bb54a872ad90064fca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38ae429a0b88a596cccf27532425d107"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1neighbour.html#a38ae429a0b88a596cccf27532425d107">update</a> (const std::string &amp;n)</td></tr>
+<tr class="memdesc:a38ae429a0b88a596cccf27532425d107"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update a peer, update last seen time and increment beacon counter of the neighbour.  <a href="structdhyara_1_1neighbour.html#a38ae429a0b88a596cccf27532425d107">More...</a><br /></td></tr>
+<tr class="separator:a38ae429a0b88a596cccf27532425d107"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad073b00ee61faad7f40720729a398719"><td class="memItemLeft" align="right" valign="top"><a id="ad073b00ee61faad7f40720729a398719"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1neighbour.html#ad073b00ee61faad7f40720729a398719">update_acknowledged</a> ()</td></tr>
+<tr class="memdesc:ad073b00ee61faad7f40720729a398719"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the last acknowledgement received time and increment the acknowledgement counter. <br /></td></tr>
+<tr class="separator:ad073b00ee61faad7f40720729a398719"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e85a31082d12b7ca1811552ad7c5a4c"><td class="memItemLeft" align="right" valign="top">std::uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1neighbour.html#a4e85a31082d12b7ca1811552ad7c5a4c">beacons</a> () const</td></tr>
+<tr class="memdesc:a4e85a31082d12b7ca1811552ad7c5a4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of beacons received since birth  <a href="structdhyara_1_1neighbour.html#a4e85a31082d12b7ca1811552ad7c5a4c">More...</a><br /></td></tr>
+<tr class="separator:a4e85a31082d12b7ca1811552ad7c5a4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76b2e24a3e8194a47130aa1325edeac4"><td class="memItemLeft" align="right" valign="top">std::uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1neighbour.html#a76b2e24a3e8194a47130aa1325edeac4">acknowledgements</a> () const</td></tr>
+<tr class="memdesc:a76b2e24a3e8194a47130aa1325edeac4"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of acknowledgements received since birth  <a href="structdhyara_1_1neighbour.html#a76b2e24a3e8194a47130aa1325edeac4">More...</a><br /></td></tr>
+<tr class="separator:a76b2e24a3e8194a47130aa1325edeac4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ba7251d14d086180ec90472a6f8e4c0"><td class="memItemLeft" align="right" valign="top">dhyara::delay_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1neighbour.html#a6ba7251d14d086180ec90472a6f8e4c0">born</a> () const</td></tr>
+<tr class="memdesc:a6ba7251d14d086180ec90472a6f8e4c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">First seen time (in microseconds since boot).  <a href="structdhyara_1_1neighbour.html#a6ba7251d14d086180ec90472a6f8e4c0">More...</a><br /></td></tr>
+<tr class="separator:a6ba7251d14d086180ec90472a6f8e4c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba3a09a76c18855eac9b984accf2bd67"><td class="memItemLeft" align="right" valign="top">dhyara::delay_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1neighbour.html#aba3a09a76c18855eac9b984accf2bd67">seen</a> () const</td></tr>
+<tr class="memdesc:aba3a09a76c18855eac9b984accf2bd67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Last seen time (in microseconds since boot).  <a href="structdhyara_1_1neighbour.html#aba3a09a76c18855eac9b984accf2bd67">More...</a><br /></td></tr>
+<tr class="separator:aba3a09a76c18855eac9b984accf2bd67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e823bd5ae3f00db9c2672897b5d2651"><td class="memItemLeft" align="right" valign="top">const esp_now_peer_info_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1neighbour.html#a0e823bd5ae3f00db9c2672897b5d2651">raw</a> () const</td></tr>
+<tr class="memdesc:a0e823bd5ae3f00db9c2672897b5d2651"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get raw peer.  <a href="structdhyara_1_1neighbour.html#a0e823bd5ae3f00db9c2672897b5d2651">More...</a><br /></td></tr>
+<tr class="separator:a0e823bd5ae3f00db9c2672897b5d2651"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_structdhyara_1_1peer"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_structdhyara_1_1peer')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="structdhyara_1_1peer.html">dhyara::peer</a></td></tr>
 <tr class="memitem:aea88a6a24459b4f1d951711268812417 inherit pub_methods_structdhyara_1_1peer"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdhyara_1_1peer.html#aea88a6a24459b4f1d951711268812417">peer</a> (const <a class="el" href="structdhyara_1_1address.html">address</a> &amp;<a class="el" href="structdhyara_1_1peer.html#a2dc6e234feea28a547d71f8aaf52f964">addr</a>)</td></tr>
 <tr class="memdesc:aea88a6a24459b4f1d951711268812417 inherit pub_methods_structdhyara_1_1peer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a peer.  <a href="structdhyara_1_1peer.html#aea88a6a24459b4f1d951711268812417">More...</a><br /></td></tr>
@@ -292,6 +304,183 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stru
 
 </div>
 </div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a76b2e24a3e8194a47130aa1325edeac4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76b2e24a3e8194a47130aa1325edeac4">&#9670;&nbsp;</a></span>acknowledgements()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::uint64_t dhyara::neighbour::acknowledgements </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>number of acknowledgements received since birth </p>
+<dl class="section return"><dt>Returns</dt><dd>std::uint64_t </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="neighbour_8h_source.html#l00101">101</a> of file <a class="el" href="neighbour_8h_source.html">neighbour.h</a>.</p>
+
+</div>
+</div>
+<a id="a4e85a31082d12b7ca1811552ad7c5a4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e85a31082d12b7ca1811552ad7c5a4c">&#9670;&nbsp;</a></span>beacons()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::uint64_t dhyara::neighbour::beacons </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>number of beacons received since birth </p>
+<dl class="section return"><dt>Returns</dt><dd>std::uint64_t </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="neighbour_8h_source.html#l00095">95</a> of file <a class="el" href="neighbour_8h_source.html">neighbour.h</a>.</p>
+
+</div>
+</div>
+<a id="a6ba7251d14d086180ec90472a6f8e4c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ba7251d14d086180ec90472a6f8e4c0">&#9670;&nbsp;</a></span>born()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">dhyara::delay_type dhyara::neighbour::born </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>First seen time (in microseconds since boot). </p>
+<dl class="section return"><dt>Returns</dt><dd>dhyara::delay_type </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="neighbour_8h_source.html#l00107">107</a> of file <a class="el" href="neighbour_8h_source.html">neighbour.h</a>.</p>
+
+</div>
+</div>
+<a id="a0e823bd5ae3f00db9c2672897b5d2651"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e823bd5ae3f00db9c2672897b5d2651">&#9670;&nbsp;</a></span>raw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const esp_now_peer_info_t* dhyara::neighbour::raw </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get raw peer. </p>
+<dl class="section return"><dt>Returns</dt><dd>const esp_now_peer_info_t* </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="neighbour_8h_source.html#l00119">119</a> of file <a class="el" href="neighbour_8h_source.html">neighbour.h</a>.</p>
+
+</div>
+</div>
+<a id="aba3a09a76c18855eac9b984accf2bd67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba3a09a76c18855eac9b984accf2bd67">&#9670;&nbsp;</a></span>seen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">dhyara::delay_type dhyara::neighbour::seen </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Last seen time (in microseconds since boot). </p>
+<p>Most recent of last beacon or the last ack time is used </p><dl class="section return"><dt>Returns</dt><dd>dhyara::delay_type </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="neighbour_8h_source.html#l00113">113</a> of file <a class="el" href="neighbour_8h_source.html">neighbour.h</a>.</p>
+
+</div>
+</div>
+<a id="a38ae429a0b88a596cccf27532425d107"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38ae429a0b88a596cccf27532425d107">&#9670;&nbsp;</a></span>update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void dhyara::neighbour::update </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Update a peer, update last seen time and increment beacon counter of the neighbour. </p>
+<p>If a name is provided then the name of the peer is updated too. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>includes/dhyara/<a class="el" href="neighbour_8h_source.html">neighbour.h</a></li>
 </ul>
@@ -299,12 +488,13 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stru
 </div><!-- doc-content -->
 <div class="ttc" id="astructdhyara_1_1neighbour_html_a39273a34471c2dc1756a138c2c6a7aa1"><div class="ttname"><a href="structdhyara_1_1neighbour.html#a39273a34471c2dc1756a138c2c6a7aa1">dhyara::neighbour::neighbour</a></div><div class="ttdeci">neighbour(const dhyara::address &amp;addr, std::uint8_t ch=1, bool enc=false)</div><div class="ttdoc">Construct a neighbour.</div></div>
 <div class="ttc" id="astructdhyara_1_1neighbour_html"><div class="ttname"><a href="structdhyara_1_1neighbour.html">dhyara::neighbour</a></div><div class="ttdoc">An immediate neighbour of the node.</div><div class="ttdef"><b>Definition:</b> <a href="neighbour_8h_source.html#l00038">neighbour.h:38</a></div></div>
-<!-- HTML footer for doxygen 1.9.1-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>dhyara</b></li><li class="navelem"><a class="el" href="structdhyara_1_1neighbour.html">neighbour</a></li>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.17 </li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>
 </div>
 </body>

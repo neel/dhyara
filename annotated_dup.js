@@ -12,6 +12,25 @@ var annotated_dup =
         [ "echo_reply", "structdhyara_1_1actions_1_1echo__reply.html", "structdhyara_1_1actions_1_1echo__reply" ],
         [ "echo_request", "structdhyara_1_1actions_1_1echo__request.html", "structdhyara_1_1actions_1_1echo__request" ]
       ] ],
+      [ "cmd", null, [
+        [ "detail", null, [
+          [ "args", "structdhyara_1_1cmd_1_1detail_1_1args.html", null ],
+          [ "args< Head >", "structdhyara_1_1cmd_1_1detail_1_1args_3_01_head_01_4.html", null ],
+          [ "chain_parser", "structdhyara_1_1cmd_1_1detail_1_1chain__parser.html", null ],
+          [ "chain_parser< chain< Head, Tail > >", "structdhyara_1_1cmd_1_1detail_1_1chain__parser_3_01chain_3_01_head_00_01_tail_01_4_01_4.html", null ],
+          [ "man", "structdhyara_1_1cmd_1_1detail_1_1man.html", null ],
+          [ "man< chain< Head, Tail > >", "structdhyara_1_1cmd_1_1detail_1_1man_3_01chain_3_01_head_00_01_tail_01_4_01_4.html", null ],
+          [ "man< chain< Head, void > >", "structdhyara_1_1cmd_1_1detail_1_1man_3_01chain_3_01_head_00_01void_01_4_01_4.html", null ],
+          [ "param_name", "structdhyara_1_1cmd_1_1detail_1_1param__name.html", null ],
+          [ "param_value", "structdhyara_1_1cmd_1_1detail_1_1param__value.html", null ]
+        ] ],
+        [ "chain", "structdhyara_1_1cmd_1_1chain.html", null ],
+        [ "chain< param< T >, chain< Head, Tail > >", "structdhyara_1_1cmd_1_1chain_3_01param_3_01_t_01_4_00_01chain_3_01_head_00_01_tail_01_4_01_4.html", "structdhyara_1_1cmd_1_1chain_3_01param_3_01_t_01_4_00_01chain_3_01_head_00_01_tail_01_4_01_4" ],
+        [ "chain< param< T >, void >", "structdhyara_1_1cmd_1_1chain_3_01param_3_01_t_01_4_00_01void_01_4.html", "structdhyara_1_1cmd_1_1chain_3_01param_3_01_t_01_4_00_01void_01_4" ],
+        [ "chain< void, void >", "structdhyara_1_1cmd_1_1chain_3_01void_00_01void_01_4.html", null ],
+        [ "param", "structdhyara_1_1cmd_1_1param.html", "structdhyara_1_1cmd_1_1param" ],
+        [ "param< bool >", "structdhyara_1_1cmd_1_1param_3_01bool_01_4.html", "structdhyara_1_1cmd_1_1param_3_01bool_01_4" ]
+      ] ],
       [ "packets", null, [
         [ "acknowledgement", "structdhyara_1_1packets_1_1acknowledgement.html", "structdhyara_1_1packets_1_1acknowledgement" ],
         [ "advertisement", "structdhyara_1_1packets_1_1advertisement.html", "structdhyara_1_1packets_1_1advertisement" ],
@@ -29,6 +48,20 @@ var annotated_dup =
         [ "next_hop", "structdhyara_1_1routing_1_1next__hop.html", "structdhyara_1_1routing_1_1next__hop" ],
         [ "route", "structdhyara_1_1routing_1_1route.html", "structdhyara_1_1routing_1_1route" ],
         [ "table", "structdhyara_1_1routing_1_1table.html", "structdhyara_1_1routing_1_1table" ]
+      ] ],
+      [ "services", null, [
+        [ "detail", null, [
+          [ "basic_registry", "structdhyara_1_1services_1_1detail_1_1basic__registry.html", null ],
+          [ "basic_registry< Head >", "structdhyara_1_1services_1_1detail_1_1basic__registry_3_01_head_01_4.html", null ]
+        ] ],
+        [ "identify", "structdhyara_1_1services_1_1identify.html", null ],
+        [ "phy_rate", "structdhyara_1_1services_1_1phy__rate.html", null ],
+        [ "ping", "structdhyara_1_1services_1_1ping.html", null ],
+        [ "ping_impl", "structdhyara_1_1services_1_1ping__impl.html", "structdhyara_1_1services_1_1ping__impl" ],
+        [ "routes", "structdhyara_1_1services_1_1routes.html", null ],
+        [ "service", "structdhyara_1_1services_1_1service.html", "structdhyara_1_1services_1_1service" ],
+        [ "stream", "structdhyara_1_1services_1_1stream.html", null ],
+        [ "universe", "structdhyara_1_1services_1_1universe.html", null ]
       ] ],
       [ "tools", null, [
         [ "ping", "structdhyara_1_1tools_1_1ping.html", "structdhyara_1_1tools_1_1ping" ],

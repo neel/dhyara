@@ -24,7 +24,8 @@ var group__dhyara =
       [ "operator==", "structdhyara_1_1address.html#a31419b44cfb39177fb4d5d8f6030edfa", null ],
       [ "raw", "structdhyara_1_1address.html#adafd49f999ad42ead1ab178938a8b8b9", null ],
       [ "set", "structdhyara_1_1address.html#ad2c61b221b1790416320d7c05600854a", null ],
-      [ "to_string", "structdhyara_1_1address.html#aef760238474773532706078174925ef0", null ]
+      [ "to_string", "structdhyara_1_1address.html#aef760238474773532706078174925ef0", null ],
+      [ "valid", "structdhyara_1_1address.html#a537f23f8b8353e7b6c54205508efc26b", null ]
     ] ],
     [ "link", "classdhyara_1_1link.html", [
       [ "proxy", "structdhyara_1_1link_1_1proxy.html", null ],
@@ -61,12 +62,19 @@ var group__dhyara =
     [ "neighbour", "structdhyara_1_1neighbour.html", [
       [ "neighbour", "structdhyara_1_1neighbour.html#a39273a34471c2dc1756a138c2c6a7aa1", null ],
       [ "neighbour", "structdhyara_1_1neighbour.html#aca8b9dc9499b4a4c5d1e3f8255fb7c2b", null ],
+      [ "acknowledgements", "structdhyara_1_1neighbour.html#a76b2e24a3e8194a47130aa1325edeac4", null ],
+      [ "beacons", "structdhyara_1_1neighbour.html#a4e85a31082d12b7ca1811552ad7c5a4c", null ],
+      [ "born", "structdhyara_1_1neighbour.html#a6ba7251d14d086180ec90472a6f8e4c0", null ],
       [ "channel", "structdhyara_1_1neighbour.html#a5e0d09f1b50037ca416aa79f858fa2dd", null ],
       [ "channel", "structdhyara_1_1neighbour.html#afac6ac32bc21c0be3846ba33c161f1f3", null ],
       [ "encrypt", "structdhyara_1_1neighbour.html#a93c7f0d82f1efbf1628c95f867e5cc78", null ],
       [ "encrypt", "structdhyara_1_1neighbour.html#a5b63d6d5789ac378073b612f8627ab2d", null ],
+      [ "raw", "structdhyara_1_1neighbour.html#a0e823bd5ae3f00db9c2672897b5d2651", null ],
       [ "rssi", "structdhyara_1_1neighbour.html#aa80e66992048be620ae8b70b868392d3", null ],
-      [ "rssi", "structdhyara_1_1neighbour.html#a45ebe63da1c4e1bb54a872ad90064fca", null ]
+      [ "rssi", "structdhyara_1_1neighbour.html#a45ebe63da1c4e1bb54a872ad90064fca", null ],
+      [ "seen", "structdhyara_1_1neighbour.html#aba3a09a76c18855eac9b984accf2bd67", null ],
+      [ "update", "structdhyara_1_1neighbour.html#a38ae429a0b88a596cccf27532425d107", null ],
+      [ "update_acknowledged", "structdhyara_1_1neighbour.html#ad073b00ee61faad7f40720729a398719", null ]
     ] ],
     [ "neighbourhood", "structdhyara_1_1neighbourhood.html", [
       [ "add", "structdhyara_1_1neighbourhood.html#aca6fe61ebdc6f6b6effc1a0fec8815f9", null ],
@@ -77,6 +85,7 @@ var group__dhyara =
       [ "exists", "structdhyara_1_1neighbourhood.html#aa731c5e3673ba1beab362f31fdc4b5bf", null ],
       [ "exists", "structdhyara_1_1neighbourhood.html#ab7677c4a20660f553dd78ef0b3b861d8", null ],
       [ "neighbour", "structdhyara_1_1neighbourhood.html#a6a00f129fc598d37c8002b12a728feab", null ],
+      [ "remove_unreachables", "structdhyara_1_1neighbourhood.html#a2388ceff831af824273979a829e74b41", null ],
       [ "size", "structdhyara_1_1neighbourhood.html#a0437b7df2df4169de3ff9f638750a578", null ]
     ] ],
     [ "network", "structdhyara_1_1network.html", [
@@ -124,12 +133,15 @@ var group__dhyara =
       [ "exists", "structdhyara_1_1universe.html#a79a4dc84497a4b21ace18f238506595f", null ],
       [ "exists", "structdhyara_1_1universe.html#abfe3bb3e214229aefdd6360fa1825536", null ],
       [ "peer", "structdhyara_1_1universe.html#a9239a698151e1431b471be11829bec8b", null ],
+      [ "remove", "structdhyara_1_1universe.html#ae745a75092b6042676704d8aa09dec07", null ],
+      [ "remove_unreachables", "structdhyara_1_1universe.html#afc211a260f5cbb1a7824f29dfbb7760f", null ],
       [ "size", "structdhyara_1_1universe.html#a772d2f108e2ae8ef9e5c9735e7a8df1c", null ]
     ] ],
     [ "dhyara_create_default_network", "group__dhyara.html#gaeb2d5dd4f524d1d165a4f4cf6f837ed8", null ],
     [ "dhyara_espnow_init", "group__dhyara.html#ga86084def043742c0f3d7d2a8a2ffe87b", null ],
     [ "dhyara_has_default_network", "group__dhyara.html#gad860e0c89a7d23dd21693769dd7d528e", null ],
     [ "dhyara_init", "group__dhyara.html#ga42863788515b1583d0ec0b4fd2b8a0fa", null ],
+    [ "dhyara_isolate", "group__dhyara.html#gaac4cae264e7f5e2462867bae27e83387", null ],
     [ "dhyara_local", "group__dhyara.html#ga1df27fc241938f7cee1b4a3b669daa7e", null ],
     [ "dhyara_local", "group__dhyara.html#ga672baef2f77147252c5a13bf40022fd6", null ],
     [ "dhyara_receive", "group__dhyara.html#gab53490ae8317a4dcdb9308543aaa32ff", null ],
@@ -139,5 +151,6 @@ var group__dhyara =
     [ "dhyara_send", "group__dhyara.html#ga2dac8c8098bc0c2e32c15f4c0772dc17", null ],
     [ "dhyara_send", "group__dhyara.html#ga3d7c1e001cecb51f780b7eb3a7db356c", null ],
     [ "dhyara_start_default_network", "group__dhyara.html#gac4a4e3c727ec3d63ba96f3b5ab963b68", null ],
-    [ "dhyara_wifi_init", "group__dhyara.html#ga53e6fba4548ac861adb1b477134d84cf", null ]
+    [ "dhyara_wifi_init", "group__dhyara.html#ga53e6fba4548ac861adb1b477134d84cf", null ],
+    [ "dhyara_wifi_start", "group__dhyara.html#ga34818a291685f40cecb2fc275bce1a1e", null ]
 ];

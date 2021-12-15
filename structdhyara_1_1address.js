@@ -23,5 +23,6 @@ var structdhyara_1_1address =
     [ "operator==", "structdhyara_1_1address.html#a31419b44cfb39177fb4d5d8f6030edfa", null ],
     [ "raw", "structdhyara_1_1address.html#adafd49f999ad42ead1ab178938a8b8b9", null ],
     [ "set", "structdhyara_1_1address.html#ad2c61b221b1790416320d7c05600854a", null ],
-    [ "to_string", "structdhyara_1_1address.html#aef760238474773532706078174925ef0", null ]
+    [ "to_string", "structdhyara_1_1address.html#aef760238474773532706078174925ef0", null ],
+    [ "valid", "structdhyara_1_1address.html#a537f23f8b8353e7b6c54205508efc26b", null ]
 ];

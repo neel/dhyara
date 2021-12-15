@@ -8,5 +8,7 @@ var structdhyara_1_1universe =
     [ "exists", "structdhyara_1_1universe.html#a79a4dc84497a4b21ace18f238506595f", null ],
     [ "exists", "structdhyara_1_1universe.html#abfe3bb3e214229aefdd6360fa1825536", null ],
     [ "peer", "structdhyara_1_1universe.html#a9239a698151e1431b471be11829bec8b", null ],
+    [ "remove", "structdhyara_1_1universe.html#ae745a75092b6042676704d8aa09dec07", null ],
+    [ "remove_unreachables", "structdhyara_1_1universe.html#afc211a260f5cbb1a7824f29dfbb7760f", null ],
     [ "size", "structdhyara_1_1universe.html#a772d2f108e2ae8ef9e5c9735e7a8df1c", null ]
 ];

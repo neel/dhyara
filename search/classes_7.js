@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['link_243',['link',['../classdhyara_1_1link.html',1,'dhyara']]]
+  ['identify_293',['identify',['../structdhyara_1_1services_1_1identify.html',1,'dhyara::services']]]
 ];

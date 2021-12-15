@@ -1,8 +1,11 @@
 var dir_f7f3c0f391df97c74fff5c67413f6c88 =
 [
     [ "actions", "dir_4981cfb6e0625434ea002fdb075fc9ab.html", "dir_4981cfb6e0625434ea002fdb075fc9ab" ],
+    [ "cmd", "dir_20368d79599ed1999d31a2b4ad2a00b5.html", "dir_20368d79599ed1999d31a2b4ad2a00b5" ],
+    [ "detail", "dir_6462ea1ff37150faeaa24f68dab8bbe5.html", "dir_6462ea1ff37150faeaa24f68dab8bbe5" ],
     [ "packets", "dir_8306a184a76653b2e13c56fe08a22361.html", "dir_8306a184a76653b2e13c56fe08a22361" ],
     [ "routing", "dir_39ab73e0bac04b5f3916595abd4bad27.html", "dir_39ab73e0bac04b5f3916595abd4bad27" ],
+    [ "services", "dir_c1f794432a1a48938062cdf38695bf1c.html", "dir_c1f794432a1a48938062cdf38695bf1c" ],
     [ "tools", "dir_1fe1bb9127abd14a57005c34a7020e3d.html", "dir_1fe1bb9127abd14a57005c34a7020e3d" ],
     [ "utils", "dir_5342d3aa1e443377937e69c5f06c25a1.html", "dir_5342d3aa1e443377937e69c5f06c25a1" ],
     [ "actions.h", "actions_8h_source.html", null ],

@@ -1,4 +1,3 @@
-<!-- HTML header for doxygen 1.9.1-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -7,13 +6,6 @@
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Dhyara: Member List</title>
-<script>
-function togglemenu(){
-    let nav = document.getElementById("main-nav");
-    const style = nav.style.display;
-    nav.style.display = (style == 'none') ? 'block' : 'none';
-}
-</script>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -31,15 +23,13 @@ function togglemenu(){
 });
 </script>
 <script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
-<link href="style.css" rel="stylesheet" type="text/css" />
-<link href="qtify.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
 <div id="titlearea">
-<div id="togglenav" onclick="togglemenu()">
-&#9776;
-</div>
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
@@ -108,31 +98,31 @@ $(document).ready(function(){initNavTree('structdhyara_1_1routing_1_1table.html'
 
 <p>This is the complete list of members for <a class="el" href="structdhyara_1_1routing_1_1table.html">dhyara::routing::table</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="structdhyara_1_1routing_1_1table.html#a45645b0463214f6b1f49a63e6cfcecdf">calculated_next</a>(dhyara::address dst) const</td><td class="entry"><a class="el" href="structdhyara_1_1routing_1_1table.html">dhyara::routing::table</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr><td class="entry"><a class="el" href="structdhyara_1_1routing_1_1table.html#a56081934d0bbe4bb7ef7e2c2f055646a">delay</a>(const dhyara::routing::route &amp;r) const</td><td class="entry"><a class="el" href="structdhyara_1_1routing_1_1table.html">dhyara::routing::table</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="structdhyara_1_1routing_1_1table.html#aa1a078d5448e52ffc4c85942f6448294">depreciate</a>(const dhyara::routing::route &amp;r)</td><td class="entry"><a class="el" href="structdhyara_1_1routing_1_1table.html">dhyara::routing::table</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="structdhyara_1_1routing_1_1table.html#aaa423547cb1c625dce048d554c10dea6">calculated_next</a>(const dhyara::address &amp;dst) const</td><td class="entry"><a class="el" href="structdhyara_1_1routing_1_1table.html">dhyara::routing::table</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
   <tr><td class="entry"><a class="el" href="structdhyara_1_1routing_1_1table.html#a6c0a38624a8d523b17d7d92397bdf78c">depreciate</a>(dhyara::synchronizer &amp;synchronizer)</td><td class="entry"><a class="el" href="structdhyara_1_1routing_1_1table.html">dhyara::routing::table</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="structdhyara_1_1routing_1_1table.html#aeef03903e101410eb5d2f1ebbf0c0ea2">depreciate</a>(std::function&lt; void(const dhyara::routing::route &amp;, dhyara::delay_type, std::uint8_t)&gt; notify)</td><td class="entry"><a class="el" href="structdhyara_1_1routing_1_1table.html">dhyara::routing::table</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="structdhyara_1_1routing_1_1table.html#a8c7d4a09aa37153c0cecb8bdbd586369">exists</a>(const dhyara::address &amp;dst) const</td><td class="entry"><a class="el" href="structdhyara_1_1routing_1_1table.html">dhyara::routing::table</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="structdhyara_1_1routing_1_1table.html#a3ec98be8c971e4061f820d8e0242d49e">exists</a>(const dhyara::routing::route &amp;r) const</td><td class="entry"><a class="el" href="structdhyara_1_1routing_1_1table.html">dhyara::routing::table</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="structdhyara_1_1routing_1_1table.html#acedb11a753293ef58988e6520f1f8b56">hops</a>(const dhyara::routing::route &amp;r) const</td><td class="entry"><a class="el" href="structdhyara_1_1routing_1_1table.html">dhyara::routing::table</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="structdhyara_1_1routing_1_1table.html#a8c7d4a09aa37153c0cecb8bdbd586369">exists</a>(const dhyara::address &amp;dst) const</td><td class="entry"><a class="el" href="structdhyara_1_1routing_1_1table.html">dhyara::routing::table</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="structdhyara_1_1routing_1_1table.html#a3ec98be8c971e4061f820d8e0242d49e">exists</a>(const dhyara::routing::route &amp;r) const</td><td class="entry"><a class="el" href="structdhyara_1_1routing_1_1table.html">dhyara::routing::table</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="structdhyara_1_1routing_1_1table.html#a7020d8fbf5446164a1663495ec3b5853">lost_since</a>() const</td><td class="entry"><a class="el" href="structdhyara_1_1routing_1_1table.html">dhyara::routing::table</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="structdhyara_1_1routing_1_1table.html#a08ee3d6a319dfba2f15065e23a04b4be">next</a>(const dhyara::address &amp;dst) const</td><td class="entry"><a class="el" href="structdhyara_1_1routing_1_1table.html">dhyara::routing::table</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="structdhyara_1_1routing_1_1table.html#a4c26571c25851b28265942b8725096d4">next_begin</a>() const</td><td class="entry"><a class="el" href="structdhyara_1_1routing_1_1table.html">dhyara::routing::table</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr><td class="entry"><a class="el" href="structdhyara_1_1routing_1_1table.html#a15ec9198c5809b12799ae06121258658">next_end</a>() const</td><td class="entry"><a class="el" href="structdhyara_1_1routing_1_1table.html">dhyara::routing::table</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="structdhyara_1_1routing_1_1table.html#a01eba647737577cd13c9e66a50dfcdcc">print</a>(std::ostream &amp;os) const</td><td class="entry"><a class="el" href="structdhyara_1_1routing_1_1table.html">dhyara::routing::table</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="structdhyara_1_1routing_1_1table.html#adb6887cd9a6834c206a925e0ea0a6ead">next_size</a>() const</td><td class="entry"><a class="el" href="structdhyara_1_1routing_1_1table.html">dhyara::routing::table</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="structdhyara_1_1routing_1_1table.html#a01eba647737577cd13c9e66a50dfcdcc">print</a>(std::ostream &amp;os) const</td><td class="entry"><a class="el" href="structdhyara_1_1routing_1_1table.html">dhyara::routing::table</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="structdhyara_1_1routing_1_1table.html#ad0ad4db9e6056656fbc0acb8fbca3a50">reachable</a>(const dhyara::address &amp;dst, const dhyara::address &amp;via=dhyara::address::null()) const</td><td class="entry"><a class="el" href="structdhyara_1_1routing_1_1table.html">dhyara::routing::table</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="structdhyara_1_1routing_1_1table.html#a2de81036ce2071b8e04235476e31bf66">route_begin</a>() const</td><td class="entry"><a class="el" href="structdhyara_1_1routing_1_1table.html">dhyara::routing::table</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="structdhyara_1_1routing_1_1table.html#a0c208c6350a355bc5a3d0b9bae47db0d">route_end</a>() const</td><td class="entry"><a class="el" href="structdhyara_1_1routing_1_1table.html">dhyara::routing::table</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="structdhyara_1_1routing_1_1table.html#afcb5b8b4822f602789bb7812f902e618">table</a>(dhyara::delay_type def=std::numeric_limits&lt; dhyara::delay_type &gt;::max())</td><td class="entry"><a class="el" href="structdhyara_1_1routing_1_1table.html">dhyara::routing::table</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="structdhyara_1_1routing_1_1table.html#a2311a65be8c0bd648679777e0b51767f">update</a>(const dhyara::routing::route &amp;r, const delay_type &amp;d, std::uint8_t hops)</td><td class="entry"><a class="el" href="structdhyara_1_1routing_1_1table.html">dhyara::routing::table</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="structdhyara_1_1routing_1_1table.html#a86e5902521ed1abf84b981029263163c">update_next</a>(dhyara::address dst)</td><td class="entry"><a class="el" href="structdhyara_1_1routing_1_1table.html">dhyara::routing::table</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="structdhyara_1_1routing_1_1table.html#aec478770282cf0504128ca8841ed86ab">routes_size</a>() const</td><td class="entry"><a class="el" href="structdhyara_1_1routing_1_1table.html">dhyara::routing::table</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="structdhyara_1_1routing_1_1table.html#afcb5b8b4822f602789bb7812f902e618">table</a>(dhyara::delay_type def=std::numeric_limits&lt; dhyara::delay_type &gt;::max())</td><td class="entry"><a class="el" href="structdhyara_1_1routing_1_1table.html">dhyara::routing::table</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span></td></tr>
+  <tr><td class="entry"><a class="el" href="structdhyara_1_1routing_1_1table.html#a2311a65be8c0bd648679777e0b51767f">update</a>(const dhyara::routing::route &amp;r, const delay_type &amp;d, std::uint8_t hops)</td><td class="entry"><a class="el" href="structdhyara_1_1routing_1_1table.html">dhyara::routing::table</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="structdhyara_1_1routing_1_1table.html#a3da83ae94a779327b7061c6c3fe60fb6">update_next</a>(const dhyara::address &amp;dst)</td><td class="entry"><a class="el" href="structdhyara_1_1routing_1_1table.html">dhyara::routing::table</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
-<!-- HTML footer for doxygen 1.9.1-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.17 </li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>
 </div>
 </body>
