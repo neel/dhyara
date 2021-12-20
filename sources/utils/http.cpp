@@ -466,7 +466,6 @@ esp_err_t dhyara::utils::http::info(httpd_req_t* req){
         dhyara_json << "\"espnow_peer_channel\":" << (int) dhyara::espnow_peer_channel << ",";
         dhyara_json << "\"beacon_interval\":" << dhyara::beacon_interval << ",";
         dhyara_json << "\"delay_tolerance\":" << dhyara::delay_tolerance << ",";
-        dhyara_json << "\"depreciation_coefficient\":" << (int) dhyara::depreciation_coefficient << ",";
         dhyara_json << "\"advertisement_expiry\":" << (dhyara::advertisement_expiry / 1000) << ",";
         dhyara_json << "\"route_expiry\":" << (dhyara::route_expiry / 1000);
         dhyara_json << "}";

@@ -53,17 +53,13 @@ namespace dhyara {
      */
     constexpr const delay_type delay_tolerance = CONFIG_DHYARA_DELAY_TOLERANCE;
     /**
-     * while depretiating a route the current delay will be multiplied with this coefficient
-     */
-    constexpr const std::uint8_t depreciation_coefficient = CONFIG_DHYARA_DEPRECIATION_COEFFICIENT;
-    /**
      * Advertisement expiry
      */
     constexpr const delay_type advertisement_expiry = CONFIG_DHYARA_ADVERTISEMENT_EXPIRY * 1000; // in us
     /**
      * Route expiry
      */
-    constexpr const delay_type route_expiry = advertisement_expiry + (CONFIG_ROUTE_EXPIRY_COEFFICIENT * beacon_interval); // us
+    constexpr const delay_type route_expiry = advertisement_expiry + ((dhyara::delay_type)CONFIG_ROUTE_EXPIRY_COEFFICIENT * 1000); // us
     
     constexpr const std::size_t udp_relay_rcv_buffer_size = CONFIG_DHYARA_UTIL_UDP_RELAY_BUFFER_SIZE;
 }

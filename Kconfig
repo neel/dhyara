@@ -49,12 +49,6 @@ menu "Dhyara ad hoc network"
             then it is considered that the link status has been changed. It is set to 0 by default. However  
             for a large network a too low value like 0 may result into to many unnecessary synchronizations. 
             
-    config DHYARA_DEPRECIATION_COEFFICIENT
-        int "Depreciation coefficient"
-        range 2 20
-        default 2
-        help
-            Once the delay of a while depretiating a route the current delay will be multiplied with this coefficient
             
     config DHYARA_ADVERTISEMENT_EXPIRY
         int "Advertisement expiry (ms)"
@@ -64,8 +58,8 @@ menu "Dhyara ad hoc network"
             Advertisement expiry
             
     config ROUTE_EXPIRY_COEFFICIENT
-        int "route expiry time (us)"
-        range 10 5000
+        int "route expiry time (ms)"
+        range 10 2147483647
         default 1000
         help
             If the route is not updated for teh given time period then the route is depreciated.
