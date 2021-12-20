@@ -131,14 +131,13 @@ $(document).ready(function(){initNavTree('defs_8h_source.html',''); initResizabl
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    constexpr <span class="keyword">const</span> std::uint8_t espnow_peer_channel = CONFIG_DHYARA_PEER_CHANNEL;</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    constexpr <span class="keyword">const</span> delay_type beacon_interval = CONFIG_DHYARA_BEACON_INTERVAL; <span class="comment">// in ms</span></div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment"></span>    constexpr <span class="keyword">const</span> delay_type delay_tolerance = CONFIG_DHYARA_DELAY_TOLERANCE;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    constexpr <span class="keyword">const</span> std::uint8_t depreciation_coefficient = CONFIG_DHYARA_DEPRECIATION_COEFFICIENT;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    constexpr <span class="keyword">const</span> delay_type advertisement_expiry = CONFIG_DHYARA_ADVERTISEMENT_EXPIRY * 1000; <span class="comment">// in us</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment"></span>    constexpr <span class="keyword">const</span> delay_type route_expiry = advertisement_expiry + (CONFIG_ROUTE_EXPIRY_COEFFICIENT * beacon_interval); <span class="comment">// us</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    constexpr <span class="keyword">const</span> std::size_t udp_relay_rcv_buffer_size = CONFIG_DHYARA_UTIL_UDP_RELAY_BUFFER_SIZE;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;}</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">#endif // DHYARA_DEFS_H</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    constexpr <span class="keyword">const</span> delay_type advertisement_expiry = CONFIG_DHYARA_ADVERTISEMENT_EXPIRY * 1000; <span class="comment">// in us</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment"></span>    constexpr <span class="keyword">const</span> delay_type route_expiry = advertisement_expiry + ((dhyara::delay_type)CONFIG_ROUTE_EXPIRY_COEFFICIENT * 1000); <span class="comment">// us</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    constexpr <span class="keyword">const</span> std::size_t udp_relay_rcv_buffer_size = CONFIG_DHYARA_UTIL_UDP_RELAY_BUFFER_SIZE;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">#endif // DHYARA_DEFS_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
